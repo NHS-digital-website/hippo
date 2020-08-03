@@ -43,7 +43,7 @@
 
     <!-- API Title: {{{appName}}} -->
 
-    <div class="article-section">
+    <div id="api-description" class="article-section">
         {{{appDescription}}}
     </div>
 
@@ -73,68 +73,78 @@
                                             <h2>Request</h2>
 
                                             {{#hasPathParams}}
-                                                <div class="methodsubtabletitle">Path parameters</div>
-                                                <table id="methodsubtable">
-                                                    <tr>
-                                                        <th width="150px">Name</th>
-                                                        <th>Description</th>
-                                                    </tr>
-                                                    {{#pathParams}}
-                                                        {{>param}}
-                                                    {{/pathParams}}
-                                                </table>
+                                                <div class="httpparams">
+                                                    <div class="methodsubtabletitle">Path parameters</div>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#pathParams}}
+                                                            {{>param}}
+                                                        {{/pathParams}}
+                                                    </table>
+                                                </div>
                                             {{/hasPathParams}}
 
                                             {{#hasHeaderParams}}
-                                                <div class="methodsubtabletitle">Headers</div>
-                                                <table id="methodsubtable">
-                                                    <tr>
-                                                        <th width="150px">Name</th>
-                                                        <th>Description</th>
-                                                    </tr>
-                                                    {{#headerParams}}
-                                                        {{>param}}
-                                                    {{/headerParams}}
-                                                </table>
+                                                <div class="httpparams">
+                                                    <div class="methodsubtabletitle">Headers</div>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#headerParams}}
+                                                            {{>param}}
+                                                        {{/headerParams}}
+                                                    </table>
+                                                </div>
                                             {{/hasHeaderParams}}
 
                                             {{#hasBodyParam}}
-                                                <div class="methodsubtabletitle">Body</div>
-                                                <table id="methodsubtable">
-                                                    <tr>
-                                                        <th width="150px">Name</th>
-                                                        <th>Description</th>
-                                                    </tr>
-                                                    {{#bodyParams}}
-                                                        {{>paramB}}
-                                                    {{/bodyParams}}
-                                                </table>
+                                                <div class="httpparams">
+                                                    <div class="methodsubtabletitle">Body</div>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#bodyParams}}
+                                                            {{>paramB}}
+                                                        {{/bodyParams}}
+                                                    </table>
+                                                </div>
                                             {{/hasBodyParam}}
 
                                             {{#hasFormParams}}
-                                                <div class="methodsubtabletitle">Form parameters</div>
-                                                <table id="methodsubtable">
-                                                    <tr>
-                                                        <th width="150px">Name</th>
-                                                        <th>Description</th>
-                                                    </tr>
-                                                    {{#formParams}}
-                                                        {{>param}}
-                                                    {{/formParams}}
-                                                </table>
+                                                <div class="httpparams">
+                                                    <div class="methodsubtabletitle">Form parameters</div>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#formParams}}
+                                                            {{>param}}
+                                                        {{/formParams}}
+                                                    </table>
+                                                </div>
                                             {{/hasFormParams}}
 
                                             {{#hasQueryParams}}
-                                                <div class="methodsubtabletitle">Query parameters</div>
-                                                <table id="methodsubtable">
-                                                    <tr>
-                                                        <th width="150px">Name</th>
-                                                        <th>Description</th>
-                                                    </tr>
-                                                    {{#queryParams}}
-                                                        {{>param}}
-                                                    {{/queryParams}}
-                                                </table>
+                                                <div class="httpparams">
+                                                    <div class="methodsubtabletitle">Query parameters</div>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#queryParams}}
+                                                            {{>param}}
+                                                        {{/queryParams}}
+                                                    </table>
+                                                </div>
                                             {{/hasQueryParams}}
 
                                             <h2>Response</h2>
@@ -176,7 +186,7 @@
                                                     {{/schema}}
                                                     {{#hasHeaders}}
                                                         <div class="tab-pane" id="responses-{{nickname}}-{{code}}-headers">
-                                                            <table>
+                                                            <table data-disablesort="true">
                                                                 <tr>
                                                                     <th width="150px">Name</th>
                                                                     <th width="100px">Type</th>

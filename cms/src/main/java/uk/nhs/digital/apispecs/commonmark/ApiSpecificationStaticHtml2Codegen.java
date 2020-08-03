@@ -1,22 +1,28 @@
 package uk.nhs.digital.apispecs.commonmark;
 
+import static java.util.Collections.emptyList;
+
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.parameters.Parameter;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Stream;
 
-public class CustomStaticHtml2Codegen extends StaticHtml2Codegen {
+public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CustomStaticHtml2Codegen.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ApiSpecificationStaticHtml2Codegen.class);
+    private CommonmarkMarkdownConverter markdown = new CommonmarkMarkdownConverter();
 
     @Override
     public void preprocessOpenAPI(OpenAPI openApi) {
@@ -43,9 +49,11 @@ public class CustomStaticHtml2Codegen extends StaticHtml2Codegen {
 
         preparHtmlForGlobalDescription(openAPI);
 
-        prepareHtmlForEndpointsDescription(openAPI);
+        prepareHtmlForPathDescriptions(openAPI);
 
-        prepareHtmlForEndpointsParameters(openAPI);
+        prepareHtmlForPathParameters(openAPI);
+
+        prepareHtmlForMethodsParameters(openAPI);
     }
 
     /**
@@ -66,11 +74,46 @@ public class CustomStaticHtml2Codegen extends StaticHtml2Codegen {
         }
     }
 
-    private void prepareHtmlForEndpointsDescription(OpenAPI openApi) {
+    private void prepareHtmlForPathDescriptions(final OpenAPI openApi) {
 
-        final CommonmarkMarkdownConverter markdown = new CommonmarkMarkdownConverter();
+        final Stream<Operation> operationFromAllPaths = openApi.getPaths().values().stream()
+            .flatMap(pathItem -> Stream.of(
+                pathItem.getHead(),
+                pathItem.getOptions(),
+                pathItem.getGet(),
+                pathItem.getTrace(),
+                pathItem.getPost(),
+                pathItem.getPut(),
+                pathItem.getPatch(),
+                pathItem.getDelete()
+            ).filter(Objects::nonNull));
 
-        openApi.getPaths().values().stream()
+        operationFromAllPaths.forEach(operation -> {
+            final String markdownDescription = operation.getDescription();
+            final String htmlDescription = markdown.toHtml(markdownDescription);
+
+            operation.setDescription(htmlDescription);
+        });
+    }
+
+    private void prepareHtmlForPathParameters(final OpenAPI openApi) {
+
+        final Stream<Parameter> parameterFromAllPaths = openApi.getPaths().values().stream()
+            .map(PathItem::getParameters)
+            .filter(Objects::nonNull)
+            .flatMap(Collection::stream);
+
+        parameterFromAllPaths.forEach(parameter -> {
+            final String markdownDescription = parameter.getDescription();
+            final String htmlDescription = markdown.toHtml(markdownDescription);
+
+            parameter.setDescription(htmlDescription);
+        });
+    }
+
+    private void prepareHtmlForMethodsParameters(final OpenAPI openApi) {
+
+        final Stream<Parameter> parameterFromAllMethodsOfAllPaths = openApi.getPaths().values().stream()
             .flatMap(pathItem -> Stream.of(
                 pathItem.getHead(),
                 pathItem.getOptions(),
@@ -81,26 +124,15 @@ public class CustomStaticHtml2Codegen extends StaticHtml2Codegen {
                 pathItem.getPatch(),
                 pathItem.getDelete()
             ).filter(Objects::nonNull))
-            .forEach(operation -> {
-                final String markdownDescription = operation.getDescription();
-                final String htmlDescription = markdown.toHtml(markdownDescription);
-                operation.setDescription(htmlDescription);
-            });
-    }
+            .flatMap(operation -> Optional.ofNullable(operation.getParameters()).orElse(emptyList()).stream())
+            .filter(Objects::nonNull);
 
-    private void prepareHtmlForEndpointsParameters(OpenAPI openApi) {
+        parameterFromAllMethodsOfAllPaths.forEach(parameter -> {
+            final String markdownDescription = parameter.getDescription();
+            final String htmlDescription = markdown.toHtml(markdownDescription);
 
-        final CommonmarkMarkdownConverter markdown = new CommonmarkMarkdownConverter();
-
-        openApi.getPaths().values().stream()
-            .map(PathItem::getParameters)
-            .filter(Objects::nonNull)
-            .flatMap(Collection::stream)
-            .forEach(parameter -> {
-                final String markdownDescription = parameter.getDescription();
-                final String htmlDescription = markdown.toHtml(markdownDescription);
-                parameter.setDescription(htmlDescription);
-            });
+            parameter.setDescription(htmlDescription);
+        });
     }
 
     @Override

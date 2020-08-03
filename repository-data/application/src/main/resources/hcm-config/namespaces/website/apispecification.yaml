@@ -52,7 +52,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Specification JSON content
-            field: html
+            field: json
             hint: JSON content automatically imported from specification Apigee. Manually
               populated content will be overwritten by the next import.
             jcr:primaryType: frontend:plugin
