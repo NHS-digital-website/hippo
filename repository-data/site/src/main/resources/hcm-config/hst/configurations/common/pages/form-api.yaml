@@ -11,7 +11,7 @@ definitions:
         - com.onehippo.cms7.eforms.hst.behaviors.FormIntroBehavior
         - 'true'
         hst:resourcetemplate: eforms-validation-default
-        hst:template: eforms-default
+        hst:template: eforms.default
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
       jcr:primaryType: hst:component
