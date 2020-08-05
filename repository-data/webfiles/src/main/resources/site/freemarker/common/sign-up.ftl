@@ -22,7 +22,9 @@
                     <@sections document.introductionsections></@sections>
                 </#if>
 
-                <@hst.include ref="form"/>
+                <div class="article-section">
+                    <@hst.include ref="form"/>
+                </div>
 
                 <#if hasSectionContent>
                     <@sections document.footersections></@sections>
