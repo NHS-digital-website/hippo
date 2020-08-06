@@ -70,7 +70,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
             .config(codegenConfig)
             .setOpenAPI(new OpenAPIV3Parser().read(openApiSpecificationJson.toURI().toASCIIString(), null, null));
 
-        return new DefaultGenerator().opts(clientOptInput);
+        return new CodegenDefaultGenerator().opts(clientOptInput);
     }
 
     private File createSpecificationTempOutputDirectory() throws IOException {

@@ -298,7 +298,77 @@ It supports the following security patterns:</p>
 
                                             <h2>Request</h2>
 
+                                                <div class="httpparams">
+                                                    <h3>Path parameters</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                            <tr><td class="httpparams__name">id</td>
+                                                            <td>
+                                                                <div id="d2e199_getPatient_id">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                            
+                                                            
+                                                                                <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
+                                                                        </div>
+                                                                            <div class="httpparams__required">
+                                                                                Required
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                    </table>
+                                                </div>
 
+                                                <div class="httpparams">
+                                                    <h3>Headers</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                            <tr><td class="httpparams__name">NHSD-Session-URID</td>
+                                                            <td>
+                                                                <div id="d2e199_getPatient_nHSDSessionURID">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                            
+                                                            
+                                                                                <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
+<p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
+<p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                            <tr><td class="httpparams__name">Authorization</td>
+                                                            <td>
+                                                                <div id="d2e199_getPatient_authorization">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                                                <span class="codeinline">(^Bearer\ [[:ascii:]]+$)</span>
+                                                            
+                                                            
+                                                                                <div><p>An OAuthV2 access token presented in Bearer format.</p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                    </table>
+                                                </div>
 
 
 
@@ -1844,7 +1914,77 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
                                             <h2>Request</h2>
 
+                                                <div class="httpparams">
+                                                    <h3>Path parameters</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                            <tr><td class="httpparams__name">message_id</td>
+                                                            <td>
+                                                                <div id="d2e199_polling_messageId">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                            
+                                                            
+                                                                                <div>The message ID of the accepted update that needs to be submitted to confirm the resource a successfully updated.</div>
+                                                                        </div>
+                                                                            <div class="httpparams__required">
+                                                                                Required
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                    </table>
+                                                </div>
 
+                                                <div class="httpparams">
+                                                    <h3>Headers</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                            <tr><td class="httpparams__name">NHSD-Session-URID</td>
+                                                            <td>
+                                                                <div id="d2e199_polling_nHSDSessionURID">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                            
+                                                            
+                                                                                <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
+<p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
+<p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                            <tr><td class="httpparams__name">Authorization</td>
+                                                            <td>
+                                                                <div id="d2e199_polling_authorization">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                                                <span class="codeinline">(^Bearer\ [[:ascii:]]+$)</span>
+                                                            
+                                                            
+                                                                                <div><p>An OAuthV2 access token presented in Bearer format.</p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                    </table>
+                                                </div>
 
 
 
@@ -2040,7 +2180,77 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
 
                                             <h2>Request</h2>
 
+                                                <div class="httpparams">
+                                                    <h3>Path parameters</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                            <tr><td class="httpparams__name">id</td>
+                                                            <td>
+                                                                <div id="d2e199_getRelatedPeople_id">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                            
+                                                            
+                                                                                <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
+                                                                        </div>
+                                                                            <div class="httpparams__required">
+                                                                                Required
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                    </table>
+                                                </div>
 
+                                                <div class="httpparams">
+                                                    <h3>Headers</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                            <tr><td class="httpparams__name">NHSD-Session-URID</td>
+                                                            <td>
+                                                                <div id="d2e199_getRelatedPeople_nHSDSessionURID">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                            
+                                                            
+                                                                                <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
+<p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
+<p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                            <tr><td class="httpparams__name">Authorization</td>
+                                                            <td>
+                                                                <div id="d2e199_getRelatedPeople_authorization">
+                                                                    <div class="httpparams__description">
+                                                                        <div>
+                                                                            <span class="httpparams__datatype">String</span>
+                                                                                <span class="codeinline">(^Bearer\ [[:ascii:]]+$)</span>
+                                                            
+                                                            
+                                                                                <div><p>An OAuthV2 access token presented in Bearer format.</p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            </tr>
+                                                    </table>
+                                                </div>
 
 
 
