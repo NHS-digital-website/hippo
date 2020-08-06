@@ -1,0 +1,27 @@
+/content/gallery/publicationsystem/lesleytestimageonly.jpg:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 3cf954d7-7e6d-49b1-a3b2-8cf854d1d66e
+  /lesleytestimageonly.jpg:
+    jcr:primaryType: hippogallery:imageset
+    hippo:availability: [live, preview]
+    hippogallery:filename: lesleytestimageonly.jpg
+    /hippogallery:thumbnail:
+      jcr:primaryType: hippogallery:image
+      hippo:filename: lesleytestimageonly.jpg
+      hippogallery:height: 30
+      hippogallery:width: 60
+      jcr:data:
+        type: binary
+        resource: /content/gallery/publicationsystem/lesleytestimageonly.jpg/lesleytestimageonly_thumbnail.jpg
+      jcr:lastModified: 2020-08-06T09:41:21.876Z
+      jcr:mimeType: image/jpeg
+    /hippogallery:original:
+      jcr:primaryType: hippogallery:image
+      hippogallery:height: 148
+      hippogallery:width: 296
+      jcr:data:
+        type: binary
+        resource: /content/gallery/publicationsystem/lesleytestimageonly.jpg/lesleytestimageonly_original.jpg
+      jcr:lastModified: 2020-08-06T09:41:21.876Z
+      jcr:mimeType: image/jpeg

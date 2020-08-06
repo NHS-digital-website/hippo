@@ -24,7 +24,7 @@
             <#list section.galleryItems as galleryItem>
                 <#assign itemNr = itemNr + 1 />
 
-                <#if itemNr % 2 == 1> 
+                <#if itemNr % 2 == 1>
                   <#if galleryItem.title?has_content>
                     <#assign hasPrevEvenItemTitle = true />
                   <#else>
@@ -33,8 +33,9 @@
                 </#if>
 
                 <div class="column column--one-half galleryItems__item">
+                <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
                     <#if galleryItem.title?has_content>
-                      <h3 class="galleryItems__heading">${galleryItem.title}</h3>
+                      <a href="${image}"><h3 class="galleryItems__heading">${galleryItem.title}</h3></a>
                       <div class="galleryItems__card">
                     <#else>
                       <#if itemNr % 2 == 0 && hasPrevEvenItemTitle>
@@ -47,9 +48,7 @@
                             <div class="galleryItems__warning">${galleryItem.imageWarning}</div>
                         </#if>
 
-                        <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
-
-                        <img src="${image}" alt="${galleryItem.imageAlt}" />
+                        <a href="${image}"><img src="${image}" alt="${galleryItem.imageAlt}" /></a>
 
                         <#if galleryItem.description.content?has_content>
                           <div class="galleryItems__description">
