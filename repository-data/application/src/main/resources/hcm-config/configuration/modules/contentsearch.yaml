@@ -19,7 +19,6 @@ definitions:
         - nationalindicatorlibrary:nilanding
         - publicationsystem:basedocument
         - publicationsystem:cilanding
-        - publicationsystem:publication
         - publicationsystem:publicationPage
         - publicationsystem:resource
         - website:basedocument

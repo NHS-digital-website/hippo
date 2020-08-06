@@ -19,12 +19,14 @@ definitions:
         - contentSearchEnabled
         - contentSearchTimeOut
         - fallbackEnabled
+        - doctype
         hst:parametervalues:
         - '10'
         - 'true'
         - 'true'
         - '1500'
         - 'true'
+        - nationalindicatorlibrary:indicator
         hst:template: search-results-layout
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/pubs_apppage-search-results

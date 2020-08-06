@@ -5,7 +5,9 @@ import static java.lang.Math.min;
 import static java.util.stream.Collectors.toList;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
+import com.onehippo.search.integration.api.Document;
 import com.onehippo.search.integration.api.ExternalSearchService;
+import com.onehippo.search.integration.api.QueryBuilder;
 import com.onehippo.search.integration.api.QueryResponse;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -78,6 +80,9 @@ public class SearchComponent extends CommonComponent {
         final boolean fallbackEnabled = paramInfo.isFallbackEnabled();
         final boolean contentSearchOverride = getAnyBooleanParam(request, "contentSearch", false);
 
+        //todo: remove after testing
+        final String docType = paramInfo.getDoctype();
+
         Future<QueryResponse> queryResponseFuture = null;
         QueryResponse queryResponse;
 
@@ -87,30 +92,40 @@ public class SearchComponent extends CommonComponent {
                 final int currentPage = getCurrentPage(request);
                 final String query = getQueryParameter(request);
 
-                queryResponseFuture = buildAndExecuteContentSearch(pageSize, currentPage, query);
+                queryResponseFuture = buildAndExecuteContentSearch(pageSize, currentPage, query, docType);
                 queryResponse = queryResponseFuture.get(contentSearchTimeOut, TimeUnit.MILLISECONDS);
 
-                final long totalResults = queryResponse.getSearchResult().getNumFound();
-                final List<Integer> pageNumbers = getPageNumbers(totalResults, currentPage);
-
-                request.setAttribute("pageNumbers", pageNumbers);
-                request.setAttribute("isContentSearch", true);
-                request.setAttribute("queryResponse", queryResponse);
-                request.setAttribute("totalResults", totalResults);
-                request.getRequestContext().setAttribute("isContentSearch", true);
-                setCommonSearchRequestAttributes(request, paramInfo);
-
+                if (queryResponse.isOk()) {
+                    final long totalResults = queryResponse.getSearchResult().getNumFound();
+                    final List<Integer> pageNumbers = getPageNumbers(totalResults, currentPage);
+                    Pageable<Document> pageable = new ContentSearchPageable<>(totalResults, currentPage, pageSize);
+                    request.setAttribute("pageCount", (int) Math.ceil((double) totalResults / pageSize));
+                    request.setAttribute("pageable", pageable);
+                    request.setAttribute("pageNumbers", pageNumbers);
+                    request.setAttribute("isContentSearch", true);
+                    request.setAttribute("queryResponse", queryResponse);
+                    request.setAttribute("totalResults", totalResults);
+                    request.getRequestContext().setAttribute("isContentSearch", true);
+                    setCommonSearchRequestAttributes(request, paramInfo);
+                } else {
+                    if (fallbackEnabled) {
+                        LOGGER.warn("Content Search returned a failure, falling back to HST search");
+                        buildAndExecuteHstSearch(request, paramInfo);
+                    } else {
+                        request.setAttribute("totalResults", 0);
+                        request.setAttribute("success", false);
+                    }
+                }
             } catch (InterruptedException | ExecutionException | TimeoutException ex) {
                 queryResponseFuture.cancel(true);
-                LOGGER.warn("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms");
 
-                //fallback to Hst search
                 if (fallbackEnabled) {
                     LOGGER.warn("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, falling back to HST search");
                     buildAndExecuteHstSearch(request, paramInfo);
                 } else {
                     LOGGER.warn("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, HST search fallback disabled");
                     request.setAttribute("totalResults", 0);
+                    request.setAttribute("success", false);
                 }
             }
         } else {
@@ -149,22 +164,36 @@ public class SearchComponent extends CommonComponent {
     }
 
 
-    private Future<QueryResponse> buildAndExecuteContentSearch(int pageSize, int currentPage, String query) {
+    private Future<QueryResponse> buildAndExecuteContentSearch(int pageSize, int currentPage, String query, String doctype) {
         ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
-        Future<QueryResponse> queryResponse;
-        queryResponse = searchService.builder()
+
+        QueryBuilder queryBuilder = searchService.builder()
             .catalog("content_en")
             .query(query)
             .limit(pageSize)
             .offset((currentPage - 1) * pageSize)
             .retrieveField("title")
+            .retrieveField("summary_content")
             .retrieveField("shortsummary")
             .retrieveField("publicationDate")
             .retrieveField("xmUrl")
-            .build()
-            .execute();
+            .retrieveField("xmPrimaryDocType")
+            .retrieveField("informationType")
+            .retrieveField("assuranceDate")
+            .retrieveField("publishedBy")
+            .retrieveField("details_briefDescription")
+            .retrieveField("summary")
+            .retrieveField("showLatest");
 
-        return queryResponse;
+        if (doctype != null) {
+            queryBuilder = appendFilters(queryBuilder, doctype);
+        }
+
+        return queryBuilder.build().execute();
+    }
+
+    private QueryBuilder appendFilters(QueryBuilder queryBuilder, String doctype) {
+        return queryBuilder.filterQuery("xmPrimaryDocType", doctype);
     }
 
     protected List<Integer> getPageNumbers(Pageable<HippoBean> pageable) {

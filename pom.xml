@@ -889,17 +889,17 @@
                                         <todir>conf/</todir>
                                         <tofile>context.xml</tofile>
                                     </configfile>
+<!--                                    <configfile>-->
+<!--                                        <file>${project.basedir}/conf/context-mysql.xml</file>-->
+<!--                                        <todir>conf/</todir>-->
+<!--                                        <tofile>context.xml</tofile>-->
+<!--                                    </configfile>-->
                                     <configfile>
                                         <!-- copy to target to have a '@mysql.repo.db@' substituted file -->
                                         <file>${project.basedir}/conf/repository-mysql.xml</file>
                                         <todir>conf/</todir>
                                         <tofile>repository-mysql.xml</tofile>
                                     </configfile>
-<!--                                    <configfile>-->
-<!--                                        <file>${project.basedir}/conf/context-mysql.xml</file>-->
-<!--                                        <todir>conf/</todir>-->
-<!--                                        <tofile>context.xml</tofile>-->
-<!--                                    </configfile>-->
                                     <configfile>
                                         <file>${project.basedir}/conf/catalina-logging.properties</file>
                                         <todir>conf/</todir>
@@ -936,7 +936,7 @@
                                 </files>
                                 <properties>
                                     <cargo.jvmargs>
-                                        -Xmx3072m
+                                        -Xmx5120m
                                         -Duser.timezone=Etc/UTC
                                         -Dfile.encoding=ANSI_X3.4-1968
                                     </cargo.jvmargs>
@@ -970,7 +970,7 @@
                                 </deployable>
                             </deployables>
                             <container>
-                                <timeout>12000000</timeout>
+                                <timeout>120000000</timeout>
                                 <zipUrlInstaller>
                                     <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>

@@ -13,4 +13,7 @@ public interface SearchComponentInfo extends EssentialsListComponentInfo {
 
     @Parameter(name = "fallbackEnabled", defaultValue = "true")
     boolean isFallbackEnabled();
+
+    @Parameter(name = "doctype")
+    String getDoctype();
 }
