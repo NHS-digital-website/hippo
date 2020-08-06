@@ -544,7 +544,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 
 
                                                 <div class="httpparams">
-                                                    <div class="methodsubtabletitle">Headers</div>
+                                                    <h3>Headers</h3>
                                                     <table data-disablesort="true">
                                                         <tr>
                                                             <th>Name</th>
@@ -556,6 +556,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
 <p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
@@ -575,6 +576,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                             <span class="httpparams__datatype">String</span>
                                                                                 <span class="codeinline">(^Bearer\ [[:ascii:]]+$)</span>
                                                             
+                                                            
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
@@ -589,7 +591,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 
 
                                                 <div class="httpparams">
-                                                    <div class="methodsubtabletitle">Query parameters</div>
+                                                    <h3>Query parameters</h3>
                                                     <table data-disablesort="true">
                                                         <tr>
                                                             <th>Name</th>
@@ -601,6 +603,8 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
+                                                            
+                                                                                <div>Default value: <span class="codeinline">false</span></div>
                                                             
                                                                                 <div>The search only returns results where the <code class="codeinline">score</code> field is 1.0.</div>
                                                                         </div>
@@ -615,6 +619,8 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
                                                             
+                                                                                <div>Default value: <span class="codeinline">false</span></div>
+                                                            
                                                                                 <div>The search looks for matches in historic information such as previous names and addresses.</div>
                                                                         </div>
                                                                     </div>
@@ -627,6 +633,8 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
+                                                            
+                                                                                <div>Default value: <span class="codeinline">false</span></div>
                                                             
                                                                                 <div>A fuzzy search is performed, including checks for homophones and transposed names.</div>
                                                                         </div>
@@ -642,6 +650,8 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                             <span class="httpparams__datatype">Integer</span>
                                                                                 <span class="codeinline">(int32)</span>
                                                             
+                                                                                <div>Default value: <span class="codeinline">50</span></div>
+                                                            
                                                                                 <div>The maximum number of results to return between 1 and 50. The default is 50.</div>
                                                                         </div>
                                                                     </div>
@@ -654,6 +664,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                                                 <div><p>The patient's family name (surname).</p>
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
@@ -670,6 +681,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
                                                             
+                                                            
                                                                                 <div><p>The patient's given name.</p>
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
 </div>
@@ -685,6 +697,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
                                                             
+                                                            
                                                                                 <div>Gender with which the patient most strongly identifies.</div>
                                                                         </div>
                                                                     </div>
@@ -697,6 +710,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">array[String]</span>
+                                                            
                                                             
                                                                                 <div>Date of birth in the format <code class="codeinline">&lt;eq|ge|le&gt;yyyy-mm-dd</code>. To specify a range, use <code class="codeinline">birthdate=geyyyy-mm-dd&amp;birthdate=leyyyy-mm-dd</code>.</div>
                                                                         </div>
@@ -712,6 +726,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                             <span class="httpparams__datatype">date</span>
                                                                                 <span class="codeinline">(date)</span>
                                                             
+                                                            
                                                                                 <div>Date of death in the format <code class="codeinline">&lt;eq|ge|le&gt;yyyy-mm-dd</code>. To specify a range, use <code class="codeinline">death-date=geyyyy-mm-dd&amp;death-date=leyyyy-mm-dd</code>.</div>
                                                                         </div>
                                                                     </div>
@@ -724,6 +739,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                                                 <div><p>The postcode of any of the patient’s known addresses. White spaces in postcodes are not significant; that is, LS16AE and LS1 6AE will both match LS1 6AE.</p>
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
@@ -739,6 +755,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                                                 <div>The Organisation Data Service (ODS) code of the patient's registered GP practice.</div>
                                                                         </div>
@@ -1323,23 +1340,24 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                             <h2>Request</h2>
 
                                                 <div class="httpparams">
-                                                    <div class="methodsubtabletitle">Path parameters</div>
+                                                    <h3>Path parameters</h3>
                                                     <table data-disablesort="true">
                                                         <tr>
                                                             <th>Name</th>
                                                             <th>Description</th>
                                                         </tr>
-                                                            <tr><td class="httpparams__name">id<span class="httpparams__required"> *</span></td>
+                                                            <tr><td class="httpparams__name">id</td>
                                                             <td>
                                                                 <div id="d2e199_updatePatientPartial_id">
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
                                                             
+                                                            
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
                                                                         </div>
                                                                             <div class="httpparams__required">
-                                                                                * Required
+                                                                                Required
                                                                             </div>
                                                                     </div>
                                                                 </div>
@@ -1349,25 +1367,26 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                 </div>
 
                                                 <div class="httpparams">
-                                                    <div class="methodsubtabletitle">Headers</div>
+                                                    <h3>Headers</h3>
                                                     <table data-disablesort="true">
                                                         <tr>
                                                             <th>Name</th>
                                                             <th>Description</th>
                                                         </tr>
-                                                            <tr><td class="httpparams__name">If-Match<span class="httpparams__required"> *</span></td>
+                                                            <tr><td class="httpparams__name">If-Match</td>
                                                             <td>
                                                                 <div id="d2e199_updatePatientPartial_ifMatch">
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
                                                             
+                                                            
                                                                                 <div><p>Latest known version identifier enclosed in quotes preceded by <code class="codeinline">W/</code>.</p>
 <p>Send the value of this resource's <code class="codeinline">ETag</code> response header (or <code class="codeinline">meta.versionId</code> property) as received.</p>
 </div>
                                                                         </div>
                                                                             <div class="httpparams__required">
-                                                                                * Required
+                                                                                Required
                                                                             </div>
                                                                     </div>
                                                                 </div>
@@ -1379,6 +1398,7 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
 <p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
@@ -1398,6 +1418,7 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                             <span class="httpparams__datatype">String</span>
                                                                                 <span class="codeinline">(^Bearer\ [[:ascii:]]+$)</span>
                                                             
+                                                            
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
@@ -1410,7 +1431,7 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                 </div>
 
                                                 <div class="httpparams">
-                                                    <div class="methodsubtabletitle">Body</div>
+                                                    <h3>Body</h3>
                                                     <table data-disablesort="true">
                                                         <tr>
                                                             <th>Name</th>

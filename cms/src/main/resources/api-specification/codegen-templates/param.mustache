@@ -1,4 +1,4 @@
-<tr><td class="httpparams__name">{{baseName}}{{^required}}{{/required}}{{#required}}<span class="httpparams__required"> *</span>{{/required}}</td>
+<tr><td class="httpparams__name">{{baseName}}</td>
 <td>
     <div id="d2e199_{{nickname}}_{{paramName}}">
         <div class="httpparams__description">
@@ -7,6 +7,10 @@
                 {{#dataFormat}}
                     <span class="codeinline">({{dataFormat}})</span>
                 {{/dataFormat}}
+
+                {{#defaultValue}}
+                    <div>Default value: <span class="codeinline">{{defaultValue}}</span></div>
+                {{/defaultValue}}
 
                 {{#description}}
                     <div>{{description}}</div>
@@ -23,7 +27,7 @@
             {{/is}}
             {{#required}}
                 <div class="httpparams__required">
-                    * Required
+                    Required
                 </div>
             {{/required}}
         </div>
