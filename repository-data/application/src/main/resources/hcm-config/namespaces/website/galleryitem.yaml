@@ -1,21 +1,28 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/galleryitem:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             extension.left: ${cluster.id}.left
             extension.right: ${cluster.id}.right
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
-            wicket.extensions: [extension.left, extension.right]
+            wicket.extensions:
+            - extension.left
+            - extension.right
           /left:
             item: ${cluster.id}.left.item
             jcr:primaryType: frontend:plugin
@@ -27,54 +34,56 @@ definitions:
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
           /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /image:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /image:
             caption: Image
             field: image
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
+          /imagealt:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /imagealt:
             caption: Alt text
             field: imagealt
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /imagewarning:
-            caption: Image warning
-            field: imagewarning
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '20'
+            caption: Image warning
+            field: imagewarning
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
           /description:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
+                [''Link'',''PickInternalLink'',''Source''] }], extraPlugins: ''autogrow'',
+                autoGrow_onStartup: true, autoGrow_maxHeight: 50 }'
+              jcr:primaryType: frontend:pluginconfig
             caption: Description
             field: description
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
-                [''Link'',''PickInternalLink'',''Source''] }], extraPlugins: ''autogrow'',
-                autoGrow_onStartup: true, autoGrow_maxHeight: 50 }'
-              jcr:primaryType: frontend:pluginconfig
           /relatedfiles:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Related files
             compoundList: website:assetlink
             contentPickerType: links
@@ -83,19 +92,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
-        jcr:uuid: fb3aa2fa-45d8-4ec7-ba3d-4ff591b48266
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 19519517-f6a5-47f5-bbdf-85348f5a41ac
           /description:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -111,7 +110,8 @@ definitions:
             hipposysedit:path: website:image
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /imagealt:
             hipposysedit:mandatory: false
@@ -120,7 +120,8 @@ definitions:
             hipposysedit:path: website:imagealt
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /imagewarning:
             hipposysedit:mandatory: false
@@ -136,7 +137,8 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:relatedfiles
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -146,13 +148,20 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: website:galleryitem
-          website:imagealt: ''
-          website:imagewarning: ''
-          website:title: ''
           /website:description:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -162,3 +171,12 @@ definitions:
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:galleryitem
+          website:imagealt: ''
+          website:imagewarning: ''
+          website:title: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
