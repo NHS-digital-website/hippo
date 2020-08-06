@@ -1,13 +1,6 @@
 <#ftl output_format="HTML" encoding="UTF-8">
 
 <#include "../../include/imports.ftl">
-<#include "../macro/metaTags.ftl">
-
-<#-- Add meta tags -->
-<#if form.title??>
-    <#assign document = { "title": form.title } />
-</#if>
-<@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.form"/>
 
@@ -42,9 +35,7 @@
 
 
 <#if form.title?has_content>
-    <div class="local-header local-header--secondary">
-        <h1 class="local-header__title">${form.title}</h1>
-    </div>
+    <h2>${form.title}</h2>
 </#if>
 <#if formIntro?has_content && processDone! != "true">
     <p class="eforms-intro">${formIntro}</p>
