@@ -37,10 +37,10 @@ definitions:
           /image:
             caption: Image
             field: image
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /imagealt:
@@ -58,6 +58,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '20'
@@ -87,14 +88,14 @@ definitions:
       /hipposysedit:nodetype:
         jcr:mixinTypes: ['mix:referenceable']
         jcr:primaryType: hippo:handle
-        jcr:uuid: 73071f07-415f-4ed4-8b60-a66dedfde1f2
+        jcr:uuid: fb3aa2fa-45d8-4ec7-ba3d-4ff591b48266
         /hipposysedit:nodetype:
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: d46abb27-2cfe-400e-9f7f-401a15fefc58
+          jcr:uuid: 19519517-f6a5-47f5-bbdf-85348f5a41ac
           /description:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false

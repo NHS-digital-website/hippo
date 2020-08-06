@@ -1,54 +1,47 @@
----
 definitions:
   config:
     /hippo:namespaces/website/gallerysection:
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
+        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties:
-          - mode
-          frontend:references:
-          - wicket.model
-          - model.compareTo
-          - engine
-          - validator.id
-          frontend:services:
-          - wicket.id
-          - validator.id
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /heading:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
             caption: Heading
             field: heading
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /headinglevel:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Main heading,Sub heading
+          /headinglevel:
             caption: Heading level
             field: headinglevel
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /description:
             /cluster.options:
-              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
-                true, autoGrow_maxHeight: 50 }'
               jcr:primaryType: frontend:pluginconfig
+              selectable.options: Main heading,Sub heading
+          /description:
             caption: Description
             field: description
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /galleryitems:
             /cluster.options:
+              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
+                true, autoGrow_maxHeight: 50 }'
               jcr:primaryType: frontend:pluginconfig
+          /galleryitems:
             caption: Gallery Items
             compoundList: website:galleryitem
             contentPickerType: links
@@ -57,9 +50,19 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
-        jcr:primaryType: editor:templateset
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
       /hipposysedit:nodetype:
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:primaryType: hippo:handle
+        jcr:uuid: e59e948d-80ab-444d-a4b1-0b154d186339
         /hipposysedit:nodetype:
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:uuid: 3821c8d4-269b-4e9e-9eb6-a86aed27929c
           /description:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -71,12 +74,11 @@ definitions:
           /galleryitems:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: website:galleryitems
             hipposysedit:primary: false
             hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
+            hipposysedit:validators: [contentblocks-validator]
             jcr:primaryType: hipposysedit:field
           /heading:
             hipposysedit:mandatory: false
@@ -94,24 +96,19 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - hippo:compound
-          - hippostd:relaxed
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes:
-          - hipposysedit:remodel
-          - mix:referenceable
-          jcr:primaryType: hipposysedit:nodetype
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
+          jcr:primaryType: website:gallerysection
+          website:heading: ''
           /website:description:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           /website:galleryitems:
+            jcr:primaryType: website:galleryitem
+            website:imagealt: ''
+            website:imagewarning: ''
+            website:title: ''
             /website:description:
               hippostd:content: ''
               jcr:primaryType: hippostd:html
@@ -121,14 +118,3 @@ definitions:
               hippo:modes: []
               hippo:values: []
               jcr:primaryType: hippogallerypicker:imagelink
-            jcr:primaryType: website:galleryitem
-            website:imagealt: ''
-            website:imagewarning: ''
-            website:title: ''
-          jcr:primaryType: website:gallerysection
-          website:heading: ''
-        jcr:primaryType: hipposysedit:prototypeset
-      jcr:mixinTypes:
-      - editor:editable
-      - mix:referenceable
-      jcr:primaryType: hipposysedit:templatetype
