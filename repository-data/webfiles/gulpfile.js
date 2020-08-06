@@ -61,7 +61,7 @@ task("build-css", function processScss() {
         .pipe(browsersync.stream())
 });
 
-// Concatenate & Minify JS
+// Concatenate && Minify JS
 task("build-js", function gulpScripts() {
     // eslint-disable-next-line global-require
     const webpackConfig = require("./webpack.config.js");
