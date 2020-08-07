@@ -1,4 +1,4 @@
-package uk.nhs.digital.common.galleryprocessors;
+package uk.nhs.digital.common.processor.asset.svgstyle;
 
 import static org.hippoecm.repository.api.HippoNodeType.HIPPO_TEXT;
 
@@ -9,7 +9,9 @@ import java.io.InputStream;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
-public class MyNullGalleryProcessor extends NullGalleryProcessor {
+public class SvgStyleGalleryProcessor extends NullGalleryProcessor {
+
+    public static final String DEFAULT_SVG_ASSET_STYLESHEET_URL = "svg.asset.stylesheet.url";
 
     @Override
     public void makeImage(final Node node, final InputStream istream, final String mimeType, final String fileName) throws GalleryException, RepositoryException {

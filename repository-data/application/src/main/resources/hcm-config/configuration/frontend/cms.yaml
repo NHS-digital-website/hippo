@@ -13,7 +13,8 @@ definitions:
       list.view.size: '20'
     /hippo:configuration/hippo:frontend/cms/cms-services/assetProcessorService:
       gallery.processor.id: asset.gallery.processor
-      plugin.class: uk.nhs.digital.common.galleryprocessors.MyNullGalleryProcessorPlugin
+      plugin.class: uk.nhs.digital.common.processor.asset.AssetProcessorServicesPlugins
+      svg.asset.stylesheet.url: /test.css
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
       extensions.allowed:
       - doc
