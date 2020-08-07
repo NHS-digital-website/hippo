@@ -40,6 +40,34 @@ definitions:
       - 'true'
       - https://www.google.com
       jcr:primaryType: crisp:resourceresolver
+    ? /hippo:configuration/hippo:modules/crispregistry/hippo:moduleconfig/crisp:resourceresolvercontainer/platformResourceResolver
+    : crisp:beandefinition: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<beans\
+        \ xmlns=\"http://www.springframework.org/schema/beans\"\r\n       xmlns:xsi=\"\
+        http://www.w3.org/2001/XMLSchema-instance\"\r\n       xsi:schemaLocation=\"\
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd\"\
+        >\r\n    <bean id=\"aaltoRestTemplate\"\r\n          class=\"org.springframework.web.client.RestTemplate\"\
+        >\r\n        <property name=\"interceptors\">\r\n            <list>\r\n  \
+        \              <bean\r\n                    class=\"org.springframework.http.client.support.BasicAuthorizationInterceptor\"\
+        >\r\n                    <constructor-arg value=\"${basic.auth.username}\"\
+        />\r\n                    <constructor-arg value=\"${basic.auth.password}\"\
+        />\r\n                </bean>\r\n            </list>\r\n        </property>\r\
+        \n        <property name=\"requestFactory\" ref=\"org.springframework.http.client.ClientHttpRequestFactory\"\
+        />\r\n    </bean>\r\n    <bean parent=\"abstractCrispSimpleJacksonRestTemplateResourceResolver\"\
+        \ class=\"org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver\"\
+        >\r\n        <property name=\"cacheEnabled\" value=\"${cache.enabled}\"/>\r\
+        \n        <property name=\"baseUri\" value=\"${base.uri}\"/>\r\n        <property\
+        \ name=\"restTemplate\" ref=\"aaltoRestTemplate\"/>\r\n    </bean>\r\n</beans>"
+      crisp:propnames:
+      - cache.enabled
+      - base.uri
+      - basic.auth.username
+      - basic.auth.password
+      crisp:propvalues:
+      - 'true'
+      - https://aalto-api.digital.nhs.uk/api/views
+      - System Administrator
+      - Parrot1!
+      jcr:primaryType: crisp:resourceresolver
     ? /hippo:configuration/hippo:modules/crispregistry/hippo:moduleconfig/crisp:resourceresolvercontainer/statisticsRestResourceResolver
     : crisp:beandefinition: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<beans\
         \ xmlns=\"http://www.springframework.org/schema/beans\"\r\n       xmlns:xsi=\"\

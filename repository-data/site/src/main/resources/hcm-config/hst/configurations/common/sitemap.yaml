@@ -325,6 +325,10 @@ definitions:
         - hst:pages/visualhub
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
+      /platform-explorer:
+        hst:componentconfigurationid: hst:pages/platform-explorer
+        hst:relativecontentpath: platform-explorer
+        jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:relativecontentpath: ../administration/robots

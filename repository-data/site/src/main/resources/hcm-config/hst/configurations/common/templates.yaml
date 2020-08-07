@@ -182,6 +182,9 @@ definitions:
       /person-article:
         hst:renderpath: webfile:/freemarker/common/person-article.ftl
         jcr:primaryType: hst:template
+      /platform-explorer:
+        hst:renderpath: webfile:/freemarker/common/platform-explorer.ftl
+        jcr:primaryType: hst:template
       /project-update:
         hst:renderpath: webfile:/freemarker/common/project-update.ftl
         jcr:primaryType: hst:template
