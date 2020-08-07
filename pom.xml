@@ -884,16 +884,16 @@
                                     <mysql.targeting.db>${mysql.targeting.db}</mysql.targeting.db>
                                 </properties>
                                 <configfiles>
-                                    <configfile>
-                                        <file>${project.basedir}/conf/context.xml</file>
-                                        <todir>conf/</todir>
-                                        <tofile>context.xml</tofile>
-                                    </configfile>
 <!--                                    <configfile>-->
-<!--                                        <file>${project.basedir}/conf/context-mysql.xml</file>-->
+<!--                                        <file>${project.basedir}/conf/context.xml</file>-->
 <!--                                        <todir>conf/</todir>-->
 <!--                                        <tofile>context.xml</tofile>-->
 <!--                                    </configfile>-->
+                                    <configfile>
+                                        <file>${project.basedir}/conf/context-mysql.xml</file>
+                                        <todir>conf/</todir>
+                                        <tofile>context.xml</tofile>
+                                    </configfile>
                                     <configfile>
                                         <!-- copy to target to have a '@mysql.repo.db@' substituted file -->
                                         <file>${project.basedir}/conf/repository-mysql.xml</file>
@@ -979,8 +979,8 @@
                                     <!-- enables auto export and web files watch: -->
                                     <project.basedir>${project.basedir}</project.basedir>
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
-                                    <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>
-<!--                                    <repo.config>file://${project.basedir}/conf/repository-mysql.xml</repo.config>-->
+<!--                                    <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>-->
+                                    <repo.config>file://${project.basedir}/conf/repository-mysql.xml</repo.config>
 
                                     <!-- Splunk forwarder config -->
                                     <splunk.hec.name>${splunk.hec.name}</splunk.hec.name>

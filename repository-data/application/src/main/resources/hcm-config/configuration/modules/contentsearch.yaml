@@ -31,7 +31,6 @@ definitions:
         - website:definedterms
         - website:dschomepage
         - website:editorsnotes
-        - website:event
         - website:generalnonsearch
         - website:group
         - website:hubnewsandevents

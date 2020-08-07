@@ -44,7 +44,6 @@
             </div>
 
             <div class="search-results">
-                <!-- replace with macro to render each search result -->
                 <@contentSearchResults documents />
             </div>
 
@@ -95,54 +94,31 @@
             <#if docType == "nationalindicatorlibrary:indicator">
                 <@contentSearchIndicator document=document/>
             </#if>
+            <#if docType == "website:event">
+                <@contentSearchEvent document=document/>
+            </#if>
+            <#if docType == "website:news">
+                <@contentSearchNews document=document/>
+            </#if>
+            <#if docType == "website:publishedworkchapter">
+                <@contentSearchPublishedworkchapter document=document/>
+            </#if>
         </#if>
     </#list>
 </#macro>
 
-
-<#macro contentSearchLegacypublication document>
-    <#if document?? && document.residualProperties??>
-        <#assign properties = document.residualProperties />
-        <#if properties??>
-            <#if properties.title??>
-                <#assign title = properties.title />
-            </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-            </#if>
-            <#if properties.publicationDate??>
-                <#assign publicationDate = properties.publicationDate />
-            </#if>
-        </#if>
-    </#if>
-
-    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
-        <div>
-            <span class="cta__label"
-                  data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
-        </div>
-        <a class="cta__title cta__button" href="<#if url??>${url}</#if>"
-           title="<#if title??>${title}</#if>"
-           data-uipath="ps.search-results.result.title">
-            <#if title??>${title}</#if>
-        </a>
-        <span class="cta__meta"
-              data-uipath="ps.search-results.result.date"><#if publicationDate??><@formatEpoch date=publicationDate?c/></#if></span>
-    </div>
-</#macro>
-
-
 <#macro contentSearchPublication document>
-
     <#assign stampedPublication = false />
     <#if document?? && document.residualProperties??>
         <#assign properties = document.residualProperties />
         <#if properties??>
             <#if properties.title??>
                 <#assign title = properties.title />
+                <#assign hasTitle = true />
             </#if>
             <#if properties.xmUrl??>
                 <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
             </#if>
             <#if properties.publicationDate??>
                 <#assign publicationDate = properties.publicationDate />
@@ -167,6 +143,9 @@
         </#if>
     </#if>
 
+    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#assign publiclyAccessible = contentBean.publiclyAccessible/>
+
     <div class="cta cta--detailed ${stampedPublication?then(" cta--stamped", "")}"
          data-uipath="ps.search-results.result">
         <#if stampedPublication>
@@ -178,11 +157,14 @@
             <span class="cta__label"
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
                 </div>
-                <a class="cta__title cta__button" href="<#if url??>${url}</#if>"
-                   title="<#if title??>${title}</#if>"
-                   data-uipath="ps.search-results.result.title">
-                    <#if title??>${title}</#if>
-                </a>
+                <#if hasTitle && hasUrl>
+                    <a class="cta__title cta__button" href="${url}"
+                       title="${title}"
+                       data-uipath="ps.search-results.result.title">
+                        ${title}
+                    </a>
+                </#if>
+
                 <span class="cta__meta"
                       data-uipath="ps.search-results.result.date"><#if publicationDate??><@formatEpoch date=publicationDate?c/></#if></span>
 
@@ -199,9 +181,8 @@
         </#if>
 
         <#if publiclyAccessible?? && publiclyAccessible>
-            <h1> publiclyAccessible is true!! ${publiclyAccessible}</h1>
             <p class="cta__text" data-uipath="ps.search-results.result.summary">
-                <@truncate text=item.summary size="300"/>
+                <@truncate text=summary size="300"/>
             </p>
         <#else>
             <span class="cta__meta" data-uipath="ps.search-results.result.summary">
@@ -215,16 +196,52 @@
             <span class="cta__label"
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
         </div>
-        <a class="cta__title cta__button" href="<#if url??>${url}</#if>"
-           title="<#if title??>${title}</#if>"
-           data-uipath="ps.search-results.result.title">
-            <#if title??>${title} </#if>
-        </a>
+        <#if hasTitle && hasUrl>
+            <a class="cta__title cta__button" href="${url}"
+               title="${title}
+               data-uipath="ps.search-results.result.title">
+               ${title}
+            </a>
+        </#if>
         <span class="cta__meta"
               data-uipath="ps.search-results.result.date"><#if publicationDate??><@formatEpoch date=publicationDate?c/></#if></span>
     </div>
 </#macro>
 
+<#macro contentSearchLegacypublication document>
+    <#if document?? && document.residualProperties??>
+        <#assign properties = document.residualProperties />
+        <#if properties??>
+            <#if properties.title??>
+                <#assign title = properties.title />
+                <#assign hasTitle = true />
+            </#if>
+            <#if properties.xmUrl??>
+                <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
+            </#if>
+            <#if properties.publicationDate??>
+                <#assign publicationDate = properties.publicationDate />
+            </#if>
+        </#if>
+    </#if>
+
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <span class="cta__label"
+                  data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
+        </div>
+        <#if hasTitle && hasUrl>
+        <a class="cta__title cta__button" href="${url}"
+           title="${title}"
+           data-uipath="ps.search-results.result.title">
+           ${title}
+        </a>
+        </#if>
+        <span class="cta__meta"
+              data-uipath="ps.search-results.result.date"><#if publicationDate??><@formatEpoch date=publicationDate?c/></#if></span>
+    </div>
+</#macro>
 
 <#macro contentSearchArchive document>
     <#if document?? && document.residualProperties??>
@@ -232,9 +249,11 @@
         <#if properties??>
             <#if properties.title??>
                 <#assign title = properties.title />
+                <#assign hasTitle = true />
             </#if>
             <#if properties.xmUrl??>
                 <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
             </#if>
             <#if properties.summary??>
                 <#assign summary = properties.summary />
@@ -247,11 +266,14 @@
             <span class="cta__label"
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.archive"/></span>
         </div>
-        <a class="cta__title cta__button" href="<#if url??>${url}</#if>"
-           title="<#if title??>${title}</#if>"
-           data-uipath="ps.search-results.result.title">
-            <#if title??>${title}</#if>
-        </a>
+        <#if hasTitle && hasUrl>
+            <a class="cta__title cta__button" href="${url}"
+               title="${title}"
+               data-uipath="ps.search-results.result.title">
+                ${title}
+            </a>
+        </#if>
+
         <#if summary??>
             <p class="cta__text" data-uipath="ps.search-results.result.summary">
                 <@truncate text=summary size="300"/></p>
@@ -266,9 +288,11 @@
         <#if properties??>
             <#if properties.title??>
                 <#assign title = properties.title />
+                <#assign hasTitle = true />
             </#if>
             <#if properties.xmUrl??>
                 <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
             </#if>
             <#if properties.summary??>
                 <#assign summary = properties.summary />
@@ -278,26 +302,29 @@
             </#if>
         </#if>
     </#if>
+    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#assign latestPublication = contentBean.latestPublication/>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
             <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.series"/></span>
         </div>
-        <a class="cta__title cta__button" href="<#if url??>${url}</#if>" title="<#if title??>${title}</#if>" data-uipath="ps.search-results.result.title">
-            <#if title??>${title}</#if>
-        </a>
+        <#if hasTitle && hasUrl>
+            <a class="cta__title cta__button" href="${url}" title="${title}" data-uipath="ps.search-results.result.title">
+                ${title}
+            </a>
+        </#if>
+
         <#if summary??>
             <p class="cta__text" data-uipath="ps.search-results.result.summary">
                 <@truncate text=summary size="300"/></p>
         </#if>
 
-        <#if showLatest??>
-
-            <!-- todo: Figure out how to show latest publication -->
+        <#if contentBean.showLatest && latestPublication??>
             <p class="cta__text" data-uipath="ps.search-results.result.latest-publication">
                 Latest publication:
-                <a href="<@hst.link hippobean=item.latestPublication.selfLinkBean/>" title="${item.latestPublication.title}">
-                    ${item.latestPublication.title}
+                <a href="<@hst.link hippobean=latestPublication.selfLinkBean/>" title="${latestPublication.title}">
+                    ${latestPublication.title}
                 </a>
             </p>
         </#if>
@@ -310,9 +337,11 @@
         <#if properties??>
             <#if properties.title??>
                 <#assign title = properties.title />
+                <#assign hasTitle = true />
             </#if>
             <#if properties.xmUrl??>
                 <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
             </#if>
             <#if properties.summary??>
                 <#assign summary = properties.summary />
@@ -327,9 +356,13 @@
         <div>
             <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.dataset"/></span>
         </div>
-        <a class="cta__title cta__button" href="<#if url??>${url}</#if>" title="<#if title??>${title}</#if>" data-uipath="ps.search-results.result.title">
-            <#if title??>${title}</#if>
-        </a>
+        <#if hasTitle && hasUrl>
+            <a class="cta__title cta__button" href="${url}" title="${title}" data-uipath="ps.search-results.result.title">
+               ${title}
+            </a>
+        </#if>
+
+        <!--todo: verify nominalDate is working! -->
         <span class="cta__meta" data-uipath="ps.search-results.result.date"><#if nominalDate??><@formatEpoch date=nominalDate?c/></#if></span>
         <p class="cta__text" data-uipath="ps.search-results.result.summary"><#if summary??><@truncate text=summary size="300"/></#if></p>
     </div>
@@ -341,9 +374,11 @@
         <#if properties??>
             <#if properties.title??>
                 <#assign title = properties.title />
+                <#assign hasTitle = true />
             </#if>
             <#if properties.xmUrl??>
                 <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
             </#if>
             <#if properties.summary??>
                 <#assign summary = properties.summary />
@@ -354,24 +389,28 @@
 
         </#if>
     </#if>
+    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
             <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.indicator"/></span>
         </div>
-        <a class="cta__title cta__button" href="<#if url??>${url}</#if>" title="<#if title??>${title}</#if>" data-uipath="ps.search-results.result.title">
-            ${item.title}
-        </a>
+        <#if hasUrl && hasTitle>
+            <a class="cta__title cta__button" href="${url}" title="${title}" data-uipath="ps.search-results.result.title">
+                ${title}
+            </a>
+        </#if>
 
-        <p class="cta__text" data-uipath="ps.search-results.result.brief-description">${item.details.briefDescription}</p>
 
-        <#if item.assuredStatus>
+        <p class="cta__text" data-uipath="ps.search-results.result.brief-description">${contentBean.details.briefDescription}</p>
+
+        <#if contentBean.assuredStatus>
             <div class="cta__assurance">
                 <div class="cta__metas">
                     <span class="cta__meta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.assured"/></span>
                     <span class="cta__meta" data-uipath="ps.search-results.result.publisher-and-date">
                     <#if publishedBy??> <span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${publishedBy}.</#if>
-                    <span class="strong"><@fmt.message key="headers.assured"/>:</span> <@formatDate date=item.assuranceDate.time/></span>
+                    <span class="strong"><@fmt.message key="headers.assured"/>:</span> <@formatDate date=contentBean.assuranceDate.time/></span>
                 </div>
                 <div class="cta__badge">
                     <span data-uipath="ps.search-results.result.assured-indicator-icon" title="Assured Indicator" class="badge badge--assured"></span>
@@ -380,8 +419,162 @@
         <#else>
             <div class="cta__metas">
                 <span class="cta__meta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.unassured"/></span>
-                <span class="cta__meta" data-uipath="ps.search-results.result.publisher-and-date"><span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${item.publishedBy}. <@fmt.message key="headers.unassured"/>: <@formatDate date=item.assuranceDate.time/></span>
+                <span class="cta__meta" data-uipath="ps.search-results.result.publisher-and-date"><span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${contentBean.publishedBy}. <@fmt.message key="headers.unassured"/>: <@formatDate date=contentBean.assuranceDate.time/></span>
             </div>
         </#if>
     </div>
+</#macro>
+
+<#macro contentSearchEvent document>
+    <#if document?? && document.residualProperties??>
+        <#assign properties = document.residualProperties />
+        <#if properties??>
+            <#if properties.title??>
+                <#assign title = properties.title />
+                <#assign hasTitle = true />
+            </#if>
+            <#if properties.xmUrl??>
+                <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
+            </#if>
+            <#if properties.shortsummary??>
+                <#assign shortsummary = properties.shortsummary />
+            </#if>
+            <#if properties.publishedBy??>
+                <#assign publishedBy = properties.publishedBy />
+            </#if>
+            <#if properties.events_enddatetime??>
+                <#assign events_enddatetime = properties.events_enddatetime />
+            </#if>
+            <#if properties.events_startdatetime??>
+                <#assign events_startdatetime = properties.events_startdatetime />
+            </#if>
+        </#if>
+    </#if>
+    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.event"/></span>
+        </div>
+        <#if hasTitle && hasUrl>
+            <a class="cta__title cta__button" href="${url}" title="${title}" data-uipath="ps.search-results.result.title">
+                ${title}
+            </a>
+        </#if>
+
+        <#if shortsummary??>
+            <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=shortsummary size="300"/></p>
+        </#if>
+
+        <!--todo: Refactor date range based on events_startdatetime/events_enddatetime -->
+        <#assign dateRangeData = getEventDateRangeData(contentBean.events) />
+        <#if dateRangeData?size gt 0>
+            <#if dateRangeData.comparableStartDate == dateRangeData.comparableEndDate>
+                <p class="cta__meta">
+                    <span class="strong"><@fmt.message key="labels.date-label"/>: </span>
+                    <span><@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
+                </p>
+            <#else>
+                <p class="cta__meta">
+                    <span class="strong"><@fmt.message key="labels.date-label"/>: </span>
+                    <span>
+                    <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /> - <@fmt.formatDate value=dateRangeData.maxEndTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                </span>
+                </p>
+            </#if>
+        </#if>
+    </div>
+</#macro>
+
+<#macro contentSearchNews document>
+    <#if document?? && document.residualProperties??>
+        <#assign properties = document.residualProperties />
+        <#if properties??>
+            <#if properties.title??>
+                <#assign title = properties.title />
+                <#assign hasTitle = true />
+            </#if>
+            <#if properties.xmUrl??>
+                <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
+            </#if>
+            <#if properties.shortsummary??>
+                <#assign shortsummary = properties.shortsummary />
+            </#if>
+        </#if>
+    </#if>
+    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.news"/></span>
+        </div>
+        <#if hasTitle && hasUrl>
+        <a class="cta__title cta__button" href="${url}" title="${title}" data-uipath="ps.search-results.result.title">
+            ${title}
+        </a>
+        </#if>
+
+        <#if shortsummary??>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=shortsummary size="300"/></p>
+        </#if>
+
+        <#if contentBean.publisheddatetime?? && contentBean.publisheddatetime.time??>
+            <div class="cta__metas cta__metas--spaced">
+                <p class="cta__meta">
+                    <span class="strong"><@fmt.message key="about-us.newsDateLabel"/>: </span>
+                    <@fmt.formatDate value=contentBean.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="${getTimeZone()}" />
+                    <@fmt.formatDate value=contentBean.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeForHumans" timeZone="${getTimeZone()}" />
+                    <time datetime="${publishedDateTime}">${publishedDateTimeForHumans}</time>
+                </p>
+            </div>
+        </#if>
+    </div>
+</#macro>
+
+<#macro contentSearchPublishedworkchapter document>
+    <#if document?? && document.residualProperties??>
+        <#assign properties = document.residualProperties />
+        <#if properties??>
+            <#if properties.title??>
+                <#assign title = properties.title />
+                <#assign hasTitle = true />
+            </#if>
+            <#if properties.xmUrl??>
+                <#assign url = properties.xmUrl />
+                <#assign hasUrl = true />
+            </#if>
+            <#if properties.shortsummary??>
+                <#assign shortsummary = properties.shortsummary />
+            </#if>
+            <#if properties.publisheddatetime??>
+                <#assign publisheddatetime = properties.publisheddatetime />
+                <#assign hasPublisheddatetime = true />
+            </#if>
+        </#if>
+    </#if>
+
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedworkchapter"/></span>
+        </div>
+
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+        <#if contentBean?? && contentBean.publishedWork?? && contentBean.publishedWork.title??>
+            <strong> ${contentBean.publishedWork.title} </strong>
+            <br />
+        </#if>
+
+        <#if hasTitle && hasUrl>
+            <a class="cta__title cta__button" href="${url}" title="${title}" data-uipath="ps.search-results.result.title">
+                ${title}
+            </a>
+        </#if>
+
+        <#if shortsummary??>
+            <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=shortsummary size="300"/></p>
+        </#if>
+    </div>
+
 </#macro>

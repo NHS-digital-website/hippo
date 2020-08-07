@@ -182,6 +182,7 @@ public class SearchComponent extends CommonComponent {
             .retrieveField("assuranceDate")
             .retrieveField("publishedBy")
             .retrieveField("details_briefDescription")
+            .retrieveField("nominalDate")
             .retrieveField("summary")
             .retrieveField("showLatest");
 
