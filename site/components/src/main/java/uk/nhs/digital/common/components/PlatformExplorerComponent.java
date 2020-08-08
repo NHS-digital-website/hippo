@@ -10,12 +10,13 @@ import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.util.UriUtils;
+import uk.nhs.digital.platformexplorer.response.AaltoView;
 
 public class PlatformExplorerComponent extends CommonComponent {
     private static Logger log = LoggerFactory.getLogger(PlatformExplorerComponent.class);
     public static final String PLATFORM_RESOURCE_RESOLVER = "platformResourceResolver";
-    public static final String ALTO_POC_VIEW_PATH = "/Website Collection/Website Dev POC?$expand=Items($expand=RelatedItems($levels=1;$expand=Attributes))";
+    public static final String EXPAND_ITEMS_PARAM = "$expand=Items($expand=RelatedItems($levels=1;$expand=Attributes))";
+    public static final String ALTO_POC_VIEW_REQUEST_PATH = "/api/views/Website Collection/Website Dev POC?" + EXPAND_ITEMS_PARAM;
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -23,14 +24,13 @@ public class PlatformExplorerComponent extends CommonComponent {
         try {
             ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
             log.info(resourceServiceBroker.toString());
-            final Resource resource = resourceServiceBroker.resolve(PLATFORM_RESOURCE_RESOLVER, UriUtils.encodePath(ALTO_POC_VIEW_PATH, "UTF-8"));
+            final Resource resource = resourceServiceBroker.resolve(PLATFORM_RESOURCE_RESOLVER, ALTO_POC_VIEW_REQUEST_PATH);
             log.info(resource.toString());
             final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
             log.info(resourceBeanMapper.toString());
-            String aaltoPayload = resourceBeanMapper.map(resource, String.class);
+            AaltoView aaltoPayload = resourceBeanMapper.map(resource, AaltoView.class);
             request.setAttribute("aaltoPayload", aaltoPayload);
         } catch (Exception exception) {
-
             log.error("Exception while fetching alto data", exception);
         }
 
