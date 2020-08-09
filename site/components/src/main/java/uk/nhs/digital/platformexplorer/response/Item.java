@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import com.google.common.base.Optional;
 
 import java.util.List;
+import java.util.StringJoiner;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -340,4 +341,23 @@ public class Item {
         this.relatedItems = relatedItems;
     }
 
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Item.class.getSimpleName() + "[", "]")
+            .add("iServerId='" + iServerId + "'")
+            .add("name='" + name + "'")
+            .add("type='" + type + "'")
+            .add("library='" + library + "'")
+            .add("description='" + description + "'")
+            .add("approvalStatus='" + approvalStatus + "'")
+            .add("checkedOutBy=" + checkedOutBy)
+            .add("isLocked=" + isLocked)
+            .add("versionNumber=" + versionNumber)
+            .add("createdBy='" + createdBy + "'")
+            .add("dateCreated='" + dateCreated + "'")
+            .add("modifiedBy='" + modifiedBy + "'")
+            .add("dateModified='" + dateModified + "'")
+            .add("attributes=" + attributes)
+            .toString();
+    }
 }

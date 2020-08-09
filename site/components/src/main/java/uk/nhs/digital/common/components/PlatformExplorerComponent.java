@@ -11,6 +11,9 @@ import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.platformexplorer.response.AaltoView;
+import uk.nhs.digital.platformexplorer.response.Item;
+
+import java.util.List;
 
 public class PlatformExplorerComponent extends CommonComponent {
     private static Logger log = LoggerFactory.getLogger(PlatformExplorerComponent.class);
@@ -23,19 +26,19 @@ public class PlatformExplorerComponent extends CommonComponent {
         super.doBeforeRender(request, response);
         try {
             ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-            log.info(resourceServiceBroker.toString());
             final Resource resource = resourceServiceBroker.resolve(PLATFORM_RESOURCE_RESOLVER, ALTO_POC_VIEW_REQUEST_PATH);
-            log.info(resource.toString());
-            final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
-            log.info(resourceBeanMapper.toString());
-            AaltoView aaltoPayload = resourceBeanMapper.map(resource, AaltoView.class);
-            request.setAttribute("aaltoPayload", aaltoPayload);
+            getAllCapabilities(request, resourceServiceBroker, resource);
         } catch (Exception exception) {
             log.error("Exception while fetching alto data", exception);
         }
+    }
 
-        request.setAttribute("hello", "Hello World");
-
+    private void getAllCapabilities(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource resource) {
+        final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
+        AaltoView aaltoPayload = resourceBeanMapper.map(resource, AaltoView.class);
+        final List<Item> capabilities = aaltoPayload.getItems();
+        log.info(capabilities.toString());
+        request.setAttribute("capabilities", capabilities);
     }
 
 }
