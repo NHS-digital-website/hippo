@@ -34,11 +34,12 @@ public class PlatformExplorerComponent extends CommonComponent {
     }
 
     private void getAllCapabilities(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource resource) {
+        log.info("Retrieving all Capabilities");
         final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
-        AaltoView aaltoPayload = resourceBeanMapper.map(resource, AaltoView.class);
-        final List<Item> capabilities = aaltoPayload.getItems();
-        log.info(capabilities.toString());
+        AaltoView aaltoView = resourceBeanMapper.map(resource, AaltoView.class);
+        final List<Item> capabilities = aaltoView.getItems();
         request.setAttribute("capabilities", capabilities);
+        log.info("Successfully retrieved and set in the request");
     }
 
 }
