@@ -1,12 +1,12 @@
 package uk.nhs.digital.platformexplorer.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.*;
+import com.google.common.base.Optional;
 
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder
     ({
         "iServerId",
@@ -95,8 +95,11 @@ public class Item {
     /**
      * (Required)
      */
+    @JsonIgnore
     @JsonProperty("Attributes")
     private Attributes attributes;
+
+    @JsonIgnore
     @JsonProperty("RelatedItems")
     private List<Item> relatedItems = null;
 
@@ -311,9 +314,10 @@ public class Item {
     /**
      * (Required)
      */
+    @JsonIgnore
     @JsonProperty("Attributes")
-    public Attributes getAttributes() {
-        return attributes;
+    public Optional<Attributes> getAttributes() {
+        return Optional.fromNullable(attributes);
     }
 
     /**
@@ -324,10 +328,12 @@ public class Item {
         this.attributes = attributes;
     }
 
+    @JsonIgnore
     @JsonProperty("RelatedItems")
     public List<Item> getRelatedItems() {
         return relatedItems;
     }
+
 
     @JsonProperty("RelatedItems")
     public void setRelatedItems(List<Item> relatedItems) {
