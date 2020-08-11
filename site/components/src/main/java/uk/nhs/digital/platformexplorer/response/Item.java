@@ -32,7 +32,7 @@ public class Item {
      * (Required)
      */
     @JsonProperty("iServerId")
-    private String iServerId;
+    private String id;
     /**
      * (Required)
      */
@@ -108,16 +108,16 @@ public class Item {
      * (Required)
      */
     @JsonProperty("iServerId")
-    public String getIServerId() {
-        return iServerId;
+    public String getId() {
+        return id;
     }
 
     /**
      * (Required)
      */
     @JsonProperty("iServerId")
-    public void setIServerId(String iServerId) {
-        this.iServerId = iServerId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**
@@ -344,7 +344,7 @@ public class Item {
     @Override
     public String toString() {
         return new StringJoiner(", ", Item.class.getSimpleName() + "[", "]")
-            .add("iServerId='" + iServerId + "'")
+            .add("iServerId='" + id + "'")
             .add("name='" + name + "'")
             .add("type='" + type + "'")
             .add("library='" + library + "'")

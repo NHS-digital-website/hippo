@@ -1,28 +1,31 @@
 <#ftl output_format="HTML">
-
-<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.OrgStructure" -->
-
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/documentHeader.ftl">
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
-
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
-<#assign headingText = "Capabilities" />
 <article class="article">
-    <div class="grid-wrapper grid-wrapper--article">
-        <div class="grid-row">
-            <ul>
-                <div class="article-section">
-                    <h2>${headingText}</h2>
-                </div>
-                <#list capabilities as capability>
-                    <li>${capability_index + 1}. ${capability.name}</li>
-                </#list>
-            </ul>
+    <form role="search" method="get" action="" class="search-banner__form">
+        <div class="grid-wrapper grid-wrapper--article">
+            <div class="grid-row">
+                <ul>
+                    <div class="article-section">
+                        <h2>${headingText}</h2>
+                    </div>
+                    <#list items as item>
+                        <#assign itemId = 'None' />
+                        <#if item.id??>
+                            <#assign itemId = item.id />
+                        </#if>
+                        <li>
+                            ${item_index + 1}. <a href="platform-explorer?id=${itemId}"/>${item.name}</a>
+                        </li>
+                    </#list>
+                </ul>
+            </div>
         </div>
-    </div>
+    </form>
 </article>

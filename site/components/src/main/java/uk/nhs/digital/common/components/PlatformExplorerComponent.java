@@ -13,32 +13,98 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.platformexplorer.response.AaltoView;
 import uk.nhs.digital.platformexplorer.response.Item;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PlatformExplorerComponent extends CommonComponent {
+
+
+    public static final String BUSINESS_SERVICE = "Business service";
+    public static final String APPLICATION_SERVICE = "Application service";
+    public static final String APPLICATION_COMPONENT = "Application component";
+    public static final String CAPABILITY = "Capability";
+    public static final String SYSTEM_SOFTWARE = "System software";
     private static Logger log = LoggerFactory.getLogger(PlatformExplorerComponent.class);
+
+    public static final String HEADING_TEXT = "headingText";
+
+    public static final String ITEMS_REQUEST_KEY = "items";
+
     public static final String PLATFORM_RESOURCE_RESOLVER = "platformResourceResolver";
+
     public static final String EXPAND_ITEMS_PARAM = "$expand=Items($expand=RelatedItems($levels=1;$expand=Attributes))";
+
     public static final String ALTO_POC_VIEW_REQUEST_PATH = "/api/views/Website Collection/Website Dev POC?" + EXPAND_ITEMS_PARAM;
+
+    public static final String ITEM_REQUEST_PATH = "/api/item/";
+
+    public static final String EXPAND_ATTRIBUTES_PARAM = "$expand=RelatedItems($expand=Attributes)";
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
         try {
             ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-            final Resource resource = resourceServiceBroker.resolve(PLATFORM_RESOURCE_RESOLVER, ALTO_POC_VIEW_REQUEST_PATH);
-            getAllCapabilities(request, resourceServiceBroker, resource);
+            final String id = getAnyParameter(request, "id");
+            log.info("requested Item Id:" + id);
+            if (id != null) {
+                final Resource resource = resourceServiceBroker.resolve(PLATFORM_RESOURCE_RESOLVER, ITEM_REQUEST_PATH + id + "?" + EXPAND_ATTRIBUTES_PARAM);
+                getItemById(request, resourceServiceBroker, resource);
+            } else {
+                final Resource resource = resourceServiceBroker.resolve(PLATFORM_RESOURCE_RESOLVER, ALTO_POC_VIEW_REQUEST_PATH);
+                getAllRootItems(request, resourceServiceBroker, resource);
+            }
+
         } catch (Exception exception) {
             log.error("Exception while fetching alto data", exception);
         }
     }
 
-    private void getAllCapabilities(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource resource) {
+    private void getItemById(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource resource) {
+        log.info("Retrieving Item");
+        final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
+        Item dataItem = resourceBeanMapper.map(resource, Item.class);
+        String childType = getChildType(dataItem.getType());
+        log.info("childType : " + childType);
+        final List<Item> relatedItems = dataItem.getRelatedItems();
+        relatedItems.stream().forEach(item -> log.info("item " + item.toString()));
+        final List<Item> items = relatedItems.stream().filter(relatedItem -> relatedItem.getType().equals(childType)).collect(Collectors.toList());
+        if (items != null && !items.isEmpty()) {
+            request.setAttribute(HEADING_TEXT, items.get(0).getType());
+            request.setAttribute(ITEMS_REQUEST_KEY, items);
+            log.info("Successfully retrieved Item and set in the request");
+        } else {
+            request.setAttribute(HEADING_TEXT, "No Child");
+            request.setAttribute(ITEMS_REQUEST_KEY, Collections.EMPTY_LIST);
+            log.info("No Child data elements and set in the request");
+        }
+
+    }
+
+    public String getChildType(String itemType) {
+        log.info("itemType :" + itemType);
+        if (CAPABILITY.equals(itemType)) {
+            return BUSINESS_SERVICE;
+        } else if (PlatformExplorerComponent.BUSINESS_SERVICE.equals(itemType)) {
+            return APPLICATION_SERVICE;
+        } else if (PlatformExplorerComponent.APPLICATION_SERVICE.equals(itemType)) {
+            return APPLICATION_COMPONENT;
+        } else if (PlatformExplorerComponent.APPLICATION_COMPONENT.equals(itemType)) {
+            return SYSTEM_SOFTWARE;
+        } else {
+            return CAPABILITY;
+        }
+
+    }
+
+    private void getAllRootItems(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource resource) {
         log.info("Retrieving all Capabilities");
         final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
         AaltoView aaltoView = resourceBeanMapper.map(resource, AaltoView.class);
-        final List<Item> capabilities = aaltoView.getItems();
-        request.setAttribute("capabilities", capabilities);
+        final List<Item> items = aaltoView.getItems();
+        request.setAttribute(HEADING_TEXT, items.stream().findAny().get().getType());
+        request.setAttribute(ITEMS_REQUEST_KEY, items);
         log.info("Successfully retrieved and set in the request");
     }
 
