@@ -18,7 +18,7 @@ import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToH
 public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
     private static final String TEST_DATA_FILES_PATH =
-        "/test-data/api-specifications/SwaggerCodeGenApiSpecHtmlProviderTest";
+        "/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest";
 
     private final String specificationId = "123456";
 

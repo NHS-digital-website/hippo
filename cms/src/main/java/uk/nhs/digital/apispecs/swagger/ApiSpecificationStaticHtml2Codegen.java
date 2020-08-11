@@ -1,9 +1,10 @@
-package uk.nhs.digital.apispecs.commonmark;
+package uk.nhs.digital.apispecs.swagger;
 
 import static java.util.Collections.emptyList;
 
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
+import io.swagger.codegen.v3.CodegenParameter;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
@@ -13,6 +14,8 @@ import io.swagger.v3.oas.models.parameters.Parameter;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
+import uk.nhs.digital.apispecs.swagger.request.CodegenRequestParameterExampleRenderer;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -22,7 +25,11 @@ import java.util.stream.Stream;
 public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiSpecificationStaticHtml2Codegen.class);
-    private CommonmarkMarkdownConverter markdown = new CommonmarkMarkdownConverter();
+
+    private CommonmarkMarkdownConverter markdownConverter = new CommonmarkMarkdownConverter();
+
+    private CodegenRequestParameterExampleRenderer codegenRequestParameterExampleRenderer =
+        new CodegenRequestParameterExampleRenderer(markdownConverter);
 
     @Override
     public void preprocessOpenAPI(OpenAPI openApi) {
@@ -54,6 +61,11 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         prepareHtmlForPathParameters(openAPI);
 
         prepareHtmlForMethodsParameters(openAPI);
+    }
+
+    @Override
+    public void setParameterExampleValue(final CodegenParameter parameter) {
+        parameter.example = codegenRequestParameterExampleRenderer.htmlForExampleValueOf(parameter);
     }
 
     /**
@@ -90,7 +102,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
         operationFromAllPaths.forEach(operation -> {
             final String markdownDescription = operation.getDescription();
-            final String htmlDescription = markdown.toHtml(markdownDescription);
+            final String htmlDescription = markdownConverter.toHtml(markdownDescription);
 
             operation.setDescription(htmlDescription);
         });
@@ -105,7 +117,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
         parameterFromAllPaths.forEach(parameter -> {
             final String markdownDescription = parameter.getDescription();
-            final String htmlDescription = markdown.toHtml(markdownDescription);
+            final String htmlDescription = markdownConverter.toHtml(markdownDescription);
 
             parameter.setDescription(htmlDescription);
         });
@@ -129,7 +141,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
         parameterFromAllMethodsOfAllPaths.forEach(parameter -> {
             final String markdownDescription = parameter.getDescription();
-            final String htmlDescription = markdown.toHtml(markdownDescription);
+            final String htmlDescription = markdownConverter.toHtml(markdownDescription);
 
             parameter.setDescription(htmlDescription);
         });

@@ -51,7 +51,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     // Test data
     private static final String TEST_SPEC_ID = "269326";
-    private static final String TEST_DATA_FILES_DIR = "/test-data/api-specifications/ApiSpecConversionJobIntegrationTest/";
+    private static final String TEST_DATA_FILES_DIR = "/test-data/api-specifications/ApiSpecSyncFromApigeeJobIntegrationTest/";
 
     // Apigee access
     private static final String PARAM_APIGEE_RESOURCES_SPECS_ALL_URL = "devzone.apigee.resources.specs.all.url";

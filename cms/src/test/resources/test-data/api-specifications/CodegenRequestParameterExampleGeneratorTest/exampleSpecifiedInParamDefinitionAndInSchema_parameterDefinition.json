@@ -1,0 +1,6 @@
+{
+  "example": "simple example specified in parameter's definition",
+  "schema": {
+    "example": "example specified in parameter's schema"
+  }
+}
