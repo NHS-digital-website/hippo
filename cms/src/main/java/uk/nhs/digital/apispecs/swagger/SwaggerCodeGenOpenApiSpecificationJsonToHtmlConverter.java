@@ -4,7 +4,6 @@ import io.swagger.codegen.v3.*;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import org.apache.commons.io.FileUtils;
 import uk.nhs.digital.apispecs.OpenApiSpecificationJsonToHtmlConverter;
-import uk.nhs.digital.apispecs.commonmark.ApiSpecificationStaticHtml2Codegen;
 
 import java.io.File;
 import java.io.IOException;
