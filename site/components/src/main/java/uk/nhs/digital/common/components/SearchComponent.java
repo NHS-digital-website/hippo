@@ -97,9 +97,10 @@ public class SearchComponent extends CommonComponent {
 
                 if (queryResponse.isOk()) {
                     final long totalResults = queryResponse.getSearchResult().getNumFound();
-                    final List<Integer> pageNumbers = getPageNumbers(totalResults, currentPage);
+                    final int pageCount = (int) Math.ceil((double) totalResults / pageSize);
+                    final List<Integer> pageNumbers = getPageNumbers(currentPage, pageCount);
                     Pageable<Document> pageable = new ContentSearchPageable<>(totalResults, currentPage, pageSize);
-                    request.setAttribute("pageCount", (int) Math.ceil((double) totalResults / pageSize));
+                    request.setAttribute("pageCount", pageCount);
                     request.setAttribute("pageable", pageable);
                     request.setAttribute("pageNumbers", pageNumbers);
                     request.setAttribute("isContentSearch", true);
@@ -208,10 +209,9 @@ public class SearchComponent extends CommonComponent {
             .collect(toList());
     }
 
-    private List<Integer> getPageNumbers(long totalResults, int currentPage) {
-
+    private List<Integer> getPageNumbers(int currentPage, int pageCount) {
         int buffer = (PAGEABLE_SIZE - 1) / 2;
-        int end = min((int) totalResults, max(currentPage + buffer, PAGEABLE_SIZE));
+        int end = min(pageCount, max(currentPage + buffer, PAGEABLE_SIZE));
         int start = max(1, end - PAGEABLE_SIZE + 1);
 
         return IntStream.rangeClosed(start, end)

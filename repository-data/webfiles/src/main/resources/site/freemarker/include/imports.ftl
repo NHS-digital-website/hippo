@@ -6,7 +6,6 @@
 
 <#assign truncate="uk.nhs.digital.ps.directives.TruncateFormatterDirective"?new() >
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
-<#assign formatEpoch="uk.nhs.digital.ps.directives.EpochDateDirective"?new() />
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
 <#assign formatDate="uk.nhs.digital.ps.directives.DateFormatterDirective"?new() >
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
