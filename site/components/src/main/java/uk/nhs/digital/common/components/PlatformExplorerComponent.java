@@ -11,6 +11,7 @@ import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.platformexplorer.response.AaltoView;
+import uk.nhs.digital.platformexplorer.response.AltoDataType;
 import uk.nhs.digital.platformexplorer.response.Item;
 
 import java.util.Collections;
@@ -19,13 +20,13 @@ import java.util.stream.Collectors;
 
 public class PlatformExplorerComponent extends CommonComponent {
 
+    private static Logger log = LoggerFactory.getLogger(PlatformExplorerComponent.class);
 
     public static final String BUSINESS_SERVICE = "Business service";
     public static final String APPLICATION_SERVICE = "Application service";
     public static final String APPLICATION_COMPONENT = "Application component";
     public static final String CAPABILITY = "Capability";
     public static final String SYSTEM_SOFTWARE = "System software";
-    private static Logger log = LoggerFactory.getLogger(PlatformExplorerComponent.class);
 
     public static final String HEADING_TEXT = "headingText";
 
@@ -65,7 +66,7 @@ public class PlatformExplorerComponent extends CommonComponent {
         log.info("Retrieving Item");
         final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
         Item dataItem = resourceBeanMapper.map(resource, Item.class);
-        String childType = getChildType(dataItem.getType());
+        String childType = AltoDataType.fromString(dataItem.getType()).getChildItemType();
         log.info("childType : " + childType);
         final List<Item> relatedItems = dataItem.getRelatedItems();
         relatedItems.stream().forEach(item -> log.info("item " + item.toString()));
@@ -78,22 +79,6 @@ public class PlatformExplorerComponent extends CommonComponent {
             request.setAttribute(HEADING_TEXT, "No Child");
             request.setAttribute(ITEMS_REQUEST_KEY, Collections.EMPTY_LIST);
             log.info("No Child data elements and set in the request");
-        }
-
-    }
-
-    public String getChildType(String itemType) {
-        log.info("itemType :" + itemType);
-        if (CAPABILITY.equals(itemType)) {
-            return BUSINESS_SERVICE;
-        } else if (PlatformExplorerComponent.BUSINESS_SERVICE.equals(itemType)) {
-            return APPLICATION_SERVICE;
-        } else if (PlatformExplorerComponent.APPLICATION_SERVICE.equals(itemType)) {
-            return APPLICATION_COMPONENT;
-        } else if (PlatformExplorerComponent.APPLICATION_COMPONENT.equals(itemType)) {
-            return SYSTEM_SOFTWARE;
-        } else {
-            return CAPABILITY;
         }
 
     }
