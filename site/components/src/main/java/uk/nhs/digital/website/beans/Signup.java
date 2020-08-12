@@ -26,9 +26,9 @@ public class Signup extends CommonFieldsBean {
         return getSingleProperty("website:shortsummary");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:seoSummary")
-    public String getSeoSummary() {
-        return getSingleProperty("website:seoSummary");
+    @HippoEssentialsGenerated(internalName = "website:seosummary")
+    public HippoHtml getSeosummary() {
+        return getHippoHtml("website:seosummary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:owner")
@@ -54,6 +54,11 @@ public class Signup extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:bannercontrols")
     public BannerControl getBannercontrols() {
         return getBean("intranet:bannercontrols", BannerControl.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:formlink")
+    public Internallink getFormLink() {
+        return getBean("website:formlink", Internallink.class);
     }
 
 }

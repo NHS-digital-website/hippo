@@ -66,4 +66,10 @@ definitions:
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
+      /sign-up:
+        /form:
+          hst:label: Form
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       jcr:primaryType: hst:containercomponentfolder
