@@ -39,7 +39,7 @@ public class SubscriptionResource {
 
     private SubscriptionResource() {}
 
-    public String getSubscriberId(final String emailAddress, final List<String> topicCodes) {
+    public String subscribe(final String emailAddress, final List<String> topicCodes) {
         final Subscriber subscriber = SubscriberFactory.create(emailAddress, topicCodes);
 
         try {

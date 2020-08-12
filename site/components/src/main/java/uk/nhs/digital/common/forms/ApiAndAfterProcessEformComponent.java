@@ -38,8 +38,7 @@ public class ApiAndAfterProcessEformComponent extends EformComponent {
     protected void addConfiguredBehaviors(HstRequest request) {
         super.addConfiguredBehaviors(request);
         addBehavior(new AfterProcessBehavior());
-        //todo uncomment this
-        //addBehavior(new ReCaptchaValidationPlugin());
+        addBehavior(new ReCaptchaValidationPlugin());
         addBehavior(new SubscriptionBehavior());
     }
 }

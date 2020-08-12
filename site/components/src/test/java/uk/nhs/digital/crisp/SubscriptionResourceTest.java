@@ -40,7 +40,7 @@ public class SubscriptionResourceTest {
         final String email = "user@domain.com";
         final List<String> topics = Arrays.asList("TOPIC1", "TOPIC2");
 
-        final String subscriberId = resource.getSubscriberId(email, topics);
+        final String subscriberId = resource.subscribe(email, topics);
 
         assertEquals("ZW1haWxAdGVzdC5nb3ZkZWxpdmVyeS5jb20=", subscriberId);
     }

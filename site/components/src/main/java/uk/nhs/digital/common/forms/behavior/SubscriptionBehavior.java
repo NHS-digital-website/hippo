@@ -42,8 +42,8 @@ public class SubscriptionBehavior implements OnValidationSuccessBehavior {
 
         final String emailAddress = emailField.getValue();
         final List<String> topics = getListOfValues(topicsField.getValue());
-        final String subscriberId = subscriptionResource.getSubscriberId(emailAddress, topics);
-        LOGGER.info("Successfully created subscriber {}", subscriberId);
+        final String subscriberId = subscriptionResource.subscribe(emailAddress, topics);
+        LOGGER.debug("Successfully created subscriber with id {}", subscriberId);
     }
 
     private List<String> getListOfValues(final String value) {
