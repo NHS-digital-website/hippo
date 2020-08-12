@@ -68,7 +68,7 @@ definitions:
           /severity:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: High,Medium,Low
+              selectable.options: High,Medium,Low,Information only
             caption: Severity
             field: severity
             jcr:primaryType: frontend:plugin
@@ -464,6 +464,9 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           /website:remediationintro:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           /website:summary:
