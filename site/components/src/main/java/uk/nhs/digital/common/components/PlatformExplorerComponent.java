@@ -22,12 +22,6 @@ public class PlatformExplorerComponent extends CommonComponent {
 
     private static Logger log = LoggerFactory.getLogger(PlatformExplorerComponent.class);
 
-    public static final String BUSINESS_SERVICE = "Business service";
-    public static final String APPLICATION_SERVICE = "Application service";
-    public static final String APPLICATION_COMPONENT = "Application component";
-    public static final String CAPABILITY = "Capability";
-    public static final String SYSTEM_SOFTWARE = "System software";
-
     public static final String HEADING_TEXT = "headingText";
 
     public static final String ITEMS_REQUEST_KEY = "items";
