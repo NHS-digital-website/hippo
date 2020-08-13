@@ -315,6 +315,7 @@ It supports the following security patterns:</p>
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">9000000009</code></div>
                                                             
                                                                         </div>
@@ -349,6 +350,8 @@ It supports the following security patterns:</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
                                                             
+                                                                                <div>Pattern: <span class="codeinline">/^[0-9]+$/</span></div>
+                                                            
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
                                                             
                                                                         </div>
@@ -368,6 +371,7 @@ It supports the following security patterns:</p>
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
+                                                            
                                                             
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
                                                             
@@ -643,6 +647,8 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
                                                             
+                                                                                <div>Pattern: <span class="codeinline">/^[0-9]+$/</span></div>
+                                                            
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
                                                             
                                                                         </div>
@@ -662,6 +668,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
+                                                            
                                                             
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
                                                             
@@ -693,6 +700,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                                                 <div>The search only returns results where the <code class="codeinline">score</code> field is 1.0.</div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">true</code></div>
                                                             
                                                                         </div>
@@ -711,6 +719,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                                                 <div>The search looks for matches in historic information such as previous names and addresses.</div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">true</code></div>
                                                             
                                                                         </div>
@@ -728,6 +737,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                                 <div>Default value: <span class="codeinline">false</span></div>
                                                             
                                                                                 <div>A fuzzy search is performed, including checks for homophones and transposed names.</div>
+                                                            
                                                             
                                                                                 <div>Example: <code class="codeinline">true</code></div>
                                                             
@@ -748,6 +758,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                                                 <div>The maximum number of results to return between 1 and 50. The default is 50.</div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">1</code></div>
                                                             
                                                                         </div>
@@ -766,6 +777,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                                 <div><p>The patient's family name (surname).</p>
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
 </div>
+                                                            
                                                             
                                                                                 <div><div class="httpparams__examples__header">Examples:</div>
 <div class="httpparams__example__summary">Will also match Smythe if `_fuzzy-match` is specified.</div>
@@ -791,6 +803,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
 </div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">Jane</code></div>
                                                             
                                                                         </div>
@@ -808,6 +821,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                                                 <div>Gender with which the patient most strongly identifies.</div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">female</code></div>
                                                             
                                                                         </div>
@@ -824,6 +838,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                                                 <div>Date of birth in the format <code class="codeinline">&lt;eq|ge|le&gt;yyyy-mm-dd</code>. To specify a range, use <code class="codeinline">birthdate=geyyyy-mm-dd&amp;birthdate=leyyyy-mm-dd</code>.</div>
+                                                            
                                                             
                                                                                 <div><div class="httpparams__examples__header">Examples:</div>
 <div class="httpparams__example__description">Exact match date</div>
@@ -849,6 +864,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                                                 <div>Date of death in the format <code class="codeinline">&lt;eq|ge|le&gt;yyyy-mm-dd</code>. To specify a range, use <code class="codeinline">death-date=geyyyy-mm-dd&amp;death-date=leyyyy-mm-dd</code>.</div>
+                                                            
                                                             
                                                                                 <div><div class="httpparams__examples__header">Examples:</div>
 <div class="httpparams__example__description">Exact match date</div>
@@ -876,6 +892,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
 </div>
                                                             
+                                                            
                                                                                 <div><div class="httpparams__examples__header">Examples:</div>
 <div class="httpparams__example__summary">Spaces not important, would match LS16AE</div>
 <div class="httpparams__example__value"><code class="codeinline">LS1 6AE</code></div>
@@ -897,6 +914,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                                                 <div>The Organisation Data Service (ODS) code of the patient's registered GP practice.</div>
+                                                            
                                                             
                                                                                 <div>Example: <code class="codeinline">Y00001</code></div>
                                                             
@@ -1498,6 +1516,7 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">9000000009</code></div>
                                                             
                                                                         </div>
@@ -1530,6 +1549,8 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 <p>Send the value of this resource's <code class="codeinline">ETag</code> response header (or <code class="codeinline">meta.versionId</code> property) as received.</p>
 </div>
                                                             
+                                                                                <div>Pattern: <span class="codeinline">/^W\/"[0-9]+"$/</span></div>
+                                                            
                                                                                 <div>Example: <code class="codeinline">W/"2"</code></div>
                                                             
                                                                         </div>
@@ -1554,6 +1575,8 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
                                                             
+                                                                                <div>Pattern: <span class="codeinline">/^[0-9]+$/</span></div>
+                                                            
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
                                                             
                                                                         </div>
@@ -1573,6 +1596,7 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
+                                                            
                                                             
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
                                                             
@@ -2015,6 +2039,7 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                             
                                                                                 <div>The message ID of the accepted update that needs to be submitted to confirm the resource a successfully updated.</div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">20200522091633363041000001</code></div>
                                                             
                                                                         </div>
@@ -2049,6 +2074,8 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
                                                             
+                                                                                <div>Pattern: <span class="codeinline">/^[0-9]+$/</span></div>
+                                                            
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
                                                             
                                                                         </div>
@@ -2068,6 +2095,7 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
+                                                            
                                                             
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
                                                             
@@ -2290,6 +2318,7 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
                                                             
+                                                            
                                                                                 <div>Example: <code class="codeinline">9000000009</code></div>
                                                             
                                                                         </div>
@@ -2324,6 +2353,8 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
                                                             
+                                                                                <div>Pattern: <span class="codeinline">/^[0-9]+$/</span></div>
+                                                            
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
                                                             
                                                                         </div>
@@ -2343,6 +2374,7 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
+                                                            
                                                             
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
                                                             
