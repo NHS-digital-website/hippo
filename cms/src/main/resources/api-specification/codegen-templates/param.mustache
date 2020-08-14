@@ -5,11 +5,11 @@
             <div>
                 <span class="httpparams__datatype">{{dataType}}</span>
                 {{#dataFormat}}
-                    <span class="codeinline">({{dataFormat}})</span>
+                    <code class="codeinline">({{dataFormat}})</code>
                 {{/dataFormat}}
 
                 {{#defaultValue}}
-                    <div>Default value: <span class="codeinline">{{defaultValue}}</span></div>
+                    <div>Default value: <code class="codeinline">{{defaultValue}}</code></div>
                 {{/defaultValue}}
 
                 {{#description}}
@@ -17,8 +17,12 @@
                 {{/description}}
 
                 {{#pattern}}
-                    <div>Pattern: <span class="codeinline">{{pattern}}</span></div>
+                    <div>Pattern: <code class="codeinline">{{pattern}}</code></div>
                 {{/pattern}}
+
+                {{#allowableValues}}
+                    <div>Allowed values: {{enum allowableValues.values}}</div>
+                {{/allowableValues}}
 
                 {{#example}}
                     <div>{{example}}</div>

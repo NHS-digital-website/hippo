@@ -2,7 +2,6 @@ package uk.nhs.digital.apispecs;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
