@@ -21,7 +21,10 @@
                             <#assign itemId = item.id />
                         </#if>
                         <li>
-                            ${item_index + 1}. <a href="platform-explorer?id=${itemId}"/>${item.name}</a>   ${item.description}
+                            <a href="platform-explorer?id=${itemId}"/>${item.name}</a><br/>
+                            ${item.description}
+                            <br/>
+                            <br/>
                         </li>
                     </#list>
                 </ul>

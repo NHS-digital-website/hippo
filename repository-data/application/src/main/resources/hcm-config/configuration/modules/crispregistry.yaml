@@ -65,8 +65,8 @@ definitions:
       crisp:propvalues:
       - 'true'
       - https://aalto-api.digital.nhs.uk
-      - system administrator
-      - Parrot1!
+      - orbuscloud\apiuser
+      - Aalto123!
       jcr:primaryType: crisp:resourceresolver
     ? /hippo:configuration/hippo:modules/crispregistry/hippo:moduleconfig/crisp:resourceresolvercontainer/statisticsRestResourceResolver
     : crisp:beandefinition: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<beans\
