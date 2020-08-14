@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request;
+package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

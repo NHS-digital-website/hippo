@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request;
+package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -11,13 +11,13 @@ import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import io.swagger.codegen.v3.CodegenParameter;
-import org.jetbrains.annotations.NotNull;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
+import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenRequestParameterExampleRenderer;
 
 public class CodegenRequestParameterExampleRendererTest {
 
@@ -102,11 +102,11 @@ public class CodegenRequestParameterExampleRendererTest {
     }
 
     @Test
-    public void throwsException_onFailureToProcessCodegenParameter() {
+    public void throwsException_withUnderlyingCause_onFailureToProcessCodegenParameter() {
 
         // given
-        final String parameterJsonDefinition = "{ invalid JSON }";
-        final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
+        final String invalidParameterJsonDefinition = "{ invalid JSON }";
+        final CodegenParameter codegenParameter = codegenParameterWith(invalidParameterJsonDefinition);
 
         this.expectedException.expectMessage("Failed to generate HTML for examples of parameter param-name(data-type)");
         this.expectedException.expectCause(instanceOf(JsonParseException.class));
@@ -118,7 +118,7 @@ public class CodegenRequestParameterExampleRendererTest {
         // expectations set up in 'given' are satisfied
     }
 
-    @NotNull private CodegenParameter codegenParameterWith(final String parameterJsonDefinition) {
+    private CodegenParameter codegenParameterWith(final String parameterJsonDefinition) {
 
         final CodegenParameter codegenParameter = new CodegenParameter();
         codegenParameter.jsonSchema = parameterJsonDefinition;
@@ -131,7 +131,7 @@ public class CodegenRequestParameterExampleRendererTest {
         return codegenParameter;
     }
 
-    @NotNull private static String from(final String testFileName) {
+    private static String from(final String testFileName) {
         return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
     }
 }

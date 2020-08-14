@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request;
+package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -32,17 +32,17 @@ public class CodegenRequestParameterExampleRenderer {
 
     private final CommonmarkMarkdownConverter markdownConverter;
 
-    private ObjectMapper jsonObjectMapper = new ObjectMapper()
+    private final ObjectMapper jsonObjectMapper = new ObjectMapper()
         .configure(MapperFeature.USE_ANNOTATIONS, true);
 
     public CodegenRequestParameterExampleRenderer(final CommonmarkMarkdownConverter markdownConverter) {
         this.markdownConverter = markdownConverter;
     }
 
-    public String htmlForExampleValueOf(final CodegenParameter codegenParameter) {
+    public String htmlForExampleValueOf(final CodegenParameter requestParameter) {
 
         try {
-            final RequestParamDefinition requestParamDefinition = from(codegenParameter.getJsonSchema());
+            final RequestParamDefinition requestParamDefinition = from(requestParameter.getJsonSchema());
 
             if (requestParamDefinition.getExample().isPresent()) {
                 return htmlFrom(requestParamDefinition.getExample().get());
@@ -61,7 +61,7 @@ public class CodegenRequestParameterExampleRenderer {
             return exampleFromParamSchema.map(this::htmlFrom).orElse(null);
 
         } catch (final Exception e) {
-            throw new RuntimeException("Failed to generate HTML for examples of parameter " + codegenParameter, e);
+            throw new RuntimeException("Failed to generate HTML for examples of parameter " + requestParameter, e);
         }
     }
 

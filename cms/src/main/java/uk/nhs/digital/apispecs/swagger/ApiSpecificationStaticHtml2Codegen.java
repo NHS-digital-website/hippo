@@ -15,7 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
-import uk.nhs.digital.apispecs.swagger.request.CodegenRequestParameterExampleRenderer;
+import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ParameterBodyComponentsExtractor;
+import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenRequestParameterExampleRenderer;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -30,6 +31,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
     private CodegenRequestParameterExampleRenderer codegenRequestParameterExampleRenderer =
         new CodegenRequestParameterExampleRenderer(markdownConverter);
+
+    private ParameterBodyComponentsExtractor parameterBodyComponentsExtractor = new ParameterBodyComponentsExtractor();
 
     @Override
     public void preprocessOpenAPI(OpenAPI openApi) {
@@ -64,8 +67,23 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     @Override
+    public void postProcessParameter(final CodegenParameter parameter) {
+        super.postProcessParameter(parameter);
+
+        saveRequestBodyAsVendorExtensionOnParamIfPresent(parameter);
+    }
+
+    @Override
     public void setParameterExampleValue(final CodegenParameter parameter) {
         parameter.example = codegenRequestParameterExampleRenderer.htmlForExampleValueOf(parameter);
+    }
+
+    private void saveRequestBodyAsVendorExtensionOnParamIfPresent(final CodegenParameter parameter) {
+
+        parameterBodyComponentsExtractor.extractBody(parameter)
+            .ifPresent(requestBody ->
+                parameter.getVendorExtensions().put("x-body", requestBody)
+            );
     }
 
     /**
