@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request;
+package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
 import static java.util.Collections.emptyMap;
 import static java.util.Collections.unmodifiableMap;
