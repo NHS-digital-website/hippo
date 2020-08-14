@@ -168,6 +168,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     @Override
     public void addHandlebarHelpers(final Handlebars handlebars) {
         super.addHandlebarHelpers(handlebars);
+        handlebars.registerHelper(EnumHelper.NAME, new EnumHelper());
         handlebars.with(EscapingStrategy.NOOP);
     }
 }
