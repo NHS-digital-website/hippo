@@ -54,7 +54,7 @@
 
             <div class="column column--two-thirds page-block page-block--main">
 
-                <#if document.about?has_content>
+                <#if (document.about?has_content && document.quorate?number > 0)>
                   <div id="about" class="article-section" data-uipath="website.group.about">
                       <h2>About this group</h2>
                       <@hst.html hippohtml=document.about contentRewriter=gaContentRewriter />
@@ -69,7 +69,7 @@
                       </a>
                   </div>
                 </#if>
-                <#if document.quorate?has_content>
+                <#if (document.quorate?has_content && document.quorate?number > 0)>
                   <div class="article-section-with-sub-heading">
                     <p>This board is quorate with ${document.quorate} members</p>
                   </div>
@@ -78,46 +78,49 @@
                 <#if document.roles?has_content>
                   <div id="members" class="article-section">
                     <h2>Members</h2>
-                    <#list document.roles as role>
-                      <div class="group-member-item">
-                        <#if role.role.roles?? && role.role.roles?has_content>
-                          <div class="group-member-item-role">
-                            <#if role.role.roles.primaryroles?has_content>
-                              ${role.role.roles.firstprimaryrole}
-                            </#if>
-                            <#if role.role.roles.primaryroleorg?has_content>
-                              at ${role.role.roles.primaryroleorg}
-                            </#if>
-                          </div>
-                        </#if>
+                      <div class="callout-box-group">
+                          <#list document.roles as role>
+                              <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-information">
+                                  <#assign hasImage = false />
+                                  <#if role.role.personimages?? && role.role.personimages.picture?has_content>
+                                      <#assign hasImage = true />
+                                      <div class="callout-box__icon-wrapper">
+                                          <@hst.link hippobean=role.role.personimages.picture.original fullyQualified=true var="roleImage" />
+                                          <img itemprop="image" class="callout-box__icon" src="${roleImage}" alt="${role.role.title}" />
+                                      </div>
+                                  </#if>
+                                  <div class="callout-box__content ${hasImage?then("","callout-box__content--no-icon")}">
+                                      <#if role.role.roles?? && role.role.roles?has_content>
+                                        <h2 class="callout-box__content-heading ${hasImage?then("","callout-box__content-heading--no-icon")}" id="callout-box-heading-critical">
+                                            <#if role.role.roles.primaryroles?has_content>
+                                                ${role.role.roles.firstprimaryrole}
+                                            </#if>
+                                            <#if role.role.roles.primaryroleorg?has_content>
+                                                at ${role.role.roles.primaryroleorg}
+                                            </#if>
+                                        </h2>
+                                      </#if>
 
-                        <div class="group-member-item-subitem">
-                          <#if role.role.personimages?? && role.role.personimages.picture?has_content>
-                            <div class="group-member-item-left">
-                                <@hst.link hippobean=role.role.personimages.picture.original fullyQualified=true var="roleImage" />
-                                <img itemprop="image" class="group-member-item-img" src="${roleImage}" alt="${role.role.title}" />
-                            </div>
-                          </#if>
-
-                          <div class="group-member-item-right">
-                            <div class="group-member-item-title">${role.role.title}</div>
-                            <#if role.role.shortsummary?has_content>
-                              <div class="group-member-item-summary">
-                                ${role.role.shortsummary}
+                                      <div class="callout-box__content-description">
+                                          <#if role.role.title?has_content>
+                                            <p><a href="<@hst.link hippobean=role.role />">${role.role.title}</a></p>
+                                          </#if>
+                                          <#if role.role.shortsummary?has_content>
+                                              <p>${role.role.shortsummary}</p>
+                                          </#if>
+                                          <#if role.responsibilities?has_content>
+                                              <@hst.html hippohtml=role.responsibilities contentRewriter=gaContentRewriter />
+                                          </#if>
+                                          <#if role.groupposition?has_content>
+                                              <ul class="tag-list top-margin-20">
+                                                  <li class="tag">${role.groupposition}</li>
+                                              </ul>
+                                          </#if>
+                                      </div>
+                                  </div>
                               </div>
-                            </#if>
-                            <#if role.responsibilities?has_content>
-                              <div class="group-member-item-summary">
-                                <@hst.html hippohtml=role.responsibilities contentRewriter=gaContentRewriter />
-                              </div>
-                            </#if>
-                            <#if role.groupposition?has_content>
-                              <div class="group-member-item-groupposition">${role.groupposition}</div>
-                            </#if>
-                          </div>
-                        </div>
+                          </#list>
                       </div>
-                    </#list>
                   </div>
                 </#if>
 

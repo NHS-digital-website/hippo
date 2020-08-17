@@ -20,6 +20,9 @@ $box-padding: 20px;
         position: relative;
         padding-left: $txt-left-padding-desk;
         margin-top: 0;
+        &--no-icon {
+            padding-left: 0;
+        }
 
         &-heading {
             display: block;
@@ -94,7 +97,9 @@ $box-padding: 20px;
             }
 
             &-heading {
-                padding-left: $txt-left-padding-mob;
+                &:not(&--no-icon) {
+                    padding-left: $txt-left-padding-mob;
+                }
             }
         }
 
