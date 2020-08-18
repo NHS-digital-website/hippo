@@ -157,7 +157,9 @@
         </#if>
     </#if>
 
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
     <#if contentBean?? && contentBean.publiclyAccessible??>
         <#assign publiclyAccessible = contentBean.publiclyAccessible/>
     </#if>
@@ -222,7 +224,9 @@
         </#if>
     </#if>
 
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
             <span class="cta__label"
@@ -257,7 +261,9 @@
         </#if>
     </#if>
 
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
             <span class="cta__label"
@@ -292,7 +298,9 @@
             </#if>
         </#if>
     </#if>
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
     <#if contentBean?? && contentBean.latestPublication??>
         <#assign latestPublication = contentBean.latestPublication/>
     </#if>
@@ -340,7 +348,9 @@
         </#if>
     </#if>
 
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
             <span class="cta__label"
@@ -382,7 +392,9 @@
             </#if>
         </#if>
     </#if>
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -451,7 +463,9 @@
             </#if>
         </#if>
     </#if>
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -505,7 +519,9 @@
             </#if>
         </#if>
     </#if>
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -556,7 +572,9 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedworkchapter"/></span>
         </div>
 
-        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+        <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+            <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+        </#if>
         <#if contentBean?? && contentBean.publishedWork?? && contentBean.publishedWork.title??>
             <strong> ${contentBean.publishedWork.title} </strong>
             <br/>
@@ -589,7 +607,9 @@
             <#assign hasUrl = true />
         </#if>
     </#if>
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -627,7 +647,9 @@
         </#if>
     </#if>
 
-    <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
+        <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <#if isShowTitle>
             <#assign docList = type?split(":")>

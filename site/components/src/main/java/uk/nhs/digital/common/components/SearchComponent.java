@@ -35,6 +35,7 @@ import uk.nhs.digital.website.beans.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -55,6 +56,11 @@ public class SearchComponent extends CommonComponent {
     private static final String SORT_DATE = "date";
     private static final String SORT_DEFAULT = SORT_RELEVANCE;
     private static final SearchArea AREA_DEFAULT = SearchArea.ALL;
+
+    private static final String XM_PRIMARY_DOC_TYPE = "xmPrimaryDocType";
+    private static final String GEOGRAPHIC_COVERAGE = "geographicCoverage";
+    private static final String INFORMATION_TYPE = "informationType";
+    private static final String GEOGRAPHIC_GRANULARITY = "geographicGranularity";
 
     private static final String FOLDER_NEWS_AND_EVENTS = "news-and-events";
     private static final String FOLDER_PUBLICATIONS = "publication-system";
@@ -80,9 +86,6 @@ public class SearchComponent extends CommonComponent {
         final boolean fallbackEnabled = paramInfo.isFallbackEnabled();
         final boolean contentSearchOverride = getAnyBooleanParam(request, "contentSearch", false);
 
-        //todo: remove after testing
-        final String docType = paramInfo.getDoctype();
-
         Future<QueryResponse> queryResponseFuture = null;
         QueryResponse queryResponse;
 
@@ -92,13 +95,18 @@ public class SearchComponent extends CommonComponent {
                 final int currentPage = getCurrentPage(request);
                 final String query = getQueryParameter(request);
 
-                queryResponseFuture = buildAndExecuteContentSearch(pageSize, currentPage, query, docType);
+                queryResponseFuture = buildAndExecuteContentSearch(request, pageSize, currentPage, query);
                 queryResponse = queryResponseFuture.get(contentSearchTimeOut, TimeUnit.MILLISECONDS);
 
                 if (queryResponse.isOk()) {
                     final long totalResults = queryResponse.getSearchResult().getNumFound();
                     final int pageCount = (int) Math.ceil((double) totalResults / pageSize);
                     final List<Integer> pageNumbers = getPageNumbers(currentPage, pageCount);
+                    final Map<String, Object> facetFields = queryResponse.getFacetCountResult().getFields();
+
+                    calculateFacetUrls(facetFields);
+
+
                     Pageable<Document> pageable = new ContentSearchPageable<>(totalResults, currentPage, pageSize);
                     request.setAttribute("pageCount", pageCount);
                     request.setAttribute("pageable", pageable);
@@ -106,6 +114,7 @@ public class SearchComponent extends CommonComponent {
                     request.setAttribute("isContentSearch", true);
                     request.setAttribute("queryResponse", queryResponse);
                     request.setAttribute("totalResults", totalResults);
+                    request.getRequestContext().setAttribute("facetFields", facetFields);
                     request.getRequestContext().setAttribute("isContentSearch", true);
                     setCommonSearchRequestAttributes(request, paramInfo);
                 } else {
@@ -132,6 +141,12 @@ public class SearchComponent extends CommonComponent {
         } else {
             buildAndExecuteHstSearch(request, paramInfo);
         }
+    }
+
+    /* Method for setting the url for each facet */
+    private Map<String,Object> calculateFacetUrls(Map<String, Object> facetFields) {
+
+        return null;
     }
 
     private void buildAndExecuteHstSearch(HstRequest request, SearchComponentInfo paramInfo) {
@@ -165,7 +180,7 @@ public class SearchComponent extends CommonComponent {
     }
 
 
-    private Future<QueryResponse> buildAndExecuteContentSearch(int pageSize, int currentPage, String query, String doctype) {
+    private Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, int pageSize, int currentPage, String query) {
         ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
 
         QueryBuilder queryBuilder = searchService.builder()
@@ -178,24 +193,46 @@ public class SearchComponent extends CommonComponent {
             .retrieveField("shortsummary")
             .retrieveField("publicationDate")
             .retrieveField("xmUrl")
-            .retrieveField("xmPrimaryDocType")
-            .retrieveField("informationType")
+            .retrieveField(XM_PRIMARY_DOC_TYPE)
+            .retrieveField(INFORMATION_TYPE)
             .retrieveField("assuranceDate")
             .retrieveField("publishedBy")
             .retrieveField("details_briefDescription")
             .retrieveField("nominalDate")
             .retrieveField("summary")
-            .retrieveField("showLatest");
+            .retrieveField("showLatest")
+            .facetField(XM_PRIMARY_DOC_TYPE)
+            .facetField(GEOGRAPHIC_COVERAGE)
+            .facetField(INFORMATION_TYPE)
+            .facetField(GEOGRAPHIC_GRANULARITY)
+            .facetField("publishedBy")
+            .facetField("reportingLevel");
 
-        if (doctype != null) {
-            queryBuilder = appendFilters(queryBuilder, doctype);
-        }
+        queryBuilder = appendFacets(request, queryBuilder);
 
         return queryBuilder.build().execute();
     }
 
-    private QueryBuilder appendFilters(QueryBuilder queryBuilder, String doctype) {
-        return queryBuilder.filterQuery("xmPrimaryDocType", doctype);
+    private QueryBuilder appendFacets(HstRequest request, QueryBuilder queryBuilder) {
+        if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE) != null) {
+            String parameterValue = getAnyParameter(request, XM_PRIMARY_DOC_TYPE);
+            queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, getAnyParameter(request, XM_PRIMARY_DOC_TYPE));
+            request.setAttribute("", parameterValue);
+        }
+        if (getAnyParameter(request, GEOGRAPHIC_COVERAGE) != null) {
+            queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_COVERAGE, getAnyParameter(request, GEOGRAPHIC_COVERAGE));
+        }
+        if (getAnyParameter(request, INFORMATION_TYPE) != null) {
+            queryBuilder = appendFilter(queryBuilder, INFORMATION_TYPE, getAnyParameter(request, INFORMATION_TYPE) );
+        }
+        if (getAnyParameter(request, GEOGRAPHIC_GRANULARITY) != null) {
+            queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_GRANULARITY, getAnyParameter(request, INFORMATION_TYPE));
+        }
+        return queryBuilder;
+    }
+
+    private QueryBuilder appendFilter(QueryBuilder queryBuilder, String facetField, String facetValue) {
+        return queryBuilder.filterQuery(facetField, facetValue);
     }
 
     protected List<Integer> getPageNumbers(Pageable<HippoBean> pageable) {

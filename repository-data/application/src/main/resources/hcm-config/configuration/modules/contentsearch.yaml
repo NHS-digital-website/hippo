@@ -51,3 +51,4 @@ definitions:
         - selection:listitem
         - inferenceengine:rulesdocument
         - robotstxt:robotstxt
+        - eforms:form
