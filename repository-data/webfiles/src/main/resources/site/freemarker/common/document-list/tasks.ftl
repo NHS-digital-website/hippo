@@ -28,10 +28,12 @@
                         <a href="<@hst.link hippobean=task/>"
                            class="intra-task-grid-task__link">
                             <div class="intra-task-grid-task__icon">
-                                <img src="${imageUrl}"
-                                     alt="${task.title} icon" aria-hidden="true">
-                                <img src="${imageHoverUrl}"
-                                     alt="${task.title} icon" aria-hidden="true">
+                                <#if task.bannercontrols??>
+                                    <img src="${imageUrl}"
+                                         alt="${task.title} icon" aria-hidden="true">
+                                    <img src="${imageHoverUrl}"
+                                         alt="${task.title} icon" aria-hidden="true">
+                                </#if>
                             </div>
                             <h1 class="intra-task-grid-task__title">${task.title}</h1>
                         </a>
