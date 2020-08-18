@@ -9,6 +9,7 @@
 <#include "macro/visualhubBox.ftl">
 <#include "macro/tabTileHeadings.ftl">
 <#include "macro/tabTiles.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -20,6 +21,9 @@
 <#assign hasAdditionalInformation = document.additionalInformation.content?has_content />
 <#assign hasPrimaryLinks = document.primarySections?? && document.primarySections?size gt 0 />
 <#assign hasTabTileLinks = document.tileSections?? && document.tileSections?size gt 0 && !hasPrimaryLinks/>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article">
     <#if hasBannerImage && hasPrimaryLinks>

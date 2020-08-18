@@ -14,6 +14,7 @@
 <#include "../common/macro/published-work-banners/text-banner.ftl">
 <#include "../common/macro/published-work-banners/hero-module.ftl">
 <#include "../common/macro/published-work-banners/slim-picture.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -45,6 +46,9 @@
 <@fmt.message key="headers.about-this-publication" var="aboutThisPublicationHeader" />
 
 <#assign renderNav = (hasSummaryContent && sectionTitlesFound gte 1) || (sectionTitlesFound gt 1) />
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--published-work" aria-label="Document Header">
 

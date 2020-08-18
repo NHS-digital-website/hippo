@@ -8,6 +8,7 @@
 <#include "macro/apiendpointgroup.ftl">
 <#include "macro/aboutapi.ftl">
 <#include "macro/stickyNavSections.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
@@ -17,6 +18,9 @@
 
 <#assign sectionTitlesFound = countSectionTitlesInMultiple(document.aboutapis) />
 <#assign renderNav = sectionTitlesFound gte 1 || document.aboutapis?has_content | document.apiinfobuilders?has_content || document.apiendpointgroups?has_content  />
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <#-- ACTUAL TEMPLATE -->
 <article class="article article--apimaster">

@@ -17,8 +17,19 @@
                 <label for="query" class="visually-hidden">${buttonLabel}</label>
             </div>
             <div>
-                <button class="search-banner__button" data-uipath="search.button" value="Search">${buttonLabel}</button>
+                <button class="search-banner__button" data-uipath="search.button" value="Search" id="search_button">${buttonLabel}</button>
             </div>
         </form>
     </div>
+    <#-- Search Event Pixel -->
+     <script type="text/javascript">
+        document.getElementById("search_button").addEventListener("click", myFunction);
+        document.getElementById("query").addEventListener("click", myFunction);
+        function myFunction() {
+            var searchData = {};
+            searchData["q"] = document.querySelector("#query").value;;
+            searchData["catalogs"] = [{ "name" : "content_en" }];
+            BrTrk.getTracker().logEvent("suggest", "submit",searchData,{},true);
+        }
+     </script>
 </section>

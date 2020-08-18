@@ -4,6 +4,9 @@
 <@hst.setBundle basename="emails"/>
 
 <#macro siteFooter narrowLayout=false>
+    <#-- BR Javascript Pixel -->
+    <#include "../scripts/br-global-pixel-script.ftl">
+
     <footer class="site-footer white-links" id="footer">
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
             <div class="grid-row">

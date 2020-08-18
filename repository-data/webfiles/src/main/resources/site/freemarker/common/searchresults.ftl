@@ -8,10 +8,18 @@
 <@metaTags></@metaTags>
 
 <div data-uipath="ps.search-results" data-totalresults="${(pageable.total)!0}">
+    <#-- Search Page Pixel -->
+    <script type="text/javascript">
+        if ("${query}"){
+            var br_data = br_data || {};
+            br_data.ptype = "search";
+            br_data.search_term = "${query}";
+        }
+    </script>
     <#if pageable?? && pageable.total gt 0>
         <div class="search-results-heading">
             <h1 class="search-results-heading__title">Search results</h1>
-            
+
             <div class="search-results-heading__details">
                 <div class="search-results-heading__subcopy">
                     <div data-uipath="ps.search-results.description">

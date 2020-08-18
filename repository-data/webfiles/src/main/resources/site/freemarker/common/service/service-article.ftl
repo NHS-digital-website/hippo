@@ -11,6 +11,7 @@
 <#include "../macro/component/lastModified.ftl">
 <#include "../macro/latestblogs.ftl">
 <#include "../macro/component/calloutBox.ftl">
+<#include "../macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -36,8 +37,10 @@
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = (sectionTitlesFound gte 1 || hasChildPages) || sectionTitlesFound gt 1 || hasContactDetailsContent />
 
-<article class="article article--service">
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
+<article class="article article--service">
     <@documentHeader document 'service' '' '' '' '' false></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">

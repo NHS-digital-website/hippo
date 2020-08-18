@@ -11,6 +11,7 @@
 <#include "../common/macro/component/infoGraphic.ftl">
 <#include "../common/macro/latestblogs.ftl">
 <#include "../common/macro/component/calloutBox.ftl">
+<#include "../common/macro/contentPixel.ftl">
 
 <@hst.setBundle basename="publicationsystem.change,publicationsystem.survey,publicationsystem.interactive,publicationsystem.labels,publicationsystem.headers"/>
 
@@ -63,8 +64,10 @@
 <#macro fullContentOfPubliclyAvailablePublication>
     <@publicationHeader publication=publication restricted=false downloadPDF=true/>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <#-- Content Page Pixel -->
+    <@contentPixel publication.getCanonicalUUID() publication.title></@contentPixel>
 
+    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <#if publication.updates?has_content || publication.changenotice?has_content>
             <div class="grid-row">
                 <div class="column column--no-padding">

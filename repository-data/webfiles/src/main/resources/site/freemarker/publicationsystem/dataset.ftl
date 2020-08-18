@@ -2,6 +2,8 @@
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
+<#include "../common/macro/contentPixel.ftl">
+<#include "../common/macro/contentPixel.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -10,6 +12,9 @@
 
 <article class="article article--dataset" aria-label="Document Header">
 <#if dataset??>
+
+<#-- Content Page Pixel -->
+<@contentPixel dataset.getCanonicalUUID() dataset.title></@contentPixel>
 
 <#assign hasPublicationDate = dataset.nominalDate?has_content />
 <#assign hasNextPublicationDate = dataset.nextPublicationDate?has_content />

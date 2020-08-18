@@ -7,6 +7,7 @@
 <#include "macro/roadmapItemBox.ftl">
 <#include "macro/stickyNavTags.ftl">
 <#include "macro/metaTags.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#assign inArray="uk.nhs.digital.freemarker.utils.InArray"?new() />
 <#assign byStartDate="uk.nhs.digital.freemarker.roadmap.RoadmapItemSorterByStartDate"?new() />
@@ -151,6 +152,9 @@
 
     <@roadmapItemBox itemData></@roadmapItemBox>
 </#macro>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--latest-events" aria-label="Document Header">
 

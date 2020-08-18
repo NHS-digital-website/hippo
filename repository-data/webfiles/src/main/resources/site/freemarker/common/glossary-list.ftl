@@ -7,6 +7,7 @@
 <#include "macro/stickyGroupBlockHeader.ftl">
 <#include "macro/alphabeticalFilterNav.ftl">
 <#include "macro/component/lastModified.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -21,6 +22,8 @@
     <#assign alphabeticalGroupHash = alphabeticalGroupHash + {  key : (alphabeticalGroupHash[key]![]) + [ glossaryitem ] } />
 </#list>
 
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">

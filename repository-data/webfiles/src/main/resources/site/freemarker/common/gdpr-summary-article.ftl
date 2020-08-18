@@ -3,6 +3,7 @@
 <#include "macro/alphabeticalFilterNav.ftl">
 <#include "macro/alphabeticalGroupOfGDPRDocuments.ftl">
 <#include "macro/metaTags.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -26,6 +27,9 @@
         </#list>
     </#if>
 </#if>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--gdpr-summary">
     <div class="grid-wrapper grid-wrapper--article">

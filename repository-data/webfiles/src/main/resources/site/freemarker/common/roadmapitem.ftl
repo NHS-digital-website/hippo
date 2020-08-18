@@ -4,6 +4,7 @@
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/stickyNavTags.ftl">
 <#include "macro/metaTags.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -26,6 +27,8 @@
 <#if hasImpactedServices><#assign links += [{ "url": "#" + slugify(impactedServicesHeader), "title": impactedServicesHeader }] /></#if>
 <#if hasBlocks><#assign links += [{ "url": "#" + slugify(resourcesHeader), "title": resourcesHeader }] /></#if>
 
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
     <div class="local-header article-header article-header--detailed">
