@@ -12,6 +12,7 @@
 <#include "../common/macro/published-work-banners/text-banner.ftl">
 <#include "../common/macro/published-work-banners/hero-module.ftl">
 <#include "../common/macro/published-work-banners/slim-picture.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -80,6 +81,9 @@
         </#list>
     </#list>
 </#if>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--published-work-chapter"
          aria-label="Document Header">

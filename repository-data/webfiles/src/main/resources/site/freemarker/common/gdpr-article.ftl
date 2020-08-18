@@ -2,11 +2,15 @@
 <#include "../include/imports.ftl">
 <#include "macro/linkGrid.ftl">
 <#include "macro/metaTags.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="website.gdpr,rb.doctype.gdpr-transparency,rb.generic.headers"/>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--gdpr">
     <div class="grid-wrapper grid-wrapper--article">

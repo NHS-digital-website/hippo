@@ -11,6 +11,7 @@
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">
 <#include "macro/component/calloutBox.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -33,12 +34,14 @@
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 <#assign idsuffix = slugify(document.title) />
 
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
+
 <article class="article article--general">
 
     <@documentHeader document 'general'></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
-
         <#if document.updates?has_content>
             <div class="grid-row">
                 <div class="column column--no-padding">

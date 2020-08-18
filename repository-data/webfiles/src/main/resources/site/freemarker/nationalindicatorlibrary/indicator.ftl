@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
+<#include "../common/macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
@@ -26,6 +27,9 @@
 <@fmt.message key="headers.interpretationGuidelines" var="interpretationGuidelinesHeader" />
 <@fmt.message key="headers.categories" var="categoriesHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
+
+<#-- Content Page Pixel -->
+<@contentPixel indicator.getCanonicalUUID() indicator.title></@contentPixel>
 
 <article class="article article--indicator" aria-label="Document Header">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" data-uipath="ps.document.content">

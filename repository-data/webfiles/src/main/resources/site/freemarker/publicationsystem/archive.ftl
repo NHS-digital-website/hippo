@@ -1,9 +1,14 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
+<#include "../common/macro/contentPixel.ftl">
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 
 <#if archive??>
+
+    <#-- Content Page Pixel -->
+    <@contentPixel archive.getCanonicalUUID() archive.title></@contentPixel>
+
     <section class="document-header" aria-label="Archive Title">
         <div class="document-header__inner">
             <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.archive"/></h3>

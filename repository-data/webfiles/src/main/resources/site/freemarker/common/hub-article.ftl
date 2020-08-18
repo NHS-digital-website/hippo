@@ -3,9 +3,13 @@
 <#include "macro/childPageGrid.ftl">
 <#include "macro/hubPageComponents.ftl">
 <#include "macro/metaTags.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--hub">
     <div class="grid-wrapper grid-wrapper--article">

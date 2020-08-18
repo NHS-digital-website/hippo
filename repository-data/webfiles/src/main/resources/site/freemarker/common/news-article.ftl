@@ -10,6 +10,7 @@
 <#include "macro/contactdetail.ftl">
 <#include "macro/headerMetadata.ftl">
 <#include "macro/documentHeader.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -71,6 +72,9 @@
     }
   ] />
 </#if>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--news" itemscope itemtype="http://schema.org/NewsArticle">
     <meta itemprop="mainEntityOfPage" content="${document.title}">

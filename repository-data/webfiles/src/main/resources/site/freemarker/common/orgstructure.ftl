@@ -8,6 +8,7 @@
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -19,6 +20,9 @@
 
 <#assign ourStrctureText  = "Our structure" />
 <#assign introductionText = "Introduction" />
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--orgstructure">
 
@@ -108,7 +112,7 @@
                       </#list>
                     </#if>
                   </div>
-                    
+
                 </#if>
 
                 <#if hasDirectorates>
@@ -124,7 +128,7 @@
                       </#if>
 
                       <div class="article-section orgstructure-item" ${directorateStyle}>
-                        <#if directorate.mainbusinessunit?has_content> 
+                        <#if directorate.mainbusinessunit?has_content>
                           <#if directorate.mainbusinessunit.businessunit?has_content>
                             <h3 id="${slugify(directorate.mainbusinessunit.businessunit.title)}" class="orgstructure-title sticky-nav-spy-item">
                               <a href="<@hst.link hippobean=directorate.mainbusinessunit.businessunit/>">${directorate.mainbusinessunit.businessunit.title}</a>
@@ -164,7 +168,7 @@
                               </#if>
                             </div>
                           </div>
-                           
+
                         </#list>
                       </div>
                     </#list>

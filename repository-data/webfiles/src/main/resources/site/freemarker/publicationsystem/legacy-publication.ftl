@@ -10,6 +10,7 @@
 <#include "../common/macro/fileIconByMimeType.ftl">
 <#include "../common/macro/latestblogs.ftl">
 <#include "../common/macro/component/calloutBox.ftl">
+<#include "../common/macro/contentPixel.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -42,6 +43,8 @@
 
 <#assign renderNav = shouldRenderNav() />
 
+<#-- Content Page Pixel -->
+<@contentPixel legacyPublication.getCanonicalUUID() legacyPublication.title></@contentPixel>
 
 <#-- Define Article section headers, nav ids and titles -->
 <@fmt.message key="headers.summary" var="summaryHeader" />
@@ -228,7 +231,6 @@
             <!-- end sticky-nav -->
         </div>
         </#if>
-
         <div class="column column--two-thirds page-block page-block--main">
             <#if hasKeyFacts>
                 <#assign summarySectionClassName = "article-section article-section--summary no-border">
