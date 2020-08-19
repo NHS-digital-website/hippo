@@ -1,10 +1,13 @@
 package uk.nhs.digital.apispecs.swagger;
 
 import static java.util.Collections.emptyList;
+import static java.util.Collections.emptyMap;
 
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
+import io.swagger.codegen.v3.CodegenOperation;
 import io.swagger.codegen.v3.CodegenParameter;
+import io.swagger.codegen.v3.CodegenResponse;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
@@ -18,9 +21,7 @@ import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ParameterBodyComponentsExtractor;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenRequestParameterExampleRenderer;
 
-import java.util.Collection;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
@@ -67,6 +68,14 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     @Override
+    public Map<String, Object> postProcessOperations(final Map<String, Object> codegenMapWithOperations) {
+
+        codegenOperationsFrom(codegenMapWithOperations).forEach(this::postProcessOperation);
+
+        return codegenMapWithOperations;
+    }
+
+    @Override
     public void postProcessParameter(final CodegenParameter parameter) {
         super.postProcessParameter(parameter);
 
@@ -76,6 +85,37 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     @Override
     public void setParameterExampleValue(final CodegenParameter parameter) {
         parameter.example = codegenRequestParameterExampleRenderer.htmlForExampleValueOf(parameter);
+    }
+
+    @Override
+    public void addHandlebarHelpers(final Handlebars handlebars) {
+        super.addHandlebarHelpers(handlebars);
+        handlebars.registerHelper(EnumHelper.NAME, new EnumHelper());
+        handlebars.with(EscapingStrategy.NOOP);
+    }
+
+    protected void postProcessOperation(final CodegenOperation codegenOperation) {
+        Optional.ofNullable(codegenOperation.getResponses()).orElse(emptyList()).forEach(this::postProcessResponse);
+    }
+
+    protected void postProcessResponse(final CodegenResponse codegenResponse) {
+        convertResponseDescriptionFromMarkdownToHtml(codegenResponse);
+    }
+
+    protected void convertResponseDescriptionFromMarkdownToHtml(final CodegenResponse codegenResponse) {
+        codegenResponse.message = markdownConverter.toHtml(codegenResponse.getMessage());
+    }
+
+    private List<CodegenOperation> codegenOperationsFrom(final Map<String, Object> codegenOperationsMap) {
+        final Map<String, Object> operationsToPostProcess = super.postProcessOperations(codegenOperationsMap);
+
+        final Map<String, Object> operationsMap =
+            (Map<String, Object>) Optional.ofNullable(operationsToPostProcess.get("operations")).orElse(emptyMap());
+
+        final List<CodegenOperation> operations =
+            (List<CodegenOperation>) Optional.ofNullable(operationsMap.get("operation")).orElse(emptyList());
+
+        return operations;
     }
 
     private void saveRequestBodyAsVendorExtensionOnParamIfPresent(final CodegenParameter parameter) {
@@ -163,12 +203,5 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
             parameter.setDescription(htmlDescription);
         });
-    }
-
-    @Override
-    public void addHandlebarHelpers(final Handlebars handlebars) {
-        super.addHandlebarHelpers(handlebars);
-        handlebars.registerHelper(EnumHelper.NAME, new EnumHelper());
-        handlebars.with(EscapingStrategy.NOOP);
     }
 }
