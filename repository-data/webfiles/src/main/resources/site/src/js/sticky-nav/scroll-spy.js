@@ -24,8 +24,10 @@ export function initScrollSpy() {
 							document.querySelector('.active').setAttribute('class', ' ');
 						}
 
-						if (document.querySelector('a[href*=' + i + ']') !== null) {
-							document.querySelector('a[href*=' + i + ']').setAttribute('class', 'active');
+						if (document.querySelector('a[href\*=' + i + ']') !== null) {
+							document.querySelector('a[href\*=' + i + ']').setAttribute('class', 'active');
+						//if (document.querySelector('a[href="#${i}"]') !== null) {
+						//	document.querySelector('a[href="#${i}"]').setAttribute('class', 'active');
 						}
 					}
 				}
