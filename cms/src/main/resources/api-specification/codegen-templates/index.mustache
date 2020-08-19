@@ -143,26 +143,8 @@
 
                                             <h2>Response</h2>
                                             {{#responses}}
-                                                <h3> Status: {{code}} - {{message}} </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                    {{#schema}}
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-schema">Schema</a>
-                                                        </li>
-
-                                                        {{#examples}}
-                                                            <li class="">
-                                                                <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-example">Response Example</a>
-                                                            </li>
-                                                        {{/examples}}
-                                                    {{/schema}}
-                                                    {{#hasHeaders}}
-                                                        <li class="">
-                                                            <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-headers">Headers</a>
-                                                        </li>
-                                                    {{/hasHeaders}}
-                                                </ul>
+                                                <h3>Status: {{code}}</h3>
+                                                <div>{{message}}</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                     {{#schema}}
