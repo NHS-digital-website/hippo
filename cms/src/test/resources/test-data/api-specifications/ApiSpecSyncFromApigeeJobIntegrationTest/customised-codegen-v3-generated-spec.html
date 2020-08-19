@@ -390,17 +390,8 @@ It supports the following security patterns:</p>
 
 
                                             <h2>Response</h2>
-                                                <h3> Status: 200 - Information successfully returned. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-getPatient-200-schema">Schema</a>
-                                                        </li>
-
-                                                        <li class="">
-                                                            <a data-toggle="tab" href="#responses-getPatient-200-headers">Headers</a>
-                                                        </li>
-                                                </ul>
+                                                <h3>Status: 200</h3>
+                                                <div>Information successfully returned.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-getPatient-200-schema">
@@ -427,14 +418,8 @@ It supports the following security patterns:</p>
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 400 - Invalid NHS number supplied. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-getPatient-400-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 400</h3>
+                                                <div>Invalid NHS number supplied.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-getPatient-400-schema">
@@ -445,14 +430,8 @@ It supports the following security patterns:</p>
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 404 - Patient not found. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-getPatient-404-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 404</h3>
+                                                <div>Patient not found.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-getPatient-404-schema">
@@ -944,14 +923,8 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                 </div>
 
                                             <h2>Response</h2>
-                                                <h3> Status: 200 - A completed search, containing zero, one, or many matching patients. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-searchPatient-200-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 200</h3>
+                                                <div>A completed search, containing zero, one, or many matching patients.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-searchPatient-200-schema">
@@ -962,14 +935,8 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 400 - Invalid search paramaters supplied. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-searchPatient-400-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 400</h3>
+                                                <div>Invalid search paramaters supplied.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-searchPatient-400-schema">
@@ -1639,20 +1606,12 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 
 
                                             <h2>Response</h2>
-                                                <h3> Status: 202 - The patch was syntactically correct and was accepted.
-
-A polling location will be returned in the `Content-Location` header and the polling interval in the `Retry-After` header.
-
-Note, the patch may still fail after it is accepted, for example, further validation of the patch may still result in business rule failures. Therefore, it should not be assumed that the patient is successfully updated after receiving acceptance of the message.
-
-See the polling endpoint for more details.
- </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="">
-                                                            <a data-toggle="tab" href="#responses-updatePatientPartial-202-headers">Headers</a>
-                                                        </li>
-                                                </ul>
+                                                <h3>Status: 202</h3>
+                                                <div><p>The patch was syntactically correct and was accepted.</p>
+<p>A polling location will be returned in the <code class="codeinline">Content-Location</code> header and the polling interval in the <code class="codeinline">Retry-After</code> header.</p>
+<p>Note, the patch may still fail after it is accepted, for example, further validation of the patch may still result in business rule failures. Therefore, it should not be assumed that the patient is successfully updated after receiving acceptance of the message.</p>
+<p>See the polling endpoint for more details.</p>
+</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane" id="responses-updatePatientPartial-202-headers">
@@ -1679,14 +1638,8 @@ See the polling endpoint for more details.
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 400 - Client error. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-updatePatientPartial-400-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 400</h3>
+                                                <div>Client error.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-updatePatientPartial-400-schema">
@@ -1697,17 +1650,10 @@ See the polling endpoint for more details.
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 412 - Precondition failed.
-
-The version identifier submitted in the `If-Match` header was not the latest version of the resource.
- </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-updatePatientPartial-412-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 412</h3>
+                                                <div><p>Precondition failed.</p>
+<p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
+</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-updatePatientPartial-412-schema">
@@ -1869,17 +1815,8 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
                                             <h2>Response</h2>
-                                                <h3> Status: 200 - Patient updated. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-polling-200-schema">Schema</a>
-                                                        </li>
-
-                                                        <li class="">
-                                                            <a data-toggle="tab" href="#responses-polling-200-headers">Headers</a>
-                                                        </li>
-                                                </ul>
+                                                <h3>Status: 200</h3>
+                                                <div>Patient updated.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-polling-200-schema">
@@ -1906,14 +1843,8 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 400 - Client error after the patch was accepted and patient was not updated. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-polling-400-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 400</h3>
+                                                <div>Client error after the patch was accepted and patient was not updated.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-polling-400-schema">
@@ -1924,14 +1855,8 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 403 - Part of your update could not be allowed as the change was forbidden. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-polling-403-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 403</h3>
+                                                <div>Part of your update could not be allowed as the change was forbidden.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-polling-403-schema">
@@ -1942,14 +1867,8 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 404 - The message ID not found or you did not have permission to poll for that message. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-polling-404-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 404</h3>
+                                                <div>The message ID not found or you did not have permission to poll for that message.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-polling-404-schema">
@@ -1960,17 +1879,10 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 409 - Version Conflict.
-
-The version identifier submitted in the `If-Match` header was not the latest version of the resource.
- </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-polling-409-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 409</h3>
+                                                <div><p>Version Conflict.</p>
+<p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
+</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-polling-409-schema">
@@ -1981,17 +1893,10 @@ The version identifier submitted in the `If-Match` header was not the latest ver
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 422 - The polling message ID was found however the processing of the request failed in an unexpected way or was cancelled, so the update failed.
-
-Please raise these occurrences with our team (via https://digital.nhs.uk/developer/help-and-support) so we can investigate the issue. When raising, quote the message ID you were polling for.
- </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-polling-422-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 422</h3>
+                                                <div><p>The polling message ID was found however the processing of the request failed in an unexpected way or was cancelled, so the update failed.</p>
+<p>Please raise these occurrences with our team (via https://digital.nhs.uk/developer/help-and-support) so we can investigate the issue. When raising, quote the message ID you were polling for.</p>
+</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-polling-422-schema">
@@ -2151,17 +2056,8 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
 
 
                                             <h2>Response</h2>
-                                                <h3> Status: 200 - Information successfully returned. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-getRelatedPeople-200-schema">Schema</a>
-                                                        </li>
-
-                                                        <li class="">
-                                                            <a data-toggle="tab" href="#responses-getRelatedPeople-200-headers">Headers</a>
-                                                        </li>
-                                                </ul>
+                                                <h3>Status: 200</h3>
+                                                <div>Information successfully returned.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-getRelatedPeople-200-schema">
@@ -2188,14 +2084,8 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 400 - Invalid NHS number supplied. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-getRelatedPeople-400-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 400</h3>
+                                                <div>Invalid NHS number supplied.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-getRelatedPeople-400-schema">
@@ -2206,14 +2096,8 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
                                                         </div>
                                                 </div>
 
-                                                <h3> Status: 404 - Related People not found. </h3>
-
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-getRelatedPeople-404-schema">Schema</a>
-                                                        </li>
-
-                                                </ul>
+                                                <h3>Status: 404</h3>
+                                                <div>Related People not found.</div>
 
                                                 <div class="tab-content" style='margin-bottom: 10px;'>
                                                         <div class="tab-pane active" id="responses-getRelatedPeople-404-schema">
