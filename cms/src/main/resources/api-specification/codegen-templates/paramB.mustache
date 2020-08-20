@@ -2,6 +2,12 @@
 
 {{#vendorExtensions.x-body}}
     {{#vendorExtensions.x-body.mediaTypes}}
-        <h5>{{this}}</h5>
+        <h5>{{name}}</h5>
+        <div class="httpparams__examples__header">Examples:</div>
+        {{#examples}}
+            <div class="httpparams__example__description">{{summary}}</div>
+            <div>{{description}}</div>
+            <div><pre><code>{{value}}</code></pre></div>
+        {{/examples}}
     {{/vendorExtensions.x-body.mediaTypes}}
 {{/vendorExtensions.x-body}}

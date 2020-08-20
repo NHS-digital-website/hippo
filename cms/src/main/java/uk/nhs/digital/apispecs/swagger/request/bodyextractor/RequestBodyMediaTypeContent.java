@@ -1,26 +1,68 @@
 package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
 
+import static java.util.Collections.emptyMap;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.util.Collection;
+import java.util.Map;
+import java.util.Optional;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class RequestBodyMediaTypeContent {
+public class RequestBodyMediaTypeContent {
 
-    // no-op: placeholder for Jackson to have something to deserialize to
+    private String name;
+
+    private Map<String, ParamExample> examples;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
+    }
+
+    public Collection<ParamExample> getExamples() {
+        return Optional.ofNullable(examples)
+            .orElse(emptyMap())
+            .values();
+    }
 
     @Override
     public String toString() {
-        return "RequestBodyMediaTypeContent{}";
+        return new ToStringBuilder(this)
+            .append("name", name)
+            .append("examples", examples)
+            .toString();
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        final RequestBodyMediaTypeContent that = (RequestBodyMediaTypeContent) o;
+
+        return new EqualsBuilder()
+            .append(name, that.name)
+            .append(examples, that.examples)
+            .isEquals();
     }
 
     @Override
     public int hashCode() {
-        // temporary construct to make testing easier, soon to be replaced by a subsequent story
-        return toString().hashCode();
-    }
-
-    @Override
-    public boolean equals(final Object other) {
-        // temporary construct to make testing easier, soon to be replaced by a subsequent story
-        return toString().equals(String.valueOf(other));
+        return new HashCodeBuilder(17, 37)
+            .append(name)
+            .append(examples)
+            .toHashCode();
     }
 }
