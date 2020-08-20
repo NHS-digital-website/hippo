@@ -1,6 +1,6 @@
 package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
 
-import static java.util.Collections.emptySet;
+import static java.util.stream.Collectors.toList;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,9 +8,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.Map;
+import java.util.Collection;
 import java.util.Optional;
-import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RequestBody {
@@ -18,8 +17,19 @@ public class RequestBody {
     @JsonProperty
     private RequestBodyMediaTypes content;
 
-    public Set<String> getMediaTypes() {
-        return Optional.ofNullable(content).map(Map::keySet).orElse(emptySet());
+    public Collection<RequestBodyMediaTypeContent> getMediaTypes() {
+
+        return Optional.ofNullable(content).orElse(new RequestBodyMediaTypes())
+            .entrySet().stream()
+            .map(mapEntry -> {
+                final String contentTypeName = mapEntry.getKey();
+                final RequestBodyMediaTypeContent requestBodyMediaTypeContent = mapEntry.getValue();
+
+                requestBodyMediaTypeContent.setName(contentTypeName);
+
+                return requestBodyMediaTypeContent;
+            })
+            .collect(toList());
     }
 
     @Override

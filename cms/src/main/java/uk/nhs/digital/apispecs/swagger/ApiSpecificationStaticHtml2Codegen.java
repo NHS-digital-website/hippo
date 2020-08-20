@@ -79,7 +79,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     public void postProcessParameter(final CodegenParameter parameter) {
         super.postProcessParameter(parameter);
 
-        saveRequestBodyAsVendorExtensionOnParamIfPresent(parameter);
+        postProcessRequestBody(parameter);
     }
 
     @Override
@@ -118,12 +118,32 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         return operations;
     }
 
-    private void saveRequestBodyAsVendorExtensionOnParamIfPresent(final CodegenParameter parameter) {
+    private void postProcessRequestBody(final CodegenParameter parameter) {
 
         parameterBodyComponentsExtractor.extractBody(parameter)
-            .ifPresent(requestBody ->
-                parameter.getVendorExtensions().put("x-body", requestBody)
-            );
+            .ifPresent(requestBody -> {
+
+                convertRequestBodyExampleDescriptionsFromMarkdownToHtml(requestBody);
+
+                saveRequestBodyAsVendorExtensionOnRequestBodyParam(parameter, requestBody);
+            });
+    }
+
+    private void saveRequestBodyAsVendorExtensionOnRequestBodyParam(final CodegenParameter parameter,
+                                                                    final uk.nhs.digital.apispecs.swagger.request.bodyextractor.RequestBody requestBody) {
+        parameter.getVendorExtensions().put("x-body", requestBody);
+    }
+
+    private void convertRequestBodyExampleDescriptionsFromMarkdownToHtml(final uk.nhs.digital.apispecs.swagger.request.bodyextractor.RequestBody requestBody) {
+        requestBody.getMediaTypes().stream()
+            .flatMap(requestBodyMediaTypeContent -> requestBodyMediaTypeContent.getExamples().stream())
+            .forEach(paramExample -> {
+
+                final String descriptionMarkdown = paramExample.getDescription();
+                final String descriptionHtml = markdownConverter.toHtml(descriptionMarkdown);
+
+                paramExample.setDescription(descriptionHtml);
+            });
     }
 
     /**

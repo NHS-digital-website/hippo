@@ -1601,6 +1601,186 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                             <div class="httpparams__required">Required</div>
                                                             
                                                                     <h5>application/json</h5>
+                                                                    <div class="httpparams__examples__header">Examples:</div>
+                                                                        <div class="httpparams__example__description">Add a new single item (deceasedDateTime) to the patient</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "add",
+    "path" : "/deceasedDateTime",
+    "value" : "2010-10-22T00:00:00+00:00"
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Add a new list item (name) to the patient</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "add",
+    "path" : "/name/-",
+    "value" : {
+      "use" : "usual",
+      "period" : {
+        "start" : "2019-12-31"
+      },
+      "prefix" : [ "Dr" ],
+      "given" : [ "Joe", "Horation", "Maximus" ],
+      "family" : "Bloggs",
+      "suffix" : [ "PhD" ]
+    }
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Add a an extension (nominated pharmacy) to the Patient</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "add",
+    "path" : "/extension/-",
+    "value" : {
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy",
+      "valueReference" : {
+        "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "Y12345",
+          "period" : {
+            "start" : "2020-01-01",
+            "end" : "2021-12-31"
+          }
+        }
+      }
+    }
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Update the simple item (gender)</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "replace",
+    "path" : "/gender",
+    "value" : "male"
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Update specific fields on a list item (address)</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "replace",
+    "path" : "/address/0/line/0",
+    "value" : "2 Whitehall Quay"
+  }, {
+    "op" : "replace",
+    "path" : "/address/0/postalCode",
+    "value" : "LS1 4BU"
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Update whole object on a list item (address)</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "replace",
+    "path" : "/address/0",
+    "value" : {
+      "id" : "456",
+      "period" : {
+        "start" : "2020-01-01",
+        "end" : "2021-12-31"
+      },
+      "use" : "home",
+      "line" : [ "2 Whitehall Quay", "Leeds", "West Yorkshire" ],
+      "postalCode" : "LS1 4BU",
+      "extension" : [ {
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey",
+        "extension" : [ {
+          "url" : "type",
+          "valueCoding" : {
+            "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType",
+            "code" : "PAF"
+          }
+        }, {
+          "url" : "value",
+          "valueString" : "9876543"
+        } ]
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Update an extension (death notification)</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "replace",
+    "path" : "/extension/3",
+    "value" : {
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus",
+      "extension" : [ {
+        "url" : "deathNotificationStatus",
+        "valueCodeableConcept" : {
+          "coding" : [ {
+            "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus",
+            "version" : "1.0.0",
+            "code" : "1",
+            "display" : "Informal - death notice received via an update from a local NHS Organisation such as GP or Trust"
+          } ]
+        }
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Remove a single item (gender) no longer in use</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "remove",
+    "path" : "/gender"
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Remove a list item (name) no longer in use, using test pointing to the name items id</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "test",
+    "path" : "/name/0/id",
+    "value" : "123"
+  }, {
+    "op" : "remove",
+    "path" : "/name/0"
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Remove a list item (name) no longer in use, using test pointing to the name object</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "test",
+    "path" : "/name/0",
+    "value" : {
+      "id" : "123",
+      "use" : "usual",
+      "period" : {
+        "start" : "2020-01-01",
+        "end" : "2021-12-31"
+      },
+      "given" : [ "Jane" ],
+      "family" : "Smith",
+      "prefix" : [ "Mrs" ],
+      "suffix" : [ "MBE" ]
+    }
+  }, {
+    "op" : "remove",
+    "path" : "/name/0"
+  } ]
+}</code></pre></div>
+                                                                        <div class="httpparams__example__description">Remove an extension (dispensing doctor pharmacy) no longer in use</div>
+                                                                        <div></div>
+                                                                        <div><pre><code>{
+  "patches" : [ {
+    "op" : "test",
+    "path" : "/extension/1/url",
+    "value" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor"
+  }, {
+    "op" : "remove",
+    "path" : "/extension/1"
+  } ]
+}</code></pre></div>
                                                 </div>
 
 
