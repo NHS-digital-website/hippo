@@ -17,8 +17,10 @@
     padding-right: 0;
     color: $col-septenary;
 
-    @extend .white-links;
-    @extend .white-links--secondary;
+    &:not(.article-header--with-icon .ctabtn--div) {
+        @extend .white-links;
+        @extend .white-links--secondary;
+    }
 }
 
 .cyber-alert-minus-margin {
