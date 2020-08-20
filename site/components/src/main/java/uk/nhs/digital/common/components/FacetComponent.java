@@ -8,13 +8,11 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
-import java.util.Map;
-
 public class FacetComponent extends SearchComponent {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        if ((Boolean) request.getRequestContext().getAttribute("isContentSearch")) {
+        if (request.getRequestContext().getAttribute("isContentSearch") != null) {
             request.setAttribute("isContentSearch", request.getRequestContext().getAttribute("isContentSearch"));
         } else {
             TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());

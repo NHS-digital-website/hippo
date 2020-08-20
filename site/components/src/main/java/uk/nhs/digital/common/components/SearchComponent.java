@@ -27,16 +27,14 @@ import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.util.UriComponentsBuilder;
 import uk.nhs.digital.common.components.info.SearchComponentInfo;
 import uk.nhs.digital.common.enums.SearchArea;
 import uk.nhs.digital.nil.beans.Indicator;
 import uk.nhs.digital.ps.beans.*;
 import uk.nhs.digital.website.beans.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -102,10 +100,8 @@ public class SearchComponent extends CommonComponent {
                     final long totalResults = queryResponse.getSearchResult().getNumFound();
                     final int pageCount = (int) Math.ceil((double) totalResults / pageSize);
                     final List<Integer> pageNumbers = getPageNumbers(currentPage, pageCount);
-                    final Map<String, Object> facetFields = queryResponse.getFacetCountResult().getFields();
-
-                    calculateFacetUrls(facetFields);
-
+                    Map<String, Object> facetFields = queryResponse.getFacetCountResult().getFields();
+                    facetFields = configureFacets(facetFields, request);
 
                     Pageable<Document> pageable = new ContentSearchPageable<>(totalResults, currentPage, pageSize);
                     request.setAttribute("pageCount", pageCount);
@@ -144,9 +140,41 @@ public class SearchComponent extends CommonComponent {
     }
 
     /* Method for setting the url for each facet */
-    private Map<String,Object> calculateFacetUrls(Map<String, Object> facetFields) {
+    private Map<String, Object> configureFacets(Map<String, Object> facetFields, HstRequest request) {
+        final String queryString = request.getRequestContext().getServletRequest().getQueryString();
+        StringBuffer baseUrlBuilder = request.getRequestContext().getServletRequest().getRequestURL();
+        boolean hasQueryString = false;
+        if (queryString != null) {
+            baseUrlBuilder.append("?").append(queryString);
+            hasQueryString = true;
+        }
+        String baseUrl = UriComponentsBuilder.fromHttpUrl(baseUrlBuilder.toString()).replaceQueryParam("r64_r1:page").replaceQueryParam("r64_r1:pageSize").build().toUriString();
 
-        return null;
+        for (Map.Entry<String, Object> entry : facetFields.entrySet()) {
+            final ArrayList<Object> fields = (ArrayList<Object>) entry.getValue();
+            String key = entry.getKey();
+            for (Object field : fields) {
+                LinkedHashMap<String, Object> facetField = (LinkedHashMap) field;
+                StringBuilder facetUrlBuilder = new StringBuilder().append(baseUrl);
+                String facetUrl;
+                if (hasQueryString) {
+                    if (request.getRequestContext().getServletRequest().getParameter(key) != null) {
+                        facetUrl = UriComponentsBuilder.fromHttpUrl(baseUrl)
+                            .replaceQueryParam(key, facetField.get("name")).build().toUriString();
+                    } else {
+                        facetUrl = facetUrlBuilder.append("&")
+                            .append(key).append("=").append(facetField.get("name")).toString();
+                    }
+                } else {
+                    facetUrl = facetUrlBuilder.append("?")
+                        .append(key).append("=").append(facetField.get("name")).toString();
+                }
+
+                facetField.put("facetUrl", facetUrl);
+                facetField.put("deSelectUrl", UriComponentsBuilder.fromHttpUrl(facetUrl).replaceQueryParam(key).build().toUriString());
+            }
+        }
+        return facetFields;
     }
 
     private void buildAndExecuteHstSearch(HstRequest request, SearchComponentInfo paramInfo) {
@@ -215,15 +243,13 @@ public class SearchComponent extends CommonComponent {
 
     private QueryBuilder appendFacets(HstRequest request, QueryBuilder queryBuilder) {
         if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE) != null) {
-            String parameterValue = getAnyParameter(request, XM_PRIMARY_DOC_TYPE);
             queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, getAnyParameter(request, XM_PRIMARY_DOC_TYPE));
-            request.setAttribute("", parameterValue);
         }
         if (getAnyParameter(request, GEOGRAPHIC_COVERAGE) != null) {
             queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_COVERAGE, getAnyParameter(request, GEOGRAPHIC_COVERAGE));
         }
         if (getAnyParameter(request, INFORMATION_TYPE) != null) {
-            queryBuilder = appendFilter(queryBuilder, INFORMATION_TYPE, getAnyParameter(request, INFORMATION_TYPE) );
+            queryBuilder = appendFilter(queryBuilder, INFORMATION_TYPE, getAnyParameter(request, INFORMATION_TYPE));
         }
         if (getAnyParameter(request, GEOGRAPHIC_GRANULARITY) != null) {
             queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_GRANULARITY, getAnyParameter(request, INFORMATION_TYPE));

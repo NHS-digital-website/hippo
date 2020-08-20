@@ -13,16 +13,27 @@
             <a class="filter-head__reset button button--tiny" onclick="resetFacets(); return false;"
                title="Reset">Reset</a>
         </div>
+
         <#if facetFields?? && facetFields?has_content>
             <#list facetFields?keys as key>
                 <#if key == "xmPrimaryDocType">
-                    <@facetPrimaryDocType facetFields[key]/>
+                    <@facetPrimaryDocType facetFields[key] key/>
                 </#if>
                 <#if key == "informationType">
-                    <@facetInformationType facetFields[key]/>
+                    <@facetInformationType facetFields[key] key/>
                 </#if>
             </#list>
         </#if>
+
+        <#if facetFields?? && facetFields?has_content>
+            <#list facetFields?keys as key>
+                <#if key == "xmPrimaryDocType">
+                    <@RenderFacets facetFields[key] key/>
+                </#if>
+
+            </#list>
+        </#if>
+
     </div>
 
 <#else>
@@ -150,7 +161,7 @@
 </#macro>
 
 
-<#macro facetPrimaryDocType facetFields>
+<#macro facetPrimaryDocType facetFields key>
     <div class="filter-section filter-section--toggles is-open">
     <span class="filter-section__title">
         <@fmt.message key="document-type"/>
@@ -163,7 +174,11 @@
                 data-state="short">
                 <#list facetFields as field>
                     <li class="filter-list__item filter-list__item--no-children">
-                        <a href="javascript:updateQueryStringParameter(window.location.href, 'xmPrimaryDocType', '${field.name}');" title="${field.name}" class="filter-link ${isSelected("xmPrimaryDocType", field.name)?then("filter-link--active", "")}">${field.name} (${field.count})</a>
+                        <#if isSelected(key, field.name)>
+                            <a href="${field.deSelectUrl}" title="${field.name}" class="filter-link filter-link--active">${field.name} (${field.count})</a>
+                            <#else>
+                                <a href="${field.facetUrl}" title="${field.name}" class="filter-link">${field.name} (${field.count})</a>
+                        </#if>
                     </li>
                 </#list>
             </ul>
@@ -172,14 +187,14 @@
 </#macro>
 
 <#function isSelected parameter value>
-    <#if hstRequest.requestContext.servletRequest.getParameter(parameter) == value>
+    <#if hstRequest.requestContext.servletRequest.getParameter(parameter)?? &&  hstRequest.requestContext.servletRequest.getParameter(parameter) == value>
         <#return  true />
         <#else>
         <#return false />
     </#if>
 </#function>
 
-<#macro facetInformationType facetFields>
+<#macro facetInformationType facetFields key>
     <div class="filter-section filter-section--toggles is-open">
     <span class="filter-section__title">
         <@fmt.message key="information-type"/>
@@ -191,13 +206,78 @@
                 data-state="short">
                 <#list facetFields as field>
                     <li class="filter-list__item filter-list__item--no-children">
-                        <a href="#" onclick="updateQueryStringParameter(window.location.href, 'informationType', '${field.name}'); return false;" title="${field.name}" class="filter-link ${isSelected("informationType", field.name)?then("filter-link--active", "")}">${field.name} (${field.count})</a>
+                        <#if isSelected(key, field.name)>
+                            <a href="${field.deSelectUrl}" title="${field.name}" class="filter-link filter-link--active">${field.name} (${field.count})</a>
+                            <#else>
+                                <a href="${field.facetUrl}" title="${field.name}" class="filter-link">${field.name} (${field.count})</a>
+                        </#if>
                     </li>
                 </#list>
             </ul>
         </div>
     </div>
 </#macro>
+
+<#macro renderFacets facetFields key>
+    <div class="filter-section filter-section--toggles is-open">
+    <span class="filter-section__title">
+        <@fmt.message key="information-type"/>
+    </span>
+        <div class="filter-section__contents">
+            <ul class="filter-list"
+                title="<@fmt.message key="information-type" />"
+                data-max-count="${facetMaxCount}"
+                data-state="short">
+                <#list facetFields as field>
+                    <li class="filter-list__item filter-list__item--no-children">
+                        <#if isSelected(key, field.name)>
+                            <a href="${field.deSelectUrl}" title="${field.name}" class="filter-link filter-link--active">${field.name} (${field.count})</a>
+                        <#else>
+                            <a href="${field.facetUrl}" title="${field.name}" class="filter-link">${field.name} (${field.count})</a>
+                        </#if>
+                    </li>
+                </#list>
+            </ul>
+        </div>
+    </div>
+</#macro>
+
+
+<#function getFacetLabel key>
+    <#local label = '' />
+    <#local labels = {
+    "xmPrimaryDocType":             "document-type",
+    "General":                      "uk.nhs.digital.website.beans.General",
+    "Hub":                          "uk.nhs.digital.website.beans.Hub",
+    "Event":                        "uk.nhs.digital.website.beans.Event",
+    "List":                         "uk.nhs.digital.website.beans.ComponentList",
+    "Footer":                       "Footer",
+    "GDPR Transparency":            "uk.nhs.digital.website.beans.Gdprtransparency",
+    "GDPR Summary":                 "uk.nhs.digital.website.beans.Gdprsummary",
+    "API Master":                   "uk.nhs.digital.website.beans.ApiMaster",
+    "Person":                       "uk.nhs.digital.website.beans.Person",
+    "Location":                     "uk.nhs.digital.website.beans.Location",
+    "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint",
+    "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub",
+    "Blog":                         "uk.nhs.digital.website.beans.Blog",
+    "JobRole":                      "uk.nhs.digital.website.beans.JobRole",
+    "BusinessUnit":                 "uk.nhs.digital.website.beans.BusinessUnit",
+    "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure",
+    "News":                         "uk.nhs.digital.website.beans.News",
+    "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes",
+    "SupplementaryInformation":     "uk.nhs.digital.website.beans.SupplementaryInformation",
+    "Team":                         "uk.nhs.digital.website.beans.Team"
+    }/>
+
+    <#list labels?keys as key>
+        <#if docTypes[key] == key>
+            <#local label = key/>
+            <#break>
+        </#if>
+    </#list>
+
+    <#return docType/>
+</#function>
 
 <script>
 

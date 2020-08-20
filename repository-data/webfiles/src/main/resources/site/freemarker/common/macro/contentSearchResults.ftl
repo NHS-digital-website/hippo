@@ -182,8 +182,10 @@
                     </a>
                 </#if>
 
-                <span class="cta__meta"
-                      data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=contentBean.nominalPublicationDate/></span>
+                <#if contentBean?? && contentBean.nominalPublicationDate??>
+                    <span class="cta__meta"
+                          data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=contentBean.nominalPublicationDate/></span>
+                </#if>
                 <#if stampedPublication>
             </div>
 
