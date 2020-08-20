@@ -43,7 +43,8 @@
         "News":                         "uk.nhs.digital.website.beans.News",
         "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes",
         "SupplementaryInformation":     "uk.nhs.digital.website.beans.SupplementaryInformation",
-        "Team":                         "uk.nhs.digital.website.beans.Team"
+        "Team":                         "uk.nhs.digital.website.beans.Team",
+        "Task":                         "uk.nhs.digital.intranet.beans.Task"
     }/>
 
     <#list docTypes?keys as key>

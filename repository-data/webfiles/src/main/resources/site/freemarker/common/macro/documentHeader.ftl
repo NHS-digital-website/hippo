@@ -86,6 +86,28 @@
                                         <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
                                     </div>
                                 </#if>
+
+                                <#if document.priorityActions?has_content>
+                                    <div class="ctabtn--div">
+                                        <#list document.priorityActions as action>
+                                            <#if action.link.linkType == "internal">
+                                                <@hst.link hippobean=action.link.link var="priorityActionLink"/>
+                                            <#else>
+                                                <#assign priorityActionLink=action.link.link/>
+                                            </#if>
+                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, action.action) />
+                                            <div class="ctabtn--inline" aria-labelledby="ctabtn-${slugify(action.action)}">
+                                                <a href="${priorityActionLink}"
+                                                   class="ctabtn--white-button"
+                                                   id="ctabtn-${slugify(action.action)}"
+                                                   onClick="${onClickMethodCall}"
+                                                   onKeyUp="return vjsu.onKeyUp(event)">
+                                                    ${action.action}
+                                                </a>
+                                            </div>
+                                        </#list>
+                                    </div>
+                                </#if>
                             </#if>
                         </div>
                         <#if hasFinalPageIcon>
