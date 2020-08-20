@@ -10,27 +10,18 @@
         <div class="filter-head">
             <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true/>
             <span class="filter-head__title">Filter by:</span>
-            <a class="filter-head__reset button button--tiny" onclick="resetFacets(); return false;"
+            <a class="filter-head__reset button button--tiny"
+               onclick="resetFacets(); return false;"
                title="Reset">Reset</a>
         </div>
 
         <#if facetFields?? && facetFields?has_content>
             <#list facetFields?keys as key>
                 <#if key == "xmPrimaryDocType">
-                    <@facetPrimaryDocType facetFields[key] key/>
+                    <@facetPrimaryDocType facetFields[key]/>
+                    <#else>
+                        <@RenderFacets facetFields[key] key/>
                 </#if>
-                <#if key == "informationType">
-                    <@facetInformationType facetFields[key] key/>
-                </#if>
-            </#list>
-        </#if>
-
-        <#if facetFields?? && facetFields?has_content>
-            <#list facetFields?keys as key>
-                <#if key == "xmPrimaryDocType">
-                    <@RenderFacets facetFields[key] key/>
-                </#if>
-
             </#list>
         </#if>
 
@@ -160,124 +151,153 @@
     </#list>
 </#macro>
 
+<#macro RenderFacets facetFields key>
+    <#if facetFields?? && facetFields?has_content>
+        <div class="filter-section filter-section--toggles is-open">
+            <#assign facetLabel = getFacetLabel(key) />
+            <span class="filter-section__title">
+        <@fmt.message key="${facetLabel}"/>
+             </span>
+            <div class="filter-section__contents">
+                <ul class="filter-list"
+                    title="<@fmt.message key="${facetLabel}" />"
+                    data-max-count="${facetMaxCount}"
+                    data-state="short">
 
-<#macro facetPrimaryDocType facetFields key>
-    <div class="filter-section filter-section--toggles is-open">
-    <span class="filter-section__title">
-        <@fmt.message key="document-type"/>
-    </span>
-
-        <div class="filter-section__contents">
-            <ul class="filter-list"
-                title="<@fmt.message key="document-type" />"
-                data-max-count="${facetMaxCount}"
-                data-state="short">
-                <#list facetFields as field>
-                    <li class="filter-list__item filter-list__item--no-children">
-                        <#if isSelected(key, field.name)>
-                            <a href="${field.deSelectUrl}" title="${field.name}" class="filter-link filter-link--active">${field.name} (${field.count})</a>
+                    <#list facetFields as field>
+                        <#if field.name?? && field.name?has_content>
+                            <#if field?index &lt; 6 || isSelected(key, field.name)>
+                                <li class="filter-list__item filter-list__item--no-children">
+                                    <a href="${field.facetUrl}"
+                                       title="${field.name}"
+                                       class="filter-link ${isSelected(key, field.name)?then("filter-link--active", "")}">${field.name}
+                                        (${field.count})</a>
+                                </li>
                             <#else>
-                                <a href="${field.facetUrl}" title="${field.name}" class="filter-link">${field.name} (${field.count})</a>
+                                <li class="filter-list__item filter-list__item--no-children is-hidden">
+                                    <a href="${field.facetUrl}"
+                                       title="${field.name}"
+                                       class="filter-link ${isSelected(key, field.name)?then("filter-link--active", "")}">${field.name}
+                                        (${field.count})</a>
+                                </li>
+                            </#if>
                         </#if>
-                    </li>
-                </#list>
-            </ul>
+                    </#list>
+                    <#if facetFields?size &gt; facetMaxCount >
+                        <li class="filter-vis-toggles">
+                            <a href="#"
+                               class="filter-vis-toggle filter-vis-toggle--show">Show
+                                all (${ facetFields?size})</a>
+                            <a href="#"
+                               class=" filter-vis-toggle filter-vis-toggle--hide is-hidden">Show
+                                less (${facetMaxCount})</a>
+                        </li>
+                    </#if>
+                </ul>
+            </div>
         </div>
-    </div>
+    </#if>
 </#macro>
+
+<#macro facetPrimaryDocType facetFields>
+    <#if facetFields?? && facetFields?has_content>
+        <div class="filter-section filter-section--toggles is-open">
+            <#assign facetLabel = getFacetLabel("xmPrimaryDocType") />
+            <span class="filter-section__title">
+        <@fmt.message key="${facetLabel}"/>
+             </span>
+            <div class="filter-section__contents">
+                <ul class="filter-list"
+                    title="<@fmt.message key="${facetLabel}" />"
+                    data-max-count="${facetMaxCount}"
+                    data-state="short">
+
+                    <#list facetFields as field>
+                        <#assign facetLabel = getDocTypeLabel(field.name) />
+                        <#if field.name?? && field.name?has_content>
+                            <#if field?index &lt; 6 || isSelected("xmPrimaryDocType", field.name)>
+                                <li class="filter-list__item filter-list__item--no-children">
+                                    <a href="${field.facetUrl}"
+                                       title="${facetLabel}"
+                                       class="filter-link ${isSelected("xmPrimaryDocType", field.name)?then("filter-link--active", "")}">
+                                        ${facetLabel}
+                                        (${field.count})</a>
+                                </li>
+                            <#else>
+                                <li class="filter-list__item filter-list__item--no-children is-hidden">
+                                    <a href="${field.facetUrl}"
+                                       title="${facetLabel}"
+                                       class="filter-link ${isSelected("xmPrimaryDocType", field.name)?then("filter-link--active", "")}">
+                                        ${facetLabel}
+                                        (${field.count})</a>
+                                </li>
+                            </#if>
+                        </#if>
+                    </#list>
+                    <#if facetFields?size &gt; facetMaxCount >
+                        <li class="filter-vis-toggles">
+                            <a href="#"
+                               class="filter-vis-toggle filter-vis-toggle--show">Show
+                                all (${ facetFields?size})</a>
+                            <a href="#"
+                               class=" filter-vis-toggle filter-vis-toggle--hide is-hidden">Show
+                                less (${facetMaxCount})</a>
+                        </li>
+                    </#if>
+                </ul>
+            </div>
+        </div>
+    </#if>
+</#macro>
+
 
 <#function isSelected parameter value>
     <#if hstRequest.requestContext.servletRequest.getParameter(parameter)?? &&  hstRequest.requestContext.servletRequest.getParameter(parameter) == value>
         <#return  true />
-        <#else>
+    <#else>
         <#return false />
     </#if>
 </#function>
 
-<#macro facetInformationType facetFields key>
-    <div class="filter-section filter-section--toggles is-open">
-    <span class="filter-section__title">
-        <@fmt.message key="information-type"/>
-    </span>
-        <div class="filter-section__contents">
-            <ul class="filter-list"
-                title="<@fmt.message key="information-type" />"
-                data-max-count="${facetMaxCount}"
-                data-state="short">
-                <#list facetFields as field>
-                    <li class="filter-list__item filter-list__item--no-children">
-                        <#if isSelected(key, field.name)>
-                            <a href="${field.deSelectUrl}" title="${field.name}" class="filter-link filter-link--active">${field.name} (${field.count})</a>
-                            <#else>
-                                <a href="${field.facetUrl}" title="${field.name}" class="filter-link">${field.name} (${field.count})</a>
-                        </#if>
-                    </li>
-                </#list>
-            </ul>
-        </div>
-    </div>
-</#macro>
 
-<#macro renderFacets facetFields key>
-    <div class="filter-section filter-section--toggles is-open">
-    <span class="filter-section__title">
-        <@fmt.message key="information-type"/>
-    </span>
-        <div class="filter-section__contents">
-            <ul class="filter-list"
-                title="<@fmt.message key="information-type" />"
-                data-max-count="${facetMaxCount}"
-                data-state="short">
-                <#list facetFields as field>
-                    <li class="filter-list__item filter-list__item--no-children">
-                        <#if isSelected(key, field.name)>
-                            <a href="${field.deSelectUrl}" title="${field.name}" class="filter-link filter-link--active">${field.name} (${field.count})</a>
-                        <#else>
-                            <a href="${field.facetUrl}" title="${field.name}" class="filter-link">${field.name} (${field.count})</a>
-                        </#if>
-                    </li>
-                </#list>
-            </ul>
-        </div>
-    </div>
-</#macro>
-
-
-<#function getFacetLabel key>
-    <#local label = '' />
+<#function getFacetLabel field>
     <#local labels = {
     "xmPrimaryDocType":             "document-type",
-    "General":                      "uk.nhs.digital.website.beans.General",
-    "Hub":                          "uk.nhs.digital.website.beans.Hub",
-    "Event":                        "uk.nhs.digital.website.beans.Event",
-    "List":                         "uk.nhs.digital.website.beans.ComponentList",
-    "Footer":                       "Footer",
-    "GDPR Transparency":            "uk.nhs.digital.website.beans.Gdprtransparency",
-    "GDPR Summary":                 "uk.nhs.digital.website.beans.Gdprsummary",
-    "API Master":                   "uk.nhs.digital.website.beans.ApiMaster",
-    "Person":                       "uk.nhs.digital.website.beans.Person",
-    "Location":                     "uk.nhs.digital.website.beans.Location",
-    "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint",
-    "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub",
-    "Blog":                         "uk.nhs.digital.website.beans.Blog",
-    "JobRole":                      "uk.nhs.digital.website.beans.JobRole",
-    "BusinessUnit":                 "uk.nhs.digital.website.beans.BusinessUnit",
-    "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure",
-    "News":                         "uk.nhs.digital.website.beans.News",
-    "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes",
-    "SupplementaryInformation":     "uk.nhs.digital.website.beans.SupplementaryInformation",
-    "Team":                         "uk.nhs.digital.website.beans.Team"
+    "informationType":              "information-type",
+    "geographicGranularity":        "geographical-granularity",
+    "reportingLevel":               "reportingLevel",
+    "geographicCoverage":           "geographical-coverage",
+    "publishedBy":                  "publishedBy"
     }/>
-
-    <#list labels?keys as key>
-        <#if docTypes[key] == key>
-            <#local label = key/>
-            <#break>
-        </#if>
-    </#list>
-
-    <#return docType/>
+    <#return labels[field] />
 </#function>
+
+<#function getDocTypeLabel field>
+    <#local labels = {
+    "publicationsystem:legacypublication":              "Legacy data publications",
+    "website:cyberalert":                               "Cyber alerts",
+    "publicationsystem:dataset":                        "Data sets",
+    "publicationsystem:publication":                    "Publications",
+    "website:news":                                     "News",
+    "website:publishedworkchapter":                     "Published work chapters",
+    "publicationsystem:series":                         "Data series",
+    "website:service":                                  "Service",
+    "website:gdprtransparency":                         "Data transparency",
+    "website:hub":                                      "Hubs",
+    "nationalindicatorlibrary:indicator":               "Indicators",
+    "website:event":                                    "Events",
+    "website:person":                                   "People",
+    "publicationsystem:archive":                        "Archived publications",
+    "website:businessunit":                             "Business units",
+    "website:publishedwork":                            "Published work",
+    "website:visualhub":                                "Visual hubs",
+    "website:blog":                                     "Blog posts",
+    "website:glossarylist":                             "Glossaries",
+    "website:roadmap":                                  "Roadmaps"
+    }/>
+    <#return labels[field] />
+</#function>
+
 
 <script>
 
@@ -286,8 +306,7 @@
         var separator = uri.indexOf('?') !== -1 ? "&" : "?";
         if (uri.match(re)) {
             uri = uri.replace(re, '$1' + key + "=" + value + '$2');
-        }
-        else {
+        } else {
             uri = uri + separator + key + "=" + value;
         }
         window.location.href = uri;

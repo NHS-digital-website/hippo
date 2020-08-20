@@ -59,6 +59,8 @@ public class SearchComponent extends CommonComponent {
     private static final String GEOGRAPHIC_COVERAGE = "geographicCoverage";
     private static final String INFORMATION_TYPE = "informationType";
     private static final String GEOGRAPHIC_GRANULARITY = "geographicGranularity";
+    private static final String PUBLISHED_BY = "publishedBy";
+    private static final String REPORTING_LEVEL = "reportingLevel";
 
     private static final String FOLDER_NEWS_AND_EVENTS = "news-and-events";
     private static final String FOLDER_PUBLICATIONS = "publication-system";
@@ -101,7 +103,7 @@ public class SearchComponent extends CommonComponent {
                     final int pageCount = (int) Math.ceil((double) totalResults / pageSize);
                     final List<Integer> pageNumbers = getPageNumbers(currentPage, pageCount);
                     Map<String, Object> facetFields = queryResponse.getFacetCountResult().getFields();
-                    facetFields = configureFacets(facetFields, request);
+                    configureFacets(facetFields, request);
 
                     Pageable<Document> pageable = new ContentSearchPageable<>(totalResults, currentPage, pageSize);
                     request.setAttribute("pageCount", pageCount);
@@ -140,7 +142,8 @@ public class SearchComponent extends CommonComponent {
     }
 
     /* Method for setting the url for each facet */
-    private Map<String, Object> configureFacets(Map<String, Object> facetFields, HstRequest request) {
+    private void configureFacets(Map<String, Object> facetFields, HstRequest request) {
+
         final String queryString = request.getRequestContext().getServletRequest().getQueryString();
         StringBuffer baseUrlBuilder = request.getRequestContext().getServletRequest().getRequestURL();
         boolean hasQueryString = false;
@@ -148,19 +151,28 @@ public class SearchComponent extends CommonComponent {
             baseUrlBuilder.append("?").append(queryString);
             hasQueryString = true;
         }
-        String baseUrl = UriComponentsBuilder.fromHttpUrl(baseUrlBuilder.toString()).replaceQueryParam("r64_r1:page").replaceQueryParam("r64_r1:pageSize").build().toUriString();
 
+        String baseUrl = UriComponentsBuilder.fromHttpUrl(baseUrlBuilder.toString()).replaceQueryParam("r64_r1:page").replaceQueryParam("r64_r1:pageSize").build().toUriString();
         for (Map.Entry<String, Object> entry : facetFields.entrySet()) {
-            final ArrayList<Object> fields = (ArrayList<Object>) entry.getValue();
+            ArrayList<Object> fields = (ArrayList<Object>) entry.getValue();
             String key = entry.getKey();
+
+            if (key.equals("xmPrimaryDocType")) {
+                configureDocTypeFacets(fields);
+            }
             for (Object field : fields) {
                 LinkedHashMap<String, Object> facetField = (LinkedHashMap) field;
                 StringBuilder facetUrlBuilder = new StringBuilder().append(baseUrl);
                 String facetUrl;
                 if (hasQueryString) {
                     if (request.getRequestContext().getServletRequest().getParameter(key) != null) {
-                        facetUrl = UriComponentsBuilder.fromHttpUrl(baseUrl)
-                            .replaceQueryParam(key, facetField.get("name")).build().toUriString();
+                        if (request.getRequestContext().getServletRequest().getParameter(key).equals(facetField.get("name"))) {
+                            facetUrl = UriComponentsBuilder.fromHttpUrl(baseUrl)
+                                .replaceQueryParam(key).build().toUriString();
+                        } else {
+                            facetUrl = UriComponentsBuilder.fromHttpUrl(baseUrl)
+                                .replaceQueryParam(key, facetField.get("name")).build().toUriString();
+                        }
                     } else {
                         facetUrl = facetUrlBuilder.append("&")
                             .append(key).append("=").append(facetField.get("name")).toString();
@@ -169,12 +181,26 @@ public class SearchComponent extends CommonComponent {
                     facetUrl = facetUrlBuilder.append("?")
                         .append(key).append("=").append(facetField.get("name")).toString();
                 }
-
                 facetField.put("facetUrl", facetUrl);
-                facetField.put("deSelectUrl", UriComponentsBuilder.fromHttpUrl(facetUrl).replaceQueryParam(key).build().toUriString());
             }
         }
-        return facetFields;
+    }
+
+    /* Method for configuring the doctype facets, grouping + removing specific docTypes */
+    private void configureDocTypeFacets(ArrayList<Object> entry) {
+        Iterator<Object> iterable = entry.iterator();
+        while (iterable.hasNext()) {
+            LinkedHashMap<String, Object> facetField = (LinkedHashMap) iterable.next();
+            if (removeDocType(facetField)) {
+                iterable.remove();
+            }
+        }
+    }
+
+    private boolean removeDocType(LinkedHashMap<String, Object> facetField) {
+        String docType = (String) facetField.get("name");
+        return docType.equals("website:general") || docType.equals("website:componentlist") || docType.equals("website:roadmapitem") || docType.equals("website:apimaster")
+            || docType.equals("website:bloghub") || docType.equals("website:apiendpoint") || docType.equals("website:gdprsummary") || docType.equals("website:orgstructure");
     }
 
     private void buildAndExecuteHstSearch(HstRequest request, SearchComponentInfo paramInfo) {
@@ -210,31 +236,23 @@ public class SearchComponent extends CommonComponent {
 
     private Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, int pageSize, int currentPage, String query) {
         ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
-
         QueryBuilder queryBuilder = searchService.builder()
             .catalog("content_en")
             .query(query)
             .limit(pageSize)
             .offset((currentPage - 1) * pageSize)
             .retrieveField("title")
-            .retrieveField("summary_content")
             .retrieveField("shortsummary")
-            .retrieveField("publicationDate")
             .retrieveField("xmUrl")
             .retrieveField(XM_PRIMARY_DOC_TYPE)
             .retrieveField(INFORMATION_TYPE)
-            .retrieveField("assuranceDate")
-            .retrieveField("publishedBy")
-            .retrieveField("details_briefDescription")
-            .retrieveField("nominalDate")
-            .retrieveField("summary")
-            .retrieveField("showLatest")
+            .retrieveField(PUBLISHED_BY)
             .facetField(XM_PRIMARY_DOC_TYPE)
             .facetField(GEOGRAPHIC_COVERAGE)
             .facetField(INFORMATION_TYPE)
             .facetField(GEOGRAPHIC_GRANULARITY)
-            .facetField("publishedBy")
-            .facetField("reportingLevel");
+            .facetField(PUBLISHED_BY)
+            .facetField(REPORTING_LEVEL);
 
         queryBuilder = appendFacets(request, queryBuilder);
 
@@ -253,6 +271,12 @@ public class SearchComponent extends CommonComponent {
         }
         if (getAnyParameter(request, GEOGRAPHIC_GRANULARITY) != null) {
             queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_GRANULARITY, getAnyParameter(request, INFORMATION_TYPE));
+        }
+        if (getAnyParameter(request, PUBLISHED_BY) != null) {
+            queryBuilder = appendFilter(queryBuilder, PUBLISHED_BY, getAnyParameter(request, PUBLISHED_BY));
+        }
+        if (getAnyParameter(request, REPORTING_LEVEL) != null) {
+            queryBuilder = appendFilter(queryBuilder, REPORTING_LEVEL, getAnyParameter(request, REPORTING_LEVEL));
         }
         return queryBuilder;
     }
