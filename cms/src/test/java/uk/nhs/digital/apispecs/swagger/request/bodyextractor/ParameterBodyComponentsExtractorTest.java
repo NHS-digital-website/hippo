@@ -81,12 +81,12 @@ public class ParameterBodyComponentsExtractorTest {
     }
 
     private RequestBody completeRequestBody() {
-        final RequestBodyMediaTypes requestBodyMediaTypes = new RequestBodyMediaTypes();
-        requestBodyMediaTypes.put("application/json", new RequestBodyMediaTypeContent());
-        requestBodyMediaTypes.put("application/xml", new RequestBodyMediaTypeContent());
+        final RequestBodyMediaTypeObjects requestBodyMediaTypeObjects = new RequestBodyMediaTypeObjects();
+        requestBodyMediaTypeObjects.put("application/json", new RequestBodyMediaTypeObject());
+        requestBodyMediaTypeObjects.put("application/xml", new RequestBodyMediaTypeObject());
 
         final RequestBody requestBody = new RequestBody();
-        ReflectionTestUtils.setField(requestBody, "content", requestBodyMediaTypes);
+        ReflectionTestUtils.setField(requestBody, "content", requestBodyMediaTypeObjects);
         return requestBody;
     }
 

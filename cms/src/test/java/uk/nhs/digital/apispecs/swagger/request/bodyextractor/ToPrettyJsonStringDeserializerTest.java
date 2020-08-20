@@ -1,6 +1,7 @@
 package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -14,19 +15,23 @@ import java.io.IOException;
 public class ToPrettyJsonStringDeserializerTest {
 
     @Test
-    public void testDeserialization() throws IOException {
-        ToPrettyJsonStringDeserializer deserializer = new ToPrettyJsonStringDeserializer();
+    public void deserialisesValueAsPrettyPrintedJson() throws IOException {
 
-        DeserializationContext context = Mockito.mock(DeserializationContext.class);
-        JsonParser parser = Mockito.mock(JsonParser.class);
-        ObjectCodec codec = Mockito.mock(ObjectCodec.class);
-        JsonNode node = Mockito.mock(JsonNode.class);
+        // given
+        final ToPrettyJsonStringDeserializer deserializer = new ToPrettyJsonStringDeserializer();
 
-        when(parser.getCodec()).thenReturn(codec);
-        when(codec.readTree(parser)).thenReturn(node);
+        final DeserializationContext context = Mockito.mock(DeserializationContext.class);
+        final JsonParser parser = Mockito.mock(JsonParser.class);
+        final ObjectCodec codec = Mockito.mock(ObjectCodec.class);
+        final JsonNode node = Mockito.mock(JsonNode.class);
 
+        given(parser.getCodec()).willReturn(codec);
+        given(codec.readTree(parser)).willReturn(node);
+
+        // when
         deserializer.deserialize(parser, context);
 
-        verify(node, times(1)).toPrettyString();
+        // then
+        then(node).should().toPrettyString();
     }
 }

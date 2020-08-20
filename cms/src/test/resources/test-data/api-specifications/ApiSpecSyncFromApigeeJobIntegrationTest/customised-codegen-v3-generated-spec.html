@@ -307,10 +307,11 @@ It supports the following security patterns:</p>
                                                         </tr>
                                                             <tr><td class="httpparams__name">id</td>
                                                             <td>
-                                                                <div id="d2e199_getPatient_id">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
@@ -339,10 +340,11 @@ It supports the following security patterns:</p>
                                                         </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_getPatient_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -363,10 +365,11 @@ It supports the following security patterns:</p>
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_getPatient_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -393,54 +396,46 @@ It supports the following security patterns:</p>
                                                 <h3>Status: 200</h3>
                                                 <div>Information successfully returned.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getPatient-200-schema">
-                                                            <div id='responses-getPatient-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-getPatient-200-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                        <div class="tab-pane" id="responses-getPatient-200-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                                <tr><td class="httpparams__name">ETag</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
+<p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
+</div>
+                                                                
+                                                                                    <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">W/"2"</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 </tr>
-                                                                    <tr>
-                                                                        <td>ETag</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                            </table>
-                                                        </div>
-                                                </div>
+                                                        </table>
+                                                    </div>
 
                                                 <h3>Status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getPatient-400-schema">
-                                                            <div id='responses-getPatient-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-getPatient-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                                 <h3>Status: 404</h3>
                                                 <div>Patient not found.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getPatient-404-schema">
-                                                            <div id='responses-getPatient-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-getPatient-404-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                         </article>
                                     </div>
@@ -617,10 +612,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                         </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -641,10 +637,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -675,10 +672,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                         </tr>
                                                             <tr><td class="httpparams__name">_exact-match</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_exactMatch">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
+                                                            
                                                             
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
                                                             
@@ -695,10 +693,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">_history</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_history">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
+                                                            
                                                             
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
                                                             
@@ -715,10 +714,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">_fuzzy-match</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_fuzzyMatch">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
+                                                            
                                                             
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
                                                             
@@ -735,10 +735,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">_max-results</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_maxResults">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Integer</span>
+                                                            
                                                                                 <code class="codeinline">(int32)</code>
                                                             
                                                                                 <div>Default value: <code class="codeinline">50</code></div>
@@ -756,10 +757,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">family</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_family">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>The patient's family name (surname).</p>
@@ -782,10 +784,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">given</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_given">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>The patient's given name.</p>
@@ -803,10 +806,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">gender</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_gender">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>Gender with which the patient most strongly identifies.</div>
@@ -823,10 +827,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">birthdate</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_birthdate">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">array[String]</span>
+                                                            
                                                             
                                                             
                                                                                 <div>Date of birth in the format <code class="codeinline">&lt;eq|ge|le&gt;yyyy-mm-dd</code>. To specify a range, use <code class="codeinline">birthdate=geyyyy-mm-dd&amp;birthdate=leyyyy-mm-dd</code>.</div>
@@ -849,10 +854,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">death-date</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_deathDate">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">date</span>
+                                                            
                                                                                 <code class="codeinline">(date)</code>
                                                             
                                                             
@@ -876,10 +882,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">address-postcode</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_addressPostcode">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>The postcode of any of the patient’s known addresses. White spaces in postcodes are not significant; that is, LS16AE and LS1 6AE will both match LS1 6AE.</p>
@@ -902,10 +909,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">general-practitioner</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_generalPractitioner">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The Organisation Data Service (ODS) code of the patient's registered GP practice.</div>
@@ -926,26 +934,10 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                 <h3>Status: 200</h3>
                                                 <div>A completed search, containing zero, one, or many matching patients.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-searchPatient-200-schema">
-                                                            <div id='responses-searchPatient-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-searchPatient-200-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                                 <h3>Status: 400</h3>
                                                 <div>Invalid search paramaters supplied.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-searchPatient-400-schema">
-                                                            <div id='responses-searchPatient-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-searchPatient-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                         </article>
                                     </div>
@@ -1492,10 +1484,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                         </tr>
                                                             <tr><td class="httpparams__name">id</td>
                                                             <td>
-                                                                <div id="d2e199_updatePatientPartial_id">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
@@ -1524,10 +1517,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                         </tr>
                                                             <tr><td class="httpparams__name">If-Match</td>
                                                             <td>
-                                                                <div id="d2e199_updatePatientPartial_ifMatch">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>Latest known version identifier enclosed in quotes preceded by <code class="codeinline">W/</code>.</p>
@@ -1549,10 +1543,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                             </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_updatePatientPartial_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -1573,10 +1568,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_updatePatientPartial_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -1793,56 +1789,65 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 <p>See the polling endpoint for more details.</p>
 </div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane" id="responses-updatePatientPartial-202-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                                <tr><td class="httpparams__name">Content-Location</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div>Polling location of the update</div>
+                                                                
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">/Polling/20200522091633363041_461139_1524772598</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 </tr>
-                                                                    <tr>
-                                                                        <td>Content-Location</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Retry-After</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                            </table>
-                                                        </div>
-                                                </div>
+                                                                <tr><td class="httpparams__name">Retry-After</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div>Time to wait between polls in milliseconds</div>
+                                                                
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">100</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                </tr>
+                                                        </table>
+                                                    </div>
 
                                                 <h3>Status: 400</h3>
                                                 <div>Client error.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-updatePatientPartial-400-schema">
-                                                            <div id='responses-updatePatientPartial-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-updatePatientPartial-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                                 <h3>Status: 412</h3>
                                                 <div><p>Precondition failed.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
 </div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-updatePatientPartial-412-schema">
-                                                            <div id='responses-updatePatientPartial-412-schema-412' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-updatePatientPartial-412-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                         </article>
                                     </div>
@@ -1912,10 +1917,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </tr>
                                                             <tr><td class="httpparams__name">message_id</td>
                                                             <td>
-                                                                <div id="d2e199_polling_messageId">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The message ID of the accepted update that needs to be submitted to confirm the resource a successfully updated.</div>
@@ -1944,10 +1950,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_polling_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -1968,10 +1975,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_polling_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -1998,94 +2006,62 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                 <h3>Status: 200</h3>
                                                 <div>Patient updated.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-200-schema">
-                                                            <div id='responses-polling-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-polling-200-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                        <div class="tab-pane" id="responses-polling-200-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                                <tr><td class="httpparams__name">ETag</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
+<p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
+</div>
+                                                                
+                                                                                    <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">W/"2"</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 </tr>
-                                                                    <tr>
-                                                                        <td>ETag</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                            </table>
-                                                        </div>
-                                                </div>
+                                                        </table>
+                                                    </div>
 
                                                 <h3>Status: 400</h3>
                                                 <div>Client error after the patch was accepted and patient was not updated.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-400-schema">
-                                                            <div id='responses-polling-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-polling-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                                 <h3>Status: 403</h3>
                                                 <div>Part of your update could not be allowed as the change was forbidden.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-403-schema">
-                                                            <div id='responses-polling-403-schema-403' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-polling-403-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                                 <h3>Status: 404</h3>
                                                 <div>The message ID not found or you did not have permission to poll for that message.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-404-schema">
-                                                            <div id='responses-polling-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-polling-404-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                                 <h3>Status: 409</h3>
                                                 <div><p>Version Conflict.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
 </div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-409-schema">
-                                                            <div id='responses-polling-409-schema-409' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-polling-409-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                                 <h3>Status: 422</h3>
                                                 <div><p>The polling message ID was found however the processing of the request failed in an unexpected way or was cancelled, so the update failed.</p>
 <p>Please raise these occurrences with our team (via https://digital.nhs.uk/developer/help-and-support) so we can investigate the issue. When raising, quote the message ID you were polling for.</p>
 </div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-422-schema">
-                                                            <div id='responses-polling-422-schema-422' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-polling-422-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                         </article>
                                     </div>
@@ -2153,10 +2129,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </tr>
                                                             <tr><td class="httpparams__name">id</td>
                                                             <td>
-                                                                <div id="d2e199_getRelatedPeople_id">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
@@ -2185,10 +2162,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_getRelatedPeople_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -2209,10 +2187,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_getRelatedPeople_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -2239,54 +2218,46 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                 <h3>Status: 200</h3>
                                                 <div>Information successfully returned.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getRelatedPeople-200-schema">
-                                                            <div id='responses-getRelatedPeople-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-getRelatedPeople-200-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                        <div class="tab-pane" id="responses-getRelatedPeople-200-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                                <tr><td class="httpparams__name">ETag</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
+<p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
+</div>
+                                                                
+                                                                                    <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">W/"2"</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 </tr>
-                                                                    <tr>
-                                                                        <td>ETag</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                            </table>
-                                                        </div>
-                                                </div>
+                                                        </table>
+                                                    </div>
 
                                                 <h3>Status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getRelatedPeople-400-schema">
-                                                            <div id='responses-getRelatedPeople-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-getRelatedPeople-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                                 <h3>Status: 404</h3>
                                                 <div>Related People not found.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getRelatedPeople-404-schema">
-                                                            <div id='responses-getRelatedPeople-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-getRelatedPeople-404-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
 
                                         </article>
                                     </div>
