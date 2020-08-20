@@ -8,26 +8,26 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RequestBody {
 
     @JsonProperty
-    private RequestBodyMediaTypes content;
+    private RequestBodyMediaTypeObjects content;
 
-    public Collection<RequestBodyMediaTypeContent> getMediaTypes() {
+    public List<RequestBodyMediaTypeObject> getMediaTypes() {
 
-        return Optional.ofNullable(content).orElse(new RequestBodyMediaTypes())
+        return Optional.ofNullable(content).orElse(new RequestBodyMediaTypeObjects())
             .entrySet().stream()
             .map(mapEntry -> {
                 final String contentTypeName = mapEntry.getKey();
-                final RequestBodyMediaTypeContent requestBodyMediaTypeContent = mapEntry.getValue();
+                final RequestBodyMediaTypeObject requestBodyMediaTypeObject = mapEntry.getValue();
 
-                requestBodyMediaTypeContent.setName(contentTypeName);
+                requestBodyMediaTypeObject.setName(contentTypeName);
 
-                return requestBodyMediaTypeContent;
+                return requestBodyMediaTypeObject;
             })
             .collect(toList());
     }

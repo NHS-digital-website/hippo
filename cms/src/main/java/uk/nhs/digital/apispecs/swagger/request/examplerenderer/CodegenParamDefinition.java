@@ -8,15 +8,21 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * DTO representing CodegenParameter (request parameters) and CodegenProperty (response headers); populated by
+ * deserializing CodegenParameter.jsonSchema and CodegenProperty.jsonSchema.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-class RequestParamDefinition {
+class CodegenParamDefinition {
 
-    // subset of https://swagger.io/specification/#parameter-object
+    // subset of:
+    // https://swagger.io/specification/#parameter-object
+    // https://swagger.io/specification/#header-object
 
     private String example;
     private Map<String, ParamExample> examples;
 
-    private RequestParamSchema schema;
+    private CodegenParamSchema schema;
 
     public Optional<String> getExample() {
         return Optional.ofNullable(example);
@@ -26,7 +32,7 @@ class RequestParamDefinition {
         return examples == null ? emptyMap() : unmodifiableMap(examples);
     }
 
-    public Optional<RequestParamSchema> getSchema() {
+    public Optional<CodegenParamSchema> getSchema() {
         return Optional.ofNullable(schema);
     }
 }

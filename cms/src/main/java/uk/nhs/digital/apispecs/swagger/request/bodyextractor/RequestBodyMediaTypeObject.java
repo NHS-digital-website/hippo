@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RequestBodyMediaTypeContent {
+public class RequestBodyMediaTypeObject {
 
     private String name;
 
@@ -50,7 +50,7 @@ public class RequestBodyMediaTypeContent {
             return false;
         }
 
-        final RequestBodyMediaTypeContent that = (RequestBodyMediaTypeContent) o;
+        final RequestBodyMediaTypeObject that = (RequestBodyMediaTypeObject) o;
 
         return new EqualsBuilder()
             .append(name, that.name)

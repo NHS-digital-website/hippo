@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Optional;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class RequestParamSchema {
+class CodegenParamSchema {
     // subset of https://swagger.io/specification/#schema-object
     private String example;
 

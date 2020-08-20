@@ -3,7 +3,6 @@ package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.codegen.v3.CodegenParameter;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 
 import java.text.MessageFormat;
@@ -11,7 +10,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 /**
- * <p>Returns HTML value to be used for actual rendering of request parameter's example values.</p>
+ * <p>Returns HTML value to be used for actual rendering of request parameter's or response header's example values.</p>
  *
  * <p>Note:</p>
  * <ul>
@@ -25,43 +24,44 @@ import java.util.Optional;
  * <p>See:</p>
  * <ul>
  * <li><a href="https://swagger.io/specification/#schema-object"/>OAS Schema Object</li>
- * <li><a href="https://swagger.io/specification/#parameter-object"/>OAS Parameter Object</li>
+ * <li><a href="https://swagger.io/specification/#parameter-object"/>OAS Parameter Object (request parameters)</li>
+ * <li><a href="https://swagger.io/specification/#header-object"/>OAS Header Object (response headers)</li>
  * </ul>
  */
-public class CodegenRequestParameterExampleRenderer {
+public class CodegenParameterExampleRenderer {
 
     private final CommonmarkMarkdownConverter markdownConverter;
 
     private final ObjectMapper jsonObjectMapper = new ObjectMapper()
         .configure(MapperFeature.USE_ANNOTATIONS, true);
 
-    public CodegenRequestParameterExampleRenderer(final CommonmarkMarkdownConverter markdownConverter) {
+    public CodegenParameterExampleRenderer(final CommonmarkMarkdownConverter markdownConverter) {
         this.markdownConverter = markdownConverter;
     }
 
-    public String htmlForExampleValueOf(final CodegenParameter requestParameter) {
+    public String htmlForExampleValueOf(final String jsonSchema) {
 
         try {
-            final RequestParamDefinition requestParamDefinition = from(requestParameter.getJsonSchema());
+            final CodegenParamDefinition codegenParamDefinition = from(jsonSchema);
 
-            if (requestParamDefinition.getExample().isPresent()) {
-                return htmlFrom(requestParamDefinition.getExample().get());
+            if (codegenParamDefinition.getExample().isPresent()) {
+                return htmlFrom(codegenParamDefinition.getExample().get());
             }
 
-            final Collection<ParamExample> complexExamplesFromParamDefinition = requestParamDefinition.getExamples().values();
+            final Collection<ParamExample> complexExamplesFromParamDefinition = codegenParamDefinition.getExamples().values();
 
             if (!complexExamplesFromParamDefinition.isEmpty()) {
                 return htmlFrom(complexExamplesFromParamDefinition);
             }
 
-            final Optional<String> exampleFromParamSchema = requestParamDefinition
+            final Optional<String> exampleFromParamSchema = codegenParamDefinition
                 .getSchema()
-                .flatMap(RequestParamSchema::getExample);
+                .flatMap(CodegenParamSchema::getExample);
 
             return exampleFromParamSchema.map(this::htmlFrom).orElse(null);
 
         } catch (final Exception e) {
-            throw new RuntimeException("Failed to generate HTML for examples of parameter " + requestParameter, e);
+            throw new RuntimeException("Failed to generate HTML for examples from JSON schema: " + jsonSchema, e);
         }
     }
 
@@ -100,7 +100,7 @@ public class CodegenRequestParameterExampleRenderer {
         return MessageFormat.format("Example: <code class=\"codeinline\">{0}</code>", simpleExampleValue);
     }
 
-    private RequestParamDefinition from(final String parameterJsonDefinition) throws JsonProcessingException {
-        return jsonObjectMapper.readValue(parameterJsonDefinition, RequestParamDefinition.class);
+    private CodegenParamDefinition from(final String parameterJsonDefinition) throws JsonProcessingException {
+        return jsonObjectMapper.readValue(parameterJsonDefinition, CodegenParamDefinition.class);
     }
 }

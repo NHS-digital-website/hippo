@@ -2,58 +2,52 @@ package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.sameInstance;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import org.junit.Test;
 import uk.nhs.digital.test.util.ReflectionTestUtils;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
 public class RequestBodyTest {
 
     @Test
-    public void getMediaTypes() {
+    public void getMediaTypes_returnsMediaTypeObjects_enrichedWithNamesFromTheInternalMapKeys() {
 
-        RequestBody requestBody = new RequestBody();
-        RequestBodyMediaTypes mediaTypes = setContent();
-        ReflectionTestUtils.setField(requestBody,"content",mediaTypes);
+        // given
+        final String mediaType1 = "application/json";
+        final RequestBodyMediaTypeObject expectedMediaTypeObject1 = mock(RequestBodyMediaTypeObject.class);
 
-        Collection<RequestBodyMediaTypeContent> contentCollection = requestBody.getMediaTypes();
+        final String mediaType2 = "application/xml";
+        final RequestBodyMediaTypeObject expectedMediaTypeObject2 = mock(RequestBodyMediaTypeObject.class);
 
-        RequestBodyMediaTypeContent content = contentCollection.stream().findFirst().get();
+        final RequestBodyMediaTypeObjects mediaTypes = new RequestBodyMediaTypeObjects();
+        mediaTypes.put(mediaType1, expectedMediaTypeObject1);
+        mediaTypes.put(mediaType2, expectedMediaTypeObject2);
 
-        Set<String> keyNames = mediaTypes.keySet();
-        assertThat("Name derived from RequestBodyMediaTypes key", keyNames.contains(content.getName()));
+        final RequestBody requestBody = new RequestBody();
+        ReflectionTestUtils.setField(requestBody, "content", mediaTypes);
 
-        assertThat("Name derived from RequestBodyMediaTypes key",content.getName(),is("application/json"));
+        // when
+        final List<RequestBodyMediaTypeObject> actualRequestBodyMediaTypes = requestBody.getMediaTypes();
 
-        assertThat("Verify content name and  example mapped correctly", content.getExamples().stream().findFirst().get().getDescription(),is("example-description-1"));
-    }
+        // then
+        assertThat("Returns all media type objects from the internal map.", actualRequestBodyMediaTypes.size(), is(2));
+        final RequestBodyMediaTypeObject actualMediaTypeObject1 = actualRequestBodyMediaTypes.get(0);
+        assertThat("First media type object comes is a value from the internal map",
+            actualMediaTypeObject1, sameInstance(expectedMediaTypeObject1)
+        );
+        then(actualMediaTypeObject1).should().setName(mediaType1);
+        verifyNoMoreInteractions(actualMediaTypeObject1);
 
-    private RequestBodyMediaTypes setContent() {
-
-        ParamExample paramExample1 = new ParamExample();
-        paramExample1.setDescription("example-description-1");
-
-        ParamExample paramExample2 = new ParamExample();
-        paramExample2.setDescription("example-description-2");
-
-        RequestBodyMediaTypeContent content1 = new RequestBodyMediaTypeContent();
-        Map<String,ParamExample> examples1 = new HashMap<>();
-        examples1.put("example1", paramExample1);
-        ReflectionTestUtils.setField(content1,"examples", examples1);
-
-        RequestBodyMediaTypeContent content2 = new RequestBodyMediaTypeContent();
-        Map<String,ParamExample> examples2 = new HashMap<>();
-        examples2.put("example2", paramExample2);
-        ReflectionTestUtils.setField(content2,"examples", examples2);
-
-        RequestBodyMediaTypes mediaTypes = new RequestBodyMediaTypes();
-        mediaTypes.put("application/json", content1);
-        mediaTypes.put("application/xml", content2);
-
-        return mediaTypes;
+        final RequestBodyMediaTypeObject actualMediaTypeObject2 = actualRequestBodyMediaTypes.get(1);
+        assertThat("Second media type object comes is a value from the internal map",
+            actualMediaTypeObject2, sameInstance(expectedMediaTypeObject2)
+        );
+        then(actualMediaTypeObject2).should().setName(mediaType2);
+        verifyNoMoreInteractions(actualMediaTypeObject2);
     }
 }
