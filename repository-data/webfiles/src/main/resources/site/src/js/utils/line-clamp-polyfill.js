@@ -148,10 +148,8 @@ function native(rootElement, lineCount, colour) {
  * @param {number} lineCount
  * @param {string} colour
  */
-function webkitLineClamp(element, lineCount, colour) {
+export default function (element, lineCount, colour) {
     if (!lineCount) return;
 
     (typeof element.style.webkitLineClamp === 'undefined' ? truncate : native)(element, lineCount, colour);
 }
-
-window.webkitLineClamp = webkitLineClamp;
