@@ -274,26 +274,23 @@
 
 <#function getDocTypeLabel field>
     <#local labels = {
-    "publicationsystem:legacypublication":              "Legacy data publications",
     "website:cyberalert":                               "Cyber alerts",
     "publicationsystem:dataset":                        "Data sets",
-    "publicationsystem:publication":                    "Publications",
     "website:news":                                     "News",
     "website:publishedworkchapter":                     "Published work chapters",
     "publicationsystem:series":                         "Data series",
     "website:service":                                  "Service",
     "website:gdprtransparency":                         "Data transparency",
-    "website:hub":                                      "Hubs",
     "nationalindicatorlibrary:indicator":               "Indicators",
     "website:event":                                    "Events",
     "website:person":                                   "People",
-    "publicationsystem:archive":                        "Archived publications",
     "website:businessunit":                             "Business units",
     "website:publishedwork":                            "Published work",
-    "website:visualhub":                                "Visual hubs",
     "website:blog":                                     "Blog posts",
     "website:glossarylist":                             "Glossaries",
-    "website:roadmap":                                  "Roadmaps"
+    "website:roadmap":                                  "Roadmaps",
+    "homepage":                                         "Homepages",
+    "publication":                                      "Data publications"
     }/>
     <#return labels[field] />
 </#function>

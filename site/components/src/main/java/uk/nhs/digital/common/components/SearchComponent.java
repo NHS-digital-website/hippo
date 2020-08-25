@@ -51,7 +51,8 @@ public class SearchComponent extends CommonComponent {
     private static final String REQUEST_PARAM_SORT = "sort";
     private static final String REQUEST_PARAM_AREA = "area";
     private static final String SORT_RELEVANCE = "relevance";
-    private static final String SORT_DATE = "date";
+    private static final String SORT_DATE_KEY = "date";
+    private static final String SORT_PUBLICATION_DATE = "publicationDate";
     private static final String SORT_DEFAULT = SORT_RELEVANCE;
     private static final SearchArea AREA_DEFAULT = SearchArea.ALL;
 
@@ -61,6 +62,12 @@ public class SearchComponent extends CommonComponent {
     private static final String GEOGRAPHIC_GRANULARITY = "geographicGranularity";
     private static final String PUBLISHED_BY = "publishedBy";
     private static final String REPORTING_LEVEL = "reportingLevel";
+
+    private static final String PUBLICATION_SYSTEM_LEGACY_PUBLICATION = "publicationsystem:legacypublication";
+    private static final String PUBLICATION_SYSTEM_PUBLICATION = "publicationsystem:publication";
+    private static final String PUBLICATION_SYSTEM_ARCHIVE = "publicationsystem:archive";
+    private static final String WEBSITE_VISUAL_HUB = "website:visualhub";
+    private static final String WEBSITE_HUB = "website:hub";
 
     private static final String FOLDER_NEWS_AND_EVENTS = "news-and-events";
     private static final String FOLDER_PUBLICATIONS = "publication-system";
@@ -143,16 +150,27 @@ public class SearchComponent extends CommonComponent {
 
     /* Method for setting the url for each facet */
     private void configureFacets(Map<String, Object> facetFields, HstRequest request) {
-
         final String queryString = request.getRequestContext().getServletRequest().getQueryString();
         StringBuffer baseUrlBuilder = request.getRequestContext().getServletRequest().getRequestURL();
-        boolean hasQueryString = false;
         if (queryString != null) {
-            baseUrlBuilder.append("?").append(queryString);
+            baseUrlBuilder.append("?")
+                .append(queryString);
+        }
+
+        String baseUrl = baseUrlBuilder.toString();
+        if (queryString != null && queryString.contains("page")) {
+            baseUrl = UriComponentsBuilder.fromHttpUrl(baseUrlBuilder.toString())
+                .replaceQueryParam(request.getReferenceNamespace() + ":page")
+                .replaceQueryParam(request.getReferenceNamespace() + ":pageSize").build().toUriString();
+        }
+
+        boolean hasQueryString = false;
+        if (UriComponentsBuilder.fromHttpUrl(baseUrl).build().getQueryParams().size() > 0) {
+            baseUrlBuilder.append("?")
+                .append(queryString);
             hasQueryString = true;
         }
 
-        String baseUrl = UriComponentsBuilder.fromHttpUrl(baseUrlBuilder.toString()).replaceQueryParam("r64_r1:page").replaceQueryParam("r64_r1:pageSize").build().toUriString();
         for (Map.Entry<String, Object> entry : facetFields.entrySet()) {
             ArrayList<Object> fields = (ArrayList<Object>) entry.getValue();
             String key = entry.getKey();
@@ -188,6 +206,8 @@ public class SearchComponent extends CommonComponent {
 
     /* Method for configuring the doctype facets, grouping + removing specific docTypes */
     private void configureDocTypeFacets(ArrayList<Object> entry) {
+        groupPublicationFacets(entry);
+        groupHomePageFacets(entry);
         Iterator<Object> iterable = entry.iterator();
         while (iterable.hasNext()) {
             LinkedHashMap<String, Object> facetField = (LinkedHashMap) iterable.next();
@@ -197,10 +217,66 @@ public class SearchComponent extends CommonComponent {
         }
     }
 
+    /* Method for grouping, website:hub & website:visualhub into one facet 'homepage' */
+    private void groupHomePageFacets(ArrayList<Object> entry) {
+        int groupCount = 0;
+        List<Integer> countArray = new ArrayList<>();
+        for (Object fields : entry) {
+            LinkedHashMap<String, Object> facetField = (LinkedHashMap) fields;
+            String docType = (String) facetField.get("name");
+            int currentCount = (int) facetField.get("count");
+            countArray.add(currentCount);
+            if (docType.equals(WEBSITE_HUB) || docType.equals(WEBSITE_VISUAL_HUB)) {
+                int count = (int) facetField.get("count");
+                groupCount += count;
+            }
+        }
+
+        if (groupCount > 0) {
+            countArray.add(groupCount);
+            Collections.sort(countArray);
+            Collections.reverse(countArray);
+            LinkedHashMap<String, Object> groupedEntry = new LinkedHashMap<>();
+            groupedEntry.put("count", groupCount);
+            groupedEntry.put("name", "homepage");
+            int groupCountIndex = countArray.indexOf(groupCount);
+            entry.add(groupCountIndex, groupedEntry);
+        }
+    }
+
+    /* Method for grouping, publicationsystem:publication & publication:archive into one facet 'publication' */
+    private void groupPublicationFacets(ArrayList<Object> entry) {
+        int groupCount = 0;
+        List<Integer> countArray = new ArrayList<>();
+        for (Object fields : entry) {
+            LinkedHashMap<String, Object> facetField = (LinkedHashMap) fields;
+            String docType = (String) facetField.get("name");
+            int currentCount = (int) facetField.get("count");
+            countArray.add(currentCount);
+            if (docType.equals(PUBLICATION_SYSTEM_LEGACY_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_ARCHIVE)) {
+                int count = (int) facetField.get("count");
+                groupCount += count;
+            }
+        }
+
+        if (groupCount > 0) {
+            countArray.add(groupCount);
+            Collections.sort(countArray);
+            Collections.reverse(countArray);
+            LinkedHashMap<String, Object> groupedEntry = new LinkedHashMap<>();
+            groupedEntry.put("count", groupCount);
+            groupedEntry.put("name", "publication");
+            int groupCountIndex = countArray.indexOf(groupCount);
+            entry.add(groupCountIndex, groupedEntry);
+        }
+    }
+
     private boolean removeDocType(LinkedHashMap<String, Object> facetField) {
         String docType = (String) facetField.get("name");
         return docType.equals("website:general") || docType.equals("website:componentlist") || docType.equals("website:roadmapitem") || docType.equals("website:apimaster")
-            || docType.equals("website:bloghub") || docType.equals("website:apiendpoint") || docType.equals("website:gdprsummary") || docType.equals("website:orgstructure");
+            || docType.equals("website:bloghub") || docType.equals("website:apiendpoint") || docType.equals("website:gdprsummary") || docType.equals("website:orgstructure")
+            || docType.equals(PUBLICATION_SYSTEM_LEGACY_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_ARCHIVE)
+            || docType.equals(WEBSITE_HUB) || docType.equals(WEBSITE_VISUAL_HUB);
     }
 
     private void buildAndExecuteHstSearch(HstRequest request, SearchComponentInfo paramInfo) {
@@ -219,6 +295,7 @@ public class SearchComponent extends CommonComponent {
 
                 request.setAttribute("pageable", pageable);
                 request.setAttribute("pageNumbers", getPageNumbers(pageable));
+                request.setAttribute("area", getAreaOption(request).toString());
             }
         }
 
@@ -229,10 +306,8 @@ public class SearchComponent extends CommonComponent {
     private void setCommonSearchRequestAttributes(HstRequest request, SearchComponentInfo paramInfo) {
         request.setAttribute("query", getQueryParameter(request));
         request.setAttribute("sort", getSortOption(request));
-        request.setAttribute("area", getAreaOption(request).toString());
         request.setAttribute("cparam", paramInfo);
     }
-
 
     private Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, int pageSize, int currentPage, String query) {
         ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
@@ -252,7 +327,14 @@ public class SearchComponent extends CommonComponent {
             .facetField(INFORMATION_TYPE)
             .facetField(GEOGRAPHIC_GRANULARITY)
             .facetField(PUBLISHED_BY)
+            .facetField(REPORTING_LEVEL)
+            .facetField("assuredStatus")
+            .facetField("PubliclyAccessible")
             .facetField(REPORTING_LEVEL);
+
+        if (getSortOption(request).equals(SORT_DATE_KEY)) {
+            queryBuilder.sortBy(SORT_PUBLICATION_DATE, QueryBuilder.SortType.DESC);
+        }
 
         queryBuilder = appendFacets(request, queryBuilder);
 
@@ -261,7 +343,16 @@ public class SearchComponent extends CommonComponent {
 
     private QueryBuilder appendFacets(HstRequest request, QueryBuilder queryBuilder) {
         if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE) != null) {
-            queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, getAnyParameter(request, XM_PRIMARY_DOC_TYPE));
+            if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE).equals("publication")) {
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_PUBLICATION);
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_LEGACY_PUBLICATION);
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_ARCHIVE);
+            } else if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE).equals("homepage")) {
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, WEBSITE_HUB);
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, WEBSITE_VISUAL_HUB);
+            } else {
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, getAnyParameter(request, XM_PRIMARY_DOC_TYPE));
+            }
         }
         if (getAnyParameter(request, GEOGRAPHIC_COVERAGE) != null) {
             queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_COVERAGE, getAnyParameter(request, GEOGRAPHIC_COVERAGE));
@@ -359,7 +450,7 @@ public class SearchComponent extends CommonComponent {
 
         String sortParam = getSortOption(request);
         switch (sortParam) {
-            case SORT_DATE:
+            case SORT_DATE_KEY:
                 queryBuilder.orderByDescending(
                     PROPERTY_ORDERED_SEARCH_DATE,
                     "nationalindicatorlibrary:assuranceDate",

@@ -15,8 +15,6 @@ public class SearchTabsComponent extends SearchComponent {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        super.doBeforeRender(request, response);
-
         List<String> tabs = Stream.of(SearchArea.values())
             .map(Enum::toString)
             .collect(Collectors.toList());
