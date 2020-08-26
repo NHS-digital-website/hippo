@@ -1,0 +1,1450 @@
+---
+/content/documents/corporate-website/lesleytestonly:
+  /lesleydocumentgeneralnonsearchtest:
+    /lesleydocumentgeneralnonsearchtest[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: lesley's test general non search&nbsp;lesley's test general
+          non search&nbsp;lesley's test general non search&nbsp;lesley's test general
+          non search&nbsp;lesley's test general non search
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley's test general non search</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 1
+      common:searchable: false
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:44:18.430Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:46:20.868Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 27f48d42-6c12-4586-93af-d40a1c9c9213
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:generalnonsearch
+      website:gossid: 0
+      website:shortsummary: ''
+      website:title: lesley's test general non search
+      website:type: ''
+    /lesleydocumentgeneralnonsearchtest[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: lesley's test general non search&nbsp;lesley's test general
+          non search&nbsp;lesley's test general non search&nbsp;lesley's test general
+          non search&nbsp;lesley's test general non search
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley's test general non search</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 1
+      common:searchable: false
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:44:18.430Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:46:20.820Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 27f48d42-6c12-4586-93af-d40a1c9c9213
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:generalnonsearch
+      website:gossid: 0
+      website:shortsummary: ''
+      website:title: lesley's test general non search
+      website:type: ''
+    /lesleydocumentgeneralnonsearchtest[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: lesley's test general non search&nbsp;lesley's test general
+          non search&nbsp;lesley's test general non search&nbsp;lesley's test general
+          non search&nbsp;lesley's test general non search
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley's test general non search</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 1
+      common:searchable: false
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:44:18.430Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:46:20.820Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-08-26T08:46:41.764Z
+      hippotranslation:id: 27f48d42-6c12-4586-93af-d40a1c9c9213
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:generalnonsearch
+      website:gossid: 0
+      website:shortsummary: ''
+      website:title: lesley's test general non search
+      website:type: ''
+    hippo:versionHistory: ab738236-ce68-4c61-a8f7-b380ed35e4a2
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /lesleydocumentgeneraltest:
+    /lesleydocumentgeneraltest[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley testing general</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: hgfhfghfhf
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-25T17:31:13.955Z
+      hippostdpubwf:lastModificationDate: 2020-08-25T17:32:30.911Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 911ee2bf-7f36-41f6-9147-e78e0ba78012
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:metadata: []
+      website:shortsummary: ''
+      website:title: lesley testing general
+      website:type: ''
+    /lesleydocumentgeneraltest[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley testing general</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: hgfhfghfhf
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-25T17:31:13.955Z
+      hippostdpubwf:lastModificationDate: 2020-08-25T17:32:30.590Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 911ee2bf-7f36-41f6-9147-e78e0ba78012
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:metadata: []
+      website:shortsummary: ''
+      website:title: lesley testing general
+      website:type: ''
+    /lesleydocumentgeneraltest[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley testing general</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: hgfhfghfhf
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-25T17:31:13.955Z
+      hippostdpubwf:lastModificationDate: 2020-08-25T17:32:30.590Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-08-25T17:33:28.965Z
+      hippotranslation:id: 911ee2bf-7f36-41f6-9147-e78e0ba78012
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:metadata: []
+      website:shortsummary: ''
+      website:title: lesley testing general
+      website:type: ''
+    hippo:versionHistory: 97291507-3b6c-49b6-916b-2dd759b0de31
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /lesleydocumentindicatortest:
+    /lesleydocumentindicatortest:
+      /nationalindicatorlibrary:details:
+        /nationalindicatorlibrary:caveats:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:definition:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:interpretationGuidelines:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:methodology:
+          /nationalindicatorlibrary:calculation:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:dataSource:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:denominator:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:numerator:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: nationalindicatorlibrary:methodology
+        /nationalindicatorlibrary:purpose:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        jcr:primaryType: nationalindicatorlibrary:details
+        nationalindicatorlibrary:briefDescription: ''
+        nationalindicatorlibrary:iapCode: ''
+        nationalindicatorlibrary:indicatorSet: ''
+        nationalindicatorlibrary:qualityStatementUrl: ''
+        nationalindicatorlibrary:rating: ''
+        nationalindicatorlibrary:technicalSpecificationUrl: ''
+      /nationalindicatorlibrary:topbar:
+        /nationalindicatorlibrary:contactAuthor:
+          jcr:primaryType: nationalindicatorlibrary:contactAuthor
+          nationalindicatorlibrary:contactAuthorEmail: ''
+          nationalindicatorlibrary:contactAuthorName: ''
+        jcr:primaryType: nationalindicatorlibrary:topbar
+        nationalindicatorlibrary:basedOn: ''
+        nationalindicatorlibrary:reportingPeriod: ''
+        nationalindicatorlibrary:reviewDate: 0001-01-01T12:00:00Z
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:FacetType: indicator
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:holder: admin
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:47:58.837Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:47:58.837Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 40b93acf-36bf-4b38-a5ee-b7ef125db1e5
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: nationalindicatorlibrary:indicator
+      nationalindicatorlibrary:assuranceDate: 0001-01-01T12:00:00Z
+      nationalindicatorlibrary:assuredStatus: false
+      nationalindicatorlibrary:publishedBy: ''
+      nationalindicatorlibrary:reportingLevel: ''
+      nationalindicatorlibrary:title: ''
+      publicationsystem:GeographicCoverage: []
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /lesleydocumentpersontest:
+    /lesleydocumentpersontest:
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:FacetType: person
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:holder: admin
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:49:06.147Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:49:06.147Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7ef4bcbd-8cf0-4418-913d-2fe05f0452aa
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:person
+      website:clinician: false
+      website:seosummary: ''
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /lesleydocumentpublicationtest:
+    /lesleydocumentpublicationtest[1]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: doesnt seem to be any sections for this?&nbsp;doesnt seem
+          to be any sections for this?&nbsp;doesnt seem to be any sections for this?&nbsp;doesnt
+          seem to be any sections for this?
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:orderedSearchDate: -1598482800000
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:41:51.744Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:43:29.643Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6130599d-27d3-4f1a-869b-13e44cc97109
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2020-08-26T23:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: doesnt seem to be any sections for this?
+      publicationsystem:Title: doesnt seem to be any sections for this?
+    /lesleydocumentpublicationtest[2]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: doesnt seem to be any sections for this?&nbsp;doesnt seem
+          to be any sections for this?&nbsp;doesnt seem to be any sections for this?&nbsp;doesnt
+          seem to be any sections for this?
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:orderedSearchDate: -1598482800000
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:41:51.744Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:43:29.268Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6130599d-27d3-4f1a-869b-13e44cc97109
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2020-08-26T23:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: doesnt seem to be any sections for this?
+      publicationsystem:Title: doesnt seem to be any sections for this?
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /lesleydocumentpublishedworktest:
+    /lesleydocumentpublishedworktest[1]:
+      /website:bannerImage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:highlightsContent:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: lesley test published work&nbsp;lesley test published work&nbsp;lesley
+          test published work&nbsp;lesley test published work&nbsp;lesley test published
+          work&nbsp;lesley test published work
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley test published work</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:50:03.952Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:52:10.136Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4cf66e8d-6f99-4b1d-8b26-1ff0d518a38e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedwork
+      website:InformationType: []
+      website:bannerImageAltText: ''
+      website:button: jumptocontent
+      website:coverageEnd: 0001-01-01T12:00:00Z
+      website:coverageStart: 0001-01-01T12:00:00Z
+      website:geographicCoverage: []
+      website:geographicGranularity: []
+      website:highlightsTitle: Highlights
+      website:isbn: ''
+      website:issn: ''
+      website:publicationDate: 2020-08-26T23:00:00Z
+      website:publicationStyle: bluebanner
+      website:seosummary: ''
+      website:shortsummary: ''
+      website:title: lesley test published work
+    /lesleydocumentpublishedworktest[2]:
+      /website:bannerImage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:highlightsContent:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: lesley test published work&nbsp;lesley test published work&nbsp;lesley
+          test published work&nbsp;lesley test published work&nbsp;lesley test published
+          work&nbsp;lesley test published work
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley test published work</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:50:03.952Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:52:10.078Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4cf66e8d-6f99-4b1d-8b26-1ff0d518a38e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:publishedwork
+      website:InformationType: []
+      website:bannerImageAltText: ''
+      website:button: jumptocontent
+      website:coverageEnd: 0001-01-01T12:00:00Z
+      website:coverageStart: 0001-01-01T12:00:00Z
+      website:geographicCoverage: []
+      website:geographicGranularity: []
+      website:highlightsTitle: Highlights
+      website:isbn: ''
+      website:issn: ''
+      website:publicationDate: 2020-08-26T23:00:00Z
+      website:publicationStyle: bluebanner
+      website:seosummary: ''
+      website:shortsummary: ''
+      website:title: lesley test published work
+    /lesleydocumentpublishedworktest[3]:
+      /website:bannerImage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:highlightsContent:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: section C
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: lesley test published work&nbsp;lesley test published work&nbsp;lesley
+          test published work&nbsp;lesley test published work&nbsp;lesley test published
+          work&nbsp;lesley test published work
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley test published work</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-26T08:50:03.952Z
+      hippostdpubwf:lastModificationDate: 2020-08-26T08:52:10.078Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-08-26T08:52:17.367Z
+      hippotranslation:id: 4cf66e8d-6f99-4b1d-8b26-1ff0d518a38e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedwork
+      website:InformationType: []
+      website:bannerImageAltText: ''
+      website:button: jumptocontent
+      website:coverageEnd: 0001-01-01T12:00:00Z
+      website:coverageStart: 0001-01-01T12:00:00Z
+      website:geographicCoverage: []
+      website:geographicGranularity: []
+      website:highlightsTitle: Highlights
+      website:isbn: ''
+      website:issn: ''
+      website:publicationDate: 2020-08-26T23:00:00Z
+      website:publicationStyle: bluebanner
+      website:seosummary: ''
+      website:shortsummary: ''
+      website:title: lesley test published work
+    hippo:versionHistory: 97bbe3b1-9f7a-4204-94bf-b5a91852d92f
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /lesleydocumentservicetest:
+    /lesleydocumentservicetest[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:introduction:
+        hippostd:content: <p>add introduction to knock sticky nav out</p>
+        jcr:primaryType: hippostd:html
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>Section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>Section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>Section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section C
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: <p>what is this section id?</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: what is this section id
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p>add class description</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: we should see mainsection class
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley's test</p>
+        jcr:primaryType: hippostd:html
+      /website:toptasks:
+        hippostd:content: <p>this should also knock sticky nav out</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-25T08:51:57.098Z
+      hippostdpubwf:lastModificationDate: 2020-08-25T17:06:23.100Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5abe9a5c-4f13-4fb2-a4db-3ea30bbf1adb
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:gossid: 0
+      website:htmlCode: ''
+      website:metadata: []
+      website:rawMetadata:
+      - ''
+      website:shortsummary: ''
+      website:title: lesley's test
+    /lesleydocumentservicetest[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:introduction:
+        hippostd:content: <p>add introduction to knock sticky nav out</p>
+        jcr:primaryType: hippostd:html
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>Section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>Section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>Section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section C
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: <p>what is this section id?</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: what is this section id
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p>add class description</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: we should see mainsection class
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley's test</p>
+        jcr:primaryType: hippostd:html
+      /website:toptasks:
+        hippostd:content: <p>this should also knock sticky nav out</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-25T08:51:57.098Z
+      hippostdpubwf:lastModificationDate: 2020-08-25T17:06:23.012Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5abe9a5c-4f13-4fb2-a4db-3ea30bbf1adb
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:service
+      website:gossid: 0
+      website:htmlCode: ''
+      website:metadata: []
+      website:rawMetadata:
+      - ''
+      website:shortsummary: ''
+      website:title: lesley's test
+    /lesleydocumentservicetest[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:introduction:
+        hippostd:content: <p>add introduction to knock sticky nav out</p>
+        jcr:primaryType: hippostd:html
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: <p>Section A</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section A
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: <p>Section B</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section B
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>Section C</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section C
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: <p>what is this section id?</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: what is this section id
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p>add class description</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: we should see mainsection class
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>lesley's test</p>
+        jcr:primaryType: hippostd:html
+      /website:toptasks:
+        hippostd:content: <p>this should also knock sticky nav out</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: ''
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-08-25T08:51:57.098Z
+      hippostdpubwf:lastModificationDate: 2020-08-25T17:06:23.012Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-08-25T17:06:29.970Z
+      hippotranslation:id: 5abe9a5c-4f13-4fb2-a4db-3ea30bbf1adb
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:gossid: 0
+      website:htmlCode: ''
+      website:metadata: []
+      website:rawMetadata:
+      - ''
+      website:shortsummary: ''
+      website:title: lesley's test
+    hippo:versionHistory: 7f4680be-200c-474e-bcc6-67bba46ad36c
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 703258b5-83b8-4182-8fd4-a1d567327f97
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
