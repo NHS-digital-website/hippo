@@ -14,6 +14,10 @@
     </#if>
 
     <#if pageable?? && pageable.items?has_content>
+        <#-- Initialise webkitLineClamp -->
+        <script>
+            window.webkitLineClamp = []
+        </script>
         <ul class="intra-home-article-grid">
             <#list pageable.items as trending>
 
@@ -42,8 +46,8 @@
                                 </h1>
                             </#if>
                             <@trendingArticleShortSummary trending=trending index=trending?index/>
-                            <@trendingArticleDate trending=trending/>
                         </div>
+                        <@trendingArticleDate trending=trending/>
                     </article>
                 </li>
             </#list>

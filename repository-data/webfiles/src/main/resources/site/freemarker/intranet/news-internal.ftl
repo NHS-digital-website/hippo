@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "../../src/js/line-clamp-polyfill.js.ftl">
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/headerMetadata.ftl">
 <#include "../common/macro/documentHeader.ftl">
@@ -79,6 +78,10 @@
                 <div class="column column--one-third">
                     <div class="news-latest-news">
                         <div class="news-latest-news-title bottom-margin-20"><@fmt.message key="headers.latestNews" /></div>
+                        <#-- Initialise webkitLineClamp -->
+                        <script>
+                            window.webkitLineClamp = []
+                        </script>
                         <ul class="intra-home-article-grid">
                             <#list document.latestNews as news>
                                 <#assign hasShortSummary = news.shortsummary?? && news.shortsummary?has_content />
@@ -105,15 +108,19 @@
                                                     ${news.shortsummary}
                                                 </div>
                                                 <#-- call function webkitLineClamp(element, lineCount, colour) to implement multiline ellipsis -->
-                                                <script>
-                                                    webkitLineClamp(document.getElementById("latest-article-${news?index}"), 3, "black");
+                                                <script data-line-clamp="setup">
+                                                    window.webkitLineClamp.push({
+                                                        element: document.getElementById("latest-article-${news?index}"),
+                                                        lineCount: 3,
+                                                        colour: "black"
+                                                    })
                                                 </script>
                                             </#if>
 
-                                            <span class="intra-home-article-grid-article__date">
-                                                <@fmt.formatDate value=news.publicationDate.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
-                                            </span>
                                         </div>
+                                        <span class="intra-home-article-grid-article__date">
+                                            <@fmt.formatDate value=news.publicationDate.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                        </span>
                                     </article>
                                 </li>
                             </#list>
