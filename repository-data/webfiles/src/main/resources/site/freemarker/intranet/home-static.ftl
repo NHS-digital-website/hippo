@@ -35,7 +35,7 @@
                     <article class="intra-home-article-grid-article">
                         <div class="intra-home-article-grid-article__header">
                             <span class="intra-info-tag">News</span>
-                            <img src="<@hst.webfile path="../images/fibre_57101102_med.jpg"/>" alt="Alt text" aria-hidden="true">
+                            <img src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="Alt text" aria-hidden="true">
                         </div>
                         <div class="intra-home-article-grid-article__contents">
                             <span class="intra-comments-blob intra-comments-blob--bubble"><@svgIcon id="comments" /> 17</span>
