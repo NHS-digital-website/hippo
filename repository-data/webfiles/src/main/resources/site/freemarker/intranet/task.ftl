@@ -151,9 +151,11 @@
 
             <div class="column column--two-thirds page-block page-block--main">
 
-                <div class="article-section">
-                    <@sections sections=document.sections />
-                </div>
+                <#if document.sections?has_content>
+                    <div class="article-section">
+                        <@sections sections=document.sections />
+                    </div>
+                </#if>
 
                 <#-- Restore the bundle -->
                 <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />

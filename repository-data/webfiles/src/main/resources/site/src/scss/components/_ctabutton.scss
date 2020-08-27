@@ -21,6 +21,12 @@
         text-align: right;
     }
 
+    &--inline {
+        position: relative;
+        display: inline-block;
+        margin-right: 20px;
+    }
+
     &--nhs-digital-button {
         @include button($blue);
 
