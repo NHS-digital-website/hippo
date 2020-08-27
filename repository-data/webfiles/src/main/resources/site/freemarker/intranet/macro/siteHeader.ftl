@@ -47,36 +47,4 @@
             </div>
         </div>
     </header>
-
-    <script>
-        (function(){
-            var oldBrowser = window.addEventListener ? false : true;
-            var $header = document.getElementById('header');
-            var $nav = document.getElementById('nav');
-            var $navToggle = document.getElementById('navToggle');
-            function handleToggleClick() {
-                if ($header.className.indexOf('menu-open') >= 0) {
-                    $header.className = $header.className.replace('menu-open', '');
-                } else {
-                    $header.className += ' menu-open';
-                }
-                $header.className = $header.className.replace(/^\s+|\s+$/g,'');
-            }
-            function init () {
-                if (!oldBrowser) {
-                    $navToggle.addEventListener('click', handleToggleClick);
-                    window.addEventListener('resize', onResize);
-                } else {
-                    $navToggle.attachEvent('onclick', handleToggleClick);
-                    window.attachEvent('onresize', onResize);
-                }
-            }
-            function onResize() {
-                if (window.innerWidth > 1024 && $header.className.indexOf('menu-open') >= 0) {
-                    handleToggleClick();
-                }
-            }
-            init();
-        }())
-    </script>
 </#macro>
