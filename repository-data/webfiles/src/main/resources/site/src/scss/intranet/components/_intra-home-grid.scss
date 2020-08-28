@@ -24,6 +24,17 @@
         max-width: 300px;
     }
 
+    @include media ($min-width: $wide-desktop-width) {
+        &__left-col {
+            width: 80%;
+            max-width: 1150px;
+        }
+
+        &__right-col {
+            width: 20%;
+        }
+    }
+
     @include media($max-width: $min-desktop-width) {
         &__left-col,
         &__right-col {
