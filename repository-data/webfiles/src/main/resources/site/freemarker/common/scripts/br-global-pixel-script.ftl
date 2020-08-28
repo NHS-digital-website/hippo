@@ -11,7 +11,7 @@
     var brtrk = document.createElement('script');
     brtrk.type = 'text/javascript';
     brtrk.async = true;
-    brtrk.src = "//cdn.brcdn.com/v1/br-trk-6405.js";
+    brtrk.src = "//cdns.brsrvr.com/v1/br-trk-6405.js";
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(brtrk, s);
     })();
