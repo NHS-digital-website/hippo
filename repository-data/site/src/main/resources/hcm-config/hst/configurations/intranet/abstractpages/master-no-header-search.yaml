@@ -2,6 +2,10 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:abstractpages/master-no-header-search:
+      /ie-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.IeBanner
+        hst:template: ie-banner
+        jcr:primaryType: hst:component
       /top-menu:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
         hst:parameternames:

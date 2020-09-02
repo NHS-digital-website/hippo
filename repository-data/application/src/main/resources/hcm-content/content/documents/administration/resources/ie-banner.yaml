@@ -1,0 +1,100 @@
+---
+/content/documents/administration/resources/ie-banner:
+  /ie-banner[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-09-02T09:46:00.594Z
+    hippostdpubwf:lastModificationDate: 2020-09-02T15:18:44.734Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: ie.banner
+    resourcebundle:keys:
+    - title
+    - message
+    - show-banner
+    resourcebundle:messages:
+    - Internet explorer is no longer supported
+    - We have detected that you are using Internet Explorer to visit this website.
+      Internet Explorer is now being phased out by Microsoft. As a result, NHS Digital
+      no longer supports any version of Internet Explorer for our web-based products,
+      as it involves considerable extra effort and expense, which cannot be justified
+      from public funds. Some features on this site will not work. You should use
+      a modern browser such as Edge, Chrome, Firefox, or Safari. If you have difficulty
+      installing or accessing a different browser, contact your IT support team.
+    - 'true'
+  /ie-banner[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-09-02T09:46:00.594Z
+    hippostdpubwf:lastModificationDate: 2020-09-02T15:19:00.933Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: ie.banner
+    resourcebundle:keys:
+    - title
+    - message
+    - show-banner
+    resourcebundle:messages:
+    - Internet explorer is no longer supported
+    - We have detected that you are using Internet Explorer to visit this website.
+      Internet Explorer is now being phased out by Microsoft. As a result, NHS Digital
+      no longer supports any version of Internet Explorer for our web-based products,
+      as it involves considerable extra effort and expense, which cannot be justified
+      from public funds. Some features on this site will not work. You should use
+      a modern browser such as Edge, Chrome, Firefox, or Safari. If you have difficulty
+      installing or accessing a different browser, contact your IT support team.
+    - 'true'
+  /ie-banner[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-09-02T09:46:00.594Z
+    hippostdpubwf:lastModificationDate: 2020-09-02T15:19:00.933Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-09-02T15:19:02.808Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: ie.banner
+    resourcebundle:keys:
+    - title
+    - message
+    - show-banner
+    resourcebundle:messages:
+    - Internet explorer is no longer supported
+    - We have detected that you are using Internet Explorer to visit this website.
+      Internet Explorer is now being phased out by Microsoft. As a result, NHS Digital
+      no longer supports any version of Internet Explorer for our web-based products,
+      as it involves considerable extra effort and expense, which cannot be justified
+      from public funds. Some features on this site will not work. You should use
+      a modern browser such as Edge, Chrome, Firefox, or Safari. If you have difficulty
+      installing or accessing a different browser, contact your IT support team.
+    - 'true'
+  hippo:name: IE Banner
+  hippo:versionHistory: 0a08bdc3-9bc0-4198-aaf0-65a2e2a5494d
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

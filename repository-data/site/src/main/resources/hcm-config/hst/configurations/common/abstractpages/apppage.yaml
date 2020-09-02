@@ -9,6 +9,10 @@ definitions:
         hst:componentclassname: uk.nhs.digital.common.components.CoronavirusBanner
         hst:template: coronavirus-banner
         jcr:primaryType: hst:component
+      /ie-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.IeBanner
+        hst:template: ie-banner
+        jcr:primaryType: hst:component
       /top-menu:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
         hst:parameternames:

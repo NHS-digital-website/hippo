@@ -2,6 +2,10 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:abstractpages/master:
+      /ie-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.IeBanner
+        hst:template: ie-banner
+        jcr:primaryType: hst:component
       /intra-breadcrumb:
         hst:referencecomponent: hst:components/intra-breadcrumb
         jcr:primaryType: hst:component
