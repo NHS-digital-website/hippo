@@ -11,6 +11,10 @@
 
 <body class="debugs">
     <@skipLink />
+
+    <#-- Add IE banner -->
+    <@hst.include ref="ie-banner"/>
+
     <#-- Add site header without the search bar -->
     <@siteHeader false></@siteHeader>
 

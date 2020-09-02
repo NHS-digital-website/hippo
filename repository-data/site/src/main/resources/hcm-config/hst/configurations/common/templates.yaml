@@ -146,6 +146,9 @@ definitions:
       /icon-library-item:
         hst:renderpath: webfile:/freemarker/common/icon-library-item.ftl
         jcr:primaryType: hst:template
+      /ie-banner:
+        hst:renderpath: webfile:/freemarker/common/ie-banner.ftl
+        jcr:primaryType: hst:template
       /indicator:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
         jcr:primaryType: hst:template

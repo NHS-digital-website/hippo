@@ -1,0 +1,16 @@
+.ie-banner {
+    background-color: $col-critical-background;
+    color: $white;
+    padding: 1.75em 0 1.9em;
+    border-bottom: 1px solid $col-primary;
+    display: none;
+
+    &__title {
+        @include bold-font(36);
+        margin-bottom: 15px;
+    }
+
+    &--is-visible {
+        display: block;
+    }
+}
