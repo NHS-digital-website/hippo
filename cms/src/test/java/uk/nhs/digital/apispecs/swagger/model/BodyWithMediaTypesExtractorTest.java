@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
+package uk.nhs.digital.apispecs.swagger.model;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -14,14 +14,14 @@ import uk.nhs.digital.test.util.ReflectionTestUtils;
 
 import java.util.Optional;
 
-public class ParameterBodyComponentsExtractorTest {
+public class BodyWithMediaTypesExtractorTest {
 
     private static final String TEST_DATA_FILES_PATH =
-        "/test-data/api-specifications/" + ParameterBodyComponentsExtractorTest.class.getSimpleName();
+        "/test-data/api-specifications/" + BodyWithMediaTypesExtractorTest.class.getSimpleName();
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
-    final ParameterBodyComponentsExtractor parameterBodyComponentsExtractor = new ParameterBodyComponentsExtractor();
+    final BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
 
     @Test
     public void extractsBody_fromCodegenParameterJsonSchema() {
@@ -30,10 +30,10 @@ public class ParameterBodyComponentsExtractorTest {
         final String parameterJsonDefinition = from("requestBodyPartOfParameterDefinition.json");
         final CodegenParameter codegenParameter = bodyCodegenParameterWith(parameterJsonDefinition);
 
-        final RequestBody expectedCompleteRequestBody = completeRequestBody();
+        final BodyWithMediaTypeObjects expectedCompleteBodyWithMediaTypeObjects = completeRequestBody();
 
         // when
-        final Optional<RequestBody> actualRequestBody = parameterBodyComponentsExtractor.extractBody(codegenParameter);
+        final Optional<BodyWithMediaTypeObjects> actualRequestBody = bodyWithMediaTypesExtractor.extractBody(codegenParameter);
 
         // then
         assertThat("Returns a value.",
@@ -43,7 +43,7 @@ public class ParameterBodyComponentsExtractorTest {
 
         assertThat("Returns RequestBody model matching the structure defined in JSON.",
             actualRequestBody.get(),
-            is(expectedCompleteRequestBody)
+            is(expectedCompleteBodyWithMediaTypeObjects)
         );
     }
 
@@ -54,7 +54,7 @@ public class ParameterBodyComponentsExtractorTest {
         final CodegenParameter notBodyCodegenParameter = new CodegenParameter();
 
         // when
-        final Optional<RequestBody> actualRequestBody = parameterBodyComponentsExtractor.extractBody(notBodyCodegenParameter);
+        final Optional<BodyWithMediaTypeObjects> actualRequestBody = bodyWithMediaTypesExtractor.extractBody(notBodyCodegenParameter);
 
         // then
         assertThat("Returns no value.",
@@ -70,24 +70,24 @@ public class ParameterBodyComponentsExtractorTest {
         final String invalidParameterJsonDefinition = "{ invalid JSON }";
         final CodegenParameter bodyCodegenParameterWithInvalidJsonSchema = bodyCodegenParameterWith(invalidParameterJsonDefinition);
 
-        expectedException.expectMessage("Failed to extract request body model of parameter param-name(data-type)");
+        expectedException.expectMessage("Failed to extract body model of request parameter param-name(data-type)");
         expectedException.expectCause(instanceOf(JsonParseException.class));
 
         // when
-        parameterBodyComponentsExtractor.extractBody(bodyCodegenParameterWithInvalidJsonSchema);
+        bodyWithMediaTypesExtractor.extractBody(bodyCodegenParameterWithInvalidJsonSchema);
 
         // then
         // expectations set up in 'given' are satisfied
     }
 
-    private RequestBody completeRequestBody() {
-        final RequestBodyMediaTypeObjects requestBodyMediaTypeObjects = new RequestBodyMediaTypeObjects();
-        requestBodyMediaTypeObjects.put("application/json", new RequestBodyMediaTypeObject());
-        requestBodyMediaTypeObjects.put("application/xml", new RequestBodyMediaTypeObject());
+    private BodyWithMediaTypeObjects completeRequestBody() {
+        final MediaTypeObjects mediaTypeObjects = new MediaTypeObjects();
+        mediaTypeObjects.put("application/json", new MediaTypeObject());
+        mediaTypeObjects.put("application/xml", new MediaTypeObject());
 
-        final RequestBody requestBody = new RequestBody();
-        ReflectionTestUtils.setField(requestBody, "content", requestBodyMediaTypeObjects);
-        return requestBody;
+        final BodyWithMediaTypeObjects bodyWithMediaTypeObjects = new BodyWithMediaTypeObjects();
+        ReflectionTestUtils.setField(bodyWithMediaTypeObjects, "content", mediaTypeObjects);
+        return bodyWithMediaTypeObjects;
     }
 
     private CodegenParameter bodyCodegenParameterWith(final String parameterJsonDefinition) {

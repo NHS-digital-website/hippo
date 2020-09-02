@@ -5,10 +5,7 @@ import static java.util.Collections.emptyMap;
 
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
-import io.swagger.codegen.v3.CodegenOperation;
-import io.swagger.codegen.v3.CodegenParameter;
-import io.swagger.codegen.v3.CodegenProperty;
-import io.swagger.codegen.v3.CodegenResponse;
+import io.swagger.codegen.v3.*;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
@@ -22,8 +19,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
-import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ParameterBodyComponentsExtractor;
-import uk.nhs.digital.apispecs.swagger.request.bodyextractor.RequestBody;
+import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypeObjects;
+import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
+import uk.nhs.digital.apispecs.swagger.model.MediaTypeObject;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleRenderer;
 
 import java.util.*;
@@ -38,7 +36,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     private CodegenParameterExampleRenderer codegenParameterExampleRenderer =
         new CodegenParameterExampleRenderer(markdownConverter);
 
-    private ParameterBodyComponentsExtractor parameterBodyComponentsExtractor = new ParameterBodyComponentsExtractor();
+    private BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
 
     @Override
     public void preprocessOpenAPI(OpenAPI openApi) {
@@ -126,7 +124,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     private void preProcessResponses(final ApiResponses responses) {
-        Optional.ofNullable(responses).orElse(new ApiResponses())
+        Optional.ofNullable(responses)
+            .orElse(new ApiResponses())
             .values()
             .forEach(this::preProcessResponse);
     }
@@ -136,7 +135,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     private void preProcessResponseHeaders(final Map<String, Header> apiResponseHeaders) {
-        Optional.ofNullable(apiResponseHeaders).orElse(emptyMap())
+        Optional.ofNullable(apiResponseHeaders)
+            .orElse(emptyMap())
             .values()
             .forEach(this::preProcessApiResponseHeader);
     }
@@ -151,7 +151,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     private void postProcessResponses(final CodegenOperation codegenOperation) {
-        Optional.ofNullable(codegenOperation.getResponses()).orElse(emptyList())
+        Optional.ofNullable(codegenOperation.getResponses())
+            .orElse(emptyList())
             .forEach(this::postProcessResponse);
     }
 
@@ -159,6 +160,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         postProcessResponseHeaders(codegenResponse.getHeaders());
 
         convertResponseDescriptionFromMarkdownToHtml(codegenResponse);
+
+        updateResponseBodiesFromJsonSchema(codegenResponse);
     }
 
     private void postProcessResponseHeaders(final List<CodegenProperty> codegenResponseHeaders) {
@@ -173,6 +176,24 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         renderResponseHeaderExamples(codegenResponseHeader);
 
         renderResponseHeaderDescription(codegenResponseHeader);
+    }
+
+    private void updateResponseBodiesFromJsonSchema(final CodegenResponse codegenResponse) {
+
+        bodyWithMediaTypesExtractor.extractBody(codegenResponse)
+            .flatMap(this::toMediaTypeObjects)
+            .orElse(emptyList())
+            .stream()
+            .map(this::toCodegenContent)
+            .forEach(codegenContent -> codegenResponse.getContents().add(codegenContent));
+    }
+
+    private Optional<List<MediaTypeObject>> toMediaTypeObjects(final BodyWithMediaTypeObjects bodyWithMediaTypeObjects) {
+        return Optional.ofNullable(bodyWithMediaTypeObjects.getMediaTypes());
+    }
+
+    private CodegenContent toCodegenContent(final MediaTypeObject mediaTypeObject) {
+        return new CodegenContent(mediaTypeObject.getName());
     }
 
     private void renderResponseHeaderDescription(final CodegenProperty codegenResponseHeader) {
@@ -241,7 +262,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
     private void postProcessRequestBody(final CodegenParameter parameter) {
 
-        parameterBodyComponentsExtractor.extractBody(parameter)
+        bodyWithMediaTypesExtractor.extractBody(parameter)
             .ifPresent(requestBody -> {
 
                 convertRequestBodyExampleDescriptionsFromMarkdownToHtml(requestBody);
@@ -251,12 +272,12 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     private void saveRequestBodyAsVendorExtensionOnRequestBodyParam(final CodegenParameter parameter,
-                                                                    final RequestBody requestBody) {
-        parameter.getVendorExtensions().put("x-body", requestBody);
+                                                                    final BodyWithMediaTypeObjects bodyWithMediaTypeObjects) {
+        parameter.getVendorExtensions().put("x-body", bodyWithMediaTypeObjects);
     }
 
-    private void convertRequestBodyExampleDescriptionsFromMarkdownToHtml(final RequestBody requestBody) {
-        requestBody.getMediaTypes().stream()
+    private void convertRequestBodyExampleDescriptionsFromMarkdownToHtml(final BodyWithMediaTypeObjects bodyWithMediaTypeObjects) {
+        bodyWithMediaTypeObjects.getMediaTypes().stream()
             .flatMap(requestBodyMediaTypeContent -> requestBodyMediaTypeContent.getExamples().stream())
             .forEach(paramExample -> {
 

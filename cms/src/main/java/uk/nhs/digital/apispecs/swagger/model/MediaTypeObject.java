@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
+package uk.nhs.digital.apispecs.swagger.model;
 
 import static java.util.Collections.emptyMap;
 
@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RequestBodyMediaTypeObject {
+public class MediaTypeObject {
 
     private String name;
 
@@ -50,7 +50,7 @@ public class RequestBodyMediaTypeObject {
             return false;
         }
 
-        final RequestBodyMediaTypeObject that = (RequestBodyMediaTypeObject) o;
+        final MediaTypeObject that = (MediaTypeObject) o;
 
         return new EqualsBuilder()
             .append(name, that.name)

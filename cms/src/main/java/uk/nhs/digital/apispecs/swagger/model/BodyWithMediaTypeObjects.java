@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
+package uk.nhs.digital.apispecs.swagger.model;
 
 import static java.util.stream.Collectors.toList;
 
@@ -12,22 +12,22 @@ import java.util.List;
 import java.util.Optional;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RequestBody {
+public class BodyWithMediaTypeObjects {
 
     @JsonProperty
-    private RequestBodyMediaTypeObjects content;
+    private MediaTypeObjects content;
 
-    public List<RequestBodyMediaTypeObject> getMediaTypes() {
+    public List<MediaTypeObject> getMediaTypes() {
 
-        return Optional.ofNullable(content).orElse(new RequestBodyMediaTypeObjects())
+        return Optional.ofNullable(content).orElse(new MediaTypeObjects())
             .entrySet().stream()
             .map(mapEntry -> {
                 final String contentTypeName = mapEntry.getKey();
-                final RequestBodyMediaTypeObject requestBodyMediaTypeObject = mapEntry.getValue();
+                final MediaTypeObject mediaTypeObject = mapEntry.getValue();
 
-                requestBodyMediaTypeObject.setName(contentTypeName);
+                mediaTypeObject.setName(contentTypeName);
 
-                return requestBodyMediaTypeObject;
+                return mediaTypeObject;
             })
             .collect(toList());
     }
@@ -49,7 +49,7 @@ public class RequestBody {
             return false;
         }
 
-        final RequestBody that = (RequestBody) o;
+        final BodyWithMediaTypeObjects that = (BodyWithMediaTypeObjects) o;
 
         return new EqualsBuilder()
             .append(content, that.content)
