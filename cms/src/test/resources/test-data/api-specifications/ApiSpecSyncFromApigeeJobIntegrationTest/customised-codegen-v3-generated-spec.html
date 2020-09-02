@@ -429,14 +429,17 @@ It supports the following security patterns:</p>
                                                         </table>
                                                     </div>
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 404</h3>
                                                 <div>Patient not found.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                         </article>
                                     </div>
                                     <div id="api-Patients-searchPatient" class="article-section-with-sub-heading">
@@ -935,10 +938,12 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                 <div>A completed search, containing zero, one, or many matching patients.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 400</h3>
                                                 <div>Invalid search paramaters supplied.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                         </article>
                                     </div>
                                     <div id="api-Patients-updatePatientPartial" class="article-section-with-sub-heading">
@@ -1843,12 +1848,14 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                 <div>Client error.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 412</h3>
                                                 <div><p>Precondition failed.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
 </div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                         </article>
                                     </div>
                     <div id="api-Polling" class="article-section">
@@ -2039,30 +2046,36 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </table>
                                                     </div>
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 400</h3>
                                                 <div>Client error after the patch was accepted and patient was not updated.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 403</h3>
                                                 <div>Part of your update could not be allowed as the change was forbidden.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 404</h3>
                                                 <div>The message ID not found or you did not have permission to poll for that message.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 409</h3>
                                                 <div><p>Version Conflict.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
 </div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 422</h3>
                                                 <div><p>The polling message ID was found however the processing of the request failed in an unexpected way or was cancelled, so the update failed.</p>
 <p>Please raise these occurrences with our team (via https://digital.nhs.uk/developer/help-and-support) so we can investigate the issue. When raising, quote the message ID you were polling for.</p>
 </div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                         </article>
                                     </div>
                     <div id="api-Relatedperson" class="article-section">
@@ -2251,14 +2264,17 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </table>
                                                     </div>
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                                 <h3>Status: 404</h3>
                                                 <div>Related People not found.</div>
 
 
+                                                    <h5>application/fhir+json</h5>
                                         </article>
                                     </div>
 

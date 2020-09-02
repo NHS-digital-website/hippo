@@ -1,10 +1,11 @@
-package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
+package uk.nhs.digital.apispecs.swagger.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ToPrettyJsonStringDeserializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ParamExample {

@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
+package uk.nhs.digital.apispecs.swagger.model;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Test;
 import org.mockito.Mockito;
+import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ToPrettyJsonStringDeserializer;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
+package uk.nhs.digital.apispecs.swagger.model;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -11,7 +11,7 @@ import uk.nhs.digital.test.util.ReflectionTestUtils;
 
 import java.util.*;
 
-public class RequestBodyMediaTypeObjectTest {
+public class MediaTypeObjectTest {
 
     @Test
     public void getExamples_returnsExamplesFromValuesOfInternalMap() {
@@ -20,15 +20,15 @@ public class RequestBodyMediaTypeObjectTest {
         final ParamExample expectedExample1 = mock(ParamExample.class);
         final ParamExample expectedExample2 = mock(ParamExample.class);
 
-        final RequestBodyMediaTypeObject requestBodyMediaTypeObject = new RequestBodyMediaTypeObject();
+        final MediaTypeObject mediaTypeObject = new MediaTypeObject();
 
         final Map<String, ParamExample> expectedExamples = new HashMap<>();
         expectedExamples.put("example-key-1", expectedExample1);
         expectedExamples.put("example-key-2", expectedExample2);
-        ReflectionTestUtils.setField(requestBodyMediaTypeObject, "examples", expectedExamples);
+        ReflectionTestUtils.setField(mediaTypeObject, "examples", expectedExamples);
 
         // when
-        final Collection<ParamExample> actualParamExamples = requestBodyMediaTypeObject.getExamples();
+        final Collection<ParamExample> actualParamExamples = mediaTypeObject.getExamples();
 
         // then
         assertThat("Returns all examples from the internal map", actualParamExamples.size(), is(2));
