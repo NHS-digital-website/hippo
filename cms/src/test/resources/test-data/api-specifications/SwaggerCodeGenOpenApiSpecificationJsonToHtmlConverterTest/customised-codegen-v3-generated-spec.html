@@ -393,7 +393,7 @@ It supports the following security patterns:</p>
 
 
                                             <h2>Response</h2>
-                                                <h3>Status: 200</h3>
+                                                <h3>HTTP status: 200</h3>
                                                 <div>Information successfully returned.</div>
 
                                                     <div class="httpparams">
@@ -429,17 +429,298 @@ It supports the following security patterns:</p>
                                                         </table>
                                                     </div>
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 400</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "address" : [ {
+    "extension" : [ {
+      "extension" : [ {
+        "url" : "type",
+        "valueCoding" : {
+          "code" : "PAF",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType"
+        }
+      }, {
+        "url" : "value",
+        "valueString" : "12345678"
+      } ],
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey"
+    } ],
+    "id" : "456",
+    "line" : [ "1 Trevelyan Square", "Boar Lane", "City Centre", "Leeds", "West Yorkshire" ],
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "postalCode" : "LS1 6AE",
+    "use" : "home"
+  } ],
+  "birthDate" : "2010-10-22",
+  "contact" : [ {
+    "id" : "C123",
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "relationship" : [ {
+      "coding" : [ {
+        "code" : "C",
+        "display" : "Emergency Contact",
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0131"
+      } ]
+    } ],
+    "telecom" : [ {
+      "system" : "phone",
+      "value" : "01632960587"
+    } ]
+  } ],
+  "deceasedDateTime" : "2010-10-22T00:00:00+00:00",
+  "extension" : [ {
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy",
+    "valueReference" : {
+      "identifier" : {
+        "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value" : "Y12345"
+      },
+      "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345"
+    }
+  }, {
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor",
+    "valueReference" : {
+      "identifier" : {
+        "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value" : "Y23456"
+      },
+      "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y23456"
+    }
+  }, {
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-MedicalApplianceSupplier",
+    "valueReference" : {
+      "identifier" : {
+        "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value" : "Y34567"
+      },
+      "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y34567"
+    }
+  }, {
+    "extension" : [ {
+      "url" : "deathNotificationStatus",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "2",
+          "display" : "Formal - death notice received from Registrar of Deaths",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus",
+          "version" : "1.0.0"
+        } ]
+      }
+    }, {
+      "url" : "systemEffectiveDate",
+      "valueDateTime" : "2010-10-22T00:00:00+00:00"
+    } ],
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus"
+  }, {
+    "extension" : [ {
+      "url" : "language",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "fr",
+          "display" : "French",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-HumanLanguage",
+          "version" : "1.0.0"
+        } ]
+      }
+    }, {
+      "url" : "interpreterRequired",
+      "valueBoolean" : true
+    } ],
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSCommunication"
+  }, {
+    "extension" : [ {
+      "url" : "PreferredWrittenCommunicationFormat",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "12",
+          "display" : "Braille",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredWrittenCommunicationFormat"
+        } ]
+      }
+    }, {
+      "url" : "PreferredContactMethod",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "1",
+          "display" : "Letter",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredContactMethod"
+        } ]
+      }
+    }, {
+      "url" : "PreferredContactTimes",
+      "valueString" : "Not after 7pm"
+    } ],
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactPreference"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+    "valueAddress" : {
+      "city" : "Manchester",
+      "country" : "GBR",
+      "district" : "Greater Manchester"
+    }
+  } ],
+  "gender" : "female",
+  "generalPractitioner" : [ {
+    "id" : "254406A3",
+    "identifier" : {
+      "period" : {
+        "end" : "2021-12-31",
+        "start" : "2020-01-01"
+      },
+      "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+      "value" : "Y12345"
+    },
+    "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345",
+    "type" : "Organization"
+  } ],
+  "id" : "9000000009",
+  "identifier" : [ {
+    "extension" : [ {
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "01",
+          "display" : "Number present and verified",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-NHSNumberVerificationStatus",
+          "version" : "1.0.0"
+        } ]
+      }
+    } ],
+    "system" : "https://fhir.nhs.uk/Id/nhs-number",
+    "value" : "9000000009"
+  } ],
+  "meta" : {
+    "security" : [ {
+      "code" : "U",
+      "display" : "unrestricted",
+      "system" : "https://www.hl7.org/fhir/valueset-security-labels.html"
+    } ],
+    "versionId" : "2"
+  },
+  "multipleBirthInteger" : 1,
+  "name" : [ {
+    "family" : "Smith",
+    "given" : [ "Jane" ],
+    "id" : "123",
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "prefix" : [ "Mrs" ],
+    "suffix" : [ "MBE" ],
+    "use" : "usual"
+  } ],
+  "resourceType" : "Patient",
+  "telecom" : [ {
+    "id" : "789",
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "system" : "phone",
+    "use" : "work",
+    "value" : "01632960587"
+  }, {
+    "extension" : [ {
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem",
+      "valueCoding" : {
+        "code" : "textphone",
+        "display" : "Minicom (Textphone)",
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-OtherContactSystem"
+      }
+    } ],
+    "id" : "OC789",
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "system" : "other",
+    "use" : "work",
+    "value" : "01632960587"
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 404</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_RESOURCE_ID",
+        "display" : "Resource Id is invalid"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                <h3>HTTP status: 404</h3>
                                                 <div>Patient not found.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "not-found",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "RESOURCE_NOT_FOUND",
+        "display" : "Resource not found"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
                                         </article>
                                     </div>
                                     <div id="api-Patients-searchPatient" class="article-section-with-sub-heading">
@@ -773,7 +1054,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                             
-                                                                                <div><div class="httpparams__examples__header">Examples:</div>
+                                                                                <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__summary">Will also match Smythe if `_fuzzy-match` is specified.</div>
 <div class="httpparams__example__value"><code class="codeinline">Smith</code></div>
 <div class="httpparams__example__summary">Wildcards must contain at least two characters, this will match Smith, Smythe</div>
@@ -841,7 +1122,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                             
-                                                                                <div><div class="httpparams__examples__header">Examples:</div>
+                                                                                <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__description">Exact match date</div>
 <div class="httpparams__example__value"><code class="codeinline">eq2010-10-22</code></div>
 <div class="httpparams__example__description">Greater than or equals match, which matches 2010-10-22 or 2010-10-23</div>
@@ -869,7 +1150,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                             
-                                                                                <div><div class="httpparams__examples__header">Examples:</div>
+                                                                                <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__description">Exact match date</div>
 <div class="httpparams__example__value"><code class="codeinline">eq2010-10-22</code></div>
 <div class="httpparams__example__description">Greater than or equals match which matches 2010-10-22 or 2010-10-23</div>
@@ -898,7 +1179,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                             
-                                                                                <div><div class="httpparams__examples__header">Examples:</div>
+                                                                                <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__summary">Spaces not important, would match LS16AE</div>
 <div class="httpparams__example__value"><code class="codeinline">LS1 6AE</code></div>
 <div class="httpparams__example__summary">Will match 'LS16AE', 'LS1 6AE' and 'LS1 6AB'</div>
@@ -934,16 +1215,292 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                 </div>
 
                                             <h2>Response</h2>
-                                                <h3>Status: 200</h3>
+                                                <h3>HTTP status: 200</h3>
                                                 <div>A completed search, containing zero, one, or many matching patients.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 400</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/render-no-example-where-none-present</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/render-examples-from-object-where-present-on-object-and-on-schema</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">example A summary</div>
+                                                    
+                                                                <div class="body__example__description">example A <code class="codeinline">description</code> - should render Markdown as HTML</div>
+                                                    
+                                                                <div><pre><code>{
+  "example-value" : "example A value - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">example B summary</div>
+                                                    
+                                                                <div class="body__example__description">example B <code class="codeinline">description</code> - should render Markdown as HTML</div>
+                                                    
+                                                                <div><pre><code>{
+  "example-value" : "example B value - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/render-example-from-object-where-present-on-object-and-on-schema</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "example-value" : "example on media object - should render, winning over the example in the schema"
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/render-example-from-schema-where-none-present-on-object</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                                        <div class="body__example__header">Example</div>
+                                                                        <div><pre><code>{
+  "example-value" : "example on schema - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "Bundle",
+  "type" : "searchset",
+  "timestamp" : "2019-12-25T12:00:00+00:00",
+  "total" : 1,
+  "entry" : [ {
+    "fullUrl" : "https://beta.api.digital.nhs.uk/personal-demographics/Patient/9000000009",
+    "search" : {
+      "score" : 1
+    },
+    "resource" : {
+      "address" : [ {
+        "extension" : [ {
+          "extension" : [ {
+            "url" : "type",
+            "valueCoding" : {
+              "code" : "PAF",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType"
+            }
+          }, {
+            "url" : "value",
+            "valueString" : "12345678"
+          } ],
+          "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey"
+        } ],
+        "id" : "456",
+        "line" : [ "1 Trevelyan Square", "Boar Lane", "City Centre", "Leeds", "West Yorkshire" ],
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "postalCode" : "LS1 6AE",
+        "use" : "home"
+      } ],
+      "birthDate" : "2010-10-22",
+      "contact" : [ {
+        "id" : "C123",
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "relationship" : [ {
+          "coding" : [ {
+            "code" : "C",
+            "display" : "Emergency Contact",
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0131"
+          } ]
+        } ],
+        "telecom" : [ {
+          "system" : "phone",
+          "value" : "01632960587"
+        } ]
+      } ],
+      "deceasedDateTime" : "2010-10-22T00:00:00+00:00",
+      "extension" : [ {
+        "extension" : [ {
+          "url" : "deathNotificationStatus",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "2",
+              "display" : "Formal - death notice received from Registrar of Deaths",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus",
+              "version" : "1.0.0"
+            } ]
+          }
+        }, {
+          "url" : "systemEffectiveDate",
+          "valueDateTime" : "2010-10-22T00:00:00+00:00"
+        } ],
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus"
+      } ],
+      "gender" : "female",
+      "generalPractitioner" : [ {
+        "id" : "254406A3",
+        "identifier" : {
+          "period" : {
+            "end" : "2021-12-31",
+            "start" : "2020-01-01"
+          },
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "Y12345"
+        },
+        "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345",
+        "type" : "Organization"
+      } ],
+      "id" : "9000000009",
+      "identifier" : [ {
+        "extension" : [ {
+          "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "01",
+              "display" : "Number present and verified",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-NHSNumberVerificationStatus",
+              "version" : "1.0.0"
+            } ]
+          }
+        } ],
+        "system" : "https://fhir.nhs.uk/Id/nhs-number",
+        "value" : "9000000009"
+      } ],
+      "meta" : {
+        "security" : [ {
+          "code" : "U",
+          "display" : "unrestricted",
+          "system" : "https://www.hl7.org/fhir/valueset-security-labels.html"
+        } ],
+        "versionId" : "2"
+      },
+      "multipleBirthInteger" : 1,
+      "name" : [ {
+        "family" : "Smith",
+        "given" : [ "Jane" ],
+        "id" : "123",
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "prefix" : [ "Mrs" ],
+        "suffix" : [ "MBE" ],
+        "use" : "usual"
+      } ],
+      "resourceType" : "Patient",
+      "telecom" : [ {
+        "id" : "789",
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "system" : "phone",
+        "use" : "work",
+        "value" : "01632960587"
+      }, {
+        "extension" : [ {
+          "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem",
+          "valueCoding" : {
+            "code" : "textphone",
+            "display" : "Minicom (Textphone)",
+            "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-OtherContactSystem"
+          }
+        } ],
+        "id" : "OC789",
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "system" : "other",
+        "use" : "work",
+        "value" : "01632960587"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Invalid search paramaters supplied.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">too few search params</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_SEARCH_DATA",
+        "display" : "Invalid search data provided - Not enough search parameters were provided to be able to make a search."
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">Invalid combination of search parameters</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_SEARCH_DATA",
+        "display" : "Invalid search data provided - 'Invalid Date Combination'"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
                                         </article>
                                     </div>
                                     <div id="api-Patients-updatePatientPartial" class="article-section-with-sub-heading">
@@ -1599,22 +2156,94 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 
                                                 <div class="httpparams">
                                                     <h3>Body</h3>
-                                                            <div class="httpparams__required">Required</div>
-                                                            
-                                                                    <h5>application/json</h5>
-                                                                    <div class="httpparams__examples__header">Examples:</div>
-                                                                        <div class="httpparams__example__description">Add a new single item (deceasedDateTime) to the patient</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                    <div class="httpparams__required">Required</div>
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/render-no-example-where-none-present</span>
+                                                                </h5>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/render-examples-from-object-where-present-on-object-and-on-schema</span>
+                                                                </h5>
+                                                        
+                                                        
+                                                        
+                                                                    <div class="body__example__header">Examples</div>
+                                                        
+                                                                    <div class="body__example__summary">example A summary</div>
+                                                        
+                                                                    <div class="body__example__description">example A <code class="codeinline">description</code> - should render Markdown as HTML</div>
+                                                        
+                                                                    <div><pre><code>{
+  "example-value" : "example A value - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">example B summary</div>
+                                                        
+                                                                    <div class="body__example__description">example B <code class="codeinline">description</code> - should render Markdown as HTML</div>
+                                                        
+                                                                    <div><pre><code>{
+  "example-value" : "example B value - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/render-example-from-object-where-present-on-object-and-on-schema</span>
+                                                                </h5>
+                                                        
+                                                                    <div class="body__example__header">Example</div>
+                                                                    <div><pre><code>{
+  "example-value" : "example on media object - should render, winning over the example in the schema"
+}</code></pre></div>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/render-example-from-schema-where-none-present-on-object</span>
+                                                                </h5>
+                                                        
+                                                        
+                                                                            <div class="body__example__header">Example</div>
+                                                                            <div><pre><code>{
+  "example-value" : "example on schema - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                        
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/json</span>
+                                                                </h5>
+                                                        
+                                                        
+                                                        
+                                                                    <div class="body__example__header">Examples</div>
+                                                        
+                                                                    <div class="body__example__summary">Add a new single item (deceasedDateTime) to the patient</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "add",
     "path" : "/deceasedDateTime",
     "value" : "2010-10-22T00:00:00+00:00"
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Add a new list item (name) to the patient</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Add a new list item (name) to the patient</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "add",
     "path" : "/name/-",
@@ -1630,9 +2259,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Add a an extension (nominated pharmacy) to the Patient</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Add a an extension (nominated pharmacy) to the Patient</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "add",
     "path" : "/extension/-",
@@ -1652,18 +2283,22 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Update the simple item (gender)</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Update the simple item (gender)</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "replace",
     "path" : "/gender",
     "value" : "male"
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Update specific fields on a list item (address)</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Update specific fields on a list item (address)</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "replace",
     "path" : "/address/0/line/0",
@@ -1674,9 +2309,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "value" : "LS1 4BU"
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Update whole object on a list item (address)</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Update whole object on a list item (address)</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "replace",
     "path" : "/address/0",
@@ -1705,9 +2342,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Update an extension (death notification)</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Update an extension (death notification)</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "replace",
     "path" : "/extension/3",
@@ -1727,17 +2366,21 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Remove a single item (gender) no longer in use</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Remove a single item (gender) no longer in use</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "remove",
     "path" : "/gender"
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Remove a list item (name) no longer in use, using test pointing to the name items id</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Remove a list item (name) no longer in use, using test pointing to the name items id</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "test",
     "path" : "/name/0/id",
@@ -1747,9 +2390,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "path" : "/name/0"
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Remove a list item (name) no longer in use, using test pointing to the name object</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Remove a list item (name) no longer in use, using test pointing to the name object</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "test",
     "path" : "/name/0",
@@ -1770,9 +2415,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "path" : "/name/0"
   } ]
 }</code></pre></div>
-                                                                        <div class="httpparams__example__description">Remove an extension (dispensing doctor pharmacy) no longer in use</div>
-                                                                        <div></div>
-                                                                        <div><pre><code>{
+                                                        
+                                                                    <div class="body__example__summary">Remove an extension (dispensing doctor pharmacy) no longer in use</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
   "patches" : [ {
     "op" : "test",
     "path" : "/extension/1/url",
@@ -1782,12 +2429,14 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "path" : "/extension/1"
   } ]
 }</code></pre></div>
+                                                        
+                                                        
                                                 </div>
 
 
 
                                             <h2>Response</h2>
-                                                <h3>Status: 202</h3>
+                                                <h3>HTTP status: 202</h3>
                                                 <div><p>The patch was syntactically correct and was accepted.</p>
 <p>A polling location will be returned in the <code class="codeinline">Content-Location</code> header and the polling interval in the <code class="codeinline">Retry-After</code> header.</p>
 <p>Note, the patch may still fail after it is accepted, for example, further validation of the patch may still result in business rule failures. Therefore, it should not be assumed that the patient is successfully updated after receiving acceptance of the message.</p>
@@ -1844,18 +2493,139 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                         </table>
                                                     </div>
 
-                                                <h3>Status: 400</h3>
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Client error.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 412</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Invalid NHS number supplied</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_RESOURCE_ID",
+        "display" : "Resource Id is invalid"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">No patches submitted</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "required",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "MISSING_VALUE",
+        "display" : "Missing value - patches"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">Invalid patch operation(s)</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_UPDATE",
+        "display" : "Invalid update with error - Invalid payload received - incorrect format"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                <h3>HTTP status: 412</h3>
                                                 <div><p>Precondition failed.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
 </div>
 
 
-                                                    <h5>application/fhir+json</h5>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Invalid If-Match header</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "PRECONDITION_FAILED",
+        "display" : "Invalid update with error - This resource has changed since you last read. Please re-read and try again with the new version number."
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">Missing If-Match header</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "required",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "PRECONDITION_FAILED",
+        "display" : "Invalid update with error - If-Match header must be supplied to update this resource"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
                                         </article>
                                     </div>
                     <div id="api-Polling" class="article-section">
@@ -1985,7 +2755,7 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                 <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
-                                                                            <span class="httpparams__datatype">String</span>
+                                                                            <span class="httpparams__datatype"></span>
                                                             
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
@@ -2010,7 +2780,7 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
                                             <h2>Response</h2>
-                                                <h3>Status: 200</h3>
+                                                <h3>HTTP status: 200</h3>
                                                 <div>Patient updated.</div>
 
                                                     <div class="httpparams">
@@ -2046,36 +2816,194 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </table>
                                                     </div>
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 400</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Client error after the patch was accepted and patient was not updated.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 403</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Business rule failure; start date was after the end date.</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_UPDATE",
+        "display" : "Invalid update with error - business effective start date is after the end date"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                <h3>HTTP status: 403</h3>
                                                 <div>Part of your update could not be allowed as the change was forbidden.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 404</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Date of death cannot be removed once it has been set.</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "information",
+    "code" : "forbidden",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "FORBIDDEN_UPDATE",
+        "display" : "Forbidden update with error - source not permitted to remove 'deceasedDateTime'"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                <h3>HTTP status: 404</h3>
                                                 <div>The message ID not found or you did not have permission to poll for that message.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 409</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "information",
+    "code" : "not-found",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "POLLING_ID_NOT_FOUND",
+        "display" : "The polling ID was not found"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                <h3>HTTP status: 409</h3>
                                                 <div><p>Version Conflict.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
 </div>
 
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 422</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Version mis-match</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "conflict",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "RESOURCE_VERSION_MISMATCH",
+        "display" : "Resource version supplied does not match actual version"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                <h3>HTTP status: 422</h3>
                                                 <div><p>The polling message ID was found however the processing of the request failed in an unexpected way or was cancelled, so the update failed.</p>
 <p>Please raise these occurrences with our team (via https://digital.nhs.uk/developer/help-and-support) so we can investigate the issue. When raising, quote the message ID you were polling for.</p>
 </div>
 
 
-                                                    <h5>application/fhir+json</h5>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "processing",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "POLLING_MESSAGE_FAILURE",
+        "display" : "The polling ID was found however the processing of the request failed in an unexpected way or was cancelled"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
                                         </article>
                                     </div>
                     <div id="api-Relatedperson" class="article-section">
@@ -2228,7 +3156,7 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
                                             <h2>Response</h2>
-                                                <h3>Status: 200</h3>
+                                                <h3>HTTP status: 200</h3>
                                                 <div>Information successfully returned.</div>
 
                                                     <div class="httpparams">
@@ -2264,17 +3192,205 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </table>
                                                     </div>
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 400</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "Bundle",
+  "type" : "searchset",
+  "timestamp" : "2019-12-25T12:00:00+00:00",
+  "total" : 1,
+  "entry" : [ {
+    "fullUrl" : "https://beta.api.digital.nhs.uk/personal-demographics/Patient/9000000009/RelatedPerson/507B7621",
+    "resource" : {
+      "active" : true,
+      "address" : [ {
+        "extension" : [ {
+          "extension" : [ {
+            "url" : "type",
+            "valueCoding" : {
+              "code" : "PAF",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType"
+            }
+          }, {
+            "url" : "value",
+            "valueString" : "12345678"
+          } ],
+          "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey"
+        } ],
+        "line" : [ "1 Trevelyan Square", "Boar Lane", "City Centre", "Leeds", "West Yorkshire" ],
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "postalCode" : "LS1 6AE",
+        "use" : "home"
+      } ],
+      "extension" : [ {
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-CopyCorrespondenceIndicator",
+        "valueBoolean" : true
+      }, {
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactRank",
+        "valuePositiveInt" : 1
+      }, {
+        "extension" : [ {
+          "url" : "PreferredWrittenCommunicationFormat",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "12",
+              "display" : "Braille",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredWrittenCommunicationFormat"
+            } ]
+          }
+        }, {
+          "url" : "PreferredContactMethod",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "1",
+              "display" : "Letter",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredContactMethod"
+            } ]
+          }
+        }, {
+          "url" : "PreferredContactTimes",
+          "valueString" : "Not after 7pm"
+        } ],
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactPreference"
+      }, {
+        "extension" : [ {
+          "url" : "language",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "fr",
+              "display" : "French",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-HumanLanguage",
+              "version" : "1.0.0"
+            } ]
+          }
+        }, {
+          "url" : "interpreterRequired",
+          "valueBoolean" : true
+        } ],
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSCommunication"
+      } ],
+      "id" : "507B7621",
+      "name" : [ {
+        "family" : "Smith",
+        "given" : [ "Jane" ],
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "prefix" : [ "Mrs" ],
+        "suffix" : [ "MBE" ],
+        "use" : "usual"
+      } ],
+      "patient" : {
+        "identifier" : {
+          "system" : "https://beta.api.digital.nhs.uk/personal-demographics/Patient",
+          "value" : "90000000009"
+        },
+        "reference" : "https://beta.api.digital.nhs.uk/personal-demographics/Patient/90000000009",
+        "type" : "Patient"
+      },
+      "period" : {
+        "end" : "2021-12-31",
+        "start" : "2020-01-01"
+      },
+      "relationship" : [ {
+        "coding" : [ {
+          "code" : "Guardian",
+          "display" : "Guardian of patient",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AdditionalRelatedPersonRole"
+        } ]
+      } ],
+      "resourceType" : "RelatedPerson",
+      "telecom" : [ {
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "system" : "phone",
+        "use" : "work",
+        "value" : "01632960587"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
-                                                <h3>Status: 404</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_RESOURCE_ID",
+        "display" : "Resource Id is invalid"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                <h3>HTTP status: 404</h3>
                                                 <div>Related People not found.</div>
 
 
-                                                    <h5>application/fhir+json</h5>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "not-found",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "RESOURCE_NOT_FOUND",
+        "display" : "Resource not found"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                    
                                         </article>
                                     </div>
 

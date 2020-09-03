@@ -39,8 +39,7 @@ public class BodyWithMediaTypeObjects {
             .toString();
     }
 
-    @Override
-    public boolean equals(final Object o) {
+    @Override public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
@@ -56,8 +55,7 @@ public class BodyWithMediaTypeObjects {
             .isEquals();
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return new HashCodeBuilder(17, 37)
             .append(content)
             .toHashCode();

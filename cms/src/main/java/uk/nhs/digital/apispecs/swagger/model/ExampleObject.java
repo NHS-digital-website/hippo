@@ -8,7 +8,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ToPrettyJsonStringDeserializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParamExample {
+public class ExampleObject {
+
+    // subset of properties of https://swagger.io/specification/#example-object
 
     private String summary;
 
@@ -33,7 +35,8 @@ public class ParamExample {
         return value;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return new ToStringBuilder(this)
             .append("summary", summary)
             .append("description", description)
@@ -41,7 +44,8 @@ public class ParamExample {
             .toString();
     }
 
-    @Override public boolean equals(final Object o) {
+    @Override
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
@@ -50,7 +54,7 @@ public class ParamExample {
             return false;
         }
 
-        final ParamExample that = (ParamExample) o;
+        final ExampleObject that = (ExampleObject) o;
 
         return new EqualsBuilder()
             .append(summary, that.summary)
@@ -59,7 +63,8 @@ public class ParamExample {
             .isEquals();
     }
 
-    @Override public int hashCode() {
+    @Override
+    public int hashCode() {
         return new HashCodeBuilder(17, 37)
             .append(summary)
             .append(description)
