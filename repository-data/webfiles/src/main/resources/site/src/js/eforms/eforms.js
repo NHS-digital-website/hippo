@@ -303,9 +303,10 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
     });
 
     function validateUserInput(params, successCallback, errorCallback) {
+        debugger;
         hideErrors();
 
-        $.ajax({
+        /*$.ajax({
             type: 'POST',
             url: validationUrl,
             data: params,
@@ -325,7 +326,8 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 }
             },
             dataType: 'JSON'
-        });
+        });*/
+        successCallback();
     }
 
     function submitForm(params) {
@@ -431,6 +433,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
 
     /* Handle the form submit click */
     $submitButton.click(function (event) {
+debugger;
         userHitSubmit = true;
 
         event.preventDefault();
