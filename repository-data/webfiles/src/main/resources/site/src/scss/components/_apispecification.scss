@@ -17,6 +17,16 @@
   &__required {color: $red;}
   &__description {}
   &__examples__header {font-weight: bold;}
-  &__example__summary {font-weight: bold;}
+  &__example__summary {}
+  &__example__description {}
+}
+
+.body{
+  &__contenttype {}
+  &__contenttype__label {font-weight: normal !important;}
+  &__contenttype__value {}
+
+  &__example__header {font-weight: bold;}
+  &__example__summary {}
   &__example__description {}
 }

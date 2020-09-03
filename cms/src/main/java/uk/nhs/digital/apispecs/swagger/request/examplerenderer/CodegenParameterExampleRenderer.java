@@ -68,7 +68,7 @@ public class CodegenParameterExampleRenderer {
     private String htmlFrom(final Collection<ParamExample> complexExamplesFromParamSchema) {
 
         //noinspection OptionalGetWithoutIsPresent
-        return new StringBuilder("<div class=\"httpparams__examples__header\">Examples:</div>\n")
+        return new StringBuilder("<div class=\"httpparams__examples__header\">Examples</div>\n")
             .append(
                 complexExamplesFromParamSchema.stream()
                     .map(example -> {

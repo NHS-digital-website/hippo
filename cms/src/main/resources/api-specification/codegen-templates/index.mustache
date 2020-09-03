@@ -105,9 +105,12 @@
                                             {{#hasBodyParam}}
                                                 <div class="httpparams">
                                                     <h3>Body</h3>
-                                                        {{#bodyParams}}
-                                                            {{>body_param}}
-                                                        {{/bodyParams}}
+                                                    {{#bodyParams}}
+                                                    {{#required}}<div class="httpparams__required">Required</div>{{/required}}
+                                                    {{#vendorExtensions.x-body}}
+                                                        {{>body_param}}
+                                                    {{/vendorExtensions.x-body}}
+                                                    {{/bodyParams}}
                                                 </div>
                                             {{/hasBodyParam}}
 
@@ -143,7 +146,7 @@
 
                                             <h2>Response</h2>
                                             {{#responses}}
-                                                <h3>Status: {{code}}</h3>
+                                                <h3>HTTP status: {{code}}</h3>
                                                 <div>{{message}}</div>
 
                                                 {{#hasHeaders}}
@@ -161,9 +164,14 @@
                                                     </div>
                                                 {{/hasHeaders}}
 
-                                                {{#contents}}
-                                                    {{>content_type}}
-                                                {{/contents}}
+                                                {{#vendorExtensions.x-body}}
+                                                    {{#mediaTypes}}
+                                                        {{#@first}}
+                                                        <h4>Body</h4>
+                                                        {{/@first}}
+                                                    {{/mediaTypes}}
+                                                    {{>body_param}}
+                                                {{/vendorExtensions.x-body}}
                                             {{/responses}}
                                         </article>
                                     </div>

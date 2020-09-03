@@ -17,31 +17,31 @@ public class MediaTypeObjectTest {
     public void getExamples_returnsExamplesFromValuesOfInternalMap() {
 
         // given
-        final ParamExample expectedExample1 = mock(ParamExample.class);
-        final ParamExample expectedExample2 = mock(ParamExample.class);
+        final ExampleObject expectedExample1 = mock(ExampleObject.class);
+        final ExampleObject expectedExample2 = mock(ExampleObject.class);
 
         final MediaTypeObject mediaTypeObject = new MediaTypeObject();
 
-        final Map<String, ParamExample> expectedExamples = new HashMap<>();
+        final Map<String, ExampleObject> expectedExamples = new HashMap<>();
         expectedExamples.put("example-key-1", expectedExample1);
         expectedExamples.put("example-key-2", expectedExample2);
         ReflectionTestUtils.setField(mediaTypeObject, "examples", expectedExamples);
 
         // when
-        final Collection<ParamExample> actualParamExamples = mediaTypeObject.getExamples();
+        final Collection<ExampleObject> actualExampleObjects = mediaTypeObject.getExamples();
 
         // then
-        assertThat("Returns all examples from the internal map", actualParamExamples.size(), is(2));
+        assertThat("Returns all examples from the internal map", actualExampleObjects.size(), is(2));
 
-        final List<ParamExample> actualExamples = new ArrayList<>(actualParamExamples);
+        final List<ExampleObject> actualExamples = new ArrayList<>(actualExampleObjects);
 
-        final ParamExample actualExample1 = actualExamples.get(0);
+        final ExampleObject actualExample1 = actualExamples.get(0);
         assertThat("First example object comes is a value from the internal map",
             actualExample1, sameInstance(expectedExample1)
         );
         verifyZeroInteractions(actualExample1);
 
-        final ParamExample actualExample2 = actualExamples.get(1);
+        final ExampleObject actualExample2 = actualExamples.get(1);
         assertThat("Second example object comes is a value from the internal map",
             actualExample2, sameInstance(expectedExample2)
         );

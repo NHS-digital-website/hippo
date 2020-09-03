@@ -14,7 +14,7 @@ public class FileUtils {
     public static String fileContentFromClasspath(final String fileClasspathPath) {
 
         if (FileUtils.class.getResource(fileClasspathPath) == null) {
-            throw new RuntimeException("Failed to read test file as it was not found at: " + fileClasspathPath);
+            throw new RuntimeException("Failed to read test data file as it was not found at: " + fileClasspathPath);
         }
 
         try (final InputStream resourceAsStream = FileUtils.class.getResourceAsStream(fileClasspathPath)) {
@@ -31,7 +31,7 @@ public class FileUtils {
     public static String fileContentFromFilesystem(final String fileSystemPath) {
 
         if (Files.notExists(Paths.get(fileSystemPath))) {
-            throw new RuntimeException("Failed to read test file as it was not found at: " + fileSystemPath);
+            throw new RuntimeException("Failed to read test data file as it was not found at: " + fileSystemPath);
         }
 
         try {
