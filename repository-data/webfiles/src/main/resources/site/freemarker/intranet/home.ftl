@@ -12,13 +12,14 @@
 
 <div class="intra-home-header"></div>
 <div class="intra-home-grid">
-    <div class="intra-home-grid__left-col">
-        <@hst.include ref = "left"/>
+    <div>
+    <@hst.include ref ="notice"/>
     </div>
-
-    <div class="intra-home-grid__right-col">
-        <div class="intra-box intra-box--compact">
-            <@hst.include ref = "right"/>
-        </div>
+    <div>
+        <@hst.include ref ="news"/>
+    </div>
+    <div>
+        <@hst.include ref ="body"/>
     </div>
 </div>
+
