@@ -9,11 +9,13 @@ phases:
   install:
     commands:
       - apt-get update
-      - apt-get install -qqy awscli python-pip git openssh-client
+      - apt-get install -qqy python-pip git openssh-client
 
       # AWS CLI
+      - pip install --upgrade pip
+      - pip --version
+      - pip install awscli --upgrade --user
       - aws --version
-      - pip install --upgrade s3transfer
 
       # SSH key
       - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
