@@ -9,6 +9,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/component/downloadBlock.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -21,6 +22,9 @@
 <#assign hasSectionContent = document.sections?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = hasSummaryContent || hasVisionContent || hasResponsibleRoleContent || hasPartOfBusinessUnit || sectionTitlesFound gt 1 />
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--businessunit">
 

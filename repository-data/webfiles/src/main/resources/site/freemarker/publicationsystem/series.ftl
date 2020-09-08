@@ -7,6 +7,7 @@
 <#include "../include/imports.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "./macro/structured-text.ftl">
+<#include "../common/macro/contentPixel.ftl">
 
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 
@@ -17,6 +18,9 @@
 
 <article class="article article--legacy-series" itemscope itemtype="http://schema.org/Series">
     <#if series??>
+
+    <#-- Content Page Pixel -->
+    <@contentPixel series.getCanonicalUUID() series.title></@contentPixel>
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed" aria-label="Series Title">
             <div class="grid-wrapper">

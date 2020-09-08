@@ -8,6 +8,7 @@
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
 <#include "macro/relatedarticles.ftl">
+<#include "macro/contentPixel.ftl">
 
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
@@ -27,13 +28,13 @@
         <@fmt.formatDate value=startTimeData type="time" pattern="HH:mm:ss" var="startDateTime" timeZone="${getTimeZone()}" />
         <meta itemprop="startDate" content="${startDate}T${startDateTime}">
     </#if>
-    
+
     <#if endTimeData?has_content && endTimeData?is_date>
         <@fmt.formatDate value=endTimeData type="date" pattern="yyyy-MM-dd" var="endDate" timeZone="${getTimeZone()}" />
         <@fmt.formatDate value=endTimeData type="time" pattern="HH:mm:ss" var="endDateTime" timeZone="${getTimeZone()}" />
         <meta itemprop="endDate" content="${endDate}T${endDateTime}">
     </#if>
-    
+
     <#if summaryImage??>
         <meta itemprop="image" content="${summaryImage}">
     </#if>
@@ -42,6 +43,9 @@
 
 <#assign hasSessions = document.events?size gte 1 />
 <#assign hasFutureEvent = false>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <#if !hasSessions>
 <article class="article article--event" itemscope itemtype="http://schema.org/Event" aria-label="Document Header">
@@ -60,7 +64,7 @@
                         <#if hasSessions>
                             <#-- [FTL-BEGIN] List of date ranges -->
                             <#list document.events as event>
-                            
+
                                 <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
                                 <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
                                 <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
@@ -71,10 +75,10 @@
                                 <div itemscope itemtype="http://schema.org/Event" class="tabbed-detail-wrapper">
                                     <#if document.events?size gt 1 && validDate>
                                     <span class="tabbed-detail-title list-title">Session ${event?counter}</span>
-                                    </#if>   
+                                    </#if>
 
                                     <#if validDate>
-                                        <div class="tabbed-detail">                            
+                                        <div class="tabbed-detail">
                                             <#if comparableStartDate == comparableEndDate>
 
                                             <dl class="tabbed-detail__wrapper">

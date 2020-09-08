@@ -27,6 +27,9 @@
             <a href="<@hst.link path='/static-ui/filtered-list'/>">Filtered list</a>
         </li>
         <li>
+            <a href="<@hst.link path='/static-ui/news-events-homepage'/>">News and Events Homepage</a>
+        </li>
+        <li>
             <a href="<@hst.link path='/static-ui/latest-events'/>">Latest Events</a>
         </li>
         <li>

@@ -12,6 +12,7 @@
 <#include "macro/fileMetaAppendix.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/fileIconByMimeType.ftl">
+<#include "macro/contentPixel.ftl">
 
 
 <#assign hasApiEndpointContent = document.requestname?? && document.uriaddress?? && document.summary?? />
@@ -31,6 +32,9 @@
 <#if apimethodValue??>
   <#assign colourClass = "colour-class-${apimethodValue?lower_case}" />
 </#if>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.requestname></@contentPixel>
 
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article">

@@ -5,6 +5,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/documentHeader.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -80,6 +81,9 @@
 <#if document.severity?has_content><#assign metadata += [ { "key": threatSeverityLabel, "value": document.severity } ] /></#if>
 <#if document.threatvector?has_content><#assign metadata += [ { "key": threatVectorLabel, "value": document.threatvector, "type": "list" } ] /></#if>
 <#if document.publishedDate?has_content><#assign metadata += [ { "key": datePublishedLabel, "value": document.publishedDate.time, "type": "date" } ] /></#if>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--cyber-alert">
 

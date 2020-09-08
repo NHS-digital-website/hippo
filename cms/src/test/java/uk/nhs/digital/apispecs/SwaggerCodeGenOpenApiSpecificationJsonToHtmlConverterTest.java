@@ -2,7 +2,6 @@ package uk.nhs.digital.apispecs;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
@@ -18,7 +17,7 @@ import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToH
 public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
     private static final String TEST_DATA_FILES_PATH =
-        "/test-data/api-specifications/SwaggerCodeGenApiSpecHtmlProviderTest";
+        "/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest";
 
     private final String specificationId = "123456";
 

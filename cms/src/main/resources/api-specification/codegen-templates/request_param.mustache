@@ -1,20 +1,34 @@
 <tr><td class="httpparams__name">{{baseName}}</td>
 <td>
-    <div id="d2e199_{{nickname}}_{{paramName}}">
+    <div>
         <div class="httpparams__description">
             <div>
                 <span class="httpparams__datatype">{{dataType}}</span>
+
                 {{#dataFormat}}
-                    <span class="codeinline">({{dataFormat}})</span>
+                    <code class="codeinline">({{dataFormat}})</code>
                 {{/dataFormat}}
 
                 {{#defaultValue}}
-                    <div>Default value: <span class="codeinline">{{defaultValue}}</span></div>
+                    <div>Default value: <code class="codeinline">{{defaultValue}}</code></div>
                 {{/defaultValue}}
 
                 {{#description}}
                     <div>{{description}}</div>
                 {{/description}}
+
+                {{#pattern}}
+                    <div>Pattern: <code class="codeinline">{{pattern}}</code></div>
+                {{/pattern}}
+
+                {{#allowableValues}}
+                    <div>Allowed values: {{enum allowableValues.values}}</div>
+                {{/allowableValues}}
+
+                {{#example}}
+                    <div>{{example}}</div>
+                {{/example}}
+
             </div>
             {{#is this 'enum'}}
                 {{#vendorExtensions.x-eumFormatted}}

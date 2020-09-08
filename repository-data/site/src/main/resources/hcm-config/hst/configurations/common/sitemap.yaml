@@ -328,9 +328,11 @@ definitions:
         hst:componentconfigurationmappingnames:
         - website:hub
         - website:visualhub
+        - website:hubnewsandevents
         hst:componentconfigurationmappingvalues:
         - hst:pages/hub
         - hst:pages/visualhub
+        - hst:pages/news-events-homepage
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
       /robots.txt:

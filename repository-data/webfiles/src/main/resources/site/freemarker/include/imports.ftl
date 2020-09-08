@@ -25,6 +25,7 @@
         "Service":                      "uk.nhs.digital.website.beans.Service",
         "General":                      "uk.nhs.digital.website.beans.General",
         "Hub":                          "uk.nhs.digital.website.beans.Hub",
+        "HubNewsAndEvents":             "uk.nhs.digital.website.beans.HubNewsAndEvents",
         "Event":                        "uk.nhs.digital.website.beans.Event",
         "List":                         "uk.nhs.digital.website.beans.ComponentList",
         "Footer":                       "Footer",
@@ -42,7 +43,8 @@
         "News":                         "uk.nhs.digital.website.beans.News",
         "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes",
         "SupplementaryInformation":     "uk.nhs.digital.website.beans.SupplementaryInformation",
-        "Team":                         "uk.nhs.digital.website.beans.Team"
+        "Team":                         "uk.nhs.digital.website.beans.Team",
+        "Task":                         "uk.nhs.digital.intranet.beans.Task"
     }/>
 
     <#list docTypes?keys as key>
@@ -271,7 +273,7 @@
     <#assign links = [] />
 
     <#list sectionCompounds as compound>
-        <#if compound.title?has_content>
+        <#if compound.title?has_content && compound.sectionType != 'ctabutton'>
             <#assign links += [{ "url": "#${idprefix}" + slugify(compound.title), "title": compound.title}] />
             <#if compound.sections?has_content>
                 <#list compound.sections as section>

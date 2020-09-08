@@ -42,6 +42,7 @@
 
     <!-- project logging -->
     <Logger name="uk.nhs.digital.ps" level="debug"/>
+    <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
     <Root level="warn">
       <AppenderRef ref="console"/>

@@ -8,6 +8,7 @@
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">
 <#include "macro/personitem.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -29,6 +30,8 @@
 <#assign hasContactDetails = document.contactDetails?? && document.contactDetails.content?has_content />
 <#assign hasRelatedSubjects = document.relatedSubjects?? && document.relatedSubjects?has_content />
 
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <div class="grid-wrapper grid-wrapper--article grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">

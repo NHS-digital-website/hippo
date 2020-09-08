@@ -49,7 +49,7 @@
             <div class="grid-wrapper">
                 <div class="article-header__inner">
                     <div class="grid-row">
-                        <div class="column--two-thirds column--reset">
+                        <div class="column--two-thirds column--reset" itemscope itemtype="http://schema.org/Text">
 
                             <#if doctype == "news">
                               <span class="article-header__label">${doctype?capitalize}</span>
@@ -84,6 +84,28 @@
                                 <#if document.introduction?has_content>
                                     <div class="rich-text-content article-header__subtitle">
                                         <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
+                                    </div>
+                                </#if>
+
+                                <#if document.priorityActions?has_content>
+                                    <div class="ctabtn--div">
+                                        <#list document.priorityActions as action>
+                                            <#if action.link.linkType == "internal">
+                                                <@hst.link hippobean=action.link.link var="priorityActionLink"/>
+                                            <#else>
+                                                <#assign priorityActionLink=action.link.link/>
+                                            </#if>
+                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, action.action) />
+                                            <div class="ctabtn--inline" aria-labelledby="ctabtn-${slugify(action.action)}">
+                                                <a href="${priorityActionLink}"
+                                                   class="ctabtn--white-button"
+                                                   id="ctabtn-${slugify(action.action)}"
+                                                   onClick="${onClickMethodCall}"
+                                                   onKeyUp="return vjsu.onKeyUp(event)">
+                                                    ${action.action}
+                                                </a>
+                                            </div>
+                                        </#list>
                                     </div>
                                 </#if>
                             </#if>

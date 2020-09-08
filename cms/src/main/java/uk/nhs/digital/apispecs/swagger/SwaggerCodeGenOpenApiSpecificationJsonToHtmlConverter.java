@@ -4,7 +4,6 @@ import io.swagger.codegen.v3.*;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import org.apache.commons.io.FileUtils;
 import uk.nhs.digital.apispecs.OpenApiSpecificationJsonToHtmlConverter;
-import uk.nhs.digital.apispecs.commonmark.ApiSpecificationStaticHtml2Codegen;
 
 import java.io.File;
 import java.io.IOException;
@@ -70,7 +69,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
             .config(codegenConfig)
             .setOpenAPI(new OpenAPIV3Parser().read(openApiSpecificationJson.toURI().toASCIIString(), null, null));
 
-        return new DefaultGenerator().opts(clientOptInput);
+        return new CodegenDefaultGenerator().opts(clientOptInput);
     }
 
     private File createSpecificationTempOutputDirectory() throws IOException {

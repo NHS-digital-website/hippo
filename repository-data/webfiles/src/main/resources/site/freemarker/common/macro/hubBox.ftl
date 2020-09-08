@@ -23,20 +23,11 @@
             <div class="hub-box__image" style="background-image: url('${options.background}');"></div>
             </#if>
 
-            <#if options.imagesection??>
+            <#if (options.imagesection??) && options.imagesection.leadImage??>
                 <div class="hub-box__icon">
-                  <#if options.imagesection != "EMPTY">
-                  <#assign alttext = options.imagesection.alttext />
-                  </#if>
-
-                  <#if options.imagesection == "EMPTY">
-                      <img class="hub-box__icon-img" src="<@hst.webfile path='/images/fibre_57101102_med.jpg'/>" alt="NHS Digital article" >
-                  <#elseif options.imagesection?has_content && options.imagesection.leadImage?has_content>
-                      <@hst.link hippobean=options.imagesection.leadImage.original fullyQualified=true var="leadImage" />
-                      <img class="hub-box__icon-img" src="${leadImage}" alt="${alttext}" />
-                  <#else>
-                      <img class="hub-box__icon-img" src="<@hst.webfile path='/images/fibre_57101102_med.jpg'/>" alt="NHS Digital article" >
-                  </#if>
+                    <#assign alttext = options.imagesection.alttext?has_content?then(options.imagesection.alttext, "NHS Digital article ") />
+                    <@hst.link hippobean=options.imagesection.leadImage.original fullyQualified=true var="leadImage" />
+                    <img class="hub-box__icon-img" src="${leadImage}" alt="${alttext}" />
                 </div>
             </#if>
 
@@ -84,7 +75,6 @@
                             </#list>
                         </ul>
                     </div>
-
                 </#if>
 
                 <#if options.types??>

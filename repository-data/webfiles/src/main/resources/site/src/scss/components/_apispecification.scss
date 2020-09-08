@@ -16,4 +16,7 @@
   &__name {vertical-align:top; font-family: monospace; width: 150px;}
   &__required {color: $red;}
   &__description {}
+  &__examples__header {font-weight: bold;}
+  &__example__summary {font-weight: bold;}
+  &__example__description {}
 }

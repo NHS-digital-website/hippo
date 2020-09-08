@@ -6,6 +6,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/documentHeader.ftl">
 <#include "macro/component/showAll.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -14,6 +15,9 @@
 
 <#assign hasLatestBlogs = document.latestBlogs?? && document.latestBlogs?has_content />
 <#assign hasSummaryContent = document.summary?? && document.summary?has_content />
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article itemscope itemtype="http://schema.org/Blog">
 
@@ -31,7 +35,7 @@
         <span itemprop="contentUrl" >${blogImage}</span>
       </div>
     </#if>
-    
+
     <#if document.subject?has_content><span class="is-hidden" itemprop="about" >${document.subject.title}</span></#if>
     <!-- metadata schema.org data - END   -->
 
@@ -87,7 +91,7 @@
                                       <#if latest.authors?has_content>
                                           <div class="bloghub__item__content__author__imgs">
                                             <#list latest.authors as author>
-                                              <#if author.personimages.picture?has_content> 
+                                              <#if author.personimages.picture?has_content>
                                                 <@hst.link hippobean=author.personimages.picture.original fullyQualified=true var="authorImage" />
                                                 <img itemprop="image" class="bloghub__item__content__author__img" src="${authorImage}" alt="${author.title}" />
                                               </#if>
@@ -96,7 +100,7 @@
                                           <div>
                                             <#list latest.authors as author>
                                               <div class = "bloghub__item__content__author__name">
-                                                <a itemprop="name" class="cta__title cta__button" href="<@hst.link hippobean=author/>">${author.title}</a> 
+                                                <a itemprop="name" class="cta__title cta__button" href="<@hst.link hippobean=author/>">${author.title}</a>
                                               </div>
                                               <#if latest.authors?size == 1 && author.roles?has_content>
                                               <div class="bloghub__item__content__author__name__role" >

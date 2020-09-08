@@ -76,12 +76,16 @@ public class ApigeeService implements OpenApiSpecificationRepository {
     }
 
     private List<OpenApiSpecificationStatus> apigeeApiSpecificationsStatusesFrom(final Resource resource) {
-        return unmodifiableList(
-                resourceServiceBroker
-                    .getResourceBeanMapper(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API)
-                    .map(resource, ApigeeSpecificationsStatuses.class)
-                    .getContents()
-            );
+        final List<OpenApiSpecificationStatus> openApiSpecificationStatuses = unmodifiableList(
+            resourceServiceBroker
+                .getResourceBeanMapper(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API)
+                .map(resource, ApigeeSpecificationsStatuses.class)
+                .getContents()
+        );
+
+        log.debug("Found {} specifications.", openApiSpecificationStatuses.size());
+
+        return openApiSpecificationStatuses;
     }
 
     private String apigeeApiSpecificationJsonFrom(final Resource resource) {

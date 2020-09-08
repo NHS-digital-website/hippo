@@ -21,7 +21,11 @@
     <main id="main-content">
         <@hst.include ref="main"/>
     </main>
-
+    <#-- Home Page Pixel -->
+    <script type="text/javascript">
+        var br_data = br_data || {};
+        br_data.ptype = "homepage";
+    </script>
     <@siteFooter />
 
     <#include "scripts/footer-scripts.ftl" />

@@ -8,7 +8,7 @@
        onClick="${onClickMethodCall}"
        onKeyUp="return vjsu.onKeyUp(event)" ${itemprop}>
         <div class="block-link__header">
-            <span class="icon icon--2x icon--html" aria-hidden="true"></span>
+            <span class="icon icon--html icon--download" aria-hidden="true"></span>
         </div>
         <div class="block-link__body">
             <span class="block-link__title">${doc.title}</span>

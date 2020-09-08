@@ -18,8 +18,12 @@
             </div>
         </#if>
     </#if>
-    <script>
-        webkitLineClamp(document.getElementById("summary-${index}"), 3);
+    <script data-line-clamp="setup">
+        window.webkitLineClamp.push({
+            element: document.getElementById("summary-${index}"),
+            lineCount: 3,
+            colour: "black"
+        })
     </script>
 
 </#macro>

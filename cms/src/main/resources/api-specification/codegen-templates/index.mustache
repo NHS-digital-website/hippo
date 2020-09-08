@@ -81,7 +81,7 @@
                                                             <th>Description</th>
                                                         </tr>
                                                         {{#pathParams}}
-                                                            {{>param}}
+                                                            {{>request_param}}
                                                         {{/pathParams}}
                                                     </table>
                                                 </div>
@@ -96,7 +96,7 @@
                                                             <th>Description</th>
                                                         </tr>
                                                         {{#headerParams}}
-                                                            {{>param}}
+                                                            {{>request_param}}
                                                         {{/headerParams}}
                                                     </table>
                                                 </div>
@@ -105,15 +105,9 @@
                                             {{#hasBodyParam}}
                                                 <div class="httpparams">
                                                     <h3>Body</h3>
-                                                    <table data-disablesort="true">
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Description</th>
-                                                        </tr>
                                                         {{#bodyParams}}
-                                                            {{>paramB}}
+                                                            {{>body_param}}
                                                         {{/bodyParams}}
-                                                    </table>
                                                 </div>
                                             {{/hasBodyParam}}
 
@@ -126,7 +120,7 @@
                                                             <th>Description</th>
                                                         </tr>
                                                         {{#formParams}}
-                                                            {{>param}}
+                                                            {{>request_param}}
                                                         {{/formParams}}
                                                     </table>
                                                 </div>
@@ -141,7 +135,7 @@
                                                             <th>Description</th>
                                                         </tr>
                                                         {{#queryParams}}
-                                                            {{>param}}
+                                                            {{>request_param}}
                                                         {{/queryParams}}
                                                     </table>
                                                 </div>
@@ -149,63 +143,27 @@
 
                                             <h2>Response</h2>
                                             {{#responses}}
-                                                <h3> Status: {{code}} - {{message}} </h3>
+                                                <h3>Status: {{code}}</h3>
+                                                <div>{{message}}</div>
 
-                                                <ul class="nav nav-tabs nav-tabs-examples" >
-                                                    {{#schema}}
-                                                        <li class="active">
-                                                            <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-schema">Schema</a>
-                                                        </li>
+                                                {{#hasHeaders}}
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                            {{#headers}}
+                                                                {{>response_header}}
+                                                            {{/headers}}
+                                                        </table>
+                                                    </div>
+                                                {{/hasHeaders}}
 
-                                                        {{#examples}}
-                                                            <li class="">
-                                                                <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-example">Response Example</a>
-                                                            </li>
-                                                        {{/examples}}
-                                                    {{/schema}}
-                                                    {{#hasHeaders}}
-                                                        <li class="">
-                                                            <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-headers">Headers</a>
-                                                        </li>
-                                                    {{/hasHeaders}}
-                                                </ul>
-
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                    {{#schema}}
-                                                        <div class="tab-pane active" id="responses-{{nickname}}-{{code}}-schema">
-                                                            <div id='responses-{{nickname}}-{{code}}-schema-{{code}}' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-{{nickname}}-{{code}}-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                        {{#examples}}
-                                                            <div class="tab-pane" id="responses-{{nickname}}-{{code}}-example">
-                                                                <pre class="prettyprint"><code class="json">{{example}}</code></pre>
-                                                            </div>
-                                                        {{/examples}}
-                                                    {{/schema}}
-                                                    {{#hasHeaders}}
-                                                        <div class="tab-pane" id="responses-{{nickname}}-{{code}}-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
-                                                                </tr>
-                                                                {{#headers}}
-                                                                    <tr>
-                                                                        <td>{{#name}}{{name}}{{/name}}</td>
-                                                                        <td>{{#datatype}}{{datatype}}{{/datatype}}</td>
-                                                                        <td>{{#dataFormat}}{{dataFormat}}{{/dataFormat}}</td>
-                                                                        <td>{{#description}}{{description}}{{/description}}</td>
-                                                                    </tr>
-                                                                {{/headers}}
-                                                            </table>
-                                                        </div>
-                                                    {{/hasHeaders}}
-                                                </div>
-
+                                                {{#contents}}
+                                                    {{>content_type}}
+                                                {{/contents}}
                                             {{/responses}}
                                         </article>
                                     </div>

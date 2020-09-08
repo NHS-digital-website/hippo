@@ -18,6 +18,7 @@
 <#include "macro/relatedarticles.ftl">
 <#include "macro/latestblogs.ftl">
 <#include "macro/component/downloadBlock.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
@@ -36,6 +37,9 @@
 <#assign hasBusinessUnits = document.businessUnits?? && document.businessUnits?has_content/>
 
 <#assign notSuppress = !(document.lawfulbasises?has_content && document.lawfulbasises.suppressdata?has_content && suppressdata[document.lawfulbasises.suppressdata] == suppressdata['suppress-data']) />
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--person" itemscope itemtype="http://schema.org/Person">
 
