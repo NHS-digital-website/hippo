@@ -146,6 +146,9 @@ definitions:
       /indicator:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
         jcr:primaryType: hst:template
+      /intranet-newslist:
+        hst:renderpath: webfile:/freemarker/common/intranet-newslist.ftl
+        jcr:primaryType: hst:template
       /jobrole:
         hst:renderpath: webfile:/freemarker/common/jobrole.ftl
         jcr:primaryType: hst:template

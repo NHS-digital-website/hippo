@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:catalog:
+      /intranet-catalog:
+        /intranet-newslist:
+          hst:componentclassname: uk.nhs.digital.intranet.components.IntraNewsComponent
+          hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+          hst:label: News List (Intranet)
+          hst:template: intranet-newslist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        jcr:primaryType: hst:containeritempackage
+      jcr:primaryType: hst:catalog

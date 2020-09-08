@@ -4,14 +4,22 @@ definitions:
     /hst:hst/hst:configurations/intranet/hst:workspace:
       /hst:containers:
         /homepage:
-          /left:
-            hst:label: Left container
-            hst:lastmodified: 2020-04-16T14:53:34.625Z
+          /body:
+            .meta:residual-child-node-category: content
+            hst:label: Main body container
+            hst:lastmodified: 2020-04-22T13:42:45.671Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
-          /right:
-            hst:label: Right container
-            hst:lastmodified: 2020-04-22T13:42:45.671Z
+          /news:
+            .meta:residual-child-node-category: content
+            hst:label: News container
+            hst:lastmodified: 2020-09-08T14:12:24.669Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /notice:
+            .meta:residual-child-node-category: content
+            hst:label: Notice bar container
+            hst:lastmodified: 2020-09-04T10:33:09.261Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           jcr:primaryType: hst:containercomponentfolder

@@ -1,0 +1,56 @@
+---
+/hst:hst/hst:configurations/intranet/hst:workspace/hst:containers/homepage/news/intranet-newslist:
+  hst:componentclassname: uk.nhs.digital.intranet.components.IntraNewsComponent
+  hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+  hst:label: News List (Intranet)
+  hst:parameternames:
+  - hideFutureItems
+  - documentDateField
+  - pageSize
+  - showPagination
+  - tasksPageUrl
+  - newsNumberOfRows
+  - includeSubtypes
+  - tasksTitle
+  - path
+  - taskDocument8
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - documentTypes
+  - sortOrder
+  - taskDocument4
+  - sortField
+  - taskDocument5
+  - taskDocument6
+  - featuredArticle
+  - featuredPath
+  - taskDocument7
+  - taskDocument1
+  - taskDocument2
+  - taskDocument3
+  hst:parametervalues:
+  - 'on'
+  - intranet:publicationdate
+  - '8'
+  - 'off'
+  - google.com
+  - '1'
+  - 'on'
+  - Tasks title
+  - /content/documents/intranet/news
+  - ''
+  - 'off'
+  - intranet:newsinternal
+  - desc
+  - ''
+  - intranet:publicationdate
+  - ''
+  - ''
+  - news/news1
+  - /content/documents/intranet/news/news1
+  - ''
+  - tasks/testtask
+  - tasks/testtask-copy
+  - ''
+  hst:template: intranet-newslist
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent
