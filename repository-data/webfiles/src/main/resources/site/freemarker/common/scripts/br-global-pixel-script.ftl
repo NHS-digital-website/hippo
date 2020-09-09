@@ -2,7 +2,6 @@
 <script type="text/javascript">
     var br_data = br_data || {};
     br_data.acct_id = "6405";
-    br_data.domain_key = "digital_nhs_uk";
     br_data.catalogs = [ { "name" : "content_en" } ];
     if ("${hstRequest.requestContext.resolvedMount.mount.virtualHost.hostGroupName}" != "prd"){
     br_data.test_data="true";
