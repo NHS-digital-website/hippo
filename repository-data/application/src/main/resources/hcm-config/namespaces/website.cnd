@@ -1,18 +1,15 @@
 <'website'='http://digital.nhs.uk/jcr/website/nt/1.0'>
+<'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
 <'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.4'>
 <'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
 <'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
-<'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 <'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
-<'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
+<'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
-[website:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
-  orderable
-  - common:searchable (boolean) = 'true' autocreated
+[website:CorporateImageSetSpecification] > hippogallery:imageset, hippogallery:relaxed
 
-[website:financial] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
+[website:NhsdImageSetSpecification] > hippogallery:imageset, hippogallery:relaxed
 
 [website:aboutapi] > hippo:compound, hippostd:relaxed
   orderable
@@ -20,8 +17,9 @@
 [website:address] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:hubnewsandevents] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+[website:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
+  - common:searchable (boolean) = 'true' autocreated
 
 [website:apiendpoint] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
@@ -92,6 +90,8 @@
 [website:contactdetailextended] > website:contactdetail
   orderable
 
+[website:corporateWebsiteImageset] > hippogallery:imageset, hippogallery:relaxed
+
 [website:ctabutton] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -152,6 +152,9 @@
   orderable
 
 [website:externallinkbase] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:financial] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:friendlyurls] > hippo:compound, hippostd:relaxed
