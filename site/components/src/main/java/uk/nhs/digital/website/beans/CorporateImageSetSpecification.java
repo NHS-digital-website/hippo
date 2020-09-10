@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageBean;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+
 @HippoEssentialsGenerated(internalName = "website:CorporateImageSetSpecification")
 @Node(jcrType = "website:CorporateImageSetSpecification")
 public class CorporateImageSetSpecification extends HippoGalleryImageSet {
