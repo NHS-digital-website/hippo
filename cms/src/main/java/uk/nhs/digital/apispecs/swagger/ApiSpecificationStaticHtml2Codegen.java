@@ -33,6 +33,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiSpecificationStaticHtml2Codegen.class);
 
+    private static final String VENDOR_EXT_KEY_BODY = "x-body";
+
     private CommonmarkMarkdownConverter markdownConverter = new CommonmarkMarkdownConverter();
 
     private CodegenParameterExampleRenderer codegenParameterExampleRenderer =
@@ -280,7 +282,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         final CodegenParameter parameter,
         final BodyWithMediaTypeObjects bodyWithMediaTypeObjects
     ) {
-        parameter.getVendorExtensions().put("x-body", bodyWithMediaTypeObjects);
+        parameter.getVendorExtensions().put(VENDOR_EXT_KEY_BODY, bodyWithMediaTypeObjects);
     }
 
     private void convertRequestBodyExampleDescriptionsFromMarkdownToHtml(final BodyWithMediaTypeObjects bodyWithMediaTypeObjects) {

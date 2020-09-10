@@ -36,5 +36,13 @@
             <div><pre><code>{{value}}</code></pre></div>
         {{/examples}}
 
+        <div class="body__schema__header">Schema</div>
+        <p>
+            To see the schema, open
+            {{! The ../../../baseName points to the CodegenOperation both for response and request bodies. }}
+            <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/{{../../../../baseName}}/{{operationIdSnakeCase}}')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+            and select the 'Schema' tab.
+        </p>
+
     {{/mediaTypes}}
 
