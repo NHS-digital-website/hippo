@@ -27,7 +27,7 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/authorPhoto/authorPhoto.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:29.869Z
+        jcr:lastModified: 2020-09-10T13:39:08.021Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:authorPhoto2x:
@@ -45,7 +45,7 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/authorPhotoLarge/authorPhotoLarge.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:30.826Z
+        jcr:lastModified: 2020-09-10T13:39:09.090Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:authorPhotoLarge2x:
@@ -63,16 +63,16 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/authorPhotoLarger/authorPhotoLarger.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:31.807Z
+        jcr:lastModified: 2020-09-10T13:39:10.186Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:blogIndexThumb:
-        hippogallery:height: 240
-        hippogallery:width: 468
+        hippogallery:height: 184
+        hippogallery:width: 276
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/blogIndexThumb/blogIndexThumb.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:11.269Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:blogIndexThumb2x:
@@ -85,12 +85,12 @@
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:homeBlogThumb:
-        hippogallery:height: 184
-        hippogallery:width: 468
+        hippogallery:height: 368
+        hippogallery:width: 552
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/homeBlogThumb/homeBlogThumb.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:12.347Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:homeBlogThumb2x:
@@ -103,12 +103,12 @@
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:homeBlogThumbSmall:
-        hippogallery:height: 184
-        hippogallery:width: 341
+        hippogallery:height: 368
+        hippogallery:width: 552
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:13.460Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:homeBlogThumbSmall2x:
@@ -120,13 +120,22 @@
         jcr:lastModified: 2020-06-17T09:38:36.775Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmaller:
+        hippogallery:height: 184
+        hippogallery:width: 276
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/homeBlogThumbSmaller/homeBlogThumbSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:14.537Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
       /website:newsFeaturedPost:
-        hippogallery:height: 464
-        hippogallery:width: 696
+        hippogallery:height: 148
+        hippogallery:width: 222
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsFeaturedPost/newsFeaturedPost.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:15.584Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:newsFeaturedPost2x:
@@ -138,13 +147,22 @@
         jcr:lastModified: 2020-06-17T09:38:36.775Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPostLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsFeaturedPostLarge/newsFeaturedPostLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:16.653Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
       /website:newsPostImage:
-        hippogallery:height: 426
-        hippogallery:width: 640
+        hippogallery:height: 77
+        hippogallery:width: 115
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsPostImage/newsPostImage.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:17.746Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:newsPostImage2x:
@@ -157,12 +175,12 @@
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:newsPostImageLarge:
-        hippogallery:height: 661
-        hippogallery:width: 992
+        hippogallery:height: 148
+        hippogallery:width: 222
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsPostImageLarge/newsPostImageLarge.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:18.802Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:newsPostImageLarge2x:
@@ -174,13 +192,31 @@
         jcr:lastModified: 2020-06-17T09:38:36.775Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarger:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsPostImageLarger/newsPostImageLarger.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:19.936Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLargest:
+        hippogallery:height: 592
+        hippogallery:width: 888
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsPostImageLargest/newsPostImageLargest.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:21.015Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
       /website:newsThumbnail:
-        hippogallery:height: 102
-        hippogallery:width: 154
+        hippogallery:height: 148
+        hippogallery:width: 222
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsThumbnail/newsThumbnail.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:22.155Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:newsThumbnail2x:
@@ -192,13 +228,22 @@
         jcr:lastModified: 2020-06-17T09:38:36.775Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
+      /website:newsThumbnailLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsThumbnailLarge/newsThumbnailLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:23.213Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
       /website:oldArticleThumbnail:
-        hippogallery:height: 410
-        hippogallery:width: 616
+        hippogallery:height: 148
+        hippogallery:width: 222
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/oldArticleThumbnail/oldArticleThumbnail.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:24.282Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:oldArticleThumbnail2x:
@@ -210,13 +255,22 @@
         jcr:lastModified: 2020-06-17T09:38:36.775Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnailLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/oldArticleThumbnailLarge/oldArticleThumbnailLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:25.365Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
       /website:pageHeaderHeroModule:
-        hippogallery:height: 825
-        hippogallery:width: 1237
+        hippogallery:height: 148
+        hippogallery:width: 222
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:26.392Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:pageHeaderHeroModule2x:
@@ -228,13 +282,22 @@
         jcr:lastModified: 2020-06-17T09:38:36.775Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderHeroModuleLarge/pageHeaderHeroModuleLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:29.552Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
       /website:pageHeaderHeroModuleSmall:
-        hippogallery:height: 375
-        hippogallery:width: 375
+        hippogallery:height: 74
+        hippogallery:width: 111
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:27.473Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:pageHeaderHeroModuleSmall2x:
@@ -246,13 +309,22 @@
         jcr:lastModified: 2020-06-17T09:38:36.775Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmaller:
+        hippogallery:height: 37
+        hippogallery:width: 55
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderHeroModuleSmaller/pageHeaderHeroModuleSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:28.504Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
       /website:pageHeaderSlimBanner:
         hippogallery:height: 500
-        hippogallery:width: 1270
+        hippogallery:width: 750
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:30.595Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:pageHeaderSlimBanner2x:
@@ -264,13 +336,22 @@
         jcr:lastModified: 2020-06-17T09:38:36.775Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerLarge:
+        hippogallery:height: 1000
+        hippogallery:width: 1500
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBannerLarge/pageHeaderSlimBannerLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:33.616Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
       /website:pageHeaderSlimBannerSmall:
         hippogallery:height: 250
         hippogallery:width: 375
         jcr:data:
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
           type: binary
-        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:lastModified: 2020-09-10T13:39:31.627Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:pageHeaderSlimBannerSmall2x:
@@ -280,6 +361,15 @@
           resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBannerSmall2x/pageHeaderSlimBannerSmall2x.jpg
           type: binary
         jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmaller:
+        hippogallery:height: 125
+        hippogallery:width: 187
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBannerSmaller/pageHeaderSlimBannerSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:32.623Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:postImageSmall:
@@ -337,7 +427,7 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/authorPhoto/authorPhoto.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:21.258Z
+        jcr:lastModified: 2020-09-10T13:37:57.699Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:authorPhotoLarge:
@@ -346,7 +436,7 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/authorPhotoLarge/authorPhotoLarge.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:22.773Z
+        jcr:lastModified: 2020-09-10T13:37:58.594Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:authorPhotoLarger:
@@ -355,7 +445,205 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/authorPhotoLarger/authorPhotoLarger.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:23.685Z
+        jcr:lastModified: 2020-09-10T13:37:59.448Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb:
+        hippogallery:height: 184
+        hippogallery:width: 276
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/blogIndexThumb/blogIndexThumb.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:00.751Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb:
+        hippogallery:height: 368
+        hippogallery:width: 552
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/homeBlogThumb/homeBlogThumb.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:01.595Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall:
+        hippogallery:height: 368
+        hippogallery:width: 552
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:02.453Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmaller:
+        hippogallery:height: 184
+        hippogallery:width: 276
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/homeBlogThumbSmaller/homeBlogThumbSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:03.318Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/newsFeaturedPost/newsFeaturedPost.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:04.196Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPostLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/newsFeaturedPostLarge/newsFeaturedPostLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:05.073Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage:
+        hippogallery:height: 77
+        hippogallery:width: 115
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/newsPostImage/newsPostImage.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:05.927Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/newsPostImageLarge/newsPostImageLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:06.767Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarger:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/newsPostImageLarger/newsPostImageLarger.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:07.631Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLargest:
+        hippogallery:height: 592
+        hippogallery:width: 888
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/newsPostImageLargest/newsPostImageLargest.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:08.481Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/newsThumbnail/newsThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:09.400Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnailLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/newsThumbnailLarge/newsThumbnailLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:10.254Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/oldArticleThumbnail/oldArticleThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:11.108Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnailLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/oldArticleThumbnailLarge/oldArticleThumbnailLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:11.981Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:12.851Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/pageHeaderHeroModuleLarge/pageHeaderHeroModuleLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:15.726Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall:
+        hippogallery:height: 74
+        hippogallery:width: 111
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:13.748Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmaller:
+        hippogallery:height: 37
+        hippogallery:width: 55
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/pageHeaderHeroModuleSmaller/pageHeaderHeroModuleSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:14.726Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner:
+        hippogallery:height: 500
+        hippogallery:width: 750
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:16.584Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerLarge:
+        hippogallery:height: 1000
+        hippogallery:width: 1500
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/pageHeaderSlimBannerLarge/pageHeaderSlimBannerLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:19.271Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall:
+        hippogallery:height: 250
+        hippogallery:width: 375
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:17.501Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmaller:
+        hippogallery:height: 125
+        hippogallery:width: 187
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/pageHeaderSlimBannerSmaller/pageHeaderSlimBannerSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:18.370Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       hippo:availability:
@@ -395,7 +683,7 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/authorPhoto/authorPhoto.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:24.546Z
+        jcr:lastModified: 2020-09-10T13:38:20.252Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:authorPhotoLarge:
@@ -404,7 +692,7 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/authorPhotoLarge/authorPhotoLarge.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:25.456Z
+        jcr:lastModified: 2020-09-10T13:38:21.211Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:authorPhotoLarger:
@@ -413,7 +701,205 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/authorPhotoLarger/authorPhotoLarger.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:26.379Z
+        jcr:lastModified: 2020-09-10T13:38:22.143Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb:
+        hippogallery:height: 184
+        hippogallery:width: 276
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/blogIndexThumb/blogIndexThumb.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:23.085Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb:
+        hippogallery:height: 368
+        hippogallery:width: 552
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/homeBlogThumb/homeBlogThumb.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:24.096Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall:
+        hippogallery:height: 368
+        hippogallery:width: 552
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:25.034Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmaller:
+        hippogallery:height: 184
+        hippogallery:width: 276
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/homeBlogThumbSmaller/homeBlogThumbSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:25.975Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/newsFeaturedPost/newsFeaturedPost.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:26.964Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPostLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/newsFeaturedPostLarge/newsFeaturedPostLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:28.027Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage:
+        hippogallery:height: 77
+        hippogallery:width: 115
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/newsPostImage/newsPostImage.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:29.095Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/newsPostImageLarge/newsPostImageLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:30.069Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarger:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/newsPostImageLarger/newsPostImageLarger.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:31.001Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLargest:
+        hippogallery:height: 592
+        hippogallery:width: 888
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/newsPostImageLargest/newsPostImageLargest.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:31.946Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/newsThumbnail/newsThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:32.983Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnailLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/newsThumbnailLarge/newsThumbnailLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:33.917Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/oldArticleThumbnail/oldArticleThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:34.873Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnailLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/oldArticleThumbnailLarge/oldArticleThumbnailLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:35.820Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:36.798Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/pageHeaderHeroModuleLarge/pageHeaderHeroModuleLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:39.569Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall:
+        hippogallery:height: 74
+        hippogallery:width: 111
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:37.716Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmaller:
+        hippogallery:height: 37
+        hippogallery:width: 55
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/pageHeaderHeroModuleSmaller/pageHeaderHeroModuleSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:38.643Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner:
+        hippogallery:height: 500
+        hippogallery:width: 750
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:40.536Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerLarge:
+        hippogallery:height: 1000
+        hippogallery:width: 1500
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/pageHeaderSlimBannerLarge/pageHeaderSlimBannerLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:43.616Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall:
+        hippogallery:height: 250
+        hippogallery:width: 375
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:41.564Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmaller:
+        hippogallery:height: 125
+        hippogallery:width: 187
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/pageHeaderSlimBannerSmaller/pageHeaderSlimBannerSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:42.501Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       hippo:availability:
@@ -453,7 +939,7 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/authorPhoto/authorPhoto.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:27.309Z
+        jcr:lastModified: 2020-09-10T13:38:44.816Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:authorPhotoLarge:
@@ -462,7 +948,7 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/authorPhotoLarge/authorPhotoLarge.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:28.149Z
+        jcr:lastModified: 2020-09-10T13:38:46.460Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       /website:authorPhotoLarger:
@@ -471,7 +957,205 @@
         jcr:data:
           resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/authorPhotoLarger/authorPhotoLarger.jpg
           type: binary
-        jcr:lastModified: 2020-09-10T12:28:29.026Z
+        jcr:lastModified: 2020-09-10T13:38:47.331Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb:
+        hippogallery:height: 184
+        hippogallery:width: 276
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/blogIndexThumb/blogIndexThumb.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:48.221Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb:
+        hippogallery:height: 368
+        hippogallery:width: 552
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/homeBlogThumb/homeBlogThumb.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:49.090Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall:
+        hippogallery:height: 368
+        hippogallery:width: 552
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:49.975Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmaller:
+        hippogallery:height: 184
+        hippogallery:width: 276
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/homeBlogThumbSmaller/homeBlogThumbSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:50.834Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/newsFeaturedPost/newsFeaturedPost.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:51.695Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPostLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/newsFeaturedPostLarge/newsFeaturedPostLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:52.552Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage:
+        hippogallery:height: 77
+        hippogallery:width: 115
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/newsPostImage/newsPostImage.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:53.407Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/newsPostImageLarge/newsPostImageLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:54.279Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarger:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/newsPostImageLarger/newsPostImageLarger.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:55.150Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLargest:
+        hippogallery:height: 592
+        hippogallery:width: 888
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/newsPostImageLargest/newsPostImageLargest.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:56.141Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/newsThumbnail/newsThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:57.198Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnailLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/newsThumbnailLarge/newsThumbnailLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:58.163Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/oldArticleThumbnail/oldArticleThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:59.041Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnailLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/oldArticleThumbnailLarge/oldArticleThumbnailLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:38:59.919Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule:
+        hippogallery:height: 148
+        hippogallery:width: 222
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:00.852Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleLarge:
+        hippogallery:height: 296
+        hippogallery:width: 444
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/pageHeaderHeroModuleLarge/pageHeaderHeroModuleLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:03.430Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall:
+        hippogallery:height: 74
+        hippogallery:width: 111
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:01.734Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmaller:
+        hippogallery:height: 37
+        hippogallery:width: 55
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/pageHeaderHeroModuleSmaller/pageHeaderHeroModuleSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:02.587Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner:
+        hippogallery:height: 500
+        hippogallery:width: 750
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:04.307Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerLarge:
+        hippogallery:height: 1000
+        hippogallery:width: 1500
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/pageHeaderSlimBannerLarge/pageHeaderSlimBannerLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:06.956Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall:
+        hippogallery:height: 250
+        hippogallery:width: 375
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:05.212Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmaller:
+        hippogallery:height: 125
+        hippogallery:width: 187
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/pageHeaderSlimBannerSmaller/pageHeaderSlimBannerSmaller.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T13:39:06.089Z
         jcr:mimeType: image/jpeg
         jcr:primaryType: hippogallery:image
       hippo:availability:
