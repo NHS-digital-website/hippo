@@ -64,6 +64,150 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /blogIndexThumb:
+            caption: blogIndexThumb
+            field: blogIndexThumb
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /homeBlogThumb:
+            caption: homeBlogThumb
+            field: homeBlogThumb
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /homeBlogThumbSmall:
+            caption: homeBlogThumbSmall
+            field: homeBlogThumbSmall
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /homeBlogThumbSmaller:
+            caption: homeBlogThumbSmaller
+            field: homeBlogThumbSmaller
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /newsFeaturedPost:
+            caption: newsFeaturedPost
+            field: newsFeaturedPost
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /newsFeaturedPostLarge:
+            caption: newsFeaturedPostLarge
+            field: newsFeaturedPostLarge
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /newsPostImage:
+            caption: newsPostImage
+            field: newsPostImage
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /newsPostImageLarge:
+            caption: newsPostImageLarge
+            field: newsPostImageLarge
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /newsPostImageLarger:
+            caption: newsPostImageLarger
+            field: newsPostImageLarger
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /newsPostImageLargest:
+            caption: newsPostImageLargest
+            field: newsPostImageLargest
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /newsThumbnail:
+            caption: newsThumbnail
+            field: newsThumbnail
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /newsThumbnailLarge:
+            caption: newsThumbnailLarge
+            field: newsThumbnailLarge
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /oldArticleThumbnail:
+            caption: oldArticleThumbnail
+            field: oldArticleThumbnail
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /oldArticleThumbnailLarge:
+            caption: oldArticleThumbnailLarge
+            field: oldArticleThumbnailLarge
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pageHeaderHeroModule:
+            caption: pageHeaderHeroModule
+            field: pageHeaderHeroModule
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pageHeaderHeroModuleSmall:
+            caption: pageHeaderHeroModuleSmall
+            field: pageHeaderHeroModuleSmall
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pageHeaderHeroModuleSmaller:
+            caption: pageHeaderHeroModuleSmaller
+            field: pageHeaderHeroModuleSmaller
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pageHeaderHeroModuleLarge:
+            caption: pageHeaderHeroModuleLarge
+            field: pageHeaderHeroModuleLarge
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pageHeaderSlimBanner:
+            caption: pageHeaderSlimBanner
+            field: pageHeaderSlimBanner
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pageHeaderSlimBannerSmall:
+            caption: pageHeaderSlimBannerSmall
+            field: pageHeaderSlimBannerSmall
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pageHeaderSlimBannerSmaller:
+            caption: pageHeaderSlimBannerSmaller
+            field: pageHeaderSlimBannerSmaller
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pageHeaderSlimBannerLarge:
+            caption: pageHeaderSlimBannerLarge
+            field: pageHeaderSlimBannerLarge
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /postImageSmall:
+            caption: postImageSmall
+            field: postImageSmall
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /postImageSmallSmaller:
+            caption: postImageSmallSmaller
+            field: postImageSmallSmaller
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -79,6 +223,10 @@ definitions:
             hipposysedit:path: website:authorPhotoLarger
             hipposysedit:type: hippogallery:image
             jcr:primaryType: hipposysedit:field
+          /blogIndexThumb:
+            hipposysedit:path: website:blogIndexThumb
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
           /description:
             hipposysedit:path: hippogallery:description
             hipposysedit:type: String
@@ -87,8 +235,100 @@ definitions:
             hipposysedit:path: hippogallery:filename
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          /homeBlogThumb:
+            hipposysedit:path: website:homeBlogThumb
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /homeBlogThumbSmall:
+            hipposysedit:path: website:homeBlogThumbSmall
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /homeBlogThumbSmaller:
+            hipposysedit:path: website:homeBlogThumbSmaller
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /newsFeaturedPost:
+            hipposysedit:path: website:newsFeaturedPost
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /newsFeaturedPostLarge:
+            hipposysedit:path: website:newsFeaturedPostLarge
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /newsPostImage:
+            hipposysedit:path: website:newsPostImage
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /newsPostImageLarge:
+            hipposysedit:path: website:newsPostImageLarge
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /newsPostImageLarger:
+            hipposysedit:path: website:newsPostImageLarger
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /newsPostImageLargest:
+            hipposysedit:path: website:newsPostImageLargest
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /newsThumbnail:
+            hipposysedit:path: website:newsThumbnail
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /newsThumbnailLarge:
+            hipposysedit:path: website:newsThumbnailLarge
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /oldArticleThumbnail:
+            hipposysedit:path: website:oldArticleThumbnail
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /oldArticleThumbnailLarge:
+            hipposysedit:path: website:oldArticleThumbnailLarge
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
           /original:
             hipposysedit:path: hippogallery:original
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /pageHeaderHeroModule:
+            hipposysedit:path: website:pageHeaderHeroModule
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /pageHeaderHeroModuleLarge:
+            hipposysedit:path: website:pageHeaderHeroModuleLarge
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /pageHeaderHeroModuleSmall:
+            hipposysedit:path: website:pageHeaderHeroModuleSmall
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /pageHeaderHeroModuleSmaller:
+            hipposysedit:path: website:pageHeaderHeroModuleSmaller
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /pageHeaderSlimBanner:
+            hipposysedit:path: website:pageHeaderSlimBanner
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /pageHeaderSlimBannerLarge:
+            hipposysedit:path: website:pageHeaderSlimBannerLarge
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /pageHeaderSlimBannerSmall:
+            hipposysedit:path: website:pageHeaderSlimBannerSmall
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /pageHeaderSlimBannerSmaller:
+            hipposysedit:path: website:pageHeaderSlimBannerSmaller
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /postImageSmall:
+            hipposysedit:path: website:postImageSmall
+            hipposysedit:type: hippogallery:image
+            jcr:primaryType: hipposysedit:field
+          /postImageSmallSmaller:
+            hipposysedit:path: website:postImageSmallSmaller
             hipposysedit:type: hippogallery:image
             jcr:primaryType: hipposysedit:field
           /thumbnail:
