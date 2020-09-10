@@ -29,4 +29,7 @@
   &__example__header {font-weight: bold;}
   &__example__summary {}
   &__example__description {}
+
+  &__schema__header {font-weight: bold;}
+  &__schema__trythisapi__link {color: $blue; text-decoration: underline;}
 }
