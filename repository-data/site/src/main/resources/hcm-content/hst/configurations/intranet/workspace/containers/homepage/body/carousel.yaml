@@ -1,0 +1,14 @@
+/hst:hst/hst:configurations/intranet/hst:workspace/hst:containers/homepage/body/carousel:
+  .meta:order-before: bloglist
+  jcr:primaryType: hst:containeritemcomponent
+  hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
+  hst:iconpath: images/catalog/component-products-30x30.png
+  hst:label: Documents Picker
+  hst:parameternames: [document8, document7, document9, wrappingDocument, document4,
+    document3, document6, document5, pageSize, showPagination, document2, document1,
+    com.onehippo.cms7.targeting.TargetingParameterUtil.hide, document10, org.hippoecm.hst.core.component.template]
+  hst:parametervalues: ['', '', '', '', call-to-action/testcalltoaction, announcements/testannouncement,
+    '', '', '10', 'off', call-to-action/testcalltoaction, announcements/testannouncement,
+    'off', '', 'webfile:/freemarker/common/document-list/intranet-homepage.ftl']
+  hst:template: document-list
+  hst:xtype: HST.Item
