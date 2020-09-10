@@ -42,6 +42,30 @@ definitions:
       - odp
       - ods
       max.file.size: 3000M
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/website:authorPhoto:
+      compression: 1.0
+      cropping: false
+      height: 100
+      jcr:primaryType: frontend:pluginconfig
+      optimize: quality
+      upscaling: false
+      width: 100
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/website:authorPhotoLarge:
+      compression: 1.0
+      cropping: false
+      height: 200
+      jcr:primaryType: frontend:pluginconfig
+      optimize: quality
+      upscaling: false
+      width: 200
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/website:authorPhotoLarger:
+      compression: 1.0
+      cropping: false
+      height: 400
+      jcr:primaryType: frontend:pluginconfig
+      optimize: quality
+      upscaling: false
+      width: 400
     /hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService:
       extensions.allowed:
       - jpg

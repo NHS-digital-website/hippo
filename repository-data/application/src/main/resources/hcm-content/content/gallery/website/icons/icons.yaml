@@ -1,11 +1,67 @@
----
 /content/gallery/website/icons:
-  hippo:name: Icons
-  hippostd:foldertype:
-  - new-image-folder
-  hippostd:gallerytype:
-  - hippogallery:imageset
-  jcr:mixinTypes:
-  - hippo:named
-  - mix:versionable
   jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: daba3efe-b05f-4e85-8503-a3673f7186d9
+  hippo:name: Icons
+  hippostd:foldertype: [new-website-CorporateImageSetSpecification-folder]
+  hippostd:gallerytype: ['website:CorporateImageSetSpecification']
+  /lesleytestone:
+    jcr:primaryType: hippogallery:stdImageGallery
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: a6b154e6-c81d-470a-9abe-4de4599be06f
+    hippostd:foldertype: [new-website-CorporateImageSetSpecification-folder]
+    hippostd:gallerytype: ['website:CorporateImageSetSpecification']
+    /lesleytestimageonly.jpg:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 34e12470-dbf8-4e2d-9f4e-0fe13d8cd5f1
+      /lesleytestimageonly.jpg:
+        jcr:primaryType: website:CorporateImageSetSpecification
+        hippo:availability: [live, preview]
+        hippogallery:filename: lesleytestimageonly.jpg
+        /hippogallery:thumbnail:
+          jcr:primaryType: hippogallery:image
+          hippo:filename: lesleytestimageonly.jpg
+          hippogallery:height: 30
+          hippogallery:width: 60
+          jcr:data:
+            type: binary
+            resource: /content/gallery/website/icons/lesleytestone/lesleytestimageonly.jpg/lesleytestimageonly.jpg/thumbnail/thumbnail.jpg
+          jcr:lastModified: 2020-09-10T12:47:47.179Z
+          jcr:mimeType: image/jpeg
+        /hippogallery:original:
+          jcr:primaryType: hippogallery:image
+          hippogallery:height: 148
+          hippogallery:width: 296
+          jcr:data:
+            type: binary
+            resource: /content/gallery/website/icons/lesleytestone/lesleytestimageonly.jpg/lesleytestimageonly.jpg/original/original.jpg
+          jcr:lastModified: 2020-09-10T12:47:47.179Z
+          jcr:mimeType: image/jpeg
+        /website:authorPhotoLarge:
+          jcr:primaryType: hippogallery:image
+          hippogallery:height: 100
+          hippogallery:width: 200
+          jcr:data:
+            type: binary
+            resource: /content/gallery/website/icons/lesleytestone/lesleytestimageonly.jpg/lesleytestimageonly.jpg/authorPhotoLarge/authorPhotoLarge.jpg
+          jcr:lastModified: 2020-09-10T12:47:47.179Z
+          jcr:mimeType: image/jpeg
+        /website:authorPhotoLarger:
+          jcr:primaryType: hippogallery:image
+          hippogallery:height: 148
+          hippogallery:width: 296
+          jcr:data:
+            type: binary
+            resource: /content/gallery/website/icons/lesleytestone/lesleytestimageonly.jpg/lesleytestimageonly.jpg/authorPhotoLarger/authorPhotoLarger.jpg
+          jcr:lastModified: 2020-09-10T12:47:47.179Z
+          jcr:mimeType: image/jpeg
+        /website:authorPhoto:
+          jcr:primaryType: hippogallery:image
+          hippogallery:height: 50
+          hippogallery:width: 100
+          jcr:data:
+            type: binary
+            resource: /content/gallery/website/icons/lesleytestone/lesleytestimageonly.jpg/lesleytestimageonly.jpg/authorPhoto/authorPhoto.jpg
+          jcr:lastModified: 2020-09-10T12:47:47.179Z
+          jcr:mimeType: image/jpeg

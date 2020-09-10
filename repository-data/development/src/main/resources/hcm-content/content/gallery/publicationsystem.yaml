@@ -1,10 +1,494 @@
 ---
 /content/gallery/publicationsystem:
+  /joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg:
+    /joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg:
+      /hippogallery:original:
+        hippogallery:height: 1280
+        hippogallery:width: 1920
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/original/original.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /hippogallery:thumbnail:
+        hippo:filename: joanna-nix-walkup-Ie5VXuT6CeQ-unsplash.jpg
+        hippogallery:height: 40
+        hippogallery:width: 60
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/thumbnail/thumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto:
+        hippogallery:height: 66
+        hippogallery:width: 100
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/authorPhoto/authorPhoto.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:29.869Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto2x:
+        hippogallery:height: 100
+        hippogallery:width: 100
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/authorPhoto2x/authorPhoto2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge:
+        hippogallery:height: 133
+        hippogallery:width: 200
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/authorPhotoLarge/authorPhotoLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:30.826Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge2x:
+        hippogallery:height: 400
+        hippogallery:width: 400
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/authorPhotoLarge2x/authorPhotoLarge2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarger:
+        hippogallery:height: 266
+        hippogallery:width: 400
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/authorPhotoLarger/authorPhotoLarger.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:31.807Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb:
+        hippogallery:height: 240
+        hippogallery:width: 468
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/blogIndexThumb/blogIndexThumb.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb2x:
+        hippogallery:height: 480
+        hippogallery:width: 936
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/blogIndexThumb2x/blogIndexThumb2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb:
+        hippogallery:height: 184
+        hippogallery:width: 468
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/homeBlogThumb/homeBlogThumb.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb2x:
+        hippogallery:height: 368
+        hippogallery:width: 936
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/homeBlogThumb2x/homeBlogThumb2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall:
+        hippogallery:height: 184
+        hippogallery:width: 341
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall2x:
+        hippogallery:height: 368
+        hippogallery:width: 682
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/homeBlogThumbSmall2x/homeBlogThumbSmall2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost:
+        hippogallery:height: 464
+        hippogallery:width: 696
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsFeaturedPost/newsFeaturedPost.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost2x:
+        hippogallery:height: 928
+        hippogallery:width: 1392
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsFeaturedPost2x/newsFeaturedPost2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage:
+        hippogallery:height: 426
+        hippogallery:width: 640
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsPostImage/newsPostImage.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage2x:
+        hippogallery:height: 853
+        hippogallery:width: 1280
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsPostImage2x/newsPostImage2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge:
+        hippogallery:height: 661
+        hippogallery:width: 992
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsPostImageLarge/newsPostImageLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge2x:
+        hippogallery:height: 1280
+        hippogallery:width: 1920
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsPostImageLarge2x/newsPostImageLarge2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail:
+        hippogallery:height: 102
+        hippogallery:width: 154
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsThumbnail/newsThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail2x:
+        hippogallery:height: 205
+        hippogallery:width: 308
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/newsThumbnail2x/newsThumbnail2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail:
+        hippogallery:height: 410
+        hippogallery:width: 616
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/oldArticleThumbnail/oldArticleThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail2x:
+        hippogallery:height: 821
+        hippogallery:width: 1232
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/oldArticleThumbnail2x/oldArticleThumbnail2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule:
+        hippogallery:height: 825
+        hippogallery:width: 1237
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule2x:
+        hippogallery:height: 1280
+        hippogallery:width: 1920
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderHeroModule2x/pageHeaderHeroModule2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall:
+        hippogallery:height: 375
+        hippogallery:width: 375
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall2x:
+        hippogallery:height: 750
+        hippogallery:width: 750
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderHeroModuleSmall2x/pageHeaderHeroModuleSmall2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner:
+        hippogallery:height: 500
+        hippogallery:width: 1270
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner2x:
+        hippogallery:height: 1000
+        hippogallery:width: 2540
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBanner2x/pageHeaderSlimBanner2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall:
+        hippogallery:height: 250
+        hippogallery:width: 375
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall2x:
+        hippogallery:height: 500
+        hippogallery:width: 750
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/pageHeaderSlimBannerSmall2x/pageHeaderSlimBannerSmall2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:postImageSmall:
+        hippogallery:height: 228
+        hippogallery:width: 343
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/postImageSmall/postImageSmall.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:postImageSmall2x:
+        hippogallery:height: 457
+        hippogallery:width: 686
+        jcr:data:
+          resource: /content/gallery/publicationsystem/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/joanna-nix-walkup-ie5vxut6ceq-unsplash.jpg/postImageSmall2x/postImageSmall2x.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:38:36.775Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      hippo:availability:
+      - live
+      - preview
+      hippogallery:filename: joanna-nix-walkup-Ie5VXuT6CeQ-unsplash.jpg
+      jcr:primaryType: website:CorporateImageSetSpecification
+    hippo:name: joanna-nix-walkup-Ie5VXuT6CeQ-unsplash.jpg
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /kumpan-electric-nqxy29lknsu-unsplash.jpg:
+    /kumpan-electric-nqxy29lknsu-unsplash.jpg:
+      /hippogallery:original:
+        hippogallery:height: 1280
+        hippogallery:width: 1920
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/original/original.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:31:04.373Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /hippogallery:thumbnail:
+        hippo:filename: kumpan-electric-NqxY29lkNSU-unsplash.jpg
+        hippogallery:height: 40
+        hippogallery:width: 60
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/thumbnail/thumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:31:04.373Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto:
+        hippogallery:height: 66
+        hippogallery:width: 100
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/authorPhoto/authorPhoto.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:21.258Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge:
+        hippogallery:height: 133
+        hippogallery:width: 200
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/authorPhotoLarge/authorPhotoLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:22.773Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarger:
+        hippogallery:height: 266
+        hippogallery:width: 400
+        jcr:data:
+          resource: /content/gallery/publicationsystem/kumpan-electric-nqxy29lknsu-unsplash.jpg/kumpan-electric-nqxy29lknsu-unsplash.jpg/authorPhotoLarger/authorPhotoLarger.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:23.685Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      hippo:availability:
+      - live
+      - preview
+      hippogallery:filename: kumpan-electric-NqxY29lkNSU-unsplash.jpg
+      jcr:primaryType: website:CorporateImageSetSpecification
+    hippo:name: kumpan-electric-NqxY29lkNSU-unsplash.jpg
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /luisa-brimble-fdprfktdyb0-unsplash.jpg:
+    /luisa-brimble-fdprfktdyb0-unsplash.jpg:
+      /hippogallery:original:
+        hippogallery:height: 1280
+        hippogallery:width: 1920
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/original/original.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:31:05.748Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /hippogallery:thumbnail:
+        hippo:filename: luisa-brimble-FDPRFKTdyb0-unsplash.jpg
+        hippogallery:height: 40
+        hippogallery:width: 60
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/thumbnail/thumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:31:05.748Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto:
+        hippogallery:height: 66
+        hippogallery:width: 100
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/authorPhoto/authorPhoto.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:24.546Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge:
+        hippogallery:height: 133
+        hippogallery:width: 200
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/authorPhotoLarge/authorPhotoLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:25.456Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarger:
+        hippogallery:height: 266
+        hippogallery:width: 400
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-fdprfktdyb0-unsplash.jpg/luisa-brimble-fdprfktdyb0-unsplash.jpg/authorPhotoLarger/authorPhotoLarger.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:26.379Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      hippo:availability:
+      - live
+      - preview
+      hippogallery:filename: luisa-brimble-FDPRFKTdyb0-unsplash.jpg
+      jcr:primaryType: website:CorporateImageSetSpecification
+    hippo:name: luisa-brimble-FDPRFKTdyb0-unsplash.jpg
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /luisa-brimble-zrktbecxpfa-unsplash.jpg:
+    /luisa-brimble-zrktbecxpfa-unsplash.jpg:
+      /hippogallery:original:
+        hippogallery:height: 1280
+        hippogallery:width: 1920
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/original/original.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:31:07.191Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /hippogallery:thumbnail:
+        hippo:filename: luisa-brimble-ZRktbECxPFA-unsplash.jpg
+        hippogallery:height: 40
+        hippogallery:width: 60
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/thumbnail/thumbnail.jpg
+          type: binary
+        jcr:lastModified: 2020-06-17T09:31:07.191Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto:
+        hippogallery:height: 66
+        hippogallery:width: 100
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/authorPhoto/authorPhoto.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:27.309Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge:
+        hippogallery:height: 133
+        hippogallery:width: 200
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/authorPhotoLarge/authorPhotoLarge.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:28.149Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarger:
+        hippogallery:height: 266
+        hippogallery:width: 400
+        jcr:data:
+          resource: /content/gallery/publicationsystem/luisa-brimble-zrktbecxpfa-unsplash.jpg/luisa-brimble-zrktbecxpfa-unsplash.jpg/authorPhotoLarger/authorPhotoLarger.jpg
+          type: binary
+        jcr:lastModified: 2020-09-10T12:28:29.026Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      hippo:availability:
+      - live
+      - preview
+      hippogallery:filename: luisa-brimble-ZRktbECxPFA-unsplash.jpg
+      jcr:primaryType: website:CorporateImageSetSpecification
+    hippo:name: luisa-brimble-ZRktbECxPFA-unsplash.jpg
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: NHS Digital Publication System
   hippostd:foldertype:
-  - new-image-folder
+  - new-website-CorporateImageSetSpecification-folder
   hippostd:gallerytype:
-  - hippogallery:imageset
+  - website:CorporateImageSetSpecification
   jcr:mixinTypes:
   - hippo:named
   - mix:referenceable
