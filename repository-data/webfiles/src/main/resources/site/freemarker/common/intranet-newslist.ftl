@@ -28,7 +28,7 @@
                     </h3>
 
                     <#if item.publicationDate??>
-                        <p class="cta__meta"><span class="strong"><@fmt.message key="about-us.newsDateLabel"/>: </span>
+                        <p class="cta__meta">
                             <@fmt.formatDate value=item.publicationDate.time type="Date" pattern="d MMMM yyyy" var="publicationDate" timeZone="${getTimeZone()}"/>
                             <time datetime="${publicationDate}">${publicationDate}</time>
                         </p>

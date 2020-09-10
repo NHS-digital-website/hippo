@@ -45,11 +45,11 @@
   - intranet:publicationdate
   - ''
   - ''
-  - news/news1
+  - news/sample-news
   - /content/documents/intranet/news/news1
   - ''
-  - tasks/testtask
-  - tasks/testtask-copy
+  - tasks/sample-task
+  - tasks/sample-task-2
   - ''
   hst:template: intranet-newslist
   hst:xtype: hst.item

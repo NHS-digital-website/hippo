@@ -1,5 +1,362 @@
 ---
 /content/documents/intranet/announcements:
+  /announcement:
+    /announcement[1]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ba55c411-1aa5-481f-979f-db1d87d99fb3
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: intranet:announcement
+    /announcement[2]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:52:36.139Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ba55c411-1aa5-481f-979f-db1d87d99fb3
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: intranet:announcement
+    /announcement[3]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:52:36.139Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:52:37.972Z
+      hippotranslation:id: ba55c411-1aa5-481f-979f-db1d87d99fb3
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: intranet:announcement
+    hippo:name: Announcement
+    hippo:versionHistory: ab718252-d955-410e-a88b-d6555eaf5d41
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /announcement-2:
+    /announcement-2[1]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:43.050Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: cca28a7b-9c16-42a9-9239-6e5989000f7f
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 2
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: intranet:announcement
+    /announcement-2[2]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:38.760Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: cca28a7b-9c16-42a9-9239-6e5989000f7f
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 2
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: intranet:announcement
+    /announcement-2[3]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:43.050Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:54:44.487Z
+      hippotranslation:id: cca28a7b-9c16-42a9-9239-6e5989000f7f
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 2
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: intranet:announcement
+    hippo:name: Announcement 2
+    hippo:versionHistory: 25e364c8-c808-4c6e-8e94-35f540914dbc
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /announcement-3:
+    /announcement-3[1]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:36.258Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fff20238-ab86-4ec0-b79e-bedb2a335a29
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 3
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: intranet:announcement
+    /announcement-3[2]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:34.733Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fff20238-ab86-4ec0-b79e-bedb2a335a29
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 3
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: intranet:announcement
+    /announcement-3[3]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:36.258Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:54:37.530Z
+      hippotranslation:id: fff20238-ab86-4ec0-b79e-bedb2a335a29
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 3
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: intranet:announcement
+    hippo:name: Announcement 3
+    hippo:versionHistory: 98d77830-71bf-4054-ab8f-0d26d5558781
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /announcement-4:
+    /announcement-4[1]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:31.042Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 24371067-aa12-4106-a936-22dafb77394f
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 4
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: intranet:announcement
+    /announcement-4[2]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:28.636Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 24371067-aa12-4106-a936-22dafb77394f
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 4
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: intranet:announcement
+    /announcement-4[3]:
+      /intranet:details:
+        hippostd:content: <p>Announcement details</p>
+        jcr:primaryType: hippostd:html
+      /intranet:itemlink:
+        /website:link:
+          hippo:docbase: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:internallink
+      /intranet:relateddocument:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:52:07.699Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:54:31.042Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:54:33.103Z
+      hippotranslation:id: 24371067-aa12-4106-a936-22dafb77394f
+      hippotranslation:locale: en
+      intranet:expirydate: 2020-09-17T08:52:00Z
+      intranet:priority: important
+      intranet:title: Sample Announcement 4
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: intranet:announcement
+    hippo:name: Announcement 4
+    hippo:versionHistory: 14842d8b-dba4-460e-bc80-5aadf6a483d0
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Announcements
   hippostd:foldertype:
   - new-announcement-document

@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
-<@hst.setBundle basename="homepage.website.labels"/>
+<@hst.setBundle basename="homepage.intranet.labels"/>
 
 <#if pageable?? && pageable.items?has_content>
     <div class="homeland-blog">

@@ -1,0 +1,103 @@
+---
+/content/documents/intranet/call-to-action:
+  /call-to-action:
+    /call-to-action[1]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: aa1a181a-38b3-4173-80ee-e1773c716eb3
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:53:10.262Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:53:10.262Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 845e01b4-5e5d-4221-8292-8eeba34e432a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: Lorem ipsum
+      website:external: ''
+      website:title: Sample Call to Action
+    /call-to-action[2]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: aa1a181a-38b3-4173-80ee-e1773c716eb3
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:53:10.262Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:53:29.312Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 845e01b4-5e5d-4221-8292-8eeba34e432a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: Lorem ipsum
+      website:external: ''
+      website:title: Sample Call to Action
+    /call-to-action[3]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: aa1a181a-38b3-4173-80ee-e1773c716eb3
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:53:10.262Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:53:29.312Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:53:31.139Z
+      hippotranslation:id: 845e01b4-5e5d-4221-8292-8eeba34e432a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: Lorem ipsum
+      website:external: ''
+      website:title: Sample Call to Action
+    hippo:name: Call to Action
+    hippo:versionHistory: be535bf6-c170-4e0c-8021-89aa0b75443b
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Call to Action
+  hippostd:foldertype:
+  - new-intranet-folder
+  - new-intranet-document
+  hippotranslation:id: 3c5be234-c8ac-43fc-8603-64be3c97a76c
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:referenceable
+  jcr:primaryType: hippostd:folder

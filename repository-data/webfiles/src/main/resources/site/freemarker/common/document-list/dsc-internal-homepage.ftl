@@ -3,7 +3,6 @@
 <#include "../macro/cyberAlertBox.ftl">
 
 <#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
-hello
 <div class="grid-row cyber-grid-row">
     <div class="column column--reset" id="${slugify(wrappingDocument.getTitle())}">
         <#if wrappingDocument??>

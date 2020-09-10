@@ -1,5 +1,161 @@
 ---
 /content/documents/intranet/tasks:
+  .meta:order-before: blog
+  /sample-task:
+    /sample-task[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:49:11.573Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b10a3c7d-6e14-4c0e-8bc5-7eb510adcf1d
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:prioritytask: false
+      intranet:reviewdate: 2020-09-09T23:00:00Z
+      intranet:shortsummary: Lorem ipsum...
+      intranet:title: Sample Task
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    /sample-task[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:49:32.494Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b10a3c7d-6e14-4c0e-8bc5-7eb510adcf1d
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:prioritytask: false
+      intranet:reviewdate: 2020-09-09T23:00:00Z
+      intranet:shortsummary: Lorem ipsum...
+      intranet:title: Sample Task
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: intranet:task
+    /sample-task[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:49:32.494Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:49:47.200Z
+      hippotranslation:id: b10a3c7d-6e14-4c0e-8bc5-7eb510adcf1d
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:prioritytask: false
+      intranet:reviewdate: 2020-09-09T23:00:00Z
+      intranet:shortsummary: Lorem ipsum...
+      intranet:title: Sample Task
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    hippo:name: Sample Task
+    hippo:versionHistory: b2167ea9-f9b5-4503-a9b6-9e5997aaeb14
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-task-2:
+    /sample-task-2[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:49:43.585Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0e1a2147-453f-4e08-a80c-6208738b9914
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:prioritytask: false
+      intranet:reviewdate: 2020-09-09T23:00:00Z
+      intranet:shortsummary: Lorem ipsum...
+      intranet:title: Sample Task 2
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: intranet:task
+    /sample-task-2[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:49:39.921Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0e1a2147-453f-4e08-a80c-6208738b9914
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:prioritytask: false
+      intranet:reviewdate: 2020-09-09T23:00:00Z
+      intranet:shortsummary: Lorem ipsum...
+      intranet:title: Sample Task 2
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    /sample-task-2[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:49:43.585Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:49:45.045Z
+      hippotranslation:id: 0e1a2147-453f-4e08-a80c-6208738b9914
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:prioritytask: false
+      intranet:reviewdate: 2020-09-09T23:00:00Z
+      intranet:shortsummary: Lorem ipsum...
+      intranet:title: Sample Task 2
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    hippo:name: Sample Task 2
+    hippo:versionHistory: 44ec3e1a-64b8-4210-b088-9a34084784f4
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   /task-hub:
     /task-hub[1]:
       /website:body:

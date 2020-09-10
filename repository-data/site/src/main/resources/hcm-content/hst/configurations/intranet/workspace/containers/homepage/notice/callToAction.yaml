@@ -1,0 +1,13 @@
+---
+/hst:hst/hst:configurations/intranet/hst:workspace/hst:containers/homepage/notice/callToAction:
+  hst:componentclassname: uk.nhs.digital.common.components.CallToActionComponent
+  hst:label: Call To Action
+  hst:parameternames:
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - document
+  hst:parametervalues:
+  - 'off'
+  - call-to-action/call-to-action
+  hst:template: callToAction
+  hst:xtype: HST.Item
+  jcr:primaryType: hst:containeritemcomponent

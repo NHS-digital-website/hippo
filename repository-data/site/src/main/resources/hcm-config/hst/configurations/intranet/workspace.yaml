@@ -9,18 +9,18 @@ definitions:
           /body:
             .meta:residual-child-node-category: content
             hst:label: Main body container
-            hst:lastmodified: 2020-09-10T08:12:30.558Z
+            hst:lastmodified: 2020-09-10T09:10:52.616Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /news:
             .meta:residual-child-node-category: content
             hst:label: News container
-            hst:lastmodified: 2020-09-09T12:03:38.662Z
+            hst:lastmodified: 2020-09-10T08:51:28.018Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /notice:
             .meta:residual-child-node-category: content
             hst:label: Notice bar container
-            hst:lastmodified: 2020-09-04T10:33:09.261Z
+            hst:lastmodified: 2020-09-10T08:55:26.819Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent

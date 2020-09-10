@@ -1,0 +1,497 @@
+---
+/content/documents/intranet/blog:
+  /sample-blog-post:
+    /sample-blog-post[1]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 43374d2c-58a0-4336-94a2-8eaddcc4137d
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 1
+    /sample-blog-post[2]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:47:43.127Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 43374d2c-58a0-4336-94a2-8eaddcc4137d
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 1
+    /sample-blog-post[3]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:47:43.127Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:47:45.103Z
+      hippotranslation:id: 43374d2c-58a0-4336-94a2-8eaddcc4137d
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 1
+    hippo:name: Sample Blog Post
+    hippo:versionHistory: e51ddf40-6e2b-4808-bae4-80994a95d3ec
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-blog-post-2:
+    /sample-blog-post-2[1]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:07.033Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b22a3f15-0fbe-4f08-8d4d-0c4d7e367eb1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 2
+    /sample-blog-post-2[2]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:03.637Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b22a3f15-0fbe-4f08-8d4d-0c4d7e367eb1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 2
+    /sample-blog-post-2[3]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:07.033Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:48:08.379Z
+      hippotranslation:id: b22a3f15-0fbe-4f08-8d4d-0c4d7e367eb1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 2
+    hippo:name: Sample Blog Post 2
+    hippo:versionHistory: fbcb5dc0-f5ee-4c13-af38-df0fae810ed2
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-blog-post-3:
+    /sample-blog-post-3[1]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:12.451Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0b83f982-3f23-4471-bdf5-653b03bec364
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 3
+    /sample-blog-post-3[2]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:10.300Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0b83f982-3f23-4471-bdf5-653b03bec364
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 3
+    /sample-blog-post-3[3]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:47:28.766Z
+      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:12.451Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T08:48:14.074Z
+      hippotranslation:id: 0b83f982-3f23-4471-bdf5-653b03bec364
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2020-09-09T23:00:00Z
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum.
+      website:title: Sample Blog 3
+    hippo:name: Sample Blog Post 3
+    hippo:versionHistory: 41d03a87-7153-4f13-af27-64fe0d27d9e8
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Blog
+  hippostd:foldertype:
+  - new-intranet-folder
+  - new-intranet-document
+  hippotranslation:id: d1e345e2-6c9f-433a-bdf8-c885ce6e7465
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:referenceable
+  jcr:primaryType: hippostd:folder
