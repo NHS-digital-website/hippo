@@ -10,7 +10,7 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<div class="intra-home-header"></div>
+<div style="height: 50px; position: relative"></div>
 <div class="intra-home-grid">
     <div>
     <@hst.include ref ="notice"/>

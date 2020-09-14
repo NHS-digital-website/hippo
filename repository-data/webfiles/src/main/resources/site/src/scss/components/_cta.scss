@@ -217,6 +217,25 @@
     margin-bottom: 0;
 }
 
+.cta--intra {
+    .cta-body {
+        height: 60px;
+        width: 100%;
+        background-color: #FFF2CC;
+    }
+    .cta-text {
+        height: 30px;
+        width: 398px;
+        padding-top: 15px;
+        text-align: center;
+        color: #212B32;
+        font-family: "Frutiger LT Std";
+        font-size: 18px;
+        letter-spacing: -0.12px;
+        line-height: 30px;
+    }
+}
+
 .debug {
     .cta {
         background: rgba(255, 255, 0, 0.2);

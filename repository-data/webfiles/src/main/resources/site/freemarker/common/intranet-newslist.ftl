@@ -38,7 +38,7 @@
         </#if>
     </#list>
     </ol>
-    <a href="/news-and-events/news" class="button"><@fmt.message key="about-us.latestNewsButtonLabel"/></a>
+    <a href="/news" class="button"><@fmt.message key="about-us.latestNewsButtonLabel"/></a>
 
 
     <#--TODO: ADD CSS AND DEFAULT TASK ICON-->
