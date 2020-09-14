@@ -1,7 +1,11 @@
+---
 /content/gallery/website:
-  jcr:primaryType: hippogallery:stdImageGallery
-  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  jcr:uuid: 64636d53-8a54-4ef6-a158-35b93a14d358
   hippo:name: Website
-  hippostd:foldertype: [new-website-CorporateImageSetSpecification-folder]
-  hippostd:gallerytype: ['website:CorporateImageSetSpecification']
+  hippostd:foldertype:
+  - new-website-CorporateImageSetSpecification-folder
+  hippostd:gallerytype:
+  - website:CorporateImageSetSpecification
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippogallery:stdImageGallery
