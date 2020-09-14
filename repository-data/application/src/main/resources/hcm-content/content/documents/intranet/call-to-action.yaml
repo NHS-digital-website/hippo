@@ -16,7 +16,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:53:10.262Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:53:10.262Z
+      hippostdpubwf:lastModificationDate: 2020-09-14T11:33:36.113Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 845e01b4-5e5d-4221-8292-8eeba34e432a
       hippotranslation:locale: en
@@ -24,7 +24,7 @@
       - mix:referenceable
       jcr:primaryType: website:calltoaction
       website:Label: ''
-      website:content: Lorem ipsum
+      website:content: This is an important box, a lower impact option.
       website:external: ''
       website:title: Sample Call to Action
     /call-to-action[2]:
@@ -43,7 +43,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:53:10.262Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:53:29.312Z
+      hippostdpubwf:lastModificationDate: 2020-09-14T11:33:51.412Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 845e01b4-5e5d-4221-8292-8eeba34e432a
       hippotranslation:locale: en
@@ -52,7 +52,7 @@
       - mix:versionable
       jcr:primaryType: website:calltoaction
       website:Label: ''
-      website:content: Lorem ipsum
+      website:content: This is an important box, a lower impact option.
       website:external: ''
       website:title: Sample Call to Action
     /call-to-action[3]:
@@ -71,20 +71,20 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:53:10.262Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:53:29.312Z
+      hippostdpubwf:lastModificationDate: 2020-09-14T11:33:51.412Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-09-10T08:53:31.139Z
+      hippostdpubwf:publicationDate: 2020-09-14T11:33:53.183Z
       hippotranslation:id: 845e01b4-5e5d-4221-8292-8eeba34e432a
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:calltoaction
       website:Label: ''
-      website:content: Lorem ipsum
+      website:content: This is an important box, a lower impact option.
       website:external: ''
       website:title: Sample Call to Action
     hippo:name: Call to Action
-    hippo:versionHistory: be535bf6-c170-4e0c-8021-89aa0b75443b
+    hippo:versionHistory: 9476ec27-cd5b-4476-bb9d-36a0f3fb8df2
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo

@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#include "../include/imports.ftl">
+<#include "../../include/imports.ftl">
 
 <@hst.setBundle basename="homepage.website.labels"/>
 

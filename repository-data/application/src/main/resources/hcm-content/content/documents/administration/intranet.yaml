@@ -6,7 +6,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:55:55.859Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:57:52.948Z
+      hippostdpubwf:lastModificationDate: 2020-09-14T12:23:50.156Z
       hippostdpubwf:lastModifiedBy: admin
       jcr:mixinTypes:
       - mix:referenceable
@@ -15,22 +15,25 @@
       - ''
       - ''
       - ''
+      - ''
       resourcebundle:id: homepage.intranet.labels
       resourcebundle:keys:
       - about-us.newsDateLabel
       - about-us.latestNewsButtonLabel
       - about-us.viewAllTasksButtonLabel
+      - about-us.latestSocialPostsLabel
       resourcebundle:messages:
       - Publication Date
       - View all the latest News
       - View all Tasks
+      - Latest Social Posts
     /intranet-homepage[2]:
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:55:55.859Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:58:33.116Z
+      hippostdpubwf:lastModificationDate: 2020-09-14T12:23:31.340Z
       hippostdpubwf:lastModifiedBy: admin
       jcr:mixinTypes:
       - mix:referenceable
@@ -40,24 +43,27 @@
       - ''
       - ''
       - ''
+      - ''
       resourcebundle:id: homepage.intranet.labels
       resourcebundle:keys:
       - about-us.newsDateLabel
       - about-us.latestNewsButtonLabel
       - about-us.viewAllTasksButtonLabel
+      - about-us.latestSocialPostsLabel
       resourcebundle:messages:
       - Publication Date
       - View all the latest News
       - View all Tasks
+      - Latest Social Posts
     /intranet-homepage[3]:
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:55:55.859Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:58:33.116Z
+      hippostdpubwf:lastModificationDate: 2020-09-14T12:23:31.340Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-09-10T08:58:34.455Z
+      hippostdpubwf:publicationDate: 2020-09-14T12:23:32.943Z
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: resourcebundle:resourcebundle
@@ -65,17 +71,20 @@
       - ''
       - ''
       - ''
+      - ''
       resourcebundle:id: homepage.intranet.labels
       resourcebundle:keys:
       - about-us.newsDateLabel
       - about-us.latestNewsButtonLabel
       - about-us.viewAllTasksButtonLabel
+      - about-us.latestSocialPostsLabel
       resourcebundle:messages:
       - Publication Date
       - View all the latest News
       - View all Tasks
+      - Latest Social Posts
     hippo:name: Intranet Homepage
-    hippo:versionHistory: 41cfd23d-87fa-4fdd-9407-e55b3279371f
+    hippo:versionHistory: 14c7f011-5967-4f2c-bf04-b433e14f975e
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo

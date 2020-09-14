@@ -4,7 +4,7 @@
 
 <#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <div class="grid-row cyber-grid-row">
-    <div class="column column--reset" id="${slugify(wrappingDocument.getTitle())}">
+    <div class="column column--reset" <#if wrappingDocument??>id="${slugify(wrappingDocument.getTitle())}"</#if>>
         <#if wrappingDocument??>
             <div class="cyber-header">
                 <div class="cyber-header__group">
@@ -40,9 +40,12 @@
                             <#assign item += {"grid": true} />
                             <#assign item += {"newStyle": true} />
                             <#assign item += {"colSize": row?size} />
-
-                            <#assign key = slugify(wrappingDocument.getTitle()) + "-" + index + "-" + itemData?index />
-                            <#assign item += {"key":  key}/>
+                            <#if wrappingDocument??>
+                                <#assign key = slugify(wrappingDocument.getTitle()) + "-" + index + "-" + itemData?index />
+                            </#if>
+                            <#if key??>
+                                <#assign item += {"key":  key}/>
+                            </#if>
 
                             <@cyberAlertBox item></@cyberAlertBox>
                         </#list>

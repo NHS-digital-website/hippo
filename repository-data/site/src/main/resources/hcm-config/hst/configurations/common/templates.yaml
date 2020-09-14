@@ -1,7 +1,7 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
+      jcr:primaryType: hst:templates
       /404:
         hst:renderpath: webfile:/freemarker/common/404.ftl
         jcr:primaryType: hst:template
@@ -251,6 +251,9 @@ definitions:
       /services-and-resources-home:
         hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
         jcr:primaryType: hst:template
+      /social-feed:
+        hst:renderpath: webfile:/freemarker/intranet/social-feed.ftl
+        jcr:primaryType: hst:template
       /static-ui-component:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/index.ftl
         jcr:primaryType: hst:template
@@ -299,4 +302,3 @@ definitions:
       /visual-hub:
         hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
         jcr:primaryType: hst:template
-      jcr:primaryType: hst:templates
