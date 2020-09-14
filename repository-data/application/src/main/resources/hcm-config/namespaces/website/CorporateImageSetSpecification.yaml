@@ -351,11 +351,254 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /hippogallery:authorPhoto:
+            hippogallery:height: 100
+            hippogallery:width: 100
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/authorPhoto/authorPhoto.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:authorPhotoLarge:
+            hippogallery:height: 200
+            hippogallery:width: 200
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/authorPhotoLarge/authorPhotoLarge.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:authorPhotoLarger:
+            hippogallery:height: 400
+            hippogallery:width: 400
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/authorPhotoLarger/authorPhotoLarger.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:blogIndexThumb:
+            hippogallery:height: 184
+            hippogallery:width: 468
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/blogIndexThumb/blogIndexThumb.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:homeBlogThumb:
+            hippogallery:height: 368
+            hippogallery:width: 936
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/homeBlogThumb/homeBlogThumb.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:homeBlogThumbSmall:
+            hippogallery:height: 368
+            hippogallery:width: 682
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/homeBlogThumbSmall/homeBlogThumbSmall.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:homeBlogThumbSmaller:
+            hippogallery:height: 184
+            hippogallery:width: 341
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/homeBlogThumbSmaller/homeBlogThumbSmaller.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:newsFeaturedPost:
+            hippogallery:height: 148
+            hippogallery:width: 296
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/newsFeaturedPost/newsFeaturedPost.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:newsFeaturedPostLarge:
+            hippogallery:height: 296
+            hippogallery:width: 592
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/newsFeaturedPostLarge/newsFeaturedPostLarge.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:newsPostImage:
+            hippogallery:height: 77
+            hippogallery:width: 154
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/newsPostImage/newsPostImage.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:newsPostImageLarge:
+            hippogallery:height: 148
+            hippogallery:width: 296
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/newsPostImageLarge/newsPostImageLarge.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:newsPostImageLarger:
+            hippogallery:height: 296
+            hippogallery:width: 592
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/newsPostImageLarger/newsPostImageLarger.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:newsPostImageLargest:
+            hippogallery:height: 592
+            hippogallery:width: 1184
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/newsPostImageLargest/newsPostImageLargest.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:newsThumbnail:
+            hippogallery:height: 148
+            hippogallery:width: 296
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/newsThumbnail/newsThumbnail.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:newsThumbnailLarge:
+            hippogallery:height: 296
+            hippogallery:width: 592
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/newsThumbnailLarge/newsThumbnailLarge.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:oldArticleThumbnail:
+            hippogallery:height: 148
+            hippogallery:width: 296
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/oldArticleThumbnail/oldArticleThumbnail.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:oldArticleThumbnailLarge:
+            hippogallery:height: 296
+            hippogallery:width: 592
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/oldArticleThumbnailLarge/oldArticleThumbnailLarge.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
           /hippogallery:original:
             hippogallery:height: 0
             hippogallery:width: 0
             jcr:data:
               resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/original/original.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:pageHeaderHeroModule:
+            hippogallery:height: 148
+            hippogallery:width: 296
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/pageHeaderHeroModule/pageHeaderHeroModule.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:pageHeaderHeroModuleLarge:
+            hippogallery:height: 296
+            hippogallery:width: 592
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/pageHeaderHeroModuleLarge/pageHeaderHeroModuleLarge.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:pageHeaderHeroModuleSmall:
+            hippogallery:height: 74
+            hippogallery:width: 148
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:pageHeaderHeroModuleSmaller:
+            hippogallery:height: 37
+            hippogallery:width: 74
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/pageHeaderHeroModuleSmaller/pageHeaderHeroModuleSmaller.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:pageHeaderSlimBanner:
+            hippogallery:height: 500
+            hippogallery:width: 1270
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/pageHeaderSlimBanner/pageHeaderSlimBanner.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:pageHeaderSlimBannerLarge:
+            hippogallery:height: 1000
+            hippogallery:width: 2540
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/pageHeaderSlimBannerLarge/pageHeaderSlimBannerLarge.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:pageHeaderSlimBannerSmall:
+            hippogallery:height: 250
+            hippogallery:width: 635
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:pageHeaderSlimBannerSmaller:
+            hippogallery:height: 125
+            hippogallery:width: 318
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/pageHeaderSlimBannerSmaller/pageHeaderSlimBannerSmaller.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:postImageSmall:
+            hippogallery:height: 148
+            hippogallery:width: 296
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/postImageSmall/postImageSmall.gif
+              type: binary
+            jcr:lastModified: 1970-01-01T00:00:00Z
+            jcr:mimeType: image/gif
+            jcr:primaryType: hippogallery:image
+          /hippogallery:postImageSmallSmaller:
+            hippogallery:height: 74
+            hippogallery:width: 148
+            jcr:data:
+              resource: /namespaces/website/CorporateImageSetSpecification/prototypes/prototype/postImageSmallSmaller/postImageSmallSmaller.gif
               type: binary
             jcr:lastModified: 1970-01-01T00:00:00Z
             jcr:mimeType: image/gif

@@ -146,6 +146,9 @@ definitions:
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:CorporateImageSetSpecification:
+        /en:
+          jcr:name: Corporate Image Set Specification
+          jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:about:
         /en:

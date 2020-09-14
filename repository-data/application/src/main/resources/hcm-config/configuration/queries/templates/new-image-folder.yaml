@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-image-folder/hippostd:templates/image gallery:
+      hippostd:gallerytype:
+      - website:CorporateImageSetSpecification
