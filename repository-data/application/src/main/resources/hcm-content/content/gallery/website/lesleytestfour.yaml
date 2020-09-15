@@ -1,281 +1,277 @@
----
 /content/gallery/website/lesleytestfour:
+  .meta:order-before: lesleytestfive
+  jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: 76a37517-863b-43df-8099-1a4736211a17
+  hippostd:foldertype: [new-website-CorporateImageSetSpecification-folder]
+  hippostd:gallerytype: ['website:CorporateImageSetSpecification']
   /lesleytestimageonly.jpg:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 983bb449-5d10-4145-a74e-15581eaef6bb
     /lesleytestimageonly.jpg:
+      jcr:primaryType: website:CorporateImageSetSpecification
+      hippo:availability: [live, preview]
+      hippogallery:filename: lesleytestimageonly.jpg
       /hippogallery:original:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/original/original.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/original/original.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
         hippo:filename: lesleytestimageonly.jpg
         hippogallery:height: 30
         hippogallery:width: 60
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/thumbnail/thumbnail.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/thumbnail/thumbnail.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:authorPhoto:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 50
         hippogallery:width: 100
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/authorPhoto/authorPhoto.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/authorPhoto/authorPhoto.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:authorPhotoLarge:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 100
         hippogallery:width: 200
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/authorPhotoLarge/authorPhotoLarge.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:authorPhotoLarger:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/authorPhotoLarger/authorPhotoLarger.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:blogIndexThumb:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/blogIndexThumb/blogIndexThumb.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:homeBlogThumb:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/homeBlogThumb/homeBlogThumb.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:homeBlogThumbSmall:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:homeBlogThumbSmaller:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/homeBlogThumbSmaller/homeBlogThumbSmaller.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:newsFeaturedPost:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsFeaturedPost/newsFeaturedPost.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:newsFeaturedPostLarge:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsFeaturedPostLarge/newsFeaturedPostLarge.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsFeaturedPostLarge/newsFeaturedPostLarge.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:newsPostImage:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 77
         hippogallery:width: 154
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsPostImage/newsPostImage.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:newsPostImageLarge:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsPostImageLarge/newsPostImageLarge.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:newsPostImageLarger:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsPostImageLarger/newsPostImageLarger.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:newsPostImageLargest:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsPostImageLargest/newsPostImageLargest.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:newsThumbnail:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsThumbnail/newsThumbnail.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:newsThumbnailLarge:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/newsThumbnailLarge/newsThumbnailLarge.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:oldArticleThumbnail:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/oldArticleThumbnail/oldArticleThumbnail.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:oldArticleThumbnailLarge:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/oldArticleThumbnailLarge/oldArticleThumbnailLarge.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:pageHeaderHeroModule:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:pageHeaderHeroModuleLarge:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderHeroModuleLarge/pageHeaderHeroModuleLarge.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderHeroModuleLarge/pageHeaderHeroModuleLarge.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:pageHeaderHeroModuleSmall:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 74
         hippogallery:width: 148
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:pageHeaderHeroModuleSmaller:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 37
         hippogallery:width: 74
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderHeroModuleSmaller/pageHeaderHeroModuleSmaller.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:pageHeaderSlimBanner:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:pageHeaderSlimBannerLarge:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
+          type: binary
           resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderSlimBannerLarge/pageHeaderSlimBannerLarge.jpg
-          type: binary
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:pageHeaderSlimBannerSmall:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:pageHeaderSlimBannerSmaller:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 125
         hippogallery:width: 250
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderSlimBannerSmaller/pageHeaderSlimBannerSmaller.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/pageHeaderSlimBannerSmaller/pageHeaderSlimBannerSmaller.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:postImageSmall:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 148
         hippogallery:width: 296
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/postImageSmall/postImageSmall.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/postImageSmall/postImageSmall.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
       /website:postImageSmallSmaller:
+        jcr:primaryType: hippogallery:image
         hippogallery:height: 74
         hippogallery:width: 148
         jcr:data:
-          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/postImageSmallSmaller/postImageSmallSmaller.jpg
           type: binary
+          resource: /content/gallery/website/lesleytestfour/lesleytestimageonly.jpg/lesleytestimageonly.jpg/postImageSmallSmaller/postImageSmallSmaller.jpg
         jcr:lastModified: 2020-09-14T11:11:43.244Z
         jcr:mimeType: image/jpeg
-        jcr:primaryType: hippogallery:image
-      hippo:availability:
-      - live
-      - preview
-      hippogallery:filename: lesleytestimageonly.jpg
-      jcr:primaryType: website:CorporateImageSetSpecification
-    jcr:mixinTypes:
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  hippostd:foldertype:
-  - new-website-CorporateImageSetSpecification-folder
-  hippostd:gallerytype:
-  - website:CorporateImageSetSpecification
-  jcr:mixinTypes:
-  - mix:versionable
-  jcr:primaryType: hippogallery:stdImageGallery
