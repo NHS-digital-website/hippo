@@ -3,11 +3,11 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 
-<div class="grid-row cyber-grid-row">
+<div class="grid-row">
     <div class="column column--reset" id="${slugify(document.getTitle())}">
-        <div class="cta--intra">
-            <article class="cta-body">
-                <p class="cta-text">${document.getContent()}</p>
+        <div class="emphasis-box emphasis-box-important">
+            <article class="emphasis-box__content">
+                <p>${document.getContent()}</p>
             </article>
             <@hst.manageContent hippobean=document />
             <#if document.internal?has_content>
@@ -15,6 +15,8 @@
             <#else>
                 <#assign link=document.external/>
             </#if>
+
+            <#-- note what does this bit do -->
             <article class="cta--intra">
                 <#if document.getLabel()?? && document.getLabel()?has_content && link?? && link?has_content>
                     <div class="cyber-header__cta ctabtn-right"

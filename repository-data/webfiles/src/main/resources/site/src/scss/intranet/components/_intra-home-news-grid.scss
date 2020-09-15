@@ -1,0 +1,96 @@
+.intranet {
+    #home-main-hero-banner {
+        background-color: #005EB8;
+        color: #fff;
+        padding: 3.5em 0 3.8em;
+
+        a {
+            color: #fff;
+        }
+    }
+
+    .home-tasks {
+        width: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        background-color: #fff;
+        color: #212B32;
+
+        &-margin {
+            background-color: #F2F6F6;
+            padding: 20px;
+        }
+
+        &-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+
+            &-item {
+                text-align: center;
+
+                img {
+                    width: 100px;
+                    margin: 0 auto;
+                }
+
+                a
+                a:visited,
+                a:link {
+                    text-underline: none;
+                    color: #005EB8;
+                }
+            }
+        }
+    }
+}
+
+
+
+.home-news-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas:
+    "home-news-news-top home-news-news-top home-news-news-top home-news-news-top home-news-tasks home-news-tasks"
+    "home-news-news-items home-news-news-items home-news-news-items home-news-news-items home-news-tasks home-news-tasks"
+    "home-news-news-items home-news-news-items home-news-news-items home-news-news-items home-news-tasks home-news-tasks";
+}
+
+.home-news-news-top { grid-area: home-news-news-top; }
+
+.home-news-tasks { grid-area: home-news-tasks; }
+
+.home-news-news-items { grid-area: home-news-news-items; }
+
+@media all and (-ms-high-contrast:none) {
+    .home-news-grid-container {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr;
+    }
+
+    .home-news-news-top {
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 1;
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 4;
+    }
+
+    .home-news-tasks {
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 3;
+        -ms-grid-column: 5;
+        -ms-grid-column-span: 2;
+    }
+
+    .home-news-news-items {
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 2;
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 4;
+    }
+}
