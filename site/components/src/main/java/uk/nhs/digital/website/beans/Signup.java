@@ -56,4 +56,9 @@ public class Signup extends CommonFieldsBean {
         return getBean("intranet:bannercontrols", BannerControl.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:formlink")
+    public Internallink getFormLink() {
+        return getBean("website:formlink", Internallink.class);
+    }
+
 }
