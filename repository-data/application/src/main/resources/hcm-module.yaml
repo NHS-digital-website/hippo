@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:queries/hippo:templates/new-image-folder/hippostd:templates/image gallery:
+    /hippo:configuration/hippo:queries/hippo:templates/new-image-folder/hippostd:templates/imagegallery:
       hippostd:gallerytype:
         operation: override
         type: string
