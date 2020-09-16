@@ -5,7 +5,7 @@ import uk.nhs.digital.common.components.info.LatestNewsComponentInfo;
 
 @FieldGroupList({
     @FieldGroup(
-        value = {"newsNumberOfRows", "featuredArticle"},
+        value = {"newsNumberOfRows", "newsPageUrl", "featuredArticle"},
         titleKey = "list.group"),
     @FieldGroup(
         value = {
@@ -29,6 +29,9 @@ public interface IntraNewsComponentInfo extends LatestNewsComponentInfo {
 
     @Parameter(name = "tasksPageUrl", displayName = "Tasks Page URL")
     String getTasksPageUrl();
+
+    @Parameter(name = "newsPageUrl", displayName = "News Page URL", defaultValue = "intranet/news")
+    String getNewsPageUrl();
 
     @Parameter(name = "taskDocument1", displayName = "Task Document 1")
     @JcrPath(
