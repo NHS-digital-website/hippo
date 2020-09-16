@@ -1,250 +1,318 @@
----
 /content/documents/intranet/news:
   .meta:order-before: call-to-action
-  /sample-news:
-    /sample-news[1]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:46:39.474Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 649b5343-a866-4795-b859-f105e9814f02
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-09T08:46:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample Featured News
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: 4adc6332-7e9a-412d-8b4c-7c0d42a14fbd
-    /sample-news[2]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability:
-      - preview
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:47:04.502Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 649b5343-a866-4795-b859-f105e9814f02
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-09T08:46:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample Featured News
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: 8f929ddd-4c84-4bb7-9a03-eba32a801be9
-    /sample-news[3]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability:
-      - live
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:47:04.502Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-09-10T08:47:08.673Z
-      hippotranslation:id: 649b5343-a866-4795-b859-f105e9814f02
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-09T08:46:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample Featured News
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: 9cecf40e-8a3d-46ce-961e-bae53e06163c
-    hippo:name: Sample News
-    hippo:versionHistory: f11f8426-f950-4c7f-8d31-1a95a4c8abbc
-    jcr:mixinTypes:
-    - hippo:named
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-    jcr:uuid: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
-  /sample-news-2:
-    /sample-news-2[1]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability:
-      - preview
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:44.260Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: dd27d87a-c954-4992-a3e1-924a938a15b0
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-10T08:48:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample News 2
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:versionable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: 4d52aafa-3cd9-4fdc-ab6b-f2148683af61
-    /sample-news-2[2]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:33.934Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: dd27d87a-c954-4992-a3e1-924a938a15b0
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-10T08:48:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample News 2
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: ebdb17ed-a06e-4946-812a-6ef0c9c2c5dc
-    /sample-news-2[3]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability:
-      - live
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:44.260Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-09-10T08:48:45.691Z
-      hippotranslation:id: dd27d87a-c954-4992-a3e1-924a938a15b0
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-10T08:48:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample News 2
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: 7f2c4a55-6001-413c-972f-b9d197156423
-    hippo:name: Sample News 2
-    hippo:versionHistory: 584dbfe1-bc72-458f-84e8-a73651d2e027
-    jcr:mixinTypes:
-    - hippo:named
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-    jcr:uuid: 165e388c-60ee-4c8c-a803-c48e33a1e098
-  /sample-news-3:
-    /sample-news-3[1]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability:
-      - preview
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:55.216Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 0644b693-51bf-43bc-b3b1-22797e6d1aa9
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-10T08:38:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample News 3
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:versionable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: 35477218-7dd0-4645-9770-f81ef180321b
-    /sample-news-3[2]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:47.187Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 0644b693-51bf-43bc-b3b1-22797e6d1aa9
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-10T08:38:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample News 3
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: bfe15cc2-9d16-4213-a4ee-034e40470231
-    /sample-news-3[3]:
-      /intranet:optionalintroductorytext:
-        hippostd:content: <p>Sample intro text.</p>
-        jcr:primaryType: hippostd:html
-      hippo:availability:
-      - live
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
-      hippostdpubwf:lastModificationDate: 2020-09-10T08:48:55.216Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-09-10T08:48:59.274Z
-      hippotranslation:id: 0644b693-51bf-43bc-b3b1-22797e6d1aa9
-      hippotranslation:locale: en
-      intranet:expirydate: 0001-01-01T12:00:00Z
-      intranet:publicationdate: 2020-09-10T08:38:00Z
-      intranet:shortsummary: Sample summary.
-      intranet:title: Sample News 3
-      intranet:typeofnews: permanent
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: intranet:newsinternal
-      jcr:uuid: a3723e2a-9da3-4ad8-a2e5-f425a1290337
-    hippo:name: Sample News 3
-    hippo:versionHistory: 37ae485d-c1a3-4f22-b988-0e2deeaff081
-    jcr:mixinTypes:
-    - hippo:named
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-    jcr:uuid: 24e375fa-adbe-42f6-b073-38c520308893
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:referenceable']
+  jcr:uuid: a508d9c5-180b-42c5-ab8d-d0a9be69ca7a
   hippo:name: News
-  hippostd:foldertype:
-  - new-intranet-folder
-  - new-intranet-document
+  hippostd:foldertype: [new-intranet-folder, new-intranet-document]
   hippotranslation:id: 2f9936a0-94d0-4c40-aa8a-f0431c98ab52
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:referenceable
-  jcr:primaryType: hippostd:folder
-  jcr:uuid: a508d9c5-180b-42c5-ab8d-d0a9be69ca7a
+  /sample-news:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 19dcf6ab-a7bf-4480-beb5-bffd8c0d0cd8
+    hippo:name: Sample News
+    hippo:versionHistory: 67b7c2db-4bc2-4b37-a6f0-966f8ef80a6b
+    /sample-news[1]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 4adc6332-7e9a-412d-8b4c-7c0d42a14fbd
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:05:23.282Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 649b5343-a866-4795-b859-f105e9814f02
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-09T08:46:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample Featured News
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+    /sample-news[2]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 8f929ddd-4c84-4bb7-9a03-eba32a801be9
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:07:42.840Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 649b5343-a866-4795-b859-f105e9814f02
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-09T08:46:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample Featured News
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+    /sample-news[3]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 9cecf40e-8a3d-46ce-961e-bae53e06163c
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:07:42.840Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-16T10:07:44.867Z
+      hippotranslation:id: 649b5343-a866-4795-b859-f105e9814f02
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-09T08:46:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample Featured News
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+  /sample-news-2:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 165e388c-60ee-4c8c-a803-c48e33a1e098
+    hippo:name: Sample News 2
+    hippo:versionHistory: c8401d8e-e985-4741-9bd8-4768044e9f5b
+    /sample-news-2[1]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+      jcr:uuid: 4d52aafa-3cd9-4fdc-ab6b-f2148683af61
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:08:18.420Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: dd27d87a-c954-4992-a3e1-924a938a15b0
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-10T08:48:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample News 2
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+    /sample-news-2[2]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: ebdb17ed-a06e-4946-812a-6ef0c9c2c5dc
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:07:47.932Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: dd27d87a-c954-4992-a3e1-924a938a15b0
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-10T08:48:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample News 2
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+    /sample-news-2[3]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 7f2c4a55-6001-413c-972f-b9d197156423
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:08:18.420Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-16T10:08:20.431Z
+      hippotranslation:id: dd27d87a-c954-4992-a3e1-924a938a15b0
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-10T08:48:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample News 2
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+  /sample-news-3:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 24e375fa-adbe-42f6-b073-38c520308893
+    hippo:name: Sample News 3
+    hippo:versionHistory: 2dd8c0ed-bb3e-4767-8ca1-3fcdcfa7b442
+    /sample-news-3[1]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+      jcr:uuid: 35477218-7dd0-4645-9770-f81ef180321b
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:08:27.886Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0644b693-51bf-43bc-b3b1-22797e6d1aa9
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-10T08:38:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample News 3
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+    /sample-news-3[2]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: bfe15cc2-9d16-4213-a4ee-034e40470231
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:08:21.767Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0644b693-51bf-43bc-b3b1-22797e6d1aa9
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-10T08:38:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample News 3
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+    /sample-news-3[3]:
+      jcr:primaryType: intranet:newsinternal
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: a3723e2a-9da3-4ad8-a2e5-f425a1290337
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T08:46:39.473Z
+      hippostdpubwf:lastModificationDate: 2020-09-16T10:08:27.886Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-16T10:08:29.370Z
+      hippotranslation:id: 0644b693-51bf-43bc-b3b1-22797e6d1aa9
+      hippotranslation:locale: en
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:publicationdate: 2020-09-10T08:38:00Z
+      intranet:shortsummary: Sample summary.
+      intranet:title: Sample News 3
+      intranet:typeofnews: permanent
+      /intranet:optionalintroductorytext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Sample intro text.</p>
+      /intranet:leadimagesection:
+        jcr:primaryType: website:leadimagesection
+        website:alttext: ''
+        /website:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:imagecaption:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''

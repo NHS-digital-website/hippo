@@ -13,7 +13,7 @@ definitions:
           /news:
             .meta:residual-child-node-category: content
             hst:label: News container
-            hst:lastmodified: 2020-09-10T08:51:28.018Z
+            hst:lastmodified: 2020-09-16T10:18:30.965Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /notice:
