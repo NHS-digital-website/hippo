@@ -48,4 +48,12 @@ public interface LatestBlogComponentInfo extends EssentialsBlogComponentInfo {
         )
     @Override
     String getSortField();
+
+    @Parameter(
+        name = "allBlogPostsUrl",
+        required = false,
+        defaultValue = "blog",
+        displayName = "Blog List Page Url"
+    )
+    String getAllBlogPostsUrl();
 }
