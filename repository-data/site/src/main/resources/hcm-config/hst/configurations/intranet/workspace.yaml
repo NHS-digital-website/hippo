@@ -1,13 +1,15 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:workspace:
+      jcr:primaryType: hst:workspace
       /hst:containers:
+        jcr:primaryType: hst:containercomponentfolder
         /homepage:
+          jcr:primaryType: hst:containercomponentfolder
           /body:
             .meta:residual-child-node-category: content
             hst:label: Main body container
-            hst:lastmodified: 2020-09-10T09:10:52.616Z
+            hst:lastmodified: 2020-09-16T12:20:00.523Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /news:
@@ -22,6 +24,3 @@ definitions:
             hst:lastmodified: 2020-09-10T08:55:26.819Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
-          jcr:primaryType: hst:containercomponentfolder
-        jcr:primaryType: hst:containercomponentfolder
-      jcr:primaryType: hst:workspace
