@@ -1,0 +1,18 @@
+---
+/hst:hst/hst:configurations/intranet/hst:workspace/hst:containers/homepage/body/join-the-conversation:
+  hst:componentclassname: uk.nhs.digital.intranet.components.JoinTheConversationComponent
+  hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+  hst:label: Join the Conversation
+  hst:parameternames:
+  - buttonText
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - headline
+  - buttonUrl
+  hst:parametervalues:
+  - Click here
+  - 'off'
+  - Join the Conversation
+  - nhs.uk
+  hst:template: join-the-conversation
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

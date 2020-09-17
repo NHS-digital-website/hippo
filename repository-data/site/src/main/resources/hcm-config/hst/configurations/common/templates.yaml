@@ -152,6 +152,9 @@ definitions:
       /jobrole:
         hst:renderpath: webfile:/freemarker/common/jobrole.ftl
         jcr:primaryType: hst:template
+      /join-the-conversation:
+        hst:renderpath: webfile:/freemarker/intranet/join-the-conversation.ftl
+        jcr:primaryType: hst:template
       /legacypublication:
         hst:renderpath: webfile:/freemarker/publicationsystem/legacy-publication.ftl
         jcr:primaryType: hst:template

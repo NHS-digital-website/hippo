@@ -10,6 +10,13 @@ definitions:
           hst:template: intranet-newslist
           hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
+        /join-the-conversation:
+          hst:componentclassname: uk.nhs.digital.intranet.components.JoinTheConversationComponent
+          hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+          hst:label: Join the Conversation
+          hst:template: join-the-conversation
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /social-feed:
           hst:componentclassname: uk.nhs.digital.intranet.components.SocialFeedComponent
           hst:iconpath: images/essentials/catalog-component-icons/news-list.png
