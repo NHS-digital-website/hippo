@@ -1,27 +1,30 @@
+---
 /content/gallery/publicationsystem/stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327.jpg:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
-  jcr:uuid: c32a96d0-4256-44b4-bea9-3ce212f4c5c2
   /stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327.jpg:
-    jcr:primaryType: hippogallery:imageset
-    hippo:availability: [live, preview]
-    hippogallery:filename: stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327.jpg
-    /hippogallery:thumbnail:
+    /hippogallery:original:
+      hippogallery:height: 850
+      hippogallery:width: 1500
+      jcr:data:
+        resource: /content/gallery/publicationsystem/stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327.jpg/stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327_original.jpg
+        type: binary
+      jcr:lastModified: 2020-09-16T10:07:36.060Z
+      jcr:mimeType: image/jpeg
       jcr:primaryType: hippogallery:image
+    /hippogallery:thumbnail:
       hippo:filename: stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327.jpg
       hippogallery:height: 34
       hippogallery:width: 60
       jcr:data:
-        type: binary
         resource: /content/gallery/publicationsystem/stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327.jpg/stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327_thumbnail.jpg
-      jcr:lastModified: 2020-09-16T10:07:36.060Z
-      jcr:mimeType: image/jpeg
-    /hippogallery:original:
-      jcr:primaryType: hippogallery:image
-      hippogallery:height: 850
-      hippogallery:width: 1500
-      jcr:data:
         type: binary
-        resource: /content/gallery/publicationsystem/stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327.jpg/stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327_original.jpg
       jcr:lastModified: 2020-09-16T10:07:36.060Z
       jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    hippo:availability:
+    - live
+    - preview
+    hippogallery:filename: stock-vector-sample-stamp-grunge-texture-vector-illustration-1389188327.jpg
+    jcr:primaryType: hippogallery:imageset
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

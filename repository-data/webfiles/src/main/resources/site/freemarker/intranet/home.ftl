@@ -12,21 +12,12 @@
 
 <div class="intranet">
     <div class="grid-wrapper">
-    <@hst.include ref ="notice"/>
-    </div>
-
-    <@hst.include ref ="news"/>
-
-    <div class="home-news-grid-container-1">
-        <div class="home-news-news-top-1">top</div>
-        <div class="home-news-tasks-1">task</div>
-        <div class="home-news-news-items-1">news items</div>
+        <@hst.include ref ="notice"/>
     </div>
 
     <div class="home-news-grid-container">
-        <div class="home-news-news-top">top</div>
-        <div class="home-news-tasks">task</div>
-        <div class="home-news-news-items">news items</div>
+        <div class="home-news-grid-wrapper"></div>
+        <@hst.include ref="news"/>
     </div>
 
     <div class="grid-wrapper">

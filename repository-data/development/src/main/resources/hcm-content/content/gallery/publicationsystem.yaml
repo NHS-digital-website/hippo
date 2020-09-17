@@ -1,7 +1,11 @@
+---
 /content/gallery/publicationsystem:
-  jcr:primaryType: hippogallery:stdImageGallery
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  jcr:uuid: fb19a379-92d1-49ad-856c-6054a3051f27
   hippo:name: NHS Digital Publication System
-  hippostd:foldertype: [new-image-folder]
-  hippostd:gallerytype: ['hippogallery:imageset']
+  hippostd:foldertype:
+  - new-image-folder
+  hippostd:gallerytype:
+  - hippogallery:imageset
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippogallery:stdImageGallery

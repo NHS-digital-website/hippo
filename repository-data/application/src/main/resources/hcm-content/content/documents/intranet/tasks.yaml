@@ -1,22 +1,11 @@
+---
 /content/documents/intranet/tasks:
   .meta:order-before: blog
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-  jcr:uuid: 993d9208-4748-46a1-8c75-3eae4bc8e2c6
-  hippo:name: Tasks
-  hippostd:foldertype: [new-intranet-document, new-intranet-folder]
-  hippotranslation:id: 6889df31-3a43-4ff5-9b92-d7c6de0298b3
-  hippotranslation:locale: en
   /sample-task:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: c63c9f91-7b7a-4414-9e7f-269715ae2d3a
-    hippo:name: Sample Task
-    hippo:versionHistory: b2167ea9-f9b5-4503-a9b6-9e5997aaeb14
     /sample-task[1]:
-      jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: d9afc9ef-776e-4e49-8912-4e4707a2561a
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum</p>
+        jcr:primaryType: hippostd:html
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -31,14 +20,16 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum</p>
-    /sample-task[2]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-      jcr:uuid: de9437fa-ff27-420a-a5e7-7e7594fcda2d
-      hippo:availability: [preview]
+    /sample-task[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -52,14 +43,17 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum</p>
-    /sample-task[3]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: e1c5babd-72dd-4cc9-abf1-1755a1a33d19
-      hippo:availability: [live]
+    /sample-task[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -74,20 +68,24 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum</p>
-  /sample-task-2:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 290b9648-683f-475f-ab04-c0507dedcc08
-    hippo:name: Sample Task 2
-    hippo:versionHistory: 44ec3e1a-64b8-4210-b088-9a34084784f4
-    /sample-task-2[1]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-      jcr:uuid: 74bc484a-b723-4187-82fa-a0fdd9c4ea6e
-      hippo:availability: [preview]
+    hippo:name: Sample Task
+    hippo:versionHistory: b2167ea9-f9b5-4503-a9b6-9e5997aaeb14
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-task-2:
+    /sample-task-2[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -101,13 +99,14 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 2
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-2[2]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 481384af-be29-442a-80f1-29ebcf61eb5e
+    /sample-task-2[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -122,14 +121,16 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 2
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-2[3]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 2bdde570-9827-4040-a6b8-79b6d0ea0a2c
-      hippo:availability: [live]
+    /sample-task-2[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -144,120 +145,24 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 2
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-  /task-hub:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: e03a72ea-33c2-4032-8fc1-836d5c8f0b47
-    hippo:name: Task hub
-    hippo:versionHistory: c05362ea-2fa7-4852-86ef-1250983a7c65
-    /task-hub[1]:
-      jcr:primaryType: website:componentlist
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: c9a9bcfc-a66f-4711-b934-8bbe7a0a249e
-      common:searchRank: 3
-      common:searchable: true
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
-      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:10.780Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
-      hippotranslation:locale: en
-      website:anchor: true
-      website:gossid: 0
-      website:shortsummary: Access all your tasks here
-      website:title: Task Hub
-      /website:body:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
-      /website:friendlyurls:
-        jcr:primaryType: website:friendlyurls
-        website:alternativeurls: []
-        website:destination: ''
-      /website:seosummary:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
-      /website:summary:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>This is an introduction</p>
-    /task-hub[2]:
-      jcr:primaryType: website:componentlist
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-      jcr:uuid: 72071950-0326-43ac-a512-39e7774c3c00
-      common:searchRank: 3
-      common:searchable: true
-      hippo:availability: [preview]
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
-      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:34.816Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
-      hippotranslation:locale: en
-      website:anchor: true
-      website:gossid: 0
-      website:shortsummary: Access all your tasks here
-      website:title: Task Hub
-      /website:body:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
-      /website:friendlyurls:
-        jcr:primaryType: website:friendlyurls
-        website:alternativeurls: []
-        website:destination: ''
-      /website:seosummary:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
-      /website:summary:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>This is an introduction</p>
-    /task-hub[3]:
-      jcr:primaryType: website:componentlist
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 4b75b226-a867-42cc-88e0-30028b51ad3c
-      common:searchRank: 3
-      common:searchable: true
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
-      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:34.816Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-03-27T17:09:37.149Z
-      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
-      hippotranslation:locale: en
-      website:anchor: true
-      website:gossid: 0
-      website:shortsummary: Access all your tasks here
-      website:title: Task Hub
-      /website:body:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
-      /website:friendlyurls:
-        jcr:primaryType: website:friendlyurls
-        website:alternativeurls: []
-        website:destination: ''
-      /website:seosummary:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
-      /website:summary:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>This is an introduction</p>
-  /sample-task-3:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 8e1c9655-499f-42fb-8773-0f4894fe7c3c
-    hippo:name: Sample Task 3
-    hippo:versionHistory: c1b57537-be2f-44d8-b02d-f82987988d72
-    /sample-task-3[1]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-      jcr:uuid: 5b662847-980c-4229-8c61-f4509759fa1a
-      hippo:availability: [preview]
+    hippo:name: Sample Task 2
+    hippo:versionHistory: 44ec3e1a-64b8-4210-b088-9a34084784f4
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-task-3:
+    /sample-task-3[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -271,13 +176,14 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 3
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-3[2]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: b50659f5-da19-4be5-a02f-e553138f7430
+    /sample-task-3[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -292,14 +198,16 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 3
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-3[3]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: aa17778b-a4f7-440a-a970-43fbd1905b5c
-      hippo:availability: [live]
+    /sample-task-3[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -314,20 +222,24 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 3
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-  /sample-task-4:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 26de55db-1038-4d10-8caf-ab35b1bb52dc
-    hippo:name: Sample Task 4
-    hippo:versionHistory: 83189a8f-d16f-4731-b921-3043e68cb6e4
-    /sample-task-4[1]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-      jcr:uuid: af2064fc-747e-4cdd-9aa5-ab20080a9fc6
-      hippo:availability: [preview]
+    hippo:name: Sample Task 3
+    hippo:versionHistory: c1b57537-be2f-44d8-b02d-f82987988d72
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-task-4:
+    /sample-task-4[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -341,13 +253,14 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 4
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-4[2]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: d3647ce0-c0cd-44c1-9778-6d5b47aed33a
+    /sample-task-4[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -362,14 +275,16 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 4
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-4[3]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 9da24039-80bc-4509-8c19-e0610e0c96aa
-      hippo:availability: [live]
+    /sample-task-4[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -384,20 +299,24 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 4
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-  /sample-task-5:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 88e73016-e92e-4ebb-b729-d5c6f3ac4132
-    hippo:name: Sample Task 5
-    hippo:versionHistory: 0d3e650f-25d1-4515-876b-8f6def41cb70
-    /sample-task-5[1]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-      jcr:uuid: ded220a7-b387-44d3-a5f3-c5d5f1927089
-      hippo:availability: [preview]
+    hippo:name: Sample Task 4
+    hippo:versionHistory: 83189a8f-d16f-4731-b921-3043e68cb6e4
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-task-5:
+    /sample-task-5[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -411,13 +330,14 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 5
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-5[2]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: a3d0de39-4564-44c7-8139-3cfa0caeb86a
+    /sample-task-5[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -432,14 +352,16 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 5
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-5[3]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: a1f6d64d-43c6-4f4c-8835-21f411943a22
-      hippo:availability: [live]
+    /sample-task-5[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -454,20 +376,24 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 5
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-  /sample-task-6:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 582341a5-c991-4a0b-a33a-1030a4fdd352
-    hippo:name: Sample Task 6
-    hippo:versionHistory: a6b97d3f-8bec-477f-a363-e1714d2ea619
-    /sample-task-6[1]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-      jcr:uuid: bb8032da-c2ad-40d2-bcbc-611c812ecf4e
-      hippo:availability: [preview]
+    hippo:name: Sample Task 5
+    hippo:versionHistory: 0d3e650f-25d1-4515-876b-8f6def41cb70
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-task-6:
+    /sample-task-6[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -481,13 +407,14 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 6
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-6[2]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: cec34797-aa86-4a57-b4ad-95e5c8682c86
+    /sample-task-6[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -502,14 +429,16 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 6
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-6[3]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 82ae1a11-4e17-4fd7-9bcc-37cba6505281
-      hippo:availability: [live]
+    /sample-task-6[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -524,20 +453,24 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 6
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-  /sample-task-7:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: f5be49eb-d283-42c2-a80e-c75660321944
-    hippo:name: Sample Task 7
-    hippo:versionHistory: 0bfa6fde-fb64-496d-a3df-e43a329481bc
-    /sample-task-7[1]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-      jcr:uuid: 3b6dc38e-b467-4dfb-8071-6485f0304a7f
-      hippo:availability: [preview]
+    hippo:name: Sample Task 6
+    hippo:versionHistory: a6b97d3f-8bec-477f-a363-e1714d2ea619
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-task-7:
+    /sample-task-7[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -551,13 +484,14 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 7
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-7[2]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: d0af9390-628a-4040-92dc-a7c139fdffcf
+    /sample-task-7[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -572,14 +506,16 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 7
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-7[3]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 50fc2803-0799-4493-869c-4f02143581a2
-      hippo:availability: [live]
+    /sample-task-7[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -594,20 +530,24 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 7
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-  /sample-task-8:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 77d09e86-da4a-449d-96f8-2b8b6a9b2aca
-    hippo:name: Sample Task 8
-    hippo:versionHistory: ed7d4e64-80b1-4a4c-b550-1dae15bb0e6f
-    /sample-task-8[1]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-      jcr:uuid: 624d63a2-eb9e-4b6c-8943-0db5e24999e2
-      hippo:availability: [preview]
+    hippo:name: Sample Task 7
+    hippo:versionHistory: 0bfa6fde-fb64-496d-a3df-e43a329481bc
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /sample-task-8:
+    /sample-task-8[1]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -621,13 +561,14 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 8
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-8[2]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 6b51ac11-a666-491f-8989-b829a4216e7b
+    /sample-task-8[2]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -642,14 +583,16 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 8
-      /intranet:introduction:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
-    /sample-task-8[3]:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
       jcr:primaryType: intranet:task
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: c4daf24f-0adb-4033-88a6-6ec3f8088361
-      hippo:availability: [live]
+    /sample-task-8[3]:
+      /intranet:introduction:
+        hippostd:content: <p>Lorem ipsum 2</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:49:11.573Z
@@ -664,6 +607,133 @@
       intranet:reviewdate: 2020-09-09T23:00:00Z
       intranet:shortsummary: Lorem ipsum...
       intranet:title: Sample Task 8
-      /intranet:introduction:
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    hippo:name: Sample Task 8
+    hippo:versionHistory: ed7d4e64-80b1-4a4c-b550-1dae15bb0e6f
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /task-hub:
+    /task-hub[1]:
+      /website:body:
+        hippostd:content: ''
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>Lorem ipsum 2</p>
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>This is an introduction</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
+      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:10.780Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:componentlist
+      website:anchor: true
+      website:gossid: 0
+      website:shortsummary: Access all your tasks here
+      website:title: Task Hub
+    /task-hub[2]:
+      /website:body:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>This is an introduction</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
+      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:34.816Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:componentlist
+      website:anchor: true
+      website:gossid: 0
+      website:shortsummary: Access all your tasks here
+      website:title: Task Hub
+    /task-hub[3]:
+      /website:body:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>This is an introduction</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
+      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:34.816Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-03-27T17:09:37.149Z
+      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:componentlist
+      website:anchor: true
+      website:gossid: 0
+      website:shortsummary: Access all your tasks here
+      website:title: Task Hub
+    hippo:name: Task hub
+    hippo:versionHistory: c05362ea-2fa7-4852-86ef-1250983a7c65
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Tasks
+  hippostd:foldertype:
+  - new-intranet-document
+  - new-intranet-folder
+  hippotranslation:id: 6889df31-3a43-4ff5-9b92-d7c6de0298b3
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

@@ -1,17 +1,56 @@
+---
 /hst:hst/hst:configurations/intranet/hst:workspace/hst:containers/homepage/news/intranet-newslist:
-  jcr:primaryType: hst:containeritemcomponent
   hst:componentclassname: uk.nhs.digital.intranet.components.IntraNewsComponent
   hst:iconpath: images/essentials/catalog-component-icons/news-list.png
   hst:label: News List (Intranet)
-  hst:parameternames: [hideFutureItems, documentDateField, pageSize, showPagination,
-    tasksPageUrl, newsNumberOfRows, includeSubtypes, tasksTitle, path, taskDocument8,
-    com.onehippo.cms7.targeting.TargetingParameterUtil.hide, documentTypes, sortOrder,
-    taskDocument4, sortField, taskDocument5, taskDocument6, featuredArticle, featuredPath,
-    taskDocument7, taskDocument1, taskDocument2, taskDocument3]
-  hst:parametervalues: ['on', 'intranet:publicationdate', '8', 'off', google.com,
-    '1', 'on', Tasks title, /content/documents/intranet/news, tasks/sample-task-8,
-    'off', 'intranet:newsinternal', desc, tasks/sample-task-4, 'intranet:publicationdate',
-    tasks/sample-task-5, tasks/sample-task-6, news/sample-news, /content/documents/intranet/news/news1,
-    tasks/sample-task-7, tasks/sample-task, tasks/sample-task-2, tasks/sample-task-3]
+  hst:parameternames:
+  - hideFutureItems
+  - documentDateField
+  - pageSize
+  - showPagination
+  - tasksPageUrl
+  - newsNumberOfRows
+  - includeSubtypes
+  - tasksTitle
+  - path
+  - taskDocument8
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - documentTypes
+  - sortOrder
+  - taskDocument4
+  - sortField
+  - taskDocument5
+  - taskDocument6
+  - featuredArticle
+  - featuredPath
+  - taskDocument7
+  - taskDocument1
+  - taskDocument2
+  - taskDocument3
+  hst:parametervalues:
+  - 'on'
+  - intranet:publicationdate
+  - '8'
+  - 'off'
+  - google.com
+  - '1'
+  - 'on'
+  - Tasks title
+  - /content/documents/intranet/news
+  - tasks/sample-task-8
+  - 'off'
+  - intranet:newsinternal
+  - desc
+  - tasks/sample-task-4
+  - intranet:publicationdate
+  - tasks/sample-task-5
+  - tasks/sample-task-6
+  - news/sample-news
+  - /content/documents/intranet/news/news1
+  - tasks/sample-task-7
+  - tasks/sample-task
+  - tasks/sample-task-2
+  - tasks/sample-task-3
   hst:template: intranet-newslist
   hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

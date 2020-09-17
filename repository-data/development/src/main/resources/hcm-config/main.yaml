@@ -1,3 +1,4 @@
+---
 definitions:
   config:
     /hippo:configuration/hippo:modules/autoexport/hippo:moduleconfig:
