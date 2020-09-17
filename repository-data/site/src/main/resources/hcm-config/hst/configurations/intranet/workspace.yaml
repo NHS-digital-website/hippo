@@ -7,13 +7,13 @@ definitions:
           /body:
             .meta:residual-child-node-category: content
             hst:label: Main body container
-            hst:lastmodified: 2020-09-16T12:20:00.523Z
+            hst:lastmodified: 2020-09-17T11:33:07.129Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /news:
             .meta:residual-child-node-category: content
             hst:label: News container
-            hst:lastmodified: 2020-09-16T10:18:30.965Z
+            hst:lastmodified: 2020-09-17T11:33:07.129Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /notice:
