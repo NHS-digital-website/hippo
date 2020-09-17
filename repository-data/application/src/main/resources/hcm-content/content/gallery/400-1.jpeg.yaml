@@ -1,0 +1,7 @@
+---
+/content/gallery/400-1.jpeg:
+  hippo:name: 400 (1).jpeg
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

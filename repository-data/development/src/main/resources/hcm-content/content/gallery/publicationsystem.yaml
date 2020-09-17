@@ -1,5 +1,6 @@
 ---
 /content/gallery/publicationsystem:
+  .meta:order-before: 400.jpeg
   hippo:name: NHS Digital Publication System
   hippostd:foldertype:
   - new-image-folder

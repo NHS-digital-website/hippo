@@ -1,0 +1,26 @@
+---
+/content/gallery/400-1.jpeg/400-1.jpeg:
+  /hippogallery:original:
+    hippogallery:height: 400
+    hippogallery:width: 600
+    jcr:data:
+      resource: /content/gallery/400-1.jpeg/400-1.jpeg/original/data.jpg
+      type: binary
+    jcr:lastModified: 2020-09-17T15:27:31.698Z
+    jcr:mimeType: image/jpeg
+    jcr:primaryType: hippogallery:image
+  /hippogallery:thumbnail:
+    hippo:filename: 400 (1).jpeg
+    hippogallery:height: 40
+    hippogallery:width: 60
+    jcr:data:
+      resource: /content/gallery/400-1.jpeg/400-1.jpeg/thumbnail/data.jpg
+      type: binary
+    jcr:lastModified: 2020-09-17T15:27:31.698Z
+    jcr:mimeType: image/jpeg
+    jcr:primaryType: hippogallery:image
+  hippo:availability:
+  - live
+  - preview
+  hippogallery:filename: 400 (1).jpeg
+  jcr:primaryType: hippogallery:imageset

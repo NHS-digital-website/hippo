@@ -1,7 +1,8 @@
+---
 /hst:hst/hst:configurations/intranet/hst:workspace/hst:containers/homepage/body/social-feed:
-  jcr:primaryType: hst:containeritemcomponent
   hst:componentclassname: uk.nhs.digital.intranet.components.SocialFeedComponent
   hst:iconpath: images/essentials/catalog-component-icons/news-list.png
   hst:label: Social Media Feed (Intranet)
   hst:template: social-feed
   hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

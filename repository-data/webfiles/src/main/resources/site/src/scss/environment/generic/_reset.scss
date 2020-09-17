@@ -140,7 +140,7 @@ h2 {
     }
 }
 
-h3 {
+h3, .h3 {
     @include bold-font($h3-font-size/1px);
     margin-bottom: round($base-font-size * 0.75);
 
@@ -149,11 +149,11 @@ h3 {
     }
 }
 
-h4 {
+h4, .h4 {
     @include bold-font($h4-font-size/1px);
 }
 
-h5 {
+h5, .h5 {
     @include bold-font($h5-font-size/1px);
 }
 

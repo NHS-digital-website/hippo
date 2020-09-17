@@ -1,5 +1,34 @@
 ---
 /content/gallery/website/icons:
+  /400.jpeg:
+    /400.jpeg:
+      /hippogallery:original:
+        hippogallery:height: 400
+        hippogallery:width: 300
+        jcr:data:
+          resource: /content/gallery/website/icons/400.jpeg/400_original.jpeg
+          type: binary
+        jcr:lastModified: 2020-09-17T13:17:31.560Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /hippogallery:thumbnail:
+        hippo:filename: 400.jpeg
+        hippogallery:height: 60
+        hippogallery:width: 45
+        jcr:data:
+          resource: /content/gallery/website/icons/400.jpeg/400_thumbnail.jpeg
+          type: binary
+        jcr:lastModified: 2020-09-17T13:17:31.560Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      hippo:availability:
+      - live
+      - preview
+      hippogallery:filename: 400.jpeg
+      jcr:primaryType: hippogallery:imageset
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Icons
   hippostd:foldertype:
   - new-image-folder

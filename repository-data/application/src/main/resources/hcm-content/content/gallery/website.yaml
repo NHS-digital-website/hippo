@@ -1,5 +1,6 @@
 ---
 /content/gallery/website:
+  .meta:order-before: 400.jpeg
   hippo:name: Website
   hippostd:foldertype:
   - new-image-folder

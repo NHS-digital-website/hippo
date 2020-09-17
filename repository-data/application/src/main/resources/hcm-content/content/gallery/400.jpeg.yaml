@@ -1,0 +1,6 @@
+---
+/content/gallery/400.jpeg:
+  .meta:order-before: 400-1.jpeg
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
