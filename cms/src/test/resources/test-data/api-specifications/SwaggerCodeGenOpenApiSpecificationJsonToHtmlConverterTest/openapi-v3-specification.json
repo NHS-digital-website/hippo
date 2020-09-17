@@ -1742,6 +1742,1749 @@
                             }
                         },
                         "content": {
+                            "application/xml": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "id"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "resourceType": {
+                                            "type": "string",
+                                            "description": "FHIR resource type application/xml.",
+                                            "default": "Patient",
+                                            "readOnly": true
+                                        },
+                                        "id": {
+                                            "description": "The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a [valid NHS Number](https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp).",
+                                            "type": "string",
+                                            "pattern": "^\\d{10}$",
+                                            "example": "9000000009"
+                                        },
+                                        "identifier": {
+                                            "type": "array",
+                                            "description": "Identifier and system of identification used for this Patient.",
+                                            "readOnly": true,
+                                            "items": {
+                                                "type": "object",
+                                                "maxItems": 1,
+                                                "required": [
+                                                    "value"
+                                                ],
+                                                "properties": {
+                                                    "system": {
+                                                        "type": "string",
+                                                        "format": "url",
+                                                        "description": "System identifier belongs to.",
+                                                        "default": "https://fhir.nhs.uk/Id/nhs-number",
+                                                        "readOnly": true
+                                                    },
+                                                    "value": {
+                                                        "description": "The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a [valid NHS Number](https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp).",
+                                                        "type": "string",
+                                                        "pattern": "^\\d{10}$",
+                                                        "example": "9000000009"
+                                                    },
+                                                    "extension": {
+                                                        "type": "array",
+                                                        "description": "FHIR extensions.",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "description": "Status indicating if NHS number is present and verified.",
+                                                            "readOnly": true,
+                                                            "properties": {
+                                                                "url": {
+                                                                    "type": "string",
+                                                                    "description": "URL of the extension definition.",
+                                                                    "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                                                                    "enum": [
+                                                                        "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus"
+                                                                    ],
+                                                                    "readOnly": true
+                                                                },
+                                                                "valueCodeableConcept": {
+                                                                    "type": "object",
+                                                                    "description": "NHS Number Verification Status Indicator.",
+                                                                    "required": [
+                                                                        "coding"
+                                                                    ],
+                                                                    "properties": {
+                                                                        "coding": {
+                                                                            "type": "array",
+                                                                            "minItems": 1,
+                                                                            "maxItems": 1,
+                                                                            "items": {
+                                                                                "type": "object",
+                                                                                "required": [
+                                                                                    "code"
+                                                                                ],
+                                                                                "properties": {
+                                                                                    "system": {
+                                                                                        "type": "string",
+                                                                                        "description": "URI of the coding system specification.",
+                                                                                        "default": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-NHSNumberVerificationStatus",
+                                                                                        "readOnly": true
+                                                                                    },
+                                                                                    "version": {
+                                                                                        "type": "string",
+                                                                                        "description": "Version of the coding system in use.",
+                                                                                        "example": "1.0.0"
+                                                                                    },
+                                                                                    "code": {
+                                                                                        "type": "string",
+                                                                                        "description": "Symbol in syntax defined by the system.",
+                                                                                        "example": "01"
+                                                                                    },
+                                                                                    "display": {
+                                                                                        "type": "string",
+                                                                                        "description": "Representation defined by the system.",
+                                                                                        "example": "Number present and verified"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "meta": {
+                                            "type": "object",
+                                            "description": "Metadata about this resource.",
+                                            "properties": {
+                                                "versionId": {
+                                                    "type": "string",
+                                                    "description": "The NHS Digital assigned version of the patient resource.",
+                                                    "readOnly": true,
+                                                    "example": "2"
+                                                },
+                                                "security": {
+                                                    "type": "array",
+                                                    "description": "The level of security on the patients record, which affects which fields are populated on retrieval. The possible responses are:\n* U - unrestricted. All available data will be returned.\n* R - restricted. Any sensitive data around the patient's location, so `address`, `generalPractitioner` and `telecom`, will be removed from the response.\n* V - very restricted. All patient data will be removed from the response apart from `id`, `identifier` and `meta` fields. The `gender` field will return `unknown` regardless of actual gender.\n* REDACTED - redacted. The patient record has been marked as invalid, so the data should not be used. This code will never be returned; you will receive a 404, and appropriate error response, if an invalidated patient retrieval is attempted.\n",
+                                                    "readOnly": true,
+                                                    "maxItems": 1,
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "system": {
+                                                                "type": "string",
+                                                                "description": "URI of the value set specification.",
+                                                                "example": "https://www.hl7.org/fhir/valueset-security-labels.html"
+                                                            },
+                                                            "code": {
+                                                                "type": "string",
+                                                                "description": "Code defined by the system value set.",
+                                                                "enum": [
+                                                                    "U",
+                                                                    "R",
+                                                                    "V",
+                                                                    "REDACTED"
+                                                                ],
+                                                                "example": "U"
+                                                            },
+                                                            "display": {
+                                                                "type": "string",
+                                                                "description": "Representation defined by the system.",
+                                                                "enum": [
+                                                                    "unrestricted",
+                                                                    "restricted",
+                                                                    "very restricted",
+                                                                    "redacted"
+                                                                ],
+                                                                "example": "unrestricted"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "name": {
+                                            "type": "array",
+                                            "description": "List of names associated with the patient.\n\nWhen a patient tagged as `very restricted` is retrieved, all names will be removed from the response.\n",
+                                            "minItems": 1,
+                                            "items": {
+                                                "type": "object",
+                                                "required": [
+                                                    "use",
+                                                    "family"
+                                                ],
+                                                "additionalProperties": false,
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "Unique object identifier for this name.",
+                                                        "readOnly": true,
+                                                        "example": "123"
+                                                    },
+                                                    "use": {
+                                                        "type": "string",
+                                                        "description": "How this name should be used.\n* usual - Known as, conventional or the one patient normally uses. A patient will always have a usual name.\n* temp - An alias or temporary name. This may also be used for temporary names assigned at birth or in emergency situations.\n* nickname - A name that the patient prefers to be addressed by, but is not part of their usual name.\n* old - This name is no longer in use (or was never correct, but retained for records).\n* maiden - Name changed for Marriage. A name used prior to changing name because of marriage. This term is not gender specific. The use of this term does not imply any particular history for a person's name.\n\nThe following use codes are included in the [name-use](https://www.hl7.org/fhir/valueset-name-use.html) value set, but should not be used and will not be returned as part of a retrieval.\n* official - The formal name as registered in an official (government) registry, but which name might not be commonly used. May be called \"legal name\".\n* anonymous - Anonymous assigned name, alias, or pseudonym (used to protect a person's identity for privacy reasons).\n",
+                                                        "enum": [
+                                                            "usual",
+                                                            "temp",
+                                                            "nickname",
+                                                            "old",
+                                                            "maiden"
+                                                        ],
+                                                        "example": "usual"
+                                                    },
+                                                    "period": {
+                                                        "type": "object",
+                                                        "description": "Time period when name was, is, or will be in use.",
+                                                        "required": [
+                                                            "start"
+                                                        ],
+                                                        "properties": {
+                                                            "start": {
+                                                                "type": "string",
+                                                                "format": "date",
+                                                                "description": "Start date of time period, if known, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                "example": "2020-01-01"
+                                                            },
+                                                            "end": {
+                                                                "type": "string",
+                                                                "format": "date",
+                                                                "description": "End date of time period, if known and if not ongoing, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                "example": "2021-12-31"
+                                                            }
+                                                        }
+                                                    },
+                                                    "given": {
+                                                        "type": "array",
+                                                        "maxItems": 5,
+                                                        "description": "Given names, including any middle names.\n\nEach name should be a separate item in the list and should not contain spaces; for example `Jane Adele` should be broken down into two list items `Jane` and `Adele`.\n",
+                                                        "example": [
+                                                            "Jane",
+                                                            "Adele"
+                                                        ],
+                                                        "items": {
+                                                            "type": "string",
+                                                            "maxLength": 35,
+                                                            "example": "Jane"
+                                                        }
+                                                    },
+                                                    "family": {
+                                                        "type": "string",
+                                                        "maxLength": 35,
+                                                        "description": "Family name (often called Surname).",
+                                                        "example": "Smith"
+                                                    },
+                                                    "prefix": {
+                                                        "type": "array",
+                                                        "description": "Name prefixes, titles, and prenominals.",
+                                                        "example": [
+                                                            "Mrs"
+                                                        ],
+                                                        "items": {
+                                                            "type": "string",
+                                                            "example": "Mrs"
+                                                        }
+                                                    },
+                                                    "suffix": {
+                                                        "type": "array",
+                                                        "description": "Name suffices and postnominals.",
+                                                        "example": [
+                                                            "MBE",
+                                                            "PhD"
+                                                        ],
+                                                        "items": {
+                                                            "type": "string",
+                                                            "example": "MBE"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "gender": {
+                                            "type": "string",
+                                            "description": "Classification of the gender of a patient. The classification is phenotypical rather than genotypical, i.e. it does not provide codes for medical or scientific purposes.\nIt is the administrative gender that the patient wishes to be known as. In some cases, this may not be the same as the patient\u2019s registered birth gender, or their current clinical gender.\n",
+                                            "enum": [
+                                                "male",
+                                                "female",
+                                                "other",
+                                                "unknown"
+                                            ],
+                                            "example": "female"
+                                        },
+                                        "birthDate": {
+                                            "description": "The date on which the patient was born or is officially deemed to have been born.\n\nIt is a date in the format `yyyy-mm-dd`. Due to data quality issues on a small number of patients `yyyy-mm` and `yyyy` format may also be returned.\n\nWhen a patient tagged as `very restricted` is retrieved, birth date will be removed from the response.\n",
+                                            "example": "2010-10-22",
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "multipleBirthInteger": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 9,
+                                            "description": "The order in which the patient was born, with 1 indicating the first or only birth in the sequence, 2 indicating the second birth in the sequence, 3 indicating the third, and so on up to 7.\n\nThere are two other valid values; `8` meaning `Not applicable` and `9` meaning `Not known`.\n",
+                                            "example": 1
+                                        },
+                                        "deceasedDateTime": {
+                                            "description": "The date and time on which a person died or is officially deemed to have died, if applicable and known.\n\nIt is a datetime in the format `yyyy-mm-ddTHH:MM:SS+HH:MM` or `yyyy-mm-dd`. Due to data quality issues on a small number of patients `yyyy-mm` and `yyyy` format may also be returned.\n\nWhen a patient tagged as `very restricted` is retrieved, death date will be removed from the response.\n",
+                                            "example": "2010-10-22T00:00:00+00:00",
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "address": {
+                                            "type": "array",
+                                            "description": "List of addresses associated with the patient.\n\nThis will only be fully populated on a retrieval, only a the `home` address will be returned on a search.\n\nWhen a patient tagged as `restricted` or `very restricted` is retrieved, all addresses will be removed from the response.\n",
+                                            "items": {
+                                                "type": "object",
+                                                "description": "An address associated with the patient.",
+                                                "required": [
+                                                    "use"
+                                                ],
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "Unique system identifier for this address.",
+                                                        "readOnly": true,
+                                                        "example": "456"
+                                                    },
+                                                    "period": {
+                                                        "type": "object",
+                                                        "description": "Time period when name was, is, or will be in use.",
+                                                        "required": [
+                                                            "start"
+                                                        ],
+                                                        "properties": {
+                                                            "start": {
+                                                                "type": "string",
+                                                                "format": "date",
+                                                                "description": "Start date of time period, if known, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                "example": "2020-01-01"
+                                                            },
+                                                            "end": {
+                                                                "type": "string",
+                                                                "format": "date",
+                                                                "description": "End date of time period, if known and if not ongoing, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                "example": "2021-12-31"
+                                                            }
+                                                        }
+                                                    },
+                                                    "use": {
+                                                        "type": "string",
+                                                        "description": "Purpose of this address:\n* home - a communication address at a home.\n* work - an office address. First choice for business related contacts during business hours.\n* temp - a temporary address. The period can provide more detailed information.\n* billing - a corresponding address nominated by the patient where communication can be sent.\n",
+                                                        "enum": [
+                                                            "home",
+                                                            "work",
+                                                            "temp",
+                                                            "billing"
+                                                        ],
+                                                        "example": "home"
+                                                    },
+                                                    "line": {
+                                                        "type": "array",
+                                                        "description": "All lines of the address except the postal code.",
+                                                        "maxItems": 5,
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "example": [
+                                                            "1 Trevelyan Square",
+                                                            "Boar Lane",
+                                                            "City Centre",
+                                                            "Leeds",
+                                                            "West Yorkshire"
+                                                        ]
+                                                    },
+                                                    "postalCode": {
+                                                        "type": "string",
+                                                        "description": "Postal code of the address.",
+                                                        "example": "LS1 6AE"
+                                                    },
+                                                    "extension": {
+                                                        "type": "array",
+                                                        "description": "Postal Address File (PAF) key associated with this address formatted as a FHIR extension. Empty if no PAF key for the address is known, or an object specifying the code system of the address key and the value of the address key.",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "description": "Unique identifier for an address.",
+                                                            "properties": {
+                                                                "url": {
+                                                                    "type": "string",
+                                                                    "description": "URL of specification of the AddressKey extension.",
+                                                                    "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey",
+                                                                    "enum": [
+                                                                        "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey"
+                                                                    ],
+                                                                    "readOnly": true
+                                                                },
+                                                                "extension": {
+                                                                    "type": "array",
+                                                                    "description": "Specification of address key system and address key value. Contains exactly two items: one describing the code system the Address Key uses, and the other specifying the value of the Address Key.",
+                                                                    "minItems": 2,
+                                                                    "maxItems": 2,
+                                                                    "items": {
+                                                                        "anyOf": [
+                                                                            {
+                                                                                "type": "object",
+                                                                                "description": "Coding system of the address key.",
+                                                                                "required": [
+                                                                                    "url",
+                                                                                    "valueCoding"
+                                                                                ],
+                                                                                "properties": {
+                                                                                    "url": {
+                                                                                        "type": "string",
+                                                                                        "description": "Always 'type'.",
+                                                                                        "default": "type",
+                                                                                        "readOnly": true
+                                                                                    },
+                                                                                    "valueCoding": {
+                                                                                        "type": "object",
+                                                                                        "description": "URL of specification of address key format.",
+                                                                                        "required": [
+                                                                                            "system",
+                                                                                            "code"
+                                                                                        ],
+                                                                                        "properties": {
+                                                                                            "system": {
+                                                                                                "type": "string",
+                                                                                                "description": "URL of Code System that describes available Address Key formats.",
+                                                                                                "default": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType",
+                                                                                                "readOnly": true
+                                                                                            },
+                                                                                            "code": {
+                                                                                                "type": "string",
+                                                                                                "description": "Address Key system. Always 'PAF'.",
+                                                                                                "default": "PAF",
+                                                                                                "example": "PAF",
+                                                                                                "readOnly": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "type": "object",
+                                                                                "description": "Value of the address key.",
+                                                                                "required": [
+                                                                                    "url",
+                                                                                    "valueString"
+                                                                                ],
+                                                                                "properties": {
+                                                                                    "url": {
+                                                                                        "type": "string",
+                                                                                        "description": "Always 'value'.",
+                                                                                        "default": "value",
+                                                                                        "example": "value",
+                                                                                        "readOnly": true
+                                                                                    },
+                                                                                    "valueString": {
+                                                                                        "type": "string",
+                                                                                        "description": "Address key in PAF format. An 8 digit number including leading zeroes, formatted as a string.",
+                                                                                        "minLength": 8,
+                                                                                        "maxLength": 8,
+                                                                                        "pattern": "^[0-9]{8}$",
+                                                                                        "example": "12345678"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "telecom": {
+                                            "type": "array",
+                                            "description": "List of contact points for the patient; for example, phone numbers or email addresses.\n\nWhen a patient tagged as `restricted` or `very restricted` is retrieved, all contact points will be removed from the response.\n",
+                                            "items": {
+                                                "description": "A contact point, such as a phone number or email address",
+                                                "type": "object",
+                                                "required": [
+                                                    "system",
+                                                    "value"
+                                                ],
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "Unique object identifier for this contact point.",
+                                                        "readOnly": true,
+                                                        "example": "789"
+                                                    },
+                                                    "period": {
+                                                        "type": "object",
+                                                        "description": "Time period when name was, is, or will be in use.",
+                                                        "required": [
+                                                            "start"
+                                                        ],
+                                                        "properties": {
+                                                            "start": {
+                                                                "type": "string",
+                                                                "format": "date",
+                                                                "description": "Start date of time period, if known, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                "example": "2020-01-01"
+                                                            },
+                                                            "end": {
+                                                                "type": "string",
+                                                                "format": "date",
+                                                                "description": "End date of time period, if known and if not ongoing, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                "example": "2021-12-31"
+                                                            }
+                                                        }
+                                                    },
+                                                    "system": {
+                                                        "description": "Means of communication, such as phone or email.",
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "phone",
+                                                            "fax",
+                                                            "email",
+                                                            "other"
+                                                        ],
+                                                        "example": "phone"
+                                                    },
+                                                    "value": {
+                                                        "description": "Phone number, email address, or other identifier for use with contact system.",
+                                                        "type": "string",
+                                                        "example": "01632960587"
+                                                    },
+                                                    "use": {
+                                                        "type": "string",
+                                                        "description": "Location associated with communication system.",
+                                                        "enum": [
+                                                            "home",
+                                                            "work",
+                                                            "temp",
+                                                            "mobile"
+                                                        ],
+                                                        "example": "work"
+                                                    },
+                                                    "extension": {
+                                                        "type": "array",
+                                                        "maxItems": 1,
+                                                        "description": "Extension that will only be returned when the communication type is `textphone`. The only code that will be returned is `textphone`, which means `Minicom (Textphone)`.\n\nThe `system` will only ever be `other` when the extension is included.\n",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "description": "Wrapped object for other contact system details.",
+                                                            "properties": {
+                                                                "url": {
+                                                                    "type": "string",
+                                                                    "description": "Definition of other contact system extension.",
+                                                                    "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem",
+                                                                    "enum": [
+                                                                        "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem"
+                                                                    ],
+                                                                    "readOnly": true
+                                                                },
+                                                                "valueCoding": {
+                                                                    "type": "object",
+                                                                    "description": "URL of specification of other contact systems.",
+                                                                    "properties": {
+                                                                        "system": {
+                                                                            "type": "string",
+                                                                            "description": "URL of Code System that describes available contact relationships.",
+                                                                            "default": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-OtherContactSystem",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "code": {
+                                                                            "type": "string",
+                                                                            "description": "Coded value for the other contact system in place.",
+                                                                            "example": "textphone"
+                                                                        },
+                                                                        "display": {
+                                                                            "description": "Display-friendly representation of the other contact system code.",
+                                                                            "type": "string",
+                                                                            "example": "Minicom (Textphone)"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "contact": {
+                                            "type": "array",
+                                            "description": "A list of patient contacts. Only emergency contacts will be returned and only emergency contacts should be added. Any other contacts should be added to the patients `Related Person`.\n\nPatients designate here any contact number they desire to be used in case of an emergency.\nNote, while a patient may also desire to record various related persons telecom details, these do not separately allow for a concept of emergency contact; only ranking. See RelatedPerson endpoint.\n\nWhen a patient tagged as `restricted` or `very restricted` is retrieved, all contacts will be removed from the response.\n",
+                                            "items": {
+                                                "title": "Schema for a patient contact.",
+                                                "type": "object",
+                                                "additionalProperties": false,
+                                                "required": [
+                                                    "relationship",
+                                                    "telecom"
+                                                ],
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "example": "C123"
+                                                    },
+                                                    "period": {
+                                                        "type": "object",
+                                                        "description": "Time period when name was, is, or will be in use.",
+                                                        "required": [
+                                                            "start"
+                                                        ],
+                                                        "properties": {
+                                                            "start": {
+                                                                "type": "string",
+                                                                "format": "date",
+                                                                "description": "Start date of time period, if known, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                "example": "2020-01-01"
+                                                            },
+                                                            "end": {
+                                                                "type": "string",
+                                                                "format": "date",
+                                                                "description": "End date of time period, if known and if not ongoing, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                "example": "2021-12-31"
+                                                            }
+                                                        }
+                                                    },
+                                                    "relationship": {
+                                                        "type": "array",
+                                                        "description": "The contact relationship wrapper object that holds the details of the relationship to the patient.\n\nThis will only be return when an Emergency Contact number has been set on `telecom`. The only code that will be returned is `C`, which means `Emergency Contact`.\n",
+                                                        "minItems": 1,
+                                                        "maxItems": 1,
+                                                        "items": {
+                                                            "type": "object",
+                                                            "required": [
+                                                                "coding"
+                                                            ],
+                                                            "properties": {
+                                                                "coding": {
+                                                                    "type": "array",
+                                                                    "description": "Exactly one contact relationship.",
+                                                                    "minItems": 1,
+                                                                    "maxItems": 1,
+                                                                    "items": {
+                                                                        "type": "object",
+                                                                        "required": [
+                                                                            "code"
+                                                                        ],
+                                                                        "properties": {
+                                                                            "system": {
+                                                                                "type": "string",
+                                                                                "description": "URL of Code System that describes available contact relationships.",
+                                                                                "format": "url",
+                                                                                "default": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                                                                                "readOnly": true
+                                                                            },
+                                                                            "code": {
+                                                                                "type": "string",
+                                                                                "description": "Coded value for contact relationship.",
+                                                                                "example": "C"
+                                                                            },
+                                                                            "display": {
+                                                                                "type": "string",
+                                                                                "description": "Display-friendly representation of the contact relationship code.",
+                                                                                "example": "Emergency Contact"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "telecom": {
+                                                        "type": "array",
+                                                        "description": "List of Telecom objects on the contact will only contain `system` and `value`.\n",
+                                                        "items": {
+                                                            "description": "A contact point, such as a phone number or email address",
+                                                            "type": "object",
+                                                            "required": [
+                                                                "system",
+                                                                "value"
+                                                            ],
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string",
+                                                                    "description": "Unique object identifier for this contact point.",
+                                                                    "readOnly": true,
+                                                                    "example": "789"
+                                                                },
+                                                                "period": {
+                                                                    "type": "object",
+                                                                    "description": "Time period when name was, is, or will be in use.",
+                                                                    "required": [
+                                                                        "start"
+                                                                    ],
+                                                                    "properties": {
+                                                                        "start": {
+                                                                            "type": "string",
+                                                                            "format": "date",
+                                                                            "description": "Start date of time period, if known, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                            "example": "2020-01-01"
+                                                                        },
+                                                                        "end": {
+                                                                            "type": "string",
+                                                                            "format": "date",
+                                                                            "description": "End date of time period, if known and if not ongoing, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                            "example": "2021-12-31"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "system": {
+                                                                    "description": "Means of communication, such as phone or email.",
+                                                                    "type": "string",
+                                                                    "enum": [
+                                                                        "phone",
+                                                                        "fax",
+                                                                        "email",
+                                                                        "other"
+                                                                    ],
+                                                                    "example": "phone"
+                                                                },
+                                                                "value": {
+                                                                    "description": "Phone number, email address, or other identifier for use with contact system.",
+                                                                    "type": "string",
+                                                                    "example": "01632960587"
+                                                                },
+                                                                "use": {
+                                                                    "type": "string",
+                                                                    "description": "Location associated with communication system.",
+                                                                    "enum": [
+                                                                        "home",
+                                                                        "work",
+                                                                        "temp",
+                                                                        "mobile"
+                                                                    ],
+                                                                    "example": "work"
+                                                                },
+                                                                "extension": {
+                                                                    "type": "array",
+                                                                    "maxItems": 1,
+                                                                    "description": "Extension that will only be returned when the communication type is `textphone`. The only code that will be returned is `textphone`, which means `Minicom (Textphone)`.\n\nThe `system` will only ever be `other` when the extension is included.\n",
+                                                                    "items": {
+                                                                        "type": "object",
+                                                                        "description": "Wrapped object for other contact system details.",
+                                                                        "properties": {
+                                                                            "url": {
+                                                                                "type": "string",
+                                                                                "description": "Definition of other contact system extension.",
+                                                                                "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem",
+                                                                                "enum": [
+                                                                                    "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem"
+                                                                                ],
+                                                                                "readOnly": true
+                                                                            },
+                                                                            "valueCoding": {
+                                                                                "type": "object",
+                                                                                "description": "URL of specification of other contact systems.",
+                                                                                "properties": {
+                                                                                    "system": {
+                                                                                        "type": "string",
+                                                                                        "description": "URL of Code System that describes available contact relationships.",
+                                                                                        "default": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-OtherContactSystem",
+                                                                                        "readOnly": true
+                                                                                    },
+                                                                                    "code": {
+                                                                                        "type": "string",
+                                                                                        "description": "Coded value for the other contact system in place.",
+                                                                                        "example": "textphone"
+                                                                                    },
+                                                                                    "display": {
+                                                                                        "description": "Display-friendly representation of the other contact system code.",
+                                                                                        "type": "string",
+                                                                                        "example": "Minicom (Textphone)"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "generalPractitioner": {
+                                            "type": "array",
+                                            "maxItems": 1,
+                                            "description": "General Practice (not practitioner) with which the patient is, or was, registered. Always contains zero or one general practitioner object.\n\nWhen a patient tagged as `restricted` or `very restricted` is retrieved, the General Practice will be removed from the response.\n",
+                                            "items": {
+                                                "description": "General practice (not practitioner) with which the patient is or was registered.",
+                                                "type": "object",
+                                                "required": [
+                                                    "identifier"
+                                                ],
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "Object identifier (OID) specific to the returned details - this should be return exactly the same in any update.",
+                                                        "type": "string",
+                                                        "readOnly": true,
+                                                        "example": "254406A3"
+                                                    },
+                                                    "type": {
+                                                        "description": "Type of Reference being returned.",
+                                                        "type": "string",
+                                                        "readOnly": true,
+                                                        "example": "Organization"
+                                                    },
+                                                    "reference": {
+                                                        "description": "URL for the FHIR Organization resource for the registered general practice. See [Organisation Data Service FHIR API](https://developer.nhs.uk/apis/ods/) for more details.",
+                                                        "type": "string",
+                                                        "example": "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345"
+                                                    },
+                                                    "identifier": {
+                                                        "description": "Identifier and system of identification used for this Organisation.",
+                                                        "type": "object",
+                                                        "required": [
+                                                            "value"
+                                                        ],
+                                                        "properties": {
+                                                            "system": {
+                                                                "description": "URL for the Organisation Data Service - who are responsible for publishing codes that identify organisations and individuals across health and social care.",
+                                                                "type": "string",
+                                                                "readOnly": true,
+                                                                "example": "https://fhir.nhs.uk/Id/ods-organization-code"
+                                                            },
+                                                            "value": {
+                                                                "description": "Organisation code for the registered general practice, as held in the [Organisation Data Service](https://developer.nhs.uk/apis/ods/).",
+                                                                "type": "string",
+                                                                "pattern": "^[0-9A-Z]+$",
+                                                                "example": "Y12345"
+                                                            },
+                                                            "period": {
+                                                                "type": "object",
+                                                                "description": "Time period when name was, is, or will be in use.",
+                                                                "required": [
+                                                                    "start"
+                                                                ],
+                                                                "properties": {
+                                                                    "start": {
+                                                                        "type": "string",
+                                                                        "format": "date",
+                                                                        "description": "Start date of time period, if known, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                        "example": "2020-01-01"
+                                                                    },
+                                                                    "end": {
+                                                                        "type": "string",
+                                                                        "format": "date",
+                                                                        "description": "End date of time period, if known and if not ongoing, in format `yyyy-mm-dd`. Can be a future date.",
+                                                                        "example": "2021-12-31"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "extension": {
+                                            "type": "array",
+                                            "description": "Wrapper array for the patient's pharmacies, death notification status, communication details, contact preferences and place of birth; these are all FHIR extensions.\nAlways contains zero or one of each pharmacy object, zero or one death notification status object, zero or one communication details object, zero or one contact preference and zero or one place of birth object.\n\nWhen a patient tagged as `restricted` or `very restricted` is retrieved, the pharmacy and birth place extensions will be removed from the response.\n",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "object",
+                                                        "description": "Wrapper object for the patient's nominated pharmacy. This will only be populated on a retrieval and not a search.",
+                                                        "required": [
+                                                            "url",
+                                                            "valueReference"
+                                                        ],
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": "string",
+                                                                "description": "URL of specification of UKCore-NominatedPharmacy FHIR extension.",
+                                                                "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy",
+                                                                "enum": [
+                                                                    "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            "valueReference": {
+                                                                "type": "object",
+                                                                "description": "Reference to a pharmacy `Organization` resource.",
+                                                                "required": [
+                                                                    "reference",
+                                                                    "identifier"
+                                                                ],
+                                                                "properties": {
+                                                                    "reference": {
+                                                                        "type": "string",
+                                                                        "description": "URL of the FHIR Organization resource for the nominated pharmacy. See [Organisation Data Service FHIR API](https://developer.nhs.uk/apis/ods/) for more details.",
+                                                                        "example": "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345"
+                                                                    },
+                                                                    "identifier": {
+                                                                        "type": "object",
+                                                                        "description": "Wrapper object for the patient's nominated pharmacy organisation code.",
+                                                                        "required": [
+                                                                            "value"
+                                                                        ],
+                                                                        "properties": {
+                                                                            "system": {
+                                                                                "type": "string",
+                                                                                "description": "URL for the FHIR code system for the ODS organisation code.",
+                                                                                "default": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                                                                "readOnly": true
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "string",
+                                                                                "description": "Organisation code for the nominated pharmacy, as held in the [Organisation Data Service](https://developer.nhs.uk/apis/ods/).",
+                                                                                "pattern": "^[A-Za-z0-9]{3,10}$",
+                                                                                "example": "Y12345"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "description": "Wrapper object for the patient's dispensing doctor. This will only be populated on a retrieval and not a search.",
+                                                        "required": [
+                                                            "url",
+                                                            "valueReference"
+                                                        ],
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": "string",
+                                                                "description": "URL of specification of UKCore-DispensingDoctor FHIR extension.",
+                                                                "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor",
+                                                                "enum": [
+                                                                    "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            "valueReference": {
+                                                                "type": "object",
+                                                                "description": "Reference to a GP practice pharmacy `Organization` resource.",
+                                                                "required": [
+                                                                    "reference",
+                                                                    "identifier"
+                                                                ],
+                                                                "properties": {
+                                                                    "reference": {
+                                                                        "type": "string",
+                                                                        "description": "URL of the FHIR Organization resource for the dispensing doctor. See [Organisation Data Service FHIR API](https://developer.nhs.uk/apis/ods/) for more details.",
+                                                                        "example": "https://directory.spineservices.nhs.uk/STU3/Organization/Y23456"
+                                                                    },
+                                                                    "identifier": {
+                                                                        "type": "object",
+                                                                        "description": "Wrapper object for the patient's dispensing doctor organisation code.",
+                                                                        "required": [
+                                                                            "value"
+                                                                        ],
+                                                                        "properties": {
+                                                                            "system": {
+                                                                                "type": "string",
+                                                                                "description": "URL for the FHIR code system for the ODS organisation code.",
+                                                                                "default": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                                                                "readOnly": true
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "string",
+                                                                                "description": "Organisation code for the dispensing doctor, as held in the [Organisation Data Service](https://developer.nhs.uk/apis/ods/).",
+                                                                                "pattern": "^[A-Za-z0-9]{3,10}$",
+                                                                                "example": "Y23456"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "description": "Wrapper object for the patient's medical appliance supplier. This will only be populated on a retrieval and not a search.",
+                                                        "required": [
+                                                            "url",
+                                                            "valueReference"
+                                                        ],
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": "string",
+                                                                "description": "URL of specification of UKCore-MedicalApplianceSupplier FHIR extension.",
+                                                                "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-MedicalApplianceSupplier",
+                                                                "enum": [
+                                                                    "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-MedicalApplianceSupplier"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            "valueReference": {
+                                                                "type": "object",
+                                                                "description": "Reference to medical appliance supplier pharmacy `Organization` resource.",
+                                                                "required": [
+                                                                    "reference",
+                                                                    "identifier"
+                                                                ],
+                                                                "properties": {
+                                                                    "reference": {
+                                                                        "type": "string",
+                                                                        "description": "URL of the FHIR Organization resource for the medical appliance supplier. See [Organisation Data Service FHIR API](https://developer.nhs.uk/apis/ods/) for more details.",
+                                                                        "example": "https://directory.spineservices.nhs.uk/STU3/Organization/Y34567"
+                                                                    },
+                                                                    "identifier": {
+                                                                        "type": "object",
+                                                                        "description": "Wrapper object for the patient's medical appliance supplier organisation code.",
+                                                                        "required": [
+                                                                            "value"
+                                                                        ],
+                                                                        "properties": {
+                                                                            "system": {
+                                                                                "type": "string",
+                                                                                "description": "URL for the FHIR code system for the ODS organisation code.",
+                                                                                "default": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                                                                "readOnly": true
+                                                                            },
+                                                                            "value": {
+                                                                                "type": "string",
+                                                                                "description": "Organisation code for the medical appliance supplier, as held in the [Organisation Data Service](https://developer.nhs.uk/apis/ods/).",
+                                                                                "pattern": "^[A-Za-z0-9]{3,10}$",
+                                                                                "example": "Y34567"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "description": "Wrapper object for death notification details.",
+                                                        "required": [
+                                                            "url",
+                                                            "extension"
+                                                        ],
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": "string",
+                                                                "description": "Definition of death notification extension.",
+                                                                "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus",
+                                                                "enum": [
+                                                                    "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            "extension": {
+                                                                "type": "array",
+                                                                "description": "Array containing exactly one death notification status code object and exactly one effective date object.",
+                                                                "minItems": 1,
+                                                                "maxItems": 2,
+                                                                "items": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "object",
+                                                                            "description": "Wrapper object for death notification status code.",
+                                                                            "required": [
+                                                                                "url",
+                                                                                "valueCodeableConcept"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "url": {
+                                                                                    "type": "string",
+                                                                                    "description": "Key of this object. Always `deathNotificationStatus`.",
+                                                                                    "default": "deathNotificationStatus",
+                                                                                    "enum": [
+                                                                                        "deathNotificationStatus"
+                                                                                    ],
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "valueCodeableConcept": {
+                                                                                    "type": "object",
+                                                                                    "description": "Death Notification Status.",
+                                                                                    "properties": {
+                                                                                        "coding": {
+                                                                                            "type": "array",
+                                                                                            "minItems": 1,
+                                                                                            "maxItems": 1,
+                                                                                            "items": {
+                                                                                                "type": "object",
+                                                                                                "required": [
+                                                                                                    "system",
+                                                                                                    "code"
+                                                                                                ],
+                                                                                                "properties": {
+                                                                                                    "system": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "URI of the coding system specification.",
+                                                                                                        "example": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus"
+                                                                                                    },
+                                                                                                    "version": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "Version of the coding system in use.",
+                                                                                                        "example": "1.0.0"
+                                                                                                    },
+                                                                                                    "code": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "Symbol, in syntax, defined by the system:\n* `1` - Informal - death notice received via an update from a local NHS Organisation such as GP or Trust\n* `2` - Formal - death notice received from Registrar of Deaths. Only these endpoints are allowed to add a Formal death:\n    - National Back Office using the Demographic Spine Application (DSA)\n    - Office of National Statistics (ONS)\n    - Maternity sites\n* `U` - Removed. This is a possible response, but it cannot be used on an update because Spine will reject it\n",
+                                                                                                        "example": "2",
+                                                                                                        "enum": [
+                                                                                                            "1",
+                                                                                                            "2",
+                                                                                                            "U"
+                                                                                                        ]
+                                                                                                    },
+                                                                                                    "display": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "Representation defined by the system.",
+                                                                                                        "example": "Formal - death notice received from Registrar of Deaths",
+                                                                                                        "enum": [
+                                                                                                            "Informal - death notice received via an update from a local NHS Organisation such as GP or Trust",
+                                                                                                            "Formal - death notice received from Registrar of Deaths",
+                                                                                                            "Removed"
+                                                                                                        ]
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "type": "object",
+                                                                            "description": "Wrapper object for death notification effective date.",
+                                                                            "required": [
+                                                                                "url",
+                                                                                "valueDateTime"
+                                                                            ],
+                                                                            "readOnly": true,
+                                                                            "properties": {
+                                                                                "url": {
+                                                                                    "type": "string",
+                                                                                    "description": "Key of this object. Always `systemEffectiveDate`.",
+                                                                                    "default": "systemEffectiveDate",
+                                                                                    "enum": [
+                                                                                        "systemEffectiveDate"
+                                                                                    ],
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "valueDateTime": {
+                                                                                    "type": "string",
+                                                                                    "description": "Date and time at which death notification status took effect.",
+                                                                                    "format": "date-time",
+                                                                                    "example": "2010-10-22T00:00:00+00:00",
+                                                                                    "readOnly": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "description": "Wrapper object for communication details. This will only be populated on a retrieval and not a search.",
+                                                        "required": [
+                                                            "url",
+                                                            "extension"
+                                                        ],
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": "string",
+                                                                "description": "Definition of communication extension.",
+                                                                "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSCommunication",
+                                                                "enum": [
+                                                                    "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSCommunication"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            "extension": {
+                                                                "type": "array",
+                                                                "description": "Definition of communication extension, The array must have two items, a valueCodeableConcept for the language and a valueBoolean for if an interpreter is required.",
+                                                                "minItems": 1,
+                                                                "maxItems": 2,
+                                                                "items": {
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "type": "object",
+                                                                            "description": "Wrapper object for communication language.",
+                                                                            "required": [
+                                                                                "url",
+                                                                                "valueCodeableConcept"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "url": {
+                                                                                    "type": "string",
+                                                                                    "description": "Key of this object. Always `language`.",
+                                                                                    "default": "language",
+                                                                                    "enum": [
+                                                                                        "language"
+                                                                                    ],
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "valueCodeableConcept": {
+                                                                                    "type": "object",
+                                                                                    "description": "Human language.",
+                                                                                    "required": [
+                                                                                        "coding"
+                                                                                    ],
+                                                                                    "properties": {
+                                                                                        "coding": {
+                                                                                            "type": "array",
+                                                                                            "description": "Exactly one language code.",
+                                                                                            "minItems": 1,
+                                                                                            "maxItems": 1,
+                                                                                            "items": {
+                                                                                                "type": "object",
+                                                                                                "required": [
+                                                                                                    "code"
+                                                                                                ],
+                                                                                                "properties": {
+                                                                                                    "system": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "URL of the Language Code System. Always uses the 'UKCore-HumanLanguage' Code System.",
+                                                                                                        "example": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-HumanLanguage",
+                                                                                                        "readOnly": true
+                                                                                                    },
+                                                                                                    "version": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "Version of the language code system.",
+                                                                                                        "example": "1.0.0"
+                                                                                                    },
+                                                                                                    "code": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "Language code based on [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard plus extensions for braille, makaton and sign languages, which are:\n* `q1` - Braille\n* `q2` - American Sign Language\n* `q3` - Australian Sign Language\n* `q4` - British Sign Language\n* `q5` - Makaton\nAll valid codes combined can be found at https://fhir.nhs.uk/R4/CodeSystem/UKCore-HumanLanguage.\n",
+                                                                                                        "example": "fr"
+                                                                                                    },
+                                                                                                    "display": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "Display-friendly representation of the language code (such as English). If there is a language code with no defined mapping, `Unknown` will be returned.",
+                                                                                                        "example": "French"
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "type": "object",
+                                                                            "description": "Wrapper object for whether an interpreter is required.",
+                                                                            "required": [
+                                                                                "url",
+                                                                                "valueBoolean"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "url": {
+                                                                                    "type": "string",
+                                                                                    "description": "Key of this object. Always `interpreterRequired`.",
+                                                                                    "default": "interpreterRequired",
+                                                                                    "enum": [
+                                                                                        "interpreterRequired"
+                                                                                    ],
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "valueBoolean": {
+                                                                                    "type": "boolean",
+                                                                                    "description": "Whether an interpreter is required.",
+                                                                                    "example": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "title": "Wrapper object for preferred contact details; the written communication format, preferred contact time and method. This will only be populated on a retrieval and not a search.",
+                                                        "type": "object",
+                                                        "required": [
+                                                            "url",
+                                                            "extension"
+                                                        ],
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": "string",
+                                                                "description": "Definition of the contact preference extension.",
+                                                                "default": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactPreference",
+                                                                "enum": [
+                                                                    "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactPreference"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            "extension": {
+                                                                "description": "Wrapper array containing zero or one preferred contact method, zero or one preferred written communication format; and zero or one preferred contact time.",
+                                                                "type": "array",
+                                                                "maxItems": 3,
+                                                                "items": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "object",
+                                                                            "description": "Wrapper object for preferred written communication format.",
+                                                                            "required": [
+                                                                                "url",
+                                                                                "valueCodeableConcept"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "url": {
+                                                                                    "type": "string",
+                                                                                    "description": "Key of this object. Always `PreferredWrittenCommunicationFormat`.",
+                                                                                    "default": "PreferredWrittenCommunicationFormat",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "valueCodeableConcept": {
+                                                                                    "type": "object",
+                                                                                    "description": "Preferred Written Communication Format.",
+                                                                                    "required": [
+                                                                                        "coding"
+                                                                                    ],
+                                                                                    "properties": {
+                                                                                        "coding": {
+                                                                                            "type": "array",
+                                                                                            "minItems": 1,
+                                                                                            "maxItems": 1,
+                                                                                            "items": {
+                                                                                                "type": "object",
+                                                                                                "required": [
+                                                                                                    "code"
+                                                                                                ],
+                                                                                                "properties": {
+                                                                                                    "system": {
+                                                                                                        "type": "string",
+                                                                                                        "format": "url",
+                                                                                                        "description": "Definition of the preferred written communication extension.",
+                                                                                                        "default": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredWrittenCommunicationFormat",
+                                                                                                        "enum": [
+                                                                                                            "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredWrittenCommunicationFormat"
+                                                                                                        ],
+                                                                                                        "readOnly": true
+                                                                                                    },
+                                                                                                    "code": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "A code to identify the preferred written communication format of a patient, contact or related person.\n* 11 - Large print\n* 12 - Braille\n* 13 - Audio tape\n",
+                                                                                                        "example": "12"
+                                                                                                    },
+                                                                                                    "display": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "Display-friendly representation of the preferred written communication format code.",
+                                                                                                        "example": "Braille"
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "type": "object",
+                                                                            "description": "Wrapper object for preferred contact method.",
+                                                                            "required": [
+                                                                                "url",
+                                                                                "valueCodeableConcept"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "url": {
+                                                                                    "type": "string",
+                                                                                    "description": "Key of this object. Always `PreferredContactMethod`.",
+                                                                                    "default": "PreferredContactMethod",
+                                                                                    "enum": [
+                                                                                        "PreferredContactMethod"
+                                                                                    ],
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "valueCodeableConcept": {
+                                                                                    "type": "object",
+                                                                                    "description": "Preferred Contact Method.",
+                                                                                    "required": [
+                                                                                        "coding"
+                                                                                    ],
+                                                                                    "properties": {
+                                                                                        "coding": {
+                                                                                            "type": "array",
+                                                                                            "minItems": 1,
+                                                                                            "maxItems": 1,
+                                                                                            "items": {
+                                                                                                "type": "object",
+                                                                                                "required": [
+                                                                                                    "code"
+                                                                                                ],
+                                                                                                "properties": {
+                                                                                                    "system": {
+                                                                                                        "type": "string",
+                                                                                                        "format": "url",
+                                                                                                        "description": "Definition of the preferred contact method extension.",
+                                                                                                        "default": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredContactMethod",
+                                                                                                        "enum": [
+                                                                                                            "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredContactMethod"
+                                                                                                        ],
+                                                                                                        "readOnly": true
+                                                                                                    },
+                                                                                                    "code": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "A code to identify to identify the preferred contact method of a patient, contact or related person.\n* 1\t- Letter\n* 2\t- Visit\n* 3\t- Telephone\n* 4\t- E-mail\n* 5\t- Minicom (Textphone)\n* 6\t- Telephone contact via proxy\n* 7\t- Sign language\n* 8\t- No Telephone contact\n",
+                                                                                                        "example": "1"
+                                                                                                    },
+                                                                                                    "display": {
+                                                                                                        "type": "string",
+                                                                                                        "description": "Display-friendly representation of the preferred contact method code.",
+                                                                                                        "example": "Letter"
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "type": "object",
+                                                                            "description": "Wrapper object for preferred contact times.",
+                                                                            "required": [
+                                                                                "url",
+                                                                                "valueString"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "url": {
+                                                                                    "type": "string",
+                                                                                    "description": "Key of this object. Always `PreferredContactTimes`.",
+                                                                                    "default": "PreferredContactTimes",
+                                                                                    "enum": [
+                                                                                        "PreferredContactTimes"
+                                                                                    ],
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "valueString": {
+                                                                                    "type": "string",
+                                                                                    "maximum": 40,
+                                                                                    "description": "A free-text description about the preferred contact times.",
+                                                                                    "example": "Not after 7pm"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "description": "Wrapper object for place of birth details. This will not be returned on a restricted patient.",
+                                                        "required": [
+                                                            "url",
+                                                            "valueAddress"
+                                                        ],
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": "string",
+                                                                "description": "Definition of place of birth extension.",
+                                                                "default": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+                                                                "enum": [
+                                                                    "http://hl7.org/fhir/StructureDefinition/patient-birthPlace"
+                                                                ],
+                                                                "readOnly": true
+                                                            },
+                                                            "valueAddress": {
+                                                                "type": "object",
+                                                                "additionalProperties": false,
+                                                                "properties": {
+                                                                    "city": {
+                                                                        "type": "string",
+                                                                        "description": "Town or city of birth.",
+                                                                        "example": "Manchester"
+                                                                    },
+                                                                    "district": {
+                                                                        "type": "string",
+                                                                        "description": "County or metropolitan district of birth.",
+                                                                        "example": "Greater Manchester"
+                                                                    },
+                                                                    "country": {
+                                                                        "type": "string",
+                                                                        "description": "A coded value for a patient's country of birth.\n\nFrom [ISO 3166-1](http://hl7.org/fhir/valueset-iso3166-1-3.html) plus codes from the UK Internal Code list which do not have entries in ISO 3166-1.\n\nUK Internal Codes:\n* `1` - England\n* `2` - Scotland\n* `3` - Wales\n* `4` - Northern Ireland\n* `7` - Sark\n* `9` - Alderney\n* `10` - Channel Islands\n",
+                                                                        "example": "GBR"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "address": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "extension": [
+                                                        {
+                                                            "url": "type",
+                                                            "valueCoding": {
+                                                                "code": "PAF",
+                                                                "system": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType"
+                                                            }
+                                                        },
+                                                        {
+                                                            "url": "value",
+                                                            "valueString": "12345678"
+                                                        }
+                                                    ],
+                                                    "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey"
+                                                }
+                                            ],
+                                            "id": "456",
+                                            "line": [
+                                                "1 Trevelyan Square",
+                                                "Boar Lane",
+                                                "City Centre",
+                                                "Leeds",
+                                                "West Yorkshire"
+                                            ],
+                                            "period": {
+                                                "end": "2021-12-31",
+                                                "start": "2020-01-01"
+                                            },
+                                            "postalCode": "LS1 6AE",
+                                            "use": "home"
+                                        }
+                                    ],
+                                    "birthDate": "2010-10-22",
+                                    "contact": [
+                                        {
+                                            "id": "C123",
+                                            "period": {
+                                                "end": "2021-12-31",
+                                                "start": "2020-01-01"
+                                            },
+                                            "relationship": [
+                                                {
+                                                    "coding": [
+                                                        {
+                                                            "code": "C",
+                                                            "display": "Emergency Contact",
+                                                            "system": "http://terminology.hl7.org/CodeSystem/v2-0131"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "telecom": [
+                                                {
+                                                    "system": "phone",
+                                                    "value": "01632960587"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "deceasedDateTime": "2010-10-22T00:00:00+00:00",
+                                    "extension": [
+                                        {
+                                            "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy",
+                                            "valueReference": {
+                                                "identifier": {
+                                                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                                    "value": "Y12345"
+                                                },
+                                                "reference": "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345"
+                                            }
+                                        },
+                                        {
+                                            "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor",
+                                            "valueReference": {
+                                                "identifier": {
+                                                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                                    "value": "Y23456"
+                                                },
+                                                "reference": "https://directory.spineservices.nhs.uk/STU3/Organization/Y23456"
+                                            }
+                                        },
+                                        {
+                                            "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-MedicalApplianceSupplier",
+                                            "valueReference": {
+                                                "identifier": {
+                                                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                                    "value": "Y34567"
+                                                },
+                                                "reference": "https://directory.spineservices.nhs.uk/STU3/Organization/Y34567"
+                                            }
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "deathNotificationStatus",
+                                                    "valueCodeableConcept": {
+                                                        "coding": [
+                                                            {
+                                                                "code": "2",
+                                                                "display": "Formal - death notice received from Registrar of Deaths",
+                                                                "system": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus",
+                                                                "version": "1.0.0"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "url": "systemEffectiveDate",
+                                                    "valueDateTime": "2010-10-22T00:00:00+00:00"
+                                                }
+                                            ],
+                                            "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "language",
+                                                    "valueCodeableConcept": {
+                                                        "coding": [
+                                                            {
+                                                                "code": "fr",
+                                                                "display": "French",
+                                                                "system": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-HumanLanguage",
+                                                                "version": "1.0.0"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "url": "interpreterRequired",
+                                                    "valueBoolean": true
+                                                }
+                                            ],
+                                            "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSCommunication"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "PreferredWrittenCommunicationFormat",
+                                                    "valueCodeableConcept": {
+                                                        "coding": [
+                                                            {
+                                                                "code": "12",
+                                                                "display": "Braille",
+                                                                "system": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredWrittenCommunicationFormat"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "url": "PreferredContactMethod",
+                                                    "valueCodeableConcept": {
+                                                        "coding": [
+                                                            {
+                                                                "code": "1",
+                                                                "display": "Letter",
+                                                                "system": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredContactMethod"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "url": "PreferredContactTimes",
+                                                    "valueString": "Not after 7pm"
+                                                }
+                                            ],
+                                            "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactPreference"
+                                        },
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+                                            "valueAddress": {
+                                                "city": "Manchester",
+                                                "country": "GBR",
+                                                "district": "Greater Manchester"
+                                            }
+                                        }
+                                    ],
+                                    "gender": "female",
+                                    "generalPractitioner": [
+                                        {
+                                            "id": "254406A3",
+                                            "identifier": {
+                                                "period": {
+                                                    "end": "2021-12-31",
+                                                    "start": "2020-01-01"
+                                                },
+                                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                                "value": "Y12345"
+                                            },
+                                            "reference": "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345",
+                                            "type": "Organization"
+                                        }
+                                    ],
+                                    "id": "9000000009",
+                                    "identifier": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                                                    "valueCodeableConcept": {
+                                                        "coding": [
+                                                            {
+                                                                "code": "01",
+                                                                "display": "Number present and verified",
+                                                                "system": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-NHSNumberVerificationStatus",
+                                                                "version": "1.0.0"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "system": "https://fhir.nhs.uk/Id/nhs-number",
+                                            "value": "9000000009"
+                                        }
+                                    ],
+                                    "meta": {
+                                        "security": [
+                                            {
+                                                "code": "U",
+                                                "display": "unrestricted",
+                                                "system": "https://www.hl7.org/fhir/valueset-security-labels.html"
+                                            }
+                                        ],
+                                        "versionId": "2"
+                                    },
+                                    "multipleBirthInteger": 1,
+                                    "name": [
+                                        {
+                                            "family": "Smith",
+                                            "given": [
+                                                "Jane"
+                                            ],
+                                            "id": "123",
+                                            "period": {
+                                                "end": "2021-12-31",
+                                                "start": "2020-01-01"
+                                            },
+                                            "prefix": [
+                                                "Mrs"
+                                            ],
+                                            "suffix": [
+                                                "MBE"
+                                            ],
+                                            "use": "usual"
+                                        }
+                                    ],
+                                    "resourceType": "Patient",
+                                    "telecom": [
+                                        {
+                                            "id": "789",
+                                            "period": {
+                                                "end": "2021-12-31",
+                                                "start": "2020-01-01"
+                                            },
+                                            "system": "phone",
+                                            "use": "work",
+                                            "value": "01632960587"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem",
+                                                    "valueCoding": {
+                                                        "code": "textphone",
+                                                        "display": "Minicom (Textphone)",
+                                                        "system": "https://fhir.nhs.uk/R4/CodeSystem/UKCore-OtherContactSystem"
+                                                    }
+                                                }
+                                            ],
+                                            "id": "OC789",
+                                            "period": {
+                                                "end": "2021-12-31",
+                                                "start": "2020-01-01"
+                                            },
+                                            "system": "other",
+                                            "use": "work",
+                                            "value": "01632960587"
+                                        }
+                                    ]
+                                }
+                            },
                             "application/fhir+json": {
                                 "schema": {
                                     "type": "object",
@@ -1752,7 +3495,7 @@
                                     "properties": {
                                         "resourceType": {
                                             "type": "string",
-                                            "description": "FHIR resource type.",
+                                            "description": "FHIR resource type application/fhir+json.",
                                             "default": "Patient",
                                             "readOnly": true
                                         },

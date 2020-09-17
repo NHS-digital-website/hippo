@@ -1,0 +1,112 @@
+{{! For reference see io.swagger.v3.oas.models.media.Schema }}
+
+<tr><td>INDENTATION LEVEL:</td><td>{{indentation}}</td></tr>
+
+{{! TODO group some properties in the same 'Name' column cell: name/title/deprecated, etc?}}
+{{! TODO group some properties in the same 'Description' column cell: name/title/deprecated, etc?}}
+
+<tr><td>name</td><td>{{name}}</td></tr>
+
+<tr><td>title</td><td>{{title}}</td></tr>
+
+<tr><td>multipleOf</td><td>{{multipleOf}}</td></tr>
+
+<tr><td>maximum</td><td>{{maximum}}</td></tr>
+
+<tr><td>exclusiveMaximum</td><td>{{exclusiveMaximum}}</td></tr>
+
+<tr><td>minimum</td><td>{{minimum}}</td></tr>
+
+<tr><td>exclusiveMinimum</td><td>{{exclusiveMinimum}}</td></tr>
+
+<tr><td>maxLength</td><td>{{maxLength}}</td></tr>
+
+<tr><td>minLength</td><td>{{minLength}}</td></tr>
+
+<tr><td>pattern</td><td>{{pattern}}</td></tr>
+
+<tr><td>maxItems</td><td>{{maxItems}}</td></tr>
+
+<tr><td>minItems</td><td>{{minItems}}</td></tr>
+
+<tr><td>uniqueItems</td><td>{{uniqueItems}}</td></tr>
+
+<tr><td>maxProperties</td><td>{{maxProperties}}</td></tr>
+
+<tr><td>minProperties</td><td>{{minProperties}}</td></tr>
+
+<tr><td>required</td><td>{{required}}</td></tr>
+
+<tr><td>type</td><td>{{type}}</td></tr>
+
+{{#not}} <tr><td>not</td><td>{{>schema_object}} </td></tr> {{/not}}
+
+{{!from ComposedSchema}}
+{{#allOf}}
+    {{#@first}}
+    <tr><td>allOf</td><td></td></tr>
+    {{/@first}}
+    {{>schema_object}}
+{{/allOf}}
+{{#anyOf}}
+    {{#@first}}
+    <tr><td>anyOf</td><td></td></tr>
+    {{/@first}}
+    {{>schema_object}}
+{{/anyOf}}
+{{#oneOf}}
+    {{#@first}}
+    <tr><td>oneOf</td><td></td></tr>
+    {{/@first}}
+    {{>schema_object}}
+{{/oneOf}}
+
+{{! from ArraySchema }}
+{{#items}}
+<tr><td>items</td><td></td></tr>
+    {{>schema_object}}
+{{/items}}
+
+{{! TODO markdown helper}}
+<tr><td>description</td><td>{{description}}</td></tr>
+
+<tr><td>format</td><td>{{format}}</td></tr>
+
+{{! TODO $ref - low priority - we don't expect refernced objects, the pipeline that builds JSON inlines everything}}
+
+<tr><td>nullable</td><td>{{nullable}}</td></tr>
+
+<tr><td>readOnly</td><td>{{readOnly}}</td></tr>
+
+<tr><td>writeOnly</td><td>{{writeOnly}}</td></tr>
+
+{{! TODO can be object, may need special handling?}}
+<tr><td>example</td><td>{{example}}</td></tr>
+
+{{! TODO externalDocs - dedicated template or inline?}}
+
+<tr><td>deprecated</td><td>{{deprecated}}</td></tr>
+
+<tr><td>default</td><td>{{default}}</td></tr>
+
+{{! TODO xml }}
+
+{{! TODO extensions }}
+
+{{! TODO _enum }}
+
+{{! TODO discriminator }}
+
+{{! TODO 'local/inline' #if selector - this value can be boolean or SchemaObject}}
+<tr><td>additionalProperties</td><td>{{additionalProperties}}</td></tr>
+
+{{! TODO MAP OF VALUES: KEEP 'properties' header? but create nested rows for keys and values?}}
+{{! we probably don't want 'properties' header? - hierarchy will be reflected through indentation}}
+{{!TODO indentation}}
+{{#each properties}}
+    {{#@first}}
+        <tr><td>properties</td><td></td></tr>
+    {{/@first}}
+    <tr><td>{{@key}}</td><td></td></tr>
+    {{>schema_object}}
+{{/each}}

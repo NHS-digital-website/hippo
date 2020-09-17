@@ -48,6 +48,8 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // then
         final String expectedSpecHtml = customisedSwaggerCodeGenGeneratedSpecificationHtml();
 
+        // assertThat("renders properties", actualSpecHtml, containsString("<tr><td>Key: "));
+
         assertThat(
             "Specification HTML has been generated using customised Swagger CodeGen v3",
             actualSpecHtml,

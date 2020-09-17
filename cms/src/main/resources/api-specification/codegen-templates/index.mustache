@@ -105,8 +105,17 @@
                                             {{#hasBodyParam}}
                                                 <div class="httpparams">
                                                     <h3>Body</h3>
+
+
+
                                                     {{#bodyParams}}
                                                     {{#required}}<div class="httpparams__required">Required</div>{{/required}}
+
+                                                    <div class="body__schema__header">Request body schema:</div>
+                                                    {{#bodyParam.vendorExtensions.x-schema}}
+                                                        {{>schema}}
+                                                    {{/bodyParam.vendorExtensions.x-schema}}
+
                                                     {{#vendorExtensions.x-body}}
                                                         {{>body_param}}
                                                     {{/vendorExtensions.x-body}}
@@ -164,6 +173,11 @@
                                                     </div>
                                                 {{/hasHeaders}}
 
+                                                <div class="body__schema__header">Response body schema:</div>
+                                                {{#schema}}
+                                                    {{>schema}}
+                                                {{/schema}}
+
                                                 {{#vendorExtensions.x-body}}
                                                     {{#mediaTypes}}
                                                         {{#@first}}
@@ -189,7 +203,7 @@
                 <div class="app-desc">Information URL: <a href="{{{infoUrl}}}">{{{infoUrl}}}</a></div>
             {{/infoUrl}}
             {{#infoEmail}}
-                <div class="app-desc">Contact Info: <a href="{{{infoEmail}}}">{{{infoEmail}}}</a></div>
+                <div class="app-desc">Contact Info: <a href="mailto:{{{infoEmail}}}">{{{infoEmail}}}</a></div>
             {{/infoEmail}}
             </p>
             {{#licenseInfo}}

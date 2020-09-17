@@ -1,0 +1,91 @@
+{{! For reference see io.swagger.v3.oas.models.media.ArraySchema }}
+
+{{! TODO group some properties in the same 'Name' column cell: name/title/deprecated, etc?}}
+{{! TODO group some properties in the same 'Description' column cell: name/title/deprecated, etc?}}
+
+{{#name}} <tr><td>name</td><td>{{name}}</td></tr> {{/name}}
+
+{{#title}} <tr><td>title</td><td>{{title}}</td></tr> {{/title}}
+
+{{#multipleOf}} <tr><td>multipleOf</td><td>{{multipleOf}}</td></tr> {{/multipleOf}}
+
+{{#maximum}} <tr><td>maximum</td><td>{{maximum}}</td></tr> {{/maximum}}
+
+{{#exclusiveMaximum}} <tr><td>exclusiveMaximum</td><td>{{exclusiveMaximum}}</td></tr> {{/exclusiveMaximum}}
+
+{{#minimum}} <tr><td>minimum</td><td>{{minimum}}</td></tr> {{/minimum}}
+
+{{#exclusiveMinimum}} <tr><td>exclusiveMinimum</td><td>{{exclusiveMinimum}}</td></tr> {{/exclusiveMinimum}}
+
+{{#maxLength}} <tr><td>maxLength</td><td>{{maxLength}}</td></tr> {{/maxLength}}
+
+{{#minLength}} <tr><td>minLength</td><td>{{minLength}}</td></tr> {{/minLength}}
+
+{{#pattern}} <tr><td>pattern</td><td>{{pattern}}</td></tr> {{/pattern}}
+
+{{#maxItems}} <tr><td>maxItems</td><td>{{maxItems}}</td></tr> {{/maxItems}}
+
+{{#minItems}} <tr><td>minItems</td><td>{{minItems}}</td></tr> {{/minItems}}
+
+{{#uniqueItems}} <tr><td>uniqueItems</td><td>{{uniqueItems}}</td></tr> {{/uniqueItems}}
+
+{{#maxProperties}} <tr><td>maxProperties</td><td>{{maxProperties}}</td></tr> {{/maxProperties}}
+
+{{#minProperties}} <tr><td>minProperties</td><td>{{minProperties}}</td></tr> {{/minProperties}}
+
+{{! TODO LIST OF VALUES IN THE DESCRIPTION COLUMN - OR '*' STATUS IN INDIVIDUAL REFERENCED OBJECTS?}}
+{{#required}} <tr><td>required</td><td>{{required}}</td></tr> {{/required}}
+
+{{#type}} <tr><td>type</td><td>{{type}}</td></tr> {{/type}}
+
+{{#not}}
+    <tr>
+        <td>not</td>
+        <td>
+            {{>schema_type_selector}} {{! TODO }}
+        </td>
+    </tr>
+{{/not}}
+
+
+{{! TODO MAP OF VALUES: KEEP 'properties' header? but create nested rows for keys and values?}}
+{{! we probably don't want 'properties' header? - hierarchy will be reflected through indentation}}
+{{!#properties}}
+{{! <tr><td>properties</td><td></td></tr>}}
+{{!/properties}}
+{{#each properties}}
+    {{!TODO indentation}}
+    <tr><td>{{@key}}</td><td>{{>schema_object}}</td></tr>
+{{/each}}
+
+{{! TODO 'local/inline' #if selector - this value can be boolean or SchemaObject}}
+{{#additionalProperties}} <tr><td>additionalProperties</td><td>{{additionalProperties}}</td></tr> {{/additionalProperties}}
+
+{{! TODO markdown helper}}
+{{#description}} <tr><td>description</td><td>{{description}}</td></tr> {{/description}}
+
+{{#format}} <tr><td>format</td><td>{{format}}</td></tr> {{/format}}
+
+{{! TODO $ref - low priority - we don't expect refernced objects, the pipeline that builds JSON inlines everything}}
+
+{{#nullable}} <tr><td>nullable</td><td>{{nullable}}</td></tr> {{/nullable}}
+
+{{#readOnly}} <tr><td>readOnly</td><td>{{readOnly}}</td></tr> {{/readOnly}}
+
+{{#writeOnly}} <tr><td>writeOnly</td><td>{{writeOnly}}</td></tr> {{/writeOnly}}
+
+{{! TODO can be object, may need special handling?}}
+{{#example}} <tr><td>example</td><td>{{example}}</td></tr> {{/example}}
+
+{{! TODO externalDocs - dedicated template or inline?}}
+
+{{#deprecated}} <tr><td>deprecated</td><td>{{deprecated}}</td></tr> {{/deprecated}}
+
+{{! TODO xml }}
+
+{{! TODO extensions }}
+
+{{! TODO _enum }}
+
+{{! TODO discriminator }}
+

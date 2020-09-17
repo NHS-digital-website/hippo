@@ -15,7 +15,9 @@ import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
+import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.apache.commons.lang3.StringUtils;
@@ -92,6 +94,15 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     @Override
+    public CodegenParameter fromRequestBody(final RequestBody body, final String name, final Schema schema, final Map<String, Schema> schemas, final Set<String> imports) {
+        final CodegenParameter requestBody = super.fromRequestBody(body, name, schema, schemas, imports);
+
+        requestBody.getVendorExtensions().put("x-schema", schema);
+
+        return requestBody;
+    }
+
+    @Override
     public void setParameterExampleValue(final CodegenParameter parameter) {
         try {
             parameter.example = codegenParameterExampleRenderer.htmlForExampleValueOf(parameter.getJsonSchema());
@@ -103,8 +114,10 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     @Override
     public void addHandlebarHelpers(final Handlebars handlebars) {
         super.addHandlebarHelpers(handlebars);
-        handlebars.registerHelper(EnumHelper.NAME, new EnumHelper());
-        handlebars.with(EscapingStrategy.NOOP);
+        handlebars.registerHelper(EnumHelper.NAME, new EnumHelper())
+            .registerHelper(SchemaHelper.NAME, new SchemaHelper())
+            .with(EscapingStrategy.NOOP)
+        ;
     }
 
     private void preProcessOperations(final OpenAPI openApi) {
