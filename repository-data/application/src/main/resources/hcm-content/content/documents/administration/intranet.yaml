@@ -1,61 +1,109 @@
+---
 /content/documents/administration/intranet:
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  jcr:uuid: 84af627f-8b38-44ce-84c9-3b00b3d34743
-  hippo:name: Intranet
-  hippostd:foldertype: [new-document, new-folder]
   /intranet-homepage:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 637fdba9-8c90-4934-bef7-560657feebbf
-    hippo:name: Intranet Homepage
-    hippo:versionHistory: 7f9fbc3b-bf23-4ec5-990c-df9a3dc7ed5a
     /intranet-homepage[1]:
-      jcr:primaryType: resourcebundle:resourcebundle
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: f3a17328-53fa-4fa2-90c3-7214e66c0f21
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:55:55.859Z
       hippostdpubwf:lastModificationDate: 2020-09-18T08:41:04.588Z
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['', '', '', '', '']
-      resourcebundle:id: homepage.intranet.labels
-      resourcebundle:keys: [about-us.newsDateLabel, about-us.latestNewsButtonLabel,
-        about-us.viewAllTasksButtonLabel, about-us.latestSocialPostsLabel, about-us.latestBlogsButtonLabel]
-      resourcebundle:messages: [Publication Date, View all the latest News, View all
-          Tasks, Latest Social Posts, View all blogs]
-    /intranet-homepage[2]:
+      jcr:mixinTypes:
+      - mix:referenceable
       jcr:primaryType: resourcebundle:resourcebundle
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: f65391c2-8f10-444f-a6c8-29134f9663be
-      hippo:availability: [preview]
+      resourcebundle:descriptions:
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      resourcebundle:id: homepage.intranet.labels
+      resourcebundle:keys:
+      - about-us.newsDateLabel
+      - about-us.latestNewsButtonLabel
+      - about-us.viewAllTasksButtonLabel
+      - about-us.latestSocialPostsLabel
+      - about-us.latestBlogsButtonLabel
+      resourcebundle:messages:
+      - Publication Date
+      - View all the latest News
+      - View all Tasks
+      - Latest Social Posts
+      - View all blogs
+    /intranet-homepage[2]:
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:55:55.859Z
       hippostdpubwf:lastModificationDate: 2020-09-18T08:41:32.720Z
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['', '', '', '', '']
-      resourcebundle:id: homepage.intranet.labels
-      resourcebundle:keys: [about-us.newsDateLabel, about-us.latestNewsButtonLabel,
-        about-us.viewAllTasksButtonLabel, about-us.latestSocialPostsLabel, about-us.latestBlogsButtonLabel]
-      resourcebundle:messages: [Publication Date, View all the latest News, View all
-          Tasks, Latest Social Posts, View all blogs]
-    /intranet-homepage[3]:
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
       jcr:primaryType: resourcebundle:resourcebundle
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 19dc4dd3-0b7c-4349-b540-6c779f47de07
-      hippo:availability: [live]
+      resourcebundle:descriptions:
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      resourcebundle:id: homepage.intranet.labels
+      resourcebundle:keys:
+      - about-us.newsDateLabel
+      - about-us.latestNewsButtonLabel
+      - about-us.viewAllTasksButtonLabel
+      - about-us.latestSocialPostsLabel
+      - about-us.latestBlogsButtonLabel
+      resourcebundle:messages:
+      - Publication Date
+      - View all the latest News
+      - View all Tasks
+      - Latest Social Posts
+      - View all blogs
+    /intranet-homepage[3]:
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-09-10T08:55:55.859Z
       hippostdpubwf:lastModificationDate: 2020-09-18T08:41:32.720Z
       hippostdpubwf:lastModifiedBy: admin
       hippostdpubwf:publicationDate: 2020-09-18T08:41:34.569Z
-      resourcebundle:descriptions: ['', '', '', '', '']
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: resourcebundle:resourcebundle
+      resourcebundle:descriptions:
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
       resourcebundle:id: homepage.intranet.labels
-      resourcebundle:keys: [about-us.newsDateLabel, about-us.latestNewsButtonLabel,
-        about-us.viewAllTasksButtonLabel, about-us.latestSocialPostsLabel, about-us.latestBlogsButtonLabel]
-      resourcebundle:messages: [Publication Date, View all the latest News, View all
-          Tasks, Latest Social Posts, View all blogs]
+      resourcebundle:keys:
+      - about-us.newsDateLabel
+      - about-us.latestNewsButtonLabel
+      - about-us.viewAllTasksButtonLabel
+      - about-us.latestSocialPostsLabel
+      - about-us.latestBlogsButtonLabel
+      resourcebundle:messages:
+      - Publication Date
+      - View all the latest News
+      - View all Tasks
+      - Latest Social Posts
+      - View all blogs
+    hippo:name: Intranet Homepage
+    hippo:versionHistory: 7f9fbc3b-bf23-4ec5-990c-df9a3dc7ed5a
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Intranet
+  hippostd:foldertype:
+  - new-document
+  - new-folder
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
