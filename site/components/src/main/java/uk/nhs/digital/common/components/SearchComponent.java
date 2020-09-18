@@ -374,7 +374,8 @@ public class SearchComponent extends CommonComponent {
     private void addApis(HstQueryBuilder query) {
         query.ofTypes(
             ApiMaster.class,
-            ApiEndpoint.class
+            ApiEndpoint.class,
+            ApiSpecification.class
         );
     }
 

@@ -32,6 +32,7 @@
         "GDPR Transparency":            "uk.nhs.digital.website.beans.Gdprtransparency",
         "GDPR Summary":                 "uk.nhs.digital.website.beans.Gdprsummary",
         "API Master":                   "uk.nhs.digital.website.beans.ApiMaster",
+        "API Specification":            "uk.nhs.digital.website.beans.ApiSpecification",
         "Person":                       "uk.nhs.digital.website.beans.Person",
         "Location":                     "uk.nhs.digital.website.beans.Location",
         "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint",
