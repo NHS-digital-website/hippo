@@ -48,6 +48,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Short Summary
+            field: shortsummary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /json:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -86,6 +95,16 @@ definitions:
             hipposysedit:path: website:json
             hipposysedit:primary: false
             hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /shortsummary:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /specification_id:
             hipposysedit:mandatory: false
@@ -135,6 +154,8 @@ definitions:
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          common:FacetType: apispecification
+          common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
@@ -149,6 +170,7 @@ definitions:
           jcr:primaryType: website:apispecification
           website:html: ''
           website:json: ''
+          website:shortsummary: ''
           website:specification_id: ''
           website:summary: ''
           website:title: ''

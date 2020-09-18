@@ -19,6 +19,7 @@
         - mix:referenceable
         jcr:primaryType: website:apispecification
         website:html: static specification text in embedded html
+        website:shortsummary: Test specification short summary
         website:specification_id: '123456'
         website:summary: ''
         website:title: Test API Specification
@@ -41,6 +42,7 @@
         - mix:versionable
         jcr:primaryType: website:apispecification
         website:html: static specification text in embedded html
+        website:shortsummary: Test specification short summary
         website:specification_id: '123456'
         website:summary: ''
         website:title: Test API Specification
@@ -63,6 +65,7 @@
         - mix:referenceable
         jcr:primaryType: website:apispecification
         website:html: static specification text in embedded html
+        website:shortsummary: Test specification short summary
         website:specification_id: '123456'
         website:summary: ''
         website:title: Test API Specification
