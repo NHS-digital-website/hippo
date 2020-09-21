@@ -6,4 +6,22 @@
         margin-top: 32px;
         padding-top: 40px;
     }
+
+    .section-headings {
+        padding-bottom: 20px;
+    }
+
+    .title-button-grid {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        grid-template-rows:  1fr;
+
+        &__title {
+            grid-column: 1 / 4
+        }
+
+        &__button {
+            grid-column: 4 / 5
+        }
+    }
 }

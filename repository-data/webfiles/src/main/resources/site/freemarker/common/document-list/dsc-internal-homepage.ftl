@@ -28,14 +28,17 @@
 
         <#if pageable?? && pageable.items?has_content>
             <div class="section-demarcation">
+                <div class="section-headings">
+                    <h2>Useful information</h2>
+                </div>
                 <div class="home-document-grid-container">
                     <#list pageable.items?chunk(4) as row>
                         <#list row as item>
-                            <div class="home-document-grid-item">
-                                <h2 class="h3">
+                            <article class="home-document-grid-item">
+                                <h3>
                                     <a href="<@hst.link hippobean=item />">${item.title}</a>
-                                </h2>
-                            </div>
+                                </h3>
+                            </article>
                         </#list>
                     </#list>
                 </div>

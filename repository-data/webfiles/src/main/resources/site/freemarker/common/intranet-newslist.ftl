@@ -49,9 +49,13 @@
                 <#if item_index==3><#break></#if>
             </#list>
         </div>
-        <a href="${cparam.newsPageUrl}"><@fmt.message key="about-us.latestNewsButtonLabel"/></a>
-
     </div>
+
+    <div class="home-news-news-items-group-2">
+        <a href="${cparam.newsPageUrl}"><@fmt.message key="about-us.latestNewsButtonLabel"/></a>
+    </div>
+
+
 
     <div class="home-news-tasks">
 

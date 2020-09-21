@@ -4,9 +4,16 @@
 <@hst.setBundle basename="homepage.intranet.labels"/>
 
 <#if pageable?? && pageable.items?has_content>
-    <div class="homeland-blog">
-        <div class="article-section__header">
-            <h2>Latest Blogs</h2>
+    <div class="homeland-blog section-demarcation">
+        <div class="section-headings">
+            <div class="title-button-grid">
+                <div class="title-button-grid__title">
+                    <h2 class="title-grid__title">Latest Blogs</h2>
+                </div>
+                <div class="title-button-grid__button">
+                    <a class=" button" href="/blog"><@fmt.message key="about-us.latestBlogsButtonLabel"/></a>
+                </div>
+            </div>
         </div>
 
         <div class="grid-row">
@@ -49,6 +56,5 @@
                 </#list>
             </div>
         </div>
-        <a href="/blog"><@fmt.message key="about-us.latestBlogsButtonLabel"/></a>
     </div>
 </#if>

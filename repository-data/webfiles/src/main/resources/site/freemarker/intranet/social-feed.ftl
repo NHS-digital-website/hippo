@@ -7,7 +7,7 @@
 <@metaTags></@metaTags>
 
 <#--Static social media feed placeholder-->
-<div class="homeland-blog">
+<div class="homeland-blog section-demarcation">
     <article class="article article--intranet-home">
         <h2><@fmt.message key="about-us.latestSocialPostsLabel"/></h2>
             <div class="grid-row">

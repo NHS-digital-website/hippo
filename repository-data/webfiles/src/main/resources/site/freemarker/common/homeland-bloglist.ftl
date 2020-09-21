@@ -4,7 +4,7 @@
 <@hst.setBundle basename="homepage.intranet.labels"/>
 
 <#if pageable?? && pageable.items?has_content>
-    <div class="homeland-blog">
+    <div class="homeland-blog section-demarcation">
         <div class="article-section__header">
             <h2>Latest Blogs</h2>
         </div>

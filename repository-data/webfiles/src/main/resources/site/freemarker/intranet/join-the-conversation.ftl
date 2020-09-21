@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
-<div class="homeland-blog">
+<div class="homeland-blog section-demarcation">
     <article class="article article--intranet-home">
         <#if cparam.headline??>
             <h2>${cparam.headline}</h2>

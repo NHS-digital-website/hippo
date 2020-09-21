@@ -5,6 +5,9 @@
         &-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
+            @media (max-width: 992px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
             grid-template-rows: auto;
             gap: 20px 20px;
         }
