@@ -26,7 +26,7 @@
                     <article class="home-news-news-items-grid-item">
                         <#if item.leadImageSection.leadImage?has_content>
                             <@hst.link var="img" hippobean=item.leadImageSection.leadImage/>
-                            <img src="<#if img??>${img!}</#if>"
+                            <img class="home-news-news-items-grid-item-img" src="<#if img??>${img!}</#if>"
                                  alt="${item.leadImageSection.alttext}"/>
                         </#if>
                         <div class="home-news-news-items-grid-item-content">
@@ -48,7 +48,7 @@
                 <#if item_index==3><#break></#if>
             </#list>
         </div>
-        <a href="/news"><@fmt.message key="about-us.latestNewsButtonLabel"/></a>
+        <a href="${cparam.newsPageUrl}"><@fmt.message key="about-us.latestNewsButtonLabel"/></a>
 
     </div>
 
