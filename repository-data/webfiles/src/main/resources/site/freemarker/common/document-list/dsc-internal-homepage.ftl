@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include "../macro/cyberAlertBox.ftl">
 
 <#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <div class="grid-row cyber-grid-row">
@@ -28,30 +27,18 @@
         </#if>
 
         <#if pageable?? && pageable.items?has_content>
-            <div class="hub-box-list hub-box-list--grid">
-                <#assign index=0/>
-                <#list pageable.items?chunk(3) as row>
-                    <div class="hub-box-list--grid-row">
-                        <#list row as itemData>
-                            <#assign item = itemData />
-                            <@hst.link hippobean=item var="itemLink" />
-                            <#assign item += {"link": itemLink} />
-
-                            <#assign item += {"grid": true} />
-                            <#assign item += {"newStyle": true} />
-                            <#assign item += {"colSize": row?size} />
-                            <#if wrappingDocument??>
-                                <#assign key = slugify(wrappingDocument.getTitle()) + "-" + index + "-" + itemData?index />
-                            </#if>
-                            <#if key??>
-                                <#assign item += {"key":  key}/>
-                            </#if>
-
-                            <@cyberAlertBox item></@cyberAlertBox>
+            <div class="section-demarcation">
+                <div class="home-document-grid-container">
+                    <#list pageable.items?chunk(4) as row>
+                        <#list row as item>
+                            <div class="home-document-grid-item">
+                                <h2 class="h3">
+                                    <a href="<@hst.link hippobean=item />">${item.title}</a>
+                                </h2>
+                            </div>
                         </#list>
-                    </div>
-                    <#assign index += 1/>
-                </#list>
+                    </#list>
+                </div>
             </div>
         </#if>
     </div>

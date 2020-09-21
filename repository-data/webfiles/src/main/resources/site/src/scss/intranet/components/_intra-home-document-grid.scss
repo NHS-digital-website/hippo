@@ -1,0 +1,22 @@
+@import "../../environment/settings/layout";
+
+.intranet {
+    .home-document-grid {
+        &-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 20px 20px;
+        }
+
+        &-item {
+            background-color: #768692;
+            padding: 20px;
+            min-height: 185px;
+
+            a {
+                color: #ffffff;
+            }
+        }
+    }
+}

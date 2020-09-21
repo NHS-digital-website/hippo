@@ -4,6 +4,9 @@
     .home-news-grid-container {
         display: grid;
         grid-template-columns: 1fr repeat(12, min-content) 1fr;
+        @media (max-width: 992px) {
+            grid-template-columns: 0fr repeat(12, 1fr) 0fr;
+        }
         grid-template-rows: auto 1fr;
 
         &::before {
@@ -14,7 +17,7 @@
             background-color: #005EB8;
         }
 
-        .home-news-grid-wrapper {
+        &__force-size {
             // To force the width
             content: "";
             grid-column: 2 / 14;

@@ -4,6 +4,7 @@
 <@hst.setBundle basename="homepage.intranet.labels"/>
 
 <div class="home-news-grid-container">
+<div class="home-news-grid-container__force-size"></div>
 <#if pageable?? && pageable.items?has_content>
 
     <#assign featured=document/>

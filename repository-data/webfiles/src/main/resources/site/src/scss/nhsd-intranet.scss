@@ -5,7 +5,9 @@
 @import "intranet/environment/settings/colours";
 
 // Intranet components
+@import "intranet/components/intra-utils";
 @import "intranet/components/intra-home-news-grid";
+@import "intranet/components/intra-home-document-grid";
 //@import "intranet/components/intra-home-grid";
 //@import "intranet/components/intra-home-article-grid";
 @import "intranet/components/intra-articleblock";
