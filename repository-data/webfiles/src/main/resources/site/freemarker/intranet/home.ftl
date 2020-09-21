@@ -15,8 +15,7 @@
         <@hst.include ref ="notice"/>
     </div>
 
-    <div class="home-news-grid-container">
-        <div class="home-news-grid-wrapper"></div>
+    <div class="home-news-grid-wrapper">
         <@hst.include ref="news"/>
     </div>
 

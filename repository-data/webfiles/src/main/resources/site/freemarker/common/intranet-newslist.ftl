@@ -3,7 +3,7 @@
 
 <@hst.setBundle basename="homepage.intranet.labels"/>
 
-<#--TODO: ADD CSS-->
+<div class="home-news-grid-container">
 <#if pageable?? && pageable.items?has_content>
 
     <#assign featured=document/>
@@ -91,5 +91,5 @@
     </div>
 
 </#if>
-
+</div>
 
