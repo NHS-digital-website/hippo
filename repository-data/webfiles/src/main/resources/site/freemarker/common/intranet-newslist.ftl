@@ -44,6 +44,8 @@
                         </div>
                     </article>
                 </#if>
+                <#if item_index==1><#if cparam.newsNumberOfRows=="1"><#break></#if></#if>
+                <#if item_index==3><#break></#if>
             </#list>
         </div>
         <a href="/news"><@fmt.message key="about-us.latestNewsButtonLabel"/></a>
@@ -89,3 +91,5 @@
     </div>
 
 </#if>
+
+
