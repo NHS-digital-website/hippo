@@ -9,9 +9,13 @@ definitions:
         hst:parameternames:
         - eforms-from-email
         - eforms-from-name
+        - eforms-mailsession
+        - eforms-use-freemarker
         hst:parametervalues:
-        - changeit@example.com
-        - ChangeIt
+        - hippo.nhsdigital@nhs.net
+        - NHS Mail
+        - mail/NHSMail
+        - 'true'
         hst:resourcetemplate: eforms.validation.default
         hst:template: eforms.default
         hst:xtype: HST.Item
