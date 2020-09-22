@@ -26,15 +26,14 @@
                     <div class="search-results-heading__sort">
                         <label for="sortBy">Sort by:</label>
                         <select id="sortBy"
-                                onChange="window.location.href=this.value"
+                                onChange="updateQueryStringParameter(window.location.href, 'sort', this.value)"
                                 data-uipath="ps.search-results.sort-selector">
-                            <#assign sortLink = searchLink + query???then('?query=${query}&', '?') +'area=${area}&' + 'sort='>
-                            <option title="Order by date" value="${sortLink}date"
+                            <option title="Order by date" value="date"
                                     <#if sort?? && sort == 'date'>selected</#if>>
                                 Date
                             </option>
                             <option title="Order by relevance"
-                                    value="${sortLink}relevance"
+                                    value="relevance"
                                     <#if sort?? && sort == 'relevance'>selected</#if>>
                                 Relevance
                             </option>
@@ -56,8 +55,7 @@
         <#else>
             <div class="search-results-heading no-border">
                 <h1 class="search-results-heading__title"
-                    data-uipath="ps.search-results.description">No results for
-                    filters</h1>
+                    data-uipath="ps.search-results.description">No results for filters</h1>
             </div>
         </#if>
         <#include "../../include/pagination-content-search.ftl" />
@@ -175,7 +173,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
                 </div>
                 <#if hasTitle && hasUrl>
-                    <a class="cta__title cta__button" href="${url}"
+                    <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}"
                        title="${title}"
                        data-uipath="ps.search-results.result.title">
                         ${title}
@@ -235,7 +233,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}"
                title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
@@ -272,7 +270,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.archive"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}"
                title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
@@ -313,7 +311,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.series"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url}" title="${title}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -359,7 +357,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.dataset"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url}" title="${title}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -404,7 +402,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.indicator"/></span>
         </div>
         <#if hasUrl && hasTitle>
-            <a class="cta__title cta__button" href="${url}" title="${title}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -475,7 +473,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.event"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url}" title="${title}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -531,7 +529,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.news"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url}" title="${title}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -583,7 +581,7 @@
         </#if>
 
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url}" title="${title}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -619,7 +617,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedwork"/></span>
         </div>
         <#if hasUrl && hasTitle>
-            <a class="cta__title cta__button" href="${url}" title="${title}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -662,13 +660,13 @@
             </div>
         </#if>
         <#if hasTitle && hasUrl && type != "website:person">
-            <a class="cta__title cta__button" href="${url}" title="${title}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
         </#if>
         <#if hasUrl && type == "website:person">
-            <a class="cta__title cta__button" href="${url}"
+            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}"
                title="${contentBean.title}"
                data-uipath="ps.search-results.result.title">
                 ${contentBean.title}
@@ -681,3 +679,16 @@
         </#if>
     </div>
 </#macro>
+
+<script>
+    function updateQueryStringParameter(uri, key, value) {
+        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            uri = uri.replace(re, '$1' + key + "=" + value + '$2');
+        } else {
+            uri = uri + separator + key + "=" + value;
+        }
+        window.location.href = uri;
+    }
+</script>

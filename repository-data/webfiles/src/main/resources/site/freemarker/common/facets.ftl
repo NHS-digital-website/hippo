@@ -19,8 +19,8 @@
             <#list facetFields?keys as key>
                 <#if key == "xmPrimaryDocType">
                     <@facetPrimaryDocType facetFields[key]/>
-                    <#else>
-                        <@RenderFacets facetFields[key] key/>
+                <#else>
+                    <@RenderFacets facetFields[key] key/>
                 </#if>
             </#list>
         </#if>
@@ -165,19 +165,28 @@
                     data-state="short">
 
                     <#list facetFields as field>
+                        <#assign facetLabel = "" />
+                        <#if key == "publiclyAccessible" >
+                            <#assign facetLabel = getPublicationStatusLabel(field.name) />
+                        <#elseif key = "assuredStatus">
+                            <#assign facetLabel = getAssuredLabel(field.name)/>
+                        <#else>
+                            <#assign facetLabel = field.name/>
+                        </#if>
+
                         <#if field.name?? && field.name?has_content>
                             <#if field?index &lt; 6 || isSelected(key, field.name)>
                                 <li class="filter-list__item filter-list__item--no-children">
                                     <a href="${field.facetUrl}"
-                                       title="${field.name}"
-                                       class="filter-link ${isSelected(key, field.name)?then("filter-link--active", "")}">${field.name}
+                                       title="${facetLabel}"
+                                       class="filter-link ${isSelected(key, field.name)?then("filter-link--active", "")}">${facetLabel}
                                         (${field.count})</a>
                                 </li>
                             <#else>
                                 <li class="filter-list__item filter-list__item--no-children is-hidden">
                                     <a href="${field.facetUrl}"
-                                       title="${field.name}"
-                                       class="filter-link ${isSelected(key, field.name)?then("filter-link--active", "")}">${field.name}
+                                       title="${facetLabel}"
+                                       class="filter-link ${isSelected(key, field.name)?then("filter-link--active", "")}">${facetLabel}
                                         (${field.count})</a>
                                 </li>
                             </#if>
@@ -267,7 +276,9 @@
     "geographicGranularity":        "geographical-granularity",
     "reportingLevel":               "reportingLevel",
     "geographicCoverage":           "geographical-coverage",
-    "publishedBy":                  "publishedBy"
+    "publishedBy":                  "publishedBy",
+    "assuredStatus":                "assuredStatus",
+    "publiclyAccessible":           "publicationStatus"
     }/>
     <#return labels[field] />
 </#function>
@@ -295,19 +306,24 @@
     <#return labels[field] />
 </#function>
 
+<#function getPublicationStatusLabel field>
+    <#local labels = {
+    "true":                               "Published",
+    "false":                              "Upcoming"
+    }/>
+    <#return labels[field] />
+</#function>
+
+<#function getAssuredLabel field>
+    <#local labels = {
+    "true":                               "Yes",
+    "false":                              "No"
+    }/>
+    <#return labels[field] />
+</#function>
+
 
 <script>
-
-    function updateQueryStringParameter(uri, key, value) {
-        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-        if (uri.match(re)) {
-            uri = uri.replace(re, '$1' + key + "=" + value + '$2');
-        } else {
-            uri = uri + separator + key + "=" + value;
-        }
-        window.location.href = uri;
-    }
 
     function resetFacets() {
         window.location.href = location.protocol + '//' + location.host + location.pathname;

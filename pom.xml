@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>13.4.4-contentfeed-SNAPSHOT</version>
+        <version>13.4.4-contentfeed-EAP3</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
     <name>NHS Digital Website</name>
@@ -122,7 +122,7 @@
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
         <essentials.version>13.4.2</essentials.version>
         <spring.version>5.1.15.RELEASE</spring.version>
-        <bloomreach.addon-content-feed.version>13.4.4-contentfeed-SNAPSHOT</bloomreach.addon-content-feed.version>
+        <bloomreach.addon-content-feed.version>13.4.4-contentfeed-EAP3</bloomreach.addon-content-feed.version>
 
         <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
         <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
@@ -177,6 +177,13 @@
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-targeting-shared-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-content-feed-search-api</artifactId>
+            <version>${bloomreach.addon-content-feed.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -1018,6 +1025,11 @@
                                         <groupId>mysql</groupId>
                                         <artifactId>mysql-connector-java</artifactId>
                                         <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.onehippo.cms7</groupId>
+                                        <artifactId>hippo-addon-content-feed-search-api</artifactId>
+                                        <classpath>shared</classpath>
                                     </dependency>
                                 </dependencies>
                             </container>

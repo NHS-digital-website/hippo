@@ -428,6 +428,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
+          /month:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:month
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /nominal_date:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -456,6 +464,14 @@ definitions:
             hipposysedit:path: publicationsystem:RelatedLinks
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:relatedlink
+            jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -494,6 +510,14 @@ definitions:
             hipposysedit:type: Text
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /year:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:year
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -545,6 +569,9 @@ definitions:
           publicationsystem:PubliclyAccessible: false
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
+          publicationsystem:month: ''
+          publicationsystem:searchTab: ''
+          publicationsystem:year: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

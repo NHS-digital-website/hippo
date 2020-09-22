@@ -62,6 +62,8 @@ public class SearchComponent extends CommonComponent {
     private static final String GEOGRAPHIC_GRANULARITY = "geographicGranularity";
     private static final String PUBLISHED_BY = "publishedBy";
     private static final String REPORTING_LEVEL = "reportingLevel";
+    private static final String PUBLICLY_ACCESSIBLE = "publiclyAccessible";
+    private static final String ASSURED_STATUS = "assuredStatus";
 
     private static final String PUBLICATION_SYSTEM_LEGACY_PUBLICATION = "publicationsystem:legacypublication";
     private static final String PUBLICATION_SYSTEM_PUBLICATION = "publicationsystem:publication";
@@ -148,10 +150,103 @@ public class SearchComponent extends CommonComponent {
         }
     }
 
+    private Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, int pageSize, int currentPage, String query) {
+        ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
+        QueryBuilder queryBuilder = searchService.builder()
+            .catalog("content_en")
+            .query(query)
+            .view("common")
+            .limit(pageSize)
+            .offset((currentPage - 1) * pageSize)
+            .retrieveField("title")
+            .retrieveField("shortsummary")
+            .retrieveField("xmUrl")
+            .retrieveField(XM_PRIMARY_DOC_TYPE)
+            .retrieveField(INFORMATION_TYPE)
+            .retrieveField(PUBLISHED_BY)
+            .facetField(XM_PRIMARY_DOC_TYPE)
+            .facetField(GEOGRAPHIC_COVERAGE)
+            .facetField(INFORMATION_TYPE)
+            .facetField(GEOGRAPHIC_GRANULARITY)
+            .facetField(PUBLISHED_BY)
+            .facetField(REPORTING_LEVEL)
+            .facetField(ASSURED_STATUS)
+            .facetField(PUBLICLY_ACCESSIBLE);
+
+        if (getSortOption(request).equals(SORT_DATE_KEY)) {
+            queryBuilder.sortBy(SORT_PUBLICATION_DATE, QueryBuilder.SortType.DESC);
+        }
+
+        queryBuilder = appendFacets(request, queryBuilder);
+
+        return queryBuilder.build().execute();
+    }
+
+    private QueryBuilder appendFacets(HstRequest request, QueryBuilder queryBuilder) {
+        if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE) != null) {
+            if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE).equals("publication")) {
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_PUBLICATION);
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_LEGACY_PUBLICATION);
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_ARCHIVE);
+            } else if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE).equals("homepage")) {
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, WEBSITE_HUB);
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, WEBSITE_VISUAL_HUB);
+            } else {
+                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, getAnyParameter(request, XM_PRIMARY_DOC_TYPE));
+            }
+        }
+        if (getAnyParameter(request, GEOGRAPHIC_COVERAGE) != null) {
+            queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_COVERAGE, getAnyParameter(request, GEOGRAPHIC_COVERAGE));
+        }
+        if (getAnyParameter(request, INFORMATION_TYPE) != null) {
+            queryBuilder = appendFilter(queryBuilder, INFORMATION_TYPE, getAnyParameter(request, INFORMATION_TYPE));
+        }
+        if (getAnyParameter(request, GEOGRAPHIC_GRANULARITY) != null) {
+            queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_GRANULARITY, getAnyParameter(request, INFORMATION_TYPE));
+        }
+        if (getAnyParameter(request, PUBLISHED_BY) != null) {
+            queryBuilder = appendFilter(queryBuilder, PUBLISHED_BY, getAnyParameter(request, PUBLISHED_BY));
+        }
+        if (getAnyParameter(request, REPORTING_LEVEL) != null) {
+            queryBuilder = appendFilter(queryBuilder, REPORTING_LEVEL, getAnyParameter(request, REPORTING_LEVEL));
+        }
+        if (getAnyParameter(request, ASSURED_STATUS) != null) {
+            queryBuilder = appendFilter(queryBuilder, ASSURED_STATUS, getAnyParameter(request, ASSURED_STATUS));
+        }
+        if (getAnyParameter(request, PUBLICLY_ACCESSIBLE) != null) {
+            queryBuilder = appendFilter(queryBuilder, PUBLICLY_ACCESSIBLE, getAnyParameter(request, PUBLICLY_ACCESSIBLE));
+        }
+        return queryBuilder;
+    }
+
+    private QueryBuilder appendFilter(QueryBuilder queryBuilder, String facetField, String facetValue) {
+        return queryBuilder.filterQuery(facetField, facetValue);
+    }
+
+    private List<Integer> getPageNumbers(int currentPage, int pageCount) {
+        int buffer = (PAGEABLE_SIZE - 1) / 2;
+        int end = min(pageCount, max(currentPage + buffer, PAGEABLE_SIZE));
+        int start = max(1, end - PAGEABLE_SIZE + 1);
+
+        return IntStream.rangeClosed(start, end)
+            .boxed()
+            .collect(toList());
+    }
+
     /* Method for setting the url for each facet */
     private void configureFacets(Map<String, Object> facetFields, HstRequest request) {
         final String queryString = request.getRequestContext().getServletRequest().getQueryString();
-        StringBuffer baseUrlBuilder = request.getRequestContext().getServletRequest().getRequestURL();
+
+        StringBuffer baseUrlBuilder = new StringBuffer();
+        if (!request.getRequestContext().getResolvedMount().getMount().getVirtualHost().getHostName().equals("localhost")) {
+            baseUrlBuilder.append(request.getRequestContext().getServletRequest().getScheme())
+                .append("://")
+                .append(request.getRequestContext().getBaseURL().getHostName())
+                .append(request.getRequestContext().getBaseURL().getRequestPath());
+        } else {
+            baseUrlBuilder = request.getRequestContext().getServletRequest().getRequestURL();
+        }
+
         if (queryString != null) {
             baseUrlBuilder.append("?")
                 .append(queryString);
@@ -294,7 +389,7 @@ public class SearchComponent extends CommonComponent {
                     );
 
                 request.setAttribute("pageable", pageable);
-                request.setAttribute("pageNumbers", getPageNumbers(pageable));
+                request.setAttribute("pageNumbers", getHstPageNumbers(pageable));
                 request.setAttribute("area", getAreaOption(request).toString());
             }
         }
@@ -309,87 +404,10 @@ public class SearchComponent extends CommonComponent {
         request.setAttribute("cparam", paramInfo);
     }
 
-    private Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, int pageSize, int currentPage, String query) {
-        ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
-        QueryBuilder queryBuilder = searchService.builder()
-            .catalog("content_en")
-            .query(query)
-            .limit(pageSize)
-            .offset((currentPage - 1) * pageSize)
-            .retrieveField("title")
-            .retrieveField("shortsummary")
-            .retrieveField("xmUrl")
-            .retrieveField(XM_PRIMARY_DOC_TYPE)
-            .retrieveField(INFORMATION_TYPE)
-            .retrieveField(PUBLISHED_BY)
-            .facetField(XM_PRIMARY_DOC_TYPE)
-            .facetField(GEOGRAPHIC_COVERAGE)
-            .facetField(INFORMATION_TYPE)
-            .facetField(GEOGRAPHIC_GRANULARITY)
-            .facetField(PUBLISHED_BY)
-            .facetField(REPORTING_LEVEL)
-            .facetField("assuredStatus")
-            .facetField("PubliclyAccessible")
-            .facetField(REPORTING_LEVEL);
-
-        if (getSortOption(request).equals(SORT_DATE_KEY)) {
-            queryBuilder.sortBy(SORT_PUBLICATION_DATE, QueryBuilder.SortType.DESC);
-        }
-
-        queryBuilder = appendFacets(request, queryBuilder);
-
-        return queryBuilder.build().execute();
-    }
-
-    private QueryBuilder appendFacets(HstRequest request, QueryBuilder queryBuilder) {
-        if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE) != null) {
-            if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE).equals("publication")) {
-                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_PUBLICATION);
-                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_LEGACY_PUBLICATION);
-                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, PUBLICATION_SYSTEM_ARCHIVE);
-            } else if (getAnyParameter(request, XM_PRIMARY_DOC_TYPE).equals("homepage")) {
-                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, WEBSITE_HUB);
-                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, WEBSITE_VISUAL_HUB);
-            } else {
-                queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, getAnyParameter(request, XM_PRIMARY_DOC_TYPE));
-            }
-        }
-        if (getAnyParameter(request, GEOGRAPHIC_COVERAGE) != null) {
-            queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_COVERAGE, getAnyParameter(request, GEOGRAPHIC_COVERAGE));
-        }
-        if (getAnyParameter(request, INFORMATION_TYPE) != null) {
-            queryBuilder = appendFilter(queryBuilder, INFORMATION_TYPE, getAnyParameter(request, INFORMATION_TYPE));
-        }
-        if (getAnyParameter(request, GEOGRAPHIC_GRANULARITY) != null) {
-            queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_GRANULARITY, getAnyParameter(request, INFORMATION_TYPE));
-        }
-        if (getAnyParameter(request, PUBLISHED_BY) != null) {
-            queryBuilder = appendFilter(queryBuilder, PUBLISHED_BY, getAnyParameter(request, PUBLISHED_BY));
-        }
-        if (getAnyParameter(request, REPORTING_LEVEL) != null) {
-            queryBuilder = appendFilter(queryBuilder, REPORTING_LEVEL, getAnyParameter(request, REPORTING_LEVEL));
-        }
-        return queryBuilder;
-    }
-
-    private QueryBuilder appendFilter(QueryBuilder queryBuilder, String facetField, String facetValue) {
-        return queryBuilder.filterQuery(facetField, facetValue);
-    }
-
-    protected List<Integer> getPageNumbers(Pageable<HippoBean> pageable) {
+    protected List<Integer> getHstPageNumbers(Pageable<HippoBean> pageable) {
         int currentPage = pageable.getCurrentPage();
         int buffer = (PAGEABLE_SIZE - 1) / 2;
         int end = min((int) pageable.getTotalPages(), max(currentPage + buffer, PAGEABLE_SIZE));
-        int start = max(1, end - PAGEABLE_SIZE + 1);
-
-        return IntStream.rangeClosed(start, end)
-            .boxed()
-            .collect(toList());
-    }
-
-    private List<Integer> getPageNumbers(int currentPage, int pageCount) {
-        int buffer = (PAGEABLE_SIZE - 1) / 2;
-        int end = min(pageCount, max(currentPage + buffer, PAGEABLE_SIZE));
         int start = max(1, end - PAGEABLE_SIZE + 1);
 
         return IntStream.rangeClosed(start, end)
