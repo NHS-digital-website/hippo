@@ -1,0 +1,16 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-CorporateImageSetSpecification-folder:
+      jcr:primaryType: hippostd:templatequery
+      hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
+        $inherited]
+      jcr:language: xpath
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-CorporateImageSetSpecification-folder/hippostd:templates/node()
+      /hippostd:templates:
+        jcr:primaryType: hippostd:templates
+        /hippostd:folder:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['hippotranslation:translated']
+          hippostd:foldertype: [new-CorporateImageSetSpecification-document, new-CorporateImageSetSpecification-folder]
+          hippotranslation:id: generated id
+          hippotranslation:locale: inherited locale
