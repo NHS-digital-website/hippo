@@ -20,19 +20,9 @@ public class Tableau extends HippoCompound {
         return getSingleProperty("website:hidetabs");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:retry")
-    public Long getRetry() {
-        return getSingleProperty("website:retry");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:throttling")
-    public Boolean getThrottling() {
-        return getSingleProperty("website:throttling");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:throttlingLocation")
-    public String getThrottlingLocation() {
-        return getSingleProperty("website:throttlingLocation");
+    @HippoEssentialsGenerated(internalName = "website:placeholderImageLocation")
+    public String getPlaceholderImageLocation() {
+        return getSingleProperty("website:placeholderImageLocation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:url")
