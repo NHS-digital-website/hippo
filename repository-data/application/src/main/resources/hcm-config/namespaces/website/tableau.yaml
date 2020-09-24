@@ -42,14 +42,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /hidetabs:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Hide Tabs
-            field: hidetabs
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
           /device:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -58,35 +50,25 @@ definitions:
             field: device
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /hidetabs:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Hide Tabs
+            field: hidetabs
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /placeholderImageLocation:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Placeholder Image
+            field: placeholderImageLocation
+            hint: The URL which hosts the image of the tableau visualisation that
+              loads first as a placeholder.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /throttling:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Enable throttling
-            field: throttling
-            hint: Do not enable unless requested by Tableau, when demand is high.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-          /throttlingLocation:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Throttling URI location
-            field: throttlingLocation
-            hint: The URL that returns a number between 0 and 1. If not given the
-              default value is 0.5.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-          /retry:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Refresh time m/s
-            field: retry
-            hint: How often the throttle will retry.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -106,29 +88,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
-          /retry:
+          /placeholderImageLocation:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:retry
-            hipposysedit:primary: false
-            hipposysedit:type: Long
-            jcr:primaryType: hipposysedit:field
-          /throttling:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:throttling
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-            jcr:primaryType: hipposysedit:field
-          /throttlingLocation:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:throttlingLocation
+            hipposysedit:path: website:placeholderImageLocation
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - valid-url
             jcr:primaryType: hipposysedit:field
           /url:
             hipposysedit:mandatory: false
@@ -158,9 +126,7 @@ definitions:
           jcr:primaryType: website:tableau
           website:hidetabs: false
           website:long: 30000
-          website:retry: 30000
-          website:throttling: false
-          website:throttlingLocation: ''
+          website:placeholderImageLocation: ''
           website:url: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
