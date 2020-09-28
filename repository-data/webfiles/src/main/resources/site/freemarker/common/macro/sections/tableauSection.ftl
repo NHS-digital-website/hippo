@@ -13,22 +13,31 @@
 
         <div id="${divId}" class="viz-wrapper">
             <#if section.placeholderImageLocation?has_content>
-                <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" />
                 <div id="${divId}-viz" class="viz-wrapper-item hidden-viz"></div>
+                <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" />
+                <div id="${divId}-loading" class="viz-wrapper-item">
+                    <img class="viz-wrapper-loading" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading icon " />
+                </div>
             <#else>
                 <div id="${divId}-viz" class="viz-wrapper-item"></div>
             </#if>
         </div>
 
         <script type="text/javascript">
+
+
             var viz${index};
-            function loadViz(containerDiv, placeholderDiv) {
+            function loadViz(containerDiv, placeholderElements) {
                 var url = "${section.url}";
                 var options = {
                     "onFirstInteractive": function () {
                         containerDiv.classList.remove("hidden-viz");
-                        if (placeholderDiv) {
-                            placeholderDiv.remove();
+                        if (Array.isArray(placeholderElements) && placeholderElements.length) {
+                            placeholderElements.forEach(function (el) {
+                                if(el instanceof HTMLElement) {
+                                    el.remove();
+                                }
+                            });
                         }
                     },
                     hideTabs: ${section.hidetabs?string}
@@ -44,14 +53,17 @@
             }
 
             window.addEventListener('load', function() {
-                function placeholderDiv() {
+                function placeholderImage() {
                     return document.getElementById("${divId}-placeholder");
+                }
+                function loadingDiv() {
+                    return document.getElementById("${divId}-loading");
                 }
                 function containerDiv() {
                     return document.getElementById("${divId}-viz");
                 }
                 <#if section.placeholderImageLocation?has_content>
-                    loadViz(containerDiv(), placeholderDiv());
+                    loadViz(containerDiv(), [placeholderImage(), loadingDiv()]);
                 <#else>
                 loadViz(containerDiv());
                 </#if>
