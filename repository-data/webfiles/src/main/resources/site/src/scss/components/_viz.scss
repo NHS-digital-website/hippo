@@ -18,4 +18,9 @@
         grid-column: 1/2;
         grid-row: 1;
     }
+
+    &-loading {
+        margin: 20px auto 0;
+        border: 1px solid #005EB8;
+    }
 }
