@@ -16,29 +16,60 @@
                 <div id="${divId}-viz" class="viz-wrapper-item hidden-viz"></div>
                 <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" />
                 <div id="${divId}-loading" class="viz-wrapper-item">
-                    <img class="viz-wrapper-loading" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading icon " />
+                    <div class="viz-wrapper-loading">
+                        <span id="${divId}-loading-message"></span>
+                        <img id="${divId}-loading-icon" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading data " />
+                    </div>
                 </div>
             <#else>
                 <div id="${divId}-viz" class="viz-wrapper-item"></div>
             </#if>
         </div>
 
+        <@hst.setBundle basename="tableau.lables"/>
+        <script type="text/javascript">
+            var vizMessages = {
+                LOAD_ERROR: "<@fmt.message key="load-error"/>",
+                LOADING_MESSAGE: "<@fmt.message key="loading-message"/>"
+            };
+        </script>
+
         <script type="text/javascript">
 
-
+            // Viz instance
             var viz${index};
+
+            // Viz instance supporting HTML elements
+            var viz${index}Elements = {
+                loadingDiv: function () {
+                    return document.getElementById("${divId}-loading");
+                },
+                loadingIcon: function () {
+                    return document.getElementById("${divId}-loading-icon");
+                },
+                loadingMessage: function (){
+                    return document.getElementById("${divId}-loading-message");
+                },
+                placeholderImage: function () {
+                    return document.getElementById("${divId}-placeholder");
+                },
+                vizDiv: function () {
+                    return document.getElementById("${divId}-viz");
+                },
+                containerDiv: function () {
+                    return document.getElementById("${divId}");
+                }
+            };
+
+            // Setup reload attempt
+            var viz${index}LoadTimer = setInterval(_retry, 15000);
+
             function loadViz(containerDiv, placeholderElements) {
                 var url = "${section.url}";
                 var options = {
                     "onFirstInteractive": function () {
-                        containerDiv.classList.remove("hidden-viz");
-                        if (Array.isArray(placeholderElements) && placeholderElements.length) {
-                            placeholderElements.forEach(function (el) {
-                                if(el instanceof HTMLElement) {
-                                    el.remove();
-                                }
-                            });
-                        }
+                        clearInterval(viz${index}LoadTimer);
+                        _onFirstInteractive(containerDiv, placeholderElements);
                     },
                     hideTabs: ${section.hidetabs?string}
                     <#if section.device??>
@@ -48,26 +79,49 @@
                 if(typeof tableau !== 'undefined' && typeof tableau.Viz !== 'undefined') {
                     viz${index} = new tableau.Viz(containerDiv, url, options);
                 } else {
-                    containerDiv.innerHTML = '[Tableau loading error]';
+                    _showLoadingError();
                 }
             }
 
-            window.addEventListener('load', function() {
-                function placeholderImage() {
-                    return document.getElementById("${divId}-placeholder");
+            function _onFirstInteractive(containerDiv, placeholderElements){
+                containerDiv.classList.remove("hidden-viz");
+                if (Array.isArray(placeholderElements) && placeholderElements.length) {
+                    placeholderElements.forEach(function (el) {
+                        if(el instanceof HTMLElement) {
+                            el.remove();
+                        }
+                    });
                 }
-                function loadingDiv() {
-                    return document.getElementById("${divId}-loading");
-                }
-                function containerDiv() {
-                    return document.getElementById("${divId}-viz");
-                }
+            }
+
+            function _load() {
                 <#if section.placeholderImageLocation?has_content>
-                    loadViz(containerDiv(), [placeholderImage(), loadingDiv()]);
+                loadViz(viz${index}Elements.vizDiv(), [viz${index}Elements.placeholderImage(), viz${index}Elements.loadingDiv()]);
                 <#else>
-                loadViz(containerDiv());
+                loadViz(viz${index}Elements.vizDiv());
                 </#if>
+            }
+
+            window.addEventListener('load', function() {
+                _load();
             });
+
+            function _retry() {
+                _setRetryMessage();
+                _load();
+            }
+
+            function _setRetryMessage() {
+                var message${index} = viz${index}Elements.loadingMessage();
+                if(!!(message${index})) {
+                    message${index}.classList.add("fade-in-2");
+                    message${index}.innerHTML = vizMessages.LOADING_MESSAGE;
+                }
+            }
+
+            function _showLoadingError() {
+                viz${index}Elements.containerDiv().innerHTML = vizMessages.LOAD_ERROR;
+            }
         </script>
     </#if>
 </#macro>

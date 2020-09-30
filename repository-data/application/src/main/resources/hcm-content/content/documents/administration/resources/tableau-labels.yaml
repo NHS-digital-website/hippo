@@ -1,0 +1,76 @@
+---
+/content/documents/administration/resources/tableau-lables:
+  /tableau-lables[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-09-30T10:05:04.699Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: tableau.lables
+    resourcebundle:keys:
+    - load-error
+    - loading-message
+    resourcebundle:messages:
+    - '[Tableau loading error]'
+    - We are loading the dashboard. This is taking longer than normal and we will
+      retry in a few seconds for you. Please don't refresh the page.
+  /tableau-lables[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-09-30T10:06:22.441Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: tableau.lables
+    resourcebundle:keys:
+    - load-error
+    - loading-message
+    resourcebundle:messages:
+    - '[Tableau loading error]'
+    - We are loading the dashboard. This is taking longer than normal and we will
+      retry in a few seconds for you. Please don't refresh the page.
+  /tableau-lables[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-09-30T10:06:22.441Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-09-30T10:06:26.296Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: tableau.lables
+    resourcebundle:keys:
+    - load-error
+    - loading-message
+    resourcebundle:messages:
+    - '[Tableau loading error]'
+    - We are loading the dashboard. This is taking longer than normal and we will
+      retry in a few seconds for you. Please don't refresh the page.
+  hippo:name: Tableau Lables
+  hippo:versionHistory: 803dda41-d54e-44e6-9203-414031ee3569
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
