@@ -64,6 +64,9 @@ public class SearchComponent extends CommonComponent {
     private static final String REPORTING_LEVEL = "reportingLevel";
     private static final String PUBLICLY_ACCESSIBLE = "publiclyAccessible";
     private static final String ASSURED_STATUS = "assuredStatus";
+    private static final String YEAR = "year";
+    private static final String MONTH = "month";
+    private static final String SEARCHTAB = "searchTab";
 
     private static final String PUBLICATION_SYSTEM_LEGACY_PUBLICATION = "publicationsystem:legacypublication";
     private static final String PUBLICATION_SYSTEM_PUBLICATION = "publicationsystem:publication";
@@ -92,7 +95,6 @@ public class SearchComponent extends CommonComponent {
 
         final boolean contentSearchEnabled = paramInfo.isContentSearchEnabled();
         final long contentSearchTimeOut = paramInfo.getContentSearchTimeOut();
-        final boolean fallbackEnabled = paramInfo.isFallbackEnabled();
         final boolean contentSearchOverride = getAnyBooleanParam(request, "contentSearch", false);
 
         Future<QueryResponse> queryResponseFuture = null;
@@ -119,31 +121,21 @@ public class SearchComponent extends CommonComponent {
                     request.setAttribute("pageable", pageable);
                     request.setAttribute("pageNumbers", pageNumbers);
                     request.setAttribute("isContentSearch", true);
+                    request.setAttribute("searchTabs", facetFields.get("searchTab"));
                     request.setAttribute("queryResponse", queryResponse);
                     request.setAttribute("totalResults", totalResults);
                     request.getRequestContext().setAttribute("facetFields", facetFields);
+                    request.getRequestContext().setAttribute("searchTabs", facetFields.get("searchTab"));
                     request.getRequestContext().setAttribute("isContentSearch", true);
                     setCommonSearchRequestAttributes(request, paramInfo);
                 } else {
-                    if (fallbackEnabled) {
-                        LOGGER.warn("Content Search returned a failure, falling back to HST search");
-                        buildAndExecuteHstSearch(request, paramInfo);
-                    } else {
-                        request.setAttribute("totalResults", 0);
-                        request.setAttribute("success", false);
-                    }
+                    LOGGER.error("Content Search returned a failure, falling back to HST search");
+                    buildAndExecuteHstSearch(request, paramInfo);
                 }
             } catch (InterruptedException | ExecutionException | TimeoutException ex) {
                 queryResponseFuture.cancel(true);
-
-                if (fallbackEnabled) {
-                    LOGGER.warn("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, falling back to HST search");
-                    buildAndExecuteHstSearch(request, paramInfo);
-                } else {
-                    LOGGER.warn("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, HST search fallback disabled");
-                    request.setAttribute("totalResults", 0);
-                    request.setAttribute("success", false);
-                }
+                LOGGER.error("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, falling back to HST search");
+                buildAndExecuteHstSearch(request, paramInfo);
             }
         } else {
             buildAndExecuteHstSearch(request, paramInfo);
@@ -171,10 +163,17 @@ public class SearchComponent extends CommonComponent {
             .facetField(PUBLISHED_BY)
             .facetField(REPORTING_LEVEL)
             .facetField(ASSURED_STATUS)
-            .facetField(PUBLICLY_ACCESSIBLE);
+            .facetField(PUBLICLY_ACCESSIBLE)
+            .facetField(YEAR)
+            .facetField(SEARCHTAB);
 
         if (getSortOption(request).equals(SORT_DATE_KEY)) {
             queryBuilder.sortBy(SORT_PUBLICATION_DATE, QueryBuilder.SortType.DESC);
+        }
+
+        //Only retrieve Month facets if year is selected.
+        if (getAnyParameter(request, YEAR) != null) {
+            queryBuilder.facetField(MONTH);
         }
 
         queryBuilder = appendFacets(request, queryBuilder);
@@ -216,6 +215,16 @@ public class SearchComponent extends CommonComponent {
         if (getAnyParameter(request, PUBLICLY_ACCESSIBLE) != null) {
             queryBuilder = appendFilter(queryBuilder, PUBLICLY_ACCESSIBLE, getAnyParameter(request, PUBLICLY_ACCESSIBLE));
         }
+        if (getAnyParameter(request, MONTH) != null && getAnyParameter(request, YEAR) != null) {
+            queryBuilder = appendFilter(queryBuilder, MONTH, getAnyParameter(request, MONTH));
+        }
+        if (getAnyParameter(request, YEAR) != null) {
+            queryBuilder = appendFilter(queryBuilder, YEAR, getAnyParameter(request, YEAR));
+        }
+        if (getAnyParameter(request, SEARCHTAB) != null) {
+            queryBuilder = appendFilter(queryBuilder, SEARCHTAB, getAnyParameter(request, SEARCHTAB));
+        }
+
         return queryBuilder;
     }
 
@@ -233,7 +242,8 @@ public class SearchComponent extends CommonComponent {
             .collect(toList());
     }
 
-    /* Method for setting the url for each facet */
+    /* Method for configuring Facets. Sets URL for all facets, groups docType facets
+     */
     private void configureFacets(Map<String, Object> facetFields, HstRequest request) {
         final String queryString = request.getRequestContext().getServletRequest().getQueryString();
 
@@ -273,6 +283,7 @@ public class SearchComponent extends CommonComponent {
             if (key.equals("xmPrimaryDocType")) {
                 configureDocTypeFacets(fields);
             }
+
             for (Object field : fields) {
                 LinkedHashMap<String, Object> facetField = (LinkedHashMap) field;
                 StringBuilder facetUrlBuilder = new StringBuilder().append(baseUrl);
@@ -296,6 +307,9 @@ public class SearchComponent extends CommonComponent {
                 }
                 facetField.put("facetUrl", facetUrl);
             }
+            if (key.equals("searchTab")) {
+                configureSearchTabFacets(fields);
+            }
         }
     }
 
@@ -310,6 +324,28 @@ public class SearchComponent extends CommonComponent {
                 iterable.remove();
             }
         }
+    }
+
+    private void configureSearchTabFacets(ArrayList<Object> entry) {
+        Iterator<Object> iterable = entry.iterator();
+        while (iterable.hasNext()) {
+            LinkedHashMap<String, Object> facetField = (LinkedHashMap) iterable.next();
+            if (facetField.get("name").equals("null")) {
+                iterable.remove();
+            }
+        }
+
+        String allTabUrl = "";
+        if (entry.size() > 0) {
+            final LinkedHashMap linkedHashMap = (LinkedHashMap) entry.get(0);
+            String facetUrl = (String) linkedHashMap.get("facetUrl");
+            allTabUrl = UriComponentsBuilder.fromHttpUrl(facetUrl).replaceQueryParam("searchTab").build().toUriString();
+        }
+
+        LinkedHashMap<String, Object> allTabEntry = new LinkedHashMap<>();
+        allTabEntry.put("name", "All");
+        allTabEntry.put("facetUrl", allTabUrl);
+        entry.add(0, allTabEntry);
     }
 
     /* Method for grouping, website:hub & website:visualhub into one facet 'homepage' */

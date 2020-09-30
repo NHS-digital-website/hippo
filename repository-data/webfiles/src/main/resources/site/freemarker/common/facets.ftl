@@ -19,6 +19,8 @@
             <#list facetFields?keys as key>
                 <#if key == "xmPrimaryDocType">
                     <@facetPrimaryDocType facetFields[key]/>
+                <#elseif key == "searchTab">
+                    <#continue>
                 <#else>
                     <@RenderFacets facetFields[key] key/>
                 </#if>
@@ -278,7 +280,9 @@
     "geographicCoverage":           "geographical-coverage",
     "publishedBy":                  "publishedBy",
     "assuredStatus":                "assuredStatus",
-    "publiclyAccessible":           "publicationStatus"
+    "publiclyAccessible":           "publicationStatus",
+    "year":                         "year",
+    "month":                         "month"
     }/>
     <#return labels[field] />
 </#function>

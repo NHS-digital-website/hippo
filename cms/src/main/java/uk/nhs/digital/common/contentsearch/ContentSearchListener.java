@@ -39,15 +39,18 @@ public class ContentSearchListener implements DaemonModule {
                 final NodeIterator nodeIterator = handle.getNodes();
                 while (nodeIterator.hasNext()) {
                     Node node = nodeIterator.nextNode();
-                    setTabProperty(node, node);
-                    if (node.hasProperty("publicationsystem:NominalDate") && node.getProperty("publicationsystem:NominalDate").getValue() != null
-                        && node.getProperty("publicationsystem:NominalDate").getValue().getDate() != null) {
-                        setPublicationDateProperties(node);
+                    if (node.getPath().contains("/content/documents/corporate-website")) {
+                        setTabProperty(node, node);
+                        if (node.hasProperty("publicationsystem:NominalDate") && node.getProperty("publicationsystem:NominalDate").getValue() != null
+                            && node.getProperty("publicationsystem:NominalDate").getValue().getDate() != null) {
+                            setPublicationDateProperties(node);
+                        }
+                        session.save();
                     }
-                    session.save();
                 }
             }
-        } catch (RepositoryException e) {
+        } catch (
+            RepositoryException e) {
             LOGGER.warn("An error occured while handling the post publish event", e);
         }
     }
@@ -59,7 +62,7 @@ public class ContentSearchListener implements DaemonModule {
             if (node.canAddMixin(NT_RELAXED)) {
                 node.addMixin(NT_RELAXED);
             }
-            nodeToUpdate.setProperty("publicationsystem:searchTab", parent.getProperty("searchTab").getValue().getString());
+            nodeToUpdate.setProperty("common:searchTab", parent.getProperty("searchTab").getValue().getString());
         } else {
             if (!node.getPath().equals("/content/documents/corporate-website")) {
                 setTabProperty(parent, nodeToUpdate);

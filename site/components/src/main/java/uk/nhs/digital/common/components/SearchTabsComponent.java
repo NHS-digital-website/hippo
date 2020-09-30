@@ -15,10 +15,16 @@ public class SearchTabsComponent extends SearchComponent {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        List<String> tabs = Stream.of(SearchArea.values())
-            .map(Enum::toString)
-            .collect(Collectors.toList());
+        if (request.getRequestContext().getAttribute("isContentSearch") != null ) {
+            request.setAttribute("isContentSearch", request.getRequestContext().getAttribute("isContentSearch"));
+            request.setAttribute("searchTabs", request.getRequestContext().getAttribute("searchTabs"));
+        } else {
+            List<String> tabs = Stream.of(SearchArea.values())
+                .map(Enum::toString)
+                .collect(Collectors.toList());
 
-        request.setAttribute("tabs", tabs);
+            request.setAttribute("tabs", tabs);
+        }
+
     }
 }

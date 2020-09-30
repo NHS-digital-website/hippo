@@ -249,6 +249,14 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: common:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - publicationsystem:basedocument

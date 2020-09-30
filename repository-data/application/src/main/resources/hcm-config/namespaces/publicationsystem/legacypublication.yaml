@@ -326,6 +326,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
+          /month:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:month
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /nominal_date:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -363,6 +371,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:relatedlink
             jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: common:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -388,6 +404,14 @@ definitions:
             hipposysedit:type: Text
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /year:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:year
+            hipposysedit:primary: false
+            hipposysedit:type: Long
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

@@ -321,6 +321,14 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false

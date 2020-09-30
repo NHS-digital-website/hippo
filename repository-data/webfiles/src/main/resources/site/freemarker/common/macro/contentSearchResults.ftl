@@ -6,8 +6,6 @@
     <#assign totalResults = searchResult.numFound />
     <#assign documents = searchResult.documents />
 
-    <#assign sortLink = searchLink + query???then('?query=${query}&', '?') +'area=${area}&' + 'sort='>
-
     <div data-uipath="ps.search-results" data-totalresults="${(totalResults)!0}">
         <#if totalResults?? && totalResults gt 0>
             <div class="search-results-heading">
@@ -137,10 +135,6 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
             <#if properties.informationType??>
                 <#assign informationType = properties.informationType/>
                 <#if informationType?has_content>
@@ -161,6 +155,10 @@
     <#if contentBean?? && contentBean.publiclyAccessible??>
         <#assign publiclyAccessible = contentBean.publiclyAccessible/>
     </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
+    </#if>
 
     <div class="cta cta--detailed ${stampedPublication?then(" cta--stamped", "")}"
          data-uipath="ps.search-results.result">
@@ -173,7 +171,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
                 </div>
                 <#if hasTitle && hasUrl>
-                    <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}"
+                    <a class="cta__title cta__button" href="${url}"
                        title="${title}"
                        data-uipath="ps.search-results.result.title">
                         ${title}
@@ -217,15 +215,16 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
         </#if>
     </#if>
 
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
         <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
+
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
     </#if>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -233,7 +232,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}"
+            <a class="cta__title cta__button" href="${url}"
                title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
@@ -254,15 +253,15 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
         </#if>
     </#if>
 
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
         <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
     </#if>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -270,7 +269,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.archive"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}"
+            <a class="cta__title cta__button" href="${url}"
                title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
@@ -292,10 +291,6 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
         </#if>
     </#if>
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
@@ -304,6 +299,10 @@
     <#if contentBean?? && contentBean.latestPublication??>
         <#assign latestPublication = contentBean.latestPublication/>
     </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
+    </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -311,7 +310,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.series"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
+            <a class="cta__title cta__button" href="${url}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -341,23 +340,24 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
         </#if>
     </#if>
 
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
         <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
     </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
+    </#if>
+
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
             <span class="cta__label"
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.dataset"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
+            <a class="cta__title cta__button" href="${url}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -383,10 +383,6 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
             <#if properties.publishedBy??>
                 <#assign publishedBy = properties.publishedBy />
             </#if>
@@ -395,6 +391,10 @@
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
         <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
     </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
+    </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -402,7 +402,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.indicator"/></span>
         </div>
         <#if hasUrl && hasTitle>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
+            <a class="cta__title cta__button" href="${url}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -457,14 +457,14 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
         </#if>
     </#if>
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
         <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
     </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
@@ -473,7 +473,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.event"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
+            <a class="cta__title cta__button" href="${url}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -513,14 +513,14 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
         </#if>
     </#if>
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
         <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
     </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
@@ -529,7 +529,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.news"/></span>
         </div>
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
+            <a class="cta__title cta__button" href="${url}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -559,10 +559,6 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
         </#if>
     </#if>
 
@@ -575,13 +571,17 @@
         <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
             <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
         </#if>
+        <#if contentBean??>
+            <@hst.link var="url" hippobean=contentBean/>
+            <#assign hasUrl = true />
+        </#if>
         <#if contentBean?? && contentBean.publishedWork?? && contentBean.publishedWork.title??>
             <strong> ${contentBean.publishedWork.title} </strong>
             <br/>
         </#if>
 
         <#if hasTitle && hasUrl>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
+            <a class="cta__title cta__button" href="${url}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -602,13 +602,13 @@
             <#assign title = properties.title />
             <#assign hasTitle = true />
         </#if>
-        <#if properties.xmUrl??>
-            <#assign url = properties.xmUrl />
-            <#assign hasUrl = true />
-        </#if>
     </#if>
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
         <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
     </#if>
 
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
@@ -617,7 +617,7 @@
                   data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedwork"/></span>
         </div>
         <#if hasUrl && hasTitle>
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
+            <a class="cta__title cta__button" href="${url}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
@@ -637,10 +637,6 @@
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
             </#if>
-            <#if properties.xmUrl??>
-                <#assign url = properties.xmUrl />
-                <#assign hasUrl = true />
-            </#if>
             <#if properties.shortsummary??>
                 <#assign shortsummary = properties.shortsummary />
             </#if>
@@ -649,6 +645,10 @@
 
     <#if hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session)??>
         <#assign contentBean = hstRequest.requestContext.objectConverter.getObject(document.identifier, hstRequest.requestContext.session) />
+    </#if>
+    <#if contentBean??>
+        <@hst.link var="url" hippobean=contentBean/>
+        <#assign hasUrl = true />
     </#if>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <#if isShowTitle>
@@ -660,13 +660,13 @@
             </div>
         </#if>
         <#if hasTitle && hasUrl && type != "website:person">
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}" title="${title}"
+            <a class="cta__title cta__button" href="${url}" title="${title}"
                data-uipath="ps.search-results.result.title">
                 ${title}
             </a>
         </#if>
         <#if hasUrl && type == "website:person">
-            <a class="cta__title cta__button" href="${url?replace("localhost", "localhost:8080")}"
+            <a class="cta__title cta__button" href="${url}"
                title="${contentBean.title}"
                data-uipath="ps.search-results.result.title">
                 ${contentBean.title}
