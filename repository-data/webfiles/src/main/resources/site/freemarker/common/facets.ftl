@@ -305,7 +305,8 @@
     "website:glossarylist":                             "Glossaries",
     "website:roadmap":                                  "Roadmaps",
     "homepage":                                         "Homepages",
-    "publication":                                      "Data publications"
+    "publication":                                      "Data publications",
+    "website:supplementaryinformation":                 "Information requests"
     }/>
     <#return labels[field] />
 </#function>

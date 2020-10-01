@@ -119,7 +119,8 @@
             ||  docType == "website:apimaster"
             ||  docType == "website:apiendpoint"
             ||  docType == "website:businessunit"
-            ||  docType == "website:orgstructure">
+            ||  docType == "website:orgstructure"
+            ||  docType == "website:supplementaryinformation">
                 <@contentSearchGenericSearchElement document=document type=docType isShowTitle=true />
             </#if>
         </#if>

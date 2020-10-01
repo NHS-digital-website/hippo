@@ -41,7 +41,6 @@ definitions:
         - website:projectfeed
         - website:projectupdate
         - website:signup
-        - website:supplementaryinformation
         - website:supplementaryinformationhub
         - website:team
         - website:update
