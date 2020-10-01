@@ -182,24 +182,6 @@
             {{/apis}}
         {{/apiInfo}}
 
-    <div id="footer">
-        <div id="api-_footer">
-        <p>Suggestions, contact, support and error reporting;
-            {{#infoUrl}}
-                <div class="app-desc">Information URL: <a href="{{{infoUrl}}}">{{{infoUrl}}}</a></div>
-            {{/infoUrl}}
-            {{#infoEmail}}
-                <div class="app-desc">Contact Info: <a href="{{{infoEmail}}}">{{{infoEmail}}}</a></div>
-            {{/infoEmail}}
-            </p>
-            {{#licenseInfo}}
-                <div class="license-info">{{{licenseInfo}}}</div>
-            {{/licenseInfo}}
-            {{#licenseUrl}}
-                <div class="license-url">{{{licenseUrl}}}</div>
-            {{/licenseUrl}}
-        </div>
-    </div>
     {{^hideGenerationTimestamp}}          <div id="generator">
         <div class="content">
             Generated {{generatedDate}}
