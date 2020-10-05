@@ -1,7 +1,10 @@
+---
 definitions:
   config:
-    /hippo:configuration/hippo:queries/hippo:templates/new-website-CorporateImageSetSpecification-folder/hippostd:templates/image gallery:
-      hippostd:gallerytype:
+    ? /hippo:configuration/hippo:queries/hippo:templates/new-website-CorporateImageSetSpecification-folder/hippostd:templates/image
+      gallery
+    : hippostd:gallerytype:
         operation: override
         type: string
-        value: ['website:CorporateImageSetSpecification']
+        value:
+        - website:CorporateImageSetSpecification

@@ -1,11 +1,7 @@
----
 /content/gallery/website:
-  hippo:name: Website
-  hippostd:foldertype:
-  - new-website-CorporateImageSetSpecification-folder
-  hippostd:gallerytype:
-  - website:CorporateImageSetSpecification
-  jcr:mixinTypes:
-  - hippo:named
-  - mix:versionable
   jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: c847faa3-3025-40fb-bf24-54f84eda4d70
+  hippo:name: Website
+  hippostd:foldertype: [new-website-CorporateImageSetSpecification-folder]
+  hippostd:gallerytype: ['website:CorporateImageSetSpecification']
