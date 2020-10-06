@@ -1,7 +1,11 @@
+---
 /content/gallery/website/icons:
-  jcr:primaryType: hippogallery:stdImageGallery
-  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  jcr:uuid: 6076717d-067a-42dd-accf-92e85f9deb88
   hippo:name: Icons
-  hippostd:foldertype: [new-website-CorporateImageSetSpecification-folder]
-  hippostd:gallerytype: ['website:CorporateImageSetSpecification']
+  hippostd:foldertype:
+  - new-website-CorporateImageSetSpecification-folder
+  hippostd:gallerytype:
+  - website:CorporateImageSetSpecification
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippogallery:stdImageGallery
