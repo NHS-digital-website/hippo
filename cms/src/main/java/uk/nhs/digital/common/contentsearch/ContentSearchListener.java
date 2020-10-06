@@ -62,7 +62,14 @@ public class ContentSearchListener implements DaemonModule {
             if (node.canAddMixin(NT_RELAXED)) {
                 node.addMixin(NT_RELAXED);
             }
-            nodeToUpdate.setProperty("common:searchTab", parent.getProperty("searchTab").getValue().getString());
+
+            if (nodeToUpdate.getPrimaryNodeType().getName().split(":")[0].equals("website")) {
+                nodeToUpdate.setProperty("website:searchTab", parent.getProperty("searchTab").getValue().getString());
+            } else if (nodeToUpdate.getPrimaryNodeType().getName().split(":")[0].equals("publicationsystem")
+                || nodeToUpdate.getPrimaryNodeType().getName().split(":")[0].equals("nationalindicatorlibrary")) {
+                nodeToUpdate.setProperty("common:searchTab", parent.getProperty("searchTab").getValue().getString());
+            }
+
         } else {
             if (!node.getPath().equals("/content/documents/corporate-website")) {
                 setTabProperty(parent, nodeToUpdate);

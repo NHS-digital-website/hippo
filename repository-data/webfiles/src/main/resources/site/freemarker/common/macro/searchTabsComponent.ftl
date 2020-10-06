@@ -15,10 +15,19 @@
                                     <#else >
                                         <li class="tabs-nav__item ${isSelected("searchTab", tab.name)?then("tabs-nav__item--active", "")}">
                                 </#if>
+
+                                <#if tab.count == 0>
+                                    <a tabindex="${tab?index + 0}" class="tabs-link"
+                                       href="#"
+                                       role="tab"
+                                       style="pointer-events: none; cursor: default;">
+                                        <@fmt.message key="${getTabFacetLabel(tab.name)}"/> <#if tab.name != "All">(${tab.count})</#if></a>
+                                <#else>
                                     <a tabindex="${tab?index + 0}"
                                        href="${tab.facetUrl}" class="tabs-link"
                                        title="${tab.name}"
-                                       role="tab"><@fmt.message key="${getTabFacetLabel(tab.name)}"/></a>
+                                       role="tab"><@fmt.message key="${getTabFacetLabel(tab.name)}"/> <#if tab.name != "All">(${tab.count})</#if></a>
+                                </#if>
                                 </li>
                             </#list>
                         </ul>

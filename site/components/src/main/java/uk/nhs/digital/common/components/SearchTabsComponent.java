@@ -23,6 +23,8 @@ public class SearchTabsComponent extends SearchComponent {
                 .map(Enum::toString)
                 .collect(Collectors.toList());
 
+            request.setAttribute("query", getQueryParameter(request));
+            request.setAttribute("sort", getSortOption(request));
             request.setAttribute("tabs", tabs);
         }
 

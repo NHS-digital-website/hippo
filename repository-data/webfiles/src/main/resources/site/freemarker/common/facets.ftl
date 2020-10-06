@@ -1,17 +1,18 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
-<@hst.setBundle basename="month-names,facet-headers,facet-labels"/>
+<@hst.setBundle basename="month-names,facet-headers,facet-labels, doctype-labels"/>
 <#assign facetMaxCount=6/>
 
 <#if isContentSearch?? && isContentSearch>
     <#assign facetFields = hstRequest.requestContext.getAttribute("facetFields") />
+    <#assign resetUrl = hstRequest.requestContext.getAttribute("resetUrl") />
     <div class="filter">
         <div class="filter-head">
             <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true/>
             <span class="filter-head__title">Filter by:</span>
             <a class="filter-head__reset button button--tiny"
-               onclick="resetFacets(); return false;"
+               href="${resetUrl}"
                title="Reset">Reset</a>
         </div>
 
@@ -228,18 +229,18 @@
                         <#if field.name?? && field.name?has_content>
                             <#if field?index &lt; 6 || isSelected("xmPrimaryDocType", field.name)>
                                 <li class="filter-list__item filter-list__item--no-children">
-                                    <a href="${field.facetUrl}"
-                                       title="${facetLabel}"
+                                    <a href="<@fmt.message key= facetLabel />"
+                                       title="<@fmt.message key= facetLabel />"
                                        class="filter-link ${isSelected("xmPrimaryDocType", field.name)?then("filter-link--active", "")}">
-                                        ${facetLabel}
+                                        <@fmt.message key= facetLabel />
                                         (${field.count})</a>
                                 </li>
                             <#else>
                                 <li class="filter-list__item filter-list__item--no-children is-hidden">
                                     <a href="${field.facetUrl}"
-                                       title="${facetLabel}"
+                                       title="<@fmt.message key= facetLabel />"
                                        class="filter-link ${isSelected("xmPrimaryDocType", field.name)?then("filter-link--active", "")}">
-                                        ${facetLabel}
+                                        <@fmt.message key= facetLabel />
                                         (${field.count})</a>
                                 </li>
                             </#if>
@@ -289,24 +290,24 @@
 
 <#function getDocTypeLabel field>
     <#local labels = {
-    "website:cyberalert":                               "Cyber alerts",
-    "publicationsystem:dataset":                        "Data sets",
-    "website:news":                                     "News",
-    "website:publishedworkchapter":                     "Published work chapters",
-    "publicationsystem:series":                         "Data series",
-    "website:service":                                  "Service",
-    "website:gdprtransparency":                         "Data transparency",
-    "nationalindicatorlibrary:indicator":               "Indicators",
-    "website:event":                                    "Events",
-    "website:person":                                   "People",
-    "website:businessunit":                             "Business units",
-    "website:publishedwork":                            "Published work",
-    "website:blog":                                     "Blog posts",
-    "website:glossarylist":                             "Glossaries",
-    "website:roadmap":                                  "Roadmaps",
-    "homepage":                                         "Homepages",
-    "publication":                                      "Data publications",
-    "website:supplementaryinformation":                 "Information requests"
+    "website:cyberalert":                               "cyber-alerts",
+    "publicationsystem:dataset":                        "dataset",
+    "website:news":                                     "news",
+    "website:publishedworkchapter":                     "publishedworkchapter",
+    "publicationsystem:series":                         "series",
+    "website:service":                                  "service",
+    "website:gdprtransparency":                         "gdprtransparency",
+    "nationalindicatorlibrary:indicator":               "indicator",
+    "website:event":                                    "event",
+    "website:person":                                   "person",
+    "website:businessunit":                             "businessunit",
+    "website:publishedwork":                            "publishedwork",
+    "website:blog":                                     "blog",
+    "website:glossarylist":                             "glossarylist",
+    "website:roadmap":                                  "roadmap",
+    "homepage":                                         "homepage",
+    "publication":                                      "publication",
+    "website:supplementaryinformation":                 "supplementaryinformation"
     }/>
     <#return labels[field] />
 </#function>
@@ -329,11 +330,6 @@
 
 
 <script>
-
-    function resetFacets() {
-        window.location.href = location.protocol + '//' + location.host + location.pathname;
-    }
-
     (function () {
         var oldBrowser = window.addEventListener ? false : true;
         var $visToggles = document.getElementsByClassName('filter-vis-toggles');

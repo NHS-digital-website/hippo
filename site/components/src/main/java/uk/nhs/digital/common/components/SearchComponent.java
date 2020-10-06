@@ -27,6 +27,7 @@ import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 import uk.nhs.digital.common.components.info.SearchComponentInfo;
 import uk.nhs.digital.common.enums.SearchArea;
@@ -114,6 +115,7 @@ public class SearchComponent extends CommonComponent {
                     final int pageCount = (int) Math.ceil((double) totalResults / pageSize);
                     final List<Integer> pageNumbers = getPageNumbers(currentPage, pageCount);
                     Map<String, Object> facetFields = queryResponse.getFacetCountResult().getFields();
+                    request.setAttribute("totalResults", totalResults);
                     configureFacets(facetFields, request);
 
                     Pageable<Document> pageable = new ContentSearchPageable<>(totalResults, currentPage, pageSize);
@@ -123,7 +125,6 @@ public class SearchComponent extends CommonComponent {
                     request.setAttribute("isContentSearch", true);
                     request.setAttribute("searchTabs", facetFields.get("searchTab"));
                     request.setAttribute("queryResponse", queryResponse);
-                    request.setAttribute("totalResults", totalResults);
                     request.getRequestContext().setAttribute("facetFields", facetFields);
                     request.getRequestContext().setAttribute("searchTabs", facetFields.get("searchTab"));
                     request.getRequestContext().setAttribute("isContentSearch", true);
@@ -256,23 +257,24 @@ public class SearchComponent extends CommonComponent {
         } else {
             baseUrlBuilder = request.getRequestContext().getServletRequest().getRequestURL();
         }
+        StringBuffer baseUrl = new StringBuffer(baseUrlBuilder);
+        configureFacetResetUrl(request, baseUrl, queryString);
 
         if (queryString != null) {
             baseUrlBuilder.append("?")
                 .append(queryString);
         }
 
-        String baseUrl = baseUrlBuilder.toString();
+        String currentUrl = baseUrlBuilder.toString();
         if (queryString != null && queryString.contains("page")) {
-            baseUrl = UriComponentsBuilder.fromHttpUrl(baseUrlBuilder.toString())
+            currentUrl = UriComponentsBuilder.fromHttpUrl(baseUrlBuilder.toString())
                 .replaceQueryParam(request.getReferenceNamespace() + ":page")
                 .replaceQueryParam(request.getReferenceNamespace() + ":pageSize").build().toUriString();
         }
+        request.setAttribute("currentUrl", currentUrl);
 
         boolean hasQueryString = false;
-        if (UriComponentsBuilder.fromHttpUrl(baseUrl).build().getQueryParams().size() > 0) {
-            baseUrlBuilder.append("?")
-                .append(queryString);
+        if (UriComponentsBuilder.fromHttpUrl(currentUrl).build().getQueryParams().size() > 0) {
             hasQueryString = true;
         }
 
@@ -286,15 +288,15 @@ public class SearchComponent extends CommonComponent {
 
             for (Object field : fields) {
                 LinkedHashMap<String, Object> facetField = (LinkedHashMap) field;
-                StringBuilder facetUrlBuilder = new StringBuilder().append(baseUrl);
+                StringBuilder facetUrlBuilder = new StringBuilder().append(currentUrl);
                 String facetUrl;
                 if (hasQueryString) {
                     if (request.getRequestContext().getServletRequest().getParameter(key) != null) {
                         if (request.getRequestContext().getServletRequest().getParameter(key).equals(facetField.get("name"))) {
-                            facetUrl = UriComponentsBuilder.fromHttpUrl(baseUrl)
+                            facetUrl = UriComponentsBuilder.fromHttpUrl(currentUrl)
                                 .replaceQueryParam(key).build().toUriString();
                         } else {
-                            facetUrl = UriComponentsBuilder.fromHttpUrl(baseUrl)
+                            facetUrl = UriComponentsBuilder.fromHttpUrl(currentUrl)
                                 .replaceQueryParam(key, facetField.get("name")).build().toUriString();
                         }
                     } else {
@@ -308,8 +310,33 @@ public class SearchComponent extends CommonComponent {
                 facetField.put("facetUrl", facetUrl);
             }
             if (key.equals("searchTab")) {
-                configureSearchTabFacets(fields);
+                configureSearchTabFacets(fields, request);
             }
+        }
+    }
+
+    private void configureFacetResetUrl(HstRequest request, StringBuffer resetBaseUrl, String queryString) {
+        if (queryString != null) {
+            StringBuilder fullUrl = new StringBuilder(resetBaseUrl);
+            final MultiValueMap<String, String> queryParams =
+                UriComponentsBuilder.fromHttpUrl(fullUrl.append("?").append(queryString).toString()).build().getQueryParams();
+
+            boolean firstParamSet = false;
+            if (queryParams.containsKey("searchTab")) {
+                resetBaseUrl.append("?").append("searchTab=").append(queryParams.get("searchTab").get(0));
+                firstParamSet = true;
+            }
+            if (queryParams.containsKey("query")) {
+                if (firstParamSet) {
+                    resetBaseUrl.append("&");
+                } else {
+                    resetBaseUrl.append("?");
+                }
+                resetBaseUrl.append("query=").append(queryParams.get("query").get(0));
+            }
+            request.getRequestContext().setAttribute("resetUrl", resetBaseUrl.toString());
+        } else {
+            request.getRequestContext().setAttribute("resetUrl", resetBaseUrl.toString());
         }
     }
 
@@ -326,7 +353,7 @@ public class SearchComponent extends CommonComponent {
         }
     }
 
-    private void configureSearchTabFacets(ArrayList<Object> entry) {
+    private void configureSearchTabFacets(ArrayList<Object> entry, HstRequest request) {
         Iterator<Object> iterable = entry.iterator();
         while (iterable.hasNext()) {
             LinkedHashMap<String, Object> facetField = (LinkedHashMap) iterable.next();
@@ -335,17 +362,45 @@ public class SearchComponent extends CommonComponent {
             }
         }
 
-        String allTabUrl = "";
-        if (entry.size() > 0) {
-            final LinkedHashMap linkedHashMap = (LinkedHashMap) entry.get(0);
-            String facetUrl = (String) linkedHashMap.get("facetUrl");
-            allTabUrl = UriComponentsBuilder.fromHttpUrl(facetUrl).replaceQueryParam("searchTab").build().toUriString();
+        if (entry.size() < 3) {
+            addMissingSearchTabs(entry);
         }
+
+        String allTabUrl = request.getAttribute("currentUrl").toString();
+        allTabUrl = UriComponentsBuilder.fromHttpUrl(allTabUrl).replaceQueryParam("searchTab").build().toUriString();
 
         LinkedHashMap<String, Object> allTabEntry = new LinkedHashMap<>();
         allTabEntry.put("name", "All");
         allTabEntry.put("facetUrl", allTabUrl);
+        allTabEntry.put("count", request.getAttribute("totalResults"));
         entry.add(0, allTabEntry);
+    }
+
+    private void addMissingSearchTabs(ArrayList<Object> entry) {
+        ArrayList<String> configuredSearchTabs = new ArrayList<>();
+        for (Object o : entry) {
+            LinkedHashMap<String, Object> facetField = (LinkedHashMap) o;
+            configuredSearchTabs.add((String) facetField.get("name"));
+        }
+
+        if (!configuredSearchTabs.contains("data")) {
+            LinkedHashMap<String, Object> dataEntry = new LinkedHashMap<>();
+            dataEntry.put("name", "data");
+            dataEntry.put("count", 0);
+            entry.add(0, dataEntry);
+        }
+        if (!configuredSearchTabs.contains("services")) {
+            LinkedHashMap<String, Object> servicesEntry = new LinkedHashMap<>();
+            servicesEntry.put("name", "services");
+            servicesEntry.put("count", 0);
+            entry.add(1, servicesEntry);
+        }
+        if (!configuredSearchTabs.contains("news")) {
+            LinkedHashMap<String, Object> newsEntry = new LinkedHashMap<>();
+            newsEntry.put("name", "news");
+            newsEntry.put("count", 0);
+            entry.add(2, newsEntry);
+        }
     }
 
     /* Method for grouping, website:hub & website:visualhub into one facet 'homepage' */
@@ -436,6 +491,8 @@ public class SearchComponent extends CommonComponent {
 
     private void setCommonSearchRequestAttributes(HstRequest request, SearchComponentInfo paramInfo) {
         request.setAttribute("query", getQueryParameter(request));
+        request.getRequestContext().setAttribute("query", getQueryParameter(request));
+        request.getRequestContext().setAttribute("sort", getSortOption(request));
         request.setAttribute("sort", getSortOption(request));
         request.setAttribute("cparam", paramInfo);
     }
@@ -562,7 +619,7 @@ public class SearchComponent extends CommonComponent {
         return scopeBeans.toArray(new HippoBean[0]);
     }
 
-    private String getSortOption(HstRequest request) {
+    String getSortOption(HstRequest request) {
         return Optional.ofNullable(getAnyParameter(request, REQUEST_PARAM_SORT)).orElse(SORT_DEFAULT);
     }
 

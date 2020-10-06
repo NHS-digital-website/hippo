@@ -1,0 +1,217 @@
+---
+/content/documents/administration/documenttype-labels:
+  /documenttype-labels[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-10-06T14:10:27.348Z
+    hippostdpubwf:lastModificationDate: 2020-10-06T14:24:09.970Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: doctype-labels
+    resourcebundle:keys:
+    - cyber-alerts
+    - dataset
+    - news
+    - publishedworkchapter
+    - series
+    - gdprtransparency
+    - indicator
+    - event
+    - person
+    - businessunit
+    - publishedwork
+    - blog
+    - glossarylist
+    - roadmap
+    - homepage
+    - publication
+    - supplementaryinformation
+    - service
+    resourcebundle:messages:
+    - Cyber alerts
+    - Data sets
+    - News
+    - Published work chapters
+    - Series
+    - Data transparency
+    - Indicators
+    - Events
+    - People
+    - Business Units
+    - Published work
+    - Blog posts
+    - Glossaries
+    - Roadmaps
+    - Homepages
+    - Data publications
+    - Information requests
+    - Service
+  /documenttype-labels[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-10-06T14:10:27.348Z
+    hippostdpubwf:lastModificationDate: 2020-10-06T14:25:09.077Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: doctype-labels
+    resourcebundle:keys:
+    - cyber-alerts
+    - dataset
+    - news
+    - publishedworkchapter
+    - series
+    - gdprtransparency
+    - indicator
+    - event
+    - person
+    - businessunit
+    - publishedwork
+    - blog
+    - glossarylist
+    - roadmap
+    - homepage
+    - publication
+    - supplementaryinformation
+    - service
+    resourcebundle:messages:
+    - Cyber alerts
+    - Data sets
+    - News
+    - Published work chapters
+    - Series
+    - Data transparency
+    - Indicators
+    - Events
+    - People
+    - Business Units
+    - Published work
+    - Blog posts
+    - Glossaries
+    - Roadmaps
+    - Homepages
+    - Data publications
+    - Information requests
+    - Service
+  /documenttype-labels[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-10-06T14:10:27.348Z
+    hippostdpubwf:lastModificationDate: 2020-10-06T14:25:09.077Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-10-06T14:41:52.381Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: doctype-labels
+    resourcebundle:keys:
+    - cyber-alerts
+    - dataset
+    - news
+    - publishedworkchapter
+    - series
+    - gdprtransparency
+    - indicator
+    - event
+    - person
+    - businessunit
+    - publishedwork
+    - blog
+    - glossarylist
+    - roadmap
+    - homepage
+    - publication
+    - supplementaryinformation
+    - service
+    resourcebundle:messages:
+    - Cyber alerts
+    - Data sets
+    - News
+    - Published work chapters
+    - Series
+    - Data transparency
+    - Indicators
+    - Events
+    - People
+    - Business Units
+    - Published work
+    - Blog posts
+    - Glossaries
+    - Roadmaps
+    - Homepages
+    - Data publications
+    - Information requests
+    - Service
+  hippo:name: DocumentType labels
+  hippo:versionHistory: 8f98cf60-80cc-4695-a23e-34d55679cf9a
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
