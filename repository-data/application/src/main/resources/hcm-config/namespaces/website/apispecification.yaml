@@ -28,6 +28,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /classifiable:
+            /cluster.options:
+              caption: Keys
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            essentials-taxonomy-name: publication_taxonomy
+            hint: One of more topics that describe the subject matter of the API
+            jcr:primaryType: frontend:plugin
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
           /specification_id:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -45,6 +56,23 @@ definitions:
             caption: Summary
             field: summary
             hint: A meaningful but conscise description of the API in a single paragraph.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Short Summary
+            field: shortsummary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /seosummary:
+            caption: SEO Summary
+            field: seosummary
+            hint: A short concise summary of the API describing it's function alone
+              used in internal search results
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -87,6 +115,26 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
+          /seosummary:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:seoSummary
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /shortsummary:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
           /specification_id:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -122,6 +170,7 @@ definitions:
           - website:basedocument
           - hippostd:relaxed
           - hippotranslation:translated
+          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
@@ -135,6 +184,8 @@ definitions:
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          common:FacetType: apispecification
+          common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
@@ -146,9 +197,12 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
+          - hippotaxonomy:classifiable
           jcr:primaryType: website:apispecification
           website:html: ''
           website:json: ''
+          website:seosummary: ''
+          website:shortsummary: ''
           website:specification_id: ''
           website:summary: ''
           website:title: ''

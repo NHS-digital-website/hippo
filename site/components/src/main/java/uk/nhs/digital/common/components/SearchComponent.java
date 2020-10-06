@@ -209,7 +209,13 @@ public class SearchComponent extends CommonComponent {
     private SearchArea getAreaOption(HstRequest request) {
         Optional<String> param = Optional.ofNullable(getAnyParameter(request, REQUEST_PARAM_AREA));
 
-        return param.map(s -> SearchArea.valueOf(s.toUpperCase())).orElse(AREA_DEFAULT);
+        return param.map(s -> {
+            try {
+                return SearchArea.valueOf(s.toUpperCase());
+            } catch (Exception ex) {
+                return AREA_DEFAULT;
+            }
+        }).orElse(AREA_DEFAULT);
     }
 
     private HstQuery constructQuery(HstQueryBuilder queryBuilder, Constraint searchStringConstraint) {
@@ -368,7 +374,8 @@ public class SearchComponent extends CommonComponent {
     private void addApis(HstQueryBuilder query) {
         query.ofTypes(
             ApiMaster.class,
-            ApiEndpoint.class
+            ApiEndpoint.class,
+            ApiSpecification.class
         );
     }
 

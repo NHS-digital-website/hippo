@@ -83,10 +83,13 @@ definitions:
       /editorsnotes:
         hst:renderpath: webfile:/freemarker/common/macro/editorsnotes.ftl
         jcr:primaryType: hst:template
-      /eforms-default:
+      /eforms-validation-default:
+        hst:renderpath: webfile:/freemarker/common/eforms/eforms-validation-default.ftl
+        jcr:primaryType: hst:template
+      /eforms.default:
         hst:renderpath: webfile:/freemarker/common/eforms/eforms-default.ftl
         jcr:primaryType: hst:template
-      /eforms-validation-default:
+      /eforms.validation.default:
         hst:renderpath: webfile:/freemarker/common/eforms/eforms-validation-default.ftl
         jcr:primaryType: hst:template
       /event-article:
@@ -143,6 +146,9 @@ definitions:
       /icon-library-item:
         hst:renderpath: webfile:/freemarker/common/icon-library-item.ftl
         jcr:primaryType: hst:template
+      /ie-banner:
+        hst:renderpath: webfile:/freemarker/common/ie-banner.ftl
+        jcr:primaryType: hst:template
       /indicator:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
         jcr:primaryType: hst:template
@@ -169,6 +175,9 @@ definitions:
         jcr:primaryType: hst:template
       /news-article:
         hst:renderpath: webfile:/freemarker/common/news-article.ftl
+        jcr:primaryType: hst:template
+      /news-events-homepage:
+        hst:renderpath: webfile:/freemarker/common/news-events-homepage.ftl
         jcr:primaryType: hst:template
       /news-hub-article:
         hst:renderpath: webfile:/freemarker/common/news-hub-article.ftl
@@ -253,6 +262,9 @@ definitions:
         jcr:primaryType: hst:template
       /services-and-resources-home:
         hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
+        jcr:primaryType: hst:template
+      /sign-up:
+        hst:renderpath: webfile:/freemarker/common/sign-up.ftl
         jcr:primaryType: hst:template
       /social-feed:
         hst:renderpath: webfile:/freemarker/intranet/social-feed.ftl

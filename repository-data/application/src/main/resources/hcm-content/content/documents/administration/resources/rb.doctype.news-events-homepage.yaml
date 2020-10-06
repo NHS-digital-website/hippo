@@ -1,0 +1,145 @@
+---
+/content/documents/administration/resources/rb.doctype.news-events-homepage:
+  /rb.doctype.news-events-homepage[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-09T14:39:37.460Z
+    hippostdpubwf:lastModificationDate: 2020-08-12T14:06:36.444Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.news-events-homepage
+    resourcebundle:keys:
+    - headers.news
+    - headers.blogs
+    - headers.contact
+    - label.all-news
+    - label.all-blogs
+    - headers.follow
+    - link.all-blogs-link
+    - link.all-news-link
+    - number.news-articles
+    - number.blog-articles
+    resourcebundle:messages:
+    - Latest news
+    - Latest blog
+    - Contact us
+    - View all news
+    - View all blogs
+    - Follow us on social media
+    - https://google.co.uk
+    - https://changeme.co.uk
+    - '1'
+    - '2'
+  /rb.doctype.news-events-homepage[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-09T14:39:37.460Z
+    hippostdpubwf:lastModificationDate: 2020-08-12T14:07:01.996Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.news-events-homepage
+    resourcebundle:keys:
+    - headers.news
+    - headers.blogs
+    - headers.contact
+    - label.all-news
+    - label.all-blogs
+    - headers.follow
+    - link.all-blogs-link
+    - link.all-news-link
+    - number.news-articles
+    - number.blog-articles
+    resourcebundle:messages:
+    - Latest news
+    - Latest blog
+    - Contact us
+    - View all news
+    - View all blogs
+    - Follow us on social media
+    - https://google.co.uk
+    - https://changeme.co.uk
+    - '1'
+    - '2'
+  /rb.doctype.news-events-homepage[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-09T14:39:37.460Z
+    hippostdpubwf:lastModificationDate: 2020-08-12T14:07:01.996Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-08-12T14:07:03.483Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.news-events-homepage
+    resourcebundle:keys:
+    - headers.news
+    - headers.blogs
+    - headers.contact
+    - label.all-news
+    - label.all-blogs
+    - headers.follow
+    - link.all-blogs-link
+    - link.all-news-link
+    - number.news-articles
+    - number.blog-articles
+    resourcebundle:messages:
+    - Latest news
+    - Latest blog
+    - Contact us
+    - View all news
+    - View all blogs
+    - Follow us on social media
+    - https://google.co.uk
+    - https://changeme.co.uk
+    - '1'
+    - '2'
+  hippo:name: News Events Homepage Resource
+  hippo:versionHistory: f6deb46c-55b7-4115-8a60-7a503a3310ba
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

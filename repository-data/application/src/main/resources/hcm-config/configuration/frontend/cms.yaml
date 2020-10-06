@@ -37,6 +37,10 @@ definitions:
       - war
       - xml
       - json
+      - odf
+      - odt
+      - odp
+      - ods
       max.file.size: 3000M
     /hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService:
       extensions.allowed:

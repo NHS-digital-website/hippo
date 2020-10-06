@@ -7,19 +7,24 @@ import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
 import io.swagger.codegen.v3.CodegenOperation;
 import io.swagger.codegen.v3.CodegenParameter;
+import io.swagger.codegen.v3.CodegenProperty;
 import io.swagger.codegen.v3.CodegenResponse;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
+import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.parameters.Parameter;
+import io.swagger.v3.oas.models.responses.ApiResponse;
+import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
-import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ParameterBodyComponentsExtractor;
-import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenRequestParameterExampleRenderer;
+import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypeObjects;
+import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
+import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleRenderer;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -28,12 +33,14 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiSpecificationStaticHtml2Codegen.class);
 
+    private static final String VENDOR_EXT_KEY_BODY = "x-body";
+
     private CommonmarkMarkdownConverter markdownConverter = new CommonmarkMarkdownConverter();
 
-    private CodegenRequestParameterExampleRenderer codegenRequestParameterExampleRenderer =
-        new CodegenRequestParameterExampleRenderer(markdownConverter);
+    private CodegenParameterExampleRenderer codegenParameterExampleRenderer =
+        new CodegenParameterExampleRenderer(markdownConverter);
 
-    private ParameterBodyComponentsExtractor parameterBodyComponentsExtractor = new ParameterBodyComponentsExtractor();
+    private BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
 
     @Override
     public void preprocessOpenAPI(OpenAPI openApi) {
@@ -58,6 +65,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         additionalProperties.put("jsProjectName", jsProjectName);
         additionalProperties.put("jsModuleName", jsModuleName);
 
+        preProcessOperations(openApi);
+
         preparHtmlForGlobalDescription(openAPI);
 
         prepareHtmlForPathDescriptions(openAPI);
@@ -79,12 +88,16 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     public void postProcessParameter(final CodegenParameter parameter) {
         super.postProcessParameter(parameter);
 
-        saveRequestBodyAsVendorExtensionOnParamIfPresent(parameter);
+        postProcessRequestBody(parameter);
     }
 
     @Override
     public void setParameterExampleValue(final CodegenParameter parameter) {
-        parameter.example = codegenRequestParameterExampleRenderer.htmlForExampleValueOf(parameter);
+        try {
+            parameter.example = codegenParameterExampleRenderer.htmlForExampleValueOf(parameter.getJsonSchema());
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to process example value(s) for parameter " + parameter);
+        }
     }
 
     @Override
@@ -94,16 +107,147 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         handlebars.with(EscapingStrategy.NOOP);
     }
 
-    protected void postProcessOperation(final CodegenOperation codegenOperation) {
-        Optional.ofNullable(codegenOperation.getResponses()).orElse(emptyList()).forEach(this::postProcessResponse);
+    private void preProcessOperations(final OpenAPI openApi) {
+
+        openApi.getPaths().values().stream()
+            .flatMap(pathItem -> Stream.of(
+                pathItem.getHead(),
+                pathItem.getOptions(),
+                pathItem.getGet(),
+                pathItem.getTrace(),
+                pathItem.getPost(),
+                pathItem.getPut(),
+                pathItem.getPatch(),
+                pathItem.getDelete()
+            ).filter(Objects::nonNull))
+            .forEach(this::preProcessOperation);
     }
 
-    protected void postProcessResponse(final CodegenResponse codegenResponse) {
+    private void preProcessOperation(final Operation operation) {
+        preProcessResponses(operation.getResponses());
+    }
+
+    private void preProcessResponses(final ApiResponses responses) {
+        Optional.ofNullable(responses)
+            .orElse(new ApiResponses())
+            .values()
+            .forEach(this::preProcessResponse);
+    }
+
+    private void preProcessResponse(final ApiResponse apiResponse) {
+        preProcessResponseHeaders(apiResponse.getHeaders());
+    }
+
+    private void preProcessResponseHeaders(final Map<String, Header> apiResponseHeaders) {
+        Optional.ofNullable(apiResponseHeaders)
+            .orElse(emptyMap())
+            .values()
+            .forEach(this::preProcessApiResponseHeader);
+    }
+
+    private void preProcessApiResponseHeader(final Header header) {
+
+        propagateDescriptionFromHeaderToItsEmbeddedSchema(header);
+    }
+
+    private void postProcessOperation(final CodegenOperation codegenOperation) {
+        postProcessResponses(codegenOperation.getResponses());
+    }
+
+    private void postProcessResponses(final List<CodegenResponse> responses) {
+        Optional.ofNullable(responses)
+            .orElse(emptyList())
+            .forEach(this::postProcessResponse);
+    }
+
+    private void postProcessResponse(final CodegenResponse codegenResponse) {
+        postProcessResponseHeaders(codegenResponse.getHeaders());
+
         convertResponseDescriptionFromMarkdownToHtml(codegenResponse);
+
+        updateResponseBodiesFromJsonSchema(codegenResponse);
+    }
+
+    private void postProcessResponseHeaders(final List<CodegenProperty> codegenResponseHeaders) {
+        Optional.ofNullable(codegenResponseHeaders)
+            .orElse(emptyList())
+            .forEach(this::postProcessResponseHeader);
+    }
+
+    private void postProcessResponseHeader(final CodegenProperty codegenResponseHeader) {
+
+        fixCodegenResponseHeaderNullDefaultValue(codegenResponseHeader);
+
+        renderResponseHeaderExamples(codegenResponseHeader);
+
+        renderResponseHeaderDescription(codegenResponseHeader);
+    }
+
+    private void updateResponseBodiesFromJsonSchema(final CodegenResponse codegenResponse) {
+
+        final Optional<BodyWithMediaTypeObjects> bodyWithMediaTypeObjects =
+            bodyWithMediaTypesExtractor.bodyObjectFromJsonSchema(
+                codegenResponse.getJsonSchema(), "response " + codegenResponse
+            );
+
+        bodyWithMediaTypeObjects.ifPresent(body -> {
+            convertRequestBodyExampleDescriptionsFromMarkdownToHtml(body);
+
+            codegenResponse.getVendorExtensions().put("x-body", body);
+        });
+
+    }
+
+    private void renderResponseHeaderDescription(final CodegenProperty codegenResponseHeader) {
+
+        final String descriptionMarkdown = codegenResponseHeader.getDescription();
+
+        final String descriptionHtml = markdownConverter.toHtml(descriptionMarkdown);
+
+        codegenResponseHeader.setDescription(descriptionHtml);
+    }
+
+    private void renderResponseHeaderExamples(final CodegenProperty codegenResponseHeader) {
+        try {
+            codegenResponseHeader.example =
+                codegenParameterExampleRenderer.htmlForExampleValueOf(codegenResponseHeader.getJsonSchema());
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to process example value(s) for response header " + codegenResponseHeader);
+        }
+    }
+
+    private void fixCodegenResponseHeaderNullDefaultValue(final CodegenProperty codegenResponseHeader) {
+        // io.swagger.codegen.v3.generators.DefaultCodegenConfig.toDefaultValue incorrectly emits string "null"
+        // when the property is missing in JSON schema, so we need to fix this here, otherwise we'd be incorrectly
+        // displaying value "null".
+
+        if ("null".equals(codegenResponseHeader.defaultValue)) {
+            codegenResponseHeader.defaultValue = null;
+        }
     }
 
     protected void convertResponseDescriptionFromMarkdownToHtml(final CodegenResponse codegenResponse) {
         codegenResponse.message = markdownConverter.toHtml(codegenResponse.getMessage());
+    }
+
+    private void propagateDescriptionFromHeaderToItsEmbeddedSchema(final Header header) {
+        // When populating CodegenProperty.description, Codegen takes value from Header.schema.description,
+        // ignoring value defined against the header JSON object itself (https://swagger.io/specification/#header-object).
+        // The result is that if the schema does not contain a 'description' property, the CodegenProperty.description
+        // field remains empty (see io.swagger.codegen.v3.generators.DefaultCodegenConfig.fromProperty,
+        // invoked from io.swagger.codegen.v3.generators.DefaultCodegenConfig.addHeaders).
+        //
+        // For this reason, we populate Header.description with value from Header.Schema.description, here.
+        // Later in the processing, when Codegen creates CodegenProperty from io.swagger.v3.oas.models.media.Schema,
+        // it will pick this value to populate CodegenProperty.description with.
+        //
+        // Note that if Header has a description, we're overwriting any description that Schema could have, here.
+        // This is (roughly) in line with the behaviour described for 'example/examples' fields in
+        // https://swagger.io/specification/#media-type-object
+
+        if (StringUtils.isNotBlank(header.getDescription()) && header.getSchema() != null) {
+            header.getSchema().setDescription(header.getDescription());
+        }
     }
 
     private List<CodegenOperation> codegenOperationsFrom(final Map<String, Object> codegenOperationsMap) {
@@ -118,12 +262,39 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         return operations;
     }
 
-    private void saveRequestBodyAsVendorExtensionOnParamIfPresent(final CodegenParameter parameter) {
+    private void postProcessRequestBody(final CodegenParameter parameter) {
 
-        parameterBodyComponentsExtractor.extractBody(parameter)
-            .ifPresent(requestBody ->
-                parameter.getVendorExtensions().put("x-body", requestBody)
-            );
+        if (parameter.getIsBodyParam()) {
+            bodyWithMediaTypesExtractor.bodyObjectFromJsonSchema(
+                parameter.getJsonSchema(),
+                "request parameter " + parameter
+            )
+                .ifPresent(requestBody -> {
+
+                    convertRequestBodyExampleDescriptionsFromMarkdownToHtml(requestBody);
+
+                    saveRequestBodyAsVendorExtensionOnRequestBodyParam(parameter, requestBody);
+                });
+        }
+    }
+
+    private void saveRequestBodyAsVendorExtensionOnRequestBodyParam(
+        final CodegenParameter parameter,
+        final BodyWithMediaTypeObjects bodyWithMediaTypeObjects
+    ) {
+        parameter.getVendorExtensions().put(VENDOR_EXT_KEY_BODY, bodyWithMediaTypeObjects);
+    }
+
+    private void convertRequestBodyExampleDescriptionsFromMarkdownToHtml(final BodyWithMediaTypeObjects bodyWithMediaTypeObjects) {
+        bodyWithMediaTypeObjects.getMediaTypes().stream()
+            .flatMap(mediaTypeObject -> mediaTypeObject.getExamples().stream())
+            .forEach(exampleObject -> {
+
+                final String descriptionMarkdown = exampleObject.getDescription();
+                final String descriptionHtml = markdownConverter.toHtml(descriptionMarkdown);
+
+                exampleObject.setDescription(descriptionHtml);
+            });
     }
 
     /**
@@ -137,8 +308,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     private void preparHtmlForGlobalDescription(OpenAPI openApi) {
         String currentDescription = openApi.getInfo().getDescription();
         if (currentDescription != null && !currentDescription.isEmpty()) {
-            CommonmarkMarkdownConverter markInstance = new CommonmarkMarkdownConverter();
-            openApi.getInfo().setDescription(markInstance.toHtml(currentDescription));
+            openApi.getInfo().setDescription(markdownConverter.toHtml(currentDescription));
         } else {
             LOGGER.error("Swagger object description is empty [" + openApi.getInfo().getTitle() + "]");
         }
@@ -146,7 +316,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
     private void prepareHtmlForPathDescriptions(final OpenAPI openApi) {
 
-        final Stream<Operation> operationFromAllPaths = openApi.getPaths().values().stream()
+        final Stream<Operation> operationsFromAllPaths = openApi.getPaths().values().stream()
             .flatMap(pathItem -> Stream.of(
                 pathItem.getHead(),
                 pathItem.getOptions(),
@@ -158,7 +328,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
                 pathItem.getDelete()
             ).filter(Objects::nonNull));
 
-        operationFromAllPaths.forEach(operation -> {
+        operationsFromAllPaths.forEach(operation -> {
             final String markdownDescription = operation.getDescription();
             final String htmlDescription = markdownConverter.toHtml(markdownDescription);
 

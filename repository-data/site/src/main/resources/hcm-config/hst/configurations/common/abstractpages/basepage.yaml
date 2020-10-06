@@ -12,6 +12,10 @@ definitions:
       /footer:
         hst:template: footer
         jcr:primaryType: hst:component
+      /ie-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.IeBanner
+        hst:template: ie-banner
+        jcr:primaryType: hst:component
       /top:
         hst:componentclassname: uk.nhs.digital.common.components.SearchBarComponent
         hst:template: searchbar

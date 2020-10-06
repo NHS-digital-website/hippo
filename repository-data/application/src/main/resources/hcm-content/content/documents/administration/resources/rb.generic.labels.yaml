@@ -30,6 +30,7 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.apispecification
     - labels.jobrole
     - labels.businessunit
     - labels.orgstructure
@@ -42,6 +43,7 @@
     - Person
     - API Master
     - API Endpoint
+    - API Specification
     - Job role
     - Business unit
     - Org structure
@@ -79,6 +81,7 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.apispecification
     - labels.jobrole
     - labels.businessunit
     - labels.orgstructure
@@ -91,6 +94,7 @@
     - Person
     - API Master
     - API Endpoint
+    - API Specification
     - Job role
     - Business unit
     - Org structure
@@ -128,6 +132,7 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.apispecification
     - labels.jobrole
     - labels.businessunit
     - labels.orgstructure
@@ -140,6 +145,7 @@
     - Person
     - API Master
     - API Endpoint
+    - API Specification
     - Job role
     - Business unit
     - Org structure

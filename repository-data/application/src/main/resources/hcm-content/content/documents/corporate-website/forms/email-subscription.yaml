@@ -1,0 +1,208 @@
+---
+/content/documents/corporate-website/forms/email-subscription:
+  /email-subscription[1]:
+    /page0:
+      /field0:
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:expandhint: false
+        eforms:fieldid: idbe2c22c09c54a3a2
+        eforms:fieldname: email
+        eforms:hint: ''
+        eforms:label: Email address
+        eforms:length: 120
+        eforms:mandatory: true
+        eforms:validationruleclass: com.onehippo.cms7.eforms.hst.validation.rules.EmailAddressRule
+        eforms:validationruleid: email
+        eforms:validationrulelabel: E-mail Address
+        eforms:validcasesensitive: 'false'
+        eforms:validexpression: ''
+        jcr:primaryType: eforms:textfield
+      /field1:
+        eforms:allowother: false
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:displayvalues:
+        - Digital Leaders
+        - Pharmacy
+        - General Practice
+        eforms:expandhint: false
+        eforms:fieldid: idae45d64db1ae2f5e
+        eforms:fieldname: topics
+        eforms:hint: Bulletin topics to which to subscribe
+        eforms:label: Topics
+        eforms:length: 40
+        eforms:mandatory: false
+        eforms:validcasesensitive: 'false'
+        eforms:validexpression: ''
+        eforms:values:
+        - UKNHSDIG_1
+        - UKNHSDIG_2
+        - UKNHSDIG_4
+        jcr:primaryType: eforms:checkboxes
+      eforms:conditional: false
+      eforms:conditionnegate: false
+      eforms:label: Page 1
+      jcr:primaryType: eforms:page
+    eforms:action: mail
+    eforms:actionurl: http://test.com/action.do
+    eforms:afterprocesssuccessmode: text
+    eforms:afterprocesssuccesstext: You have subscribed to our bulletin!
+    eforms:buttonlabel: Subscribe
+    eforms:formname: Email subscription
+    eforms:govdeliveryapi: 'true'
+    eforms:notificationemail: test@example.com
+    eforms:notificationreplytoemailfields: ''
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-07-31T11:07:17.862Z
+    hippostdpubwf:lastModificationDate: 2020-08-10T11:45:16.906Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 31032092-0e2b-46a1-889c-2acfd5671ce0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: eforms:form
+  /email-subscription[2]:
+    /page0:
+      /field0:
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:expandhint: false
+        eforms:fieldid: idbe2c22c09c54a3a2
+        eforms:fieldname: email
+        eforms:hint: ''
+        eforms:label: Email address
+        eforms:length: 120
+        eforms:mandatory: true
+        eforms:validationruleclass: com.onehippo.cms7.eforms.hst.validation.rules.EmailAddressRule
+        eforms:validationruleid: email
+        eforms:validationrulelabel: E-mail Address
+        eforms:validcasesensitive: 'false'
+        eforms:validexpression: ''
+        jcr:primaryType: eforms:textfield
+      /field1:
+        eforms:allowother: false
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:displayvalues:
+        - Digital Leaders
+        - Pharmacy
+        - General Practice
+        eforms:expandhint: false
+        eforms:fieldid: idae45d64db1ae2f5e
+        eforms:fieldname: topics
+        eforms:hint: Bulletin topics to which to subscribe
+        eforms:label: Topics
+        eforms:length: 40
+        eforms:mandatory: false
+        eforms:validcasesensitive: 'false'
+        eforms:validexpression: ''
+        eforms:values:
+        - UKNHSDIG_1
+        - UKNHSDIG_2
+        - UKNHSDIG_4
+        jcr:primaryType: eforms:checkboxes
+      eforms:conditional: false
+      eforms:conditionnegate: false
+      eforms:label: Page 1
+      jcr:primaryType: eforms:page
+    eforms:action: mail
+    eforms:actionurl: http://test.com/action.do
+    eforms:afterprocesssuccessmode: text
+    eforms:afterprocesssuccesstext: You have subscribed to our bulletin!
+    eforms:buttonlabel: Subscribe
+    eforms:formname: Email subscription
+    eforms:govdeliveryapi: 'true'
+    eforms:notificationemail: test@example.com
+    eforms:notificationreplytoemailfields: ''
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-07-31T11:07:17.862Z
+    hippostdpubwf:lastModificationDate: 2020-08-10T11:45:16.807Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 31032092-0e2b-46a1-889c-2acfd5671ce0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: eforms:form
+  /email-subscription[3]:
+    /page0:
+      /field0:
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:expandhint: false
+        eforms:fieldid: idbe2c22c09c54a3a2
+        eforms:fieldname: email
+        eforms:hint: ''
+        eforms:label: Email address
+        eforms:length: 120
+        eforms:mandatory: true
+        eforms:validationruleclass: com.onehippo.cms7.eforms.hst.validation.rules.EmailAddressRule
+        eforms:validationruleid: email
+        eforms:validationrulelabel: E-mail Address
+        eforms:validcasesensitive: 'false'
+        eforms:validexpression: ''
+        jcr:primaryType: eforms:textfield
+      /field1:
+        eforms:allowother: false
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:displayvalues:
+        - Digital Leaders
+        - Pharmacy
+        - General Practice
+        eforms:expandhint: false
+        eforms:fieldid: idae45d64db1ae2f5e
+        eforms:fieldname: topics
+        eforms:hint: Bulletin topics to which to subscribe
+        eforms:label: Topics
+        eforms:length: 40
+        eforms:mandatory: false
+        eforms:validcasesensitive: 'false'
+        eforms:validexpression: ''
+        eforms:values:
+        - UKNHSDIG_1
+        - UKNHSDIG_2
+        - UKNHSDIG_4
+        jcr:primaryType: eforms:checkboxes
+      eforms:conditional: false
+      eforms:conditionnegate: false
+      eforms:label: Page 1
+      jcr:primaryType: eforms:page
+    eforms:action: mail
+    eforms:actionurl: http://test.com/action.do
+    eforms:afterprocesssuccessmode: text
+    eforms:afterprocesssuccesstext: You have subscribed to our bulletin!
+    eforms:buttonlabel: Subscribe
+    eforms:formname: Email subscription
+    eforms:govdeliveryapi: 'true'
+    eforms:notificationemail: test@example.com
+    eforms:notificationreplytoemailfields: ''
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-07-31T11:07:17.862Z
+    hippostdpubwf:lastModificationDate: 2020-08-10T11:45:16.807Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-08-10T11:45:19.643Z
+    hippotranslation:id: 31032092-0e2b-46a1-889c-2acfd5671ce0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: eforms:form
+  hippo:name: Email subscription
+  hippo:versionHistory: bbe9b929-a4e0-4744-a5cd-154f6e45a5d0
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

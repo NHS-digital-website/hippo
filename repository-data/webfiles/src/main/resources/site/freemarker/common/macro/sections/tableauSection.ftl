@@ -11,37 +11,35 @@
 
         <#assign divId = "tableau-${index}"/>
 
-        <div id="${divId}"></div>
+        <div id="${divId}" class="viz-wrapper">
+            <#if section.placeholderImageLocation?has_content>
+                <div id="${divId}-viz" class="viz-wrapper-item hidden-viz"></div>
+                <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" />
+                <div id="${divId}-loading" class="viz-wrapper-item">
+                    <img class="viz-wrapper-loading" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading icon " />
+                </div>
+            <#else>
+                <div id="${divId}-viz" class="viz-wrapper-item"></div>
+            </#if>
+        </div>
 
         <script type="text/javascript">
+
+
             var viz${index};
-
-            function throttleViz(containerDiv) {
-                <#if section.throttlingLocation?has_content>
-                    <#local tableauThrottleSize="uk.nhs.digital.freemarker.tableau.RemoteThrottleSizeFromUrl"?new() />
-                    <#local remote = tableauThrottleSize(section.throttlingLocation) />
-                    var attemptProbability = ${remote.size};
-                <#else>
-                    var attemptProbability = 0.5;
-                </#if>
-
-                if (viz${index} === undefined) {
-                    if ((Math.floor(Math.random() * 101) / 100.0) <= attemptProbability) {
-                        cookies.setCookie('tableauWithoutThrottling', 'yes', 0.042 <#-- One hour -->);
-                        containerDiv.innerHTML = '';
-                        loadViz(containerDiv);
-                    } else {
-                        containerDiv.innerHTML = '[Due to high demand, we can\'t connect you to the dashboard right now. Please wait and we will try and reconnect you automatically. Do not refresh your browser]';
-                        setTimeout(function() {
-                            throttleViz(containerDiv);
-                        }, ${section.retry?string("#")});
-                    }
-                }
-            }
-
-            function loadViz(containerDiv) {
+            function loadViz(containerDiv, placeholderElements) {
                 var url = "${section.url}";
                 var options = {
+                    "onFirstInteractive": function () {
+                        containerDiv.classList.remove("hidden-viz");
+                        if (Array.isArray(placeholderElements) && placeholderElements.length) {
+                            placeholderElements.forEach(function (el) {
+                                if(el instanceof HTMLElement) {
+                                    el.remove();
+                                }
+                            });
+                        }
+                    },
                     hideTabs: ${section.hidetabs?string}
                     <#if section.device??>
                     ,device: "${section.device}"
@@ -55,16 +53,20 @@
             }
 
             window.addEventListener('load', function() {
-                function ifThrottling() {
-                    if(cookies.getCookie('tableauWithoutThrottling') === 'yes') {
-                        return false;
-                    }
-                    return ${section.throttling?then('true', 'false')};
+                function placeholderImage() {
+                    return document.getElementById("${divId}-placeholder");
+                }
+                function loadingDiv() {
+                    return document.getElementById("${divId}-loading");
                 }
                 function containerDiv() {
-                    return document.getElementById("${divId}");
+                    return document.getElementById("${divId}-viz");
                 }
-                ifThrottling() ? throttleViz(containerDiv()) : loadViz(containerDiv());
+                <#if section.placeholderImageLocation?has_content>
+                    loadViz(containerDiv(), [placeholderImage(), loadingDiv()]);
+                <#else>
+                loadViz(containerDiv());
+                </#if>
             });
         </script>
     </#if>

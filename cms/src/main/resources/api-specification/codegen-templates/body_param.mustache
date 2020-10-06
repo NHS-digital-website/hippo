@@ -1,0 +1,48 @@
+
+    {{#mediaTypes}}
+
+        <h5 class="body__contenttype">
+            <span class="body__contenttype__label">Content type: </span>
+            <span class="body__contenttype__value">{{name}}</span>
+        </h5>
+
+        {{#example}}
+            <div class="body__example__header">Example</div>
+            <div><pre><code>{{this}}</code></pre></div>
+        {{/example}}
+
+        {{^example}}
+            {{^examples}}
+                {{#schema.example}}
+                    <div class="body__example__header">Example</div>
+                    <div><pre><code>{{this}}</code></pre></div>
+                {{/schema.example}}
+            {{/examples}}
+        {{/example}}
+
+        {{#examples}}
+            {{#@first}}
+            <div class="body__example__header">Examples</div>
+            {{/@first}}
+
+            {{#summary}}
+            <div class="body__example__summary">{{summary}}</div>
+            {{/summary}}
+
+            {{#description}}
+            <div class="body__example__description">{{description}}</div>
+            {{/description}}
+
+            <div><pre><code>{{value}}</code></pre></div>
+        {{/examples}}
+
+        <div class="body__schema__header">Schema</div>
+        <p>
+            To see the schema, open
+            {{! The ../../../baseName points to the CodegenOperation both for response and request bodies. }}
+            <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/{{../../../../baseName}}/{{operationIdSnakeCase}}')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+            and select the 'Schema' tab.
+        </p>
+
+    {{/mediaTypes}}
+

@@ -17,5 +17,19 @@
   &__required {color: $red;}
   &__description {}
   &__examples__header {font-weight: bold;}
+  &__example__summary {}
   &__example__description {}
+}
+
+.body{
+  &__contenttype {}
+  &__contenttype__label {font-weight: normal !important;}
+  &__contenttype__value {}
+
+  &__example__header {font-weight: bold;}
+  &__example__summary {}
+  &__example__description {}
+
+  &__schema__header {font-weight: bold;}
+  &__schema__trythisapi__link {color: $blue; text-decoration: underline;}
 }

@@ -41,6 +41,7 @@ definitions:
           - website:definedterms
           - website:projectfeed
           - website:projectupdate
+          - website:signup
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -77,6 +78,7 @@ definitions:
           - hst:pages/definedterms
           - hst:pages/project-update-feed
           - hst:pages/project-update
+          - hst:pages/sign-up
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -116,6 +118,7 @@ definitions:
         - website:definedterms
         - website:projectfeed
         - website:projectupdate
+        - website:signup
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -152,6 +155,7 @@ definitions:
         - hst:pages/definedterms
         - hst:pages/project-update-feed
         - hst:pages/project-update
+        - hst:pages/sign-up
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -291,6 +295,10 @@ definitions:
           - hst:pages/hub
           hst:relativecontentpath: ${parent}/forms
           jcr:primaryType: hst:sitemapitem
+        /email-subscription:
+          hst:componentconfigurationid: hst:pages/form-api
+          hst:relativecontentpath: ${parent}/email-subscription
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: forms
         jcr:primaryType: hst:sitemapitem
@@ -320,9 +328,11 @@ definitions:
         hst:componentconfigurationmappingnames:
         - website:hub
         - website:visualhub
+        - website:hubnewsandevents
         hst:componentconfigurationmappingvalues:
         - hst:pages/hub
         - hst:pages/visualhub
+        - hst:pages/news-events-homepage
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
       /robots.txt:

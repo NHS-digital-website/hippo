@@ -29,7 +29,7 @@
                           </#if>
                         </#if>
 
-                        <#assign boxdata = { "title": title, "text": link.shortsummary, "light": true } />
+                        <#assign boxdata = { "title": title, "text": link.shortsummary } />
                         <@hst.link hippobean=link var="boxlink"/>
                         <#assign boxdata += { "link": boxlink } />
                         <#assign boxdata += { "colorbox": apimethod } />
@@ -39,7 +39,7 @@
                         <#assign title = link.link.title?has_content?then(link.link.title, '')>
                         <#assign text = link.link.shortsummary?has_content?then(link.link.shortsummary, '')>
 
-                        <#assign boxdata = { "title": title, "text": text, "light": true } />
+                        <#assign boxdata = { "title": title, "text": text } />
                         <@hst.link hippobean=link.link var="boxlink" />
                         <#assign boxdata += { "link": boxlink } />
                       <#elseif link.linkType == "external">
@@ -47,7 +47,7 @@
                         <#assign title = link.title?has_content?then(link.title, '')>
                         <#assign text = link.shortsummary?has_content?then(link.shortsummary, '')>
 
-                        <#assign boxdata = { "title": title, "text": text, "light": true } />
+                        <#assign boxdata = { "title": title, "text": text } />
                         <#assign boxdata += { "link": link.link } />
                       </#if>
 

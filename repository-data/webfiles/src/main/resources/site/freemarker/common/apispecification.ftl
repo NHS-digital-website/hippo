@@ -15,6 +15,10 @@
 
     <#else>
 
+        <#-- Add meta tags -->
+        <#include "../common/macro/metaTags.ftl">
+        <@metaTags></@metaTags>
+
         <article class="article article--apispecification" itemscope>
             <@documentHeader document 'general'></@documentHeader>
 

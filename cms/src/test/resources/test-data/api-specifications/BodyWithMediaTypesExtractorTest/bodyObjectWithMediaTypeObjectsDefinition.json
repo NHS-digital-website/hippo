@@ -1,0 +1,40 @@
+{
+  "content": {
+    "application/yml": {
+      "examples": {
+        "example-a": {
+          "summary": "Example A summary",
+          "description": "Example A description",
+          "value": "Example A value"
+        },
+        "example-b": {
+          "summary": "Example B summary",
+          "description": "Example B description",
+          "value": "Example B value"
+        }
+      },
+      "example": "Example on Media Type Object YML",
+      "schema": {
+        "example": "Example on schema YML"
+      }
+    },
+    "application/xml": {
+      "examples": {
+        "example-c": {
+          "summary": "Example C summary",
+          "description": "Example C description",
+          "value": "Example C value"
+        },
+        "example-d": {
+          "summary": "Example D summary",
+          "description": "Example D description",
+          "value": "Example D value"
+        }
+      },
+      "example": "Example on Media Type Object XML",
+      "schema": {
+        "example": "Example on schema XML"
+      }
+    }
+  }
+}

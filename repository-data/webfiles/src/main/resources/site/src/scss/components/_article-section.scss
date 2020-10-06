@@ -106,6 +106,10 @@
     }
 }
 
+.article-section--introduction {
+    padding-top: $default-spacing-unit;
+}
+
 .article-section--child-pages {
     .list {
         list-style: none;

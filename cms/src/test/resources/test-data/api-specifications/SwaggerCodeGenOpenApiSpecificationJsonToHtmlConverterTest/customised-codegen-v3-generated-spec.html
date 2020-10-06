@@ -307,10 +307,11 @@ It supports the following security patterns:</p>
                                                         </tr>
                                                             <tr><td class="httpparams__name">id</td>
                                                             <td>
-                                                                <div id="d2e199_getPatient_id">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
@@ -339,10 +340,11 @@ It supports the following security patterns:</p>
                                                         </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_getPatient_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -363,10 +365,11 @@ It supports the following security patterns:</p>
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_getPatient_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -390,58 +393,355 @@ It supports the following security patterns:</p>
 
 
                                             <h2>Response</h2>
-                                                <h3>Status: 200</h3>
+                                                <h3>HTTP status: 200</h3>
                                                 <div>Information successfully returned.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getPatient-200-schema">
-                                                            <div id='responses-getPatient-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-getPatient-200-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                        <div class="tab-pane" id="responses-getPatient-200-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                                <tr><td class="httpparams__name">ETag</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
+<p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
+</div>
+                                                                
+                                                                                    <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">W/"2"</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 </tr>
-                                                                    <tr>
-                                                                        <td>ETag</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                            </table>
-                                                        </div>
-                                                </div>
+                                                        </table>
+                                                    </div>
 
-                                                <h3>Status: 400</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "address" : [ {
+    "extension" : [ {
+      "extension" : [ {
+        "url" : "type",
+        "valueCoding" : {
+          "code" : "PAF",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType"
+        }
+      }, {
+        "url" : "value",
+        "valueString" : "12345678"
+      } ],
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey"
+    } ],
+    "id" : "456",
+    "line" : [ "1 Trevelyan Square", "Boar Lane", "City Centre", "Leeds", "West Yorkshire" ],
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "postalCode" : "LS1 6AE",
+    "use" : "home"
+  } ],
+  "birthDate" : "2010-10-22",
+  "contact" : [ {
+    "id" : "C123",
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "relationship" : [ {
+      "coding" : [ {
+        "code" : "C",
+        "display" : "Emergency Contact",
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0131"
+      } ]
+    } ],
+    "telecom" : [ {
+      "system" : "phone",
+      "value" : "01632960587"
+    } ]
+  } ],
+  "deceasedDateTime" : "2010-10-22T00:00:00+00:00",
+  "extension" : [ {
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy",
+    "valueReference" : {
+      "identifier" : {
+        "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value" : "Y12345"
+      },
+      "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345"
+    }
+  }, {
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor",
+    "valueReference" : {
+      "identifier" : {
+        "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value" : "Y23456"
+      },
+      "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y23456"
+    }
+  }, {
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-MedicalApplianceSupplier",
+    "valueReference" : {
+      "identifier" : {
+        "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value" : "Y34567"
+      },
+      "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y34567"
+    }
+  }, {
+    "extension" : [ {
+      "url" : "deathNotificationStatus",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "2",
+          "display" : "Formal - death notice received from Registrar of Deaths",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus",
+          "version" : "1.0.0"
+        } ]
+      }
+    }, {
+      "url" : "systemEffectiveDate",
+      "valueDateTime" : "2010-10-22T00:00:00+00:00"
+    } ],
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus"
+  }, {
+    "extension" : [ {
+      "url" : "language",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "fr",
+          "display" : "French",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-HumanLanguage",
+          "version" : "1.0.0"
+        } ]
+      }
+    }, {
+      "url" : "interpreterRequired",
+      "valueBoolean" : true
+    } ],
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSCommunication"
+  }, {
+    "extension" : [ {
+      "url" : "PreferredWrittenCommunicationFormat",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "12",
+          "display" : "Braille",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredWrittenCommunicationFormat"
+        } ]
+      }
+    }, {
+      "url" : "PreferredContactMethod",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "1",
+          "display" : "Letter",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredContactMethod"
+        } ]
+      }
+    }, {
+      "url" : "PreferredContactTimes",
+      "valueString" : "Not after 7pm"
+    } ],
+    "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactPreference"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+    "valueAddress" : {
+      "city" : "Manchester",
+      "country" : "GBR",
+      "district" : "Greater Manchester"
+    }
+  } ],
+  "gender" : "female",
+  "generalPractitioner" : [ {
+    "id" : "254406A3",
+    "identifier" : {
+      "period" : {
+        "end" : "2021-12-31",
+        "start" : "2020-01-01"
+      },
+      "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+      "value" : "Y12345"
+    },
+    "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345",
+    "type" : "Organization"
+  } ],
+  "id" : "9000000009",
+  "identifier" : [ {
+    "extension" : [ {
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "code" : "01",
+          "display" : "Number present and verified",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-NHSNumberVerificationStatus",
+          "version" : "1.0.0"
+        } ]
+      }
+    } ],
+    "system" : "https://fhir.nhs.uk/Id/nhs-number",
+    "value" : "9000000009"
+  } ],
+  "meta" : {
+    "security" : [ {
+      "code" : "U",
+      "display" : "unrestricted",
+      "system" : "https://www.hl7.org/fhir/valueset-security-labels.html"
+    } ],
+    "versionId" : "2"
+  },
+  "multipleBirthInteger" : 1,
+  "name" : [ {
+    "family" : "Smith",
+    "given" : [ "Jane" ],
+    "id" : "123",
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "prefix" : [ "Mrs" ],
+    "suffix" : [ "MBE" ],
+    "use" : "usual"
+  } ],
+  "resourceType" : "Patient",
+  "telecom" : [ {
+    "id" : "789",
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "system" : "phone",
+    "use" : "work",
+    "value" : "01632960587"
+  }, {
+    "extension" : [ {
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem",
+      "valueCoding" : {
+        "code" : "textphone",
+        "display" : "Minicom (Textphone)",
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-OtherContactSystem"
+      }
+    } ],
+    "id" : "OC789",
+    "period" : {
+      "end" : "2021-12-31",
+      "start" : "2020-01-01"
+    },
+    "system" : "other",
+    "use" : "work",
+    "value" : "01632960587"
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/get_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getPatient-400-schema">
-                                                            <div id='responses-getPatient-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-getPatient-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
-                                                <h3>Status: 404</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_RESOURCE_ID",
+        "display" : "Resource Id is invalid"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/get_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 404</h3>
                                                 <div>Patient not found.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getPatient-404-schema">
-                                                            <div id='responses-getPatient-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-getPatient-404-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "not-found",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "RESOURCE_NOT_FOUND",
+        "display" : "Resource not found"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/get_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
                                         </article>
                                     </div>
                                     <div id="api-Patients-searchPatient" class="article-section-with-sub-heading">
@@ -617,10 +917,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                         </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -641,10 +942,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -675,10 +977,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                         </tr>
                                                             <tr><td class="httpparams__name">_exact-match</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_exactMatch">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
+                                                            
                                                             
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
                                                             
@@ -695,10 +998,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">_history</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_history">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
+                                                            
                                                             
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
                                                             
@@ -715,10 +1019,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">_fuzzy-match</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_fuzzyMatch">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
+                                                            
                                                             
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
                                                             
@@ -735,10 +1040,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">_max-results</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_maxResults">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Integer</span>
+                                                            
                                                                                 <code class="codeinline">(int32)</code>
                                                             
                                                                                 <div>Default value: <code class="codeinline">50</code></div>
@@ -756,10 +1062,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">family</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_family">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>The patient's family name (surname).</p>
@@ -768,7 +1075,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                             
-                                                                                <div><div class="httpparams__examples__header">Examples:</div>
+                                                                                <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__summary">Will also match Smythe if `_fuzzy-match` is specified.</div>
 <div class="httpparams__example__value"><code class="codeinline">Smith</code></div>
 <div class="httpparams__example__summary">Wildcards must contain at least two characters, this will match Smith, Smythe</div>
@@ -782,10 +1089,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">given</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_given">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>The patient's given name.</p>
@@ -803,10 +1111,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">gender</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_gender">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>Gender with which the patient most strongly identifies.</div>
@@ -823,17 +1132,18 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">birthdate</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_birthdate">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">array[String]</span>
+                                                            
                                                             
                                                             
                                                                                 <div>Date of birth in the format <code class="codeinline">&lt;eq|ge|le&gt;yyyy-mm-dd</code>. To specify a range, use <code class="codeinline">birthdate=geyyyy-mm-dd&amp;birthdate=leyyyy-mm-dd</code>.</div>
                                                             
                                                             
                                                             
-                                                                                <div><div class="httpparams__examples__header">Examples:</div>
+                                                                                <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__description">Exact match date</div>
 <div class="httpparams__example__value"><code class="codeinline">eq2010-10-22</code></div>
 <div class="httpparams__example__description">Greater than or equals match, which matches 2010-10-22 or 2010-10-23</div>
@@ -849,10 +1159,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">death-date</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_deathDate">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">date</span>
+                                                            
                                                                                 <code class="codeinline">(date)</code>
                                                             
                                                             
@@ -860,7 +1171,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                             
-                                                                                <div><div class="httpparams__examples__header">Examples:</div>
+                                                                                <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__description">Exact match date</div>
 <div class="httpparams__example__value"><code class="codeinline">eq2010-10-22</code></div>
 <div class="httpparams__example__description">Greater than or equals match which matches 2010-10-22 or 2010-10-23</div>
@@ -876,10 +1187,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">address-postcode</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_addressPostcode">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>The postcode of any of the patient’s known addresses. White spaces in postcodes are not significant; that is, LS16AE and LS1 6AE will both match LS1 6AE.</p>
@@ -888,7 +1200,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             
                                                             
                                                             
-                                                                                <div><div class="httpparams__examples__header">Examples:</div>
+                                                                                <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__summary">Spaces not important, would match LS16AE</div>
 <div class="httpparams__example__value"><code class="codeinline">LS1 6AE</code></div>
 <div class="httpparams__example__summary">Will match 'LS16AE', 'LS1 6AE' and 'LS1 6AB'</div>
@@ -902,10 +1214,11 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                             </tr>
                                                             <tr><td class="httpparams__name">general-practitioner</td>
                                                             <td>
-                                                                <div id="d2e199_searchPatient_generalPractitioner">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The Organisation Data Service (ODS) code of the patient's registered GP practice.</div>
@@ -923,30 +1236,334 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                 </div>
 
                                             <h2>Response</h2>
-                                                <h3>Status: 200</h3>
+                                                <h3>HTTP status: 200</h3>
                                                 <div>A completed search, containing zero, one, or many matching patients.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-searchPatient-200-schema">
-                                                            <div id='responses-searchPatient-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-searchPatient-200-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
-                                                <h3>Status: 400</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/render-no-example-where-none-present</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/render-examples-from-object-where-present-on-object-and-on-schema</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">example A summary</div>
+                                                    
+                                                                <div class="body__example__description">example A <code class="codeinline">description</code> - should render Markdown as HTML</div>
+                                                    
+                                                                <div><pre><code>{
+  "example-value" : "example A value - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">example B summary</div>
+                                                    
+                                                                <div class="body__example__description">example B <code class="codeinline">description</code> - should render Markdown as HTML</div>
+                                                    
+                                                                <div><pre><code>{
+  "example-value" : "example B value - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/render-example-from-object-where-present-on-object-and-on-schema</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "example-value" : "example on media object - should render, winning over the example in the schema"
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/render-example-from-schema-where-none-present-on-object</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                                        <div class="body__example__header">Example</div>
+                                                                        <div><pre><code>{
+  "example-value" : "example on schema - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "Bundle",
+  "type" : "searchset",
+  "timestamp" : "2019-12-25T12:00:00+00:00",
+  "total" : 1,
+  "entry" : [ {
+    "fullUrl" : "https://beta.api.digital.nhs.uk/personal-demographics/Patient/9000000009",
+    "search" : {
+      "score" : 1
+    },
+    "resource" : {
+      "address" : [ {
+        "extension" : [ {
+          "extension" : [ {
+            "url" : "type",
+            "valueCoding" : {
+              "code" : "PAF",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType"
+            }
+          }, {
+            "url" : "value",
+            "valueString" : "12345678"
+          } ],
+          "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey"
+        } ],
+        "id" : "456",
+        "line" : [ "1 Trevelyan Square", "Boar Lane", "City Centre", "Leeds", "West Yorkshire" ],
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "postalCode" : "LS1 6AE",
+        "use" : "home"
+      } ],
+      "birthDate" : "2010-10-22",
+      "contact" : [ {
+        "id" : "C123",
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "relationship" : [ {
+          "coding" : [ {
+            "code" : "C",
+            "display" : "Emergency Contact",
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0131"
+          } ]
+        } ],
+        "telecom" : [ {
+          "system" : "phone",
+          "value" : "01632960587"
+        } ]
+      } ],
+      "deceasedDateTime" : "2010-10-22T00:00:00+00:00",
+      "extension" : [ {
+        "extension" : [ {
+          "url" : "deathNotificationStatus",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "2",
+              "display" : "Formal - death notice received from Registrar of Deaths",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus",
+              "version" : "1.0.0"
+            } ]
+          }
+        }, {
+          "url" : "systemEffectiveDate",
+          "valueDateTime" : "2010-10-22T00:00:00+00:00"
+        } ],
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus"
+      } ],
+      "gender" : "female",
+      "generalPractitioner" : [ {
+        "id" : "254406A3",
+        "identifier" : {
+          "period" : {
+            "end" : "2021-12-31",
+            "start" : "2020-01-01"
+          },
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "Y12345"
+        },
+        "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345",
+        "type" : "Organization"
+      } ],
+      "id" : "9000000009",
+      "identifier" : [ {
+        "extension" : [ {
+          "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "01",
+              "display" : "Number present and verified",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-NHSNumberVerificationStatus",
+              "version" : "1.0.0"
+            } ]
+          }
+        } ],
+        "system" : "https://fhir.nhs.uk/Id/nhs-number",
+        "value" : "9000000009"
+      } ],
+      "meta" : {
+        "security" : [ {
+          "code" : "U",
+          "display" : "unrestricted",
+          "system" : "https://www.hl7.org/fhir/valueset-security-labels.html"
+        } ],
+        "versionId" : "2"
+      },
+      "multipleBirthInteger" : 1,
+      "name" : [ {
+        "family" : "Smith",
+        "given" : [ "Jane" ],
+        "id" : "123",
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "prefix" : [ "Mrs" ],
+        "suffix" : [ "MBE" ],
+        "use" : "usual"
+      } ],
+      "resourceType" : "Patient",
+      "telecom" : [ {
+        "id" : "789",
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "system" : "phone",
+        "use" : "work",
+        "value" : "01632960587"
+      }, {
+        "extension" : [ {
+          "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-OtherContactSystem",
+          "valueCoding" : {
+            "code" : "textphone",
+            "display" : "Minicom (Textphone)",
+            "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-OtherContactSystem"
+          }
+        } ],
+        "id" : "OC789",
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "system" : "other",
+        "use" : "work",
+        "value" : "01632960587"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Invalid search paramaters supplied.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-searchPatient-400-schema">
-                                                            <div id='responses-searchPatient-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-searchPatient-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">too few search params</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_SEARCH_DATA",
+        "display" : "Invalid search data provided - Not enough search parameters were provided to be able to make a search."
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">Invalid combination of search parameters</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_SEARCH_DATA",
+        "display" : "Invalid search data provided - 'Invalid Date Combination'"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
                                         </article>
                                     </div>
                                     <div id="api-Patients-updatePatientPartial" class="article-section-with-sub-heading">
@@ -1492,10 +2109,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                         </tr>
                                                             <tr><td class="httpparams__name">id</td>
                                                             <td>
-                                                                <div id="d2e199_updatePatientPartial_id">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
@@ -1524,10 +2142,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                         </tr>
                                                             <tr><td class="httpparams__name">If-Match</td>
                                                             <td>
-                                                                <div id="d2e199_updatePatientPartial_ifMatch">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>Latest known version identifier enclosed in quotes preceded by <code class="codeinline">W/</code>.</p>
@@ -1549,10 +2168,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                             </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_updatePatientPartial_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -1573,10 +2193,11 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_updatePatientPartial_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -1598,72 +2219,525 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 
                                                 <div class="httpparams">
                                                     <h3>Body</h3>
-                                                            <div class="httpparams__required">Required</div>
-                                                            
-                                                                    <h5>application/json</h5>
+                                                    <div class="httpparams__required">Required</div>
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/render-no-example-where-none-present</span>
+                                                                </h5>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                                <div class="body__schema__header">Schema</div>
+                                                                <p>
+                                                                    To see the schema, open
+                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                    and select the 'Schema' tab.
+                                                                </p>
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/render-examples-from-object-where-present-on-object-and-on-schema</span>
+                                                                </h5>
+                                                        
+                                                        
+                                                        
+                                                                    <div class="body__example__header">Examples</div>
+                                                        
+                                                                    <div class="body__example__summary">example A summary</div>
+                                                        
+                                                                    <div class="body__example__description">example A <code class="codeinline">description</code> - should render Markdown as HTML</div>
+                                                        
+                                                                    <div><pre><code>{
+  "example-value" : "example A value - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">example B summary</div>
+                                                        
+                                                                    <div class="body__example__description">example B <code class="codeinline">description</code> - should render Markdown as HTML</div>
+                                                        
+                                                                    <div><pre><code>{
+  "example-value" : "example B value - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                        
+                                                                <div class="body__schema__header">Schema</div>
+                                                                <p>
+                                                                    To see the schema, open
+                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                    and select the 'Schema' tab.
+                                                                </p>
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/render-example-from-object-where-present-on-object-and-on-schema</span>
+                                                                </h5>
+                                                        
+                                                                    <div class="body__example__header">Example</div>
+                                                                    <div><pre><code>{
+  "example-value" : "example on media object - should render, winning over the example in the schema"
+}</code></pre></div>
+                                                        
+                                                        
+                                                        
+                                                                <div class="body__schema__header">Schema</div>
+                                                                <p>
+                                                                    To see the schema, open
+                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                    and select the 'Schema' tab.
+                                                                </p>
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/render-example-from-schema-where-none-present-on-object</span>
+                                                                </h5>
+                                                        
+                                                        
+                                                                            <div class="body__example__header">Example</div>
+                                                                            <div><pre><code>{
+  "example-value" : "example on schema - should render as pretty-printed JSON"
+}</code></pre></div>
+                                                        
+                                                        
+                                                                <div class="body__schema__header">Schema</div>
+                                                                <p>
+                                                                    To see the schema, open
+                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                    and select the 'Schema' tab.
+                                                                </p>
+                                                        
+                                                        
+                                                                <h5 class="body__contenttype">
+                                                                    <span class="body__contenttype__label">Content type: </span>
+                                                                    <span class="body__contenttype__value">application/json</span>
+                                                                </h5>
+                                                        
+                                                        
+                                                        
+                                                                    <div class="body__example__header">Examples</div>
+                                                        
+                                                                    <div class="body__example__summary">Add a new single item (deceasedDateTime) to the patient</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "add",
+    "path" : "/deceasedDateTime",
+    "value" : "2010-10-22T00:00:00+00:00"
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Add a new list item (name) to the patient</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "add",
+    "path" : "/name/-",
+    "value" : {
+      "use" : "usual",
+      "period" : {
+        "start" : "2019-12-31"
+      },
+      "prefix" : [ "Dr" ],
+      "given" : [ "Joe", "Horation", "Maximus" ],
+      "family" : "Bloggs",
+      "suffix" : [ "PhD" ]
+    }
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Add a an extension (nominated pharmacy) to the Patient</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "add",
+    "path" : "/extension/-",
+    "value" : {
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy",
+      "valueReference" : {
+        "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "Y12345",
+          "period" : {
+            "start" : "2020-01-01",
+            "end" : "2021-12-31"
+          }
+        }
+      }
+    }
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Update the simple item (gender)</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "replace",
+    "path" : "/gender",
+    "value" : "male"
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Update specific fields on a list item (address)</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "replace",
+    "path" : "/address/0/line/0",
+    "value" : "2 Whitehall Quay"
+  }, {
+    "op" : "replace",
+    "path" : "/address/0/postalCode",
+    "value" : "LS1 4BU"
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Update whole object on a list item (address)</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "replace",
+    "path" : "/address/0",
+    "value" : {
+      "id" : "456",
+      "period" : {
+        "start" : "2020-01-01",
+        "end" : "2021-12-31"
+      },
+      "use" : "home",
+      "line" : [ "2 Whitehall Quay", "Leeds", "West Yorkshire" ],
+      "postalCode" : "LS1 4BU",
+      "extension" : [ {
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey",
+        "extension" : [ {
+          "url" : "type",
+          "valueCoding" : {
+            "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType",
+            "code" : "PAF"
+          }
+        }, {
+          "url" : "value",
+          "valueString" : "9876543"
+        } ]
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Update an extension (death notification)</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "replace",
+    "path" : "/extension/3",
+    "value" : {
+      "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus",
+      "extension" : [ {
+        "url" : "deathNotificationStatus",
+        "valueCodeableConcept" : {
+          "coding" : [ {
+            "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus",
+            "version" : "1.0.0",
+            "code" : "1",
+            "display" : "Informal - death notice received via an update from a local NHS Organisation such as GP or Trust"
+          } ]
+        }
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Remove a single item (gender) no longer in use</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "remove",
+    "path" : "/gender"
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Remove a list item (name) no longer in use, using test pointing to the name items id</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "test",
+    "path" : "/name/0/id",
+    "value" : "123"
+  }, {
+    "op" : "remove",
+    "path" : "/name/0"
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Remove a list item (name) no longer in use, using test pointing to the name object</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "test",
+    "path" : "/name/0",
+    "value" : {
+      "id" : "123",
+      "use" : "usual",
+      "period" : {
+        "start" : "2020-01-01",
+        "end" : "2021-12-31"
+      },
+      "given" : [ "Jane" ],
+      "family" : "Smith",
+      "prefix" : [ "Mrs" ],
+      "suffix" : [ "MBE" ]
+    }
+  }, {
+    "op" : "remove",
+    "path" : "/name/0"
+  } ]
+}</code></pre></div>
+                                                        
+                                                                    <div class="body__example__summary">Remove an extension (dispensing doctor pharmacy) no longer in use</div>
+                                                        
+                                                        
+                                                                    <div><pre><code>{
+  "patches" : [ {
+    "op" : "test",
+    "path" : "/extension/1/url",
+    "value" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor"
+  }, {
+    "op" : "remove",
+    "path" : "/extension/1"
+  } ]
+}</code></pre></div>
+                                                        
+                                                                <div class="body__schema__header">Schema</div>
+                                                                <p>
+                                                                    To see the schema, open
+                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                    and select the 'Schema' tab.
+                                                                </p>
+                                                        
+                                                        
                                                 </div>
 
 
 
                                             <h2>Response</h2>
-                                                <h3>Status: 202</h3>
+                                                <h3>HTTP status: 202</h3>
                                                 <div><p>The patch was syntactically correct and was accepted.</p>
 <p>A polling location will be returned in the <code class="codeinline">Content-Location</code> header and the polling interval in the <code class="codeinline">Retry-After</code> header.</p>
 <p>Note, the patch may still fail after it is accepted, for example, further validation of the patch may still result in business rule failures. Therefore, it should not be assumed that the patient is successfully updated after receiving acceptance of the message.</p>
 <p>See the polling endpoint for more details.</p>
 </div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane" id="responses-updatePatientPartial-202-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                                <tr><td class="httpparams__name">Content-Location</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div>Polling location of the update</div>
+                                                                
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">/Polling/20200522091633363041_461139_1524772598</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 </tr>
-                                                                    <tr>
-                                                                        <td>Content-Location</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Retry-After</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                            </table>
-                                                        </div>
-                                                </div>
+                                                                <tr><td class="httpparams__name">Retry-After</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div>Time to wait between polls in milliseconds</div>
+                                                                
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">100</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                </tr>
+                                                        </table>
+                                                    </div>
 
-                                                <h3>Status: 400</h3>
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Client error.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-updatePatientPartial-400-schema">
-                                                            <div id='responses-updatePatientPartial-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-updatePatientPartial-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
-                                                <h3>Status: 412</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Invalid NHS number supplied</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_RESOURCE_ID",
+        "display" : "Resource Id is invalid"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">No patches submitted</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "required",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "MISSING_VALUE",
+        "display" : "Missing value - patches"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">Invalid patch operation(s)</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_UPDATE",
+        "display" : "Invalid update with error - Invalid payload received - incorrect format"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 412</h3>
                                                 <div><p>Precondition failed.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
 </div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-updatePatientPartial-412-schema">
-                                                            <div id='responses-updatePatientPartial-412-schema-412' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-updatePatientPartial-412-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Invalid If-Match header</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "PRECONDITION_FAILED",
+        "display" : "Invalid update with error - This resource has changed since you last read. Please re-read and try again with the new version number."
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                                <div class="body__example__summary">Missing If-Match header</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "required",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "PRECONDITION_FAILED",
+        "display" : "Invalid update with error - If-Match header must be supplied to update this resource"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
                                         </article>
                                     </div>
                     <div id="api-Polling" class="article-section">
@@ -1732,10 +2806,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </tr>
                                                             <tr><td class="httpparams__name">message_id</td>
                                                             <td>
-                                                                <div id="d2e199_polling_messageId">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The message ID of the accepted update that needs to be submitted to confirm the resource a successfully updated.</div>
@@ -1764,10 +2839,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_polling_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -1788,10 +2864,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_polling_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
-                                                                            <span class="httpparams__datatype">String</span>
+                                                                            <span class="httpparams__datatype"></span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -1815,98 +2892,272 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
                                             <h2>Response</h2>
-                                                <h3>Status: 200</h3>
+                                                <h3>HTTP status: 200</h3>
                                                 <div>Patient updated.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-200-schema">
-                                                            <div id='responses-polling-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-polling-200-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                        <div class="tab-pane" id="responses-polling-200-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                                <tr><td class="httpparams__name">ETag</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
+<p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
+</div>
+                                                                
+                                                                                    <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">W/"2"</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 </tr>
-                                                                    <tr>
-                                                                        <td>ETag</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                            </table>
-                                                        </div>
-                                                </div>
+                                                        </table>
+                                                    </div>
 
-                                                <h3>Status: 400</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Client error after the patch was accepted and patient was not updated.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-400-schema">
-                                                            <div id='responses-polling-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-polling-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
-                                                <h3>Status: 403</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Business rule failure; start date was after the end date.</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_UPDATE",
+        "display" : "Invalid update with error - business effective start date is after the end date"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 403</h3>
                                                 <div>Part of your update could not be allowed as the change was forbidden.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-403-schema">
-                                                            <div id='responses-polling-403-schema-403' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-polling-403-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
-                                                <h3>Status: 404</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Date of death cannot be removed once it has been set.</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "information",
+    "code" : "forbidden",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "FORBIDDEN_UPDATE",
+        "display" : "Forbidden update with error - source not permitted to remove 'deceasedDateTime'"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 404</h3>
                                                 <div>The message ID not found or you did not have permission to poll for that message.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-404-schema">
-                                                            <div id='responses-polling-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-polling-404-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
-                                                <h3>Status: 409</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "information",
+    "code" : "not-found",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "POLLING_ID_NOT_FOUND",
+        "display" : "The polling ID was not found"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 409</h3>
                                                 <div><p>Version Conflict.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
 </div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-409-schema">
-                                                            <div id='responses-polling-409-schema-409' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-polling-409-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
-                                                <h3>Status: 422</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                    
+                                                    
+                                                                <div class="body__example__header">Examples</div>
+                                                    
+                                                                <div class="body__example__summary">Version mis-match</div>
+                                                    
+                                                    
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "conflict",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "RESOURCE_VERSION_MISMATCH",
+        "display" : "Resource version supplied does not match actual version"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 422</h3>
                                                 <div><p>The polling message ID was found however the processing of the request failed in an unexpected way or was cancelled, so the update failed.</p>
 <p>Please raise these occurrences with our team (via https://digital.nhs.uk/developer/help-and-support) so we can investigate the issue. When raising, quote the message ID you were polling for.</p>
 </div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-polling-422-schema">
-                                                            <div id='responses-polling-422-schema-422' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-polling-422-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "processing",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "POLLING_MESSAGE_FAILURE",
+        "display" : "The polling ID was found however the processing of the request failed in an unexpected way or was cancelled"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
                                         </article>
                                     </div>
                     <div id="api-Relatedperson" class="article-section">
@@ -1973,10 +3224,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </tr>
                                                             <tr><td class="httpparams__name">id</td>
                                                             <td>
-                                                                <div id="d2e199_getRelatedPeople_id">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
@@ -2005,10 +3257,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                         </tr>
                                                             <tr><td class="httpparams__name">NHSD-Session-URID</td>
                                                             <td>
-                                                                <div id="d2e199_getRelatedPeople_nHSDSessionURID">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                             
                                                             
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
@@ -2029,10 +3282,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                             </tr>
                                                             <tr><td class="httpparams__name">Authorization</td>
                                                             <td>
-                                                                <div id="d2e199_getRelatedPeople_authorization">
+                                                                <div>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
+                                                            
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
                                                             
                                                             
@@ -2056,69 +3310,263 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
                                             <h2>Response</h2>
-                                                <h3>Status: 200</h3>
+                                                <h3>HTTP status: 200</h3>
                                                 <div>Information successfully returned.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getRelatedPeople-200-schema">
-                                                            <div id='responses-getRelatedPeople-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-
-                                                            </div>
-                                                            <input id='responses-getRelatedPeople-200-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                        <div class="tab-pane" id="responses-getRelatedPeople-200-headers">
-                                                            <table data-disablesort="true">
-                                                                <tr>
-                                                                    <th width="150px">Name</th>
-                                                                    <th width="100px">Type</th>
-                                                                    <th width="100px">Format</th>
-                                                                    <th>Description</th>
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                                <tr><td class="httpparams__name">ETag</td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="httpparams__description">
+                                                                            <div>
+                                                                                <span class="httpparams__datatype">String</span>
+                                                                
+                                                                
+                                                                
+                                                                                    <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
+<p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
+</div>
+                                                                
+                                                                                    <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
+                                                                
+                                                                
+                                                                                    <div>Example: <code class="codeinline">W/"2"</code></div>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 </tr>
-                                                                    <tr>
-                                                                        <td>ETag</td>
-                                                                        <td>String</td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
-                                                            </table>
-                                                        </div>
-                                                </div>
+                                                        </table>
+                                                    </div>
 
-                                                <h3>Status: 400</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "Bundle",
+  "type" : "searchset",
+  "timestamp" : "2019-12-25T12:00:00+00:00",
+  "total" : 1,
+  "entry" : [ {
+    "fullUrl" : "https://beta.api.digital.nhs.uk/personal-demographics/Patient/9000000009/RelatedPerson/507B7621",
+    "resource" : {
+      "active" : true,
+      "address" : [ {
+        "extension" : [ {
+          "extension" : [ {
+            "url" : "type",
+            "valueCoding" : {
+              "code" : "PAF",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType"
+            }
+          }, {
+            "url" : "value",
+            "valueString" : "12345678"
+          } ],
+          "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey"
+        } ],
+        "line" : [ "1 Trevelyan Square", "Boar Lane", "City Centre", "Leeds", "West Yorkshire" ],
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "postalCode" : "LS1 6AE",
+        "use" : "home"
+      } ],
+      "extension" : [ {
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-CopyCorrespondenceIndicator",
+        "valueBoolean" : true
+      }, {
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactRank",
+        "valuePositiveInt" : 1
+      }, {
+        "extension" : [ {
+          "url" : "PreferredWrittenCommunicationFormat",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "12",
+              "display" : "Braille",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredWrittenCommunicationFormat"
+            } ]
+          }
+        }, {
+          "url" : "PreferredContactMethod",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "1",
+              "display" : "Letter",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-PreferredContactMethod"
+            } ]
+          }
+        }, {
+          "url" : "PreferredContactTimes",
+          "valueString" : "Not after 7pm"
+        } ],
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactPreference"
+      }, {
+        "extension" : [ {
+          "url" : "language",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "code" : "fr",
+              "display" : "French",
+              "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-HumanLanguage",
+              "version" : "1.0.0"
+            } ]
+          }
+        }, {
+          "url" : "interpreterRequired",
+          "valueBoolean" : true
+        } ],
+        "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSCommunication"
+      } ],
+      "id" : "507B7621",
+      "name" : [ {
+        "family" : "Smith",
+        "given" : [ "Jane" ],
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "prefix" : [ "Mrs" ],
+        "suffix" : [ "MBE" ],
+        "use" : "usual"
+      } ],
+      "patient" : {
+        "identifier" : {
+          "system" : "https://beta.api.digital.nhs.uk/personal-demographics/Patient",
+          "value" : "90000000009"
+        },
+        "reference" : "https://beta.api.digital.nhs.uk/personal-demographics/Patient/90000000009",
+        "type" : "Patient"
+      },
+      "period" : {
+        "end" : "2021-12-31",
+        "start" : "2020-01-01"
+      },
+      "relationship" : [ {
+        "coding" : [ {
+          "code" : "Guardian",
+          "display" : "Guardian of patient",
+          "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AdditionalRelatedPersonRole"
+        } ]
+      } ],
+      "resourceType" : "RelatedPerson",
+      "telecom" : [ {
+        "period" : {
+          "end" : "2021-12-31",
+          "start" : "2020-01-01"
+        },
+        "system" : "phone",
+        "use" : "work",
+        "value" : "01632960587"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Relatedperson/get_related_people')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getRelatedPeople-400-schema">
-                                                            <div id='responses-getRelatedPeople-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-getRelatedPeople-400-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
-                                                <h3>Status: 404</h3>
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "value",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "INVALID_RESOURCE_ID",
+        "display" : "Resource Id is invalid"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Relatedperson/get_related_people')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
+                                                <h3>HTTP status: 404</h3>
                                                 <div>Related People not found.</div>
 
-                                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                                        <div class="tab-pane active" id="responses-getRelatedPeople-404-schema">
-                                                            <div id='responses-getRelatedPeople-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
 
-                                                            </div>
-                                                            <input id='responses-getRelatedPeople-404-schema-data' type='hidden' value=''></input>
-                                                        </div>
-                                                </div>
-
+                                                        <h4>Body</h4>
+                                                    
+                                                    
+                                                            <h5 class="body__contenttype">
+                                                                <span class="body__contenttype__label">Content type: </span>
+                                                                <span class="body__contenttype__value">application/fhir+json</span>
+                                                            </h5>
+                                                    
+                                                                <div class="body__example__header">Example</div>
+                                                                <div><pre><code>{
+  "resourceType" : "OperationOutcome",
+  "issue" : [ {
+    "severity" : "error",
+    "code" : "not-found",
+    "details" : {
+      "coding" : [ {
+        "system" : "https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode",
+        "version" : "1",
+        "code" : "RESOURCE_NOT_FOUND",
+        "display" : "Resource not found"
+      } ]
+    }
+  } ]
+}</code></pre></div>
+                                                    
+                                                    
+                                                    
+                                                            <div class="body__schema__header">Schema</div>
+                                                            <p>
+                                                                To see the schema, open
+                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Relatedperson/get_related_people')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
+                                                                and select the 'Schema' tab.
+                                                            </p>
+                                                    
+                                                    
                                         </article>
                                     </div>
 
-    <div id="footer">
-        <div id="api-_footer">
-        <p>Suggestions, contact, support and error reporting;
-                <div class="app-desc">Information URL: <a href="https://tbc.api.nhs.net">https://tbc.api.nhs.net</a></div>
-                <div class="app-desc">Contact Info: <a href="api.management@nhs.net">api.management@nhs.net</a></div>
-            </p>
-                <div class="license-info">All rights reserved</div>
-                <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
-        </div>
-    </div>
     </div>
