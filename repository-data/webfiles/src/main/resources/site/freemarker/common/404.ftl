@@ -2,8 +2,9 @@
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
 
-<#assign documentTitle = "We can't seem to find the page you're looking for" />
 <#-- 404 page -->
+
+<#assign documentTitle = "We can't seem to find the page you're looking for" />
 <#-- Add meta tags -->
 <#assign document = { "title": documentTitle } />
 <@metaTags></@metaTags>
