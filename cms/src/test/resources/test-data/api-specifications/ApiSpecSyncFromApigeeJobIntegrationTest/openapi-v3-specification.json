@@ -248,51 +248,6 @@
                     "200": {
                         "description": "A completed search, containing zero, one, or many matching patients.",
                         "content": {
-                            "application/render-no-example-where-none-present": {
-                                "schema": {
-                                    "description": "no example on schema"
-                                }
-                            },
-                            "application/render-examples-from-object-where-present-on-object-and-on-schema": {
-                                "examples": {
-                                    "example-a": {
-                                        "summary": "example A summary",
-                                        "description": "example A `description` - should render Markdown as HTML",
-                                        "value": {
-                                            "example-value": "example A value - should render as pretty-printed JSON"
-                                        }
-                                    },
-                                    "example-b": {
-                                        "summary": "example B summary",
-                                        "description": "example B `description` - should render Markdown as HTML",
-                                        "value": {
-                                            "example-value": "example B value - should render as pretty-printed JSON"
-                                        }
-                                    }
-                                },
-                                "schema": {
-                                    "example": {
-                                        "example-value": "example on schema - should NOT render, overridden by examples on the Media Type Object"
-                                    }
-                                }
-                            },
-                            "application/render-example-from-object-where-present-on-object-and-on-schema": {
-                                "example": {
-                                    "example-value": "example on media object - should render, winning over the example in the schema"
-                                },
-                                "schema": {
-                                    "example": {
-                                        "example-value": "example on schema - should NOT render, overridden by example on the Media Type Object"
-                                    }
-                                }
-                            },
-                            "application/render-example-from-schema-where-none-present-on-object": {
-                                "schema": {
-                                    "example": {
-                                        "example-value": "example on schema - should render as pretty-printed JSON"
-                                    }
-                                }
-                            },
                             "application/fhir+json": {
                                 "schema": {
                                     "type": "object",
@@ -3798,51 +3753,6 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/render-no-example-where-none-present": {
-                            "schema": {
-                                "description": "no example on schema"
-                            }
-                        },
-                        "application/render-examples-from-object-where-present-on-object-and-on-schema": {
-                            "examples": {
-                                "example-a": {
-                                    "summary": "example A summary",
-                                    "description": "example A `description` - should render Markdown as HTML",
-                                    "value": {
-                                        "example-value": "example A value - should render as pretty-printed JSON"
-                                    }
-                                },
-                                "example-b": {
-                                    "summary": "example B summary",
-                                    "description": "example B `description` - should render Markdown as HTML",
-                                    "value": {
-                                        "example-value": "example B value - should render as pretty-printed JSON"
-                                    }
-                                }
-                            },
-                            "schema": {
-                                "example": {
-                                    "example-value": "example on schema - should NOT render, overridden by examples on the Media Type Object"
-                                }
-                            }
-                        },
-                        "application/render-example-from-object-where-present-on-object-and-on-schema": {
-                            "example": {
-                                "example-value": "example on media object - should render, winning over the example in the schema"
-                            },
-                            "schema": {
-                                "example": {
-                                    "example-value": "example on schema - should NOT render, overridden by example on the Media Type Object"
-                                }
-                            }
-                        },
-                        "application/render-example-from-schema-where-none-present-on-object": {
-                            "schema": {
-                                "example": {
-                                    "example-value": "example on schema - should render as pretty-printed JSON"
-                                }
-                            }
-                        },
                         "application/json": {
                             "schema": {
                                 "type": "object",

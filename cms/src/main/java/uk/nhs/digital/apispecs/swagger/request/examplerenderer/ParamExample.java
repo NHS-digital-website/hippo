@@ -1,6 +1,8 @@
 package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ToPrettyJsonStringDeserializer;
 
 import java.util.Optional;
 
@@ -9,7 +11,10 @@ class ParamExample {
     // subset of https://swagger.io/specification/#example-object
 
     private String summary;
+
     private String description;
+
+    @JsonDeserialize(using = ToPrettyJsonStringDeserializer.class)
     private String value;
 
     public Optional<String> getSummary() {

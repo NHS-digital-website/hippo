@@ -1,0 +1,9 @@
+{
+    "content": {
+        "application/json": {
+            "schema": {
+                "example": "example specified in MediaTypeObject's schema"
+            }
+        }
+    }
+}

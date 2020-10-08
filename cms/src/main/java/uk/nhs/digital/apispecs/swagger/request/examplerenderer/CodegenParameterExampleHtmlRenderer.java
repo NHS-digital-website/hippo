@@ -28,14 +28,14 @@ import java.util.Optional;
  * <li><a href="https://swagger.io/specification/#header-object"/>OAS Header Object (response headers)</li>
  * </ul>
  */
-public class CodegenParameterExampleRenderer {
+public class CodegenParameterExampleHtmlRenderer {
 
     private final CommonmarkMarkdownConverter markdownConverter;
 
     private final ObjectMapper jsonObjectMapper = new ObjectMapper()
         .configure(MapperFeature.USE_ANNOTATIONS, true);
 
-    public CodegenParameterExampleRenderer(final CommonmarkMarkdownConverter markdownConverter) {
+    public CodegenParameterExampleHtmlRenderer(final CommonmarkMarkdownConverter markdownConverter) {
         this.markdownConverter = markdownConverter;
     }
 
@@ -68,7 +68,9 @@ public class CodegenParameterExampleRenderer {
     private String htmlFrom(final Collection<ParamExample> complexExamplesFromParamSchema) {
 
         //noinspection OptionalGetWithoutIsPresent
-        return new StringBuilder("<div class=\"httpparams__examples__header\">Examples</div>\n")
+        return new StringBuilder("<div class=\"httpparams__examples__header\">")
+            .append(complexExamplesFromParamSchema.size() == 1 ? "Example" : "Examples")
+            .append("</div>\n")
             .append(
                 complexExamplesFromParamSchema.stream()
                     .map(example -> {

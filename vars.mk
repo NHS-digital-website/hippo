@@ -11,14 +11,25 @@ SPLUNK_URL ?= http://localhost
 PROFILE_RUN ?= cargo.run
 S3_BUCKET ?= files.local.nhsd.io
 S3_REGION ?= eu-west-1
+
+# Settings related to automated imports of OAS specifications
+# into API Specification documents from Apigee.
+# Override relevant variables (typically only APIGEE_USER, APIGEE_PASS and APIGEE_OTPKEY)
+# in env.mk if you actually need to work on this integration.
+#
+# Note that the default value of APIGEE_BASIC is not really a secret,
+# as it is a static, publicly available header value required by Apigee to obtain
+# OAuth2 access and refresh tokens:
+# https://docs.apigee.com/api-platform/system-administration/management-api-tokens#note
+#
 APIGEE_SYNC_ENABLED ?= false
 APIGEE_SYNC_CRON ?= 0 0/1 * ? * *
 APIGEE_TOKEN_URL ?= https://login.apigee.com/oauth/token
 APIGEE_SPECS_ALL_URL ?= https://apigee.com/dapi/api/organizations/nhsd-nonprod/specs/folder/home
 APIGEE_SPECS_ONE_URL ?= https://apigee.com/dapi/api/organizations/nhsd-nonprod/specs/doc/{specificationId}/content
-APIGEE_USER ?=
-APIGEE_PASS ?=
-APIGEE_OTPKEY ?=
+APIGEE_USER ?= REPLACE_WITH_ACTUAL_APIGEE_USERNAME
+APIGEE_PASS ?= REPLACE_WITH_ACTUAL_APIGEE_PASSWORD
+APIGEE_OTPKEY ?= REPLACE_WITH_ACTUAL_APIGEE_OTPKEY
 APIGEE_BASIC ?= ZWRnZWNsaTplZGdlY2xpc2VjcmV0
 
 #-Dsplunk.token=$(SPLUNK_TOKEN) \

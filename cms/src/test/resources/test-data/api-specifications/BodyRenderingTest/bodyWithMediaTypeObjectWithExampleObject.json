@@ -1,0 +1,15 @@
+{
+    "content": {
+        "application/json": {
+            "examples": {
+                "complete-example-object": {
+                    "summary": "Example Object's summary - one liner, plain text",
+                    "description": "Example Object's summary - multiline `CommonMark`",
+                    "value": {
+                        "json": "Example Object's value as JSON"
+                    }
+                }
+            }
+        }
+    }
+}

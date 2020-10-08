@@ -1,0 +1,17 @@
+{
+    "content": {
+        "application/json": {
+            "examples": {
+                "first": {
+                    "value": "first example from request MediaTypeObject's definition"
+                },
+                "second": {
+                    "value": "second example from request MediaTypeObject's definition"
+                }
+            },
+            "schema": {
+                "example": "example specified in MediaTypeObject's schema"
+            }
+        }
+    }
+}

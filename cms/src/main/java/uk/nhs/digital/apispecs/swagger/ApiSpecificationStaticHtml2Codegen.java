@@ -5,40 +5,33 @@ import static java.util.Collections.emptyMap;
 
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
-import io.swagger.codegen.v3.CodegenOperation;
-import io.swagger.codegen.v3.CodegenParameter;
-import io.swagger.codegen.v3.CodegenProperty;
-import io.swagger.codegen.v3.CodegenResponse;
+import io.swagger.codegen.v3.*;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
-import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypeObjects;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
-import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleRenderer;
+import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleHtmlRenderer;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApiSpecificationStaticHtml2Codegen.class);
 
     private static final String VENDOR_EXT_KEY_BODY = "x-body";
 
     private CommonmarkMarkdownConverter markdownConverter = new CommonmarkMarkdownConverter();
 
-    private CodegenParameterExampleRenderer codegenParameterExampleRenderer =
-        new CodegenParameterExampleRenderer(markdownConverter);
+    private CodegenParameterExampleHtmlRenderer codegenParameterExampleHtmlRenderer =
+        new CodegenParameterExampleHtmlRenderer(markdownConverter);
 
     private BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
 
@@ -66,14 +59,6 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         additionalProperties.put("jsModuleName", jsModuleName);
 
         preProcessOperations(openApi);
-
-        preparHtmlForGlobalDescription(openAPI);
-
-        prepareHtmlForPathDescriptions(openAPI);
-
-        prepareHtmlForPathParameters(openAPI);
-
-        prepareHtmlForMethodsParameters(openAPI);
     }
 
     @Override
@@ -94,7 +79,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     @Override
     public void setParameterExampleValue(final CodegenParameter parameter) {
         try {
-            parameter.example = codegenParameterExampleRenderer.htmlForExampleValueOf(parameter.getJsonSchema());
+            parameter.example = codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(parameter.getJsonSchema());
         } catch (Exception e) {
             throw new RuntimeException("Failed to process example value(s) for parameter " + parameter);
         }
@@ -103,7 +88,14 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     @Override
     public void addHandlebarHelpers(final Handlebars handlebars) {
         super.addHandlebarHelpers(handlebars);
+
         handlebars.registerHelper(EnumHelper.NAME, new EnumHelper());
+        handlebars.registerHelper(
+            MarkdownToHtmlRendererHelper.NAME,
+            new MarkdownToHtmlRendererHelper(markdownConverter)
+        );
+        handlebars.registerHelper(HasOneItemHelper.NAME, HasOneItemHelper.INSTANCE);
+
         handlebars.with(EscapingStrategy.NOOP);
     }
 
@@ -163,8 +155,6 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     private void postProcessResponse(final CodegenResponse codegenResponse) {
         postProcessResponseHeaders(codegenResponse.getHeaders());
 
-        convertResponseDescriptionFromMarkdownToHtml(codegenResponse);
-
         updateResponseBodiesFromJsonSchema(codegenResponse);
     }
 
@@ -179,38 +169,20 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         fixCodegenResponseHeaderNullDefaultValue(codegenResponseHeader);
 
         renderResponseHeaderExamples(codegenResponseHeader);
-
-        renderResponseHeaderDescription(codegenResponseHeader);
     }
 
     private void updateResponseBodiesFromJsonSchema(final CodegenResponse codegenResponse) {
 
-        final Optional<BodyWithMediaTypeObjects> bodyWithMediaTypeObjects =
-            bodyWithMediaTypesExtractor.bodyObjectFromJsonSchema(
+        bodyWithMediaTypesExtractor.bodyObjectFromJsonSchema(
                 codegenResponse.getJsonSchema(), "response " + codegenResponse
-            );
-
-        bodyWithMediaTypeObjects.ifPresent(body -> {
-            convertRequestBodyExampleDescriptionsFromMarkdownToHtml(body);
-
-            codegenResponse.getVendorExtensions().put("x-body", body);
-        });
-
-    }
-
-    private void renderResponseHeaderDescription(final CodegenProperty codegenResponseHeader) {
-
-        final String descriptionMarkdown = codegenResponseHeader.getDescription();
-
-        final String descriptionHtml = markdownConverter.toHtml(descriptionMarkdown);
-
-        codegenResponseHeader.setDescription(descriptionHtml);
+            )
+            .ifPresent(body -> setAsVendorExtension(codegenResponse, body, VENDOR_EXT_KEY_BODY));
     }
 
     private void renderResponseHeaderExamples(final CodegenProperty codegenResponseHeader) {
         try {
             codegenResponseHeader.example =
-                codegenParameterExampleRenderer.htmlForExampleValueOf(codegenResponseHeader.getJsonSchema());
+                codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenResponseHeader.getJsonSchema());
         } catch (Exception e) {
             throw new RuntimeException("Failed to process example value(s) for response header " + codegenResponseHeader);
         }
@@ -224,10 +196,6 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         if ("null".equals(codegenResponseHeader.defaultValue)) {
             codegenResponseHeader.defaultValue = null;
         }
-    }
-
-    protected void convertResponseDescriptionFromMarkdownToHtml(final CodegenResponse codegenResponse) {
-        codegenResponse.message = markdownConverter.toHtml(codegenResponse.getMessage());
     }
 
     private void propagateDescriptionFromHeaderToItsEmbeddedSchema(final Header header) {
@@ -269,109 +237,15 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
                 parameter.getJsonSchema(),
                 "request parameter " + parameter
             )
-                .ifPresent(requestBody -> {
-
-                    convertRequestBodyExampleDescriptionsFromMarkdownToHtml(requestBody);
-
-                    saveRequestBodyAsVendorExtensionOnRequestBodyParam(parameter, requestBody);
-                });
+                .ifPresent(requestBody -> setAsVendorExtension(parameter, requestBody, VENDOR_EXT_KEY_BODY));
         }
     }
 
-    private void saveRequestBodyAsVendorExtensionOnRequestBodyParam(
-        final CodegenParameter parameter,
-        final BodyWithMediaTypeObjects bodyWithMediaTypeObjects
+    private <T extends CodegenObject> void setAsVendorExtension(
+        final T codegenObject,
+        final Object value,
+        final String vendorExtensionKey
     ) {
-        parameter.getVendorExtensions().put(VENDOR_EXT_KEY_BODY, bodyWithMediaTypeObjects);
-    }
-
-    private void convertRequestBodyExampleDescriptionsFromMarkdownToHtml(final BodyWithMediaTypeObjects bodyWithMediaTypeObjects) {
-        bodyWithMediaTypeObjects.getMediaTypes().stream()
-            .flatMap(mediaTypeObject -> mediaTypeObject.getExamples().stream())
-            .forEach(exampleObject -> {
-
-                final String descriptionMarkdown = exampleObject.getDescription();
-                final String descriptionHtml = markdownConverter.toHtml(descriptionMarkdown);
-
-                exampleObject.setDescription(descriptionHtml);
-            });
-    }
-
-    /**
-     * Parse Markdown to HTML for the main "Description" attribute
-     *
-     * @param openApi
-     *            The base object containing the global description through
-     *            "Info" class
-     * @return Void
-     */
-    private void preparHtmlForGlobalDescription(OpenAPI openApi) {
-        String currentDescription = openApi.getInfo().getDescription();
-        if (currentDescription != null && !currentDescription.isEmpty()) {
-            openApi.getInfo().setDescription(markdownConverter.toHtml(currentDescription));
-        } else {
-            LOGGER.error("Swagger object description is empty [" + openApi.getInfo().getTitle() + "]");
-        }
-    }
-
-    private void prepareHtmlForPathDescriptions(final OpenAPI openApi) {
-
-        final Stream<Operation> operationsFromAllPaths = openApi.getPaths().values().stream()
-            .flatMap(pathItem -> Stream.of(
-                pathItem.getHead(),
-                pathItem.getOptions(),
-                pathItem.getGet(),
-                pathItem.getTrace(),
-                pathItem.getPost(),
-                pathItem.getPut(),
-                pathItem.getPatch(),
-                pathItem.getDelete()
-            ).filter(Objects::nonNull));
-
-        operationsFromAllPaths.forEach(operation -> {
-            final String markdownDescription = operation.getDescription();
-            final String htmlDescription = markdownConverter.toHtml(markdownDescription);
-
-            operation.setDescription(htmlDescription);
-        });
-    }
-
-    private void prepareHtmlForPathParameters(final OpenAPI openApi) {
-
-        final Stream<Parameter> parameterFromAllPaths = openApi.getPaths().values().stream()
-            .map(PathItem::getParameters)
-            .filter(Objects::nonNull)
-            .flatMap(Collection::stream);
-
-        parameterFromAllPaths.forEach(parameter -> {
-            final String markdownDescription = parameter.getDescription();
-            final String htmlDescription = markdownConverter.toHtml(markdownDescription);
-
-            parameter.setDescription(htmlDescription);
-        });
-    }
-
-    private void prepareHtmlForMethodsParameters(final OpenAPI openApi) {
-
-        final Stream<Parameter> parameterFromAllMethodsOfAllPaths = openApi.getPaths().values().stream()
-            .flatMap(pathItem -> Stream.of(
-                pathItem.getHead(),
-                pathItem.getOptions(),
-                pathItem.getGet(),
-                pathItem.getTrace(),
-                pathItem.getPost(),
-                pathItem.getPut(),
-                pathItem.getPatch(),
-                pathItem.getDelete()
-            ).filter(Objects::nonNull))
-            .flatMap(operation -> Optional.ofNullable(operation.getParameters()).orElse(emptyList()).stream())
-            .filter(Objects::nonNull);
-
-        parameterFromAllMethodsOfAllPaths.forEach(parameter -> {
-            final String markdownDescription = parameter.getDescription();
-            final String htmlDescription = markdownConverter.toHtml(markdownDescription);
-
-            parameter.setDescription(htmlDescription);
-        });
+        codegenObject.getVendorExtensions().put(vendorExtensionKey, value);
     }
 }

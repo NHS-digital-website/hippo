@@ -1,7 +1,6 @@
 package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -18,7 +17,7 @@ import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 
-public class CodegenParameterExampleRendererTest {
+public class CodegenParameterExampleHtmlRendererTest {
 
     private static final String TEST_DATA_FILES_PATH = "/test-data/api-specifications/CodegenRequestParameterExampleGeneratorTest";
 
@@ -26,26 +25,27 @@ public class CodegenParameterExampleRendererTest {
 
     @Mock private CommonmarkMarkdownConverter markdownConverter;
 
-    private CodegenParameterExampleRenderer codegenParameterExampleRenderer;
+    private CodegenParameterExampleHtmlRenderer codegenParameterExampleHtmlRenderer;
 
     @Before
     public void setUp() {
         initMocks(this);
 
-        codegenParameterExampleRenderer = new CodegenParameterExampleRenderer(markdownConverter);
+        codegenParameterExampleHtmlRenderer = new CodegenParameterExampleHtmlRenderer(markdownConverter);
     }
 
     @Test
-    public void generatesHtml_forExampleSpecifiedInParamDefinition_evenWhenExampleIsSpecifiedInParamSchema() {
+    public void rendersExampleSpecifiedInParamDefinition_evenWhenExampleIsSpecifiedInParamSchema() {
 
         // given
-        final String expectedHtmlForExampleValue = from("exampleSpecifiedInParamDefinitionAndInSchema_expectedHtml.html");
+        final String expectedHtmlForExampleValue =
+            "Example: <code class=\"codeinline\">simple example specified in parameter's definition</code>";
 
         final String parameterJsonDefinition = from("exampleSpecifiedInParamDefinitionAndInSchema_parameterDefinition.json");
         final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
 
         // when
-        final String actualHtmlForExampleValue = codegenParameterExampleRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
+        final String actualHtmlForExampleValue = codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
 
         // then
         assertThat("Returns HTML for single example from parameter's schema.",
@@ -55,7 +55,7 @@ public class CodegenParameterExampleRendererTest {
     }
 
     @Test
-    public void generatesHtml_forExamplesSpecifiedInParamDefinition_evenWhenExampleIsSpecifiedInParamSchema() {
+    public void rendersExamplesSpecifiedInParamDefinition_evenWhenExampleIsSpecifiedInParamSchema() {
 
         // given
         final String expectedHtmlForExampleValue = from("examplesSpecifiedInParamDefinition_expectedHtml.html");
@@ -69,7 +69,7 @@ public class CodegenParameterExampleRendererTest {
 
         // when
         final String actualHtmlForExampleValue =
-            codegenParameterExampleRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
+            codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
 
         // then
         assertThat("Returns HTML for single example from parameter's schema.",
@@ -82,21 +82,55 @@ public class CodegenParameterExampleRendererTest {
     }
 
     @Test
-    public void generatesHtml_forExampleSpecifiedInParamSchema_whenThereIsNoExampleInParamDefinition() {
+    public void rendersExampleSpecifiedInParamSchema_whenThereIsNoExampleInParamDefinition() {
 
         // given
-        final String expectedHtmlForExampleValue = from("exampleSpecifiedInParamSchemaNoneInDefinition_expectedHtml.html");
+        final String expectedHtmlForExampleValue = "Example: <code class=\"codeinline\">example specified in parameter's schema</code>";
 
         final String parameterJsonDefinition = from("exampleSpecifiedInParamSchemaNoneInDefinition_parameterDefinition.json");
         final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
 
         // when
-        final String actualHtmlForExampleValue = codegenParameterExampleRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
+        final String actualHtmlForExampleValue = codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
 
         // then
         assertThat("Returns HTML for single example from parameter's schema.",
             actualHtmlForExampleValue,
             is(expectedHtmlForExampleValue)
+        );
+    }
+
+    @Test
+    public void rendersExamplesHeader_whenMultipleExamplesSpecifiedInExamplesField() {
+
+        // given
+        final String parameterJsonDefinition = from("multipleExamplesSpecifiedInParamDefinition_paramDefinition.json");
+        final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
+
+        // when
+        final String actualHtmlForExampleValue = codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
+
+        // then
+        assertThat("Renders plural version of the header for multiple examples in the collection.",
+            actualHtmlForExampleValue,
+            containsString(">Examples<")
+        );
+    }
+
+    @Test
+    public void rendersExampleHeader_whenSingleExampleSpecifiedInExamplesField() {
+
+        // given
+        final String parameterJsonDefinition = from("singleExampleSpecifiedInParamDefinition_paramDefinition.json");
+        final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
+
+        // when
+        final String actualHtmlForExampleValue = codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
+
+        // then
+        assertThat("Renders singular version of the header for single example in the collection.",
+            actualHtmlForExampleValue,
+            containsString(">Example<")
         );
     }
 
@@ -111,7 +145,7 @@ public class CodegenParameterExampleRendererTest {
         this.expectedException.expectCause(instanceOf(JsonParseException.class));
 
         // when
-        codegenParameterExampleRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
+        codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
 
         // then
         // expectations set up in 'given' are satisfied
