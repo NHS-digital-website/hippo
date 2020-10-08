@@ -1,6 +1,7 @@
 package uk.nhs.digital.apispecs.swagger.model;
 
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.builder.ToStringStyle.MULTI_LINE_STYLE;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -34,7 +35,7 @@ public class BodyWithMediaTypeObjects {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
+        return new ToStringBuilder(this, MULTI_LINE_STYLE)
             .append("content", content)
             .toString();
     }

@@ -1,0 +1,9 @@
+{
+  "examples": {
+    "first": {
+      "summary": "Example A from request parameter's definition - summary",
+      "description": "Example A from request parameter's definition - description with `Markdown`",
+      "value": "Example A from request parameter's definition - value"
+    }
+  }
+}

@@ -22,7 +22,11 @@
 
         {{#examples}}
             {{#@first}}
-            <div class="body__example__header">Examples</div>
+                {{#hasOneItem examples}}
+                    <div class="body__example__header">Example</div>
+                {{else}}
+                    <div class="body__example__header">Examples</div>
+                {{/hasOneItem}}
             {{/@first}}
 
             {{#summary}}
@@ -30,7 +34,7 @@
             {{/summary}}
 
             {{#description}}
-            <div class="body__example__description">{{description}}</div>
+            <div class="body__example__description">{{{markdown description}}}</div>
             {{/description}}
 
             <div><pre><code>{{value}}</code></pre></div>

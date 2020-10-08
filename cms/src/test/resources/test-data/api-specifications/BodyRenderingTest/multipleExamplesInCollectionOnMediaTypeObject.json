@@ -1,0 +1,10 @@
+{
+    "content": {
+        "application/json": {
+            "examples": {
+                "first": {},
+                "second": {}
+            }
+        }
+    }
+}

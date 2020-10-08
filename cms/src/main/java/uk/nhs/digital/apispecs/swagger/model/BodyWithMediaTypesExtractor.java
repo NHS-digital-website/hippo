@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class BodyWithMediaTypesExtractor {
 
-    private final ObjectMapper jsonObjectMapper = new ObjectMapper()
+    public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper()
         .configure(MapperFeature.USE_ANNOTATIONS, true);
 
     public Optional<BodyWithMediaTypeObjects> bodyObjectFromJsonSchema(final String jsonSchema, final String elementType) {
@@ -24,6 +24,6 @@ public class BodyWithMediaTypesExtractor {
     }
 
     private Optional<BodyWithMediaTypeObjects> extractBody(final String jsonSchema) throws JsonProcessingException {
-        return Optional.ofNullable(jsonObjectMapper.readValue(jsonSchema, BodyWithMediaTypeObjects.class));
+        return Optional.ofNullable(OBJECT_MAPPER.readValue(jsonSchema, BodyWithMediaTypeObjects.class));
     }
 }

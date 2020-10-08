@@ -1,0 +1,25 @@
+{
+    "content": {
+        "application/first-content-type": {
+            "example": {
+                "simple": "example defined as JSON"
+            }
+        },
+        "application/second-content-type": {
+            "examples": {
+                "first": {
+                    "summary": "first example - summary",
+                    "description": "first example - description with `Markdown`",
+                    "value": {
+                        "first" : "example with value as JSON"
+                    }
+                },
+                "second": {
+                    "summary": "second example - summary",
+                    "description": "second example - description with `Markdown`",
+                    "value": "second example with simple text value"
+                }
+            }
+        }
+    }
+}

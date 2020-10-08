@@ -1,6 +1,7 @@
 package uk.nhs.digital.apispecs.swagger.model;
 
 import static java.util.Collections.emptyMap;
+import static org.apache.commons.lang3.builder.ToStringStyle.MULTI_LINE_STYLE;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -49,7 +50,7 @@ public class MediaTypeObject {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
+        return new ToStringBuilder(this, MULTI_LINE_STYLE)
             .append("name", name)
             .append("example", example)
             .append("examples", examples)
