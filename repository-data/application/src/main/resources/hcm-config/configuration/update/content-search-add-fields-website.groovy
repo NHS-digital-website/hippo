@@ -4,23 +4,13 @@ import org.onehippo.repository.update.BaseNodeUpdateVisitor
 
 import javax.jcr.Node
 import javax.jcr.RepositoryException
-import javax.jcr.Session
-
-import static org.hippoecm.repository.HippoStdNodeType.NT_RELAXED
 
 class UpdaterTemplate extends BaseNodeUpdateVisitor {
-
-    Session session
-
-    void initialize(Session session) {
-        this.session = session
-    }
 
     boolean doUpdate(Node node) {
 
         if (node != null) {
             setTabProperty(node, node)
-            session.save()
             return true
         }
 

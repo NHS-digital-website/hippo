@@ -363,7 +363,7 @@ public class SearchComponent extends CommonComponent {
         }
 
         if (entry.size() < 3) {
-            addMissingSearchTabs(entry);
+            addEmptySearchTabs(entry);
         }
 
         String allTabUrl = request.getAttribute("currentUrl").toString();
@@ -376,31 +376,28 @@ public class SearchComponent extends CommonComponent {
         entry.add(0, allTabEntry);
     }
 
-    private void addMissingSearchTabs(ArrayList<Object> entry) {
+    private void addEmptySearchTabs(ArrayList<Object> entry) {
         ArrayList<String> configuredSearchTabs = new ArrayList<>();
-        for (Object o : entry) {
-            LinkedHashMap<String, Object> facetField = (LinkedHashMap) o;
+        for (Object field : entry) {
+            LinkedHashMap<String, Object> facetField = (LinkedHashMap) field;
             configuredSearchTabs.add((String) facetField.get("name"));
         }
-
         if (!configuredSearchTabs.contains("data")) {
-            LinkedHashMap<String, Object> dataEntry = new LinkedHashMap<>();
-            dataEntry.put("name", "data");
-            dataEntry.put("count", 0);
-            entry.add(0, dataEntry);
+            addSearchTab(entry, "data", 0);
         }
         if (!configuredSearchTabs.contains("services")) {
-            LinkedHashMap<String, Object> servicesEntry = new LinkedHashMap<>();
-            servicesEntry.put("name", "services");
-            servicesEntry.put("count", 0);
-            entry.add(1, servicesEntry);
+            addSearchTab(entry, "services", 1);
         }
         if (!configuredSearchTabs.contains("news")) {
-            LinkedHashMap<String, Object> newsEntry = new LinkedHashMap<>();
-            newsEntry.put("name", "news");
-            newsEntry.put("count", 0);
-            entry.add(2, newsEntry);
+            addSearchTab(entry, "news", 2);
         }
+    }
+
+    private void addSearchTab(ArrayList<Object> entry, String tabName, int tabIndex) {
+        LinkedHashMap<String, Object> tabEntry = new LinkedHashMap<>();
+        tabEntry.put("name", tabName);
+        tabEntry.put("count", 0);
+        entry.add(tabIndex, tabEntry);
     }
 
     /* Method for grouping, website:hub & website:visualhub into one facet 'homepage' */
@@ -413,8 +410,7 @@ public class SearchComponent extends CommonComponent {
             int currentCount = (int) facetField.get("count");
             countArray.add(currentCount);
             if (docType.equals(WEBSITE_HUB) || docType.equals(WEBSITE_VISUAL_HUB)) {
-                int count = (int) facetField.get("count");
-                groupCount += count;
+                groupCount += (int) facetField.get("count");
             }
         }
 
@@ -425,8 +421,7 @@ public class SearchComponent extends CommonComponent {
             LinkedHashMap<String, Object> groupedEntry = new LinkedHashMap<>();
             groupedEntry.put("count", groupCount);
             groupedEntry.put("name", "homepage");
-            int groupCountIndex = countArray.indexOf(groupCount);
-            entry.add(groupCountIndex, groupedEntry);
+            entry.add(countArray.indexOf(groupCount), groupedEntry);
         }
     }
 
@@ -437,11 +432,9 @@ public class SearchComponent extends CommonComponent {
         for (Object fields : entry) {
             LinkedHashMap<String, Object> facetField = (LinkedHashMap) fields;
             String docType = (String) facetField.get("name");
-            int currentCount = (int) facetField.get("count");
-            countArray.add(currentCount);
+            countArray.add((int) facetField.get("count"));
             if (docType.equals(PUBLICATION_SYSTEM_LEGACY_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_ARCHIVE)) {
-                int count = (int) facetField.get("count");
-                groupCount += count;
+                groupCount += (int) facetField.get("count");
             }
         }
 
@@ -452,8 +445,7 @@ public class SearchComponent extends CommonComponent {
             LinkedHashMap<String, Object> groupedEntry = new LinkedHashMap<>();
             groupedEntry.put("count", groupCount);
             groupedEntry.put("name", "publication");
-            int groupCountIndex = countArray.indexOf(groupCount);
-            entry.add(groupCountIndex, groupedEntry);
+            entry.add(countArray.indexOf(groupCount), groupedEntry);
         }
     }
 

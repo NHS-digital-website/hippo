@@ -411,7 +411,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:year
             hipposysedit:primary: false
-            hipposysedit:type: Long
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

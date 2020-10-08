@@ -80,7 +80,7 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <hippo.version>13.4.2</hippo.version>
+        <hippo.version>13.4.4-contentfeed-EAP3</hippo.version>
 
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>

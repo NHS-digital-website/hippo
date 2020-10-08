@@ -4,17 +4,10 @@ import org.onehippo.repository.update.BaseNodeUpdateVisitor
 
 import javax.jcr.Node
 import javax.jcr.RepositoryException
-import javax.jcr.Session
 
 import static org.hippoecm.repository.HippoStdNodeType.NT_RELAXED
 
 class UpdaterTemplate extends BaseNodeUpdateVisitor {
-
-    Session session
-
-    void initialize(Session session) {
-        this.session = session
-    }
 
     boolean doUpdate(Node node) {
 
@@ -24,7 +17,6 @@ class UpdaterTemplate extends BaseNodeUpdateVisitor {
                 && node.getProperty("publicationsystem:NominalDate").getValue().getDate() != null) {
                 setPublicationDateProperties(node);
             }
-            session.save();
             return true
         }
 
@@ -55,7 +47,7 @@ class UpdaterTemplate extends BaseNodeUpdateVisitor {
             node.addMixin(NT_RELAXED);
         }
         node.setProperty("publicationsystem:month", date.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()));
-        node.setProperty("publicationsystem:year", date.get(Calendar.YEAR));
+        node.setProperty("publicationsystem:year", Integer.toString(date.get(Calendar.YEAR)));
     }
 
 }

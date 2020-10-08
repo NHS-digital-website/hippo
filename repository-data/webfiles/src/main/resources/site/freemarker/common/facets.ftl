@@ -112,7 +112,7 @@
                                                 all (${facetItems?size})</a>
                                             <a href="#"
                                                class=" filter-vis-toggle filter-vis-toggle--hide is-hidden">Show
-                                                less (${facetMaxCount})</a>
+                                                less </a>
                                         </li>
                                     </#if>
                                 </#if>
@@ -202,7 +202,7 @@
                                 all (${ facetFields?size})</a>
                             <a href="#"
                                class=" filter-vis-toggle filter-vis-toggle--hide is-hidden">Show
-                                less (${facetMaxCount})</a>
+                                less</a>
                         </li>
                     </#if>
                 </ul>
@@ -226,7 +226,7 @@
 
                     <#list facetFields as field>
                         <#assign facetLabel = getDocTypeLabel(field.name) />
-                        <#if field.name?? && field.name?has_content>
+                        <#if field.name?? && field.name?has_content && getDocTypeLabel(field.name)??>
                             <#if field?index &lt; 6 || isSelected("xmPrimaryDocType", field.name)>
                                 <li class="filter-list__item filter-list__item--no-children">
                                     <a href="<@fmt.message key= facetLabel />"
@@ -253,7 +253,7 @@
                                 all (${ facetFields?size})</a>
                             <a href="#"
                                class=" filter-vis-toggle filter-vis-toggle--hide is-hidden">Show
-                                less (${facetMaxCount})</a>
+                                less </a>
                         </li>
                     </#if>
                 </ul>
@@ -309,7 +309,12 @@
     "publication":                                      "publication",
     "website:supplementaryinformation":                 "supplementaryinformation"
     }/>
-    <#return labels[field] />
+
+    <#if labels[field]??>
+        <#return labels[field] />
+    <#else>
+        <#return null />
+    </#if>
 </#function>
 
 <#function getPublicationStatusLabel field>
