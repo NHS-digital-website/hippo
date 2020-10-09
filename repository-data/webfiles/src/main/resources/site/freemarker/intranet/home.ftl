@@ -5,11 +5,9 @@
 <#include "../common/macro/svgIcons.ftl">
 
 <#include "macro/metaTags.ftl">
-<#include "macro/homePageHeader.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
-<@homePageHeader></@homePageHeader>
 
 <div class="intranet">
     <div class="grid-wrapper">

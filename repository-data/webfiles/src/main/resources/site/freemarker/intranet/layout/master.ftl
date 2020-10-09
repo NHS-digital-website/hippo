@@ -1,8 +1,13 @@
 <#ftl output_format="HTML">
+
+<#-- This is the intranet's main layout. -->
+
 <#include "../../include/imports.ftl">
-<#include "../macro/siteHeader.ftl">
-<#include "../../common/macro/siteFooter.ftl">
 <#include "../../common/macro/component/skipLink.ftl">
+
+<!-- todo: move to java call -->
+
+<#include "../../common/macro/siteFooter.ftl">
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -24,7 +29,7 @@
     <@hst.include ref="ie-banner"/>
 
     <#-- Add site header with the search bar -->
-    <@siteHeader true></@siteHeader>
+    <@hst.include ref="site-header"/>
 
     <@hst.include ref="intra-breadcrumb"/>
 

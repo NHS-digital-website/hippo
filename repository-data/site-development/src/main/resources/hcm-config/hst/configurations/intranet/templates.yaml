@@ -2,6 +2,9 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:templates:
+      /intranet-site-header:
+        hst:renderpath: webfile:/freemarker/intranet/siteHeader.ftl
+        jcr:primaryType: hst:template
       /static-ui-homepage:
         hst:renderpath: webfile:/freemarker/intranet/home-static.ftl
         jcr:primaryType: hst:template

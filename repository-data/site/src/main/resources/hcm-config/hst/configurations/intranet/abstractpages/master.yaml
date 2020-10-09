@@ -9,17 +9,25 @@ definitions:
       /intra-breadcrumb:
         hst:referencecomponent: hst:components/intra-breadcrumb
         jcr:primaryType: hst:component
-      /top-menu:
-        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+      /site-header:
+        /top-menu:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+          hst:parameternames:
+          - selectedMenu
+          - level
+          - menu
+          hst:parametervalues:
+          - 'on'
+          - '1'
+          - main
+          hst:template: base-top-menu
+          jcr:primaryType: hst:component
+        hst:componentclassname: uk.nhs.digital.intranet.components.IntranetSiteHeader
         hst:parameternames:
-        - selectedMenu
-        - level
-        - menu
+        - enableSearch
         hst:parametervalues:
-        - 'on'
-        - '1'
-        - main
-        hst:template: base-top-menu
+        - 'true'
+        hst:template: intranet-site-header
         jcr:primaryType: hst:component
       hst:template: layout_master
       jcr:primaryType: hst:component
