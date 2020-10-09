@@ -12,8 +12,8 @@
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
       selection:key: credit-local-figures
-      selection:label: NHS Digital must be credited as the source of these figures.  Regional
-        data is available in this report.
+      selection:label: NHS Digital must be credited as the source of these figures.
+        Regional data is available in this report.
     hippo:availability:
     - live
     - preview

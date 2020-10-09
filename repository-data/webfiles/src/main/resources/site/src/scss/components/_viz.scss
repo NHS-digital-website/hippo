@@ -17,10 +17,14 @@
         -ms-grid-row: 1;
         grid-column: 1/2;
         grid-row: 1;
+        z-index: 1;
     }
 
     &-loading {
         margin: 20px auto 0;
         border: 1px solid #005EB8;
+        background-color: #FFFFFF;
+        max-width: 400px;
+        padding: 5px 10px;
     }
 }
