@@ -12,7 +12,6 @@ definitions:
         /notice:
           hst:referencecomponent: homepage/notice
           jcr:primaryType: hst:containercomponentreference
-        hst:componentclassname: uk.nhs.digital.intranet.components.HomePageComponent
         hst:template: home
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/master

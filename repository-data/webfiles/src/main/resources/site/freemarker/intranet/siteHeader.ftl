@@ -7,26 +7,20 @@
             <div class="column column--reset">
                 <div class="grid-wrapper grid-wrapper--collapse">
                     <div class="grid-row">
-                        <div class="column column--18-75 column--reset">
+                        <div class="column column--one-half column--reset">
                             <a class="site-header__waffle-link" href="https://www.office.com/" target="_blank" aria-label="Office 365"><span class="ms-Icon ms-Icon--WaffleOffice365"></span></a>
                             <a class="site-header-a__logo" href="<@hst.link siteMapItemRefId='root'/>"><img src="<@hst.webfile path="/images/nhs-digital-intranet-logo.svg"/>" alt="NHS Digital Intranet logo" class="site-header__logo"></a>
+
+                            <#if username?has_content>
+                                <#assign userName = username/>
+                            <#else>
+                                <#assign userName = "" />
+                            </#if>
+
+                            <span class="intra-home-header__greeting-welcome">Welcome</span> <span>${userName}</span></h1>
+
                         </div>
 
-                        <#if username?has_content>
-                            <#assign userName = username/>
-                        <#else>
-                            <#assign userName = "" />
-                        </#if>
-
-                        <div class="intra-home-header">
-                            <div class="intra-home-header__inner">
-                                <div class="intra-home-header__inner-contents">
-                                    <div class="intra-home-header__greeting">
-                                        <h1><span class="intra-home-header__greeting-welcome">Welcome</span> <span>${userName}</span></h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <#assign wrapperClassName = "site-header__search-wrapper site-header__search-wrapper--collapse" />
                         <#if enableSearch>

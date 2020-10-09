@@ -14,7 +14,7 @@
 
 <#include "master-head.ftl">
 
-<body class="debugs">
+<body class="intranet debugs">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6GJCR9"

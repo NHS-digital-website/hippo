@@ -17,6 +17,9 @@ definitions:
       /intra-breadcrumb:
         hst:renderpath: webfile:/freemarker/intranet/intra-breadcrumb.ftl
         jcr:primaryType: hst:template
+      /intranet-site-header:
+        hst:renderpath: webfile:/freemarker/intranet/siteHeader.ftl
+        jcr:primaryType: hst:template
       /layout_master:
         hst:renderpath: webfile:/freemarker/intranet/layout/master.ftl
         jcr:primaryType: hst:template
