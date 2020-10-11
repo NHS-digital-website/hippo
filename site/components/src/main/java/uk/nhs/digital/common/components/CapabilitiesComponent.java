@@ -20,9 +20,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PlatformExplorerComponent extends CommonComponent {
+public class CapabilityComponent
+    extends CommonComponent {
 
-    private static Logger log = LoggerFactory.getLogger(PlatformExplorerComponent.class);
+    private static Logger log = LoggerFactory.getLogger( CapabilityComponent.class );
 
     public static final String HEADING_TEXT = "headingText";
 
