@@ -2,15 +2,35 @@
     background: $white;
 }
 
+// Spacing for element container
+
+.news-hub .site-main {
+    padding-top: 0.01px; // Prevent margin collapse
+    padding-bottom: 0.01px; // Prevent margin collapse
+}
+
 .news-hub .site-main > * {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.news-hub .site-main > * + * {
+.news-hub .site-main > * + *,
+.news-hub .site-main > :first-child {
     margin-top: $vertical-gap--large;
     @include media(desktop) {
         margin-top: $vertical-gap--xlarge;
     }
 }
 
+.news-hub .site-main > :last-child {
+    margin-bottom: $vertical-gap--large;
+    @include media(desktop) {
+        margin-bottom: $vertical-gap--xlarge;
+    }
+}
+
+.nhsd-icon-right-arrow {
+    width: 17px;
+    height: 17px;
+    background-image: url("../images/newshub/arrow-right.svg");
+}
