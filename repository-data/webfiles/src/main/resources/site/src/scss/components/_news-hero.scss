@@ -1,0 +1,5 @@
+.news-hero {}
+
+.news-hero__item {
+    @include fullViewportWidth;
+}
