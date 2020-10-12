@@ -44,6 +44,18 @@ definitions:
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
+      /news-hub:
+        /banner:
+          .meta:residual-child-node-category: content
+          hst:label: Banner
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        /main:
+          .meta:residual-child-node-category: content
+          hst:lastmodified: 2020-10-23T10:16:15.921Z
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /newshubpage:
         /newshubpage-right:
           .meta:residual-child-node-category: content

@@ -3,8 +3,10 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/news:
       /main:
-        hst:componentclassname: uk.nhs.digital.common.components.NewsArticleComponent
-        hst:template: news-article
+        /main:
+          hst:referencecomponent: news-hub/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: news-hub
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
       jcr:primaryType: hst:component

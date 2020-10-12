@@ -1,8 +1,7 @@
 ---
-/content/documents/corporate-website/news-and-events:
-  .meta:order-before: news
-  /news-hub:
-    /news-hub[1]:
+/content/documents/corporate-website/news:
+  /content:
+    /content[1]:
       /website:bannerimagelink:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -16,17 +15,18 @@
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-10-12T22:01:00.856Z
-      hippostdpubwf:lastModificationDate: 2020-10-12T22:01:00.856Z
+      hippostdpubwf:creationDate: 2020-10-23T10:12:58.159Z
+      hippostdpubwf:lastModificationDate: 2020-10-23T10:12:58.159Z
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 1a223e01-87fe-45b2-b3f8-4d7718122fe5
+      hippotranslation:id: e9ae3d3e-3ce9-4542-8553-7f6167a8163f
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:referenceable
-      jcr:primaryType: website:newshub
+      jcr:primaryType: website:dschomepage
+      jcr:uuid: 8bec3604-6649-42a0-8e4b-432e31595405
       website:summary: ''
-      website:title: News Hub
-    /news-hub[2]:
+      website:title: ''
+    /content[2]:
       /website:bannerimagelink:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -41,18 +41,19 @@
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-10-12T22:01:00.856Z
-      hippostdpubwf:lastModificationDate: 2020-10-12T22:01:12.222Z
+      hippostdpubwf:creationDate: 2020-10-23T10:12:58.159Z
+      hippostdpubwf:lastModificationDate: 2020-10-23T10:13:06.243Z
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 1a223e01-87fe-45b2-b3f8-4d7718122fe5
+      hippotranslation:id: e9ae3d3e-3ce9-4542-8553-7f6167a8163f
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:referenceable
       - mix:versionable
-      jcr:primaryType: website:newshub
+      jcr:primaryType: website:dschomepage
+      jcr:uuid: 2fdcbaec-3c0e-4b46-8131-38832c1887f0
       website:summary: ''
-      website:title: News Hub
-    /news-hub[3]:
+      website:title: ''
+    /content[3]:
       /website:bannerimagelink:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -67,32 +68,35 @@
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-10-12T22:01:00.856Z
-      hippostdpubwf:lastModificationDate: 2020-10-12T22:01:12.222Z
+      hippostdpubwf:creationDate: 2020-10-23T10:12:58.159Z
+      hippostdpubwf:lastModificationDate: 2020-10-23T10:13:06.243Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-10-12T22:01:16.965Z
-      hippotranslation:id: 1a223e01-87fe-45b2-b3f8-4d7718122fe5
+      hippostdpubwf:publicationDate: 2020-10-23T10:13:22.995Z
+      hippotranslation:id: e9ae3d3e-3ce9-4542-8553-7f6167a8163f
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:referenceable
-      jcr:primaryType: website:newshub
+      jcr:primaryType: website:dschomepage
+      jcr:uuid: 3a511f6d-0527-4732-a708-dd46cd703e21
       website:summary: ''
-      website:title: News Hub
-    hippo:name: News Hub
-    hippo:versionHistory: dedb995e-af33-41aa-821a-dd88db454404
+      website:title: ''
+    hippo:name: News
+    hippo:versionHistory: 96ce7243-b700-4924-b7ed-f95143b983d4
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  hippo:name: News and events
+    jcr:uuid: 652f8467-d098-47ea-b542-ae9957dfaf8a
+  hippo:name: News
   hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
-  hippotranslation:id: c0c0facf-0411-44eb-97bf-21e45e7b0baa
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 16d9cf63-e9ca-4bbc-ad97-e14d385cc760
   hippotranslation:locale: en
   jcr:mixinTypes:
   - hippo:named
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
+  jcr:uuid: 2e93866c-21b0-4204-a92b-d459245eaf08

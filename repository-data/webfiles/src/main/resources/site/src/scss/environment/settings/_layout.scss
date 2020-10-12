@@ -7,5 +7,8 @@ $desktop-width: 1024px;
 $min-wide-desktop-width: 1441px;
 $wide-desktop-width: 1520px;
 $gutter: $baseline-grid-unit * 4;
+$gutter: $baseline-grid-unit * 4;
 $vertical-gap: $gutter * 1.5;
+$vertical-gap--large: $gutter * 2.5;
+$vertical-gap--xlarge: $gutter * 3.75;
 $search-strip-height: 44px;
