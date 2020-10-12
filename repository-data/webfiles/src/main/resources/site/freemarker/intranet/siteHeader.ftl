@@ -1,6 +1,14 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
+<header class="site-header <#if enableSearch>site-header--with-search<#else>site-header--without-search</#if>" id="header">
+    <div class="grid-wrapper" id="header-container">
+        <div class="">
+            <a class="site-header__waffle-link" href="https://www.office.com/" target="_blank" aria-label="Office 365"><span class="ms-Icon ms-Icon--WaffleOffice365"></span></a>
+        </div>
+    </div>
+</header>
+
 <header class="site-header site-header--intranet <#if enableSearch>site-header--with-search<#else>site-header--without-search</#if>" id="header">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="grid-row">

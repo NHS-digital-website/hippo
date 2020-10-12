@@ -117,6 +117,10 @@ $burger-piece-height: 3px;
 #header {
     margin-top: $gutter;
     min-height: 67px;
+
+    .intranet & {
+        margin-top: 0;
+    }
 }
 
 .site-header {
@@ -212,7 +216,7 @@ $burger-piece-height: 3px;
     }
 
     // Internet CSS
-    &--intranet {
+    /*&--intranet {
         .site-header__logo {
             max-width: 235px;
             width: 235px;
@@ -249,6 +253,17 @@ $burger-piece-height: 3px;
 
         .main-nav__burger {
             top: 6px;
+        }
+    }*/
+
+    .intranet & {
+        #header-container {
+            display: grid;
+            grid-template-columns: 40px 50px auto 50px 40px;
+            grid-template-rows: auto;
+            column-gap: 10px;
+
+
         }
     }
 }
