@@ -71,7 +71,4 @@ public class Service extends CommonFieldsBean {
         return getLinkedBean("website:pageicon", HippoGalleryImageSet.class);
     }
 
-    public String searchType() {
-        return "service";
-    }
 }
