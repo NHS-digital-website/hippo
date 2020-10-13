@@ -13,7 +13,9 @@
 
     .viz-wrapper-item {
         max-width: 100%;
-        overflow: hidden;
+        @include media($max-width: $min-desktop-width) {
+            overflow-y: auto;
+        }
         -ms-grid-column: 1;
         -ms-grid-column-span: 2;
         -ms-grid-row: 1;
