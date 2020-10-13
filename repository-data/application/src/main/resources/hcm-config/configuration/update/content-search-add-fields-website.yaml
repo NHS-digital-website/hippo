@@ -17,7 +17,8 @@ definitions:
         or (@jcr:primaryType='website:blog') or (@jcr:primaryType='website:bloghub')
         or (@jcr:primaryType='website:apimaster') or (@jcr:primaryType='website:apiendpoint')
         or (@jcr:primaryType='website:person') or (@jcr:primaryType='website:businessunit')
-        or (@jcr:primaryType='website:orgstructure') or (@jcr:primaryType='website:supplementaryinformation')]
+        or (@jcr:primaryType='website:orgstructure') or (@jcr:primaryType='website:supplementaryinformation')
+        or (@jcr:primaryType='website:apispecification')]
       hipposys:script:
         resource: /configuration/update/content-search-add-fields-website.groovy
         type: string

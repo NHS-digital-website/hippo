@@ -120,7 +120,8 @@
             ||  docType == "website:apiendpoint"
             ||  docType == "website:businessunit"
             ||  docType == "website:orgstructure"
-            ||  docType == "website:supplementaryinformation">
+            ||  docType == "website:supplementaryinformation"
+            ||  docType == "website:apispecification">
                 <@contentSearchGenericSearchElement document=document type=docType isShowTitle=true />
             </#if>
         </#if>
@@ -637,9 +638,6 @@
             <#if properties.title?? && type != "website:person">
                 <#assign title = properties.title />
                 <#assign hasTitle = true />
-            </#if>
-            <#if properties.shortsummary??>
-                <#assign shortsummary = properties.shortsummary />
             </#if>
         </#if>
     </#if>

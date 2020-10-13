@@ -84,6 +84,10 @@ public class SearchComponent extends CommonComponent {
     private static final String PROPERTY_SEARCH_RANK = "common:searchRank";
     private static final String PROPERTY_ORDERED_SEARCH_DATE = "common:orderedSearchDate";
 
+    private static final String FACET_ATTRIBUTE_NAME = "name";
+    private static final String FACET_ATTRIBUTE_URL = "facetUrl";
+    private static final String FACET_ATTRIBUTE_COUNT = "count";
+
     private static final int PAGEABLE_SIZE = 5;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SearchComponent.class);
@@ -117,6 +121,7 @@ public class SearchComponent extends CommonComponent {
                     Map<String, Object> facetFields = queryResponse.getFacetCountResult().getFields();
                     request.setAttribute("totalResults", totalResults);
                     configureFacets(facetFields, request);
+                    reorderFacets(facetFields);
 
                     Pageable<Document> pageable = new ContentSearchPageable<>(totalResults, currentPage, pageSize);
                     request.setAttribute("pageCount", pageCount);
@@ -133,8 +138,10 @@ public class SearchComponent extends CommonComponent {
                     LOGGER.error("Content Search returned a failure, falling back to HST search");
                     buildAndExecuteHstSearch(request, paramInfo);
                 }
-            } catch (InterruptedException | ExecutionException | TimeoutException ex) {
-                queryResponseFuture.cancel(true);
+            } catch (InterruptedException | ExecutionException | TimeoutException | RuntimeException ex) {
+                if (queryResponseFuture != null) {
+                    queryResponseFuture.cancel(true);
+                }
                 LOGGER.error("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, falling back to HST search");
                 buildAndExecuteHstSearch(request, paramInfo);
             }
@@ -292,27 +299,54 @@ public class SearchComponent extends CommonComponent {
                 String facetUrl;
                 if (hasQueryString) {
                     if (request.getRequestContext().getServletRequest().getParameter(key) != null) {
-                        if (request.getRequestContext().getServletRequest().getParameter(key).equals(facetField.get("name"))) {
+                        if (request.getRequestContext().getServletRequest().getParameter(key).equals(facetField.get(FACET_ATTRIBUTE_NAME))) {
                             facetUrl = UriComponentsBuilder.fromHttpUrl(currentUrl)
                                 .replaceQueryParam(key).build().toUriString();
                         } else {
                             facetUrl = UriComponentsBuilder.fromHttpUrl(currentUrl)
-                                .replaceQueryParam(key, facetField.get("name")).build().toUriString();
+                                .replaceQueryParam(key, facetField.get(FACET_ATTRIBUTE_NAME)).build().toUriString();
                         }
                     } else {
                         facetUrl = facetUrlBuilder.append("&")
-                            .append(key).append("=").append(facetField.get("name")).toString();
+                            .append(key).append("=").append(facetField.get(FACET_ATTRIBUTE_NAME)).toString();
                     }
                 } else {
                     facetUrl = facetUrlBuilder.append("?")
-                        .append(key).append("=").append(facetField.get("name")).toString();
+                        .append(key).append("=").append(facetField.get(FACET_ATTRIBUTE_NAME)).toString();
                 }
-                facetField.put("facetUrl", facetUrl);
+                facetField.put(FACET_ATTRIBUTE_URL, facetUrl);
             }
             if (key.equals("searchTab")) {
                 configureSearchTabFacets(fields, request);
             }
+            if (key.equals(YEAR)) {
+                final ArrayList<Object> yearFacetList = configureYearFacets(fields);
+                ((ArrayList<Object>) entry.getValue()).clear();
+                entry.setValue(yearFacetList);
+            }
         }
+    }
+
+    private void reorderFacets(Map<String, Object> facetFields) {
+        LinkedHashMap<String, Object> orderedFacets = new LinkedHashMap<>();
+
+        if (facetFields.get(XM_PRIMARY_DOC_TYPE) != null) {
+            orderedFacets.put(XM_PRIMARY_DOC_TYPE, facetFields.get(XM_PRIMARY_DOC_TYPE));
+        }
+        if (facetFields.get(YEAR) != null) {
+            orderedFacets.put(YEAR, facetFields.get(YEAR));
+        }
+        if (facetFields.get(MONTH) != null) {
+            orderedFacets.put(MONTH, facetFields.get(MONTH));
+        }
+
+        for (Map.Entry<String, Object> facetEntry : facetFields.entrySet()) {
+            if (!orderedFacets.containsKey(facetEntry.getKey())) {
+                orderedFacets.put(facetEntry.getKey(), facetEntry.getValue());
+            }
+        }
+        facetFields.clear();
+        facetFields.putAll(orderedFacets);
     }
 
     private void configureFacetResetUrl(HstRequest request, StringBuffer resetBaseUrl, String queryString) {
@@ -357,7 +391,7 @@ public class SearchComponent extends CommonComponent {
         Iterator<Object> iterable = entry.iterator();
         while (iterable.hasNext()) {
             LinkedHashMap<String, Object> facetField = (LinkedHashMap) iterable.next();
-            if (facetField.get("name").equals("null")) {
+            if (facetField.get(FACET_ATTRIBUTE_NAME).equals("null")) {
                 iterable.remove();
             }
         }
@@ -370,17 +404,42 @@ public class SearchComponent extends CommonComponent {
         allTabUrl = UriComponentsBuilder.fromHttpUrl(allTabUrl).replaceQueryParam("searchTab").build().toUriString();
 
         LinkedHashMap<String, Object> allTabEntry = new LinkedHashMap<>();
-        allTabEntry.put("name", "All");
-        allTabEntry.put("facetUrl", allTabUrl);
-        allTabEntry.put("count", request.getAttribute("totalResults"));
+        allTabEntry.put(FACET_ATTRIBUTE_NAME, "All");
+        allTabEntry.put(FACET_ATTRIBUTE_URL, allTabUrl);
+        allTabEntry.put(FACET_ATTRIBUTE_COUNT, request.getAttribute("totalResults"));
         entry.add(0, allTabEntry);
+    }
+
+    private ArrayList<Object> configureYearFacets(ArrayList<Object> entry) {
+        List<String> yearArray = new ArrayList<>();
+        Map<String, Map<String, String>> yearMap = new HashMap<>();
+        for (Object fields : entry) {
+            LinkedHashMap<String, Object> facetField = (LinkedHashMap) fields;
+            Map<String, String> facetAttributes = new HashMap<>();
+            facetAttributes.put(FACET_ATTRIBUTE_URL, (String) facetField.get(FACET_ATTRIBUTE_URL));
+            facetAttributes.put(FACET_ATTRIBUTE_COUNT, String.valueOf(facetField.get(FACET_ATTRIBUTE_COUNT)));
+            yearMap.put((String) facetField.get(FACET_ATTRIBUTE_NAME), facetAttributes);
+            yearArray.add((String) facetField.get(FACET_ATTRIBUTE_NAME));
+        }
+        Collections.sort(yearArray);
+        Collections.reverse(yearArray);
+
+        ArrayList<Object> yearEntry = new ArrayList<>();
+        for (String year : yearArray) {
+            LinkedHashMap<String, Object> facetFields = new LinkedHashMap<>();
+            facetFields.put(FACET_ATTRIBUTE_NAME, year);
+            facetFields.put(FACET_ATTRIBUTE_COUNT, Integer.valueOf(yearMap.get(year).get(FACET_ATTRIBUTE_COUNT)));
+            facetFields.put(FACET_ATTRIBUTE_URL, yearMap.get(year).get(FACET_ATTRIBUTE_URL));
+            yearEntry.add(facetFields);
+        }
+        return yearEntry;
     }
 
     private void addEmptySearchTabs(ArrayList<Object> entry) {
         ArrayList<String> configuredSearchTabs = new ArrayList<>();
         for (Object field : entry) {
             LinkedHashMap<String, Object> facetField = (LinkedHashMap) field;
-            configuredSearchTabs.add((String) facetField.get("name"));
+            configuredSearchTabs.add((String) facetField.get(FACET_ATTRIBUTE_NAME));
         }
         if (!configuredSearchTabs.contains("data")) {
             addSearchTab(entry, "data", 0);
@@ -395,8 +454,8 @@ public class SearchComponent extends CommonComponent {
 
     private void addSearchTab(ArrayList<Object> entry, String tabName, int tabIndex) {
         LinkedHashMap<String, Object> tabEntry = new LinkedHashMap<>();
-        tabEntry.put("name", tabName);
-        tabEntry.put("count", 0);
+        tabEntry.put(FACET_ATTRIBUTE_NAME, tabName);
+        tabEntry.put(FACET_ATTRIBUTE_COUNT, 0);
         entry.add(tabIndex, tabEntry);
     }
 
@@ -406,11 +465,11 @@ public class SearchComponent extends CommonComponent {
         List<Integer> countArray = new ArrayList<>();
         for (Object fields : entry) {
             LinkedHashMap<String, Object> facetField = (LinkedHashMap) fields;
-            String docType = (String) facetField.get("name");
-            int currentCount = (int) facetField.get("count");
+            String docType = (String) facetField.get(FACET_ATTRIBUTE_NAME);
+            int currentCount = (int) facetField.get(FACET_ATTRIBUTE_COUNT);
             countArray.add(currentCount);
             if (docType.equals(WEBSITE_HUB) || docType.equals(WEBSITE_VISUAL_HUB)) {
-                groupCount += (int) facetField.get("count");
+                groupCount += (int) facetField.get(FACET_ATTRIBUTE_COUNT);
             }
         }
 
@@ -419,8 +478,8 @@ public class SearchComponent extends CommonComponent {
             Collections.sort(countArray);
             Collections.reverse(countArray);
             LinkedHashMap<String, Object> groupedEntry = new LinkedHashMap<>();
-            groupedEntry.put("count", groupCount);
-            groupedEntry.put("name", "homepage");
+            groupedEntry.put(FACET_ATTRIBUTE_COUNT, groupCount);
+            groupedEntry.put(FACET_ATTRIBUTE_NAME, "homepage");
             entry.add(countArray.indexOf(groupCount), groupedEntry);
         }
     }
@@ -431,10 +490,10 @@ public class SearchComponent extends CommonComponent {
         List<Integer> countArray = new ArrayList<>();
         for (Object fields : entry) {
             LinkedHashMap<String, Object> facetField = (LinkedHashMap) fields;
-            String docType = (String) facetField.get("name");
-            countArray.add((int) facetField.get("count"));
+            String docType = (String) facetField.get(FACET_ATTRIBUTE_NAME);
+            countArray.add((int) facetField.get(FACET_ATTRIBUTE_COUNT));
             if (docType.equals(PUBLICATION_SYSTEM_LEGACY_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_ARCHIVE)) {
-                groupCount += (int) facetField.get("count");
+                groupCount += (int) facetField.get(FACET_ATTRIBUTE_COUNT);
             }
         }
 
@@ -443,14 +502,14 @@ public class SearchComponent extends CommonComponent {
             Collections.sort(countArray);
             Collections.reverse(countArray);
             LinkedHashMap<String, Object> groupedEntry = new LinkedHashMap<>();
-            groupedEntry.put("count", groupCount);
-            groupedEntry.put("name", "publication");
+            groupedEntry.put(FACET_ATTRIBUTE_COUNT, groupCount);
+            groupedEntry.put(FACET_ATTRIBUTE_NAME, "publication");
             entry.add(countArray.indexOf(groupCount), groupedEntry);
         }
     }
 
     private boolean removeDocType(LinkedHashMap<String, Object> facetField) {
-        String docType = (String) facetField.get("name");
+        String docType = (String) facetField.get(FACET_ATTRIBUTE_NAME);
         return docType.equals("website:general") || docType.equals("website:componentlist") || docType.equals("website:roadmapitem") || docType.equals("website:apimaster")
             || docType.equals("website:bloghub") || docType.equals("website:apiendpoint") || docType.equals("website:gdprsummary") || docType.equals("website:orgstructure")
             || docType.equals(PUBLICATION_SYSTEM_LEGACY_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_PUBLICATION) || docType.equals(PUBLICATION_SYSTEM_ARCHIVE)

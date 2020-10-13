@@ -147,6 +147,16 @@ definitions:
             selectlist.maxrows: '10'
             valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.right.item
+          /taxonomyClassificationField:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            caption: Taxonomy
+            field: taxonomyClassificationField
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /Granularity:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -500,6 +510,11 @@ definitions:
             hipposysedit:type: publicationsystem:survey
             hipposysedit:validators:
             - optional
+            jcr:primaryType: hipposysedit:field
+          /taxonomyClassificationField:
+            hipposysedit:multiple: true
+            hipposysedit:path: publicationsystem:taxonomyClassificationField
+            hipposysedit:type: TaxonomyClassification
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: true

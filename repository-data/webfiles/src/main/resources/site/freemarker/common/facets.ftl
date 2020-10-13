@@ -229,7 +229,7 @@
                         <#if field.name?? && field.name?has_content && getDocTypeLabel(field.name)??>
                             <#if field?index &lt; 6 || isSelected("xmPrimaryDocType", field.name)>
                                 <li class="filter-list__item filter-list__item--no-children">
-                                    <a href="<@fmt.message key= facetLabel />"
+                                    <a href="${field.facetUrl}"
                                        title="<@fmt.message key= facetLabel />"
                                        class="filter-link ${isSelected("xmPrimaryDocType", field.name)?then("filter-link--active", "")}">
                                         <@fmt.message key= facetLabel />
@@ -307,7 +307,8 @@
     "website:roadmap":                                  "roadmap",
     "homepage":                                         "homepage",
     "publication":                                      "publication",
-    "website:supplementaryinformation":                 "supplementaryinformation"
+    "website:supplementaryinformation":                 "supplementaryinformation",
+    "website:apispecification":                         "apispecification"
     }/>
 
     <#if labels[field]??>

@@ -29,6 +29,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: doctype-labels
     resourcebundle:keys:
     - cyber-alerts
@@ -49,6 +50,7 @@
     - publication
     - supplementaryinformation
     - service
+    - apispecification
     resourcebundle:messages:
     - Cyber alerts
     - Data sets
@@ -68,6 +70,7 @@
     - Data publications
     - Information requests
     - Service
+    - API Specification
   /documenttype-labels[2]:
     hippo:availability:
     - preview
@@ -99,6 +102,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: doctype-labels
     resourcebundle:keys:
     - cyber-alerts
@@ -119,6 +123,7 @@
     - publication
     - supplementaryinformation
     - service
+    - apispecification
     resourcebundle:messages:
     - Cyber alerts
     - Data sets
@@ -138,6 +143,7 @@
     - Data publications
     - Information requests
     - Service
+    - API Specification
   /documenttype-labels[3]:
     hippo:availability:
     - live
@@ -169,6 +175,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: doctype-labels
     resourcebundle:keys:
     - cyber-alerts
@@ -189,6 +196,7 @@
     - publication
     - supplementaryinformation
     - service
+    - apispecification
     resourcebundle:messages:
     - Cyber alerts
     - Data sets
@@ -208,6 +216,7 @@
     - Data publications
     - Information requests
     - Service
+    - API Specification
   hippo:name: DocumentType labels
   hippo:versionHistory: 8f98cf60-80cc-4695-a23e-34d55679cf9a
   jcr:mixinTypes:

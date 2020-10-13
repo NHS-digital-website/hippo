@@ -45,7 +45,6 @@ definitions:
         - website:team
         - website:update
         - website:numberedList
-        - website:apispecification
         - selection:valuelist
         - selection:BooleanRadioGroup
         - selection:listitem
