@@ -13,15 +13,18 @@
 
     .viz-wrapper-item {
         max-width: 100%;
-        @include media($max-width: $min-desktop-width) {
-            overflow-y: auto;
-        }
+        overflow-y: auto;
         -ms-grid-column: 1;
         -ms-grid-column-span: 2;
         -ms-grid-row: 1;
         grid-column: 1/2;
         grid-row: 1;
         z-index: 1;
+    }
+
+    .viz-wrapper-item-tablet,
+    .viz-wrapper-item-desktop {
+        overflow: visible;
     }
 
     &-loading {

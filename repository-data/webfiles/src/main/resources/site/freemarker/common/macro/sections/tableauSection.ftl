@@ -13,7 +13,8 @@
 
         <div id="${divId}" class="viz-wrapper">
             <#if section.placeholderImageLocation?has_content>
-                <div id="${divId}-viz" class="viz-wrapper-item hidden-viz"></div>
+
+                <div id="${divId}-viz" class="viz-wrapper-item hidden-viz viz-wrapper-item-${section.device}"></div>
                 <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" />
                 <div id="${divId}-loading" class="viz-wrapper-item">
                     <div class="viz-wrapper-loading">
@@ -22,7 +23,7 @@
                     </div>
                 </div>
             <#else>
-                <div id="${divId}-viz" class="viz-wrapper-item"></div>
+                <div id="${divId}-viz" class="viz-wrapper-item viz-wrapper-item-${section.device}"></div>
             </#if>
         </div>
 
