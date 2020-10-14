@@ -758,6 +758,11 @@ definitions:
           jcr:name: Supplementary information hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:tableau:
+        /en:
+          jcr:name: Tableau
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:team:
         /en:
           jcr:name: Team

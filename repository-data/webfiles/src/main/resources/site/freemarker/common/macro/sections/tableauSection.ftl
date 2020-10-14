@@ -30,7 +30,8 @@
         <script type="text/javascript">
             var vizMessages = {
                 LOAD_ERROR: "<@fmt.message key="load-error"/>",
-                LOADING_MESSAGE: "<@fmt.message key="loading-message"/>"
+                LOADING_MESSAGE: "<@fmt.message key="loading-message"/>",
+                LOADING_FAILED_MESSAGE: "<@fmt.message key="loading-failed-message"/>"
             };
         </script>
 
@@ -62,12 +63,14 @@
             };
 
             // Setup reload attempt
-            var viz${index}LoadTimer = setInterval(_retry, 15000);
+            var viz${index}Load = false;
+            var viz${index}LoadTimer = setInterval(_retry, 1000);
 
             function loadViz(containerDiv, placeholderElements) {
                 var url = "${section.url}";
                 var options = {
                     "onFirstInteractive": function () {
+                        viz${index}Load = true;
                         clearInterval(viz${index}LoadTimer);
                         _onFirstInteractive(containerDiv, placeholderElements);
                     },
@@ -77,6 +80,9 @@
                     </#if>
                 };
                 if(typeof tableau !== 'undefined' && typeof tableau.Viz !== 'undefined') {
+                    if(!!viz${index}) {
+                        viz${index}.dispose();
+                    }
                     viz${index} = new tableau.Viz(containerDiv, url, options);
                 } else {
                     _showLoadingError();
@@ -95,20 +101,43 @@
             }
 
             function _load() {
-                <#if section.placeholderImageLocation?has_content>
-                loadViz(viz${index}Elements.vizDiv(), [viz${index}Elements.placeholderImage(), viz${index}Elements.loadingDiv()]);
-                <#else>
-                loadViz(viz${index}Elements.vizDiv());
-                </#if>
+                if(!viz${index}Load) {
+                    <#if section.placeholderImageLocation?has_content>
+                    loadViz(viz${index}Elements.vizDiv(), [viz${index}Elements.placeholderImage(), viz${index}Elements.loadingDiv()]);
+                    <#else>
+                    loadViz(viz${index}Elements.vizDiv());
+                    </#if>
+                }
             }
 
             window.addEventListener('load', function() {
                 _load();
             });
 
+
+            // Retry timestamp
+            var viz${index}StartLoadTimeStart = Date.now();
+            var viz${index}RetryAtempIntervales=[<#list section.retryIntervals as intervale>${intervale},</#list>];
+
             function _retry() {
-                _setRetryMessage();
-                _load();
+                if(!viz${index}Load && viz${index}RetryAtempIntervales.length <= 0){
+                    clearInterval(viz${index}LoadTimer);
+                    _fail();
+                } else {
+                    if(!viz${index}Load && (Date.now() - viz${index}StartLoadTimeStart) > (viz${index}RetryAtempIntervales[0] * 1000)){
+                        viz${index}StartLoadTimeStart += viz${index}RetryAtempIntervales.shift() * 1000;  <#-- Update for the next round -->
+                        _setRetryMessage();
+                        _load();
+                    }
+                }
+            }
+
+            function _fail(){
+                setTimeout(function(){
+                    if(!viz${index}Load) {
+                        _setFailMessage();
+                    }
+                }, 60000); <#-- Allow Tableau last atempt to load finish before showing the fail message. -->
             }
 
             function _setRetryMessage() {
@@ -116,6 +145,18 @@
                 if(!!(message${index})) {
                     message${index}.classList.add("fade-in-2");
                     message${index}.innerHTML = vizMessages.LOADING_MESSAGE;
+                }
+            }
+
+            function _setFailMessage() {
+                var message${index} = viz${index}Elements.loadingMessage();
+                if(!!(message${index})) {
+                    message${index}.classList.add("fade-in-2");
+                    message${index}.innerHTML = vizMessages.LOADING_FAILED_MESSAGE;
+                }
+                var loading${index} = viz${index}Elements.loadingIcon();
+                if(!!(loading${index})) {
+                    loading${index}.remove();
                 }
             }
 

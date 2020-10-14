@@ -30,6 +30,11 @@ public class Tableau extends HippoCompound {
         return getSingleProperty("website:url");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:retryIntervals")
+    public Long[] getRetryIntervals() {
+        return getMultipleProperty("website:retryIntervals");
+    }
+
     public String getTableauBase() throws MalformedURLException {
         URL url = new URL(getUrl());
         return String.format("%s://%s/", url.getProtocol(), url.getAuthority());

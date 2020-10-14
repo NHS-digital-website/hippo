@@ -42,23 +42,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /device:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: default,desktop,tablet,phone
-            caption: Device Layout
-            field: device
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-          /hidetabs:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Hide Tabs
-            field: hidetabs
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
           /placeholderImageLocation:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -69,6 +52,35 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /hidetabs:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Hide Tabs
+            field: hidetabs
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /device:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: default,desktop,tablet,phone
+            caption: Device Layout
+            field: device
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /retryIntervals:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Retry Intervals
+            field: retryIntervals
+            hint: "The component will retry loading in the frontend using the given\
+              \ intervals. An empty list will turn retries off. The intervals are\
+              \ run in order top down.\_Interval values are in seconds.\r\n\r\nIntervals\
+              \ values are in seconds."
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -98,6 +110,14 @@ definitions:
             hipposysedit:validators:
             - valid-url
             jcr:primaryType: hipposysedit:field
+          /retryIntervals:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:retryIntervals
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+            jcr:primaryType: hipposysedit:field
           /url:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -125,8 +145,11 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: website:tableau
           website:hidetabs: false
-          website:long: 30000
           website:placeholderImageLocation: ''
+          website:retryIntervals:
+          - 30
+          - 45
+          - 60
           website:url: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
