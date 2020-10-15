@@ -32,6 +32,7 @@
 <#assign hasHtmlCode = document.htmlCode?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
+<#assign wideMode = document.wideMode />
 <#assign idsuffix = slugify(document.title) />
 
 <#-- Content Page Pixel -->
@@ -58,7 +59,7 @@
         </#if>
 
         <div class="grid-row">
-            <#if renderNav>
+            <#if renderNav && !wideMode>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
@@ -78,7 +79,7 @@
             </div>
             </#if>
 
-            <div class="column column--two-thirds page-block page-block--main">
+            <div class="column ${wideMode?then("column--wide-mode", "column--two-thirds")} page-block page-block--main">
 
                 <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' />
 

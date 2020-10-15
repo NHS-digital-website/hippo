@@ -14,6 +14,9 @@
     .viz-wrapper-item {
         max-width: 100%;
         overflow: hidden;
+        .column--wide-mode & {
+            overflow: auto;
+        }
         -ms-grid-column: 1;
         -ms-grid-column-span: 2;
         -ms-grid-row: 1;

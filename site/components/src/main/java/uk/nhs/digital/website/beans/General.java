@@ -56,4 +56,8 @@ public class General extends CommonFieldsBean {
         return getLinkedBean("website:leadimage", HippoGalleryImageSet.class);
     }
 
+    public Boolean getWideMode()  {
+        return getSingleProperty("website:wideMode",false);
+    }
+
 }
