@@ -32,7 +32,7 @@ public class Tableau extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:retryIntervals")
     public Long[] getRetryIntervals() {
-        return getMultipleProperty("website:retryIntervals");
+        return getMultipleProperty("website:retryIntervals", new Long[]{});
     }
 
     public String getTableauBase() throws MalformedURLException {
