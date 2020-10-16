@@ -30,6 +30,17 @@
   &__example__summary {}
   &__example__description {}
 
-  &__schema__header {font-weight: bold;}
   &__schema__trythisapi__link {color: $blue; text-decoration: underline;}
 }
+
+.body__schema__header { font-weight: bold; }
+
+.body__schema { display: none; }
+.body__schema .title { }
+.body__schema .type,
+.body__schema .deprecated,
+.body__schema .uniqueitems { color: $grey-9; }
+
+.body__schema .format { color: $blue-50; }
+
+.body__schema td { vertical-align: top; }

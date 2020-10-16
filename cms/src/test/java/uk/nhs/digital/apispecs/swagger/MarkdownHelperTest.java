@@ -2,18 +2,23 @@ package uk.nhs.digital.apispecs.swagger;
 
 import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 
-public class MarkdownToHtmlRendererHelperTest {
+public class MarkdownHelperTest {
+
+    @Rule public ExpectedException expectedException = ExpectedException.none();
 
     private CommonmarkMarkdownConverter commonmarkMarkdownConverter = mock(CommonmarkMarkdownConverter.class);
 
-    private final MarkdownToHtmlRendererHelper markdownToHtmlRendererHelper
-        = new MarkdownToHtmlRendererHelper(commonmarkMarkdownConverter);
+    private final MarkdownHelper markdownHelper
+        = new MarkdownHelper(commonmarkMarkdownConverter);
 
     @Test
     public void delegatesToCommonMarkRenderer() {
@@ -25,7 +30,7 @@ public class MarkdownToHtmlRendererHelperTest {
         given(commonmarkMarkdownConverter.toHtml(markdownToRender)).willReturn(expectedRenderedValue);
 
         // when
-        final Object actualRenderedValue = markdownToHtmlRendererHelper.apply(
+        final Object actualRenderedValue = markdownHelper.apply(
             markdownToRender,
             null // ignored
         );
@@ -35,5 +40,25 @@ public class MarkdownToHtmlRendererHelperTest {
             actualRenderedValue,
             sameInstance(expectedRenderedValue)
         );
+    }
+
+    @Test
+    public void throwsExceptionOnMarkdownRenderingFailure() {
+
+        // given
+        final RuntimeException expectedCause = new RuntimeException();
+
+        given(commonmarkMarkdownConverter.toHtml(any())).willThrow(expectedCause);
+
+        expectedException.expectMessage("Failed to render markdown.");
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectCause(sameInstance(expectedCause));
+
+        // when
+        markdownHelper.apply("some markdown", null);
+
+        // then
+
+        // expectations set up in 'given' are satisfied
     }
 }

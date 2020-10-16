@@ -1,0 +1,52 @@
+{{! For reference see io.swagger.v3.oas.models.media.Schema }}
+
+<tr>
+    {{! 'Name' column (values that don't require labels) }}
+    <td>
+        {{#title}}<div><code class="title">{{this}}</code></div>{{/title}}
+
+        <div>
+            {{#type}}<code class="type">{{this}}</code>{{/type}}
+            {{#format}}<code class="format">{{this}}</code>{{/format}}
+        </div>
+
+        {{#deprecated}}<div><code class="deprecated">deprecated</code></div>{{/deprecated}}
+
+        {{#uniqueItems}}<div><code class="uniqueitems">unique items</code></div>{{/uniqueItems}}
+    </td>
+
+    {{! 'Description' column (actual description + values that do require labels) }}
+    <td>
+        {{#description}}<div class="description">{{{markdown this}}}</div>{{/description}}
+
+        {{#pattern}}<div>Pattern: <code class="codeinline pattern">{{this}}</code></div>{{/pattern}}
+
+        {{#multipleOf}}<div>Multiple of: <code class="codeinline multipleof">{{this}}</code><div>{{/multipleOf}}
+
+        {{#if maximum}}
+            <div>Maximum: <code class="codeinline maximum">{{maximum}}</code>
+                <code class="codeinline exclusivemaximum">{{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}</code>
+            </div>
+        {{/if}}
+
+        {{#if minimum}}
+            <div>Minimum: <code class="codeinline minimum">{{minimum}}</code>
+                <code class="codeinline exclusiveminimum">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</code>
+            </div>
+        {{/if}}
+
+        {{#maxLength}}<div>Max length: <code class="codeinline maxlength">{{this}}</code></div>{{/maxLength}}
+        {{#minLength}}<div>Min length: <code class="codeinline minlength">{{this}}</code></div>{{/minLength}}
+
+        {{#maxItems}}<div>Max items: <code class="codeinline maxitems">{{this}}</code></div>{{/maxItems}}
+        {{#minItems}}<div>Min items: <code class="codeinline minitems">{{this}}</code></div>{{/minItems}}
+
+        {{#maxProperties}}<div>Max properties: <code class="codeinline maxproperties">{{this}}</code></div>{{/maxProperties}}
+        {{#minProperties}}<div>Min properties: <code class="codeinline minproperties">{{this}}</code></div>{{/minProperties}}
+
+
+        {{#nullable}}<div>Nullable: <code class="codeinline nullable">{{nullable}}</code></div>{{/nullable}}
+        {{#readOnly}}<div>Read-only: <code class="codeinline readonly">{{readOnly}}</code></div>{{/readOnly}}
+        {{#writeOnly}}<div>Write-only: <code class="codeinline writeonly">{{readOnly}}</code></div>{{/writeOnly}}
+    </td>
+</tr>

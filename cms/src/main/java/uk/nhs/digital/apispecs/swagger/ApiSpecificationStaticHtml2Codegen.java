@@ -11,6 +11,8 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.apache.commons.lang3.StringUtils;
@@ -18,19 +20,17 @@ import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleHtmlRenderer;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
     private static final String VENDOR_EXT_KEY_BODY = "x-body";
+    private static final String VENDOR_EXT_KEY_SCHEMA = "x-schema";
 
     private CommonmarkMarkdownConverter markdownConverter = new CommonmarkMarkdownConverter();
 
-    private CodegenParameterExampleHtmlRenderer codegenParameterExampleHtmlRenderer =
+    private CodegenParameterExampleHtmlRenderer codegenParameterExampleRenderer =
         new CodegenParameterExampleHtmlRenderer(markdownConverter);
 
     private BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
@@ -77,9 +77,24 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     @Override
+    public CodegenParameter fromRequestBody(
+        final RequestBody body,
+        final String name,
+        final Schema schema,
+        final Map<String, Schema> schemas,
+        final Set<String> imports
+    ) {
+        final CodegenParameter requestBody = super.fromRequestBody(body, name, schema, schemas, imports);
+
+        setAsVendorExtension(requestBody, VENDOR_EXT_KEY_SCHEMA, schema);
+
+        return requestBody;
+    }
+
+    @Override
     public void setParameterExampleValue(final CodegenParameter parameter) {
         try {
-            parameter.example = codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(parameter.getJsonSchema());
+            parameter.example = codegenParameterExampleRenderer.htmlForExampleValueOf(parameter.getJsonSchema());
         } catch (Exception e) {
             throw new RuntimeException("Failed to process example value(s) for parameter " + parameter);
         }
@@ -90,11 +105,14 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         super.addHandlebarHelpers(handlebars);
 
         handlebars.registerHelper(EnumHelper.NAME, new EnumHelper());
-        handlebars.registerHelper(
-            MarkdownToHtmlRendererHelper.NAME,
-            new MarkdownToHtmlRendererHelper(markdownConverter)
-        );
+
+        final MarkdownHelper markdownHelper = new MarkdownHelper(markdownConverter);
+
+        handlebars.registerHelper(MarkdownHelper.NAME, markdownHelper);
+
         handlebars.registerHelper(HasOneItemHelper.NAME, HasOneItemHelper.INSTANCE);
+
+        handlebars.registerHelper(SchemaHelper.NAME, new SchemaHelper(markdownHelper));
 
         handlebars.with(EscapingStrategy.NOOP);
     }
@@ -176,13 +194,16 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         bodyWithMediaTypesExtractor.bodyObjectFromJsonSchema(
                 codegenResponse.getJsonSchema(), "response " + codegenResponse
             )
-            .ifPresent(body -> setAsVendorExtension(codegenResponse, body, VENDOR_EXT_KEY_BODY));
+            .ifPresent(body -> {
+                setAsVendorExtension(codegenResponse, VENDOR_EXT_KEY_BODY, body);
+                setAsVendorExtension(codegenResponse, VENDOR_EXT_KEY_SCHEMA, codegenResponse.getSchema());
+            });
     }
 
     private void renderResponseHeaderExamples(final CodegenProperty codegenResponseHeader) {
         try {
             codegenResponseHeader.example =
-                codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenResponseHeader.getJsonSchema());
+                codegenParameterExampleRenderer.htmlForExampleValueOf(codegenResponseHeader.getJsonSchema());
         } catch (Exception e) {
             throw new RuntimeException("Failed to process example value(s) for response header " + codegenResponseHeader);
         }
@@ -237,15 +258,14 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
                 parameter.getJsonSchema(),
                 "request parameter " + parameter
             )
-                .ifPresent(requestBody -> setAsVendorExtension(parameter, requestBody, VENDOR_EXT_KEY_BODY));
+                .ifPresent(requestBody -> setAsVendorExtension(parameter, VENDOR_EXT_KEY_BODY, requestBody));
         }
     }
 
     private <T extends CodegenObject> void setAsVendorExtension(
         final T codegenObject,
-        final Object value,
-        final String vendorExtensionKey
+        final String vendorExtensionKey, final Object vendorExtensionValue
     ) {
-        codegenObject.getVendorExtensions().put(vendorExtensionKey, value);
+        codegenObject.getVendorExtensions().put(vendorExtensionKey, vendorExtensionValue);
     }
 }
