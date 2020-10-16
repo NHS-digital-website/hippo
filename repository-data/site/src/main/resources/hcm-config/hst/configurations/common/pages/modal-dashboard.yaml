@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/modal-dashboard:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.ModalDashboardComponent
+        hst:template: modal-dashboard
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/modal-base-layout
+      jcr:primaryType: hst:component

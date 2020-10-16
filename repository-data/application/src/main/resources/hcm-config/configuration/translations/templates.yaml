@@ -503,6 +503,11 @@ definitions:
           jcr:name: Media contact
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:modaldashboard:
+        /en:
+          jcr:name: Modal Dashboard
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:navigation:
         /en:
           jcr:name: Navigation

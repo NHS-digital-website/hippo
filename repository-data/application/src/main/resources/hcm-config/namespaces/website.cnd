@@ -238,6 +238,9 @@
 [website:mediacontact] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:modaldashboard] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:navigation] > hippo:compound, hippostd:relaxed
   orderable
 

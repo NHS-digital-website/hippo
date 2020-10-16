@@ -1,0 +1,168 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/modaldashboard:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            extension.left: ${cluster.id}.left
+            extension.right: ${cluster.id}.right
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
+            wicket.extensions:
+            - extension.left
+            - extension.right
+          /left:
+            item: ${cluster.id}.left.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /right:
+            item: ${cluster.id}.right.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
+          /url:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Tableau View URL
+            field: url
+            hint: The URL which hosts the tableau visualisation
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /placeholderImageLocation:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Placeholder Image
+            field: placeholderImageLocation
+            hint: The URL which hosts the image of the tableau visualisation that
+              loads first as a placeholder.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /hidetabs:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Hide Tabs
+            field: hidetabs
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /device:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: default,desktop,tablet,phone
+            caption: Device Layout
+            field: device
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /retryIntervals:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Retry Intervals
+            field: retryIntervals
+            hint: "The component will retry loading in the frontend using the given\
+              \ intervals. An empty list will turn retries off. The intervals are\
+              \ run in order top down.\_Interval values are in seconds.\r\n\r\nIntervals\
+              \ values are in seconds."
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /device:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:device
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            jcr:primaryType: hipposysedit:field
+          /hidetabs:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:hidetabs
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
+          /placeholderImageLocation:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:placeholderImageLocation
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - valid-url
+            jcr:primaryType: hipposysedit:field
+          /retryIntervals:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:retryIntervals
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+            jcr:primaryType: hipposysedit:field
+          /url:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:url
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            - valid-url
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          common:searchable: true
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2020-10-16T11:56:28.585Z
+          hippostdpubwf:lastModificationDate: 2020-10-16T11:56:28.585Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: ''
+          hippotranslation:locale: ''
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:modaldashboard
+          website:hidetabs: false
+          website:placeholderImageLocation: ''
+          website:retryIntervals:
+          - 30
+          - 45
+          - 60
+          website:url: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

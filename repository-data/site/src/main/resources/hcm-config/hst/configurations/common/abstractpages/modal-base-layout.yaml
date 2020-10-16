@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/modal-base-layout:
+      hst:template: modal-base-layout
+      jcr:primaryType: hst:component
