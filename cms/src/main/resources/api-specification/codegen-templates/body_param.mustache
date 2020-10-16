@@ -48,5 +48,11 @@
             and select the 'Schema' tab.
         </p>
 
+        <div class="body__schema">
+        {{#vendorExtensions.x-schema}}
+            {{>schema}}
+        {{/vendorExtensions.x-schema}}
+        </div>
+
     {{/mediaTypes}}
 
