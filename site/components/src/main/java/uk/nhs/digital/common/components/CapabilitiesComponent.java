@@ -43,8 +43,6 @@ public class CapabilitiesComponent
     public static final Comparator<Item> ITEM_COMPARATOR = Comparator.comparing(Item::getName);
 
 
-
-
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
@@ -58,18 +56,18 @@ public class CapabilitiesComponent
             } else {
                 final Resource capabilitiesResource = resourceServiceBroker.findResources( PLATFORM_RESOURCE_RESOLVER,
                                                                          CAPABILITIES_VIEW_REQUEST_PATH );
-                getAllRootItemsFromView(request, resourceServiceBroker, capabilitiesResource);
+                getCapabilities( request, resourceServiceBroker, capabilitiesResource );
             }
 
         } catch (Exception exception) {
             log.error(((ResourceException) exception).getCause().toString());
-            log.error("Exception while fetching alto data", exception);
+            log.error("Exception while fetching alto data for capabilities", exception);
         }
     }
 
-    private void getItemById(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource resource) {
-        log.info("Retrieving Item");
-        final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
+    public void getItemById(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource resource) {
+        log.info("getItemById Start");
+        final ResourceBeanMapper resourceBeanMapper = getResourceBeanMapper( resourceServiceBroker );
         Item dataItem = resourceBeanMapper.map(resource, Item.class);
         String childType = AltoDataType.fromString(dataItem.getType()).getChildItemType();
         log.info("childType : " + childType);
@@ -86,13 +84,14 @@ public class CapabilitiesComponent
             request.setAttribute(ITEMS_REQUEST_KEY, Collections.EMPTY_LIST);
             log.info("No Child data elements and set in the request");
         }
+        log.info("getItemById End");
 
     }
 
 
-    private void getAllRootItemsFromView(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource capabilitiesResource) {
-        log.info("Retrieving all Capabilities");
-        final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
+    public void getCapabilities( HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource capabilitiesResource ) {
+        log.info("getCapabilities Start");
+        final ResourceBeanMapper resourceBeanMapper = getResourceBeanMapper( resourceServiceBroker );
         final Collection<Item> itemCollection =
             resourceBeanMapper.mapCollection( capabilitiesResource.getChildren( ),
                                               Item.class );
@@ -102,7 +101,13 @@ public class CapabilitiesComponent
         Collections.sort(items, ITEM_COMPARATOR);
         request.setAttribute(HEADING_TEXT, itemCollection.stream().findAny().get().getType());
         request.setAttribute(ITEMS_REQUEST_KEY, itemCollection);
-        log.info("Successfully retrieved and set in the request");
+        log.info("getCapabilities End");
+    }
+
+
+    private ResourceBeanMapper getResourceBeanMapper( final ResourceServiceBroker resourceServiceBroker )
+    {
+        return resourceServiceBroker.getResourceBeanMapper( PLATFORM_RESOURCE_RESOLVER );
     }
 
 }
