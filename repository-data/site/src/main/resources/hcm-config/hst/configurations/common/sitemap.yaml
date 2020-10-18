@@ -165,6 +165,10 @@ definitions:
       /api-spec-try-it-now:
         hst:componentconfigurationid: hst:pages/apitryitnow
         jcr:primaryType: hst:sitemapitem
+      /capabilities:
+        hst:componentconfigurationid: hst:pages/capabilities
+        hst:relativecontentpath: capabilities
+        jcr:primaryType: hst:sitemapitem
       /cyber-alerts:
         hst:componentconfigurationid: hst:pages/cyberalerthub
         hst:relativecontentpath: cyber-alerts
@@ -325,9 +329,9 @@ definitions:
         - hst:pages/visualhub
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
-      /platform-explorer:
-        hst:componentconfigurationid: hst:pages/platform-explorer
-        hst:relativecontentpath: platform-explorer
+      /principles:
+        hst:componentconfigurationid: hst:pages/principles
+        hst:relativecontentpath: principles
         jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt

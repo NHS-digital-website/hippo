@@ -44,6 +44,9 @@ definitions:
       /callToAction:
         hst:renderpath: webfile:/freemarker/common/callToAction.ftl
         jcr:primaryType: hst:template
+      /capabilities:
+        hst:renderpath: webfile:/freemarker/common/capabilities.ftl
+        jcr:primaryType: hst:template
       /categorylist-article:
         hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl
         jcr:primaryType: hst:template
@@ -182,8 +185,8 @@ definitions:
       /person-article:
         hst:renderpath: webfile:/freemarker/common/person-article.ftl
         jcr:primaryType: hst:template
-      /platform-explorer:
-        hst:renderpath: webfile:/freemarker/common/platform-explorer.ftl
+      /principles:
+        hst:renderpath: webfile:/freemarker/common/principles.ftl
         jcr:primaryType: hst:template
       /project-update:
         hst:renderpath: webfile:/freemarker/common/project-update.ftl

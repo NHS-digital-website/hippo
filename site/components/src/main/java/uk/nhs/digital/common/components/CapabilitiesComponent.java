@@ -11,19 +11,20 @@ import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.platformexplorer.response.AaltoView;
 import uk.nhs.digital.platformexplorer.response.AltoDataType;
 import uk.nhs.digital.platformexplorer.response.Item;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CapabilityComponent
+public class CapabilitiesComponent
     extends CommonComponent {
 
-    private static Logger log = LoggerFactory.getLogger( CapabilityComponent.class );
+    private static Logger log = LoggerFactory.getLogger( CapabilitiesComponent.class );
 
     public static final String HEADING_TEXT = "headingText";
 
@@ -31,16 +32,18 @@ public class CapabilityComponent
 
     public static final String PLATFORM_RESOURCE_RESOLVER = "platformResourceResolver";
 
-    public static final String EXPAND_ITEMS_PARAM = "$expand=Items($expand=RelatedItems($levels=1;$expand=Attributes))";
+    public static final String EXPAND_ITEMS_PARAM = "$filter=Library eq 'Published Library' AND Type eq 'Capability'";
 
-    public static final String ALTO_POC_VIEW_REQUEST_PATH = "/api/views/Website Collection/Website Dev POC?" + EXPAND_ITEMS_PARAM;
+    public static final String CAPABILITIES_VIEW_REQUEST_PATH = "/api/item?" + EXPAND_ITEMS_PARAM;
 
     public static final String ITEM_REQUEST_PATH = "/api/item/";
 
     public static final String EXPAND_ATTRIBUTES_PARAM = "$expand=RelatedItems($expand=Attributes)";
 
-    public static final Comparator<Item> ITEM_COMPARATOR
-        = Comparator.comparing(Item::getName);
+    public static final Comparator<Item> ITEM_COMPARATOR = Comparator.comparing(Item::getName);
+
+
+
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -53,8 +56,9 @@ public class CapabilityComponent
                 final Resource resource = resourceServiceBroker.resolve(PLATFORM_RESOURCE_RESOLVER, ITEM_REQUEST_PATH + id + "?" + EXPAND_ATTRIBUTES_PARAM);
                 getItemById(request, resourceServiceBroker, resource);
             } else {
-                final Resource resource = resourceServiceBroker.resolve(PLATFORM_RESOURCE_RESOLVER, ALTO_POC_VIEW_REQUEST_PATH);
-                getAllRootItemsFromView(request, resourceServiceBroker, resource);
+                final Resource capabilitiesResource = resourceServiceBroker.findResources( PLATFORM_RESOURCE_RESOLVER,
+                                                                         CAPABILITIES_VIEW_REQUEST_PATH );
+                getAllRootItemsFromView(request, resourceServiceBroker, capabilitiesResource);
             }
 
         } catch (Exception exception) {
@@ -85,14 +89,19 @@ public class CapabilityComponent
 
     }
 
-    private void getAllRootItemsFromView(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource resource) {
+
+    private void getAllRootItemsFromView(HstRequest request, ResourceServiceBroker resourceServiceBroker, Resource capabilitiesResource) {
         log.info("Retrieving all Capabilities");
         final ResourceBeanMapper resourceBeanMapper = resourceServiceBroker.getResourceBeanMapper(PLATFORM_RESOURCE_RESOLVER);
-        AaltoView aaltoView = resourceBeanMapper.map(resource, AaltoView.class);
-        final List<Item> items = aaltoView.getItems();
+        final Collection<Item> itemCollection =
+            resourceBeanMapper.mapCollection( capabilitiesResource.getChildren( ),
+                                              Item.class );
+
+        log.info(itemCollection.toString()  );
+        ArrayList<Item> items = new ArrayList<>( itemCollection);
         Collections.sort(items, ITEM_COMPARATOR);
-        request.setAttribute(HEADING_TEXT, items.stream().findAny().get().getType());
-        request.setAttribute(ITEMS_REQUEST_KEY, items);
+        request.setAttribute(HEADING_TEXT, itemCollection.stream().findAny().get().getType());
+        request.setAttribute(ITEMS_REQUEST_KEY, itemCollection);
         log.info("Successfully retrieved and set in the request");
     }
 
