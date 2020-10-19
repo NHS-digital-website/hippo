@@ -32,11 +32,10 @@ public class PrinciplesComponent extends CommonComponent {
 
     public static final String EXPAND_ITEMS_PARAM = "$filter=Library eq 'Published Library' AND Type eq 'Principle'";
 
-    public static final String PRINCIPLES_VIEW_REQUEST_PATH = "/api/item?" + EXPAND_ITEMS_PARAM + EXPAND_ATTRIBUTES_PARAM;;
-
-
+    public static final String PRINCIPLES_VIEW_REQUEST_PATH = "/api/item?" + EXPAND_ITEMS_PARAM + EXPAND_ATTRIBUTES_PARAM;
 
     public static final Comparator<Item> ITEM_COMPARATOR = Comparator.comparing(Item::getName);
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);

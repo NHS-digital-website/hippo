@@ -105,8 +105,7 @@ public class CapabilitiesComponent
     }
 
 
-    private ResourceBeanMapper getResourceBeanMapper( final ResourceServiceBroker resourceServiceBroker )
-    {
+    private ResourceBeanMapper getResourceBeanMapper( final ResourceServiceBroker resourceServiceBroker ) {
         return resourceServiceBroker.getResourceBeanMapper( PLATFORM_RESOURCE_RESOLVER );
     }
 
