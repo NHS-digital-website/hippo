@@ -72,6 +72,60 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // expectations set in 'given' are satisfied
     }
 
+    @Test
+    public void hideRequestHeaderWhenSectionIsEmpty() {
+
+        // given
+        final String specificationJson = apigeeApiSpecificationJsonWithEmptyReqSection();
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        final String expectedSpecHtml = customisedSwaggerCodeGenGeneratedSpecificationHtmlForEmptyReqSection();
+
+        assertThat(
+            "Specification HTML has been generated using customised Swagger CodeGen v3",
+            actualSpecHtml,
+            is(expectedSpecHtml)
+        );
+    }
+
+    @Test
+    public void hideResponseHeaderWhenSectionIsEmpty() {
+
+        // given
+        final String specificationJson = apigeeApiSpecificationJsonWithEmptyResSection();
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        final String expectedSpecHtml = customisedSwaggerCodeGenGeneratedSpecificationHtmlForEmptyResSection();
+
+        assertThat(
+            "Specification HTML has been generated using customised Swagger CodeGen v3",
+            actualSpecHtml,
+            is(expectedSpecHtml)
+        );
+    }
+
+    private String apigeeApiSpecificationJsonWithEmptyReqSection() {
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-spec-empty-req-sec.json");
+    }
+
+    private String apigeeApiSpecificationJsonWithEmptyResSection() {
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-spec-empty-res-sec.json");
+    }
+
+    private String customisedSwaggerCodeGenGeneratedSpecificationHtmlForEmptyReqSection() {
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec-empty-req-sec.html");
+    }
+
+    private String customisedSwaggerCodeGenGeneratedSpecificationHtmlForEmptyResSection() {
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec-empty-res-sec.html");
+    }
+
     private String apigeeApiSpecificationJson() {
         return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-specification.json");
     }

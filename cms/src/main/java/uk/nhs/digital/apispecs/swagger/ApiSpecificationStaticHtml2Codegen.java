@@ -115,6 +115,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         handlebars.registerHelper(SchemaHelper.NAME, new SchemaHelper(markdownHelper));
 
         handlebars.with(EscapingStrategy.NOOP);
+        handlebars.registerHelper(IsAnyTrueHelper.NAME, IsAnyTrueHelper.INSTANCE);
     }
 
     private void preProcessOperations(final OpenAPI openApi) {

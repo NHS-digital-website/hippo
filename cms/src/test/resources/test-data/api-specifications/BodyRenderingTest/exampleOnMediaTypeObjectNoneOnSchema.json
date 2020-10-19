@@ -1,0 +1,7 @@
+{
+    "content": {
+        "application/json": {
+            "example": "simple example specified in MediaTypeObject's definition"
+        }
+    }
+}
