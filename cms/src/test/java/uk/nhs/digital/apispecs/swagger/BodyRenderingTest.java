@@ -162,6 +162,40 @@ public class BodyRenderingTest {
         );
     }
 
+    @Test
+    public void displaySchemaHeaderAndSectionWhenMediaTypesSchemaIsPresent() throws IOException {
+
+        // given
+        final String bodyJson = fromFile("exampleOnSchemaNoneOnMediaTypeObject.json");
+
+        // when
+        final String actualHtml = renderFor(bodyJson);
+
+        // then
+        assertThat("Does not render example from MediaTypeObject's Schema.",
+            actualHtml,
+            (containsString("example specified in MediaTypeObject's schema"))
+        );
+
+    }
+
+    @Test
+    public void doesNotDisplaySchemaHeaderAndSectionWhenMediaTypesSchemaIsAbsent() throws IOException {
+
+        // given
+        final String bodyJson = fromFile("exampleOnMediaTypeObjectNoneOnSchema.json");
+
+        // when
+        final String actualHtml = renderFor(bodyJson);
+
+        // then
+        assertThat("Does not render example from MediaTypeObject's Schema.",
+            actualHtml,
+            not(containsString("example specified in MediaTypeObject's schema"))
+        );
+
+    }
+
     private String renderFor(final String jsonDefinition) throws IOException {
 
         final String parameterJsonDefinition = jsonDefinition;

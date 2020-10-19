@@ -1,0 +1,39 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v1.2.29-beta",
+        "title": "Personal Demographics Service (FHIR) API",
+        "description": "",
+        "contact": {
+            "name": "Personal Demographics Service FHIR API Support",
+            "url": "https://tbc.api.nhs.net",
+            "email": "api.management@nhs.net"
+        }
+    },
+    "servers": [],
+    "tags": [],
+    "paths": {
+        "/Patient": {
+            "parameters": [
+                {
+                    "in": "header",
+                    "name": "Authorization",
+                    "description": "",
+                    "required": false
+                }
+            ],
+            "get": {
+                "summary": "Search for patient",
+                "operationId": "search-patient",
+                "externalDocs": {
+                    "description": "ODS codes and documentation.",
+                    "url": "https://fhir.nhs.uk/Id/ods-organization-code"
+                },
+                "description": "",
+                "tags": [],
+                "parameters": []
+            }
+        }
+    },
+    "components": {}
+}
