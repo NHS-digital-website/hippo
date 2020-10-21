@@ -6,6 +6,7 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+
 import java.util.*;
 
 @HippoEssentialsGenerated(internalName = "website:general")
@@ -47,12 +48,12 @@ public class General extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:pageicon")
-    public HippoGalleryImageSet getPageIcon()  {
+    public HippoGalleryImageSet getPageIcon() {
         return getLinkedBean("website:pageicon", HippoGalleryImageSet.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimage")
-    public HippoGalleryImageSet getLeadImage()  {
+    public HippoGalleryImageSet getLeadImage() {
         return getLinkedBean("website:leadimage", HippoGalleryImageSet.class);
     }
 
@@ -60,4 +61,8 @@ public class General extends CommonFieldsBean {
         return getSingleProperty("website:wideMode",false);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:navigationcontroller")
+    public String getNavigationController() {
+        return getSingleProperty("website:navigationcontroller", "withNav");
+    }
 }

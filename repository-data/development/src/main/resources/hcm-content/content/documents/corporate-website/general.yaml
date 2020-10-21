@@ -220,6 +220,21 @@
 
             <p>Enthusiastically reintermediate exceptional networks for interactive methods of empowerment. Professionally network installed base potentialities vis-a-vis an expanded array of e-commerce.&nbsp;</p>
           jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
           /website:html:
             hippostd:content: |-
@@ -228,6 +243,7 @@
               <p>Interactively matrix leveraged.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -238,6 +254,7 @@
               <p>Monotonectally enhance exceptional.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Two
           website:type: ''
         /website:sections[3]:
@@ -250,6 +267,7 @@
               of empowerment. Synergistically simplify equity invested ideas.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Three
           website:type: ''
         /website:seosummary:
@@ -262,22 +280,37 @@
             for interactive methods of empowerment. Professionally network installed
             base potentialities vis-a-vis an expanded array of e-commerce.</p>
           jcr:primaryType: hippostd:html
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:userNeedismet:
+          - ''
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:45:21.390Z
-        hippostdpubwf:lastModificationDate: 2018-02-27T17:45:21.390Z
+        hippostdpubwf:lastModificationDate: 2020-10-21T12:01:34.883Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 7d12c3d8-6436-4c6f-95d2-8c9196de38f8
         hippotranslation:locale: en
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:general
+        website:gossid: 0
+        website:navigationcontroller: withoutNav
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
-          base
+          basenavigationcontroller
         website:title: 'General Child Document #1'
+        website:type: ''
+        website:wideMode: false
       /content[2]:
         /website:component:
           hippostd:content: |-
@@ -285,6 +318,21 @@
 
             <p>Enthusiastically reintermediate exceptional networks for interactive methods of empowerment. Professionally network installed base potentialities vis-a-vis an expanded array of e-commerce.&nbsp;</p>
           jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
           /website:html:
             hippostd:content: |-
@@ -293,6 +341,7 @@
               <p>Interactively matrix leveraged.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -303,6 +352,7 @@
               <p>Monotonectally enhance exceptional.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Two
           website:type: ''
         /website:sections[3]:
@@ -315,6 +365,7 @@
               of empowerment. Synergistically simplify equity invested ideas.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Three
           website:type: ''
         /website:seosummary:
@@ -327,13 +378,24 @@
             for interactive methods of empowerment. Professionally network installed
             base potentialities vis-a-vis an expanded array of e-commerce.</p>
           jcr:primaryType: hippostd:html
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:userNeedismet:
+          - ''
         common:searchable: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:45:21.390Z
-        hippostdpubwf:lastModificationDate: 2018-02-27T17:46:19.901Z
+        hippostdpubwf:lastModificationDate: 2020-10-21T12:01:34.570Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 7d12c3d8-6436-4c6f-95d2-8c9196de38f8
         hippotranslation:locale: en
@@ -341,10 +403,14 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:general
+        website:gossid: 0
+        website:navigationcontroller: withoutNav
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           base
         website:title: 'General Child Document #1'
+        website:type: ''
+        website:wideMode: false
       /content[3]:
         /website:component:
           hippostd:content: |-
@@ -352,6 +418,21 @@
 
             <p>Enthusiastically reintermediate exceptional networks for interactive methods of empowerment. Professionally network installed base potentialities vis-a-vis an expanded array of e-commerce.&nbsp;</p>
           jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
           /website:html:
             hippostd:content: |-
@@ -360,6 +441,7 @@
               <p>Interactively matrix leveraged.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -370,6 +452,7 @@
               <p>Monotonectally enhance exceptional.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Two
           website:type: ''
         /website:sections[3]:
@@ -382,6 +465,7 @@
               of empowerment. Synergistically simplify equity invested ideas.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Three
           website:type: ''
         /website:seosummary:
@@ -394,27 +478,44 @@
             for interactive methods of empowerment. Professionally network installed
             base potentialities vis-a-vis an expanded array of e-commerce.</p>
           jcr:primaryType: hippostd:html
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:userNeedismet:
+          - ''
         common:searchable: true
         hippo:availability:
         - live
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:45:21.390Z
-        hippostdpubwf:lastModificationDate: 2018-02-27T17:46:19.901Z
+        hippostdpubwf:lastModificationDate: 2020-10-21T12:01:34.570Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2018-02-27T17:46:21.231Z
+        hippostdpubwf:publicationDate: 2020-10-21T12:01:47.743Z
         hippotranslation:id: 7d12c3d8-6436-4c6f-95d2-8c9196de38f8
         hippotranslation:locale: en
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:general
+        website:gossid: 0
+        website:navigationcontroller: withoutNav
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           base
         website:title: 'General Child Document #1'
+        website:type: ''
+        website:wideMode: false
       hippo:name: 'Genera Child Document #1'
+      hippo:versionHistory: 34e4f5be-b4c6-4480-a0c1-ead800985701
       jcr:mixinTypes:
       - hippo:named
+      - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
     hippo:name: 'General Child Document #1'
@@ -437,6 +538,21 @@
 
             <p>Collaboratively maintain bricks-and-clicks web services vis-a-vis exceptional human capital. Energistically matrix business metrics via interoperable manufactured products. Credibly iterate robust experiences whereas orthogonal web services.</p>
           jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
           /website:html:
             hippostd:content: <p>Quickly evolve inexpensive internal or "organic"
@@ -447,6 +563,7 @@
               niche markets.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -457,6 +574,7 @@
               <p>Distinctively extend.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Two
           website:type: ''
         /website:sections[3]:
@@ -467,6 +585,7 @@
               <p>Conveniently evolve resource.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Three
           website:type: ''
         /website:seosummary:
@@ -481,21 +600,35 @@
             via interoperable manufactured products. Credibly iterate robust experiences
             whereas orthogonal web services.</p>
           jcr:primaryType: hippostd:html
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:userNeedismet:
+          - ''
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:47:00.182Z
-        hippostdpubwf:lastModificationDate: 2018-02-27T17:47:00.182Z
+        hippostdpubwf:lastModificationDate: 2020-10-05T16:31:16.482Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d70243ad-59ea-4af0-8aa6-47cd1ea2c373
         hippotranslation:locale: en
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:general
+        website:gossid: 0
+        website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
         website:title: 'General Child Document #2'
+        website:type: ''
       /content[2]:
         /website:component:
           hippostd:content: |-
@@ -503,6 +636,21 @@
 
             <p>Collaboratively maintain bricks-and-clicks web services vis-a-vis exceptional human capital. Energistically matrix business metrics via interoperable manufactured products. Credibly iterate robust experiences whereas orthogonal web services.</p>
           jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
           /website:html:
             hippostd:content: <p>Quickly evolve inexpensive internal or "organic"
@@ -513,6 +661,7 @@
               niche markets.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -523,6 +672,7 @@
               <p>Distinctively extend.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Two
           website:type: ''
         /website:sections[3]:
@@ -533,6 +683,7 @@
               <p>Conveniently evolve resource.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Three
           website:type: ''
         /website:seosummary:
@@ -547,13 +698,24 @@
             via interoperable manufactured products. Credibly iterate robust experiences
             whereas orthogonal web services.</p>
           jcr:primaryType: hippostd:html
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:userNeedismet:
+          - ''
         common:searchable: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:47:00.182Z
-        hippostdpubwf:lastModificationDate: 2018-02-27T17:47:55.559Z
+        hippostdpubwf:lastModificationDate: 2020-10-05T16:31:16.375Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d70243ad-59ea-4af0-8aa6-47cd1ea2c373
         hippotranslation:locale: en
@@ -561,9 +723,12 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:general
+        website:gossid: 0
+        website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
         website:title: 'General Child Document #2'
+        website:type: ''
       /content[3]:
         /website:component:
           hippostd:content: |-
@@ -571,6 +736,21 @@
 
             <p>Collaboratively maintain bricks-and-clicks web services vis-a-vis exceptional human capital. Energistically matrix business metrics via interoperable manufactured products. Credibly iterate robust experiences whereas orthogonal web services.</p>
           jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
           /website:html:
             hippostd:content: <p>Quickly evolve inexpensive internal or "organic"
@@ -581,6 +761,7 @@
               niche markets.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -591,6 +772,7 @@
               <p>Distinctively extend.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Two
           website:type: ''
         /website:sections[3]:
@@ -601,6 +783,7 @@
               <p>Conveniently evolve resource.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section Three
           website:type: ''
         /website:seosummary:
@@ -615,26 +798,42 @@
             via interoperable manufactured products. Credibly iterate robust experiences
             whereas orthogonal web services.</p>
           jcr:primaryType: hippostd:html
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:userNeedismet:
+          - ''
         common:searchable: true
         hippo:availability:
         - live
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:47:00.182Z
-        hippostdpubwf:lastModificationDate: 2018-02-27T17:47:55.559Z
+        hippostdpubwf:lastModificationDate: 2020-10-05T16:31:16.375Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2018-02-27T17:47:57.188Z
+        hippostdpubwf:publicationDate: 2020-10-05T16:31:25.215Z
         hippotranslation:id: d70243ad-59ea-4af0-8aa6-47cd1ea2c373
         hippotranslation:locale: en
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:general
+        website:gossid: 0
+        website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
         website:title: 'General Child Document #2'
+        website:type: ''
       hippo:name: 'General Child Document #2'
+      hippo:versionHistory: 35c7076c-8ba5-4176-9699-7734e85827f0
       jcr:mixinTypes:
       - hippo:named
+      - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
     hippo:name: 'General Child Document #2'
