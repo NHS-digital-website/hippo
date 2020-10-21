@@ -17,6 +17,7 @@
                 <entry key="imagedistributiontagging" value="/content/documents/administration/website/imagedistributiontagging"/>
                 <entry key="imagesourcepermission" value="/content/documents/administration/website/imagesourcepermission"/>
                 <entry key="newstypes" value="/content/documents/administration/website/news-type"/>
+                <entry key="navigationMapAvailable" value="/content/documents/administration/value-lists/navigationmapping"/>
             </map>
         </constructor-arg>
     </bean>

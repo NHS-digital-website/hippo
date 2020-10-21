@@ -1,0 +1,20 @@
+<configuration>
+
+    <!-- For syntax see http://logback.qos.ch/manual/configuration.html#syntax-->
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- By default, log at debug level to help diagnosing failed tests -->
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- ...but reduce the log level for libraries known to generate excess of debug info. -->
+    <logger name="io.swagger" level="info"/>
+    <logger name="com.github.jknack.handlebars" level="info"/>
+
+</configuration>
