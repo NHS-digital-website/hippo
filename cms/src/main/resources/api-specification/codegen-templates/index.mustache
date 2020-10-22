@@ -44,7 +44,7 @@
     <!-- API Title: {{{appName}}} -->
 
     <div id="api-description" class="article-section">
-        {{{appDescription}}}
+        {{{markdown appDescription}}}
     </div>
 
         {{#apiInfo}}
@@ -66,7 +66,7 @@
                                                 <div class="try"><a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
                                             </div>
 
-                                            <p>{{notes}}</p>
+                                            <p>{{{markdown notes}}}</p>
                                             <p></p>
                                             <br/>
 
@@ -147,7 +147,7 @@
                                             <h2>Response</h2>
                                             {{#responses}}
                                                 <h3>HTTP status: {{code}}</h3>
-                                                <div>{{message}}</div>
+                                                <div>{{{markdown message}}}</div>
 
                                                 {{#hasHeaders}}
                                                     <div class="httpparams">

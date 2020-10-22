@@ -1,38 +1,120 @@
 package uk.nhs.digital.apispecs.swagger.model;
 
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.junit.Test;
-import org.mockito.Mockito;
 import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ToPrettyJsonStringDeserializer;
 
 import java.io.IOException;
 
 public class ToPrettyJsonStringDeserializerTest {
 
+    private static final String TEST_DATA_FILES_PATH =
+        "/test-data/api-specifications/ToPrettyJsonStringDeserializerTest";
+
+    private final ObjectMapper objectMapper = new ObjectMapper()
+        .configure(MapperFeature.USE_ANNOTATIONS, true);
+
+    private final ToPrettyJsonStringDeserializer deserializer = new ToPrettyJsonStringDeserializer();
+
     @Test
-    public void deserialisesValueAsPrettyPrintedJson() throws IOException {
+    public void deserialisesJsonObjectToPrettyPrintedJsonString() throws IOException {
 
         // given
-        final ToPrettyJsonStringDeserializer deserializer = new ToPrettyJsonStringDeserializer();
-
-        final DeserializationContext context = Mockito.mock(DeserializationContext.class);
-        final JsonParser parser = Mockito.mock(JsonParser.class);
-        final ObjectCodec codec = Mockito.mock(ObjectCodec.class);
-        final JsonNode node = Mockito.mock(JsonNode.class);
-
-        given(parser.getCodec()).willReturn(codec);
-        given(codec.readTree(parser)).willReturn(node);
+        final String jsonObject = "{\"some\":\"json\"}";
+        final String jsonPrettyPrinted = "{\n  \"some\" : \"json\"\n}";
 
         // when
-        deserializer.deserialize(parser, context);
+        final String actualDeserialisedContent = deserializer.deserialize(
+            jsonParserFor(jsonObject),
+            null // ignored
+        );
 
         // then
-        then(node).should().toPrettyString();
+        assertThat("Deserialises JSON content into pretty-printed JSON string.",
+            actualDeserialisedContent,
+            is(jsonPrettyPrinted)
+        );
+    }
+
+    @Test
+    public void deserialisesPlainTextToPlainString_trimmingLeadingAndTrailingQuotes() throws IOException {
+
+        // given
+        final String jsonPropertyStringValue = from("plainText.json");
+
+        final String plainTextValueWithNoSurroundingQuotes = "plain text";
+
+        // when
+        final String actualValue = objectMapper.readValue(jsonPropertyStringValue, TestDto.class).getProperty();
+
+        // then
+        assertThat(
+            "Deserialises string JSON value into plain text string, trimming leading and trailing quote characters.",
+            actualValue,
+            is(plainTextValueWithNoSurroundingQuotes)
+        );
+    }
+
+    @Test
+    public void deserialisesPlainTextToPlainString_unescapingDoubleQuotesWithinTheValue() throws IOException {
+
+        // given
+        final String jsonPropertyStringValue = from("plainTextWithQuotes.json");
+
+        final String plainTextValueWithQuotes = "plain text with \"quotes\"";
+
+        // when
+        final String actualValue = objectMapper.readValue(jsonPropertyStringValue, TestDto.class).getProperty();
+
+        // then
+        assertThat(
+            "Deserialises string JSON value into plain text preserving double-quote characters within it.",
+            actualValue,
+            is(plainTextValueWithQuotes)
+        );
+    }
+
+    @Test
+    public void deserialisesJsonToPrettyPrintedString_unescapingDoubleQuotesWithinTheValue() throws IOException {
+
+        // given
+        final String jsonPropertyStringValue = from("nestedJsonWithQuotes.json");
+
+        final String prettyPrintedJsonWithQuotes = "{\n  \"nested-property\" : \"with \"quotes\"\"\n}";
+
+        // when
+        final String actualValue = objectMapper.readValue(jsonPropertyStringValue, TestDto.class).getProperty();
+
+        // then
+        assertThat(
+            "Deserialises nested JSON, preserving double quotes embedded within its property.",
+            actualValue,
+            is(prettyPrintedJsonWithQuotes)
+        );
+    }
+
+    private JsonParser jsonParserFor(final String jsonToDeserialise) throws IOException {
+        return objectMapper.createParser(jsonToDeserialise);
+    }
+
+    private String from(final String testFileName) {
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
+    }
+
+    public static class TestDto {
+
+        @JsonDeserialize(using = ToPrettyJsonStringDeserializer.class)
+        private String property;
+
+        private String getProperty() {
+            return property;
+        }
     }
 }

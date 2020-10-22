@@ -1,0 +1,17 @@
+{
+  "examples": {
+    "first": {
+      "summary": "Example A from request parameter's definition - summary",
+      "description": "Example A from request parameter's definition - description with `Markdown`",
+      "value": "Example A from request parameter's definition - value"
+    },
+    "second": {
+      "summary": "Example B from request parameter's definition - summary",
+      "description": "Example B from request parameter's definition - description with `Markdown`",
+      "value": "Example B from request parameter's definition - value"
+    }
+  },
+  "schema": {
+    "example": "example specified in parameter's schema"
+  }
+}

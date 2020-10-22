@@ -1,5 +1,7 @@
 package uk.nhs.digital.apispecs.swagger.model;
 
+import static org.apache.commons.lang3.builder.ToStringStyle.MULTI_LINE_STYLE;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -19,7 +21,7 @@ public class SchemaObject {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
+        return new ToStringBuilder(this, MULTI_LINE_STYLE)
             .append("example", example)
             .toString();
     }

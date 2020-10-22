@@ -5,13 +5,25 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verifyZeroInteractions;
+import static uk.nhs.digital.test.util.AssertionUtils.assertClassHasFieldWithAnnotationWithAttributeValue;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.junit.Test;
+import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ToPrettyJsonStringDeserializer;
 import uk.nhs.digital.test.util.ReflectionTestUtils;
 
 import java.util.*;
 
 public class MediaTypeObjectTest {
+
+    @Test
+    public void exampleValueIsDeserialised_usingCustomDeserializer() {
+
+        assertClassHasFieldWithAnnotationWithAttributeValue(
+            MediaTypeObject.class, "example",
+            JsonDeserialize.class, "using", ToPrettyJsonStringDeserializer.class
+        );
+    }
 
     @Test
     public void getExamples_returnsExamplesFromValuesOfInternalMap() {

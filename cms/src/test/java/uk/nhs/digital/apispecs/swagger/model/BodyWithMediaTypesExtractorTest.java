@@ -68,19 +68,19 @@ public class BodyWithMediaTypesExtractorTest {
         final ExampleObject exampleObjectA = new ExampleObject();
         setField(exampleObjectA, "summary", "Example A summary");
         setField(exampleObjectA, "description", "Example A description");
-        setField(exampleObjectA, "value", "\"Example A value\"");
+        setField(exampleObjectA, "value", "Example A value");
 
         final ExampleObject exampleObjectB = new ExampleObject();
         setField(exampleObjectB, "summary", "Example B summary");
         setField(exampleObjectB, "description", "Example B description");
-        setField(exampleObjectB, "value", "\"Example B value\"");
+        setField(exampleObjectB, "value", "Example B value");
 
         final SchemaObject schemaYml = new SchemaObject();
-        setField(schemaYml, "example", "\"Example on schema YML\"");
+        setField(schemaYml, "example", "Example on schema YML");
 
         final MediaTypeObject mediaTypeObjectYml = new MediaTypeObject();
         setField(mediaTypeObjectYml, "schema", schemaYml);
-        setField(mediaTypeObjectYml, "example", "\"Example on Media Type Object YML\"");
+        setField(mediaTypeObjectYml, "example", "Example on Media Type Object YML");
         setField(mediaTypeObjectYml, "examples", ImmutableMap.builder()
             .put("example-a", exampleObjectA)
             .put("example-b", exampleObjectB)
@@ -90,19 +90,19 @@ public class BodyWithMediaTypesExtractorTest {
         final ExampleObject exampleObjectC = new ExampleObject();
         setField(exampleObjectC, "summary", "Example C summary");
         setField(exampleObjectC, "description", "Example C description");
-        setField(exampleObjectC, "value", "\"Example C value\"");
+        setField(exampleObjectC, "value", "Example C value");
 
         final ExampleObject exampleObjectD = new ExampleObject();
         setField(exampleObjectD, "summary", "Example D summary");
         setField(exampleObjectD, "description", "Example D description");
-        setField(exampleObjectD, "value", "\"Example D value\"");
+        setField(exampleObjectD, "value", "Example D value");
 
         final SchemaObject schemaXml = new SchemaObject();
-        setField(schemaXml, "example", "\"Example on schema XML\"");
+        setField(schemaXml, "example", "Example on schema XML");
 
         final MediaTypeObject mediaTypeObjectXml = new MediaTypeObject();
         setField(mediaTypeObjectXml, "schema", schemaXml);
-        setField(mediaTypeObjectXml, "example", "\"Example on Media Type Object XML\"");
+        setField(mediaTypeObjectXml, "example", "Example on Media Type Object XML");
         setField(mediaTypeObjectXml, "examples", ImmutableMap.builder()
             .put("example-c", exampleObjectC)
             .put("example-d", exampleObjectD)
