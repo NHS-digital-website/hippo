@@ -43,7 +43,7 @@ public class SchemaHelperTest {
     }
 
     @Test
-    public void rendersCompleteTopLevelSchemaObjectAsHtml() {
+    public void rendersAllSimpleFieldsOfSingleSchemaObjectAsHtml() {
 
         // given
         final String expectedSchemaHtml = readFrom("schemaObjectCompleteTopLevel.html");
@@ -51,14 +51,17 @@ public class SchemaHelperTest {
         final ObjectSchema schemaObject = fromJsonFile("schemaObjectCompleteTopLevel.json");
 
         // when
-        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
-        assertThat("All 'simple' fields of Schema Object are rendered in HTML.", actualHtmlSchema, is(expectedSchemaHtml));
+        assertThat("All 'simple' fields of Schema Object are rendered in HTML.",
+            actualSchemaHtml,
+            is(expectedSchemaHtml)
+        );
     }
 
     @Test
-    public void doesNotRenderFieldsAbsentFromTheSpecification() {
+    public void doesNotRenderFieldsAbsentFromSpecification() {
 
         // given
         final String expectedSchemaHtml = readFrom("schemaObjectEmpty.html");
@@ -66,10 +69,34 @@ public class SchemaHelperTest {
         final ObjectSchema schemaObject = fromJson("{}");
 
         // when
-        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
-        assertThat("Fields absent from the specifications are not rendered.", actualHtmlSchema, is(expectedSchemaHtml));
+        assertThat("Fields absent from the specifications are not rendered.",
+            actualSchemaHtml,
+            is(expectedSchemaHtml)
+        );
+    }
+
+    @Test
+    public void rendersCompleteHierarchyOfSchemaObjectsAsHtml() {
+
+        // given
+        // A couple of objects have all simple fields defined here
+        // to demonstrate that the 'simple' fields are rendered at more than the top level
+        // but the focus is on correct traversing of the hierarchy of nested objects.
+        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy.html");
+
+        final ObjectSchema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy.json");
+
+        // when
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
+
+        // then
+        assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
+            actualSchemaHtml,
+            is(expectedSchemaHtml)
+        );
     }
 
     @Test
@@ -79,10 +106,13 @@ public class SchemaHelperTest {
         final ObjectSchema schemaObject = fromJson("{ \"maximum\": 10, \"exclusiveMaximum\": true}");
 
         // when
-        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
-        assertThat("Exclusive maximum is rendered as exclusive.", actualHtmlSchema, containsString("(exclusive)"));
+        assertThat("Exclusive maximum is rendered as exclusive.",
+            actualSchemaHtml,
+            containsString("(exclusive)")
+        );
     }
 
     @Test
@@ -92,10 +122,13 @@ public class SchemaHelperTest {
         final ObjectSchema schemaObject = fromJson("{ \"maximum\": 10, \"exclusiveMaximum\": false}");
 
         // when
-        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
-        assertThat("Exclusive maximum is rendered as inclusive.", actualHtmlSchema, containsString("(inclusive)"));
+        assertThat("Exclusive maximum is rendered as inclusive.",
+            actualSchemaHtml,
+            containsString("(inclusive)")
+        );
     }
 
     @Test
@@ -105,11 +138,11 @@ public class SchemaHelperTest {
         final ObjectSchema schemaObject = fromJson("{ \"exclusiveMaximum\": true}");
 
         // when
-        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Exclusive maximum is not rendered.",
-            actualHtmlSchema,
+            actualSchemaHtml,
             allOf(
                 not(containsString("(inclusive)")),
                 not(containsString("(exclusive)"))
@@ -123,10 +156,13 @@ public class SchemaHelperTest {
         final ObjectSchema schemaObject = fromJson("{ \"minimum\": 10, \"exclusiveMinimum\": true}");
 
         // when
-        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
-        assertThat("Exclusive minimum is rendered as exclusive.", actualHtmlSchema, containsString("(exclusive)"));
+        assertThat("Exclusive minimum is rendered as exclusive.",
+            actualSchemaHtml,
+            containsString("(exclusive)")
+        );
     }
 
     @Test
@@ -136,10 +172,13 @@ public class SchemaHelperTest {
         final ObjectSchema schemaObject = fromJson("{ \"minimum\": 10, \"exclusiveMinimum\": false}");
 
         // when
-        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
-        assertThat("Exclusive minimum is rendered as inclusive.", actualHtmlSchema, containsString("(inclusive)"));
+        assertThat("Exclusive minimum is rendered as inclusive.",
+            actualSchemaHtml,
+            containsString("(inclusive)")
+        );
     }
 
     @Test
@@ -149,11 +188,11 @@ public class SchemaHelperTest {
         final ObjectSchema schemaObject = fromJson("{ \"exclusiveMinimum\": true}");
 
         // when
-        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Exclusive minimum is not rendered.",
-            actualHtmlSchema,
+            actualSchemaHtml,
             allOf(
                 not(containsString("(inclusive)")),
                 not(containsString("(exclusive)"))

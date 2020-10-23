@@ -13,7 +13,7 @@ public class HasOneItemHelper implements Helper<Collection<?>> {
 
     public static final String NAME = "hasOneItem";
 
-    @Override public Object apply(final Collection<?> items, final Options options) throws IOException {
+    @Override public Options.Buffer apply(final Collection<?> items, final Options options) throws IOException {
         final Options.Buffer buffer = options.buffer();
 
         if (hasOneItem(items)) {

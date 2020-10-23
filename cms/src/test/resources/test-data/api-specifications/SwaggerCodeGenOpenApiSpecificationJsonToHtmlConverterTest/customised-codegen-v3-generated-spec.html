@@ -61,7 +61,7 @@
     <!-- end sticky-nav -->
 </div>
 
-<div id="content" class="column column--two-thirds page-block page-block--main" aria-label="Document content">
+<div id="content" class="column column--two-thirds page-block page-block--main apispecification" aria-label="Document content">
 
     <!-- API Title: Personal Demographics Service (FHIR) API -->
 
@@ -672,7 +672,7 @@ It supports the following security patterns:</p>
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -681,7 +681,9 @@ It supports the following security patterns:</p>
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
@@ -692,23 +694,689 @@ It supports the following security patterns:</p>
 
         
 
-
-
-        
         
 
-        
-        
+
 
         
         
 
-
         
+        
+
         
         
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR resource type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">id</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
+    
+            <div>Pattern: <code class="codeinline pattern">^\d{10}$</code></div>
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">identifier</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Identifier and system of identification used for this Patient.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">meta</code></div>
+    
+            <div>
+                <code class="type">object</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Metadata about this resource.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+        <tr>
+            <td style="padding-left: 10px;" colspan="2">properties</td>
+        </tr>
+        
+        <tr>
+            <td style="padding-left: 20px;">
+                <div><code class="propertyName">versionId</code></div>
+        
+                <div>
+                    <code class="type">string</code>
+                    
+                </div>
+        
+                
+                
+                
+                <div><code class="readonly">read-only</code></div>
+                
+            </td>
+        
+            <td>
+                
+        
+                <div class="description">The NHS Digital assigned version of the patient resource.</div>
+        
+                
+        
+                
+        
+        
+        
+                
+                
+        
+                
+                
+        
+                
+                
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td style="padding-left: 20px;">
+                <div><code class="propertyName">security</code></div>
+        
+                <div>
+                    <code class="type">array</code>
+                    
+                </div>
+        
+                
+                
+                
+                <div><code class="readonly">read-only</code></div>
+                
+            </td>
+        
+            <td>
+                
+        
+                <div class="description"><p>The level of security on the patients record, which affects which fields are populated on retrieval. The possible responses are:</p>
+<ul>
+<li>U - unrestricted. All available data will be returned.</li>
+<li>R - restricted. Any sensitive data around the patient's location, so <code class="codeinline">address</code>, <code class="codeinline">generalPractitioner</code> and <code class="codeinline">telecom</code>, will be removed from the response.</li>
+<li>V - very restricted. All patient data will be removed from the response apart from <code class="codeinline">id</code>, <code class="codeinline">identifier</code> and <code class="codeinline">meta</code> fields. The <code class="codeinline">gender</code> field will return <code class="codeinline">unknown</code> regardless of actual gender.</li>
+<li>REDACTED - redacted. The patient record has been marked as invalid, so the data should not be used. This code will never be returned; you will receive a 404, and appropriate error response, if an invalidated patient retrieval is attempted.</li>
+</ul>
+</div>
+        
+                
+        
+                
+        
+        
+        
+                
+                
+        
+                <div>Max items: <code class="codeinline maxitems">1</code></div>
+                
+        
+                
+                
+            </td>
+        </tr>
+        
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">name</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>List of names associated with the patient.</p>
+<p>When a patient tagged as <code class="codeinline">very restricted</code> is retrieved, all names will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">gender</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Classification of the gender of a patient. The classification is phenotypical rather than genotypical, i.e. it does not provide codes for medical or scientific purposes.
+It is the administrative gender that the patient wishes to be known as. In some cases, this may not be the same as the patient’s registered birth gender, or their current clinical gender.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">birthDate</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                <code class="format">date</code>
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>The date on which the patient was born or is officially deemed to have been born.</p>
+<p>It is a date in the format <code class="codeinline">yyyy-mm-dd</code>. Due to data quality issues on a small number of patients <code class="codeinline">yyyy-mm</code> and <code class="codeinline">yyyy</code> format may also be returned.</p>
+<p>When a patient tagged as <code class="codeinline">very restricted</code> is retrieved, birth date will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">multipleBirthInteger</code></div>
+    
+            <div>
+                <code class="type">integer</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>The order in which the patient was born, with 1 indicating the first or only birth in the sequence, 2 indicating the second birth in the sequence, 3 indicating the third, and so on up to 7.</p>
+<p>There are two other valid values; <code class="codeinline">8</code> meaning <code class="codeinline">Not applicable</code> and <code class="codeinline">9</code> meaning <code class="codeinline">Not known</code>.</p>
+</div>
+    
+            
+    
+            
+    
+                <div>Maximum: <code class="codeinline maximum">9</code>
+                    <code class="codeinline exclusivemaximum">(inclusive)</code>
+                </div>
+    
+                <div>Minimum: <code class="codeinline minimum">1</code>
+                    <code class="codeinline exclusiveminimum">(inclusive)</code>
+                </div>
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">deceasedDateTime</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                <code class="format">date-time</code>
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>The date and time on which a person died or is officially deemed to have died, if applicable and known.</p>
+<p>It is a datetime in the format <code class="codeinline">yyyy-mm-ddTHH:MM:SS+HH:MM</code> or <code class="codeinline">yyyy-mm-dd</code>. Due to data quality issues on a small number of patients <code class="codeinline">yyyy-mm</code> and <code class="codeinline">yyyy</code> format may also be returned.</p>
+<p>When a patient tagged as <code class="codeinline">very restricted</code> is retrieved, death date will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">address</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>List of addresses associated with the patient.</p>
+<p>This will only be fully populated on a retrieval, only a the <code class="codeinline">home</code> address will be returned on a search.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, all addresses will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">telecom</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>List of contact points for the patient; for example, phone numbers or email addresses.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, all contact points will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">contact</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>A list of patient contacts. Only emergency contacts will be returned and only emergency contacts should be added. Any other contacts should be added to the patients <code class="codeinline">Related Person</code>.</p>
+<p>Patients designate here any contact number they desire to be used in case of an emergency.
+Note, while a patient may also desire to record various related persons telecom details, these do not separately allow for a concept of emergency contact; only ranking. See RelatedPerson endpoint.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, all contacts will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">generalPractitioner</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>General Practice (not practitioner) with which the patient is, or was, registered. Always contains zero or one general practitioner object.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, the General Practice will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            <div>Max items: <code class="codeinline maxitems">1</code></div>
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">extension</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>Wrapper array for the patient's pharmacies, death notification status, communication details, contact preferences and place of birth; these are all FHIR extensions.
+Always contains zero or one of each pharmacy object, zero or one death notification status object, zero or one communication details object, zero or one contact preference and zero or one place of birth object.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, the pharmacy and birth place extensions will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -761,7 +1429,7 @@ It supports the following security patterns:</p>
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -770,11 +1438,15 @@ It supports the following security patterns:</p>
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -951,13 +1623,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -1010,7 +1759,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -1019,11 +1768,15 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -1200,13 +1953,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -1891,7 +2721,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -1900,7 +2730,9 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
@@ -1911,23 +2743,219 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 
         
 
-
-
-        
         
 
-        
-        
+
 
         
         
 
-
         
+        
+
         
         
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">type</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Bundle Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">timestamp</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                <code class="format">datetime</code>
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Time the search was performed.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">total</code></div>
+    
+            <div>
+                <code class="type">integer</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Number of resources returned in search.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">entry</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">A list of matched patients. Empty if none found. The patients are ordered by match score, best first. A maximum of 50 patients will be returned.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -2003,8 +3031,8 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                 
                                                                     
 <tr>
-    <td>
-        <div><code class="title">Response Schema with all simple fields.</code></div>
+    <td style="padding-left: 0px;">
+        
 
         <div>
             <code class="type">object</code>
@@ -2012,11 +3040,15 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
         </div>
 
         <div><code class="deprecated">deprecated</code></div>
-
         <div><code class="uniqueitems">unique items</code></div>
+        <div><code class="nullable">nullable</code></div>
+        <div><code class="readonly">read-only</code></div>
+        <div><code class="writeonly">write-only</code></div>
     </td>
 
     <td>
+        <div class="title">Response Schema with all simple fields.</div>
+
         <div class="description">Response Test Schema Object description in <code class="codeinline">Markdown</code>.</div>
 
         <div>Pattern: <code class="codeinline pattern">^(?:[0-9]{4}-[0-9]{2}-[0-9]{2})?(?:[ T][0-9]{2}:[0-9]{2}:[0-9]{2})?(?:[.,][0-9]{3})?</code></div>
@@ -2039,13 +3071,9 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 
         <div>Max properties: <code class="codeinline maxproperties">5</code></div>
         <div>Min properties: <code class="codeinline minproperties">3</code></div>
-
-
-        <div>Nullable: <code class="codeinline nullable">true</code></div>
-        <div>Read-only: <code class="codeinline readonly">true</code></div>
-        <div>Write-only: <code class="codeinline writeonly">true</code></div>
     </td>
 </tr>
+
 
                                                                 
                                                                 </table>                                                            </div>
@@ -2936,8 +3964,8 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                     
                                                                         
 <tr>
-    <td>
-        <div><code class="title">Request Schema with all simple fields.</code></div>
+    <td style="padding-left: 0px;">
+        
 
         <div>
             <code class="type">object</code>
@@ -2945,11 +3973,15 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
         </div>
 
         <div><code class="deprecated">deprecated</code></div>
-
         <div><code class="uniqueitems">unique items</code></div>
+        <div><code class="nullable">nullable</code></div>
+        <div><code class="readonly">read-only</code></div>
+        <div><code class="writeonly">write-only</code></div>
     </td>
 
     <td>
+        <div class="title">Request Schema with all simple fields.</div>
+
         <div class="description">Request Test Schema Object description in <code class="codeinline">Markdown</code>.</div>
 
         <div>Pattern: <code class="codeinline pattern">^(?:[0-9]{4}-[0-9]{2}-[0-9]{2})?(?:[ T][0-9]{2}:[0-9]{2}:[0-9]{2})?(?:[.,][0-9]{3})?</code></div>
@@ -2972,13 +4004,9 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 
         <div>Max properties: <code class="codeinline maxproperties">5</code></div>
         <div>Min properties: <code class="codeinline minproperties">3</code></div>
-
-
-        <div>Nullable: <code class="codeinline nullable">true</code></div>
-        <div>Read-only: <code class="codeinline readonly">true</code></div>
-        <div>Write-only: <code class="codeinline writeonly">true</code></div>
     </td>
 </tr>
+
 
                                                                     
                                                                     </table>                                                                </div>
@@ -3137,7 +4165,7 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -3146,11 +4174,15 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -3327,13 +4359,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -3411,7 +4520,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -3420,11 +4529,15 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -3601,13 +4714,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -3830,7 +5020,7 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -3839,7 +5029,9 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
@@ -3850,23 +5042,689 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
         
 
-
-
-        
         
 
-        
-        
+
 
         
         
 
-
         
+        
+
         
         
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR resource type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">id</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
+    
+            <div>Pattern: <code class="codeinline pattern">^\d{10}$</code></div>
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">identifier</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Identifier and system of identification used for this Patient.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">meta</code></div>
+    
+            <div>
+                <code class="type">object</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Metadata about this resource.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+        <tr>
+            <td style="padding-left: 10px;" colspan="2">properties</td>
+        </tr>
+        
+        <tr>
+            <td style="padding-left: 20px;">
+                <div><code class="propertyName">versionId</code></div>
+        
+                <div>
+                    <code class="type">string</code>
+                    
+                </div>
+        
+                
+                
+                
+                <div><code class="readonly">read-only</code></div>
+                
+            </td>
+        
+            <td>
+                
+        
+                <div class="description">The NHS Digital assigned version of the patient resource.</div>
+        
+                
+        
+                
+        
+        
+        
+                
+                
+        
+                
+                
+        
+                
+                
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td style="padding-left: 20px;">
+                <div><code class="propertyName">security</code></div>
+        
+                <div>
+                    <code class="type">array</code>
+                    
+                </div>
+        
+                
+                
+                
+                <div><code class="readonly">read-only</code></div>
+                
+            </td>
+        
+            <td>
+                
+        
+                <div class="description"><p>The level of security on the patients record, which affects which fields are populated on retrieval. The possible responses are:</p>
+<ul>
+<li>U - unrestricted. All available data will be returned.</li>
+<li>R - restricted. Any sensitive data around the patient's location, so <code class="codeinline">address</code>, <code class="codeinline">generalPractitioner</code> and <code class="codeinline">telecom</code>, will be removed from the response.</li>
+<li>V - very restricted. All patient data will be removed from the response apart from <code class="codeinline">id</code>, <code class="codeinline">identifier</code> and <code class="codeinline">meta</code> fields. The <code class="codeinline">gender</code> field will return <code class="codeinline">unknown</code> regardless of actual gender.</li>
+<li>REDACTED - redacted. The patient record has been marked as invalid, so the data should not be used. This code will never be returned; you will receive a 404, and appropriate error response, if an invalidated patient retrieval is attempted.</li>
+</ul>
+</div>
+        
+                
+        
+                
+        
+        
+        
+                
+                
+        
+                <div>Max items: <code class="codeinline maxitems">1</code></div>
+                
+        
+                
+                
+            </td>
+        </tr>
+        
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">name</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>List of names associated with the patient.</p>
+<p>When a patient tagged as <code class="codeinline">very restricted</code> is retrieved, all names will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">gender</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Classification of the gender of a patient. The classification is phenotypical rather than genotypical, i.e. it does not provide codes for medical or scientific purposes.
+It is the administrative gender that the patient wishes to be known as. In some cases, this may not be the same as the patient’s registered birth gender, or their current clinical gender.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">birthDate</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                <code class="format">date</code>
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>The date on which the patient was born or is officially deemed to have been born.</p>
+<p>It is a date in the format <code class="codeinline">yyyy-mm-dd</code>. Due to data quality issues on a small number of patients <code class="codeinline">yyyy-mm</code> and <code class="codeinline">yyyy</code> format may also be returned.</p>
+<p>When a patient tagged as <code class="codeinline">very restricted</code> is retrieved, birth date will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">multipleBirthInteger</code></div>
+    
+            <div>
+                <code class="type">integer</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>The order in which the patient was born, with 1 indicating the first or only birth in the sequence, 2 indicating the second birth in the sequence, 3 indicating the third, and so on up to 7.</p>
+<p>There are two other valid values; <code class="codeinline">8</code> meaning <code class="codeinline">Not applicable</code> and <code class="codeinline">9</code> meaning <code class="codeinline">Not known</code>.</p>
+</div>
+    
+            
+    
+            
+    
+                <div>Maximum: <code class="codeinline maximum">9</code>
+                    <code class="codeinline exclusivemaximum">(inclusive)</code>
+                </div>
+    
+                <div>Minimum: <code class="codeinline minimum">1</code>
+                    <code class="codeinline exclusiveminimum">(inclusive)</code>
+                </div>
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">deceasedDateTime</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                <code class="format">date-time</code>
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>The date and time on which a person died or is officially deemed to have died, if applicable and known.</p>
+<p>It is a datetime in the format <code class="codeinline">yyyy-mm-ddTHH:MM:SS+HH:MM</code> or <code class="codeinline">yyyy-mm-dd</code>. Due to data quality issues on a small number of patients <code class="codeinline">yyyy-mm</code> and <code class="codeinline">yyyy</code> format may also be returned.</p>
+<p>When a patient tagged as <code class="codeinline">very restricted</code> is retrieved, death date will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">address</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>List of addresses associated with the patient.</p>
+<p>This will only be fully populated on a retrieval, only a the <code class="codeinline">home</code> address will be returned on a search.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, all addresses will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">telecom</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>List of contact points for the patient; for example, phone numbers or email addresses.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, all contact points will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">contact</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>A list of patient contacts. Only emergency contacts will be returned and only emergency contacts should be added. Any other contacts should be added to the patients <code class="codeinline">Related Person</code>.</p>
+<p>Patients designate here any contact number they desire to be used in case of an emergency.
+Note, while a patient may also desire to record various related persons telecom details, these do not separately allow for a concept of emergency contact; only ranking. See RelatedPerson endpoint.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, all contacts will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">generalPractitioner</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>General Practice (not practitioner) with which the patient is, or was, registered. Always contains zero or one general practitioner object.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, the General Practice will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            <div>Max items: <code class="codeinline maxitems">1</code></div>
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">extension</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description"><p>Wrapper array for the patient's pharmacies, death notification status, communication details, contact preferences and place of birth; these are all FHIR extensions.
+Always contains zero or one of each pharmacy object, zero or one death notification status object, zero or one communication details object, zero or one contact preference and zero or one place of birth object.</p>
+<p>When a patient tagged as <code class="codeinline">restricted</code> or <code class="codeinline">very restricted</code> is retrieved, the pharmacy and birth place extensions will be removed from the response.</p>
+</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -3923,7 +5781,7 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -3932,11 +5790,15 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -4113,13 +5975,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -4176,7 +6115,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -4185,11 +6124,15 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -4366,13 +6309,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -4425,7 +6445,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -4434,11 +6454,15 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -4615,13 +6639,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -4680,7 +6781,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -4689,11 +6790,15 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -4870,13 +6975,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -4931,7 +7113,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -4940,11 +7122,15 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -5121,13 +7307,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -5471,7 +7734,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -5480,7 +7743,9 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
@@ -5491,23 +7756,219 @@ There are a number of possible error codes that can be returned along with a mor
 
         
 
-
-
-        
         
 
-        
-        
+
 
         
         
 
-
         
+        
+
         
         
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">type</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Bundle Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">timestamp</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                <code class="format">datetime</code>
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Time the search was performed.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">total</code></div>
+    
+            <div>
+                <code class="type">integer</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">Number of resources returned in search.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">entry</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">A list of related people details attached to the patient.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -5560,7 +8021,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -5569,11 +8030,15 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -5750,13 +8215,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>
@@ -5809,7 +8351,7 @@ There are a number of possible error codes that can be returned along with a mor
                                                                 
                                                                     
 <tr>
-    <td>
+    <td style="padding-left: 0px;">
         
 
         <div>
@@ -5818,11 +8360,15 @@ There are a number of possible error codes that can be returned along with a mor
         </div>
 
         
-
+        
+        
+        
         
     </td>
 
     <td>
+        
+
         <div class="description"><p>Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).
 There are a number of possible error codes that can be returned along with a more detailed description in the <code class="codeinline">display</code> field.</p>
 <p>There are general outcomes:</p>
@@ -5999,13 +8545,90 @@ There are a number of possible error codes that can be returned along with a mor
 
         
         
-
-
-        
-        
-        
     </td>
 </tr>
+
+    <tr>
+        <td style="padding-left: 0px;" colspan="2">properties</td>
+    </tr>
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">resourceType</code></div>
+    
+            <div>
+                <code class="type">string</code>
+                
+            </div>
+    
+            
+            
+            
+            <div><code class="readonly">read-only</code></div>
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">FHIR Resource Type.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            
+    
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-left: 10px;">
+            <div><code class="propertyName">issue</code></div>
+    
+            <div>
+                <code class="type">array</code>
+                
+            </div>
+    
+            
+            
+            
+            
+            
+        </td>
+    
+        <td>
+            
+    
+            <div class="description">List of issues that have occurred.</div>
+    
+            
+    
+            
+    
+    
+    
+            
+            
+    
+            
+            <div>Min items: <code class="codeinline minitems">1</code></div>
+    
+            
+            
+        </td>
+    </tr>
+    
 
                                                                 
                                                                 </table>                                                            </div>

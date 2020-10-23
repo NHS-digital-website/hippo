@@ -1,0 +1,122 @@
+{
+    "type": "object",
+    "title": "top-level schema 0",
+    "deprecated": true,
+    "description": "Test Schema Object description in `Markdown`.",
+    "multipleOf": 1.2,
+    "minimum": -2.3,
+    "exclusiveMinimum": true,
+    "maximum": 2.2,
+    "exclusiveMaximum": false,
+    "minLength": 11,
+    "maxLength": 22,
+    "pattern": "^(?:[0-9]{4}-[0-9]{2}-[0-9]{2})?(?:[ T][0-9]{2}:[0-9]{2}:[0-9]{2})?(?:[.,][0-9]{3})?",
+    "maxItems": 44,
+    "minItems": 33,
+    "uniqueItems": true,
+    "minProperties": 3,
+    "maxProperties": 5,
+    "format": "int(32)",
+    "nullable": true,
+    "readOnly": true,
+    "writeOnly": true,
+    "properties": {
+        "properties-schema-1-1": {
+            "type": "object",
+            "title": "properties schema 1-1",
+            "deprecated": true,
+            "description": "Test Schema Object description in `Markdown`.",
+            "multipleOf": 1.3,
+            "minimum": -2.4,
+            "exclusiveMinimum": false,
+            "maximum": 2.5,
+            "exclusiveMaximum": true,
+            "minLength": 12,
+            "maxLength": 23,
+            "pattern": "^(?:[1])?",
+            "maxItems": 45,
+            "minItems": 36,
+            "uniqueItems": true,
+            "minProperties": 4,
+            "maxProperties": 6,
+            "format": "float",
+            "nullable": true,
+            "readOnly": true,
+            "writeOnly": true,
+
+            "properties": {
+                "properties-schema-1-1-1": {
+                    "type": "object",
+                    "title": "properties schema 1-1-1",
+                    "description": "Test Schema Object description in `Markdown`.",
+                    "multipleOf": 1.4,
+                    "minimum": -2.5,
+                    "exclusiveMinimum": true,
+                    "maximum": 2.6,
+                    "exclusiveMaximum": false,
+                    "minLength": 13,
+                    "maxLength": 24,
+                    "pattern": "^(?:[2])?",
+                    "maxItems": 46,
+                    "minItems": 37,
+                    "uniqueItems": true,
+                    "minProperties": 5,
+                    "maxProperties": 7,
+                    "format": "int(64)",
+                    "nullable": true,
+                    "readOnly": true,
+                    "writeOnly": true,
+
+                    "properties": {
+                        "properties-schema-1-1-1-1": {
+                            "type": "object",
+                            "title": "properties schema 1-1-1-1",
+                            "description": "Test Schema Object description in `Markdown`.",
+                            "multipleOf": 1.5,
+                            "minimum": -2.6,
+                            "exclusiveMinimum": false,
+                            "maximum": 2.2,
+                            "exclusiveMaximum": true,
+                            "minLength": 14,
+                            "maxLength": 25,
+                            "pattern": "^(?:[3])?",
+                            "maxItems": 47,
+                            "minItems": 38,
+                            "uniqueItems": true,
+                            "minProperties": 3,
+                            "maxProperties": 5,
+                            "format": "int(32)",
+                            "nullable": true,
+                            "readOnly": true,
+                            "writeOnly": true
+                        },
+                        "properties-schema-1-1-1-2": {
+                            "type": "object",
+                            "title": "properties schema 1-1-1-2",
+                            "description": "Test Schema Object description in `Markdown`.",
+                            "pattern": "^(?:[0-9])?",
+                            "nullable": true
+                        }
+                    }
+                },
+                "properties-schema-1-1-2": {
+                    "type": "object",
+                    "title": "properties schema 1-1-2",
+                    "description": "Test Schema Object description in `Markdown`.",
+                    "pattern": "^(?:[0-9])?",
+                    "nullable": true
+                }
+            }
+        },
+        "properties-schema-1-2": {
+            "type": "object",
+            "title": "properties schema 1-2",
+            "properties": {
+                "properties-schema-1-2-1": {
+                    "type": "object",
+                    "title": "properties schema 1-2-1"
+                }
+            }
+        }
+    }
+}
