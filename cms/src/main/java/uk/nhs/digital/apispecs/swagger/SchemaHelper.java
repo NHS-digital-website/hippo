@@ -60,6 +60,7 @@ public class SchemaHelper implements Helper<Schema> {
             .parentScopeResolution(false)
             .infiniteLoops(true)
             .prettyPrint(true)
-            .registerHelper(MarkdownHelper.NAME, helper);
+            .registerHelper(MarkdownHelper.NAME, helper)
+            .registerHelper(IndentationHelper.NAME, IndentationHelper.INSTANCE);
     }
 }

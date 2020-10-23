@@ -2,8 +2,8 @@
 
 <tr>
     {{! 'Name' column (values that don't require labels) }}
-    <td>
-        {{#title}}<div><code class="title">{{this}}</code></div>{{/title}}
+    <td style="padding-left: {{indentation 10}}px;">
+        {{#@key}}<div><code class="propertyName">{{this}}</code></div>{{/@key}}
 
         <div>
             {{#type}}<code class="type">{{this}}</code>{{/type}}
@@ -11,12 +11,16 @@
         </div>
 
         {{#deprecated}}<div><code class="deprecated">deprecated</code></div>{{/deprecated}}
-
         {{#uniqueItems}}<div><code class="uniqueitems">unique items</code></div>{{/uniqueItems}}
+        {{#nullable}}<div><code class="nullable">nullable</code></div>{{/nullable}}
+        {{#readOnly}}<div><code class="readonly">read-only</code></div>{{/readOnly}}
+        {{#writeOnly}}<div><code class="writeonly">write-only</code></div>{{/writeOnly}}
     </td>
 
     {{! 'Description' column (actual description + values that do require labels) }}
     <td>
+        {{#title}}<div class="title">{{this}}</div>{{/title}}
+
         {{#description}}<div class="description">{{{markdown this}}}</div>{{/description}}
 
         {{#pattern}}<div>Pattern: <code class="codeinline pattern">{{this}}</code></div>{{/pattern}}
@@ -43,10 +47,14 @@
 
         {{#maxProperties}}<div>Max properties: <code class="codeinline maxproperties">{{this}}</code></div>{{/maxProperties}}
         {{#minProperties}}<div>Min properties: <code class="codeinline minproperties">{{this}}</code></div>{{/minProperties}}
-
-
-        {{#nullable}}<div>Nullable: <code class="codeinline nullable">{{nullable}}</code></div>{{/nullable}}
-        {{#readOnly}}<div>Read-only: <code class="codeinline readonly">{{readOnly}}</code></div>{{/readOnly}}
-        {{#writeOnly}}<div>Write-only: <code class="codeinline writeonly">{{readOnly}}</code></div>{{/writeOnly}}
     </td>
 </tr>
+
+{{#if properties}}
+    <tr>
+        <td style="padding-left: {{indentation 10}}px;" colspan="2">properties</td>
+    </tr>
+{{/if}}
+{{#each properties}}
+    {{>schema_object}}
+{{/each}}

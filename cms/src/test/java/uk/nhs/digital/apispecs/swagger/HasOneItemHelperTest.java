@@ -4,7 +4,7 @@ import static com.onehippo.cms7.inference.engine.core.util.ArraysUtils.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.sameInstance;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -44,15 +44,13 @@ public class HasOneItemHelperTest {
         final Collection<?> collectionWithOneItem = singletonList("single item in the list, actual content irrelevant");
 
         // when
-        final Object buffer = hasOneItemHelper.apply(collectionWithOneItem, options);
+        final Options.Buffer actualBuffer = hasOneItemHelper.apply(collectionWithOneItem, options);
 
         // then
-        assertThat("Returns Options.Buffer",
-            buffer,
-            instanceOf(Options.Buffer.class)
+        assertThat("Returns Buffer provided by Handlebars through Options.",
+            actualBuffer,
+            sameInstance(actualBuffer)
         );
-
-        final Options.Buffer actualBuffer = (Options.Buffer) buffer;
 
         then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK);
     }
@@ -64,15 +62,13 @@ public class HasOneItemHelperTest {
         final Collection<?> nullCollection = null;
 
         // when
-        final Object buffer = hasOneItemHelper.apply(nullCollection, options);
+        final Options.Buffer actualBuffer = hasOneItemHelper.apply(nullCollection, options);
 
         // then
-        assertThat("Returns Options.Buffer",
-            buffer,
-            instanceOf(Options.Buffer.class)
+        assertThat("Returns Buffer provided by Handlebars through Options.",
+            actualBuffer,
+            sameInstance(actualBuffer)
         );
-
-        final Options.Buffer actualBuffer = (Options.Buffer) buffer;
 
         then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
     }
@@ -84,15 +80,13 @@ public class HasOneItemHelperTest {
         final Collection<?> emptyCollection = emptyList();
 
         // when
-        final Object buffer = hasOneItemHelper.apply(emptyCollection, options);
+        final Options.Buffer actualBuffer = hasOneItemHelper.apply(emptyCollection, options);
 
         // then
-        assertThat("Returns Options.Buffer",
-            buffer,
-            instanceOf(Options.Buffer.class)
+        assertThat("Returns Buffer provided by Handlebars through Options.",
+            actualBuffer,
+            sameInstance(actualBuffer)
         );
-
-        final Options.Buffer actualBuffer = (Options.Buffer) buffer;
 
         then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
     }
@@ -107,15 +101,13 @@ public class HasOneItemHelperTest {
         );
 
         // when
-        final Object buffer = hasOneItemHelper.apply(collectionWithManyItems, options);
+        final Options.Buffer actualBuffer = hasOneItemHelper.apply(collectionWithManyItems, options);
 
         // then
-        assertThat("Returns Options.Buffer",
-            buffer,
-            instanceOf(Options.Buffer.class)
+        assertThat("Returns Buffer provided by Handlebars through Options.",
+            actualBuffer,
+            sameInstance(actualBuffer)
         );
-
-        final Options.Buffer actualBuffer = (Options.Buffer) buffer;
 
         then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
     }

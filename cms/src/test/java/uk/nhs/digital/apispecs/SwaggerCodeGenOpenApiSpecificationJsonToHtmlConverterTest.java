@@ -37,7 +37,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    public void getHtmlForSpec_convertsProvidedOpenApiJsonToHtml() {
+    public void getHtmlForSpec_convertsOpenApiJsonToHtml() {
 
         // given
         final String specificationJson = apigeeApiSpecificationJson();

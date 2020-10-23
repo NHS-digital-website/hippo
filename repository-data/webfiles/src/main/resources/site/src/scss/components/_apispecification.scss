@@ -36,11 +36,18 @@
 .body__schema__header { font-weight: bold; }
 
 .body__schema { display: none; }
-.body__schema .title { }
+.body__schema .propertyName { }
+.body__schema .title { font-weight: bold; }
 .body__schema .type,
 .body__schema .deprecated,
-.body__schema .uniqueitems { color: $grey-9; }
+.body__schema .uniqueitems,
+.body__schema .nullable,
+.body__schema .readonly,
+.body__schema .writeonly { color: $grey-9; }
 
 .body__schema .format { color: $blue-50; }
 
 .body__schema td { vertical-align: top; }
+
+.apispecification table th,
+.apispecification table td { word-break: normal; }
