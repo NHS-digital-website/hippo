@@ -211,6 +211,17 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
+          /navigationcontroller:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/administration/value-lists/navigationmapping
+            caption: Navigation control - web team only
+            field: navigationcontroller
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -280,6 +291,16 @@ definitions:
             hipposysedit:path: website:metadata
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /navigationcontroller:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:navigationcontroller
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /pageicon:
             hipposysedit:mandatory: false
@@ -454,6 +475,7 @@ definitions:
           jcr:primaryType: website:general
           website:gossid: 0
           website:metadata: []
+          website:navigationcontroller: withNav
           website:shortsummary: ''
           website:title: ''
           website:type: ''

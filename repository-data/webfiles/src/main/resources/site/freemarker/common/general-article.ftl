@@ -34,6 +34,7 @@
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 <#assign wideMode = document.wideMode />
 <#assign idsuffix = slugify(document.title) />
+<#assign navStatus = document.navigationController />
 
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
@@ -59,27 +60,28 @@
         </#if>
 
         <div class="grid-row">
-            <#if renderNav && !wideMode>
-            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
-                <!-- start sticky-nav -->
-                <div id="sticky-nav">
-                    <#assign links = [{ "url": "#top", "title": "Top of page" }] />
-                    <#if document.latestNews?has_content >
-                          <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
-                    </#if>
-                    <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
-                    <#if document.relatedEvents?has_content >
-                          <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
-                    </#if>
-                    <@stickyNavSections links></@stickyNavSections>
+
+            <#if navStatus == "withNav" && renderNav && !wideMode>
+                <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                    <!-- start sticky-nav -->
+                    <div id="sticky-nav">
+                        <#assign links = [{ "url": "#top", "title": "Top of page" }] />
+                        <#if document.latestNews?has_content >
+                            <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
+                        </#if>
+                        <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
+                        <#if document.relatedEvents?has_content >
+                            <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
+                        </#if>
+                        <@stickyNavSections links></@stickyNavSections>
+                    </div>
+                    <!-- end sticky-nav -->
+                    <#-- Restore the bundle -->
+                    <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
                 </div>
-                <!-- end sticky-nav -->
-                <#-- Restore the bundle -->
-                <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
-            </div>
             </#if>
 
-            <div class="column ${wideMode?then("column--wide-mode", "column--two-thirds")} page-block page-block--main">
+            <div class="column ${(navStatus == "withNav" || navStatus == "withoutNav")?then("column--two-thirds", "column--wide-mode")} page-block page-block--main">
 
                 <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' />
 
@@ -88,7 +90,7 @@
                 </#if>
 
                 <#if !document.latestNews?has_content && document.relatedNews?has_content >
-                  <@latestblogs document.relatedNews 'General' 'related-news-' + idsuffix 'Related news' />
+                    <@latestblogs document.relatedNews 'General' 'related-news-' + idsuffix 'Related news' />
                 </#if>
 
                 <#if hasChildPages>
