@@ -310,6 +310,9 @@ definitions:
         hst:componentconfigurationid: hst:pages/icon-library
         hst:relativecontentpath: icon-library
         jcr:primaryType: hst:sitemapitem
+      /news:
+        hst:componentconfigurationid: hst:pages/news-hub
+        jcr:primaryType: hst:sitemapitem
       /news-and-events:
         /events:
           /_any_:

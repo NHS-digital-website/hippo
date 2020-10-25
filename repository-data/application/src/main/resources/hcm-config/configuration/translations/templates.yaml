@@ -325,7 +325,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:dschomepage:
         /en:
-          jcr:name: Digital Security Homepage
+          jcr:name: Generic Homepage
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:dynamicchartsection:

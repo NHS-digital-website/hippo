@@ -173,6 +173,9 @@ definitions:
       /news-events-homepage:
         hst:renderpath: webfile:/freemarker/common/news-events-homepage.ftl
         jcr:primaryType: hst:template
+      /news-hub:
+        hst:renderpath: webfile:/freemarker/common/news-hub.ftl
+        jcr:primaryType: hst:template
       /news-hub-article:
         hst:renderpath: webfile:/freemarker/common/news-hub-article.ftl
         jcr:primaryType: hst:template

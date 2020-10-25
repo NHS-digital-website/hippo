@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/website-acceptance-tests:
+  .meta:order-before: news
   /api-specifications:
     /static-api-specification:
       /static-api-specification[1]:
