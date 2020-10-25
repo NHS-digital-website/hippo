@@ -1,0 +1,16 @@
+.news-hub {
+    background: $white;
+}
+
+.news-hub .site-main > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.news-hub .site-main > * + * {
+    margin-top: $vertical-gap--large;
+    @include media(desktop) {
+        margin-top: $vertical-gap--xlarge;
+    }
+}
+
