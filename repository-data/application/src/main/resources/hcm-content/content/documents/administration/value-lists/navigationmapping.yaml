@@ -1,0 +1,29 @@
+---
+/content/documents/administration/value-lists/navigationmapping:
+  /navigationmapping:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: withNav
+      selection:label: With Side Navigation
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: withoutNav
+      selection:label: Without Side Navigation
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: withoutNavWide
+      selection:label: Without Side Navigation & Full Width
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 466163be-f2d4-4cf4-a276-18276702ee49
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: NavigationMapping
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
