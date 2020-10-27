@@ -18,12 +18,12 @@
                         <#if link.isNumberedList?? && link.isNumberedList>
                             <#assign numberedListCount++ />
                             <#assign numberedLinkTitle = numberedListCount + ". " + link.title>
-                            <li class="section-numbered">
-                                <a href="${link.url}" aria-label="${label}" title="${label}">${numberedLinkTitle}</a>
+                            <li id="${link.url}_list" class="nonNavMarker section-numbered">
+                                <a href="${link.url}" aria-label="${label}" title="${label}" id="${link.url}_link" class="nonNavActive">${numberedLinkTitle}</a>
                             </li>
                         <#else>
-                            <li>
-                                <a href="${link.url}" aria-label="${label}" title="${label}">${link.title}</a>
+                            <li id="${link.url}_list" class="nonNavMarker">
+                                <a href="${link.url}" aria-label="${label}" title="${label}" id="${link.url}_link" class="nonNavActive">${link.title}</a>
                             </li>
                         </#if>
                     </#list>

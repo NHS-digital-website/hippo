@@ -16,11 +16,11 @@
 
         <#if section.headingLevel == 'Main heading'>
             <#assign mainHeadingTag = "h" + mainHeadingLevel />
-            <${mainHeadingTag} data-uipath="website.contentblock.download.title">${section.heading}</${mainHeadingTag}>
+            <${mainHeadingTag} data-uipath="website.contentblock.download.title" id="${slugify(section.title)}" class="navigationMarker">${section.heading}</${mainHeadingTag}>
         <#else>
             <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
             <#assign subHeadingTag = "h" + subHeadingLevel />
-            <${subHeadingTag} data-uipath="website.contentblock.download.title">${section.heading}</${subHeadingTag}>
+            <${subHeadingTag} data-uipath="website.contentblock.download.title" id="${slugify(section.title)}" class="navigationMarker">${section.heading}</${subHeadingTag}>
         </#if>
 
         <div data-uipath="website.contentblock.download.description"><@hst.html hippohtml=section.description contentRewriter=gaContentRewriter /></div>

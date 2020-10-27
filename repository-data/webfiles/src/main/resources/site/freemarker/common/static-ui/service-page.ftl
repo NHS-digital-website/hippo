@@ -13,7 +13,7 @@
         </div>
 
         <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+            <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <#assign links = [ {"title": "Link 1", "url": "#"}, {"title": "Link 2", "url": "#"}, {"title": "Link 3", "url": "#"}, {"title": "Link 4", "url": "#"}, {"title": "Link 5", "url": "#"} ] />

@@ -1,27 +1,9 @@
 @import "../units/list";
 
-/* Sticky nav */
-#sticky-nav {
-    a.active,
-    span.active {
-        border-left: $baseline-grid-unit solid #ffb81c;
-        padding-left: 12px;
-        color: $col-20;
-        text-decoration: none;
-    }
-}
-
-.article-section-nav-outer-wrapper {
-
-}
-
-/* Article section nav */
-.article-section-nav-wrapper {
-    position: relative;
-
-    & + .article-section-nav-wrapper {
-        margin-top: $gutter * 2;
-    }
+.navMarker{
+    border-left: solid #ffb81c;
+    padding-left: 12px;
+    text-decoration: none;
 }
 
 .article-section-nav {
@@ -47,7 +29,7 @@
         border-bottom: $baseline-grid-unit/2 solid $col-20;
         width: 100%;
 
-        @include core-font(24); 
+        @include core-font(24);
 
         @include media(desktop) {
             line-height: 24px;

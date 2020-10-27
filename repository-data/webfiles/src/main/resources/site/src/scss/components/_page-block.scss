@@ -2,10 +2,35 @@
 .page-block {
   position: relative;
   padding: 0;
+  scroll-behavior: smooth;
 
   @include media(desktop) {
     margin-bottom: 0;
   }
+}
+
+.page-block--sticky-nav {
+    position: sticky;
+    position: -webkit-sticky;
+    padding: 0;
+    top:0;
+    scroll-behavior: smooth;
+
+    @include media(desktop) {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 932px){
+    .page-block--sticky-nav {
+        position: relative;
+        padding: 0;
+        scroll-behavior: smooth;
+
+        @include media(desktop) {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .page-block--sidebar {

@@ -65,7 +65,7 @@
         <div class="grid-row">
             <#if navStatus == "withNav">
                 <#if renderNav>
-                    <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                    <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                         <!-- start sticky-nav -->
                         <div id="sticky-nav">
                             <#assign links = [{ "url": "#top", "title": "Top of page" }] />
@@ -85,7 +85,6 @@
                 </#if>
             </#if>
             <div class="column column--two-thirds page-block page-block--main">
-
                 <#if document.priorityActions?has_content>
                     <div class="article-section">
                         <ul class="priority-actions" aria-label="Priority Actions">
@@ -162,7 +161,6 @@
         </div>
     </div>
 </article>
-
 <#if document.htmlCode?has_content>
   ${document.htmlCode?no_esc}
 </#if>

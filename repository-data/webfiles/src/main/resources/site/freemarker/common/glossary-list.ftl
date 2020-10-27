@@ -48,7 +48,7 @@
         <#assign alphabetical_hash = group_blocks(document.glossaryItems)/>
 
         <div class="grid-row article-section--padded">
-            <div class="column column--one-third page-block page-block--sidebar">
+            <div class="column column--one-third page-block--sticky-nav page-block--sidebar">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <@alphabeticalFilterNav alphabetical_hash></@alphabeticalFilterNav>
