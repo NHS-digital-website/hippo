@@ -99,7 +99,7 @@
         <div class="grid-row">
             <#if index?has_content && index?size gt 1>
                 <div
-                    class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                    class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                     <!-- start sticky-nav -->
                     <div id="sticky-nav">
                         <#assign links = [] />

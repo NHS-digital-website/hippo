@@ -92,7 +92,7 @@
 
         <div class="grid-row">
 
-            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+            <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <@stickyNavSections getStickySectionNavLinks({ "document": document, "sectons": links, "includeSummary": true })></@stickyNavSections>

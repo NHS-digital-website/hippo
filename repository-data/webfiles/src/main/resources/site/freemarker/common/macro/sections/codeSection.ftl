@@ -21,11 +21,11 @@
         <#if section.heading?has_content>
             <#if mainHeading>
                 <#assign mainHeadingTag = "h" + mainHeadingLevel />
-                <${mainHeadingTag} data-uipath="website.contentblock.codesection.title">${section.heading}</${mainHeadingTag}>
+                <${mainHeadingTag} data-uipath="website.contentblock.codesection.title" id="${slugify(section.title)}" class="navigationMarker">${section.heading}</${mainHeadingTag}>
             <#else>
                 <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
                 <#assign subHeadingTag = "h" + subHeadingLevel />
-                <${subHeadingTag} data-uipath="website.contentblock.codesection.title">${section.heading}</${subHeadingTag}>
+                <${subHeadingTag} data-uipath="website.contentblock.codesection.title" id="${slugify(section.title)}" class="navigationMarker">${section.heading}</${subHeadingTag}>
             </#if>
         </#if>
 

@@ -27,7 +27,7 @@
         <div class="grid-row">
             <#assign links=getStickySectionNavLinks({ "document" : page })/>
             <#if links?size != 0>
-                <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                     <!-- start sticky-nav -->
                     <div id="sticky-nav">
                         <@stickyNavSections links></@stickyNavSections>

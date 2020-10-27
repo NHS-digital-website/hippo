@@ -3,7 +3,7 @@ import './utils/public-path';
 /**
  * Scripts to load just before `</body>`
  */
-import {initStickyNav} from "./sticky-nav/sticky-nav";
+import {initStickyNav} from "./sticky-nav/stickyNav";
 import {initChapterNav} from "./chapter-nav/chapter-nav";
 import {tableSort} from "./table-sort/init-table-sort";
 import {initCookieConsent} from "./relevance/relevance-cookie";

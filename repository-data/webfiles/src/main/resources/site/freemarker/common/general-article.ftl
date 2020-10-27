@@ -58,11 +58,9 @@
                 </div>
             </div>
         </#if>
-
         <div class="grid-row">
-
             <#if navStatus == "withNav" && renderNav && !wideMode>
-                <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                     <!-- start sticky-nav -->
                     <div id="sticky-nav">
                         <#assign links = [{ "url": "#top", "title": "Top of page" }] />
