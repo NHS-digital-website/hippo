@@ -18,9 +18,11 @@
     resourcebundle:keys:
     - load-error
     - loading-message
+    - loading-message-longer
     - loading-failed-message
     resourcebundle:messages:
     - '[Tableau loading error]'
+    - The dashboard is loading. Please do not refresh the page.
     - We are loading the dashboard. This is taking longer than normal and we will
       retry in a few seconds for you. Please don't refresh the page.
     - The service is busy. Please try again later.
@@ -44,9 +46,11 @@
     resourcebundle:keys:
     - load-error
     - loading-message
+    - loading-message-longer
     - loading-failed-message
     resourcebundle:messages:
     - '[Tableau loading error]'
+    - The dashboard is loading. Please do not refresh the page.
     - We are loading the dashboard. This is taking longer than normal and we will
       retry in a few seconds for you. Please don't refresh the page.
     - The service is busy. Please try again later.
@@ -70,9 +74,11 @@
     resourcebundle:keys:
     - load-error
     - loading-message
+    - loading-message-longer
     - loading-failed-message
     resourcebundle:messages:
     - '[Tableau loading error]'
+    - The dashboard is loading. Please do not refresh the page.
     - We are loading the dashboard. This is taking longer than normal and we will
       retry in a few seconds for you. Please don't refresh the page.
     - The service is busy. Please try again later.
