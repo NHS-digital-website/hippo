@@ -763,6 +763,11 @@ definitions:
           jcr:name: Tableau
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:tableauLookup:
+        /en:
+          jcr:name: Neighbourhood Dashboard
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:team:
         /en:
           jcr:name: Team

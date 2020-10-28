@@ -17,6 +17,7 @@
 <#include "quoteSection.ftl">
 <#include "statistics.ftl">
 <#include "tableauSection.ftl">
+<#include "tableauLookupSection.ftl">
 <#include "fullWidthImage.ftl">
 <#include "navigation.ftl">
 <#include "../component/infoGraphic.ftl">
@@ -81,6 +82,8 @@
                 <@navigation section=section/>
             <#elseif section.sectionType == 'statisticsSection'>
                 <@statistics section=section/>
+            <#elseif section.sectionType == 'tableauLookup'>
+                <@tableauLookup section=section index=section?index/>
             <#elseif section.sectionType == 'tableau'>
                 <@tableau section=section index=section?index/>
             </#if>

@@ -1,0 +1,90 @@
+---
+/content/documents/administration/resources/tableau-postcode-labels:
+  /tableau-postcode-labels[1]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-11-04T16:25:54.401Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: tableau.postcode.labels
+    resourcebundle:keys:
+    - postcode-label
+    - postcode-hint
+    - distance-label
+    - distance-hint
+    resourcebundle:messages:
+    - Enter your postcode
+    - ''
+    - Distance from postcode
+    - ''
+  /tableau-postcode-labels[2]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-11-04T16:25:54.511Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: tableau.postcode.labels
+    resourcebundle:keys:
+    - postcode-label
+    - postcode-hint
+    - distance-label
+    - distance-hint
+    resourcebundle:messages:
+    - Enter your postcode
+    - ''
+    - Distance from postcode
+    - ''
+  /tableau-postcode-labels[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-11-04T16:25:54.401Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-11-04T16:26:06.724Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: tableau.postcode.labels
+    resourcebundle:keys:
+    - postcode-label
+    - postcode-hint
+    - distance-label
+    - distance-hint
+    resourcebundle:messages:
+    - Enter your postcode
+    - ''
+    - Distance from postcode
+    - ''
+  hippo:name: Tableau Postcode Labels
+  hippo:versionHistory: 7e7e6de4-2005-48b3-8049-fdb2923c81d3
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
