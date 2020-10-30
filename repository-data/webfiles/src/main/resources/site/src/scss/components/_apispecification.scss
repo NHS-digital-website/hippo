@@ -35,19 +35,26 @@
 
 .body__schema__header { font-weight: bold; }
 
-.body__schema { display: none; }
-.body__schema .propertyName { }
-.body__schema .title { font-weight: bold; }
-.body__schema .type,
-.body__schema .deprecated,
-.body__schema .uniqueitems,
-.body__schema .nullable,
-.body__schema .readonly,
-.body__schema .writeonly { color: $grey-9; }
+.body__schema {
+  display: none;
 
-.body__schema .format { color: $blue-50; }
+  .propertyName { font-weight: bold; }
+  .title { font-weight: bold; }
+  .type,
+  .deprecated,
+  .uniqueitems,
+  .nullable,
+  .readonly,
+  .writeonly { color: $grey-9; }
 
-.body__schema td { vertical-align: top; }
+  .description { margin-bottom: 1em; }
+
+  .format { color: $blue-50; }
+
+  td { vertical-align: top; }
+
+  td div { margin-top: 0.25em; }
+}
 
 .apispecification table th,
 .apispecification table td { word-break: normal; }
