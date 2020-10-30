@@ -4,6 +4,7 @@ import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import io.swagger.v3.oas.models.media.Schema;
 
@@ -61,6 +62,9 @@ public class SchemaHelper implements Helper<Schema> {
             .infiniteLoops(true)
             .prettyPrint(true)
             .registerHelper(MarkdownHelper.NAME, helper)
-            .registerHelper(IndentationHelper.NAME, IndentationHelper.INSTANCE);
+            .registerHelper(IndentationHelper.NAME, IndentationHelper.INSTANCE)
+            .registerHelper(NumberNotNullHelper.NAME, NumberNotNullHelper.INSTANCE)
+            .registerHelper(ConditionalHelpers.or.name(), ConditionalHelpers.or)
+            ;
     }
 }

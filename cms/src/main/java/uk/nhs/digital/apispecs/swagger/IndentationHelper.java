@@ -9,31 +9,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>
- * 'Basic' helper calculating indentation level based on the number of contexts in
+ * <p>'Basic' helper calculating indentation level based on the number of contexts in
  * the context stack.
- * </p><p>
- * The resulting value is the number of contexts with unique models in the stack and
- * multiplying it by provided {@code indentationFactor}.
- * </p><p>
- * It can then be used in places such as HTML '{@code class}' attribute as part of
+ *
+ * <p>The resulting value is the number of contexts with unique models in the stack
+ * multiplied by provided {@code indentationFactor}.
+ *
+ * <p>It can then be used in places such as HTML '{@code class}' attribute as part of
  * the name of CSS classes that define the offset, or directly in '{@code style}'
  * as a value of padding or margin.
- * </p><p>
- * Examples of use:
- * </p><p>
- * Indentation level with the factor of 10:
- * </p>
+ *
+ * <p>Examples of use:
+ *
+ * <p> Indentation level with the factor of 10, using '{@code style}' attribute:
+ *
  * <pre>
  *
- *     {{indentation 10}}
+ *     &lt;div style=&quot;padding-left: {{indentation 10}}&quot;&gt;...indented content...&lt;/div&gt;
  * </pre>
- * <p>
- * Indentation level with default factor of 1:
- * </p>
+ *
+ * <p>Indentation level with default factor of 1, using '{@code class}' attribute:
+ *
  * <pre>
  *
- *     {{indentation}}
+ *     &lt;div class=&quot;indentationLevel{{indentation}}&quot;&gt;...indented content...&lt;/div&gt;
  * </pre>
  */
 @SuppressWarnings("rawtypes")

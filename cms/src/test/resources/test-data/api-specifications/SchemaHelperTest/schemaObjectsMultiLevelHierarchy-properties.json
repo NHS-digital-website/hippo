@@ -1,0 +1,61 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/test": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+
+                            "schema": {
+                                "type": "object",
+                                "title": "top-level schema 0",
+                                "properties": {
+                                    "properties-schema-1-1": {
+                                        "type": "object",
+                                        "title": "properties schema 1-1",
+                                        "deprecated": true,
+                                        "description": "Test Schema Object description in `Markdown`.",
+                                        "multipleOf": 1.3,
+                                        "minimum": -2.4,
+                                        "exclusiveMinimum": false,
+                                        "maximum": 2.5,
+                                        "exclusiveMaximum": true,
+                                        "minLength": 12,
+                                        "maxLength": 23,
+                                        "pattern": "^(?:[1])?",
+                                        "maxItems": 45,
+                                        "minItems": 36,
+                                        "uniqueItems": true,
+                                        "minProperties": 4,
+                                        "maxProperties": 6,
+                                        "format": "float",
+                                        "nullable": true,
+                                        "readOnly": true,
+                                        "writeOnly": true,
+                                        "properties": {
+                                            "properties-schema-1-1-1": {
+                                                "type": "object",
+                                                "title": "properties schema 1-1-1"
+                                            },
+                                            "properties-schema-1-1-2": {
+                                                "type": "object",
+                                                "title": "properties schema 1-1-2"
+                                            }
+                                        }
+                                    },
+                                    "properties-schema-1-2": {
+                                        "type": "object",
+                                        "title": "properties schema 1-2"
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

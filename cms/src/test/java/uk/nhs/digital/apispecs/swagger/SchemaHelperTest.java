@@ -8,16 +8,18 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jknack.handlebars.HandlebarsException;
 import com.github.jknack.handlebars.Options;
+import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.media.ObjectSchema;
+import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.parser.OpenAPIV3Parser;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import java.math.BigDecimal;
 
 public class SchemaHelperTest {
 
@@ -25,11 +27,8 @@ public class SchemaHelperTest {
 
     private static final String TEST_DATA_FILES_CLASSPATH = "/test-data/api-specifications/SchemaHelperTest";
 
-    private final ObjectMapper objectMapper = new ObjectMapper()
-        .configure(MapperFeature.USE_ANNOTATIONS, true)
-        ;
-
     private SchemaHelper schemaHelper;
+
     private MarkdownHelper markdownHelper;
 
     @Before
@@ -46,9 +45,27 @@ public class SchemaHelperTest {
     public void rendersAllSimpleFieldsOfSingleSchemaObjectAsHtml() {
 
         // given
-        final String expectedSchemaHtml = readFrom("schemaObjectCompleteTopLevel.html");
+        final String expectedSchemaHtml = readFrom("schemaObjectCompleteTopLevel-simpleFields.html");
 
-        final ObjectSchema schemaObject = fromJsonFile("schemaObjectCompleteTopLevel.json");
+        final Schema schemaObject = from("schemaObjectCompleteTopLevel-simpleFields.json");
+
+        // when
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
+
+        // then
+        assertThat("All 'simple' fields of Schema Object are rendered in HTML.",
+            actualSchemaHtml,
+            is(expectedSchemaHtml)
+        );
+    }
+
+    @Test
+    public void rendersNumericalFieldsSetToZero() {
+
+        // given
+        final String expectedSchemaHtml = readFrom("schemaObjectCompleteTopLevel-numericalFieldsZero.html");
+
+        final Schema schemaObject = from("schemaObjectCompleteTopLevel-numericalFieldsZero.json");
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -64,9 +81,9 @@ public class SchemaHelperTest {
     public void doesNotRenderFieldsAbsentFromSpecification() {
 
         // given
-        final String expectedSchemaHtml = readFrom("schemaObjectEmpty.html");
+        final String expectedSchemaHtml = readFrom("schemaObject-empty.html");
 
-        final ObjectSchema schemaObject = fromJson("{}");
+        final Schema schemaObject = new ObjectSchema();
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -79,15 +96,36 @@ public class SchemaHelperTest {
     }
 
     @Test
-    public void rendersCompleteHierarchyOfSchemaObjectsAsHtml() {
+    public void rendersCompleteHierarchyOfSchemaObjectsAsHtml_traversingFieldsProperties() {
 
         // given
-        // A couple of objects have all simple fields defined here
+        // One object at each level with simple fields are defined here
         // to demonstrate that the 'simple' fields are rendered at more than the top level
         // but the focus is on correct traversing of the hierarchy of nested objects.
-        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy.html");
+        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-properties.html");
 
-        final ObjectSchema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy.json");
+        final Schema schemaObject = from("schemaObjectsMultiLevelHierarchy-properties.json");
+
+        // when
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
+
+        // then
+        assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
+            actualSchemaHtml,
+            is(expectedSchemaHtml)
+        );
+    }
+
+    @Test
+    public void rendersCompleteHierarchyOfSchemaObjectsAsHtml_traversingFieldsItems() {
+
+        // given
+        // One object at each level with simple fields are defined here
+        // to demonstrate that the 'simple' fields are rendered at more than the top level
+        // but the focus is on correct traversing of the hierarchy of nested objects.
+        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-items.html");
+
+        final Schema schemaObject = from("schemaObjectsMultiLevelHierarchy-items.json");
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -103,7 +141,7 @@ public class SchemaHelperTest {
     public void exclusiveMaximumRenderedAsExclusiveWhenExclusiveMaximumIsTrue() {
 
         // given
-        final ObjectSchema schemaObject = fromJson("{ \"maximum\": 10, \"exclusiveMaximum\": true}");
+        final Schema schemaObject = new ObjectSchema().maximum(BigDecimal.valueOf(10)).exclusiveMaximum(true);
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -119,7 +157,7 @@ public class SchemaHelperTest {
     public void exclusiveMaximumRenderedAsInclusiveWhenExclusiveMaximumIsFalse() {
 
         // given
-        final ObjectSchema schemaObject = fromJson("{ \"maximum\": 10, \"exclusiveMaximum\": false}");
+        final Schema schemaObject = new ObjectSchema().maximum(BigDecimal.valueOf(10)).exclusiveMaximum(false);
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -135,7 +173,7 @@ public class SchemaHelperTest {
     public void exclusiveMaximumNotRenderedWhenMaximumIsAbsent() {
 
         // given
-        final ObjectSchema schemaObject = fromJson("{ \"exclusiveMaximum\": true}");
+        final Schema schemaObject = new ObjectSchema().exclusiveMaximum(true);
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -153,7 +191,7 @@ public class SchemaHelperTest {
     public void exclusiveMinimumRenderedAsExclusiveWhenExclusiveMinimumIsTrue() {
 
         // given
-        final ObjectSchema schemaObject = fromJson("{ \"minimum\": 10, \"exclusiveMinimum\": true}");
+        final Schema schemaObject = new ObjectSchema().minimum(BigDecimal.valueOf(10)).exclusiveMinimum(true);
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -169,7 +207,7 @@ public class SchemaHelperTest {
     public void exclusiveMinimumRenderedAsInclusiveWhenExclusiveMinimumIsFalse() {
 
         // given
-        final ObjectSchema schemaObject = fromJson("{ \"minimum\": 10, \"exclusiveMinimum\": false}");
+        final Schema schemaObject = new ObjectSchema().minimum(BigDecimal.valueOf(10)).exclusiveMinimum(false);
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -185,7 +223,7 @@ public class SchemaHelperTest {
     public void exclusiveMinimumNotRenderedWhenMinimumIsAbsent() {
 
         // given
-        final ObjectSchema schemaObject = fromJson("{ \"exclusiveMinimum\": true}");
+        final Schema schemaObject = new ObjectSchema().exclusiveMinimum(true);
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -203,7 +241,7 @@ public class SchemaHelperTest {
     public void throwsExceptionOnSchemaRenderingFailure() {
 
         // given
-        final ObjectSchema schemaObject = fromJson("{ \"description\": \"a description\" }");
+        final Schema schemaObject = new ObjectSchema().description("a description");
 
         given(markdownHelper.apply(any(), any())).willThrow(new RuntimeException());
 
@@ -219,19 +257,10 @@ public class SchemaHelperTest {
         // expectations set up in 'given' are satisfied
     }
 
-    private ObjectSchema fromJsonFile(final String schemaJsonFileName) {
+    private Schema from(final String specJsonFileName) {
+        final OpenAPI openApi = new OpenAPIV3Parser().read(TEST_DATA_FILES_CLASSPATH + "/" + specJsonFileName);
 
-        final String json = readFrom(schemaJsonFileName);
-
-        return fromJson(json);
-    }
-
-    private ObjectSchema fromJson(final String json) {
-        try {
-            return objectMapper.readValue(json, ObjectSchema.class);
-        } catch (final JsonProcessingException e) {
-            throw new RuntimeException("Failed to deserialise given JSON.", e);
-        }
+        return openApi.getPaths().get("/test").getPost().getRequestBody().getContent().get("application/json").getSchema();
     }
 
     private String readFrom(final String testDataFileName) {

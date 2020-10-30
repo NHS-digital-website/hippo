@@ -1,14 +1,16 @@
-{{! For reference see io.swagger.v3.oas.models.media.Schema }}
+{{! For model's reference see io.swagger.v3.oas.models.media.Schema and extending classes}}
 
 <tr>
     {{! 'Name' column (values that don't require labels) }}
-    <td style="padding-left: {{indentation 10}}px;">
-        {{#@key}}<div><code class="propertyName">{{this}}</code></div>{{/@key}}
+    <td style="padding-left: {{indentation}}em;" class="name_column">
+        {{#block "propertyName"}}{{/block}}
 
+        {{#or type format}}
         <div>
             {{#type}}<code class="type">{{this}}</code>{{/type}}
             {{#format}}<code class="format">{{this}}</code>{{/format}}
         </div>
+        {{/or}}
 
         {{#deprecated}}<div><code class="deprecated">deprecated</code></div>{{/deprecated}}
         {{#uniqueItems}}<div><code class="uniqueitems">unique items</code></div>{{/uniqueItems}}
@@ -18,43 +20,46 @@
     </td>
 
     {{! 'Description' column (actual description + values that do require labels) }}
-    <td>
+    <td class="description_column">
         {{#title}}<div class="title">{{this}}</div>{{/title}}
 
         {{#description}}<div class="description">{{{markdown this}}}</div>{{/description}}
 
         {{#pattern}}<div>Pattern: <code class="codeinline pattern">{{this}}</code></div>{{/pattern}}
 
-        {{#multipleOf}}<div>Multiple of: <code class="codeinline multipleof">{{this}}</code><div>{{/multipleOf}}
+        {{#ifNumberNotNull multipleOf}}<div>Multiple of: <code class="codeinline multipleof">{{multipleOf}}</code><div>{{/ifNumberNotNull}}
 
-        {{#if maximum}}
-            <div>Maximum: <code class="codeinline maximum">{{maximum}}</code>
-                <code class="codeinline exclusivemaximum">{{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}</code>
-            </div>
-        {{/if}}
+        {{#ifNumberNotNull maximum}}
+        <div>Maximum: <code class="codeinline maximum">{{maximum}}</code>
+            <code class="codeinline exclusivemaximum">{{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}</code>
+        </div>
+        {{/ifNumberNotNull}}
 
-        {{#if minimum}}
-            <div>Minimum: <code class="codeinline minimum">{{minimum}}</code>
-                <code class="codeinline exclusiveminimum">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</code>
-            </div>
-        {{/if}}
+        {{#ifNumberNotNull minimum}}
+        <div>Minimum: <code class="codeinline minimum">{{minimum}}</code>
+            <code class="codeinline exclusiveminimum">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</code>
+        </div>
+        {{/ifNumberNotNull}}
 
-        {{#maxLength}}<div>Max length: <code class="codeinline maxlength">{{this}}</code></div>{{/maxLength}}
-        {{#minLength}}<div>Min length: <code class="codeinline minlength">{{this}}</code></div>{{/minLength}}
+        {{#ifNumberNotNull maxLength}}<div>Max length: <code class="codeinline maxlength">{{maxLength}}</code></div>{{/ifNumberNotNull}}
+        {{#ifNumberNotNull minLength}}<div>Min length: <code class="codeinline minlength">{{minLength}}</code></div>{{/ifNumberNotNull}}
 
-        {{#maxItems}}<div>Max items: <code class="codeinline maxitems">{{this}}</code></div>{{/maxItems}}
-        {{#minItems}}<div>Min items: <code class="codeinline minitems">{{this}}</code></div>{{/minItems}}
+        {{#ifNumberNotNull maxItems}}<div>Max items: <code class="codeinline maxitems">{{maxItems}}</code></div>{{/ifNumberNotNull}}
+        {{#ifNumberNotNull minItems}}<div>Min items: <code class="codeinline minitems">{{minItems}}</code></div>{{/ifNumberNotNull}}
 
-        {{#maxProperties}}<div>Max properties: <code class="codeinline maxproperties">{{this}}</code></div>{{/maxProperties}}
-        {{#minProperties}}<div>Min properties: <code class="codeinline minproperties">{{this}}</code></div>{{/minProperties}}
+        {{#ifNumberNotNull maxProperties}}<div>Max properties: <code class="codeinline maxproperties">{{maxProperties}}</code></div>{{/ifNumberNotNull}}
+        {{#ifNumberNotNull minProperties}}<div>Min properties: <code class="codeinline minproperties">{{minProperties}}</code></div>{{/ifNumberNotNull}}
     </td>
 </tr>
 
-{{#if properties}}
-    <tr>
-        <td style="padding-left: {{indentation 10}}px;" colspan="2">properties</td>
-    </tr>
-{{/if}}
 {{#each properties}}
+    {{#partial "propertyName"}}
+        {{#@key}}<div><code class="propertyName">{{this}}</code></div>{{/@key}}
+    {{/partial}}
     {{>schema_object}}
 {{/each}}
+
+{{#items}}
+    {{#partial "propertyName"}}{{/partial}}
+    {{>schema_object}}
+{{/items}}
