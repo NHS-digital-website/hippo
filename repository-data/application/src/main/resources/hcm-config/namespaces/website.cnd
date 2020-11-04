@@ -14,6 +14,9 @@
 [website:financial] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:video] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:aboutapi] > hippo:compound, hippostd:relaxed
   orderable
 
