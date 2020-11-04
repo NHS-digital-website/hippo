@@ -308,6 +308,9 @@ definitions:
       /team:
         hst:renderpath: webfile:/freemarker/common/team.ftl
         jcr:primaryType: hst:template
+      /video-page:
+        hst:renderpath: webfile:/freemarker/common/video-page.ftl
+        jcr:primaryType: hst:template
       /visual-hub:
         hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
         jcr:primaryType: hst:template
