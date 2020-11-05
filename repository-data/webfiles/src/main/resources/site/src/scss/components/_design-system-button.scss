@@ -1,0 +1,51 @@
+.nhsd-a-button {
+    box-sizing: border-box;
+    display: inline-flex;
+    position: relative;
+    max-width: 15.55rem;
+    margin-bottom: 1.78rem;
+    padding: .69rem 1.04rem;
+    border: .12rem solid #005bbb;
+    border-radius: 1.22rem;
+    outline: 0;
+    box-shadow: 0 0 0 .167rem transparent;
+    font-family: "Frutiger W01","Arial",sans-serif;
+    font-size: .78rem;
+    font-weight: 600;
+    line-height: 1.11;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: text-bottom;
+    cursor: pointer;
+    appearance: none;
+    transition-property: background-color,box-shadow,border-color;
+    transition-duration: .2s;
+    color: #fff;
+    background: #005bbb;
+    outline: none;
+    &:link,
+    &:visited {
+        color: #fff;
+        background: #005bbb;
+    }
+    &:hover,
+    &:focus {
+        border-color: #003087;
+        background: #003087;
+        box-shadow: 0 0 0 .167rem #fae100;
+    }
+    &:active {
+        border-color: #005bbb;
+        background: #005bbb;
+        transition-property: none;
+        box-shadow: 0 0 0 .167rem transparent;
+        transform: translateY(0.111rem);
+    }
+}
+
+.nhsd-a-button__label {
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

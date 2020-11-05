@@ -1,0 +1,56 @@
+.media-items {
+    display: grid;
+    grid-gap: 25px;
+}
+
+.media-items--2up {
+    @include media(desktop) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.media-items--3up {
+    @include media(desktop) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include media(desktop) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.media-items--4up {
+    @include media(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include media(wide) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.media-items--5up {
+    @include media(desktop) {
+        grid-template:
+            "a a b b c c" auto
+            "d d d e e e" auto /
+            1fr 1fr 1fr 1fr 1fr 1fr;
+        > :nth-child(1) {
+            grid-area: a;
+        }
+        > :nth-child(2) {
+            grid-area: b;
+        }
+        > :nth-child(3) {
+            grid-area: c;
+        }
+        > :nth-child(4) {
+            grid-area: d;
+        }
+        > :nth-child(5) {
+            grid-area: e;
+        }
+    }
+    @include media(wide) {
+        grid-template: initial;
+        grid-template-columns: repeat(5, 1fr);
+        > :nth-child(n) {
+            grid-area: initial;
+        }
+    }
+}
