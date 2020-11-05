@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/video:
+      /main:
+        hst:template: video
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

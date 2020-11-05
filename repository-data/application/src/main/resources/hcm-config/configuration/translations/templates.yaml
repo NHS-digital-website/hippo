@@ -818,6 +818,11 @@ definitions:
           jcr:name: User need and contact document
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:video:
+        /en:
+          jcr:name: Video
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:visualassetlink:
         /en:
           jcr:name: Asset icon link

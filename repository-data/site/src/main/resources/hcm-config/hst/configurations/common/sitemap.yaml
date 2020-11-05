@@ -42,6 +42,7 @@ definitions:
           - website:projectfeed
           - website:projectupdate
           - website:signup
+          - website:video
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -79,6 +80,7 @@ definitions:
           - hst:pages/project-update-feed
           - hst:pages/project-update
           - hst:pages/sign-up
+          - hst:pages/video
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404

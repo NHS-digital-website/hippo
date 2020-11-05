@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/Video:
+    /hippo:namespaces/website/video:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -61,13 +61,6 @@ definitions:
             field: externallinkbase
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /taggable:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            jcr:primaryType: frontend:plugin
-            mixin: hippostd:taggable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
           /relateddocument:
             /cluster.options:
@@ -177,7 +170,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
-          jcr:primaryType: website:Video
+          jcr:primaryType: website:video
           website:shortsummary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
