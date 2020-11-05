@@ -7,21 +7,19 @@ import org.hippoecm.hst.content.beans.query.exceptions.*;
 import org.hippoecm.hst.content.beans.query.filter.*;
 import org.hippoecm.hst.core.component.*;
 import org.hippoecm.hst.core.parameters.*;
-import org.hippoecm.hst.util.*;
 import org.onehippo.cms7.essentials.components.*;
 import org.onehippo.cms7.essentials.components.info.*;
 import org.slf4j.*;
 import uk.nhs.digital.common.components.info.*;
 
 import java.util.*;
-import java.util.regex.*;
 
 @ParametersInfo(
     type = LatestNewsComponentInfo.class
 )
 public class LatestNewsComponent extends EssentialsNewsComponent {
 
-    private static Logger log = LoggerFactory.getLogger(LatestNewsComponent.class);
+    private static final Logger log = LoggerFactory.getLogger(LatestNewsComponent.class);
 
     @Override
     protected void contributeAndFilters(final List<BaseFilter> filters, final HstRequest request, final HstQuery query) {
@@ -33,7 +31,9 @@ public class LatestNewsComponent extends EssentialsNewsComponent {
             filter.addEqualTo("website:display", true);
             filters.add(filter);
         } catch (FilterException var7) {
-            log.error("An exception occurred while trying to create a query filter showing document with display field on : {}", var7);
+            // Exception is entered twice - once as a parameter for the string, and once as the actual exception thrown
+            // see: http://www.slf4j.org/faq.html#paramException
+            log.error("An exception occurred while trying to create a query filter showing document with display field on : {}", var7, var7);
         }
 
     }

@@ -5,8 +5,8 @@
 // Spacing for element container
 
 .news-hub .site-main {
-    padding-top: 0.01px; // Prevent margin collapse
-    padding-bottom: 0.01px; // Prevent margin collapse
+    padding-top: 1px; // Prevent margin collapse
+    padding-bottom: 1px; // Prevent margin collapse
 }
 
 .news-hub .site-main > * {
@@ -17,16 +17,10 @@
 .news-hub .site-main > * + *,
 .news-hub .site-main > :first-child {
     margin-top: $vertical-gap--large;
-    @include media(desktop) {
-        margin-top: $vertical-gap--xlarge;
-    }
 }
 
 .news-hub .site-main > :last-child {
     margin-bottom: $vertical-gap--large;
-    @include media(desktop) {
-        margin-bottom: $vertical-gap--xlarge;
-    }
 }
 
 .nhsd-icon-right-arrow {
