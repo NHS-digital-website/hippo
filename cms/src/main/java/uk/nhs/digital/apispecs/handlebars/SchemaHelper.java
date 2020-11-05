@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger;
+package uk.nhs.digital.apispecs.handlebars;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
@@ -29,11 +29,15 @@ public class SchemaHelper implements Helper<Schema> {
     public String apply(final Schema schemaObject, final Options options) {
 
         try {
-            return template.apply(schemaObject);
+            return renderToHtml(schemaObject);
 
         } catch (final Exception e) {
-            throw new RuntimeException("Failed to render schema.", e);
+            throw new SchemaRenderingException("Failed to render schema.", e);
         }
+    }
+
+    private String renderToHtml(final Schema schemaObject) throws IOException {
+        return template.apply(schemaObject);
     }
 
     private Template initialiseTemplate(final MarkdownHelper helper) {

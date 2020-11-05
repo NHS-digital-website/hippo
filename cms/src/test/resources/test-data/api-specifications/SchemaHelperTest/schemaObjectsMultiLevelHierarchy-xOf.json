@@ -1,0 +1,130 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/test": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "title": "object 1 - top-level schema",
+                                "properties": {
+                                    "property-1.1.1": {
+                                        "type": "array",
+                                        "title": "1.1.1 - object with 'items'",
+                                        "items": {
+                                            "xOfPropertyPlaceholder": [
+                                                {
+                                                    "type": "object",
+                                                    "title": "1.1.1.1.1 - 'xOfPropertyPlaceholder' within 'items'",
+                                                    "deprecated": true,
+                                                    "description": "Test Schema Object description in `Markdown`.",
+                                                    "multipleOf": 1.2,
+                                                    "minimum": -2.3,
+                                                    "exclusiveMinimum": false,
+                                                    "maximum": 2.4,
+                                                    "exclusiveMaximum": true,
+                                                    "minLength": 11,
+                                                    "maxLength": 22,
+                                                    "pattern": "^(?:[2])?",
+                                                    "maxItems": 44,
+                                                    "minItems": 35,
+                                                    "uniqueItems": true,
+                                                    "minProperties": 3,
+                                                    "maxProperties": 5,
+                                                    "format": "int",
+                                                    "nullable": true,
+                                                    "readOnly": true,
+                                                    "writeOnly": true,
+                                                    "properties": {
+                                                        "property-1.1.1.1.1.1.1": {
+                                                            "type": "object",
+                                                            "title": "1.1.1.1.1.1.1 - object within 'xOfPropertyPlaceholder'",
+                                                            "items": {
+                                                                "xOfPropertyPlaceholder": [
+                                                                    {
+                                                                        "type": "object",
+                                                                        "title": "1.1.1.1.1.1.1.1.1 - object within 'xOfPropertyPlaceholder'"
+                                                                    },
+                                                                    {
+                                                                        "type": "object",
+                                                                        "title": "1.1.1.1.1.1.1.1.2 - object within 'xOfPropertyPlaceholder'"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "property-1.1.1.1.1.1.2": {
+                                                            "type": "object",
+                                                            "title": "1.1.1.1.1.1.2 - object within 'xOfPropertyPlaceholder'"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "title": "1.1.1.1.2 - 'xOfPropertyPlaceholder' within 'items'"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "property-1.1.2": {
+                                        "type": "object",
+                                        "title": "1.1.2 - object with 'xOfPropertyPlaceholder'",
+                                        "xOfPropertyPlaceholder": [
+                                            {
+                                                "type": "object",
+                                                "title": "1.1.2.1 - 'xOfPropertyPlaceholder'",
+                                                "deprecated": true,
+                                                "description": "Test Schema Object description in `Markdown`.",
+                                                "multipleOf": 1.4,
+                                                "minimum": -2.5,
+                                                "exclusiveMinimum": false,
+                                                "maximum": 2.6,
+                                                "exclusiveMaximum": true,
+                                                "minLength": 13,
+                                                "maxLength": 24,
+                                                "pattern": "^(?:[1])?",
+                                                "maxItems": 46,
+                                                "minItems": 376,
+                                                "uniqueItems": true,
+                                                "minProperties": 5,
+                                                "maxProperties": 7,
+                                                "format": "int(32)",
+                                                "nullable": true,
+                                                "readOnly": true,
+                                                "writeOnly": true,
+                                                "properties": {
+                                                    "property-1.1.2.1.1.1": {
+                                                        "title": "1.1.2.1.1.1 - object within 'xOfPropertyPlaceholder'",
+                                                        "xOfPropertyPlaceholder": [
+                                                            {
+                                                                "type": "object",
+                                                                "title": "1.1.2.1.1.1.1 - object within 'xOfPropertyPlaceholder'"
+                                                            },
+                                                            {
+                                                                "type": "object",
+                                                                "title": "1.1.2.1.1.1.2 - object within 'xOfPropertyPlaceholder'"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "property-1.1.2.1.1.2": {
+                                                        "type": "object",
+                                                        "title": "1.1.2.1.1.2 - object within 'xOfPropertyPlaceholder'"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "object",
+                                                "title": "1.1.2.2 - 'xOfPropertyPlaceholder'"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.spy;
 import static org.powermock.api.mockito.PowerMockito.*;
-import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
+import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.JcrTestUtils.*;
 import static uk.nhs.digital.test.util.JcrTestUtils.BloomReachJcrDocumentVariantType.DRAFT;
 import static uk.nhs.digital.test.util.MockJcrRepoProvider.initJcrRepoFromYaml;
@@ -316,7 +316,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     }
 
     private String apigeeAccessTokenResponse() {
-        return fileContentFromClasspath(testDataFileLocation("auth-access-token-response.json"))
+        return contentOfFileFromClasspath(testDataFileLocation("auth-access-token-response.json"))
             .replace("{ACCESS_TOKEN}", OAUTH_ACCESS_TOKEN);
     }
 
@@ -333,7 +333,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     }
 
     private String testDataFromFile(final String testDataFileName) {
-        return fileContentFromClasspath(testDataFileLocation(testDataFileName));
+        return contentOfFileFromClasspath(testDataFileLocation(testDataFileName));
     }
 
     private String testDataFileLocation(final String fileName) {

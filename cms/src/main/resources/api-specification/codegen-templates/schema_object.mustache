@@ -1,5 +1,4 @@
 {{! For model's reference see io.swagger.v3.oas.models.media.Schema and extending classes}}
-
 <tr>
     {{! 'Name' column (values that don't require labels) }}
     <td style="padding-left: {{indentation}}em;" class="name_column">
@@ -60,6 +59,12 @@
 {{/each}}
 
 {{#items}}
-    {{#partial "propertyName"}}{{/partial}}
-    {{>schema_object}}
+    {{#or anyOf oneOf allOf}}
+        {{>schema_xof_if}}
+    {{else}}
+        {{#partial "propertyName"}}{{/partial}}
+        {{>schema_object}}
+    {{/or}}
 {{/items}}
+
+{{>schema_xof_with}}

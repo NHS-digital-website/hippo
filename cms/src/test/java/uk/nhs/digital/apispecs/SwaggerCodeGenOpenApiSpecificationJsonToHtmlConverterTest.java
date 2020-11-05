@@ -4,7 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
+import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -111,26 +111,26 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     private String apigeeApiSpecificationJsonWithEmptyReqSection() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-spec-empty-req-sec.json");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-spec-empty-req-sec.json");
     }
 
     private String apigeeApiSpecificationJsonWithEmptyResSection() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-spec-empty-res-sec.json");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-spec-empty-res-sec.json");
     }
 
     private String customisedSwaggerCodeGenGeneratedSpecificationHtmlForEmptyReqSection() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec-empty-req-sec.html");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec-empty-req-sec.html");
     }
 
     private String customisedSwaggerCodeGenGeneratedSpecificationHtmlForEmptyResSection() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec-empty-res-sec.html");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec-empty-res-sec.html");
     }
 
     private String apigeeApiSpecificationJson() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-specification.json");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-specification.json");
     }
 
     private String customisedSwaggerCodeGenGeneratedSpecificationHtml() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec.html");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec.html");
     }
 }

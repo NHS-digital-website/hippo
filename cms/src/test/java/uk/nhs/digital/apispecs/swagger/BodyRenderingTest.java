@@ -2,7 +2,7 @@ package uk.nhs.digital.apispecs.swagger;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
-import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
+import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,7 +22,7 @@ public class BodyRenderingTest {
     private static final ObjectMapper OBJECT_MAPPER = BodyWithMediaTypesExtractor.OBJECT_MAPPER;
 
     private static String fromFile(final String testFileName) {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
     }
 
     @Test
