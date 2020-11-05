@@ -2,7 +2,7 @@ package uk.nhs.digital.apispecs.swagger.model;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
+import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -105,7 +105,7 @@ public class ToPrettyJsonStringDeserializerTest {
     }
 
     private String from(final String testFileName) {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
     }
 
     public static class TestDto {

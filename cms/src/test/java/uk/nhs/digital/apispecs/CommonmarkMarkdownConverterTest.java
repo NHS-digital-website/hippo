@@ -3,7 +3,7 @@ package uk.nhs.digital.apispecs;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
+import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -62,18 +62,18 @@ public class CommonmarkMarkdownConverterTest {
     }
 
     private String getTableMarkdown() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/markdown-with-table.md");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/markdown-with-table.md");
     }
 
     private String htmlWithTableTags() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/html-with-table-tags.html");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/html-with-table-tags.html");
     }
 
     private String getMarkdownWithBackticksText() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/markdown-with-backticks.md");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/markdown-with-backticks.md");
     }
 
     private String htmlWithCodeTags() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/html-with-code-tags.html");
+        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/html-with-code-tags.html");
     }
 }

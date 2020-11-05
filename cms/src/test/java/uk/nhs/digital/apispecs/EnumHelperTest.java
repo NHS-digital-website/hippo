@@ -4,7 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
-import uk.nhs.digital.apispecs.swagger.EnumHelper;
+import uk.nhs.digital.apispecs.handlebars.EnumHelper;
 
 import java.util.Arrays;
 import java.util.Collection;

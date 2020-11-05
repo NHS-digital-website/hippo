@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger;
+package uk.nhs.digital.apispecs.handlebars;
 
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;

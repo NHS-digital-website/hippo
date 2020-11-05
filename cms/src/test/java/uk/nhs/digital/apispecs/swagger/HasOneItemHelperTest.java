@@ -14,6 +14,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import uk.nhs.digital.apispecs.handlebars.HasOneItemHelper;
 
 import java.io.IOException;
 import java.util.Collection;

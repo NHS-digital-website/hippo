@@ -10,6 +10,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
+import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
 
 public class MarkdownHelperTest {
 
