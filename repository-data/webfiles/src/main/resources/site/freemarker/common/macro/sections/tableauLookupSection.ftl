@@ -4,6 +4,8 @@
 
 <#macro tableauLookup section index>
 
+    <@hst.setBundle basename="tableau.postcode.labels"/>
+
    <#if section?? && section.url??>
 
         <@hst.headContribution>
@@ -12,7 +14,6 @@
 
         <#assign divId = "tableau-${index}"/>
 
-       <@hst.setBundle basename="tableau.postcode.labels"/>
        <div class="eforms">
            <form action="javascript:void(0);">
                <div class="eforms-field" style="max-width: 300px">
@@ -54,11 +55,12 @@
            </div>
        </div>
 
-        <@hst.setBundle basename="tableau.lables"/>
         <script>
+            <@hst.setBundle basename="tableau.lables"/>
             var vizMessages = {
                 LOAD_ERROR: "<@fmt.message key="load-error"/>",
                 LOADING_MESSAGE: "<@fmt.message key="loading-message"/>",
+                LOADING_MESSAGE_LONGER: "<@fmt.message key="loading-message-longer"/>",
                 LOADING_FAILED_MESSAGE: "<@fmt.message key="loading-failed-message"/>"
             };
         </script>
@@ -67,6 +69,13 @@
 
             // Viz instance
             var viz${index};
+
+            // Helper varables
+            var viz${index}Url;
+            var viz${index}Loaded;
+            var viz${index}LoadingTimerStart;
+            var viz${index}LoadingRetryAtempIntervales;
+            var viz${index}LoadingTimer;
 
             // Viz instance supporting HTML elements
             var viz${index}Elements = {
@@ -79,6 +88,12 @@
                 loadingDiv: function () {
                     return document.getElementById("${divId}-loading");
                 },
+                loadingIcon: function () {
+                    return document.getElementById("${divId}-loading-icon");
+                },
+                loadingMessage: function (){
+                    return document.getElementById("${divId}-loading-message");
+                },
                 postcode: function () {
                     return document.getElementById("${divId}-postcode");
                 },
@@ -87,10 +102,12 @@
                 }
             };
 
-            function loadViz(containerDiv, url) {
+            function loadViz() {
                 function options() {
                     var options = {
                         "onFirstInteractive": function () {
+                            viz${index}Load = true;
+                            clearInterval(viz${index}LoadingTimer);
                             _hideLoadingSpinner();
                         },
                         hideTabs: ${section.hidetabs?string}
@@ -109,8 +126,7 @@
                     if(!!viz${index}) {
                         viz${index}.dispose();
                     }
-                    viz${index} = new tableau.Viz(containerDiv, url, options());
-                    _showLoadingSpinner();
+                    viz${index} = new tableau.Viz(viz${index}Elements.vizDiv(), viz${index}Url, options());
                 } else {
                     _showLoadingError();
                 }
@@ -122,6 +138,7 @@
 
             function lookup() {
                 _clearValidationMessage(viz${index}Elements.validationMessageDiv());
+
                 fetch(postcodeApiUrl(viz${index}Elements.postcode().value))
                     .then(response => {
                         if (!response.ok) {
@@ -131,12 +148,25 @@
                         return response.json()
                     })
                     .then(data => {
+                        // Make Viz URL
                         var msoa = data["result"]["msoa"];
                         var postcode = data["result"]["postcode"];
                         var latitude = data["result"]["latitude"];
                         var longitude = data["result"]["longitude"];
-                        url = "${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:embed=y"
-                        loadViz(viz${index}Elements.vizDiv(), encodeURI(url));
+                        viz${index}Url = encodeURI("${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:embed=y");
+
+                        // Start Viz load
+                        _hideLoadingSpinner()
+                        loadViz();
+                        _showLoadingSpinner();
+
+                        // Init loading retry
+                        viz${index}Loaded = false;
+                        viz${index}LoadingTimerStart = Date.now();
+                        viz${index}LoadingRetryAtempIntervales = [<#list section.retryIntervals as intervale>${intervale},</#list>];
+                        clearInterval(viz${index}LoadingTimer); <#-- if set -->
+                        viz${index}LoadingTimer = setInterval(_retry, 1000);
+
                     }).catch(error => error.json().then(data => {
                         if(!!viz${index}) {
                             viz${index}.dispose();
@@ -152,7 +182,7 @@
             function postcodeApiUrl(input) {
                 function _formatPostcode() {
                     if ((typeof input === 'string' || input instanceof String) && input.length >= 5) {
-                        var postcode = input.replace(" ", "");
+                        var postcode = input.split(" ").join("");;
                         postcode = postcode.toUpperCase();
                         return postcode.substr(0, postcode.length - 3) + "/" + postcode.substr(postcode.length - 3);
                     } else {
@@ -177,9 +207,18 @@
             }
 
             function _showLoadingSpinner() {
-                var loader = viz${index}Elements.loadingDiv();
-                if (loader instanceof HTMLElement) {
-                    loader.classList.remove("visually-hidden");
+                var loaderDiv = viz${index}Elements.loadingDiv();
+                if (loaderDiv instanceof HTMLElement) {
+                    loaderDiv.classList.remove("visually-hidden");
+                }
+                var loaderIcon = viz${index}Elements.loadingIcon();
+                if (loaderIcon instanceof HTMLElement) {
+                    loaderIcon.classList.remove("visually-hidden");
+                }
+                var message = viz${index}Elements.loadingMessage();
+                if (message instanceof HTMLElement) {
+                    message.classList.add("viz-wrapper-loading-message");
+                    _setMessage(vizMessages.LOADING_MESSAGE);
                 }
             }
 
@@ -188,6 +227,44 @@
                 if (loader instanceof HTMLElement) {
                     loader.classList.add("visually-hidden");
                 }
+                var message = viz${index}Elements.loadingMessage();
+                if (message instanceof HTMLElement) {
+                    message.classList.remove("viz-wrapper-loading-message");
+                }
+            }
+
+            function _setMessage(message) {
+                var message${index} = viz${index}Elements.loadingMessage();
+                if(!!(message${index})) {
+                    message${index}.innerHTML = message;
+                }
+            }
+
+            function _retry() {
+                if(!viz${index}Loaded && viz${index}LoadingRetryAtempIntervales.length <= 0){
+                    clearInterval(viz${index}LoadingTimer);
+                    _fail();
+                } else {
+                    if(!viz${index}Loaded && (Date.now() - viz${index}LoadingTimerStart) > (viz${index}LoadingRetryAtempIntervales[0] * 1000)){
+                        viz${index}LoadingTimerStart += viz${index}LoadingRetryAtempIntervales.shift() * 1000;  <#-- Update for the next round -->
+                        _setMessage(vizMessages.LOADING_MESSAGE_LONGER);
+                        loadViz();
+                    }
+                }
+            }
+
+            function _fail(){
+                setTimeout(function(){
+                    if(!viz${index}Loaded) {
+                        var loading${index} = viz${index}Elements.loadingIcon();
+                        if(!!(loading${index})) {
+                            if (loading${index} instanceof HTMLElement) {
+                                loading${index}.classList.add("visually-hidden");
+                            }
+                        }
+                        _setMessage(vizMessages.LOADING_FAILED_MESSAGE);
+                    }
+                }, 60000); <#-- Allow Tableau last atempt to load finish before showing the fail message. -->
             }
         </script>
     </#if>
