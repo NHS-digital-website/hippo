@@ -372,6 +372,11 @@ definitions:
           jcr:name: External link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:feature:
+        /en:
+          jcr:name: Feature
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:financial:
         /en:
           jcr:name: Financial

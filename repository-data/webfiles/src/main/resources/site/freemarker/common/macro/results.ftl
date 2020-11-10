@@ -46,6 +46,7 @@
                   || document.class.name == "uk.nhs.digital.website.beans.BusinessUnit"
                   || document.class.name == "uk.nhs.digital.website.beans.Group"
                   || document.class.name == "uk.nhs.digital.website.beans.OrgStructure"
+                  || document.class.name == "uk.nhs.digital.website.beans.Feature"
             >
                 <@genericSearchElement item=document isShowTitle=true elemDate="" />
             </#if>

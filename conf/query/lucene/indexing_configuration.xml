@@ -191,6 +191,18 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
+    <index-rule nodeType="website:feature">
+        <property>website:title</property>
+        <property>website:summary</property>
+        <property>website:shortsummary</property>
+        <property>website:seosummary</property>
+        <property>website:section</property>
+        <property>website:leadparagraph</property>
+        <property>website:backstory</property>
+
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
     <!-- hippo aggregates -->
     <aggregates>
         <nodetype>hippostd:html</nodetype>

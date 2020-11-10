@@ -29,6 +29,7 @@
     - labels.businessunit
     - labels.orgstructure
     - labels.group
+    - labels.feature
     resourcebundle:messages:
     - Service
     - Roadmap
@@ -44,6 +45,7 @@
     - Business unit
     - Org structure
     - Group
+    - Feature
   /labels[2]:
     hippo:availability: []
     hippostd:state: draft
@@ -72,6 +74,7 @@
     - labels.businessunit
     - labels.orgstructure
     - labels.group
+    - labels.feature
     resourcebundle:messages:
     - Service
     - Roadmap
@@ -87,6 +90,7 @@
     - Business unit
     - Org structure
     - Group
+    - Feature
   /labels[3]:
     hippo:availability:
     - live
@@ -117,6 +121,7 @@
     - labels.businessunit
     - labels.orgstructure
     - labels.group
+    - labels.feature
     resourcebundle:messages:
     - Service
     - Roadmap
@@ -132,6 +137,7 @@
     - Business unit
     - Org structure
     - Group
+    - Feature
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

@@ -104,6 +104,9 @@ definitions:
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
+      /feature:
+        hst:renderpath: webfile:/freemarker/common/feature.ftl
+        jcr:primaryType: hst:template
       /feedlist:
         hst:renderpath: webfile:/freemarker/common/feedlist.ftl
         jcr:primaryType: hst:template

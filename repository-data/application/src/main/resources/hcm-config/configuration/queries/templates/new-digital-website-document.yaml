@@ -40,4 +40,5 @@ definitions:
         or @jcr:primaryType='website:team' or @jcr:primaryType='website:definedterms'
         or @jcr:primaryType='website:update' or @jcr:primaryType='website:dschomepage'
         or @jcr:primaryType='website:signup'or @jcr:primaryType='website:financial'
-        or @jcr:primaryType='website:hubnewsandevents' or @jcr:primaryType='website:video']
+        or @jcr:primaryType='website:video' or @jcr:primaryType='website:hubnewsandevents'
+        or @jcr:primaryType='website:feature']
