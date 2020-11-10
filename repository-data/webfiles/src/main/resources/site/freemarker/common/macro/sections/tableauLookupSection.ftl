@@ -50,7 +50,9 @@
            <div id="${divId}-loading" class="viz-wrapper-item visually-hidden">
                <div class="viz-wrapper-loading">
                    <span id="${divId}-loading-message"></span>
-                   <img id="${divId}-loading-icon" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading data " />
+                   <div class="viz-wrapper-loading-icon">
+                       <img id="${divId}-loading-icon" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading data " />
+                   </div>
                </div>
            </div>
        </div>
@@ -110,7 +112,8 @@
                             clearInterval(viz${index}LoadingTimer);
                             _hideLoadingSpinner();
                         },
-                        hideTabs: ${section.hidetabs?string}
+                        hideTabs: ${section.hidetabs?string},
+                        hideToolbar: true
                         <#if section.device??>
                         ,device: "${section.device}"
                         </#if>
@@ -153,7 +156,7 @@
                         var postcode = data["result"]["postcode"];
                         var latitude = data["result"]["latitude"];
                         var longitude = data["result"]["longitude"];
-                        viz${index}Url = encodeURI("${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:embed=y");
+                        viz${index}Url = encodeURI("${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
 
                         // Start Viz load
                         _hideLoadingSpinner()
