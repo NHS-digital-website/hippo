@@ -159,6 +159,9 @@
 [website:externallinkbase] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:feature] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:friendlyurls] > hippo:compound, hippostd:relaxed
   orderable
 

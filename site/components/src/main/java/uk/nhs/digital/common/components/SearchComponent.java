@@ -369,6 +369,15 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
+     * Adding the Blog document type
+     */
+    private void addFeatureTypes(HstQueryBuilder query) {
+        query.ofTypes(
+            Feature.class
+        );
+    }
+
+    /**
      * Adding the API document type
      */
     private void addApis(HstQueryBuilder query) {
@@ -417,6 +426,7 @@ public class SearchComponent extends CommonComponent {
         addApis(query);
         addPerson(query);
         addBusinessUnitRelatedTypes(query);
+        addFeatureTypes(query);
     }
 
 }

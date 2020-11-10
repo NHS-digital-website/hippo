@@ -16,6 +16,7 @@ definitions:
           - website:gdprsummary
           - website:publishedwork
           - website:publishedworkchapter
+          - website:feature
           - website:financial
           - website:generalnonsearch
           - website:roadmap
@@ -54,6 +55,7 @@ definitions:
           - hst:pages/gdprsummary
           - hst:pages/publishedwork
           - hst:pages/publishedworkchapter
+          - hst:pages/feature
           - hst:pages/financial
           - hst:pages/general
           - hst:pages/roadmap
@@ -95,6 +97,7 @@ definitions:
         - website:gdprsummary
         - website:publishedwork
         - website:publishedworkchapter
+        - website:feature
         - website:financial
         - website:generalnonsearch
         - website:roadmap
@@ -133,6 +136,7 @@ definitions:
         - hst:pages/gdprsummary
         - hst:pages/publishedwork
         - hst:pages/publishedworkchapter
+        - hst:pages/feature
         - hst:pages/financial
         - hst:pages/general
         - hst:pages/roadmap
