@@ -17,15 +17,15 @@
 <@metaTags></@metaTags>
 
 <#if document.rawMetadata?has_content>
-  <#list document.rawMetadata as md>
-      <@hst.headContribution category="metadata">
-          ${md?no_esc}
-      </@hst.headContribution>
-  </#list>
+    <#list document.rawMetadata as md>
+        <@hst.headContribution category="metadata">
+            ${md?no_esc}
+        </@hst.headContribution>
+    </#list>
 </#if>
 
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
-
+<#assign hasSummaryContent = document.summary.content?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasPriorityActions = document.priorityActions?has_content />
 <#assign hasTopTasks = document.toptasks?has_content && !hasPriorityActions />
@@ -34,7 +34,8 @@
 <#assign hasContactDetailsContent = document.contactdetails?? && document.contactdetails.content?has_content />
 <#assign idsuffix = slugify(document.title) />
 <#assign navStatus = document.navigationController />
-
+<#assign hasBannerImage = document.image?has_content />
+<#assign custom_summary = document.summary />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = (sectionTitlesFound gte 1 || hasChildPages) || sectionTitlesFound gt 1 || hasContactDetailsContent />
 
@@ -42,7 +43,24 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--service">
-    <@documentHeader document 'service' '' '' '' '' false></@documentHeader>
+    <#if hasBannerImage>
+        <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
+        <div class="banner-image" aria-label="Document Header"
+             style="background-image: url(${bannerImage});">
+            <div class="grid-wrapper">
+                <div class="grid-row">
+                    <div class="column column--reset banner-image-title">
+                        <div class="banner-image-title-background">
+                            <h1 data-uipath="document.title">${document.title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <#else>
+        <@documentHeader document 'service' '' '' '' '' false></@documentHeader>
+    </#if>
+
 
     <div class="grid-wrapper grid-wrapper--article">
 
@@ -85,19 +103,32 @@
                 </#if>
             </#if>
             <div class="column column--two-thirds page-block page-block--main">
+                <#if hasBannerImage>
+                    <#if hasSummaryContent>
+                        <div class="article-header__subtitle"
+                             data-uipath="website.service.summary">
+                            <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>
+                        </div>
+                    </#if>
+                </#if>
                 <#if document.priorityActions?has_content>
                     <div class="article-section">
                         <ul class="priority-actions" aria-label="Priority Actions">
                             <#list document.priorityActions as action>
                                 <li class="priority-action">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="priority-action__arrow" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 24 24"
+                                         class="priority-action__arrow"
+                                         aria-hidden="true">
                                         <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
                                     </svg>
                                     <div class="priority-action__content">
                                         <#if action.link.linkType == "internal">
-                                            <a href="<@hst.link hippobean=action.link.link />" class="priority-action__link">${action.action}</a>
+                                            <a href="<@hst.link hippobean=action.link.link />"
+                                               class="priority-action__link">${action.action}</a>
                                         <#else>
-                                            <a href="${action.link.link}" class="priority-action__link">${action.action}</a>
+                                            <a href="${action.link.link}"
+                                               class="priority-action__link">${action.action}</a>
                                         </#if>
                                         <#if action.additionalInformation?has_content>
                                             <p class="priority-action__description">${action.additionalInformation}</p>
@@ -126,28 +157,29 @@
                 <@latestblogs document.latestNews 'Service' 'latest-news-' + idsuffix 'Latest news' />
 
                 <#if hasIntroductionContent>
-                <div class="article-section no-border article-section--introduction">
-                    <div class="rich-text-content">
-                        <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter/>
+                    <div class="article-section no-border article-section--introduction">
+                        <div class="rich-text-content">
+                            <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter/>
+                        </div>
                     </div>
-                </div>
                 </#if>
 
                 <#if hasSectionContent>
-                <@sections document.sections></@sections>
+                    <@sections document.sections></@sections>
                 </#if>
 
                 <#if hasContactDetailsContent>
-                <div class="article-section article-section--contact" id="${slugify('Contact details')}">
-                    <h2><@fmt.message key="headers.contact-details" /></h2>
-                    <div class="rich-text-content">
-                        <@hst.html hippohtml=document.contactdetails contentRewriter=gaContentRewriter/>
+                    <div class="article-section article-section--contact"
+                         id="${slugify('Contact details')}">
+                        <h2><@fmt.message key="headers.contact-details" /></h2>
+                        <div class="rich-text-content">
+                            <@hst.html hippohtml=document.contactdetails contentRewriter=gaContentRewriter/>
+                        </div>
                     </div>
-                </div>
                 </#if>
 
                 <#if !document.latestNews?has_content && document.relatedNews?has_content >
-                  <@latestblogs document.relatedNews 'Service' 'related-news-' + idsuffix 'Related news' />
+                    <@latestblogs document.relatedNews 'Service' 'related-news-' + idsuffix 'Related news' />
                 </#if>
 
                 <#if hasChildPages>
@@ -162,5 +194,5 @@
     </div>
 </article>
 <#if document.htmlCode?has_content>
-  ${document.htmlCode?no_esc}
+    ${document.htmlCode?no_esc}
 </#if>

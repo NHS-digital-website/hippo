@@ -75,4 +75,9 @@ public class Service extends CommonFieldsBean {
     public String getNavigationController() {
         return getSingleProperty("website:navigationcontroller", "withNav");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:image")
+    public HippoGalleryImageSet getImage() {
+        return getLinkedBean("website:image", HippoGalleryImageSet.class);
+    }
 }

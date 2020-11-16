@@ -199,6 +199,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /image:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Banner image
+            field: image
+            hint: This will display as a large picture at the top of your page
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /bannercontrols:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -291,6 +300,14 @@ definitions:
             hipposysedit:type: Text
             hipposysedit:validators:
             - optional
+            jcr:primaryType: hipposysedit:field
+          /image:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:image
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
             jcr:primaryType: hipposysedit:field
           /introduction:
             hipposysedit:mandatory: false
