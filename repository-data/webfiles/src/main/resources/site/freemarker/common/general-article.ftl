@@ -12,7 +12,6 @@
 <#include "macro/latestblogs.ftl">
 <#include "macro/component/calloutBox.ftl">
 <#include "macro/contentPixel.ftl">
-
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
@@ -35,14 +34,30 @@
 <#assign wideMode = document.wideMode />
 <#assign idsuffix = slugify(document.title) />
 <#assign navStatus = document.navigationController />
+<#assign hasBannerImage = document.image?has_content />
+<#assign custom_summary = document.summary />
 
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article class="article article--general">
-
-    <@documentHeader document 'general'></@documentHeader>
-
+    <#if hasBannerImage>
+        <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
+        <div class="banner-image" aria-label="Document Header"
+             style="background-image: url(${bannerImage});">
+            <div class="grid-wrapper">
+                <div class="grid-row">
+                    <div class="column column--reset banner-image-title">
+                        <div class="banner-image-title-background">
+                            <h1 data-uipath="document.title">${document.title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <#else>
+        <@documentHeader document 'general'></@documentHeader>
+    </#if>
     <div class="grid-wrapper grid-wrapper--article">
         <#if document.updates?has_content>
             <div class="grid-row">
@@ -80,7 +95,14 @@
             </#if>
 
             <div class="column ${(navStatus == "withNav" || navStatus == "withoutNav")?then("column--two-thirds", "column--wide-mode")} page-block page-block--main">
-
+                <#if hasBannerImage>
+                    <#if hasSummaryContent>
+                        <div class="article-header__subtitle"
+                             data-uipath="website.general.summary">
+                            <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>
+                        </div>
+                    </#if>
+                </#if>
                 <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' />
 
                 <#if hasSectionContent>
