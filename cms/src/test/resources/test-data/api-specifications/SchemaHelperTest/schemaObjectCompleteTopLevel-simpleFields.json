@@ -28,9 +28,9 @@
                                 "format": "int(32)",
                                 "nullable": true,
                                 "readOnly": true,
-                                "writeOnly": true
+                                "writeOnly": true,
+                                "default"  : {"property":  "value"}
                             }
-
                         }
                     }
                 }

@@ -9,6 +9,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
+import static uk.nhs.digital.test.util.StringTestUtils.Placeholders.placeholders;
 
 import com.github.jknack.handlebars.HandlebarsException;
 import com.github.jknack.handlebars.Options;
@@ -31,6 +32,7 @@ import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
 import uk.nhs.digital.apispecs.handlebars.SchemaHelper;
 import uk.nhs.digital.apispecs.handlebars.SchemaRenderingException;
 import uk.nhs.digital.test.util.FileUtils;
+import uk.nhs.digital.test.util.StringTestUtils.Placeholders;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -65,7 +67,7 @@ public class SchemaHelperTest {
         // given
         final String expectedSchemaHtml = readFrom("schemaObjectCompleteTopLevel-simpleFields.html");
 
-        final Schema schemaObject = from("schemaObjectCompleteTopLevel-simpleFields.json");
+        final Schema schemaObject = fromJsonFile("schemaObjectCompleteTopLevel-simpleFields.json");
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -138,7 +140,7 @@ public class SchemaHelperTest {
         // given
         final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-properties.html");
 
-        final Schema schemaObject = from("schemaObjectsMultiLevelHierarchy-properties.json");
+        final Schema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-properties.json");
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -158,8 +160,9 @@ public class SchemaHelperTest {
         final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-xOf.html")
             .replaceAll(PROPERTY_PLACEHOLDER_X_OF, propertyName);
 
-        final Schema schemaObject =
-            from("schemaObjectsMultiLevelHierarchy-xOf.json", PROPERTY_PLACEHOLDER_X_OF, propertyName);
+        final Schema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-xOf.json",
+            placeholders().with(PROPERTY_PLACEHOLDER_X_OF, propertyName)
+        );
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -177,7 +180,7 @@ public class SchemaHelperTest {
         // given
         final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-items.html");
 
-        final Schema schemaObject = from("schemaObjectsMultiLevelHierarchy-items.json");
+        final Schema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-items.json");
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -412,6 +415,47 @@ public class SchemaHelperTest {
     }
 
     @Test
+    @UseDataProvider("schemaTypesToDefaultValues")
+    public void rendersDefault_forSchemas_ofVariousTypes(
+        final String testCaseDescription,
+        final String schemaType,
+        final Object defaultValue,
+        final String expectedRenderedValue
+    ) {
+        // given
+        final Schema schemaObject = fromJsonFile("schemaObject-defaultField.json",
+            placeholders()
+                .with("typePlaceholder", schemaType)
+                .with("defaultValuePlaceholder", doubleQuotedIfString(schemaType, defaultValue))
+        );
+
+        // when
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
+
+        // then
+        assertThat("Default " + testCaseDescription + " value is rendered for schema of type '" + schemaType + "'.",
+            actualSchemaHtml,
+            containsString("<div>Default: <code class=\"codeinline default\">" + expectedRenderedValue + "</code></div>")
+        );
+    }
+
+    @DataProvider
+    public static Object[][] schemaTypesToDefaultValues() {
+        // @formatter:off
+        return new Object[][]{
+            // test case description       schema type  default value - JSON           expected rendered value
+            {"simple string",              "string",    "simple default string value", "simple default string value"},
+            {"boolean truthy",             "boolean",   true,                          "true"},
+            {"boolean falsy, not null",    "boolean",   false,                         "false"},
+            {"numerical truthy",           "number",    -1.42,                         "-1.42"},
+            {"numerical falsy, not null",  "number",    0,                             "0"},
+            {"JSON object",                "object",    "{\"property\":\"value\"}",    "{&quot;property&quot;:&quot;value&quot;}"},
+            {"JSON array",                 "array",     "[\"item-a\", \"item-b\"]",    "[&quot;item-a&quot;,&quot;item-b&quot;]"}
+        };
+        // @formatter:on
+    }
+
+    @Test
     public void throwsExceptionOnSchemaRenderingFailure() {
 
         // given
@@ -434,6 +478,10 @@ public class SchemaHelperTest {
     @DataProvider
     public static Object[][] propertyNameProvider_xOf() {
         return new Object[][]{{"oneOf"}, {"anyOf"}, {"allOf"}};
+    }
+
+    private Object doubleQuotedIfString(final String schemaType, final Object value) {
+        return "string".equals(schemaType) ? ("\"" + value + "\"") : value;
     }
 
     private Schema schemaWithXOfPropertyUnderNonItemsObject(final String propertyName) {
@@ -475,19 +523,20 @@ public class SchemaHelperTest {
         return TEST_DATA_FILES_CLASSPATH + "/" + testDataFileName;
     }
 
-    private Schema from(final String specJsonFileName) {
-        final String testFileClasspathPath = classPathOf(specJsonFileName);
-
-        return fromFileWithClasspath(testFileClasspathPath);
+    private Schema fromJsonFile(final String specJsonFileName) {
+        return fromJsonFile(specJsonFileName, placeholders());
     }
 
-    private Schema from(final String specJsonTemplateFileName, final String placeholderRegex, final String replacement) {
-
+    private Schema fromJsonFile(
+        final String specJsonTemplateFileName,
+        final Placeholders placeholders
+    ) {
         File targetSpecJsonFile = null;
         try {
-            final String specJsonWithResolvedPlaceholders =
-                contentOfFileFromClasspath(classPathOf(specJsonTemplateFileName))
-                    .replaceAll(placeholderRegex, replacement);
+            final String specJsonWithPlaceholders =
+                contentOfFileFromClasspath(classPathOf(specJsonTemplateFileName));
+
+            final String specJsonWithResolvedPlaceholders = placeholders.resolveIn(specJsonWithPlaceholders);
 
             targetSpecJsonFile = Files.createTempFile(getClass().getSimpleName(), ".tmp").toFile();
 

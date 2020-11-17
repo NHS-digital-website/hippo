@@ -37,6 +37,7 @@
                                             "nullable": true,
                                             "readOnly": true,
                                             "writeOnly": true,
+                                            "default"  : {"property":  "value-a"},
 
                                             "properties": {
 
@@ -62,6 +63,7 @@
                                                     "nullable": true,
                                                     "readOnly": true,
                                                     "writeOnly": true,
+                                                    "default"  : ["value", "b"],
 
                                                     "items": {
                                                         "type": "object",
@@ -84,7 +86,8 @@
                                                         "format": "int(32)",
                                                         "nullable": true,
                                                         "readOnly": true,
-                                                        "writeOnly": true
+                                                        "writeOnly": true,
+                                                        "default"  : {"property":  "value-c"}
                                                     }
                                                 },
                                                 "item-1.1.1.1.1.2": {
