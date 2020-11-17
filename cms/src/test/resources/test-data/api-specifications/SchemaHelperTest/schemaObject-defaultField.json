@@ -1,0 +1,19 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/test": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "typePlaceholder",
+                                "default": defaultValuePlaceholder
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

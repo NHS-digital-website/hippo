@@ -33,6 +33,7 @@
                                         "nullable": true,
                                         "readOnly": true,
                                         "writeOnly": true,
+                                        "default"  : {"property":  "value-a"},
                                         "properties": {
                                             "properties-schema-1-1-1": {
                                                 "type": "object",

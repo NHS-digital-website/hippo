@@ -67,7 +67,7 @@ public class SchemaHelper implements Helper<Schema> {
             .prettyPrint(true)
             .registerHelper(MarkdownHelper.NAME, helper)
             .registerHelper(IndentationHelper.NAME, IndentationHelper.INSTANCE)
-            .registerHelper(NumberNotNullHelper.NAME, NumberNotNullHelper.INSTANCE)
+            .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
             .registerHelper(ConditionalHelpers.or.name(), ConditionalHelpers.or)
             ;
     }

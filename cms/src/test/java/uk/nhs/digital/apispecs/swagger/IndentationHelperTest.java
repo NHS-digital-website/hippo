@@ -18,6 +18,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.apispecs.handlebars.IndentationHelper;
 import uk.nhs.digital.apispecs.handlebars.TemplateRenderingException;
 
+import java.io.IOException;
+
 @RunWith(PowerMockRunner.class)
 public class IndentationHelperTest {
 
@@ -144,7 +146,7 @@ public class IndentationHelperTest {
         // expectations set in 'given' are satisfied
     }
 
-    public static class OptionsStub extends Options {
+    private static class OptionsStub extends Options {
 
         public OptionsStub(final Context context) {
             super(null, null, null, context, null, null, null, null, emptyList());
