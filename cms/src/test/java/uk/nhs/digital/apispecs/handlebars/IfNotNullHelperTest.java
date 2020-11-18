@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger;
+package uk.nhs.digital.apispecs.handlebars;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.sameInstance;
@@ -15,7 +15,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
-import uk.nhs.digital.apispecs.handlebars.IfNotNullHelper;
 
 import java.io.IOException;
 
@@ -43,7 +42,7 @@ public class IfNotNullHelperTest {
     }
 
     @Test
-    public void rendersPrimaryBlockWhenModelIsNotNull() throws IOException {
+    public void rendersPrimaryBlock_whenModelIsNotNull() throws IOException {
 
         // given
         final Object nonNullModel = RANDOM_NUMBER;
@@ -61,7 +60,7 @@ public class IfNotNullHelperTest {
     }
 
     @Test
-    public void rendersInverseBlockWhenModelIsNull() throws IOException {
+    public void rendersInverseBlock_whenModelIsNull() throws IOException {
 
         // given
         final Object nullObject = null;

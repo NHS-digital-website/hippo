@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger;
+package uk.nhs.digital.apispecs.handlebars;
 
 import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
@@ -10,7 +10,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
-import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
 
 public class MarkdownHelperTest {
 

@@ -89,6 +89,21 @@
                                                 </div>
                                             {{/hasPathParams}}
 
+                                            {{#hasQueryParams}}
+                                                <div class="httpparams">
+                                                    <h3>Query parameters</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#queryParams}}
+                                                            {{>request_param}}
+                                                        {{/queryParams}}
+                                                    </table>
+                                                </div>
+                                            {{/hasQueryParams}}
+
                                             {{#hasHeaderParams}}
                                                 <div class="httpparams">
                                                     <h3>Headers</h3>
@@ -103,19 +118,6 @@
                                                     </table>
                                                 </div>
                                             {{/hasHeaderParams}}
-
-                                            {{#hasBodyParam}}
-                                                <div class="httpparams">
-                                                    <h3>Body</h3>
-                                                    {{#bodyParams}}
-                                                    {{#required}}<div class="httpparams__required">Required</div>{{/required}}
-
-                                                    {{#vendorExtensions.x-body}}
-                                                        {{>body_param}}
-                                                    {{/vendorExtensions.x-body}}
-                                                    {{/bodyParams}}
-                                                </div>
-                                            {{/hasBodyParam}}
 
                                             {{#hasFormParams}}
                                                 <div class="httpparams">
@@ -132,20 +134,18 @@
                                                 </div>
                                             {{/hasFormParams}}
 
-                                            {{#hasQueryParams}}
+                                            {{#hasBodyParam}}
                                                 <div class="httpparams">
-                                                    <h3>Query parameters</h3>
-                                                    <table data-disablesort="true">
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Description</th>
-                                                        </tr>
-                                                        {{#queryParams}}
-                                                            {{>request_param}}
-                                                        {{/queryParams}}
-                                                    </table>
+                                                    <h3>Body</h3>
+                                                    {{#bodyParams}}
+                                                        {{#required}}<div class="httpparams__required">Required</div>{{/required}}
+
+                                                        {{#vendorExtensions.x-body}}
+                                                            {{>body_param}}
+                                                        {{/vendorExtensions.x-body}}
+                                                    {{/bodyParams}}
                                                 </div>
-                                            {{/hasQueryParams}}
+                                            {{/hasBodyParam}}
 
                                             {{#responses}}
                                                 {{#@first}}
