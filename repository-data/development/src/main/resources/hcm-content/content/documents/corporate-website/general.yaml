@@ -304,13 +304,12 @@
         - mix:referenceable
         jcr:primaryType: website:general
         website:gossid: 0
-        website:navigationcontroller: withoutNav
+        website:navigationcontroller: withoutNavWide
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           basenavigationcontroller
         website:title: 'General Child Document #1'
         website:type: ''
-        website:wideMode: false
       /content[2]:
         /website:component:
           hippostd:content: |-
@@ -404,13 +403,12 @@
         - mix:versionable
         jcr:primaryType: website:general
         website:gossid: 0
-        website:navigationcontroller: withoutNav
+        website:navigationcontroller: withoutNavWide
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           base
         website:title: 'General Child Document #1'
         website:type: ''
-        website:wideMode: false
       /content[3]:
         /website:component:
           hippostd:content: |-
@@ -504,13 +502,12 @@
         - mix:referenceable
         jcr:primaryType: website:general
         website:gossid: 0
-        website:navigationcontroller: withoutNav
+        website:navigationcontroller: withoutNavWide
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           base
         website:title: 'General Child Document #1'
         website:type: ''
-        website:wideMode: false
       hippo:name: 'Genera Child Document #1'
       hippo:versionHistory: 34e4f5be-b4c6-4480-a0c1-ead800985701
       jcr:mixinTypes:
