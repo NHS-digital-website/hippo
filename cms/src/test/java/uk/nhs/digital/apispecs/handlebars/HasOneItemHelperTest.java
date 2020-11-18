@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger;
+package uk.nhs.digital.apispecs.handlebars;
 
 import static com.onehippo.cms7.inference.engine.core.util.ArraysUtils.asList;
 import static java.util.Collections.emptyList;
@@ -14,7 +14,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import uk.nhs.digital.apispecs.handlebars.HasOneItemHelper;
 
 import java.io.IOException;
 import java.util.Collection;

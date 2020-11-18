@@ -1,10 +1,7 @@
 package uk.nhs.digital.apispecs.handlebars;
 
-import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
-
-import java.util.Stack;
 
 /**
  * <p>'Basic' helper calculating indentation level based on the number of contexts in
@@ -40,47 +37,33 @@ public class IndentationHelper<M> implements Helper<M> {
 
     public static final String NAME = "indentation";
 
-    public static final IndentationHelper INSTANCE = new IndentationHelper();
+    private ContextModelsStack.Factory contextStackFactory;
+
+    IndentationHelper(final ContextModelsStack.Factory contextStackFactory) {
+        this.contextStackFactory = contextStackFactory;
+    }
+
+    public static IndentationHelper with(final ContextModelsStack.Factory contextStackFactory) {
+        return new IndentationHelper(contextStackFactory);
+    }
 
     @Override
-    public Long apply(
+    public Integer apply(
         final M model, // ignored, we only use models from the stack given by options
         final Options options
     ) {
 
         try {
-            return indentationLevelFor(options.context);
+            final ContextModelsStack contextModelsStack = contextStackFactory.from(options.context);
+
+            return indentationLevelFor(contextModelsStack);
 
         } catch (final Exception e) {
             throw new TemplateRenderingException("Failed to calculate indentation level.", e);
         }
     }
 
-    private long indentationLevelFor(final Context context) {
-        return numberOfAncestorsWithUniqueModelsOf(context);
-    }
-
-    private long numberOfAncestorsWithUniqueModelsOf(final Context initialContext) {
-
-        // In some cases the parent object contains the same model as the current
-        // context; possibly when when the templates are invoked recursively,
-        // as is the case with Schema Objects.
-        // This incorrectly inflates the number of indentation levels
-        // and so we eliminate the duplicates here.
-        final Stack modelsUnique = new Stack();
-
-        // We rely on equality by reference rather than by value because some model objects
-        // may be quite empty, thus risking equals returning 'true' when they are actually
-        // different instances. Also, it's enough to just compare to the previous model
-        // as, in real life, the duplicate references were always seen to be adjacent to
-        // each other in the stack.
-        for (Context context = initialContext; context != null; context = context.parent()) {
-            if (modelsUnique.isEmpty() || modelsUnique.peek() != context.model()) {
-                //noinspection unchecked
-                modelsUnique.add(context.model());
-            }
-        }
-
-        return modelsUnique.size() - 1;
+    private int indentationLevelFor(final ContextModelsStack contextModelsStack) {
+        return contextModelsStack.ancestorModelsCount();
     }
 }

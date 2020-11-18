@@ -1,6 +1,9 @@
 package uk.nhs.digital.test.util;
 
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.*;
 import static uk.nhs.digital.test.util.StringTestUtils.Placeholders.Placeholder.placeholder;
 
 import org.apache.commons.lang3.StringUtils;
@@ -74,7 +77,7 @@ public class StringTestUtils {
         }
 
         public String resolveIn(final String stringWithPlaceholdersToResolve) {
-            return StringUtils.replaceEach(stringWithPlaceholdersToResolve, names(), values());
+            return replaceEach(stringWithPlaceholdersToResolve, names(), values());
         }
 
         private String[] names() {
@@ -106,5 +109,13 @@ public class StringTestUtils {
                 return value;
             }
         }
+    }
+
+    public static String dropBlankLines(final String text) {
+        return stream(
+            split(text, LF)
+        )
+            .filter(line -> !isBlank(line))
+            .collect(joining(LF));
     }
 }

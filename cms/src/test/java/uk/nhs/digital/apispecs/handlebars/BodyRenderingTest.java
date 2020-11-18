@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.swagger;
+package uk.nhs.digital.apispecs.handlebars;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.codegen.v3.templates.HandlebarTemplateEngine;
 import org.junit.Test;
+import uk.nhs.digital.apispecs.swagger.ApiSpecificationStaticHtml2Codegen;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypeObjects;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
 

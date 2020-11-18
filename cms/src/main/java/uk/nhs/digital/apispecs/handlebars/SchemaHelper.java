@@ -61,13 +61,16 @@ public class SchemaHelper implements Helper<Schema> {
         final ClassPathTemplateLoader classPathTemplateLoader =
             new ClassPathTemplateLoader(TEMPLATES_CLASSPATH, TEMPLATE_EXTENSION);
 
+        final ContextModelsStack.Factory contextStackFactory = new ContextModelsStack.Factory(new UniqueModelStackExtractor());
+
         return new Handlebars(classPathTemplateLoader)
             .parentScopeResolution(false)
             .infiniteLoops(true)
             .prettyPrint(true)
             .registerHelper(MarkdownHelper.NAME, helper)
-            .registerHelper(IndentationHelper.NAME, IndentationHelper.INSTANCE)
+            .registerHelper(IndentationHelper.NAME, new IndentationHelper(contextStackFactory))
             .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
+            .registerHelper(IfRequiredHelper.NAME, new IfRequiredHelper(contextStackFactory))
             .registerHelper(ConditionalHelpers.or.name(), ConditionalHelpers.or)
             ;
     }
