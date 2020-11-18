@@ -332,6 +332,10 @@ definitions:
           hst:refId: pagenotfound
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /events:
+        hst:componentconfigurationid: hst:pages/latestevents
+        hst:relativecontentpath: events
+        jcr:primaryType: hst:sitemapitem
       /forms:
         /_any_:
           hst:componentconfigurationid: hst:pages/form-mail
@@ -361,30 +365,20 @@ definitions:
         hst:relativecontentpath: icon-library
         jcr:primaryType: hst:sitemapitem
       /news:
-        hst:componentconfigurationid: hst:pages/news-hub
-        jcr:primaryType: hst:sitemapitem
-      /news-and-events:
-        /events:
-          /_any_:
-            hst:componentconfigurationid: hst:pages/event
-            hst:relativecontentpath: /news-and-events/events/${1}
-            jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/latestevents
-          jcr:primaryType: hst:sitemapitem
-        /news:
+        /feed:
           /_any_:
             hst:componentconfigurationid: hst:pages/news
-            hst:relativecontentpath: news-and-events/latest-news
+            hst:relativecontentpath: news/latest-news
             jcr:primaryType: hst:sitemapitem
           /year:
             /_any_:
               hst:componentconfigurationid: hst:pages/latestnews
-              hst:relativecontentpath: faceted-news/year/${1}
+              hst:relativecontentpath: feed/year/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/404
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/latestnews
-          hst:relativecontentpath: faceted-news
+          hst:relativecontentpath: feed
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingnames:
         - website:hub
@@ -394,7 +388,7 @@ definitions:
         - hst:pages/hub
         - hst:pages/visualhub
         - hst:pages/news-events-homepage
-        hst:relativecontentpath: news-and-events/content
+        hst:relativecontentpath: news/content
         jcr:primaryType: hst:sitemapitem
       /nhsd-about-us-hub:
         hst:componentconfigurationid: hst:pages/nhsd-about-us-hub
