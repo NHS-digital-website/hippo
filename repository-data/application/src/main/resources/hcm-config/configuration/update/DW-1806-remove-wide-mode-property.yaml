@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-1806-remove-wide-mode-property:
+      hipposys:batchsize: 10
+      hipposys:description: Removes the website:wideview property. If the property
+        was set to true then it gives website:navigationcontroller an equialent value.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='website:general']
+      hipposys:script:
+        resource: /configuration/update/DW-1806-remove-wide-mode-property.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

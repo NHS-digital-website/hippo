@@ -54,15 +54,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /wideMode:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Display in full width
-            field: wideMode
-            hint: Used for special content that is not meant for mobile screen sizes.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /summary:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
@@ -401,14 +392,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: website:userNeedandcontact
             jcr:primaryType: hipposysedit:field
-          /wideMode:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:wideMode
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - website:basedocument
@@ -502,7 +485,6 @@ definitions:
           website:shortsummary: ''
           website:title: ''
           website:type: ''
-          website:wideMode: false
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

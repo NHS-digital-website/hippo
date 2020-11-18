@@ -57,10 +57,6 @@ public class General extends CommonFieldsBean {
         return getLinkedBean("website:leadimage", HippoGalleryImageSet.class);
     }
 
-    public Boolean getWideMode()  {
-        return getSingleProperty("website:wideMode",false);
-    }
-
     @HippoEssentialsGenerated(internalName = "website:navigationcontroller")
     public String getNavigationController() {
         return getSingleProperty("website:navigationcontroller", "withNav");
