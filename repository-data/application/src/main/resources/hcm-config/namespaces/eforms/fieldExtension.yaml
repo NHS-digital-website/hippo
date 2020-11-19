@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/eforms/form/editor:templates/_default_/fieldextensions/cluster.options:
+      field.extensions:
+        operation: override
+        type: string
+        value:
+        - uk.nhs.digital.form.FieldExtensionFieldId
