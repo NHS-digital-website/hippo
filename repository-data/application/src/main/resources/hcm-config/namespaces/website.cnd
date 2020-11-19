@@ -6,6 +6,7 @@
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 <'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
 <'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
+<'eforms'='http://www.onehippo.org/jcr/eforms/nt/1.0'>
 
 [website:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
@@ -462,3 +463,5 @@
 [website:visualinternallink] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:apiTextField] > eforms:textfield
+  - website:fieldId (String) = "" autocreated

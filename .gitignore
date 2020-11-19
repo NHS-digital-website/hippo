@@ -20,6 +20,7 @@ target
 /repository-data/webfiles/node
 /repository-data/webfiles/node_modules
 /repository-data/webfiles/src/main/resources/site/dist
+/conf/govdelivery.properties
 
 ## Hippo content and config
 /repository-data/application/src/main/resources/hcm-content/content/documents/publicationsystem/publications/*

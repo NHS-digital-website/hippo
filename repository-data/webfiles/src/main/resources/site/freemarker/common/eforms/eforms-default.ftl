@@ -98,7 +98,7 @@
             </#if>
 
             <div class="recaptcha">
-                <div class="g-recaptcha" data-sitekey="6LdK9HIUAAAAAKYqxARfxX087UPwOmT2Xv_OkBZ0" data-callback="enableSubmit" data-expired-callback="displayRecaptcha"></div>
+                <div class="g-recaptcha" data-sitekey="6LdAieMZAAAAAB4_mxatkiPqkCG3a4mmT9-ZoaHH" data-callback="enableSubmit" data-expired-callback="displayRecaptcha"></div>
             </div>
 
             <div class="eforms-buttons">

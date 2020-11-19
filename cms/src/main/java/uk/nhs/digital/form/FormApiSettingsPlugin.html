@@ -1,0 +1,29 @@
+<!--
+    Copyright 2012-2015 Hippo B.V. (http://www.onehippo.com)
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"
+      xml:lang="en"
+      lang="en">
+
+<wicket:panel>
+    <div class="ef-settings">
+        <wicket:extend>
+            <div class="label"><wicket:message key="formsettings.govdelivery.title"/></div>
+            <ul>
+                <li>
+                    <div class="label-wrapper"><wicket:message key="formsettings.govdelivery.enabled"/></div>
+                    <div class="field-wrapper"><input wicket:id="enabled" type="checkbox"/></div>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <div class="label-wrapper"><wicket:message key="formsettings.govdelivery.formId"/></div>
+                    <div class="field-wrapper"><input type="text" wicket:id="form-Id"/></div>
+                    <div class="clearfix"></div>
+                </li>
+            </ul>
+        </wicket:extend>
+    </div>
+</wicket:panel>
+</html>
