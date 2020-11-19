@@ -63,7 +63,8 @@
                 LOAD_ERROR: "<@fmt.message key="load-error"/>",
                 LOADING_MESSAGE: "<@fmt.message key="loading-message"/>",
                 LOADING_MESSAGE_LONGER: "<@fmt.message key="loading-message-longer"/>",
-                LOADING_FAILED_MESSAGE: "<@fmt.message key="loading-failed-message"/>"
+                LOADING_FAILED_MESSAGE: "<@fmt.message key="loading-failed-message"/>",
+                INVALID_POSTCODE_MESSAGE: "<@fmt.message key="invalid-postcode-message"/>"
             };
         </script>
 
@@ -170,16 +171,12 @@
                         clearInterval(viz${index}LoadingTimer); <#-- if set -->
                         viz${index}LoadingTimer = setInterval(_retry, 1000);
 
-                    }).catch(error => error.json().then(data => {
+                    }).catch(error => {
                         if(!!viz${index}) {
                             viz${index}.dispose();
                         }
-                        if(data.hasOwnProperty('error')){
-                            _showValidationMessage(viz${index}Elements.validationMessageDiv(), data["error"]);
-                        } else {
-                            _showValidationMessage(viz${index}Elements.validationMessageDiv(), vizMessages.LOAD_ERROR);
-                        }
-                }));
+                        _showValidationMessage(viz${index}Elements.validationMessageDiv(), vizMessages.INVALID_POSTCODE_MESSAGE);
+                    });
             }
 
             function postcodeApiUrl(input) {
@@ -192,7 +189,7 @@
                         return null;
                     }
                 }
-                return "https://d3167zvwcf7itc.cloudfront.net/postcodes/" + _formatPostcode() + ".json";
+                return "https://dmi11sis7gxny.cloudfront.net/postcodes/" + _formatPostcode() + ".json";
             }
 
             function _clearValidationMessage(el) {

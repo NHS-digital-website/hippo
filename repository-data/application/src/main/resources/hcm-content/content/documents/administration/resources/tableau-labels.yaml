@@ -20,12 +20,14 @@
     - loading-message
     - loading-message-longer
     - loading-failed-message
+    - invalid-postcode-message
     resourcebundle:messages:
     - '[Tableau loading error]'
     - The dashboard is loading. Please do not refresh the page.
     - We are loading the dashboard. This is taking longer than normal and we will
       retry in a few seconds for you. Please don't refresh the page.
     - The service is busy. Please try again later.
+    - Invalid postcode
   /tableau-lables[2]:
     hippo:availability:
     - preview
@@ -48,12 +50,14 @@
     - loading-message
     - loading-message-longer
     - loading-failed-message
+    - invalid-postcode-message
     resourcebundle:messages:
     - '[Tableau loading error]'
     - The dashboard is loading. Please do not refresh the page.
     - We are loading the dashboard. This is taking longer than normal and we will
       retry in a few seconds for you. Please don't refresh the page.
     - The service is busy. Please try again later.
+    - Invalid postcode
   /tableau-lables[3]:
     hippo:availability:
     - live
@@ -76,12 +80,14 @@
     - loading-message
     - loading-message-longer
     - loading-failed-message
+    - invalid-postcode-message
     resourcebundle:messages:
     - '[Tableau loading error]'
     - The dashboard is loading. Please do not refresh the page.
     - We are loading the dashboard. This is taking longer than normal and we will
       retry in a few seconds for you. Please don't refresh the page.
     - The service is busy. Please try again later.
+    - Invalid postcode
   hippo:name: Tableau Lables
   hippo:versionHistory: bec492c1-bdd2-4cb7-b907-caf1de38b372
   jcr:mixinTypes:
