@@ -1,8 +1,7 @@
 package eximgroovy
 
-import org.apache.commons.csv.CSVFormat
-import org.apache.commons.csv.CSVPrinter
 import org.apache.commons.lang.text.StrSubstitutor
+import org.hippoecm.frontend.editor.plugins.resource.ResourceHelper
 import org.hippoecm.repository.api.HippoWorkspace
 import org.hippoecm.repository.api.WorkflowManager
 import org.hippoecm.repository.impl.PropertyDecorator
@@ -10,6 +9,7 @@ import org.hippoecm.repository.util.JcrUtils
 import org.onehippo.forge.content.exim.core.DocumentManager
 import org.onehippo.forge.content.exim.core.impl.WorkflowDocumentManagerImpl
 import org.onehippo.repository.update.BaseNodeUpdateVisitor
+import org.onehippo.repository.util.JcrConstants
 
 import javax.jcr.Node
 import javax.jcr.PropertyIterator
@@ -17,23 +17,29 @@ import javax.jcr.Session
 import javax.jcr.query.Query
 import javax.jcr.query.QueryManager
 import javax.jcr.query.QueryResult
+import java.text.SimpleDateFormat
 
 class MoveNewsYearWise extends BaseNodeUpdateVisitor {
-    public static final String CONTENT_ROOT = "/content/documents/corporate-website/"
+    private static final String PROPERTY_LAST_MODIFIED = "jcr:lastModified";
+    private static final String CONTENT_ROOT = "/content/documents/corporate-website/"
+    private static final String AVAILABILITY = "live"
+
     WorkflowManager workflowManager
     DocumentManager documentManager
     String baseDestinationPath
     String moveDocFromPath
     String baseURL
     Session session
-    CSVPrinter printer = new CSVPrinter(new FileWriter("news.csv"), CSVFormat.DEFAULT)
     QueryManager manager
-    QueryResult result
-    Node ruleFolderNode
-    Node newsFolderNode
-    public static final String AVAILABILITY = "live"
+    QueryResult ruleResult
+    QueryResult newsResult
+    Node ruleFolderNode = null
+    Node newsFolderNode = null
+    boolean createFile = false;
+
     def availability = [AVAILABILITY] as String[]
     String ruleFolder
+    StringBuilder csvDataString = new StringBuilder("Year of Pub, Current URL, Desired URL");
 
     void initialize(Session session) {
         this.session = session
@@ -45,16 +51,17 @@ class MoveNewsYearWise extends BaseNodeUpdateVisitor {
         baseURL = StrSubstitutor.replaceSystemProperties(parametersMap.get("baseURL"))
         ruleFolder = StrSubstitutor.replaceSystemProperties(parametersMap.get("ruleFolder"))
 
-        printer.printRecord("Year of Pub", "Current URL", "Desired URL");
         manager = session.getWorkspace().getQueryManager();
-        result = manager.createQuery("/jcr:root/content/urlrewriter/rules", Query.XPATH).execute()
-        def folderNode = result.getNodes().iterator().next()
-        ruleFolderNode = createFolder(folderNode, ruleFolder, "urlrewriter:ruleset")
-        result = manager.createQuery("/jcr:root/content/documents/corporate-website/news-and-events", Query.XPATH).execute()
-        newsFolderNode = result.getNodes().next()
+        ruleResult = manager.createQuery("/jcr:root/content/urlrewriter/rules/" + ruleFolder, Query.XPATH).execute()
+        if (ruleResult.getNodes().size() != 0) {
+            ruleFolderNode = ruleResult.getNodes().next()
+        }
+        newsResult = manager.createQuery("/jcr:root/content/documents/corporate-website/news-and-events", Query.XPATH).execute()
+        newsFolderNode = newsResult.getNodes().next()
 
     }
 
+    @Override
     boolean doUpdate(Node node) {
 
 
@@ -74,15 +81,23 @@ class MoveNewsYearWise extends BaseNodeUpdateVisitor {
                 ) {
                     final String oldParentFolderPath = parentPath
                     String targetFolderPath = baseDestinationPath.concat("/" + publicationYear + "/").concat(node.name)
-                    log.info("Year of Pub." + publicationYear + " Current URL " + oldParentFolderPath + " Desired URL  " + targetFolderPath);
                     log.debug("Year of Pub." + publicationYear + " Current URL " + oldParentFolderPath + " Desired URL  " + targetFolderPath);
-                    createFolder(newsFolderNode, publicationYear, "hippostd:folder");
-                    session.move(oldParentFolderPath, targetFolderPath);
+                    if (!newsFolderNode.hasNode(publicationYear)) {
+                        log.error("No publication year exists " + publicationYear)
+                        return true
+                    } else if (ruleFolderNode == null) {
+                        log.error("No Rule Folder Exists ")
+                        return true
+                    }
                     def oldURL = oldParentFolderPath.replace(CONTENT_ROOT, "/");
                     def newURL = targetFolderPath.replace(CONTENT_ROOT, baseURL);
                     log.debug("Year of Pub." + publicationYear + " Current URL " + oldURL + " Desired URL  " + newURL);
+                    csvDataString.append(System.getProperty("line.separator"));
+                    csvDataString.append(publicationYear + " , " + oldParentFolderPath.replace(CONTENT_ROOT, baseURL) + " , " + newURL);
+
+                    session.move(oldParentFolderPath, targetFolderPath);
                     createRule(ruleFolderNode, node.name, oldURL, newURL)
-                    printer.printRecord(publicationYear, oldURL, newURL);
+                    createFile = true;
                 }
 
                 return true
@@ -90,6 +105,7 @@ class MoveNewsYearWise extends BaseNodeUpdateVisitor {
         }
     }
 
+    @Override
     boolean undoUpdate(Node node) {
         throw new UnsupportedOperationException('Updater does not implement undoUpdate method')
     }
@@ -128,18 +144,26 @@ class MoveNewsYearWise extends BaseNodeUpdateVisitor {
         document.getSession().save()
     }
 
-    private Node createFolder(Node node, String folderName, String folderType) {
-        log.debug("Creating Folder " + folderName)
-        if (!node.hasNode(folderName)) {
+    private void loadFile() {
+        if (createFile) {
+            log.debug("Saving File")
+            InputStream stream = new ByteArrayInputStream(csvDataString.toString().getBytes('UTF-8'))
+            def result = manager.createQuery("/jcr:root/content/assets", Query.XPATH).execute()
+            Node node = result.getNodes().nextNode();
             JcrUtils.ensureIsCheckedOut(node)
-            Node folder = node.addNode(folderName, folderType)
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
+            Node folder = node.addNode("News" + format1.format(Calendar.getInstance().getTime()) + ".csv", "externalstorage:resource")
+            folder.setProperty(JcrConstants.JCR_DATA, ResourceHelper.getValueFactory(node).createBinary(stream));
+            folder.setProperty(PROPERTY_LAST_MODIFIED, Calendar.getInstance())
+            folder.setProperty("jcr:mimeType", "text/csv")
+
             folder.getSession().save()
-            return folder
         }
-        return node.getNode(folderName)
     }
 
+    @Override
     void destroy() {
-        printer.close()
+        loadFile()
     }
+
 }

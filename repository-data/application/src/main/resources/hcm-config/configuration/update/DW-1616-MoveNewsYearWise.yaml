@@ -8,7 +8,7 @@ definitions:
       hipposys:loglevel: DEBUG
       hipposys:parameters: '{"baseDestinationPath": "/content/documents/corporate-website/news-and-events"
         , "moveDocFromPath": "/content/documents/corporate-website/news-and-events/latest-news",
-        "baseURL":"http://localhost:8080/site/" , "ruleFolder":"NewsRules"}'
+        "baseURL":"http://localhost:8080/site/" , "ruleFolder":"newsrules"}'
       hipposys:query: /jcr:root/content/documents/corporate-website/news-and-events//*[@jcr:primaryType='website:news']
       hipposys:script:
         resource: /configuration/update/DW-1616-MoveNewsYearWise.groovy
