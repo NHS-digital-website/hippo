@@ -1,6 +1,7 @@
 package uk.nhs.digital.common.forms;
 
 import com.onehippo.cms7.eforms.hst.behaviors.AfterProcessBehavior;
+import com.onehippo.cms7.eforms.hst.behaviors.MailFormDataBehavior;
 import com.onehippo.cms7.eforms.hst.components.EformComponent;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
 import com.onehippo.cms7.eforms.hst.model.Form;
@@ -15,9 +16,20 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
-public class ApiAndAfterProcessEformComponent extends EformComponent {
+public class FormProcessingComponent extends EformComponent {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApiAndAfterProcessEformComponent.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(FormProcessingComponent.class);
+
+    @Override
+    public void onProcessDone(final HstRequest request, final HstResponse response, final Form form,
+                              final FormMap map) {
+        request.setAttribute("processDone", "true");
+    }
+
+    @Override
+    public void onProcessFail(HstRequest request, HstResponse response, Form form, FormMap map) {
+        request.setAttribute("processFailed", "true");
+    }
 
     @Override
     public boolean onValidationSuccess(HstRequest request, HstResponse response, Form form, FormMap map) {
@@ -25,11 +37,10 @@ public class ApiAndAfterProcessEformComponent extends EformComponent {
     }
 
     @Override
-    public void onValidationError(HstRequest request, HstResponse response, Form form, FormMap map,
-                                  Map<String, ErrorMessage> errors) {
-        LOGGER.error("Form contains errors.");
+    public void onValidationError(HstRequest request, HstResponse response, Form form, FormMap map, Map<String, ErrorMessage> errors) {
+        LOGGER.info("Form contains errors");
         // Called on second pass (RENDER_PHASE)
-        if ("RENDER_PHASE".equals(request.getLifecyclePhase()) && map.getFormMap().get(EformComponent.ATTRIBUTE_PROCESS_DONE) == null) {
+        if ("RENDER_PHASE".equals(request.getLifecyclePhase()) && map.getFormMap().get("eforms_process_done") == null) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
@@ -37,6 +48,7 @@ public class ApiAndAfterProcessEformComponent extends EformComponent {
     @Override
     protected void addConfiguredBehaviors(HstRequest request) {
         super.addConfiguredBehaviors(request);
+        addBehavior(new MailFormDataBehavior());
         addBehavior(new AfterProcessBehavior());
         addBehavior(new ReCaptchaValidationPlugin());
         addBehavior(new SubscriptionBehavior());

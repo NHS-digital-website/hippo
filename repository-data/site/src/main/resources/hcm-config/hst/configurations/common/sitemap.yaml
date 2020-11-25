@@ -288,7 +288,7 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /forms:
         /_any_:
-          hst:componentconfigurationid: hst:pages/form-mail
+          hst:componentconfigurationid: hst:pages/form
           hst:relativecontentpath: ${parent}/${1}
           jcr:primaryType: hst:sitemapitem
         /_index_:
@@ -298,10 +298,6 @@ definitions:
           hst:componentconfigurationmappingvalues:
           - hst:pages/hub
           hst:relativecontentpath: ${parent}/forms
-          jcr:primaryType: hst:sitemapitem
-        /email-subscription:
-          hst:componentconfigurationid: hst:pages/form-api
-          hst:relativecontentpath: ${parent}/email-subscription
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: forms

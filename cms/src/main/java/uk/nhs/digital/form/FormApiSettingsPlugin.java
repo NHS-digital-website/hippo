@@ -34,6 +34,7 @@ public class FormApiSettingsPlugin extends AbstractFormExtensionPlugin {
 
         mode = IEditor.Mode.fromString(config.getString("mode"));
         apiEnabledForm = isApiEnabledForm();
+        formId = getFormId();
 
         final CheckBox apiEnabledField = new CheckBox("enabled", Model.of(apiEnabledForm));
         apiEnabledField.add(new OnChangeAjaxBehavior() {
@@ -51,7 +52,7 @@ public class FormApiSettingsPlugin extends AbstractFormExtensionPlugin {
             }
         });
 
-        TextField<String> formIdField = new TextField<>("form-Id", new PropertyModel<String>(formId, "formId"));
+        final TextField<String> formIdField = new TextField<>("formId", new PropertyModel<>(this, "formId"));
         formIdField.setOutputMarkupId(true);
         formIdField.add(new OnChangeAjaxBehavior() {
             @Override
@@ -78,7 +79,7 @@ public class FormApiSettingsPlugin extends AbstractFormExtensionPlugin {
     }
 
     public String getFormId() {
-        return formId;
+        return JcrUtils.getStringProperty(getFormDocument().getNode(), PROP_API_FORM_ID);
     }
 
     public void setFormId(String formId) {

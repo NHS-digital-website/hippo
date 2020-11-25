@@ -1,14 +1,20 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/form-api:
+    /hst:hst/hst:configurations/common/hst:pages/form:
       /main:
-        hst:componentclassname: uk.nhs.digital.common.forms.ApiAndAfterProcessEformComponent
+        hst:componentclassname: uk.nhs.digital.common.forms.FormProcessingComponent
         hst:parameternames:
         - behaviors
+        - eforms-mailsession
+        - eforms-from-name
+        - eforms-from-email
         - eforms-use-freemarker
         hst:parametervalues:
-        - com.onehippo.cms7.eforms.hst.behaviors.FormIntroBehavior
+        - uk.nhs.digital.common.forms.behavior.FormApiSettingsBehavior
+        - mail/NHSMail
+        - NHS Mail
+        - hippo.nhsdigital@nhs.net
         - 'true'
         hst:resourcetemplate: eforms-validation-default
         hst:template: eforms.default
