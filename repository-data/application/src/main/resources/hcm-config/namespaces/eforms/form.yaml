@@ -7,6 +7,12 @@ definitions:
       plugin.class: com.onehippo.cms7.eforms.cms.extensions.AfterProcessPlugin
       wicket.id: ${cluster.id}.extensions.item
       wicket.model: ${wicket.model}
+    /hippo:namespaces/eforms/form/editor:templates/_default_/apisettings:
+      jcr:primaryType: frontend:plugin
+      mode: ${mode}
+      plugin.class: uk.nhs.digital.form.FormApiSettingsPlugin
+      wicket.id: ${cluster.id}.extensions.item
+      wicket.model: ${wicket.model}
     /hippo:namespaces/eforms/form/editor:templates/_default_/introductionform:
       .meta:order-before: afterprocessform
       jcr:primaryType: frontend:plugin
@@ -21,3 +27,8 @@ definitions:
       plugin.class: com.onehippo.cms7.eforms.cms.extensions.MailFormDataPlugin
       wicket.id: ${cluster.id}.extensions.item
       wicket.model: ${wicket.model}
+    /hippo:namespaces/eforms/form/hipposysedit:nodetype/hipposysedit:nodetype:
+      hipposysedit:validators:
+        operation: add
+        value:
+        - form-type

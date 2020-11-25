@@ -1,9 +1,0 @@
----
-definitions:
-  config:
-    /hippo:namespaces/eforms/form/editor:templates/_default_/apisettings:
-      jcr:primaryType: frontend:plugin
-      mode: ${mode}
-      plugin.class: uk.nhs.digital.form.FormApiSettingsPlugin
-      wicket.id: ${cluster.id}.extensions.item
-      wicket.model: ${wicket.model}
