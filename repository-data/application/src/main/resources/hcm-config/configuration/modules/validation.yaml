@@ -1,6 +1,9 @@
 ---
 definitions:
   config:
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/form-type:
+      hipposys:className: uk.nhs.digital.ps.FormTypeValidator
+      jcr:primaryType: hipposys:moduleconfig
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/http-status-code:
       hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
       jcr:primaryType: hipposys:moduleconfig

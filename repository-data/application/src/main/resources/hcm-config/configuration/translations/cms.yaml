@@ -2,6 +2,7 @@
 definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
+      form-type: Form must be Mail Delivery or API Delivery. It cannot be both.
       http-status-code: Invalid HTTP status code ex. 200, 404, 400
       internal-or-external-link#choose-one: You must enter either an external link
         OR an internal link.
