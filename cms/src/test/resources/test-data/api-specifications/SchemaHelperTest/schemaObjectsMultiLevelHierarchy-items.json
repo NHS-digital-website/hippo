@@ -38,6 +38,7 @@
                                             "readOnly": true,
                                             "writeOnly": true,
                                             "default"  : {"property":  "value-a"},
+                                            "enum": ["enum-a", "enum-b"],
 
                                             "properties": {
 
@@ -64,6 +65,7 @@
                                                     "readOnly": true,
                                                     "writeOnly": true,
                                                     "default"  : ["value", "b"],
+                                                    "enum": ["enum-c", "enum-d"],
 
                                                     "items": {
                                                         "type": "object",
@@ -87,7 +89,8 @@
                                                         "nullable": true,
                                                         "readOnly": true,
                                                         "writeOnly": true,
-                                                        "default"  : {"property":  "value-c"}
+                                                        "default"  : {"property":  "value-c"},
+                                                        "enum": ["enum-e", "enum-f"]
                                                     }
                                                 },
                                                 "item-1.1.1.1.1.2": {

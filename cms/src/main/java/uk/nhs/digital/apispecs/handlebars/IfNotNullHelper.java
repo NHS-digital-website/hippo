@@ -30,6 +30,10 @@ public class IfNotNullHelper implements Helper {
 
     public static final String NAME = "ifNotNull";
 
+    private IfNotNullHelper() {
+        // private to encourage use of INSTANCE
+    }
+
     @Override public Options.Buffer apply(final Object model, final Options options) {
 
         try {

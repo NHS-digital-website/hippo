@@ -72,6 +72,7 @@ public class SchemaHelper implements Helper<Schema> {
             .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
             .registerHelper(IfRequiredHelper.NAME, new IfRequiredHelper(contextStackFactory))
             .registerHelper(ConditionalHelpers.or.name(), ConditionalHelpers.or)
+            .registerHelper(EnumHelper.NAME, EnumHelper.INSTANCE)
             ;
     }
 }

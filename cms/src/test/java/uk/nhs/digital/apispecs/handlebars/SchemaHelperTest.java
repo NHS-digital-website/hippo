@@ -1,5 +1,6 @@
 package uk.nhs.digital.apispecs.handlebars;
 
+import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -442,6 +443,50 @@ public class SchemaHelperTest {
     }
 
     @Test
+    @UseDataProvider("enumValuesOfVariousTypes")
+    public void rendersEnum_ofVariousTypes(
+        final String testCaseDescription,
+        final Object enumJson,
+        final String firstRenderedValue,
+        final String secondRenderedValue
+    ) {
+        // given
+        final Schema schemaObject = fromJsonFile("schemaObject-enumField.json",
+            placeholders()
+                .with("enumValuePlaceholder", enumJson)
+        );
+
+        final String expectedRendering = format(
+            "<div>Allowed values: <code class=\"codeinline\">%s</code>, <code class=\"codeinline\">%s</code></div>",
+            firstRenderedValue,
+            secondRenderedValue
+        );
+
+        // when
+        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+
+        // then
+        assertThat("Enum with " + testCaseDescription + " is rendered.",
+            actualSchemaHtml,
+            containsString(expectedRendering)
+        );
+    }
+
+    @DataProvider
+    public static Object[][] enumValuesOfVariousTypes() {
+        // @formatter:off
+        return new Object[][]{
+            // testCaseDescription  enumJson                        firstRenderedValue  secondRenderedValue
+            {"strings",             "[\"string-a\", \"string-b\"]", "string-a",         "string-b"},
+            {"booleans",            "[true, false]",                "true",             "false"},
+            {"numbers",             "[-1.42, 0]",                   "-1.42",            "0"},
+            {"nulls",               "[\"string-a\", null]",         "string-a",         "null"},
+            {"empty strings",       "[\"string-a\", \"\"]",         "string-a",         ""}
+        };
+        // @formatter:on
+    }
+
+    @Test
     public void rendersRequired_forObjectsUnderProperties_whereParentHasRequiredFieldWithTheirNames() {
 
         // given
@@ -580,7 +625,7 @@ public class SchemaHelperTest {
 
             final String specJsonWithResolvedPlaceholders = placeholders.resolveIn(specJsonWithPlaceholders);
 
-            targetSpecJsonFile = Files.createTempFile(getClass().getSimpleName(), ".tmp").toFile();
+            targetSpecJsonFile = Files.createTempFile(specJsonTemplateFileName, ".tmp").toFile();
 
             org.apache.commons.io.FileUtils.write(targetSpecJsonFile, specJsonWithResolvedPlaceholders, "UTF-8");
 

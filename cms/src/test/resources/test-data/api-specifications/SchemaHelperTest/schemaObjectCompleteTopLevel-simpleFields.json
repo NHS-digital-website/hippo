@@ -29,7 +29,8 @@
                                 "nullable": true,
                                 "readOnly": true,
                                 "writeOnly": true,
-                                "default"  : {"property":  "value"}
+                                "default"  : {"property":  "value"},
+                                "enum": ["value-a", "value-b"]
                             }
                         }
                     }

@@ -51,6 +51,8 @@
         {{#ifNotNull minProperties}}<div>Min properties: <code class="codeinline minproperties">{{minProperties}}</code></div>{{/ifNotNull}}
 
         {{#ifNotNull default}}<div>Default: <code class="codeinline default">{{default}}</code></div>{{/ifNotNull}}
+
+        {{#if enum}}<div>Allowed values: {{{enumeration enum}}}</div>{{/if}}
     </td>
 </tr>
 
