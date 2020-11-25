@@ -34,6 +34,7 @@
                                         "readOnly": true,
                                         "writeOnly": true,
                                         "default"  : {"property":  "value-a"},
+                                        "enum": ["enum-a", "enum-b"],
                                         "properties": {
                                             "properties-schema-1-1-1": {
                                                 "type": "object",

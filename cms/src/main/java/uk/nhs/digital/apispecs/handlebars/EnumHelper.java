@@ -9,11 +9,17 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class EnumHelper implements Helper<Collection<String>> {
+public class EnumHelper implements Helper<Collection<?>> {
 
-    public static final String NAME = "enum";
+    public static final EnumHelper INSTANCE = new EnumHelper();
 
-    @Override public Object apply(final Collection<String> args, final Options options) {
+    public static final String NAME = "enumeration";
+
+    private EnumHelper() {
+        // private to encourage use of INSTANCE
+    }
+
+    @Override public String apply(final Collection<?> args, final Options options) {
 
         return Optional.ofNullable(args).orElse(emptyList()).stream()
             .map(arg -> String.format("<code class=\"codeinline\">%s</code>", arg))
