@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.emptyMap;
@@ -45,7 +45,7 @@ public class IfRequiredHelper implements Helper<Schema<?>> {
     }
 
     @Override public Options.Buffer apply(
-        final Schema model,  // ignored, we only use models from the stack given by options
+        final Schema<?> model,  // ignored, we only use models from the stack given by options
         final Options options
     ) {
         try {

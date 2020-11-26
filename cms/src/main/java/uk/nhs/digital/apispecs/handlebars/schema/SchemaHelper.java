@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
@@ -7,11 +7,12 @@ import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import io.swagger.v3.oas.models.media.Schema;
+import uk.nhs.digital.apispecs.handlebars.*;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
 
-public class SchemaHelper implements Helper<Schema> {
+public class SchemaHelper implements Helper<Schema<?>> {
 
     public static final String NAME = "render_schema";
 
@@ -26,7 +27,7 @@ public class SchemaHelper implements Helper<Schema> {
     }
 
     @Override
-    public String apply(final Schema schemaObject, final Options options) {
+    public String apply(final Schema<?> schemaObject, final Options options) {
 
         try {
             return renderToHtml(schemaObject);
@@ -36,7 +37,7 @@ public class SchemaHelper implements Helper<Schema> {
         }
     }
 
-    private String renderToHtml(final Schema schemaObject) throws IOException {
+    private String renderToHtml(final Schema<?> schemaObject) throws IOException {
         return template.apply(schemaObject);
     }
 
@@ -73,6 +74,9 @@ public class SchemaHelper implements Helper<Schema> {
             .registerHelper(IfRequiredHelper.NAME, new IfRequiredHelper(contextStackFactory))
             .registerHelper(ConditionalHelpers.or.name(), ConditionalHelpers.or)
             .registerHelper(EnumHelper.NAME, EnumHelper.INSTANCE)
+            .registerHelper(TypeAnyHelper.NAME, TypeAnyHelper.INSTANCE)
+            .registerHelper(JacksonPrettyJsonHelper.NAME, JacksonPrettyJsonHelper.INSTANCE)
+            .registerHelper(TypeAnySanitisingHelper.NAME, TypeAnySanitisingHelper.INSTANCE)
             ;
     }
 }

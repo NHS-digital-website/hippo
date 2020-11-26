@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class IfNotNullHelperTest {
 
-    private static final String TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK = randomString("positive_block_content_");
+    private static final String TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK = randomString("main_block_content_");
     private static final String TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK = randomString("inverse_block_content_");
 
     private static final int RANDOM_NUMBER = RandomUtils.nextInt();
@@ -37,12 +37,12 @@ public class IfNotNullHelperTest {
         initMocks(this);
 
         given(options.buffer()).willReturn(buffer);
-        given(options.fn()).willReturn(TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK);
+        given(options.fn()).willReturn(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
         given(options.inverse()).willReturn(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
     }
 
     @Test
-    public void rendersPrimaryBlock_whenModelIsNotNull() throws IOException {
+    public void rendersMainBlock_whenModelIsNotNull() throws IOException {
 
         // given
         final Object nonNullModel = RANDOM_NUMBER;
@@ -56,7 +56,7 @@ public class IfNotNullHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
     }
 
     @Test

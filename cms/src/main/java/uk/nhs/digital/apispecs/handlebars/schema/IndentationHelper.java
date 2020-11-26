@@ -1,7 +1,8 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
+import uk.nhs.digital.apispecs.handlebars.TemplateRenderingException;
 
 /**
  * <p>'Basic' helper calculating indentation level based on the number of contexts in
@@ -33,13 +34,13 @@ import com.github.jknack.handlebars.Options;
  * @param <M> Model type; irrelevant as the {@code model} parameter is not used.
  */
 @SuppressWarnings("rawtypes")
-public class IndentationHelper<M> implements Helper<M> {
+public class IndentationHelper implements Helper<Object> {
 
     public static final String NAME = "indentation";
 
     private ContextModelsStack.Factory contextStackFactory;
 
-    IndentationHelper(final ContextModelsStack.Factory contextStackFactory) {
+    public IndentationHelper(final ContextModelsStack.Factory contextStackFactory) {
         this.contextStackFactory = contextStackFactory;
     }
 
@@ -49,7 +50,7 @@ public class IndentationHelper<M> implements Helper<M> {
 
     @Override
     public Integer apply(
-        final M model, // ignored, we only use models from the stack given by options
+        final Object model, // ignored, we only use models from the stack given by options
         final Options options
     ) {
 

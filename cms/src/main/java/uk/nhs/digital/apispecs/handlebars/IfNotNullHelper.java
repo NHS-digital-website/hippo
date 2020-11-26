@@ -24,7 +24,7 @@ import java.io.IOException;
  * {{#<b>ifNotNull</b> myZeroValueProperty}}My label: {{myZeroValueProperty}}{{/<b>ifNotNull</b>}}.
  * </pre>
  */
-public class IfNotNullHelper implements Helper {
+public class IfNotNullHelper implements Helper<Object> {
 
     public static final IfNotNullHelper INSTANCE = new IfNotNullHelper();
 

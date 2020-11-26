@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
 import com.github.jknack.handlebars.Context;
 
@@ -33,7 +33,7 @@ import java.util.List;
 public class UniqueModelStackExtractor {
 
     @SuppressWarnings({"unchecked", "rawtypes"}) // Models in the stack can be of any/mix of types.
-    List uniqueModelsStackFrom(final Context initialContext) {
+    public List uniqueModelsStackFrom(final Context initialContext) {
 
         final Deque modelsUnique = new ArrayDeque();
 

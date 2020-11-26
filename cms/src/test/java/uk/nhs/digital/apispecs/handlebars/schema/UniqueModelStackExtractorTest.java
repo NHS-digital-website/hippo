@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.is;
 
 import com.github.jknack.handlebars.Context;
 import org.junit.Test;
+import uk.nhs.digital.apispecs.handlebars.schema.UniqueModelStackExtractor;
 
 import java.util.List;
 

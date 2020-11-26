@@ -18,7 +18,7 @@ import java.util.*;
 
 public class IsAnyTrueHelperTest {
 
-    private static final String TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK = RandomStringUtils.random(10);
+    private static final String TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK = RandomStringUtils.random(10);
     private static final String TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK = RandomStringUtils.random(10);
 
     private final IsAnyTrueHelper isAnyTrueHelper = IsAnyTrueHelper.INSTANCE;
@@ -46,7 +46,7 @@ public class IsAnyTrueHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
     }
 
     @Test
@@ -157,7 +157,7 @@ public class IsAnyTrueHelperTest {
 
         @Override
         public CharSequence fn() throws IOException {
-            return TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK;
+            return TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK;
         }
 
         @Override

@@ -50,9 +50,20 @@
         {{#ifNotNull maxProperties}}<div>Max properties: <code class="codeinline maxproperties">{{maxProperties}}</code></div>{{/ifNotNull}}
         {{#ifNotNull minProperties}}<div>Min properties: <code class="codeinline minproperties">{{minProperties}}</code></div>{{/ifNotNull}}
 
-        {{#ifNotNull default}}<div>Default: <code class="codeinline default">{{default}}</code></div>{{/ifNotNull}}
-
         {{#if enum}}<div>Allowed values: {{{enumeration enum}}}</div>{{/if}}
+
+        {{#valueOfTypeAny default}}
+            <div>Default: <pre><code>{{prettyJson default}}</code></pre></div>
+        {{else}}
+            <div>Default: <code class="codeinline default">{{sanitiseTypeAny default}}</code></div>
+        {{/valueOfTypeAny}}
+
+        {{#valueOfTypeAny example ignoreClass="java.util.Map"}}
+            <div>Example: <pre><code>{{prettyJson example}}</code></pre></div>
+        {{else}}
+            <div>Example: <code class="codeinline example">{{sanitiseTypeAny example}}</code></div>
+        {{/valueOfTypeAny}}
+
     </td>
 </tr>
 

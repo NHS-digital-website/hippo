@@ -1,6 +1,5 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
-import static java.util.Collections.emptyList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
@@ -14,6 +13,8 @@ import org.apache.commons.lang3.RandomUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import uk.nhs.digital.apispecs.handlebars.OptionsStub;
+import uk.nhs.digital.apispecs.handlebars.TemplateRenderingException;
 
 public class IndentationHelperTest {
 
@@ -37,7 +38,7 @@ public class IndentationHelperTest {
 
         final IndentationHelper indentationHelper = IndentationHelper.with(contextStackFactory);
 
-        final Options options = new OptionsStub(context);
+        final Options options = OptionsStub.with(context);
 
         // when
         final Integer actualIndentationLevel = indentationHelper.apply(null, options);
@@ -65,19 +66,12 @@ public class IndentationHelperTest {
         expectedException.expectCause(sameInstance(expectedCauseException));
 
         final Context irrelevantContext = Context.newContext("irrelevant model");
-        final Options options = new OptionsStub(irrelevantContext);
+        final Options options = OptionsStub.with(irrelevantContext);
 
         // when
         indentationHelper.apply(null, options);
 
         // then
         // expectations set in 'given' are satisfied
-    }
-
-    private static class OptionsStub extends Options {
-
-        public OptionsStub(final Context context) {
-            super(null, null, null, context, null, null, null, null, emptyList());
-        }
     }
 }
