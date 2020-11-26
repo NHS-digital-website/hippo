@@ -2834,6 +2834,1348 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /general:
+    /with-side-navigation:
+      /with-side-navigation[1]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:46:13.667Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 06b39d1d-1ae2-4f23-a767-ee280629ba6c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withNav
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: With Side Navigation
+        website:type: ''
+      /with-side-navigation[2]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:45:46.240Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 06b39d1d-1ae2-4f23-a767-ee280629ba6c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withNav
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: With Side Navigation
+        website:type: ''
+      /with-side-navigation[3]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:45:46.240Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-26T14:45:49.672Z
+        hippotranslation:id: 06b39d1d-1ae2-4f23-a767-ee280629ba6c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withNav
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: With Side Navigation
+        website:type: ''
+      hippo:name: With Side Navigation
+      hippo:versionHistory: 45e4fbab-7730-4812-bd1c-157a6990423b
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /without-side-navigation:
+      /without-side-navigation[1]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:47:02.607Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: d39ff2a7-a616-466b-b061-b8991110b0fb
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withoutNav
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: Without Side Navigation
+        website:type: ''
+      /without-side-navigation[2]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:47:29.914Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: d39ff2a7-a616-466b-b061-b8991110b0fb
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withoutNav
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: Without Side Navigation
+        website:type: ''
+      /without-side-navigation[3]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:47:02.607Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-26T14:47:06.071Z
+        hippotranslation:id: d39ff2a7-a616-466b-b061-b8991110b0fb
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withoutNav
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: Without Side Navigation
+        website:type: ''
+      hippo:name: Without Side Navigation
+      hippo:versionHistory: 6a0ce41b-685b-4456-90af-f10887690c34
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /without-side-navigation--wide:
+      /without-side-navigation--wide[1]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:48:05.585Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 3779b4c6-9813-4808-aa12-6cff4ec5c459
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withoutNavWide
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: Without Side Navigation & Wide
+        website:type: ''
+      /without-side-navigation--wide[2]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:47:48.486Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 3779b4c6-9813-4808-aa12-6cff4ec5c459
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withoutNavWide
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: Without Side Navigation & Wide
+        website:type: ''
+      /without-side-navigation--wide[3]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: <p>Nunc vitae sollicitudin arcu. Praesent ac erat magna.
+              Vestibulum cursus quam quis tempus condimentum. Cras vitae purus non
+              quam condimentum porttitor. Etiam dapibus, purus in tempor euismod,
+              ligula arcu consequat libero, sed finibus dolor nibh non enim. In hac
+              habitasse platea dictumst. Vivamus elementum posuere lectus, eu rutrum
+              velit bibendum luctus. Aenean a bibendum purus. Etiam volutpat, erat
+              quis blandit molestie, metus magna laoreet augue, eu consectetur nulla
+              arcu non libero. Proin euismod nibh felis, at rutrum dolor faucibus
+              eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              pharetra dolor ac risus ultricies aliquam. Morbi dapibus, risus id tincidunt
+              dignissim, turpis velit commodo dui, non condimentum nisi orci id nunc.
+              Morbi leo sapien, hendrerit at feugiat non, pretium id mi. Aenean vestibulum,
+              metus ut luctus varius, nisi risus fermentum lacus, eget sagittis nibh
+              quam pellentesque eros. Mauris at laoreet orci, a molestie risus.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data shows
+          website:type: ''
+        /website:sections[2]:
+          /website:body:
+            hippostd:content: <p>Proin malesuada sagittis justo, nec hendrerit nulla.
+              Duis cursus urna non quam feugiat, a mollis urna laoreet. Etiam pellentesque
+              egestas leo tincidunt sagittis. Sed condimentum et nulla id tempus.
+              Cras gravida tristique dolor, nec auctor nisl iaculis eu. Proin vestibulum
+              convallis erat quis ultrices. Nulla sapien nulla, imperdiet in lacinia
+              lobortis, aliquam id quam. Cras tempus tellus at tellus scelerisque
+              ornare. Nunc sed tellus dui. Curabitur consectetur diam in dui sagittis,
+              eu posuere nisl vestibulum. Aenean id velit velit. Nunc est eros, blandit
+              nec ligula sagittis, facilisis viverra sapien. Aliquam maximus velit
+              felis, sit amet imperdiet ligula ultrices nec. Sed id magna congue,
+              mattis odio ut, elementum eros. Proin id fermentum risus.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Note
+          website:heading: Something to note
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Fusce gravida blandit justo et finibus. Ut quis urna mattis lectus ultrices convallis. Sed lacinia, diam non vulputate dapibus, risus sapien sodales lacus, eu ultrices tortor diam a dui. Praesent ornare libero eget felis pellentesque vestibulum. Vivamus pellentesque risus sapien, ac lobortis nisl elementum et. Sed vitae diam id libero feugiat viverra nec vitae tellus. Ut dignissim augue non euismod consequat. Nulla a malesuada libero, tincidunt pellentesque tellus. Pellentesque ac tellus in lectus pretium tempor eu in lectus. Morbi mattis bibendum quam, a vestibulum diam suscipit euismod. Phasellus enim est, imperdiet sed semper ornare, dapibus sed purus.</p>
+
+              <p>Praesent semper vehicula sem, ac lobortis elit luctus sit amet. Mauris eget commodo ligula, et auctor odio. Nulla sit amet auctor orci. Vestibulum dictum mattis mattis. Phasellus condimentum velit turpis, id consectetur enim ullamcorper sit amet. Etiam turpis orci, suscipit at blandit quis, consequat elementum nisi. Nunc non nisl nec odio rhoncus pellentesque. Curabitur viverra viverra pellentesque. Mauris tempor risus at lectus feugiat, blandit lobortis eros ultrices. Donec ornare vitae justo sit amet rutrum. Etiam eget dolor ut odio malesuada lacinia.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: What this data does not show
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce tincidunt
+            quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl, aliquam
+            id magna nec, euismod faucibus magna.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. In in magna ornare, condimentum eros sit amet, rhoncus libero. Fusce
+            tincidunt quam dui, vel volutpat lorem gravida vitae. Curabitur leo nisl,
+            aliquam id magna nec, euismod faucibus magna. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Sed aliquam quis erat id convallis. Etiam
+            hendrerit viverra erat in condimentum.</p>
+          jcr:primaryType: hippostd:html
+        /website:userContact:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: hgfhfghfhf
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        /website:userNeed:
+          jcr:primaryType: website:userNeed
+          website:asA: ''
+          website:iNeedto: ''
+          website:soThat: ''
+        /website:userNeedandcontact:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:responsibleTeam: ''
+          website:userNeedismet:
+          - ''
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-26T14:40:25.961Z
+        hippostdpubwf:lastModificationDate: 2020-11-26T14:48:05.585Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-11-26T14:48:08.648Z
+        hippotranslation:id: 3779b4c6-9813-4808-aa12-6cff4ec5c459
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:navigationcontroller: withoutNavWide
+        website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:title: Without Side Navigation & Wide
+        website:type: ''
+      hippo:name: Without Side Navigation & Wide
+      hippo:versionHistory: a52318e5-b82c-4f8d-b51f-df26b8804576
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: General
+    hippostd:foldertype:
+    - new-digital-website-folder
+    - new-digital-website-document
+    hippotranslation:id: 718c2b6b-38dd-4477-a4a6-76075b727e16
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /general-test-document:
     /general-test-document[1]:
       /website:component:
