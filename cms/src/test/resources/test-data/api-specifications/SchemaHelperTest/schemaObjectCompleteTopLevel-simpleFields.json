@@ -29,8 +29,9 @@
                                 "nullable": true,
                                 "readOnly": true,
                                 "writeOnly": true,
-                                "default"  : {"property":  "value"},
-                                "enum": ["value-a", "value-b"]
+                                "enum": ["enum-a", "enum-b"],
+                                "default"  : {"property": "default value"},
+                                "example": {"property": "example value"}
                             }
                         }
                     }

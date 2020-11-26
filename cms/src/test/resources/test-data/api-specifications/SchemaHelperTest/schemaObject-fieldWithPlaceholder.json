@@ -8,7 +8,8 @@
                         "application/json": {
                             "schema": {
                                 "type": "typePlaceholder",
-                                "default": defaultValuePlaceholder
+                                "format": "formatPlaceholder",
+                                "propertyNamePlaceholder": valuePlaceholder
                             }
                         }
                     }

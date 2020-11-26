@@ -20,7 +20,7 @@ import java.util.Collection;
 
 public class HasOneItemHelperTest {
 
-    private static final String TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK = RandomStringUtils.random(10);
+    private static final String TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK = RandomStringUtils.random(10);
     private static final String TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK = RandomStringUtils.random(10);
 
     private final HasOneItemHelper hasOneItemHelper = HasOneItemHelper.INSTANCE;
@@ -32,7 +32,7 @@ public class HasOneItemHelperTest {
     public void setUp() throws Exception {
         initMocks(this);
 
-        given(options.fn()).willReturn(TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK);
+        given(options.fn()).willReturn(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
         given(options.inverse()).willReturn(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
         given(options.buffer()).willReturn(buffer);
     }
@@ -52,7 +52,7 @@ public class HasOneItemHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
     }
 
     @Test

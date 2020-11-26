@@ -13,7 +13,7 @@ public class ApiSpecificationTryItNowComponent extends BaseHstComponent {
         super.doBeforeRender(request, response);
 
         // Set by ApiSpecificationComponent
-        Optional.ofNullable(request.getSession().getAttribute("document"))
+        Optional.ofNullable(request.getSession().getAttribute("apiSpecification"))
             .ifPresent(document -> request.setAttribute("document", document));
     }
 }

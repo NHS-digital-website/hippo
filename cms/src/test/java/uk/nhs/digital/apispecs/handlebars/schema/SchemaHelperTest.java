@@ -1,6 +1,7 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
 import static java.lang.String.format;
+import static java.math.BigDecimal.ZERO;
 import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -30,13 +31,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
 import uk.nhs.digital.test.util.FileUtils;
 import uk.nhs.digital.test.util.StringTestUtils.Placeholders;
 
 import java.io.File;
-import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.util.Optional;
+import java.util.function.Function;
 
 @RunWith(DataProviderRunner.class)
 public class SchemaHelperTest {
@@ -66,7 +68,7 @@ public class SchemaHelperTest {
         // given
         final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObjectCompleteTopLevel-simpleFields.html"));
 
-        final Schema schemaObject = fromJsonFile("schemaObjectCompleteTopLevel-simpleFields.json");
+        final Schema<?> schemaObject = fromJsonFile("schemaObjectCompleteTopLevel-simpleFields.json");
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -79,47 +81,51 @@ public class SchemaHelperTest {
     }
 
     @Test
-    public void rendersNumericalFieldsSetToZero() {
+    @UseDataProvider("falsyValues")
+    public void rendersFalsyFieldsSetToZero(
+        final String propertyName,
+        final Object propertyValue,
+        final Function<Schema<?>, Schema<?>> propertySetter
+    ) {
 
         // given
-        final Schema schemaObject = new ObjectSchema()
-            .multipleOf(BigDecimal.ZERO)
-            .minimum(BigDecimal.ZERO)
-            .maximum(BigDecimal.ZERO)
-            .minLength(0)
-            .maxLength(0)
-            .maxItems(0)
-            .minItems(0)
-            .minProperties(0)
-            .maxProperties(0);
+        final Schema<?> schemaObject = propertySetter.apply(new ObjectSchema());
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
 
         // then
-        assertThat("Numerical properties are rendered if they have value of zero.",
+        assertThat("Property '" + propertyName + "' is rendered for falsy value '" + propertyValue + "'.",
             actualSchemaHtml,
-            allOf(
-                containsString("<div>Multiple of: <code class=\"codeinline multipleof\">0</code><div>"),
-                containsString("<div>Maximum: <code class=\"codeinline maximum\">0</code>"),
-                containsString("<code class=\"codeinline exclusivemaximum\">(inclusive)</code>"),
-                containsString("<div>Minimum: <code class=\"codeinline minimum\">0</code>"),
-                containsString("<code class=\"codeinline exclusiveminimum\">(inclusive)</code>"),
-                containsString("<div>Max length: <code class=\"codeinline maxlength\">0</code></div>"),
-                containsString("<div>Min length: <code class=\"codeinline minlength\">0</code></div>"),
-                containsString("<div>Max items: <code class=\"codeinline maxitems\">0</code></div>"),
-                containsString("<div>Min items: <code class=\"codeinline minitems\">0</code></div>"),
-                containsString("<div>Max properties: <code class=\"codeinline maxproperties\">0</code></div>"),
-                containsString("<div>Min properties: <code class=\"codeinline minproperties\">0</code></div>")
-            )
+            containsString(propertyName + "\">" + propertyValue + "<")
         );
+    }
+
+    @DataProvider
+    public static Object[][] falsyValues() {
+        // @formatter:off
+        return new Object[][]{
+            // propertyName     propertyValue   propertySetter
+            {"multipleof",      0,              (Function<Schema<?>, Schema<?>>) schema -> schema.multipleOf(ZERO)},
+            {"maximum",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maximum(ZERO)},
+            {"minimum",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minimum(ZERO)},
+            {"maxlength",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxLength(0)},
+            {"minlength",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minLength(0)},
+            {"maxitems",        0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxItems(0)},
+            {"minitems",        0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minItems(0)},
+            {"maxproperties",   0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxProperties(0)},
+            {"minproperties",   0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minProperties(0)},
+            {"example",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.example(0)},
+            {"example",         false,          (Function<Schema<?>, Schema<?>>) schema -> schema.example(false)},
+        };
+        // @formatter:on
     }
 
     @Test
     public void doesNotRenderFieldsAbsentFromSpecification() {
 
         // given
-        final Schema schemaObject = new ObjectSchema();
+        final Schema<?> schemaObject = new ObjectSchema();
 
         final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObject-empty.html"));
 
@@ -139,7 +145,7 @@ public class SchemaHelperTest {
         // given
         final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObjectsMultiLevelHierarchy-properties.html"));
 
-        final Schema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-properties.json");
+        final Schema<?> schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-properties.json");
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -159,7 +165,7 @@ public class SchemaHelperTest {
         final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObjectsMultiLevelHierarchy-xOf.html"))
             .replaceAll(PROPERTY_PLACEHOLDER_X_OF, propertyName);
 
-        final Schema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-xOf.json",
+        final Schema<?> schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-xOf.json",
             placeholders().with(PROPERTY_PLACEHOLDER_X_OF, propertyName)
         );
 
@@ -179,7 +185,7 @@ public class SchemaHelperTest {
         // given
         final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObjectsMultiLevelHierarchy-items.html"));
 
-        final Schema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-items.json");
+        final Schema<?> schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-items.json");
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -195,8 +201,8 @@ public class SchemaHelperTest {
     public void exclusiveMaximum_rendered_asExclusive_whenExclusiveMaximumIsTrue() {
 
         // given
-        final Schema schemaObject = new ObjectSchema()
-            .maximum(BigDecimal.ZERO)
+        final Schema<?> schemaObject = new ObjectSchema()
+            .maximum(ZERO)
             .exclusiveMaximum(true);
 
         // when
@@ -213,8 +219,8 @@ public class SchemaHelperTest {
     public void exclusiveMaximum_rendered_asInclusive_whenExclusiveMaximumIsFalse() {
 
         // given
-        final Schema schemaObject = new ObjectSchema()
-            .maximum(BigDecimal.ZERO)
+        final Schema<?> schemaObject = new ObjectSchema()
+            .maximum(ZERO)
             .exclusiveMaximum(false);
 
         // when
@@ -231,7 +237,7 @@ public class SchemaHelperTest {
     public void exclusiveMaximum_notRendered_whenMaximumIsAbsent() {
 
         // given
-        final Schema schemaObject = new ObjectSchema().exclusiveMaximum(true);
+        final Schema<?> schemaObject = new ObjectSchema().exclusiveMaximum(true);
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -249,8 +255,8 @@ public class SchemaHelperTest {
     public void exclusiveMinimum_rendered_asExclusive_whenExclusiveMinimumIsTrue() {
 
         // given
-        final Schema schemaObject = new ObjectSchema()
-            .minimum(BigDecimal.ZERO)
+        final Schema<?> schemaObject = new ObjectSchema()
+            .minimum(ZERO)
             .exclusiveMinimum(true);
 
         // when
@@ -267,8 +273,8 @@ public class SchemaHelperTest {
     public void exclusiveMinimum_rendered_asInclusive_whenExclusiveMinimumIsFalse() {
 
         // given
-        final Schema schemaObject = new ObjectSchema()
-            .minimum(BigDecimal.ZERO)
+        final Schema<?> schemaObject = new ObjectSchema()
+            .minimum(ZERO)
             .exclusiveMinimum(false);
 
         // when
@@ -285,7 +291,7 @@ public class SchemaHelperTest {
     public void exclusiveMinimum_notRendered_whenMinimumIsAbsent() {
 
         // given
-        final Schema schemaObject = new ObjectSchema().exclusiveMinimum(true);
+        final Schema<?> schemaObject = new ObjectSchema().exclusiveMinimum(true);
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -303,7 +309,7 @@ public class SchemaHelperTest {
     public void itemsRow_rendered_whenNeitherOfXOfPropertiesArePresent() {
 
         // given
-        final Schema schemaObject = schemaWithItemsWithNoXOf();
+        final Schema<?> schemaObject = schemaWithItemsWithNoXOf();
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -320,7 +326,7 @@ public class SchemaHelperTest {
     public void itemsRow_notRendered_whenEitherOfXOfPropertiesArePresent(final String propertyName) {
 
         // given
-        final Schema schemaObject = schemaWithXOfPropertyUnderItemsObject(propertyName);
+        final Schema<?> schemaObject = schemaWithXOfPropertyUnderItemsObject(propertyName);
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -337,7 +343,7 @@ public class SchemaHelperTest {
     public void property_xOf_rendered_whenPresent_inObjectOtherThanItems(final String propertyName) {
 
         // given
-        final Schema schemaObject = schemaWithXOfPropertyUnderNonItemsObject(propertyName);
+        final Schema<?> schemaObject = schemaWithXOfPropertyUnderNonItemsObject(propertyName);
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -363,7 +369,7 @@ public class SchemaHelperTest {
     public void property_xOf_rendered_whenPresent_inItems(final String propertyName) {
 
         // given
-        final Schema schemaObject = schemaWithXOfPropertyUnderItemsObject(propertyName);
+        final Schema<?> schemaObject = schemaWithXOfPropertyUnderItemsObject(propertyName);
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -389,7 +395,7 @@ public class SchemaHelperTest {
     public void property_xOf_notRendered_whenAbsent(final String propertyName) {
 
         // given
-        final Schema schemaObject = schemaWithItemsWithNoXOf();
+        final Schema<?> schemaObject = schemaWithItemsWithNoXOf();
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -402,19 +408,23 @@ public class SchemaHelperTest {
     }
 
     @Test
-    @UseDataProvider("schemaTypesToDefaultValues")
+    @UseDataProvider("valuesOfVariousAnyTypes")
     public void rendersDefault_forSchemas_ofVariousTypes(
         final String testCaseDescription,
         final String schemaType,
-        final Object defaultValue,
+        final String format, // ignored
+        final Object defaultValueJson,
         final String expectedRenderedValue
     ) {
         // given
-        final Schema schemaObject = fromJsonFile("schemaObject-defaultField.json",
+        final Schema<?> schemaObject = fromJsonFile("schemaObject-fieldWithPlaceholder.json",
             placeholders()
                 .with("typePlaceholder", schemaType)
-                .with("defaultValuePlaceholder", doubleQuotedIfString(schemaType, defaultValue))
+                .with("propertyNamePlaceholder", "default")
+                .with("valuePlaceholder", defaultValueJson)
         );
+
+        final String expectedRendering = "<div>Default: " + expectedRenderedValue.replace("CSS_CLASS", "default") + "</div>";
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -422,24 +432,8 @@ public class SchemaHelperTest {
         // then
         assertThat("Default " + testCaseDescription + " value is rendered for schema of type '" + schemaType + "'.",
             actualSchemaHtml,
-            containsString("<div>Default: <code class=\"codeinline default\">" + expectedRenderedValue + "</code></div>")
+            containsString(expectedRendering)
         );
-    }
-
-    @DataProvider
-    public static Object[][] schemaTypesToDefaultValues() {
-        // @formatter:off
-        return new Object[][]{
-            // test case description       schema type  default value - JSON           expected rendered value
-            {"simple string",              "string",    "simple default string value", "simple default string value"},
-            {"boolean truthy",             "boolean",   true,                          "true"},
-            {"boolean falsy, not null",    "boolean",   false,                         "false"},
-            {"numerical truthy",           "number",    -1.42,                         "-1.42"},
-            {"numerical falsy, not null",  "number",    0,                             "0"},
-            {"JSON object",                "object",    "{\"property\":\"value\"}",    "{&quot;property&quot;:&quot;value&quot;}"},
-            {"JSON array",                 "array",     "[\"item-a\", \"item-b\"]",    "[&quot;item-a&quot;,&quot;item-b&quot;]"}
-        };
-        // @formatter:on
     }
 
     @Test
@@ -451,9 +445,11 @@ public class SchemaHelperTest {
         final String secondRenderedValue
     ) {
         // given
-        final Schema schemaObject = fromJsonFile("schemaObject-enumField.json",
+        final Schema<?> schemaObject = fromJsonFile("schemaObject-fieldWithPlaceholder.json",
             placeholders()
-                .with("enumValuePlaceholder", enumJson)
+                .with("typePlaceholder", "object")
+                .with("propertyNamePlaceholder", "enum")
+                .with("valuePlaceholder", enumJson)
         );
 
         final String expectedRendering = format(
@@ -476,12 +472,96 @@ public class SchemaHelperTest {
     public static Object[][] enumValuesOfVariousTypes() {
         // @formatter:off
         return new Object[][]{
-            // testCaseDescription  enumJson                        firstRenderedValue  secondRenderedValue
-            {"strings",             "[\"string-a\", \"string-b\"]", "string-a",         "string-b"},
-            {"booleans",            "[true, false]",                "true",             "false"},
-            {"numbers",             "[-1.42, 0]",                   "-1.42",            "0"},
-            {"nulls",               "[\"string-a\", null]",         "string-a",         "null"},
-            {"empty strings",       "[\"string-a\", \"\"]",         "string-a",         ""}
+            // testCaseDescription              enumJson                        firstRenderedValue  secondRenderedValue
+            {"strings",                         "[\"string-a\", \"string-b\"]", "string-a",         "string-b"},
+            {"booleans",                        "[true, false]",                "true",             "false"},
+            {"numbers",                         "[-1.42, 0]",                   "-1.42",            "0"},
+            {"nulls",                           "[\"string-a\", null]",         "string-a",         "null"},
+            {"empty strings",                   "[\"string-a\", \"\"]",         "string-a",         ""},
+            {"strings with HTML-hostile chars", "[\"< >\", \"&\"]",             "&lt; &gt;",        "&amp;"},
+        };
+        // @formatter:on
+    }
+
+    @Test
+    @UseDataProvider("valuesOfVariousAnyTypes")
+    public void rendersExamples_ofVariousTypes(
+        final String testCaseDescription,
+        final String schemaType,
+        final String format,
+        final Object valueJson,
+        final String renderedValue
+    ) {
+        // given
+        final Schema<?> schemaObject = fromJsonFile("schemaObject-fieldWithPlaceholder.json",
+            placeholders()
+                .with("typePlaceholder", schemaType)
+                .with("formatPlaceholder", format)
+                .with("propertyNamePlaceholder", "example")
+                .with("valuePlaceholder", valueJson)
+        );
+
+        final String expectedRendering = format("<div>Example: %s</div>", renderedValue.replace("CSS_CLASS", "example"));
+
+        // when
+        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+
+        // then
+        assertThat("Example with " + testCaseDescription + " is rendered.",
+            actualSchemaHtml,
+            containsString(expectedRendering)
+        );
+    }
+
+    @DataProvider
+    public static Object[][] valuesOfVariousAnyTypes() {
+        // @formatter:off
+        return new Object[][]{
+            // testCaseDescription              schemaType  format          valueJson
+            //  renderedValue
+
+            // strings
+            {"string",                          "string",   null,           "\"[string-a]&<string-b>\"",
+                "<code class=\"codeinline CSS_CLASS\">[string-a]&amp;&lt;string-b&gt;</code>"},
+
+            // integers
+            {"32bit integer",                   "integer",  "int32",        "-11",
+                "<code class=\"codeinline CSS_CLASS\">-11</code>"},
+
+            {"64bit integer",                   "integer",  "int64",        "-12",
+                "<code class=\"codeinline CSS_CLASS\">-12</code>"},
+
+            // floats
+            {"float number",                    "number",   "float",        "-1.42",
+                "<code class=\"codeinline CSS_CLASS\">-1.42</code>"},
+
+            {"double number",                   "number",   "double",       "-1.43",
+                "<code class=\"codeinline CSS_CLASS\">-1.43</code>"},
+
+            // booleans
+            {"boolean",                         "boolean",  null,           "true",
+                "<code class=\"codeinline CSS_CLASS\">true</code>"},
+
+            // dates
+            {"date string",                     "string",   "date",         "\"2020-02-29\"",
+                "<code class=\"codeinline CSS_CLASS\">2020-02-29</code>"},
+
+            {"date-time string",                "string",   "date-time",    "\"2020-02-29T23:59:59Z\"",
+                "<code class=\"codeinline CSS_CLASS\">2020-02-29T23:59:59Z</code>"},
+
+            // arrays
+            {"array",                           "array",    null,           "[-1.42, 0, \"string-value\"]",
+                "<code class=\"codeinline CSS_CLASS\">[-1.42,0,&quot;string-value&quot;]</code>"},
+
+            {"array of JSON objects",           "array",    null,           "[{\n  \"a\": \"aa\"\n}, {\n  \"b\": \"bb\"\n}]",
+                "<pre><code>[ {\n  &quot;a&quot; : &quot;aa&quot;\n}, {\n  &quot;b&quot; : &quot;bb&quot;\n} ]</code></pre>"},
+
+            // JSON objects
+            {"JSON",                            "object",   null,           "{\n  \"simple\": \"json\" \n}",
+                "<pre><code>{\n  &quot;simple&quot; : &quot;json&quot;\n}</code></pre>"},
+
+            {"JSON with HTML hostile chars",    "object",   null,           "{\n  \"hostile-chars\": \"< > &\" \n}",
+                "<pre><code>{\n  &quot;hostile-chars&quot; : &quot;&lt; &gt; &amp;&quot;\n}</code></pre>"}
         };
         // @formatter:on
     }
@@ -490,7 +570,7 @@ public class SchemaHelperTest {
     public void rendersRequired_forObjectsUnderProperties_whereParentHasRequiredFieldWithTheirNames() {
 
         // given
-        final Schema schemaObject = fromJsonFile("schemaObject-requiredField.json");
+        final Schema<?> schemaObject = fromJsonFile("schemaObject-requiredField.json");
 
         // when
         final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
@@ -510,7 +590,7 @@ public class SchemaHelperTest {
     public void throwsExceptionOnSchemaRenderingFailure() {
 
         // given
-        final Schema schemaObject = new ObjectSchema().description("a description");
+        final Schema<?> schemaObject = new ObjectSchema().description("a description");
 
         given(markdownHelper.apply(any(), any())).willThrow(new RuntimeException());
 
@@ -547,7 +627,7 @@ public class SchemaHelperTest {
      * times the test files need to be updated whilst not invalidating their
      * value as a reference content.
      */
-    private String renderSchemaDroppingBlankLines(final Schema schemaObject) {
+    private String renderSchemaDroppingBlankLines(final Schema<?> schemaObject) {
         return dropBlankLines(schemaHelper.apply(schemaObject, null));
     }
 
@@ -556,11 +636,7 @@ public class SchemaHelperTest {
         return new Object[][]{{"oneOf"}, {"anyOf"}, {"allOf"}};
     }
 
-    private Object doubleQuotedIfString(final String schemaType, final Object value) {
-        return "string".equals(schemaType) ? ("\"" + value + "\"") : value;
-    }
-
-    private Schema schemaWithItemsWithNoXOf() {
+    private Schema<?> schemaWithItemsWithNoXOf() {
 
         final ComposedSchema items = new ComposedSchema();
         items.title("items object");
@@ -571,7 +647,7 @@ public class SchemaHelperTest {
             );
     }
 
-    private Schema schemaWithXOfPropertyUnderNonItemsObject(final String propertyName) {
+    private Schema<?> schemaWithXOfPropertyUnderNonItemsObject(final String propertyName) {
         final ComposedSchema notItemSchemaObject = new ComposedSchema();
         notItemSchemaObject.title("not-items schema object");
 
@@ -580,15 +656,14 @@ public class SchemaHelperTest {
             new ObjectSchema().title(propertyName + " - B")
         ));
 
-        final Schema schemaObject = new ObjectSchema()
+        return new ObjectSchema()
             .title("root schema object")
             .properties(
                 ImmutableMap.of("not-items-schema-object", notItemSchemaObject)
             );
-        return schemaObject;
     }
 
-    private Schema schemaWithXOfPropertyUnderItemsObject(final String propertyName) {
+    private Schema<?> schemaWithXOfPropertyUnderItemsObject(final String propertyName) {
 
         final ComposedSchema items = new ComposedSchema();
         items.title("items object");
@@ -598,23 +673,22 @@ public class SchemaHelperTest {
             new ObjectSchema().title(propertyName + " - B")
         ));
 
-        final Schema schemaObject = new ObjectSchema()
+        return new ObjectSchema()
             .title("root object")
             .properties(
                 ImmutableMap.of("array-schema", new ArraySchema().items(items))
             );
-        return schemaObject;
     }
 
     private String classPathOf(final String testDataFileName) {
         return TEST_DATA_FILES_CLASSPATH + "/" + testDataFileName;
     }
 
-    private Schema fromJsonFile(final String specJsonFileName) {
+    private Schema<?> fromJsonFile(final String specJsonFileName) {
         return fromJsonFile(specJsonFileName, placeholders());
     }
 
-    private Schema fromJsonFile(
+    private Schema<?> fromJsonFile(
         final String specJsonTemplateFileName,
         final Placeholders placeholders
     ) {
@@ -639,7 +713,7 @@ public class SchemaHelperTest {
         }
     }
 
-    private Schema fromFileWithClasspath(final String testFileClasspathPath) {
+    private Schema<?> fromFileWithClasspath(final String testFileClasspathPath) {
         final OpenAPI openApi = new OpenAPIV3Parser().read(testFileClasspathPath);
 
         return openApi

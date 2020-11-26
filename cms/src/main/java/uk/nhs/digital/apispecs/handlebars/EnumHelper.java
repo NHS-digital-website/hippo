@@ -1,13 +1,15 @@
 package uk.nhs.digital.apispecs.handlebars;
 
+import static java.lang.String.format;
 import static java.util.Collections.emptyList;
+import static java.util.stream.Collectors.joining;
 
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import java.util.Collection;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class EnumHelper implements Helper<Collection<?>> {
 
@@ -22,7 +24,9 @@ public class EnumHelper implements Helper<Collection<?>> {
     @Override public String apply(final Collection<?> args, final Options options) {
 
         return Optional.ofNullable(args).orElse(emptyList()).stream()
-            .map(arg -> String.format("<code class=\"codeinline\">%s</code>", arg))
-            .collect(Collectors.joining(", "));
+            .map(String::valueOf)
+            .map(StringEscapeUtils::escapeHtml)
+            .map(arg -> format("<code class=\"codeinline\">%s</code>", arg))
+            .collect(joining(", "));
     }
 }
