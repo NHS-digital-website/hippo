@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
 import static java.util.Collections.singletonList;
 import static org.hamcrest.Matchers.*;
@@ -8,7 +8,6 @@ import static org.mockito.Mockito.mock;
 
 import com.github.jknack.handlebars.Context;
 import org.junit.Test;
-import org.mockito.BDDMockito;
 
 public class ContextModelsStackFactoryTest {
 

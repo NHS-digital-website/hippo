@@ -1,8 +1,7 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
-import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
@@ -13,6 +12,7 @@ import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import io.swagger.v3.oas.models.media.Schema;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import uk.nhs.digital.apispecs.handlebars.schema.ContextModelsStack;
 
 import java.util.List;
 import java.util.Optional;
@@ -68,7 +68,7 @@ public class ContextModelsStackTest {
 
         // given
         final Object grandparentModel = new Object();
-        final Schema parentModel = new Schema();
+        final Schema<?> parentModel = new Schema<>();
         final Object currentModel = new Object();
 
         final ContextModelsStack contextModelsStack = new ContextModelsStack(

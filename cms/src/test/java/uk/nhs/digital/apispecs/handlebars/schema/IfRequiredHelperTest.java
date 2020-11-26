@@ -1,6 +1,5 @@
-package uk.nhs.digital.apispecs.handlebars;
+package uk.nhs.digital.apispecs.handlebars.schema;
 
-import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.sameInstance;
@@ -8,9 +7,9 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK;
 
-import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Options;
 import io.swagger.v3.oas.models.media.ObjectSchema;
 import io.swagger.v3.oas.models.media.Schema;
@@ -19,13 +18,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
+import uk.nhs.digital.apispecs.handlebars.OptionsStub;
 
 import java.io.IOException;
 
 public class IfRequiredHelperTest {
-
-    private static final String TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK = randomString("positive_block_content_");
-    private static final String TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK = randomString("inverse_block_content_");
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
@@ -41,13 +38,13 @@ public class IfRequiredHelperTest {
     }
 
     @Test
-    public void rendersPrimaryBlock_whenParentObjectRequiresCurrentOne() throws IOException {
+    public void rendersMainBlock_whenParentObjectRequiresCurrentOne() throws IOException {
 
         // given
-        final Schema schemaWithPropertyRequired = new ObjectSchema();
+        final Schema<?> schemaWithPropertyRequired = new ObjectSchema();
         schemaWithPropertyRequired.required(singletonList("required-object"));
 
-        final Schema requiredSchema = new ObjectSchema();
+        final Schema<?> requiredSchema = new ObjectSchema();
         schemaWithPropertyRequired.addProperties("required-object", requiredSchema);
 
         final Options options = OptionsStub.with(
@@ -65,17 +62,17 @@ public class IfRequiredHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
     }
 
     @Test
     public void rendersInverseBlock_whenParentObjectDoesNotRequireCurrentOne() throws IOException {
 
         // given
-        final Schema schemaWithPropertyRequired = new ObjectSchema();
+        final Schema<?> schemaWithPropertyRequired = new ObjectSchema();
         schemaWithPropertyRequired.required(singletonList("required-object"));
 
-        final Schema notRequiredSchema = new ObjectSchema();
+        final Schema<?> notRequiredSchema = new ObjectSchema();
         schemaWithPropertyRequired.addProperties("not-required-object", notRequiredSchema);
 
         final Options options = OptionsStub.with(
@@ -100,7 +97,7 @@ public class IfRequiredHelperTest {
     public void rendersInverseBlock_whenNoParentModel() throws IOException {
 
         // given
-        final Schema currentSchemaModel = new ObjectSchema();
+        final Schema<?> currentSchemaModel = new ObjectSchema();
 
         final Options options = OptionsStub.with(
             buffer,
@@ -125,7 +122,7 @@ public class IfRequiredHelperTest {
         // given
         final Object parentModelNotSchema = new Object();
 
-        final Schema currentSchemaModel = new ObjectSchema();
+        final Schema<?> currentSchemaModel = new ObjectSchema();
 
         final Options options = OptionsStub.with(
             buffer,
@@ -156,7 +153,7 @@ public class IfRequiredHelperTest {
         expectedException.expectMessage("Failed to render 'required' status.");
         expectedException.expectCause(sameInstance(expectedCause));
 
-        final Schema irrelevantModel = new ObjectSchema();
+        final Schema<?> irrelevantModel = new ObjectSchema();
 
         final Options options = OptionsStub.with(buffer, irrelevantModel);
 
@@ -165,41 +162,6 @@ public class IfRequiredHelperTest {
 
         // then
         // expectations in 'given' are satisfied
-    }
-
-    private static class OptionsStub extends Options {
-
-        private final Buffer buffer;
-
-        private OptionsStub(final Context context, final Buffer buffer) {
-            super(null, null, null, context, null, null, null, null, emptyList());
-            this.buffer = buffer;
-        }
-
-        public static Options with(final Buffer buffer, final Object currentContextModel) {
-            final Context currentContext = Context.newContext(currentContextModel);
-
-            return new OptionsStub(currentContext, buffer);
-        }
-
-        public static Options with(final Buffer buffer, final Object currentContextModel, final Object parentContextModel) {
-            final Context parentContext = Context.newContext(parentContextModel);
-            final Context currentContext = Context.newContext(parentContext, currentContextModel);
-
-            return new OptionsStub(currentContext, buffer);
-        }
-
-        @Override public CharSequence fn() throws IOException {
-            return TEMPLATE_CONTENT_FROM_THE_POSITIVE_BLOCK;
-        }
-
-        @Override public CharSequence inverse() throws IOException {
-            return TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK;
-        }
-
-        @Override public Buffer buffer() {
-            return buffer;
-        }
     }
 
 }

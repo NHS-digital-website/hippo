@@ -20,7 +20,7 @@ import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 import uk.nhs.digital.apispecs.handlebars.EnumHelper;
 import uk.nhs.digital.apispecs.handlebars.HasOneItemHelper;
 import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
-import uk.nhs.digital.apispecs.handlebars.SchemaHelper;
+import uk.nhs.digital.apispecs.handlebars.schema.SchemaHelper;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleHtmlRenderer;
 
