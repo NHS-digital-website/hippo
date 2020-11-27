@@ -16,4 +16,12 @@ public interface WrappedListPickerComponentInfo extends EssentialsListPickerComp
     @Parameter(name = "wrappingDocument", displayName = "Wrapping document", required = false)
     @JcrPath(isRelative = true, pickerSelectableNodeTypes = {HIPPO_DOCUMENT})
     String getWrappingDocument();
+
+    @Parameter(
+        name = "showIcon",
+        defaultValue = "true",
+        required = false,
+        displayName = "Show Icons (if supported in template)"
+    )
+    Boolean getShowIcon();
 }

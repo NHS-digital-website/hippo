@@ -28,7 +28,7 @@
         "@babel/preset-env": "^7.9.6",
         "autoprefixer": "^9.8.0",
         "babel-loader": "^8.1.0",
-        "browser-sync": "^2.26.7",
+        "browser-sync": "^2.26.13",
         "cssnano": "^4.1.10",
         "del": "^5.1.0",
         "eslint-config-airbnb-base": "^14.1.0",
@@ -125,7 +125,7 @@
     "dependencies": {
         "countup.js": "^2.0.5",
         "css-element-queries": "^1.2.3",
-        "highcharts": "^8.1.0",
+        "highcharts": "^8.2.2",
         "jquery": "^3.5.1",
         "jquery-ui": "^1.12.1",
         "papaparse": "^5.2.0",
