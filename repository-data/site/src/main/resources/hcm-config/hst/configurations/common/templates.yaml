@@ -74,9 +74,6 @@ definitions:
       /cyber-alert-hub:
         hst:renderpath: webfile:/freemarker/common/cyber-alert-hub.ftl
         jcr:primaryType: hst:template
-      /cyber-alert-hub-nav:
-        hst:renderpath: webfile:/freemarker/common/faceted-cyber-alerts-navigation.ftl
-        jcr:primaryType: hst:template
       /cyber-alerts:
         hst:renderpath: webfile:/freemarker/common/cyber-alerts.ftl
         jcr:primaryType: hst:template
@@ -112,6 +109,9 @@ definitions:
         jcr:primaryType: hst:template
       /eventlist-main-eventlist:
         hst:renderpath: webfile:/freemarker/common/eventlist-main-eventlist.ftl
+        jcr:primaryType: hst:template
+      /faceted-navigation:
+        hst:renderpath: webfile:/freemarker/common/faceted-navigation.ftl
         jcr:primaryType: hst:template
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
