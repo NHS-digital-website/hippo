@@ -21,12 +21,25 @@ public class FormTypeValidator implements Validator<Node> {
     @Override
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
-            final boolean mailDelivery = Boolean.parseBoolean(node.getProperty("eforms:mailformdata").getString());
-            final boolean apiDelivery = Boolean.parseBoolean(node.getProperty("eforms:govdeliveryapi").getString());
+            boolean mailDelivery = false;
+            if (node.hasProperty("eforms:mailformdata")) {
+                mailDelivery = Boolean.parseBoolean(node.getProperty("eforms:mailformdata").getString());
+            }
 
-            if (mailDelivery && apiDelivery) {
+            boolean apiDelivery = false;
+            if (node.hasProperty("eforms:govdeliveryapi")) {
+                apiDelivery = Boolean.parseBoolean(node.getProperty("eforms:govdeliveryapi").getString());
+            }
+
+            boolean apiScriptServiceDelivery = false;
+            if (node.hasProperty("eforms:govdeliveryScriptService")) {
+                apiScriptServiceDelivery = Boolean.parseBoolean(node.getProperty("eforms:govdeliveryScriptService").getString());
+            }
+
+            if (mailDelivery && apiDelivery || mailDelivery && apiScriptServiceDelivery || apiScriptServiceDelivery && apiDelivery) {
                 return Optional.of(validationContext.createViolation());
             }
+
         } catch (RepositoryException e) {
             LOGGER.error("Error while validating form", e);
         }

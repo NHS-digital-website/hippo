@@ -17,6 +17,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+
 public class SubscriptionBehavior implements OnValidationSuccessBehavior {
 
     private static final String EMAIL_FIELD_NAME = "email";
@@ -28,6 +31,12 @@ public class SubscriptionBehavior implements OnValidationSuccessBehavior {
 
     @Override
     public void onValidationSuccess(HstRequest request, HstResponse response, ComponentConfiguration config, FormBean bean, Form form, FormMap map) {
+
+        if (!isEnabled(bean)) {
+            LOGGER.info("Subscription Behavior disabled");
+            return;
+        }
+
         final FormField emailField = map.getField(EMAIL_FIELD_NAME);
         final FormField topicsField = map.getField(TOPICS_FIELD_NAME);
         if (emailField == null || !StringUtils.hasText(emailField.getValue())) {
@@ -55,7 +64,14 @@ public class SubscriptionBehavior implements OnValidationSuccessBehavior {
 
     @Override
     public boolean isEnabled(FormBean bean) {
-        final String apiMode = bean.getSingleProperty(PROP_NAME_GOVDELIVERY_API);
-        return StringUtils.hasText(apiMode);
+        Node node = bean.getNode();
+        try {
+            if (node.hasProperty(PROP_NAME_GOVDELIVERY_API)) {
+                return Boolean.parseBoolean(node.getProperty(PROP_NAME_GOVDELIVERY_API).getString());
+            }
+        } catch (RepositoryException e) {
+            LOGGER.warn("Error reading property {}: {}", PROP_NAME_GOVDELIVERY_API, e.getMessage());
+        }
+        return false;
     }
 }

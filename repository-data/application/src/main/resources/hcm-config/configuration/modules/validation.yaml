@@ -1,6 +1,9 @@
 ---
 definitions:
   config:
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/form-no-email:
+      hipposys:className: uk.nhs.digital.ps.FormNoEmailValidator
+      jcr:primaryType: hipposys:moduleconfig
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/form-type:
       hipposys:className: uk.nhs.digital.ps.FormTypeValidator
       jcr:primaryType: hipposys:moduleconfig

@@ -18,23 +18,24 @@ import javax.jcr.RepositoryException;
 
 public class FormApiSettingsPlugin extends AbstractFormExtensionPlugin {
 
-    private static final String PROP_API_FORM_ID = "eforms:formId";
+    private static final String PROP_API_TOPIC_ID = "eforms:topicId";
     private static final String PROP_API_ENABLED = "eforms:govdeliveryapi";
+    private static final String PROP_API_SCRIPT_SERVICE_ENABLED = "eforms:govdeliveryScriptService";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FormApiSettingsPlugin.class);
 
     private final IEditor.Mode mode;
-
     private boolean apiEnabledForm;
-    private String formId;
-
+    private boolean apiScriptServiceEnabled;
+    private String topicId;
 
     public FormApiSettingsPlugin(IPluginContext context, IPluginConfig config) throws RepositoryException {
         super(context, config);
 
         mode = IEditor.Mode.fromString(config.getString("mode"));
         apiEnabledForm = isApiEnabledForm();
-        formId = getFormId();
+        apiScriptServiceEnabled = isApiScriptServiceEnabled();
+        topicId = getTopicId();
 
         final CheckBox apiEnabledField = new CheckBox("enabled", Model.of(apiEnabledForm));
         apiEnabledField.add(new OnChangeAjaxBehavior() {
@@ -52,13 +53,29 @@ public class FormApiSettingsPlugin extends AbstractFormExtensionPlugin {
             }
         });
 
-        final TextField<String> formIdField = new TextField<>("formId", new PropertyModel<>(this, "formId"));
-        formIdField.setOutputMarkupId(true);
-        formIdField.add(new OnChangeAjaxBehavior() {
+        final CheckBox apiScriptServiceEnabledField = new CheckBox("apiScriptServiceEnabled", Model.of(apiScriptServiceEnabled));
+        apiScriptServiceEnabledField.add(new OnChangeAjaxBehavior() {
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
                 try {
-                    getFormDocument().getNode().setProperty(PROP_API_FORM_ID, formId);
+                    if (apiScriptServiceEnabled) {
+                        getFormDocument().getNode().setProperty(PROP_API_SCRIPT_SERVICE_ENABLED, "false");
+                    } else {
+                        getFormDocument().getNode().setProperty(PROP_API_SCRIPT_SERVICE_ENABLED, "true");
+                    }
+                } catch (RepositoryException e) {
+                    LOGGER.error(e.getMessage(), e);
+                }
+            }
+        });
+
+        final TextField<String> topicIdField = new TextField<>("topicId", new PropertyModel<>(this, "topicId"));
+        topicIdField.setOutputMarkupId(true);
+        topicIdField.add(new OnChangeAjaxBehavior() {
+            @Override
+            protected void onUpdate(AjaxRequestTarget target) {
+                try {
+                    getFormDocument().getNode().setProperty(PROP_API_TOPIC_ID, topicId);
                 } catch (RepositoryException e) {
                     LOGGER.error(e.getMessage(), e);
                 }
@@ -67,27 +84,25 @@ public class FormApiSettingsPlugin extends AbstractFormExtensionPlugin {
 
         if (mode != IEditor.Mode.EDIT) {
             apiEnabledField.setEnabled(false);
-            formIdField.setEnabled(false);
+            apiScriptServiceEnabledField.setEnabled(false);
+            topicIdField.setEnabled(false);
         }
 
         add(apiEnabledField);
-        add(formIdField);
+        add(apiScriptServiceEnabledField);
+        add(topicIdField);
+    }
+
+    private boolean isApiScriptServiceEnabled() {
+        return Boolean.parseBoolean(JcrUtils.getStringProperty(getFormDocument().getNode(), PROP_API_SCRIPT_SERVICE_ENABLED));
     }
 
     private boolean isApiEnabledForm() {
         return Boolean.parseBoolean(JcrUtils.getStringProperty(getFormDocument().getNode(), PROP_API_ENABLED));
     }
 
-    public String getFormId() {
-        return JcrUtils.getStringProperty(getFormDocument().getNode(), PROP_API_FORM_ID);
-    }
-
-    public void setFormId(String formId) {
-        this.formId = formId;
-    }
-
-    public void setApiEnabledForm(boolean apiEnabledForm) {
-        this.apiEnabledForm = apiEnabledForm;
+    private String getTopicId() {
+        return JcrUtils.getStringProperty(getFormDocument().getNode(), PROP_API_TOPIC_ID);
     }
 
 }
