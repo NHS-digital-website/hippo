@@ -2,7 +2,10 @@
 definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
-      form-type: Form must be Mail Delivery or API Delivery. It cannot be both.
+      form-no-email: Form must contain a textfield with field name equal to 'email'
+        when one of the Gov Deliver APIs is selected.
+      form-type: Form must be Mail Delivery or Communications Cloud API Delivery or
+        Script Service API delivery. It can be only one of those options.
       http-status-code: Invalid HTTP status code ex. 200, 404, 400
       internal-or-external-link#choose-one: You must enter either an external link
         OR an internal link.

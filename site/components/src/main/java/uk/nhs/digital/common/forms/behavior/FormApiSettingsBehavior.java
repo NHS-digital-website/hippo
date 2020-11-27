@@ -25,14 +25,17 @@ public class FormApiSettingsBehavior extends FormIntroBehavior implements DoBefo
             LOGGER.info("Form Api Settings Behavior disabled");
             return;
         }
-        String formId = formBean.getSingleProperty("eforms:formId", null);
+        String topicId = formBean.getSingleProperty("eforms:topicId", null);
         Boolean apiEnabled = Boolean.valueOf(formBean.getSingleProperty("eforms:govdeliveryapi", "false"));
-        request.setAttribute("formId", formId);
+        Boolean apiScriptServiceEnabled = Boolean.valueOf(formBean.getSingleProperty("eforms:govdeliveryScriptService", "false"));
+        request.setAttribute("topicId", topicId);
         request.setAttribute("apiEnabled", apiEnabled);
+        request.setAttribute("apiScriptServiceEnabled", apiScriptServiceEnabled);
     }
 
     @Override
     public boolean isEnabled(FormBean formBean) {
-        return Boolean.parseBoolean(formBean.getSingleProperty("eforms:govdeliveryapi", "false"));
+        return Boolean.parseBoolean(formBean.getSingleProperty("eforms:govdeliveryapi", "false"))
+            || Boolean.parseBoolean(formBean.getSingleProperty("eforms:govdeliveryScriptService", "false"));
     }
 }

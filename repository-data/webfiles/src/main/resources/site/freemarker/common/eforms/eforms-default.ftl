@@ -41,14 +41,6 @@
     <p class="eforms-intro">${formIntro}</p>
 </#if>
 
-<h1> Form id: ${formId} </h1>
-
-<#if apiEnabled?? && apiEnabled>
-    <h1> api enabled is true</h1>
-    <#else>
-    <h1> api enabled is false</h1>
-</#if>
-
 <#assign className = (processDone! == "true")?then("eforms-success-box", "eforms-success-box visually-hidden") />
 <div class="${className}">
     <span class="eforms-success-box__title">Form submitted successfully</span>
@@ -66,7 +58,13 @@
     </#if>
 <#else>
     <#if "${processDone!}" != "true">
-        <form class="eforms form" action="<@hst.actionURL escapeXml=false />" method="post" name="${form.name!}"
+
+        <#assign formAction = "post">
+
+        <#if apiScriptServiceEnabled?? && apiScriptServiceEnabled>
+            <#assign formAction = "get">
+        </#if>
+        <form class="eforms form" action="<@hst.actionURL escapeXml=false />" method="${formAction}" name="${form.name!}"
               <#if form.multipart>enctype="multipart/form-data"</#if>>
 
             <#assign formPages = form.pages>

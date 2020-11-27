@@ -32,3 +32,4 @@ definitions:
         operation: add
         value:
         - form-type
+        - form-no-email
