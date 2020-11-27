@@ -1,0 +1,52 @@
+.grid-row--icon-link-blocks {
+    @include fullViewportWidth();
+    background: $grey-5;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.icon-link-blocks {
+    max-width: 992px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 16px;
+
+    display: grid;
+    gap: 25px;
+
+    grid-template-columns: 1fr;
+    @include media(tablet) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.icon-link-blocks--1up {
+    grid-template-columns: 1fr 1fr;
+}
+
+.icon-link-blocks--2up {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    @include media(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+    }
+}
+
+.icon-link-blocks--3up {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    @include media(tablet) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+    }
+}
+
+.icon-link-blocks--4up {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    @include media(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}

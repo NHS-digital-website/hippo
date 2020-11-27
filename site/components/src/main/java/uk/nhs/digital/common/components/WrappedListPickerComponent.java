@@ -20,8 +20,10 @@ public class WrappedListPickerComponent extends EssentialsListPickerComponent {
 
         final WrappedListPickerComponentInfo info = getComponentParametersInfo(request);
         final HippoBean document = getHippoBeanForPath(info.getWrappingDocument(), HippoBean.class);
+        final Boolean showIcon = info.getShowIcon();
 
         request.setAttribute("wrappingDocument", document);
         request.setAttribute("currentDate", Calendar.getInstance());
+        request.setAttribute("showIcon", showIcon);
     }
 }
