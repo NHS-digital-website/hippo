@@ -3,6 +3,7 @@
 <#include "macro/hubBox.ftl">
 <#include "macro/stickyGroupBlockHeader.ftl">
 <#include "macro/documentHeader.ftl">
+<#include "macro/stickyNavYears.ftl">
 
 <@hst.setBundle basename="rb.generic.headers,rb.doctype.news-hub"/>
 
@@ -19,6 +20,17 @@
 <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="MMMM" timeZone="${getTimeZone()}" var="key" />
 <#assign newsGroupHash = newsGroupHash + {  key : (newsGroupHash[key]![]) + [ item ] } />
 </#list>
+
+<#function getFilterYearLinks>
+    <#assign links = [] />
+
+    <#list years?keys?sort?reverse as key>
+        <#assign typeCount = years?size />
+        <#assign links += [{ "key" : key, "title": key }] />
+    </#list>
+
+    <#return links />
+</#function>
 
 <article class="article article--news-hub">
     <#assign header_title><@fmt.message key="headers.page-title" /></#assign>
@@ -40,6 +52,12 @@
                         <#assign searchFormId = "hub-search-form" />
                         <#assign buttonLabel = "Filter" />
                         <#include "../include/search-strip.ftl">
+
+                        <#assign affix = selectedTypes?has_content?then("&type=" + selectedTypes?join("&type="), "") />
+                        <#assign affix = affix + query?has_content?then("&query=" + query, "") />
+                        <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="year">
+                            <@stickyNavYears getFilterYearLinks() affix></@stickyNavYears>
+                        </div>
                     </div>
                 </div>
             </div>

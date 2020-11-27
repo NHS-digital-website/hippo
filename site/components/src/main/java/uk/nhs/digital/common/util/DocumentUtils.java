@@ -48,7 +48,7 @@ public final class DocumentUtils {
         return isYear(target) ? target : String.valueOf(fallback);
     }
 
-    private static boolean isYear(final String candidate) {
+    public static boolean isYear(final String candidate) {
         return candidate != null && candidate.matches("20[1-9][0-9]");
     }
 }

@@ -37,7 +37,7 @@
                 window.addEventListener('popstate', popHistoryState);
             }
         })();
-        
+
         // Instantiate tag filter components
         function initTagFilters() {
             var hubTagFilterElements = document.querySelectorAll('[data-hub-filter-type=nhsd-hub-tag-filter]');
@@ -61,7 +61,7 @@
 
             for (var i = 0; i < hubQueryFilterElements.length; i++) {
                 var component = new HubQueryFilter(hubQueryFilterElements[i]);
-                
+
                 // Cache the first query filter component for progress indication
                 _this.queryFilterComponent = _this.queryFilterComponent ? _this.queryFilterComponent : component;
 
@@ -88,7 +88,7 @@
                     _this.queryFilterComponent.showProgress();
 
                     _this.cachedQueryString = _this.queryFilterComponent.getValue();
-                    
+
                     makeDelayedFunctionCall(function (e) {
                         performSearch();
                     }, DELAY)();
@@ -103,6 +103,10 @@
                 return;
             }
 
+            if (_this.queryFilters[key] == value) {
+                return delete _this.queryFilters[key];
+            }
+
             _this.queryFilters[key] = value;
         }
 
@@ -113,7 +117,7 @@
                 queryString += (i == 0 ? '?' : '&') + r + '=' + queryFilters[r];
                 i++;
             }
-            
+
             return queryString;
         }
 
@@ -142,7 +146,7 @@
                     console.log('An error occured while performing the search.');
                 }
             });
-            
+
             if (!_this.poppingHistoryState) {
                 pushHistoryState();
             }
@@ -170,7 +174,7 @@
 
         function replaceFoundString(inputTextEl) {
             var queryString = _this.cachedQueryString;
-            
+
             if (_this.cachedQueryString) {
                 var innerHTML = inputTextEl.innerHTML;
                 innerHTML = replaceAll(innerHTML, queryString, '<span class=\'highlight\'>'+queryString+'</span>');
@@ -181,7 +185,7 @@
         function highlightSearchTerm() {
             var shortSummaries = document.querySelectorAll('.hub-box__text');
             Array.prototype.forEach.call(shortSummaries, replaceFoundString);
-            
+
             var titles = document.querySelectorAll('.hub-box__title-a');
             Array.prototype.forEach.call(titles, replaceFoundString);
         }
@@ -204,7 +208,7 @@
 
         function renderSideNavLinks(data) {
             var $dataContentNavEl = $(data).find(SEARCH_CONTENT_NAV_EL_ID);
-            
+
             // If Sticky nav doesn't already have the content nav element...
             if ($dataContentNavEl.length) {
                 if (!$(_this.$sideNavigation).find(SEARCH_CONTENT_NAV_EL_ID).length) {
@@ -222,7 +226,7 @@
         function pushHistoryState() {
             var searchParamsString = populateQueryString(_this.queryFilters);
             var url = window.location.origin + window.location.pathname + searchParamsString;
-            
+
             if (_this.history) {
                 _this.history.pushState({queryFilters: _this.queryFilters}, null, url);
             }
@@ -240,7 +244,7 @@
         function resetComponentValues(queryFilters) {
             if (typeof queryFilters === 'object') {
                 _this.queryFilters = queryFilters;
-                
+
                 for (var r in _this.filterComponents) {
                     var component = _this.filterComponents[r];
 
