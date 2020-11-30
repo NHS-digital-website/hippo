@@ -25,10 +25,15 @@
 
                 <li class="nhsd-t-body-s">
                     <#if hasLink>
+                        <#assign cookieBot = item.external?starts_with("javascript:") />
+                        <#if item.external?has_content && !cookieBot>
+                            <#assign externalLinkAttr>target="_blank" rel="external"</#assign>
+                        </#if>
+
                         <#if item.internal?has_content>
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link hippobean=item.internal/>">
                         <#else>
-                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${item.external}" target="_blank" rel="external">
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${item.external}" ${externalLinkAttr}>
                         </#if>
                     </#if>
                     ${label}

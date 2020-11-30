@@ -38,7 +38,7 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
     <#assign organism = isSmallBlock?then("nhsd-o-card-list", "nhsd-o-nav-block-list") />
     <#assign organismRow = isSmallBlock?then("nhsd-o-card-list__items", "nhsd-o-nav-block-list__items") />
 
-    <div class="${organism}">
+    <div class="${organism} nhsd-!t-margin-bottom-9">
         <div class="nhsd-t-grid">
             <#if hasHeading>
                 <div class="nhsd-t-row">
