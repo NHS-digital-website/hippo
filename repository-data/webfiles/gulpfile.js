@@ -70,6 +70,7 @@ task("build-js", function gulpScripts() {
     return src([
         `${paths.js}/nhsd-priority-scripts.js`,
         `${paths.js}/nhsd-scripts.js`,
+        `${paths.js}/nhsd-frontend-scripts.js`,
     ])
         .pipe(named())
         .pipe(
