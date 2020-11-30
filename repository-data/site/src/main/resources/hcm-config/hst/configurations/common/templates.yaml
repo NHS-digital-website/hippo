@@ -182,6 +182,15 @@ definitions:
       /newslist-main-newslist:
         hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
         jcr:primaryType: hst:template
+      /nhsd-homepage:
+        hst:renderpath: webfile:/freemarker/common/nhsd-homepage.ftl
+        jcr:primaryType: hst:template
+      /nhsd-homepage-layout:
+        hst:renderpath: webfile:/freemarker/common/nhsd-homepage-layout.ftl
+        jcr:primaryType: hst:template
+      /nhsd-main-nav:
+        hst:renderpath: webfile:/freemarker/common/nhsd-main-nav.ftl
+        jcr:primaryType: hst:template
       /nihub:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl
         jcr:primaryType: hst:template

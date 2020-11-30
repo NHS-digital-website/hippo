@@ -1,0 +1,5 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/nhsd-main-nav/Services:
+  hst:referencesitemapitem: services
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

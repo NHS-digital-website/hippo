@@ -52,6 +52,16 @@ definitions:
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
+      /nhsd-homepage:
+        /banner:
+          hst:label: Banner
+          hst:lastmodified: 2020-11-24T13:34:16.638Z
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /servicepage:
         /servicepage-bottom:
           .meta:residual-child-node-category: content
