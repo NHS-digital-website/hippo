@@ -63,7 +63,7 @@ definitions:
           /suffix:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: none=None,percentage=Percentage,plus=Plus,millions=Millions,billions=Billions
+              selectable.options: none=None,percentage=Percentage,plus=Plus,thousands=Thousands,millions=Millions,billions=Billions,times=Times
             caption: Suffix
             field: suffix
             jcr:primaryType: frontend:plugin

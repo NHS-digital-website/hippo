@@ -192,6 +192,9 @@
 [website:glossarylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:graphicblock] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:group] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

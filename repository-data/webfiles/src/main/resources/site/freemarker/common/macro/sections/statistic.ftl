@@ -23,11 +23,15 @@
     <#if type == 'percentage' >
         <#return '%' />
     <#elseif type == 'plus' >
-        <#return ' +' />
+        <#return '+' />
     <#elseif type == 'millions' >
         <#return 'm' />
     <#elseif type == 'billions' >
         <#return 'b' />
+    <#elseif type == 'thousands' >
+        <#return 'k' />
+    <#elseif type == 'times' >
+        <#return 'x' />
     </#if>
     <#return '' />
 </#function>
