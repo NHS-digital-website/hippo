@@ -47,6 +47,9 @@ definitions:
       /callToAction:
         hst:renderpath: webfile:/freemarker/common/callToAction.ftl
         jcr:primaryType: hst:template
+      /case-study:
+        hst:renderpath: webfile:/freemarker/common/case-study.ftl
+        jcr:primaryType: hst:template
       /categorylist-article:
         hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl
         jcr:primaryType: hst:template
@@ -134,6 +137,9 @@ definitions:
       /general-article:
         hst:renderpath: webfile:/freemarker/common/general-article.ftl
         jcr:primaryType: hst:template
+      /global-footer:
+        hst:renderpath: webfile:/freemarker/common/global-footer.ftl
+        jcr:primaryType: hst:template
       /glossary-list:
         hst:renderpath: webfile:/freemarker/common/glossary-list.ftl
         jcr:primaryType: hst:template
@@ -182,6 +188,9 @@ definitions:
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
         jcr:primaryType: hst:template
+      /navigationBlock:
+        hst:renderpath: webfile:/freemarker/common/navigationBlock.ftl
+        jcr:primaryType: hst:template
       /news-article:
         hst:renderpath: webfile:/freemarker/common/news-article.ftl
         jcr:primaryType: hst:template
@@ -196,6 +205,15 @@ definitions:
         jcr:primaryType: hst:template
       /newslist-main-newslist:
         hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
+        jcr:primaryType: hst:template
+      /nhsd-homepage:
+        hst:renderpath: webfile:/freemarker/common/nhsd-homepage.ftl
+        jcr:primaryType: hst:template
+      /nhsd-homepage-layout:
+        hst:renderpath: webfile:/freemarker/common/nhsd-homepage-layout.ftl
+        jcr:primaryType: hst:template
+      /nhsd-main-nav:
+        hst:renderpath: webfile:/freemarker/common/nhsd-main-nav.ftl
         jcr:primaryType: hst:template
       /nihub:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl
