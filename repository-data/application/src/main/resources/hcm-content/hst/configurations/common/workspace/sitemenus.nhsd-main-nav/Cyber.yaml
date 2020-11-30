@@ -1,0 +1,5 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/nhsd-main-nav/Cyber:
+  hst:referencesitemapitem: cyber
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

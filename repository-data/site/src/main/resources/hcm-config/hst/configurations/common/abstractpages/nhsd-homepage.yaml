@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/nhsd-homepage:
+      /main-nav:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - nhsd-main-nav
+        hst:template: nhsd-main-nav
+        jcr:primaryType: hst:component
+      hst:template: nhsd-homepage-layout
+      jcr:primaryType: hst:component
