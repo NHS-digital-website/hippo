@@ -93,7 +93,11 @@ public class SitePage extends AbstractSitePage {
     }
 
     public WebElement findElementWithText(String text) {
-        return helper.findElement(By.xpath("//*[text()='" + text + "']"));
+        return helper.findOptionalElement(By.xpath("//*[text()='" + text + "']"));
+    }
+
+    public WebElement findCssClass(String cssClass) {
+        return helper.findOptionalElement(By.xpath("//*[contains(@class, '" + cssClass + "')]"));
     }
 
     public String getDocumentTitle() {

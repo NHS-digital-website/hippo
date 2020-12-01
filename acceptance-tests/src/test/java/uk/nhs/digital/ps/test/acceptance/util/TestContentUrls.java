@@ -227,6 +227,12 @@ public class TestContentUrls {
         // General page
         addSiteUrl("General test document",
             "/website-acceptance-tests/general-test-document");
+        addSiteUrl("With Side Navigation",
+            "/website-acceptance-tests/general/with-side-navigation");
+        addSiteUrl("Without Side Navigation",
+            "/website-acceptance-tests/general/without-side-navigation");
+        addSiteUrl("Without Side Navigation & Wide",
+            "/website-acceptance-tests/general/without-side-navigation--wide");
 
         // Service page
         addSiteUrl("Service test document",

@@ -377,4 +377,28 @@ public class SiteSteps extends AbstractSpringSteps {
         String title = testDataRepo.getCurrentPublication().getTitle();
         whenIClickOn(title);
     }
+
+    @Then("^I should see side navigation$")
+    public void thenIShouldSeeSideNavigation() throws Throwable {
+        assertNotNull("Can find side navigation",
+            sitePage.findElementWithText("Page contents"));
+    }
+
+    @Then("^I should not see side navigation$")
+    public void thenIShouldNotSeeSideNavigation() throws Throwable {
+        assertNull(
+            sitePage.findElementWithText("Page contents"));
+    }
+
+    @Then("^If I inspected the HTML, I should find the \"([^\"]*)\" css class$")
+    public void thenIfIInspectedTheHtmlIShouldFindThe(String cssClass) throws Throwable {
+        assertNotNull("Can find the CSS class " + cssClass,
+            sitePage.findCssClass(cssClass));
+    }
+
+    @Then("^If I inspected the HTML, I should not find the \"([^\"]*)\" css class$")
+    public void thenIfIInspectedTheHtmlIShouldNotFindThe(String cssClass) throws Throwable {
+        assertNull("Cannot find the CSS class " + cssClass,
+            sitePage.findCssClass(cssClass));
+    }
 }

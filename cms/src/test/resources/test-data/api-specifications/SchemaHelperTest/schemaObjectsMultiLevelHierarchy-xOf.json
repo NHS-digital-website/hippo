@@ -37,6 +37,7 @@
                                                     "nullable": true,
                                                     "readOnly": true,
                                                     "writeOnly": true,
+                                                    "default"  : {"property": "value-a"},
                                                     "properties": {
                                                         "property-1.1.1.1.1.1.1": {
                                                             "type": "object",
@@ -93,6 +94,7 @@
                                                 "nullable": true,
                                                 "readOnly": true,
                                                 "writeOnly": true,
+                                                "default"  : {"property": "value-b"},
                                                 "properties": {
                                                     "property-1.1.2.1.1.1": {
                                                         "title": "1.1.2.1.1.1 - object within 'xOfPropertyPlaceholder'",
