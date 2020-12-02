@@ -6,6 +6,13 @@ definitions:
         hst:authenticated: false
         hst:containerresource: true
         jcr:primaryType: hst:sitemapitem
+      /feed:
+        /_any_.xml:
+          hst:namedpipeline: JaxrsRestFeedPipeline
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:relativecontentpath: feeds
+        jcr:primaryType: hst:sitemapitem
       /googlec9ae176a412840f1.html:
         hst:authenticated: false
         hst:containerresource: true

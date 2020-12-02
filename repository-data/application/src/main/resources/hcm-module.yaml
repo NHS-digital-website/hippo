@@ -2,6 +2,7 @@
 group:
   after:
   - hippo-cms
+  - hippo-forge
   - bloomreach-forge
   name: publicationsystem
 module:

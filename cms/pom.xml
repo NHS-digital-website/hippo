@@ -302,6 +302,12 @@
             <artifactId>commonmark-ext-gfm-tables</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.bloomreach.forge.feed</groupId>
+            <artifactId>feed-repository</artifactId>
+            <version>${bloomreach.forge.feed.version}</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>
