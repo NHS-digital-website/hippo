@@ -3,673 +3,667 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
-( function() {
-	var defaultToPixel = CKEDITOR.tools.cssLength;
+(function () {
+    var defaultToPixel = CKEDITOR.tools.cssLength;
 
-	var commitValue = function( data ) {
-			var id = this.id;
-			if ( !data.info )
-				data.info = {};
-			data.info[ id ] = this.getValue();
-		};
-
-	function tableColumns( table ) {
-		var cols = 0,
-			maxCols = 0;
-		for ( var i = 0, row, rows = table.$.rows.length; i < rows; i++ ) {
-			row = table.$.rows[ i ], cols = 0;
-			for ( var j = 0, cell, cells = row.cells.length; j < cells; j++ ) {
-				cell = row.cells[ j ];
-				cols += cell.colSpan;
-			}
-
-			cols > maxCols && ( maxCols = cols );
-		}
-
-		return maxCols;
-	}
-
-  function isNumeric(num){
-    return !isNaN(num)
-  }
-
-  function validateColumnControl ( ) {
-		return function() {
-      var pass = true;
-
-			var value = this.getValue().trim();
-      if (value == null || value == "") {
-        //allow empty value
-        return true;
-      }
-
-      var widthValues = value.split(',').filter(elem => elem);
-
-      var columnsNumber = this.getDialog().getContentElement( 'info', 'txtCols' );
-      //validate that number of columns is equal number of coma separated values
-      if (widthValues.length != columnsNumber.getValue() ) {
-        pass = false; 
-      } else {
-
-        var sum = 0;
-        for (var i = 0; i < widthValues.length; i++) {
-          //validate that values are integers and higher than 0
-          pass = isNumeric(widthValues[i]) && Number(widthValues[i]) > 0;
-          if ( !pass ) {
-            break;
-          } else {
-            sum += Number(widthValues[i]);
-          }
-        }
-
-        //if we still passed previous criteria - validate that sum is 100
-        if ( pass ) { pass = sum == 100 };
-      }
-
-      if ( !pass ) {
-        alert( "'Column with control' must be empty or coma separated non-0 numbers which sum is equal to 100 and number is equal to number of columns (ex. '80,20' for 2 columns or '30,30,40' for 3 columns)" ); // jshint ignore:line
-        this.select();
-      }
-      return pass;
+    var commitValue = function (data) {
+        var id = this.id;
+        if (!data.info)
+            data.info = {};
+        data.info[id] = this.getValue();
     };
-  }
 
-	// Whole-positive-integer validator.
-	function validatorNum( msg ) {
-		return function() {
-			var value = this.getValue(),
-				pass = !!( CKEDITOR.dialog.validate.integer().call( this, value ) && value > 0 );
+    function tableColumns(table) {
+        var cols = 0,
+            maxCols = 0;
+        for (var i = 0, row, rows = table.$.rows.length; i < rows; i++) {
+            row = table.$.rows[i], cols = 0;
+            for (var j = 0, cell, cells = row.cells.length; j < cells; j++) {
+                cell = row.cells[j];
+                cols += cell.colSpan;
+            }
 
-			if ( !pass ) {
-				alert( msg ); // jshint ignore:line
-				this.select();
-			}
-
-			return pass;
-		};
-	}
-
-	function tableDialog( editor, command ) {
-		var makeElement = function( name ) {
-				return new CKEDITOR.dom.element( name, editor.document );
-			};
-
-		var editable = editor.editable();
-
-		var dialogadvtab = editor.plugins.dialogadvtab;
-
-		return {
-			title: editor.lang.table.title,
-			minWidth: 310,
-			minHeight: CKEDITOR.env.ie ? 310 : 280,
-
-			onLoad: function() {
-				var dialog = this;
-
-				var styles = dialog.getContentElement( 'advanced', 'advStyles' );
-
-				if ( styles ) {
-					styles.on( 'change', function() {
-						// Synchronize width value.
-						var width = this.getStyle( 'width', '' ),
-							txtWidth = dialog.getContentElement( 'info', 'txtWidth' );
-
-						txtWidth && txtWidth.setValue( width, true );
-
-						// Synchronize height value.
-						var height = this.getStyle( 'height', '' ),
-							txtHeight = dialog.getContentElement( 'info', 'txtHeight' );
-
-						txtHeight && txtHeight.setValue( height, true );
-					} );
-				}
-			},
-
-			onShow: function() {
-				// Detect if there's a selected table.
-				var selection = editor.getSelection(),
-					ranges = selection.getRanges(),
-					table;
-
-				var rowsInput = this.getContentElement( 'info', 'txtRows' ),
-					colsInput = this.getContentElement( 'info', 'txtCols' ),
-					widthInput = this.getContentElement( 'info', 'txtWidth' ),
-					heightInput = this.getContentElement( 'info', 'txtHeight' );
-
-				if ( command == 'tableProperties' ) {
-					var selected = selection.getSelectedElement();
-					if ( selected && selected.is( 'table' ) )
-						table = selected;
-					else if ( ranges.length > 0 ) {
-						// Webkit could report the following range on cell selection (https://dev.ckeditor.com/ticket/4948):
-						// <table><tr><td>[&nbsp;</td></tr></table>]
-						if ( CKEDITOR.env.webkit )
-							ranges[ 0 ].shrink( CKEDITOR.NODE_ELEMENT );
-
-						table = editor.elementPath( ranges[ 0 ].getCommonAncestor( true ) ).contains( 'table', 1 );
-					}
-
-					// Save a reference to the selected table, and push a new set of default values.
-					this._.selectedElement = table;
-				}
-
-				// Enable or disable the row, cols, width fields.
-				if ( table ) {
-					this.setupContent( table );
-					rowsInput && rowsInput.disable();
-					colsInput && colsInput.disable();
-				} else {
-					rowsInput && rowsInput.enable();
-					colsInput && colsInput.enable();
-				}
-
-				// Call the onChange method for the widht and height fields so
-				// they get reflected into the Advanced tab.
-				widthInput && widthInput.onChange();
-				heightInput && heightInput.onChange();
-			},
-			onOk: function() {
-				var selection = editor.getSelection(),
-					bms = this._.selectedElement && selection.createBookmarks();
-
-				var table = this._.selectedElement || makeElement( 'table' ),
-					data = {};
-
-				this.commitContent( data, table );
-
-				if ( data.info ) {
-					var info = data.info;
-
-					// Generate the rows and cols.
-					if ( !this._.selectedElement ) {
-						var tbody = table.append( makeElement( 'tbody' ) ),
-							rows = parseInt( info.txtRows, 10 ) || 0,
-							cols = parseInt( info.txtCols, 10 ) || 0;
-
-						for ( var i = 0; i < rows; i++ ) {
-							var row = tbody.append( makeElement( 'tr' ) );
-							for ( var j = 0; j < cols; j++ ) {
-								var cell = row.append( makeElement( 'td' ) );
-								cell.appendBogus();
-							}
-						}
-					}
-
-					// Modify the table headers. Depends on having rows and cols generated
-					// correctly so it can't be done in commit functions.
-
-					// Should we make a <thead>?
-					var headers = info.selHeaders;
-					if ( !table.$.tHead && ( headers == 'row' || headers == 'both' ) ) {
-						var thead = table.getElementsByTag( 'thead' ).getItem( 0 );
-						tbody = table.getElementsByTag( 'tbody' ).getItem( 0 );
-						var theRow = tbody.getElementsByTag( 'tr' ).getItem( 0 );
-
-						if ( !thead ) {
-							thead = new CKEDITOR.dom.element( 'thead' );
-							thead.insertBefore( tbody );
-						}
-
-						// Change TD to TH:
-						for ( i = 0; i < theRow.getChildCount(); i++ ) {
-							var th = theRow.getChild( i );
-							// Skip bookmark nodes. (https://dev.ckeditor.com/ticket/6155)
-							if ( th.type == CKEDITOR.NODE_ELEMENT && !th.data( 'cke-bookmark' ) ) {
-								th.renameNode( 'th' );
-								th.setAttribute( 'scope', 'col' );
-							}
-						}
-						thead.append( theRow.remove() );
-					}
-
-					if ( table.$.tHead !== null && !( headers == 'row' || headers == 'both' ) ) {
-						// Move the row out of the THead and put it in the TBody:
-						thead = new CKEDITOR.dom.element( table.$.tHead );
-						tbody = table.getElementsByTag( 'tbody' ).getItem( 0 );
-
-						while ( thead.getChildCount() > 0 ) {
-							theRow = thead.getFirst();
-							for ( i = 0; i < theRow.getChildCount(); i++ ) {
-								var newCell = theRow.getChild( i );
-								if ( newCell.type == CKEDITOR.NODE_ELEMENT ) {
-									newCell.renameNode( 'td' );
-									newCell.removeAttribute( 'scope' );
-								}
-							}
-
-							// Append the row to the start (#1397).
-							tbody.append( theRow, true );
-						}
-						thead.remove();
-					}
-
-					// Should we make all first cells in a row TH?
-					if ( !this.hasColumnHeaders && ( headers == 'col' || headers == 'both' ) ) {
-						for ( row = 0; row < table.$.rows.length; row++ ) {
-							newCell = new CKEDITOR.dom.element( table.$.rows[ row ].cells[ 0 ] );
-							newCell.renameNode( 'th' );
-							newCell.setAttribute( 'scope', 'row' );
-						}
-					}
-
-					// Should we make all first TH-cells in a row make TD? If 'yes' we do it the other way round :-)
-					if ( ( this.hasColumnHeaders ) && !( headers == 'col' || headers == 'both' ) ) {
-						for ( i = 0; i < table.$.rows.length; i++ ) {
-							row = new CKEDITOR.dom.element( table.$.rows[ i ] );
-							if ( row.getParent().getName() == 'tbody' ) {
-								newCell = new CKEDITOR.dom.element( row.$.cells[ 0 ] );
-								newCell.renameNode( 'td' );
-								newCell.removeAttribute( 'scope' );
-							}
-						}
-					}
-
-					// Set the width and height.
-					info.txtHeight ? table.setStyle( 'height', info.txtHeight ) : table.removeStyle( 'height' );
-					info.txtWidth ? table.setStyle( 'width', info.txtWidth ) : table.removeStyle( 'width' );
-
-					if ( !table.getAttribute( 'style' ) )
-						table.removeAttribute( 'style' );
-				}
-
-				// Insert the table element if we're creating one.
-				if ( !this._.selectedElement ) {
-					editor.insertElement( table );
-					// Override the default cursor position after insertElement to place
-					// cursor inside the first cell (https://dev.ckeditor.com/ticket/7959), IE needs a while.
-					setTimeout( function() {
-						var firstCell = new CKEDITOR.dom.element( table.$.rows[ 0 ].cells[ 0 ] );
-						var range = editor.createRange();
-						range.moveToPosition( firstCell, CKEDITOR.POSITION_AFTER_START );
-						range.select();
-					}, 0 );
-				}
-				// Properly restore the selection, (https://dev.ckeditor.com/ticket/4822) but don't break
-				// because of this, e.g. updated table caption.
-				else {
-					try {
-						selection.selectBookmarks( bms );
-					} catch ( er ) {
-					}
-				}
-
-        if (data.info) {
-              var widthValues = data.info.txtColumnWidthControl;
-              trElems = table.getElementsByTag( 'tr' );
-              if (trElems.count() > 0) {
-
-                var thElems = trElems.getItem (0).getElementsByTag ('th');
-                var tdElems = trElems.getItem (0).getElementsByTag ('td');
-                var elemsCount = thElems.count() + tdElems.count();
-
-                for (var i = 0; i < elemsCount; i++) {
-                  idx = i;
-                  if (i >= thElems.count()) {
-                    idx = i-thElems.count();
-                    td = tdElems.getItem(idx);
-                  } else {
-                    td = thElems.getItem(i);
-                  }
-                  //widthValues syntax is validated in 'validate' for
-                  //txtColumnWidthControl, so we can split safetly here
-                  widthValues ? td.setStyle('width', widthValues.split(',')[i] + "%") : td.removeStyle('width');
-                }
-              }
+            cols > maxCols && (maxCols = cols);
         }
 
-			},
-			contents: [ {
-				id: 'info',
-				label: editor.lang.table.title,
-				elements: [ {
-					type: 'hbox',
-					widths: [ null, null ],
-					styles: [ 'vertical-align:top' ],
-					children: [ {
-						type: 'vbox',
-						padding: 0,
-						children: [ {
-							type: 'text',
-							id: 'txtRows',
-							'default': 3,
-							label: editor.lang.table.rows,
-							required: true,
-							controlStyle: 'width:5em',
-							validate: validatorNum( editor.lang.table.invalidRows ),
-							setup: function( selectedElement ) {
-								this.setValue( selectedElement.$.rows.length );
-							},
-							commit: commitValue
-						},
-						{
-							type: 'text',
-							id: 'txtCols',
-							'default': 2,
-							label: editor.lang.table.columns,
-							required: true,
-							controlStyle: 'width:5em',
-							validate: validatorNum( editor.lang.table.invalidCols ),
-							setup: function( selectedTable ) {
-								this.setValue( tableColumns( selectedTable ) );
-							},
-							commit: commitValue
-						},
-						{
-							type: 'html',
-							html: '&nbsp;'
-						},
-						{
-							type: 'select',
-							id: 'selHeaders',
-							requiredContent: 'th',
-							'default': '',
-							label: editor.lang.table.headers,
-							items: [
-								[ editor.lang.table.headersNone, '' ],
-								[ editor.lang.table.headersRow, 'row' ],
-								[ editor.lang.table.headersColumn, 'col' ],
-								[ editor.lang.table.headersBoth, 'both' ]
-							],
-							setup: function( selectedTable ) {
-								// Fill in the headers field.
-								var dialog = this.getDialog();
-								dialog.hasColumnHeaders = true;
+        return maxCols;
+    }
 
-								// Check if all the first cells in every row are TH
-								for ( var row = 0; row < selectedTable.$.rows.length; row++ ) {
-									// If just one cell isn't a TH then it isn't a header column
-									var headCell = selectedTable.$.rows[ row ].cells[ 0 ];
-									if ( headCell && headCell.nodeName.toLowerCase() != 'th' ) {
-										dialog.hasColumnHeaders = false;
-										break;
-									}
-								}
+    function isNumeric(num) {
+        return !isNaN(num)
+    }
 
-								// Check if the table contains <thead>.
-								if ( ( selectedTable.$.tHead !== null ) )
-									this.setValue( dialog.hasColumnHeaders ? 'both' : 'row' );
-								else
-									this.setValue( dialog.hasColumnHeaders ? 'col' : '' );
-							},
-							commit: commitValue
-						},
-						{
-							type: 'text',
-							id: 'txtBorder',
-							requiredContent: 'table[border]',
-							// Avoid setting border which will then disappear.
-							'default': editor.filter.check( 'table[border]' ) ? 1 : 0,
-							label: editor.lang.table.border,
-							controlStyle: 'width:3em',
-							validate: CKEDITOR.dialog.validate.number( editor.lang.table.invalidBorder ),
-							setup: function( selectedTable ) {
-								this.setValue( selectedTable.getAttribute( 'border' ) || '' );
-							},
-							commit: function( data, selectedTable ) {
-								if ( this.getValue() )
-									selectedTable.setAttribute( 'border', this.getValue() );
-								else
-									selectedTable.removeAttribute( 'border' );
-							}
-						},
-						{
-							id: 'cmbAlign',
-							type: 'select',
-							requiredContent: 'table[align]',
-							'default': '',
-							label: editor.lang.common.align,
-							items: [
-								[ editor.lang.common.notSet, '' ],
-								[ editor.lang.common.left, 'left' ],
-								[ editor.lang.common.center, 'center' ],
-								[ editor.lang.common.right, 'right' ]
-							],
-							setup: function( selectedTable ) {
-								this.setValue( selectedTable.getAttribute( 'align' ) || '' );
-							},
-							commit: function( data, selectedTable ) {
-								if ( this.getValue() )
-									selectedTable.setAttribute( 'align', this.getValue() );
-								else
-									selectedTable.removeAttribute( 'align' );
-							}
-						} ]
-					},
-					{
-						type: 'vbox',
-						padding: 0,
-						children: [ {
-							type: 'hbox',
-							widths: [ '5em' ],
-							children: [ {
-								type: 'text',
-								id: 'txtWidth',
-								requiredContent: 'table{width}',
-								controlStyle: 'width:5em',
-								label: editor.lang.common.width,
-								title: editor.lang.common.cssLengthTooltip,
-								// Smarter default table width. (https://dev.ckeditor.com/ticket/9600)
-								'default': editor.filter.check( 'table{width}' ) ? ( editable.getSize( 'width' ) < 500 ? '100%' : 500 ) : 0,
-								getValue: defaultToPixel,
-								validate: CKEDITOR.dialog.validate.cssLength( editor.lang.common.invalidCssLength.replace( '%1', editor.lang.common.width ) ),
-								onChange: function() {
-									var styles = this.getDialog().getContentElement( 'advanced', 'advStyles' );
-									styles && styles.updateStyle( 'width', this.getValue() );
-								},
-								setup: function( selectedTable ) {
-									var val = selectedTable.getStyle( 'width' );
-									this.setValue( val );
-								},
-								commit: commitValue
-							} ]
-						},
-						{
-							type: 'hbox',
-							widths: [ '5em' ],
-							children: [ {
-								type: 'text',
-								id: 'txtHeight',
-								requiredContent: 'table{height}',
-								controlStyle: 'width:5em',
-								label: editor.lang.common.height,
-								title: editor.lang.common.cssLengthTooltip,
-								'default': '',
-								getValue: defaultToPixel,
-								validate: CKEDITOR.dialog.validate.cssLength( editor.lang.common.invalidCssLength.replace( '%1', editor.lang.common.height ) ),
-								onChange: function() {
-									var styles = this.getDialog().getContentElement( 'advanced', 'advStyles' );
-									styles && styles.updateStyle( 'height', this.getValue() );
-								},
+    function validateColumnControl() {
+        return function () {
+            var pass = true;
 
-								setup: function( selectedTable ) {
-									var val = selectedTable.getStyle( 'height' );
-									val && this.setValue( val );
-								},
-								commit: commitValue
-							} ]
-						},
-						{
-							type: 'html',
-							html: '&nbsp;'
-						},
-						{
-							type: 'text',
-							id: 'txtCellSpace',
-							requiredContent: 'table[cellspacing]',
-							controlStyle: 'width:3em',
-							label: editor.lang.table.cellSpace,
-							'default': editor.filter.check( 'table[cellspacing]' ) ? 1 : 0,
-							validate: CKEDITOR.dialog.validate.number( editor.lang.table.invalidCellSpacing ),
-							setup: function( selectedTable ) {
-								this.setValue( selectedTable.getAttribute( 'cellSpacing' ) || '' );
-							},
-							commit: function( data, selectedTable ) {
-								if ( this.getValue() )
-									selectedTable.setAttribute( 'cellSpacing', this.getValue() );
-								else
-									selectedTable.removeAttribute( 'cellSpacing' );
-							}
-						},
-						{
-							type: 'text',
-							id: 'txtCellPad',
-							requiredContent: 'table[cellpadding]',
-							controlStyle: 'width:3em',
-							label: editor.lang.table.cellPad,
-							'default': editor.filter.check( 'table[cellpadding]' ) ? 1 : 0,
-							validate: CKEDITOR.dialog.validate.number( editor.lang.table.invalidCellPadding ),
-							setup: function( selectedTable ) {
-								this.setValue( selectedTable.getAttribute( 'cellPadding' ) || '' );
-							},
-							commit: function( data, selectedTable ) {
-								if ( this.getValue() )
-									selectedTable.setAttribute( 'cellPadding', this.getValue() );
-								else
-									selectedTable.removeAttribute( 'cellPadding' );
-							}
-						},
-						// CUSTOM Addition of checkbox to suppress table sort functionality
-                         {
-                             type: 'hbox',
-                             widths: [ '5em' ],
-                             children: [ {
-                                 type: 'checkbox',
-                                 id: 'data-disablesort',
-                                 label: 'Disable table sort',
-                                 setup: function( selectedTable ) {
-                                    var val = selectedTable.getAttribute( 'data-disablesort' );
-                                    if ( val == 'true' ) {
-                                        this.setValue( 'checked', 'checked' );
-                                    }
-                                 },
-                                 commit: function( data, selectedTable ) {
-                                     if ( this.getValue() )
-                                        selectedTable.setAttribute( 'data-disablesort', this.getValue() );
-                                     else
-                                        selectedTable.removeAttribute( 'data-disablesort' );
-                                 }
-                             } ]
-                         } ]
-					} ]
-				},
-				{
-					type: 'html',
-					align: 'right',
-					html: ''
-				},
-				{
-					type: 'vbox',
-					padding: 0,
-					children: [ {
-						type: 'text',
-						id: 'txtCaption',
-						requiredContent: 'caption',
-						label: editor.lang.table.caption,
-						setup: function( selectedTable ) {
-							this.enable();
+            var value = this.getValue().trim();
+            if (value == null || value == "") {
+                //allow empty value
+                return true;
+            }
 
-							var nodeList = selectedTable.getElementsByTag( 'caption' );
-							if ( nodeList.count() > 0 ) {
-								var caption = nodeList.getItem( 0 );
-								var firstElementChild = caption.getFirst( CKEDITOR.dom.walker.nodeType( CKEDITOR.NODE_ELEMENT ) );
+            var widthValues = value.split(',').filter(elem => elem);
 
-								if ( firstElementChild && !firstElementChild.equals( caption.getBogus() ) ) {
-									this.disable();
-									this.setValue( caption.getText() );
-									return;
-								}
+            var columnsNumber = this.getDialog().getContentElement('info', 'txtCols');
+            //validate that number of columns is equal number of coma separated values
+            if (widthValues.length != columnsNumber.getValue()) {
+                pass = false;
+            } else {
 
-								caption = CKEDITOR.tools.trim( caption.getText() );
-								this.setValue( caption );
-							}
-						},
-						commit: function( data, table ) {
-							if ( !this.isEnabled() )
-								return;
-
-							var caption = this.getValue(),
-								captionElement = table.getElementsByTag( 'caption' );
-							if ( caption ) {
-								if ( captionElement.count() > 0 ) {
-									captionElement = captionElement.getItem( 0 );
-									captionElement.setHtml( '' );
-								} else {
-									captionElement = new CKEDITOR.dom.element( 'caption', editor.document );
-									table.append( captionElement, true );
-								}
-								captionElement.append( new CKEDITOR.dom.text( caption, editor.document ) );
-							} else if ( captionElement.count() > 0 ) {
-								for ( var i = captionElement.count() - 1; i >= 0; i-- )
-									captionElement.getItem( i ).remove();
-							}
-						}
-					},
-					{
-						type: 'text',
-						id: 'txtColumnWidthControl',
-						bidi: true,
-						requiredContent: 'td',
-						label: 'Column width control',
-            validate: validateColumnControl(),
-						setup: function( selectedTable ) {
-              var value = "";
-              trElems = selectedTable.getElementsByTag( 'tr' );
-              if (trElems.count() > 0) {
-
-                var thElems = trElems.getItem(0).getElementsByTag ('th');
-                var tdElems = trElems.getItem(0).getElementsByTag ('td');
-                var elemsCount = thElems.count() + tdElems.count();
-
-                for (i = 0; i < elemsCount; i++) {
-
-                  idx = i;
-                  if (i >= thElems.count()) {
-                    idx = i-thElems.count();
-                    td = tdElems.getItem(idx);
-                  } else {
-                    td = thElems.getItem(i);
-                  }
-
-                  width = td.getStyle('width');
-                  if (width) {
-                    value += width.replace(/%/, "");
-                    if (i != elemsCount - 1) {
-                      value += ",";
+                var sum = 0;
+                for (var i = 0; i < widthValues.length; i++) {
+                    //validate that values are integers and higher than 0
+                    pass = isNumeric(widthValues[i]) && Number(widthValues[i]) > 0;
+                    if (!pass) {
+                        break;
+                    } else {
+                        sum += Number(widthValues[i]);
                     }
-                  }
                 }
 
-              }
-              this.setValue(value);
-						},
-						commit: commitValue
-					},
-					{
-						type: 'text',
-						id: 'txtSummary',
-						bidi: true,
-						requiredContent: 'table[summary]',
-						label: editor.lang.table.summary,
-						setup: function( selectedTable ) {
-							this.setValue( selectedTable.getAttribute( 'summary' ) || '' );
-						},
-						commit: function( data, selectedTable ) {
-							if ( this.getValue() )
-								selectedTable.setAttribute( 'summary', this.getValue() );
-							else
-								selectedTable.removeAttribute( 'summary' );
-						}
-					}]
-				} ]
-			},
-			dialogadvtab && dialogadvtab.createAdvancedTab( editor, null, 'table' )
-		] };
-	}
+                //if we still passed previous criteria - validate that sum is 100
+                if (pass) {
+                    pass = sum == 100
+                }
+                ;
+            }
 
-	CKEDITOR.dialog.add( 'table', function( editor ) {
-		return tableDialog( editor, 'table' );
-	} );
-	CKEDITOR.dialog.add( 'tableProperties', function( editor ) {
-		return tableDialog( editor, 'tableProperties' );
-	} );
-} )();
+            if (!pass) {
+                alert("'Column with control' must be empty or comma separated non-0 numbers which sum is equal to 100 and number is equal to number of columns (ex. '80,20' for 2 columns or '30,30,40' for 3 columns)"); // jshint ignore:line
+                this.select();
+            }
+            return pass;
+        };
+    }
+
+    // Whole-positive-integer validator.
+    function validatorNum(msg) {
+        return function () {
+            var value = this.getValue(),
+                pass = !!(CKEDITOR.dialog.validate.integer().call(this, value) && value > 0);
+
+            if (!pass) {
+                alert(msg); // jshint ignore:line
+                this.select();
+            }
+
+            return pass;
+        };
+    }
+
+    function tableDialog(editor, command) {
+        var makeElement = function (name) {
+            return new CKEDITOR.dom.element(name, editor.document);
+        };
+
+        var editable = editor.editable();
+
+        var dialogadvtab = editor.plugins.dialogadvtab;
+
+        return {
+            title: editor.lang.table.title,
+            minWidth: 310,
+            minHeight: CKEDITOR.env.ie ? 310 : 280,
+
+            onLoad: function () {
+                var dialog = this;
+
+                var styles = dialog.getContentElement('advanced', 'advStyles');
+
+                if (styles) {
+                    styles.on('change', function () {
+                        // Synchronize width value.
+                        var width = this.getStyle('width', ''),
+                            txtWidth = dialog.getContentElement('info', 'txtWidth');
+
+                        txtWidth && txtWidth.setValue(width, true);
+
+                        // Synchronize height value.
+                        var height = this.getStyle('height', ''),
+                            txtHeight = dialog.getContentElement('info', 'txtHeight');
+
+                        txtHeight && txtHeight.setValue(height, true);
+                    });
+                }
+            },
+            onShow: function () {
+                // Detect if there's a selected table.
+                var selection = editor.getSelection(),
+                    ranges = selection.getRanges(),
+                    table;
+
+                var rowsInput = this.getContentElement('info', 'txtRows'),
+                    colsInput = this.getContentElement('info', 'txtCols'),
+                    widthInput = this.getContentElement('info', 'txtWidth'),
+                    heightInput = this.getContentElement('info', 'txtHeight');
+
+                if (command == 'tableProperties') {
+                    var selected = selection.getSelectedElement();
+                    if (selected && selected.is('table'))
+                        table = selected;
+                    else if (ranges.length > 0) {
+                        // Webkit could report the following range on cell selection (https://dev.ckeditor.com/ticket/4948):
+                        // <table><tr><td>[&nbsp;</td></tr></table>]
+                        if (CKEDITOR.env.webkit)
+                            ranges[0].shrink(CKEDITOR.NODE_ELEMENT);
+
+                        table = editor.elementPath(ranges[0].getCommonAncestor(true)).contains('table', 1);
+                    }
+
+                    // Save a reference to the selected table, and push a new set of default values.
+                    this._.selectedElement = table;
+                }
+
+                // Enable or disable the row, cols, width fields.
+                if (table) {
+                    this.setupContent(table);
+                    rowsInput && rowsInput.disable();
+                    colsInput && colsInput.disable();
+                } else {
+                    rowsInput && rowsInput.enable();
+                    colsInput && colsInput.enable();
+                }
+
+                // Call the onChange method for the widht and height fields so
+                // they get reflected into the Advanced tab.
+                widthInput && widthInput.onChange();
+                heightInput && heightInput.onChange();
+            },
+            onOk: function () {
+                var selection = editor.getSelection(),
+                    bms = this._.selectedElement && selection.createBookmarks();
+
+                var table = this._.selectedElement || makeElement('table'),
+                    data = {};
+
+                this.commitContent(data, table);
+
+                if (data.info) {
+                    var info = data.info;
+
+                    // Generate the rows and cols.
+                    if (!this._.selectedElement) {
+                        var tbody = table.append(makeElement('tbody')),
+                            rows = parseInt(info.txtRows, 10) || 0,
+                            cols = parseInt(info.txtCols, 10) || 0;
+
+                        for (var i = 0; i < rows; i++) {
+                            var row = tbody.append(makeElement('tr'));
+                            for (var j = 0; j < cols; j++) {
+                                var cell = row.append(makeElement('td'));
+                                cell.appendBogus();
+                            }
+                        }
+                    }
+
+                    // Modify the table headers. Depends on having rows and cols generated
+                    // correctly so it can't be done in commit functions.
+
+                    // Should we make a <thead>?
+                    var headers = info.selHeaders;
+                    if (!table.$.tHead && (headers == 'row' || headers == 'both')) {
+                        var thead = table.getElementsByTag('thead').getItem(0);
+                        tbody = table.getElementsByTag('tbody').getItem(0);
+                        var theRow = tbody.getElementsByTag('tr').getItem(0);
+
+                        if (!thead) {
+                            thead = new CKEDITOR.dom.element('thead');
+                            thead.insertBefore(tbody);
+                        }
+
+                        // Change TD to TH:
+                        for (i = 0; i < theRow.getChildCount(); i++) {
+                            var th = theRow.getChild(i);
+                            // Skip bookmark nodes. (https://dev.ckeditor.com/ticket/6155)
+                            if (th.type == CKEDITOR.NODE_ELEMENT && !th.data('cke-bookmark')) {
+                                th.renameNode('th');
+                                th.setAttribute('scope', 'col');
+                            }
+                        }
+                        thead.append(theRow.remove());
+                    }
+
+                    if (table.$.tHead !== null && !(headers == 'row' || headers == 'both')) {
+                        // Move the row out of the THead and put it in the TBody:
+                        thead = new CKEDITOR.dom.element(table.$.tHead);
+                        tbody = table.getElementsByTag('tbody').getItem(0);
+
+                        while (thead.getChildCount() > 0) {
+                            theRow = thead.getFirst();
+                            for (i = 0; i < theRow.getChildCount(); i++) {
+                                var newCell = theRow.getChild(i);
+                                if (newCell.type == CKEDITOR.NODE_ELEMENT) {
+                                    newCell.renameNode('td');
+                                    newCell.removeAttribute('scope');
+                                }
+                            }
+
+                            // Append the row to the start (#1397).
+                            tbody.append(theRow, true);
+                        }
+                        thead.remove();
+                    }
+
+                    // Should we make all first cells in a row TH?
+                    if (!this.hasColumnHeaders && (headers == 'col' || headers == 'both')) {
+                        for (row = 0; row < table.$.rows.length; row++) {
+                            newCell = new CKEDITOR.dom.element(table.$.rows[row].cells[0]);
+                            newCell.renameNode('th');
+                            newCell.setAttribute('scope', 'row');
+                        }
+                    }
+
+                    // Should we make all first TH-cells in a row make TD? If 'yes' we do it the other way round :-)
+                    if ((this.hasColumnHeaders) && !(headers == 'col' || headers == 'both')) {
+                        for (i = 0; i < table.$.rows.length; i++) {
+                            row = new CKEDITOR.dom.element(table.$.rows[i]);
+                            if (row.getParent().getName() == 'tbody') {
+                                newCell = new CKEDITOR.dom.element(row.$.cells[0]);
+                                newCell.renameNode('td');
+                                newCell.removeAttribute('scope');
+                            }
+                        }
+                    }
+
+                    // Set the width and height.
+                    info.txtHeight ? table.setStyle('height', info.txtHeight) : table.removeStyle('height');
+                    info.txtWidth ? table.setStyle('width', info.txtWidth) : table.removeStyle('width');
+
+                    if (!table.getAttribute('style'))
+                        table.removeAttribute('style');
+                }
+
+                // Insert the table element if we're creating one.
+                if (!this._.selectedElement) {
+                    editor.insertElement(table);
+                    // Override the default cursor position after insertElement to place
+                    // cursor inside the first cell (https://dev.ckeditor.com/ticket/7959), IE needs a while.
+                    setTimeout(function () {
+                        var firstCell = new CKEDITOR.dom.element(table.$.rows[0].cells[0]);
+                        var range = editor.createRange();
+                        range.moveToPosition(firstCell, CKEDITOR.POSITION_AFTER_START);
+                        range.select();
+                    }, 0);
+                }
+                    // Properly restore the selection, (https://dev.ckeditor.com/ticket/4822) but don't break
+                // because of this, e.g. updated table caption.
+                else {
+                    try {
+                        selection.selectBookmarks(bms);
+                    } catch (er) {
+                    }
+                }
+
+                if (data.info) {
+                    var widthValues = data.info.txtColumnWidthControl;
+                    trElems = table.getElementsByTag('tr');
+                    if (trElems.count() > 0) {
+
+                        var thElems = trElems.getItem(0).getElementsByTag('th');
+                        var tdElems = trElems.getItem(0).getElementsByTag('td');
+                        var elemsCount = thElems.count() + tdElems.count();
+
+                        for (var i = 0; i < elemsCount; i++) {
+                            idx = i;
+                            if (i >= thElems.count()) {
+                                idx = i - thElems.count();
+                                td = tdElems.getItem(idx);
+                            } else {
+                                td = thElems.getItem(i);
+                            }
+                            //widthValues syntax is validated in 'validate' for
+                            //txtColumnWidthControl, so we can split safetly here
+                            widthValues ? td.setStyle('width', widthValues.split(',')[i] + "%") : td.removeStyle('width');
+                        }
+                    }
+                }
+
+            },
+            contents: [{
+                id: 'info',
+                label: editor.lang.table.title,
+                elements: [{
+                    type: 'hbox',
+                    widths: [null, null],
+                    styles: ['vertical-align:top'],
+                    children: [{
+                        type: 'vbox',
+                        padding: 0,
+                        children: [{
+                            type: 'text',
+                            id: 'txtRows',
+                            'default': 3,
+                            label: editor.lang.table.rows,
+                            required: true,
+                            controlStyle: 'width:5em',
+                            validate: validatorNum(editor.lang.table.invalidRows),
+                            setup: function (selectedElement) {
+                                this.setValue(selectedElement.$.rows.length);
+                            },
+                            commit: commitValue
+                        },
+                            {
+                                type: 'text',
+                                id: 'txtCols',
+                                'default': 2,
+                                label: editor.lang.table.columns,
+                                required: true,
+                                controlStyle: 'width:5em',
+                                validate: validatorNum(editor.lang.table.invalidCols),
+                                setup: function (selectedTable) {
+                                    this.setValue(tableColumns(selectedTable));
+                                },
+                                commit: commitValue
+                            },
+                            {
+                                type: 'html',
+                                html: '&nbsp;'
+                            },
+                            {
+                                type: 'select',
+                                id: 'selHeaders',
+                                requiredContent: 'th',
+                                'default': '',
+                                label: editor.lang.table.headers,
+                                items: [
+                                    [editor.lang.table.headersNone, ''],
+                                    [editor.lang.table.headersRow, 'row'],
+                                    [editor.lang.table.headersColumn, 'col'],
+                                    [editor.lang.table.headersBoth, 'both']
+                                ],
+                                setup: function (selectedTable) {
+                                    // Fill in the headers field.
+                                    var dialog = this.getDialog();
+                                    dialog.hasColumnHeaders = true;
+
+                                    // Check if all the first cells in every row are TH
+                                    for (var row = 0; row < selectedTable.$.rows.length; row++) {
+                                        // If just one cell isn't a TH then it isn't a header column
+                                        var headCell = selectedTable.$.rows[row].cells[0];
+                                        if (headCell && headCell.nodeName.toLowerCase() != 'th') {
+                                            dialog.hasColumnHeaders = false;
+                                            break;
+                                        }
+                                    }
+
+                                    // Check if the table contains <thead>.
+                                    if ((selectedTable.$.tHead !== null))
+                                        this.setValue(dialog.hasColumnHeaders ? 'both' : 'row');
+                                    else
+                                        this.setValue(dialog.hasColumnHeaders ? 'col' : '');
+                                },
+                                commit: commitValue
+                            },
+                            {
+                                type: 'text',
+                                id: 'txtBorder',
+                                requiredContent: 'table[border]',
+                                // Avoid setting border which will then disappear.
+                                'default': editor.filter.check('table[border]') ? 1 : 0,
+                                label: editor.lang.table.border,
+                                controlStyle: 'width:3em',
+                                validate: CKEDITOR.dialog.validate.number(editor.lang.table.invalidBorder),
+                                setup: function (selectedTable) {
+                                    this.setValue(selectedTable.getAttribute('border') || '');
+                                },
+                                commit: function (data, selectedTable) {
+                                    if (this.getValue())
+                                        selectedTable.setAttribute('border', this.getValue());
+                                    else
+                                        selectedTable.removeAttribute('border');
+                                }
+                            },
+                            {
+                                id: 'cmbAlign',
+                                type: 'select',
+                                requiredContent: 'table[align]',
+                                'default': '',
+                                label: editor.lang.common.align,
+                                items: [
+                                    [editor.lang.common.notSet, ''],
+                                    [editor.lang.common.left, 'left'],
+                                    [editor.lang.common.center, 'center'],
+                                    [editor.lang.common.right, 'right']
+                                ],
+                                setup: function (selectedTable) {
+                                    this.setValue(selectedTable.getAttribute('align') || '');
+                                },
+                                commit: function (data, selectedTable) {
+                                    if (this.getValue())
+                                        selectedTable.setAttribute('align', this.getValue());
+                                    else
+                                        selectedTable.removeAttribute('align');
+                                }
+                            }]
+                    },
+                        {
+                            type: 'vbox',
+                            padding: 0,
+                            children: [{
+                                type: 'hbox',
+                                widths: ['5em'],
+                                children: [{
+                                    type: 'text',
+                                    id: 'txtWidth',
+                                    requiredContent: 'table{width}',
+                                    controlStyle: 'width:5em',
+                                    label: editor.lang.common.width,
+                                    title: editor.lang.common.cssLengthTooltip,
+                                    // Smarter default table width. (https://dev.ckeditor.com/ticket/9600)
+                                    'default': editor.filter.check('table{width}') ? (editable.getSize('width') < 500 ? '100%' : 500) : 0,
+                                    getValue: defaultToPixel,
+                                    validate: CKEDITOR.dialog.validate.cssLength(editor.lang.common.invalidCssLength.replace('%1', editor.lang.common.width)),
+                                    onChange: function () {
+                                        var styles = this.getDialog().getContentElement('advanced', 'advStyles');
+                                        styles && styles.updateStyle('width', this.getValue());
+                                    },
+                                    setup: function (selectedTable) {
+                                        var val = selectedTable.getStyle('width');
+                                        this.setValue(val);
+                                    },
+                                    commit: commitValue
+                                }]
+                            },
+                                {
+                                    type: 'hbox',
+                                    widths: ['5em'],
+                                    children: [{
+                                        type: 'text',
+                                        id: 'txtHeight',
+                                        requiredContent: 'table{height}',
+                                        controlStyle: 'width:5em',
+                                        label: editor.lang.common.height,
+                                        title: editor.lang.common.cssLengthTooltip,
+                                        'default': '',
+                                        getValue: defaultToPixel,
+                                        validate: CKEDITOR.dialog.validate.cssLength(editor.lang.common.invalidCssLength.replace('%1', editor.lang.common.height)),
+                                        onChange: function () {
+                                            var styles = this.getDialog().getContentElement('advanced', 'advStyles');
+                                            styles && styles.updateStyle('height', this.getValue());
+                                        },
+
+                                        setup: function (selectedTable) {
+                                            var val = selectedTable.getStyle('height');
+                                            val && this.setValue(val);
+                                        },
+                                        commit: commitValue
+                                    }]
+                                },
+                                {
+                                    type: 'html',
+                                    html: '&nbsp;'
+                                },
+                                {
+                                    type: 'text',
+                                    id: 'txtCellSpace',
+                                    requiredContent: 'table[cellspacing]',
+                                    controlStyle: 'width:3em',
+                                    label: editor.lang.table.cellSpace,
+                                    default: editor.filter.check('table[cellspacing]') ? 1 : 0,
+                                    validate: CKEDITOR.dialog.validate.number(editor.lang.table.invalidCellSpacing),
+                                    setup: function (selectedTable) {
+                                        this.setValue(selectedTable.getAttribute('cellSpacing') || '');
+                                    },
+                                    commit: function (data, selectedTable) {
+                                        if (this.getValue())
+                                            selectedTable.setAttribute('cellSpacing', this.getValue());
+                                        else
+                                            selectedTable.removeAttribute('cellSpacing');
+                                    }
+                                },
+                                {
+                                    type: 'text',
+                                    id: 'txtCellPad',
+                                    requiredContent: 'table[cellpadding]',
+                                    controlStyle: 'width:3em',
+                                    label: editor.lang.table.cellPad,
+                                    'default': editor.filter.check('table[cellpadding]') ? 1 : 0,
+                                    validate: CKEDITOR.dialog.validate.number(editor.lang.table.invalidCellPadding),
+                                    setup: function (selectedTable) {
+                                        this.setValue(selectedTable.getAttribute('cellPadding') || '');
+                                    },
+                                    commit: function (data, selectedTable) {
+                                        if (this.getValue())
+                                            selectedTable.setAttribute('cellPadding', this.getValue());
+                                        else
+                                            selectedTable.removeAttribute('cellPadding');
+                                    }
+                                }]
+                        }]
+                },
+                    {
+                        type: 'html',
+                        align: 'right',
+                        html: ''
+                    },
+                    {
+                        type: 'html',
+                        align: 'right',
+                        html: '<br>'
+                    },
+                    {
+                        // replace the checkbox as does not work, CKEditor will always wipe it.
+                        type: 'html',
+                        align: 'right',
+                        html: '<p>NOTE:Tables are sorted client-side by default.<br>' +
+                            'If you do not want this table to allow sort,<br>' +
+                            'then go to Advanced > Id and type cannotsort.</p>'
+                    },
+                    {
+                        type: 'vbox',
+                        padding: 0,
+                        children: [{
+                            type: 'text',
+                            id: 'txtCaption',
+                            requiredContent: 'caption',
+                            label: editor.lang.table.caption,
+                            setup: function (selectedTable) {
+                                this.enable();
+
+                                var nodeList = selectedTable.getElementsByTag('caption');
+                                if (nodeList.count() > 0) {
+                                    var caption = nodeList.getItem(0);
+                                    var firstElementChild = caption.getFirst(CKEDITOR.dom.walker.nodeType(CKEDITOR.NODE_ELEMENT));
+
+                                    if (firstElementChild && !firstElementChild.equals(caption.getBogus())) {
+                                        this.disable();
+                                        this.setValue(caption.getText());
+                                        return;
+                                    }
+
+                                    caption = CKEDITOR.tools.trim(caption.getText());
+                                    this.setValue(caption);
+                                }
+                            },
+                            commit: function (data, table) {
+                                if (!this.isEnabled())
+                                    return;
+
+                                var caption = this.getValue(),
+                                    captionElement = table.getElementsByTag('caption');
+                                if (caption) {
+                                    if (captionElement.count() > 0) {
+                                        captionElement = captionElement.getItem(0);
+                                        captionElement.setHtml('');
+                                    } else {
+                                        captionElement = new CKEDITOR.dom.element('caption', editor.document);
+                                        table.append(captionElement, true);
+                                    }
+                                    captionElement.append(new CKEDITOR.dom.text(caption, editor.document));
+                                } else if (captionElement.count() > 0) {
+                                    for (var i = captionElement.count() - 1; i >= 0; i--)
+                                        captionElement.getItem(i).remove();
+                                }
+                            }
+                        },
+                            {
+                                type: 'text',
+                                id: 'txtColumnWidthControl',
+                                bidi: true,
+                                requiredContent: 'td',
+                                label: 'Column width control',
+                                validate: validateColumnControl(),
+                                setup: function (selectedTable) {
+                                    var value = "";
+                                    trElems = selectedTable.getElementsByTag('tr');
+                                    if (trElems.count() > 0) {
+
+                                        var thElems = trElems.getItem(0).getElementsByTag('th');
+                                        var tdElems = trElems.getItem(0).getElementsByTag('td');
+                                        var elemsCount = thElems.count() + tdElems.count();
+
+                                        for (i = 0; i < elemsCount; i++) {
+
+                                            idx = i;
+                                            if (i >= thElems.count()) {
+                                                idx = i - thElems.count();
+                                                td = tdElems.getItem(idx);
+                                            } else {
+                                                td = thElems.getItem(i);
+                                            }
+
+                                            width = td.getStyle('width');
+                                            if (width) {
+                                                value += width.replace(/%/, "");
+                                                if (i != elemsCount - 1) {
+                                                    value += ",";
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                    this.setValue(value);
+                                },
+                                commit: commitValue
+                            },
+                            {
+                                type: 'text',
+                                id: 'txtSummary',
+                                bidi: true,
+                                requiredContent: 'table[summary]',
+                                label: editor.lang.table.summary,
+                                setup: function (selectedTable) {
+                                    this.setValue(selectedTable.getAttribute('summary') || '');
+                                },
+                                commit: function (data, selectedTable) {
+                                    if (this.getValue())
+                                        selectedTable.setAttribute('summary', this.getValue());
+                                    else
+                                        selectedTable.removeAttribute('summary');
+                                }
+                            }]
+                    }]
+            },
+                dialogadvtab && dialogadvtab.createAdvancedTab(editor, null, 'table')
+            ]
+        };
+    }
+
+    CKEDITOR.dialog.add('table', function (editor) {
+        return tableDialog(editor, 'table');
+    });
+    CKEDITOR.dialog.add('tableProperties', function (editor) {
+        return tableDialog(editor, 'tableProperties');
+    });
+})();

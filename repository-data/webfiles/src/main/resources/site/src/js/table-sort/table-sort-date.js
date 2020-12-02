@@ -1,5 +1,7 @@
 // Basic dates in dd/mm/yy or dd-mm-yy format.
 // Years can be 4 digits. Days and Months can be 1 or 2 digits.
+import Tablesort from "tablesort";
+
 export function tableSortDate() {
     const parseDate = function (date) {
         const parsedDate = date.replace(/-/g, '/')
