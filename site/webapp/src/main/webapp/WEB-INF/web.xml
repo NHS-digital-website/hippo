@@ -55,6 +55,7 @@
             ,classpath*:org/onehippo/**/*.class
             ,classpath*:com/onehippo/**/*.class
             ,classpath*:org/onehippo/forge/**/*.class
+            ,classpath*:org/bloomreach/forge/**/*.class
         </param-value>
     </context-param>
 

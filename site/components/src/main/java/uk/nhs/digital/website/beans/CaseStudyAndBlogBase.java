@@ -4,6 +4,8 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -99,5 +101,29 @@ public class CaseStudyAndBlogBase extends CommonFieldsBean {
         return getMultipleProperty("common:SearchableTags");
     }
 
+    public String getGuid() {
+        return getSingleProperty("jcr:uuid");
+    }
 
+    public List<String> getCategories() {
+        List<String> strList = new ArrayList<>();
+
+        List<HippoBean> relatedSubjectDoc = getLinkedBeans("website:relatedsubjects", HippoBean.class);
+        for (HippoBean bean : relatedSubjectDoc) {
+            String title = bean.getSingleProperty("website:title");
+            strList.add(title);
+        }
+        String[] topics = getMultipleProperty("hippotaxonomy:keys");
+        if (topics != null && topics.length > 0) {
+            strList.addAll(Arrays.asList(topics));
+        }
+        return strList;
+    }
+
+    public String getAllDescription() {
+        StringBuilder descBuilder = new StringBuilder(getSummary().getContent())
+            .append("\n").append(getBackstory().getContent())
+            .append("\n").append(getLeadParagraph().getContent());
+        return descBuilder.toString();
+    }
 }
