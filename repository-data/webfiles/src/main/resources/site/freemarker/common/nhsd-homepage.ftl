@@ -4,9 +4,5 @@
 <div>
     <@hst.include ref="banner"/>
 
-    <div class="grid-wrapper">
-        <div class="site-main">
-            <@hst.include ref="main"/>
-        </div>
-    </div>
+    <@hst.include ref="main"/>
 </div>
