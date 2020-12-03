@@ -4,10 +4,10 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/news-hub:
       /main:
         /banner:
-          hst:referencecomponent: cyber-security-homepage/banner
+          hst:referencecomponent: news-hub/banner
           jcr:primaryType: hst:containercomponentreference
         /main:
-          hst:referencecomponent: cyber-security-homepage/main
+          hst:referencecomponent: news-hub/main
           jcr:primaryType: hst:containercomponentreference
         hst:template: news-hub
         jcr:primaryType: hst:component
