@@ -22,10 +22,10 @@
     <link type="font/woff2" href="https://s3.eu-west-2.amazonaws.com/ui-toolkit.digital.nhs.uk/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
 </head>
 <body>
-    <div class="nhsd-grid nhsd-grid--full-width">
+    <div class="nhsd-t-grid nhsd-t-grid--full-width">
         <header style="height: 100px;display: block;width: 100%;padding: 1.222rem;">
-            <div class="nhsd-row" style="background-color: transparent">
-                <div class="nhsd-col-3">
+            <div class="nhsd-t-row" style="background-color: transparent">
+                <div class="nhsd-t-col-3">
                     <a href="" class="nhsd-m-logo-link" aria-label="Home page">
                         <svg class="nhsd-a-logo"
                              xmlns="http://www.w3.org/2000/svg"
@@ -49,10 +49,10 @@
                         </svg>
                     </a>
                 </div>
-                <div class="nhsd-col-6">
+                <div class="nhsd-t-col-6">
                     <@hst.include ref="main-nav"/>
                 </div>
-                <div class="nhsd-col-3 nhsd-u-text-right">
+                <div class="nhsd-t-col-3 nhsd-!t-text-align-right">
                     <button class="nhsd-a-button" id=""  type="button">
                         <span class="nhsd-a-button__label">Search</span>
                     </button>
