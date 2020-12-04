@@ -9,17 +9,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.ps.ArchivePageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.DatasetPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.SeriesPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.BlogPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.GdprPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.GeneralPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.GlossaryPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.HubPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.LinksListPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.PublishedWorkPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.RoadmapItemPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.RoadmapPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.ServicePageElements;
+import uk.nhs.digital.ps.test.acceptance.pages.site.website.*;
 import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
@@ -60,6 +50,7 @@ public class SitePage extends AbstractSitePage {
         pagesElements.add(new GdprPageElements());
         pagesElements.add(new GlossaryPageElements());
         pagesElements.add(new BlogPageElements());
+        pagesElements.add(new VideoPageElements());
     }
 
     public void openByPageName(final String pageName) {
@@ -124,6 +115,10 @@ public class SitePage extends AbstractSitePage {
         }
 
         return null;
+    }
+
+    public boolean isPageElementDisplayed(String elementName) {
+        return findPageElement(elementName).isDisplayed();
     }
 
     public WebElement findFooter() {

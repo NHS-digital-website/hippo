@@ -88,6 +88,117 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+  /banner-type:
+    /banner-type[1]:
+      /website:content:
+        hippostd:content: <p>Banner Test</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Banner Test
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippo:related___pathreference: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-12-01T16:52:45.565Z
+      hippostdpubwf:lastModificationDate: 2020-12-01T16:54:27.284Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c5a9b157-08f5-42cc-882a-7c9d80796954
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: Banner Test
+    /banner-type[2]:
+      /website:content:
+        hippostd:content: <p>Banner Test</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Banner Test
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippo:related___pathreference: []
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-12-01T16:52:45.565Z
+      hippostdpubwf:lastModificationDate: 2020-12-01T16:53:56.889Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c5a9b157-08f5-42cc-882a-7c9d80796954
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:bannerdocument
+      website:title: Banner Test
+    /banner-type[3]:
+      /website:content:
+        hippostd:content: <p>Banner Test</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Banner Test
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippo:related___pathreference: []
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-12-01T16:52:45.565Z
+      hippostdpubwf:lastModificationDate: 2020-12-01T16:53:56.889Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-12-01T16:54:02.799Z
+      hippotranslation:id: c5a9b157-08f5-42cc-882a-7c9d80796954
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: Banner Test
+    hippo:name: Banner Type
+    hippo:versionHistory: f2b7e9e6-8711-4567-8db4-e654e5a498ed
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   /blog:
     /blog-subfolder:
       /blog-test-document-3:
@@ -7784,6 +7895,285 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /video:
+    /video-type:
+      /video-type[1]:
+        /website:introduction:
+          hippostd:content: <p>This is to test video type document</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments:
+          hippo:docbase: e5de44a1-6a6e-4fe1-9cf6-79543349079e
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Video type document test
+          jcr:primaryType: hippostd:html
+        common:FullTaxonomy:
+        - conditions
+        - breaks-and-fractures
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Breaks and fractures
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-29T13:34:19.219Z
+        hippostdpubwf:lastModificationDate: 2020-12-04T17:13:09Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - breaks-and-fractures
+        hippotranslation:id: 5d6b1e1e-0cee-4ad9-90cc-e66c2ffdcecf
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/embed/SOfkWR9I-XM
+        website:shortsummary: Video Type Test NHS Digital leads the digital revolution
+          in the NHS.  We provide services which make it quicker, easier, and safer
+          for patients, and our systems handle over 3,500 pieces of data every second.     Working
+          at NHS Digital means you can make a real difference, in a supportive and
+          professional environment.
+        website:title: Video Type Document Test
+      /video-type[2]:
+        /website:introduction:
+          hippostd:content: <p>This is to test video type document</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments:
+          hippo:docbase: e5de44a1-6a6e-4fe1-9cf6-79543349079e
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Video type document test
+          jcr:primaryType: hippostd:html
+        common:FullTaxonomy:
+        - conditions
+        - breaks-and-fractures
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Breaks and fractures
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-29T13:34:19.219Z
+        hippostdpubwf:lastModificationDate: 2020-12-04T17:13:08.916Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - breaks-and-fractures
+        hippotranslation:id: 5d6b1e1e-0cee-4ad9-90cc-e66c2ffdcecf
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/embed/SOfkWR9I-XM
+        website:shortsummary: Video Type Test NHS Digital leads the digital revolution
+          in the NHS.  We provide services which make it quicker, easier, and safer
+          for patients, and our systems handle over 3,500 pieces of data every second.     Working
+          at NHS Digital means you can make a real difference, in a supportive and
+          professional environment.
+        website:title: Video Type Document Test
+      /video-type[3]:
+        /website:introduction:
+          hippostd:content: <p>This is to test video type document</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments:
+          hippo:docbase: e5de44a1-6a6e-4fe1-9cf6-79543349079e
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Video type document test
+          jcr:primaryType: hippostd:html
+        common:FullTaxonomy:
+        - conditions
+        - breaks-and-fractures
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Breaks and fractures
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-29T13:34:19.219Z
+        hippostdpubwf:lastModificationDate: 2020-12-04T17:13:08.916Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-12-04T17:13:13.236Z
+        hippotaxonomy:keys:
+        - breaks-and-fractures
+        hippotranslation:id: 5d6b1e1e-0cee-4ad9-90cc-e66c2ffdcecf
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/embed/SOfkWR9I-XM
+        website:shortsummary: Video Type Test NHS Digital leads the digital revolution
+          in the NHS.  We provide services which make it quicker, easier, and safer
+          for patients, and our systems handle over 3,500 pieces of data every second.     Working
+          at NHS Digital means you can make a real difference, in a supportive and
+          professional environment.
+        website:title: Video Type Document Test
+      hippo:name: Video Type
+      hippo:versionHistory: d891cd45-7af0-4365-881f-cf8786ba17e3
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /video-type-copy:
+      /video-type-copy:
+        /website:introduction:
+          hippostd:content: <p>This is to test video type document</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments:
+          hippo:docbase: 1291a3a8-2a2a-413f-ab2e-051eff393cf0
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Test Video type document
+          jcr:primaryType: hippostd:html
+        common:FullTaxonomy:
+        - conditions
+        - breaks-and-fractures
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Breaks and fractures
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-29T13:34:19.219Z
+        hippostdpubwf:lastModificationDate: 2020-11-29T13:47:57.398Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - breaks-and-fractures
+        hippotranslation:id: 68e63174-a2b4-47f7-b06f-aa7d9bb8eae5
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/embed/SOfkWR9I-XM
+        website:shortsummary: NHS Digital leads the digital revolution in the NHS.  We
+          provide services which make it quicker, easier, and safer for patients,
+          and our systems handle over 3,500 pieces of data every second.     Working
+          at NHS Digital means you can make a real difference, in a supportive and
+          professional environment.
+        website:title: Test a Video Type Document
+      hippo:name: Video Type (copy)
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /video-type-copy-2:
+      /video-type-copy-2:
+        /website:introduction:
+          hippostd:content: <p>This is to test video type document</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments:
+          hippo:docbase: 1291a3a8-2a2a-413f-ab2e-051eff393cf0
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Video type document test
+          jcr:primaryType: hippostd:html
+        common:FullTaxonomy:
+        - conditions
+        - breaks-and-fractures
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Breaks and fractures
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-29T13:34:19.219Z
+        hippostdpubwf:lastModificationDate: 2020-11-29T21:53:11.430Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - breaks-and-fractures
+        hippotranslation:id: b956d7c0-3946-414a-a1a8-d5358bfadffe
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/embed/SOfkWR9I-XM
+        website:shortsummary: Video Type Test NHS Digital leads the digital revolution
+          in the NHS.  We provide services which make it quicker, easier, and safer
+          for patients, and our systems handle over 3,500 pieces of data every second.     Working
+          at NHS Digital means you can make a real difference, in a supportive and
+          professional environment.
+        website:title: Video Type Document Test
+      hippo:name: Video Type (copy 2)
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /video-type-copy-3:
+      /video-type-copy-3:
+        /website:introduction:
+          hippostd:content: <p>This is to test video type document</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments:
+          hippo:docbase: 1d0210a1-e410-4919-a0c7-fba6add9739c
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Video type document test
+          jcr:primaryType: hippostd:html
+        common:FullTaxonomy:
+        - conditions
+        - breaks-and-fractures
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Breaks and fractures
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-11-29T13:34:19.219Z
+        hippostdpubwf:lastModificationDate: 2020-12-03T18:07:50.932Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - breaks-and-fractures
+        hippotranslation:id: 06ae4086-a12a-43ef-84ab-dca0ede46d95
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/embed/SOfkWR9I-XM
+        website:shortsummary: Video Type Test NHS Digital leads the digital revolution
+          in the NHS.  We provide services which make it quicker, easier, and safer
+          for patients, and our systems handle over 3,500 pieces of data every second.     Working
+          at NHS Digital means you can make a real difference, in a supportive and
+          professional environment.
+        website:title: Video Type Document Test
+      hippo:name: Video Type (copy 3)
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Video
+    hippostd:foldertype:
+    - new-digital-website-folder
+    - new-digital-website-document
+    hippotranslation:id: 0efbbbe7-39d8-4f07-9b28-d8d6fd9dc5e8
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /visual-hub-test-document:
     /visual-hub-test-document[1]:
       /website:additionalinformation:

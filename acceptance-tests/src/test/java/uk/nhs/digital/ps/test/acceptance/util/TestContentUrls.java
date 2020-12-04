@@ -238,6 +238,10 @@ public class TestContentUrls {
         addSiteUrl("Service test document",
             "/website-acceptance-tests/service-test-document");
 
+        //Video page
+        addSiteUrl("Video Type",
+            "/website-acceptance-tests/video/video-type");
+
         // Hub page
         addSiteUrl("Hub test document",
             "/website-acceptance-tests/hub-test-document");

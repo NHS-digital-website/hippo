@@ -125,7 +125,6 @@ public class SiteSteps extends AbstractSpringSteps {
         for (List<String> elementsContent : pageSections.raw()) {
             elementName = elementsContent.get(0);
             WebElement pageElement = sitePage.findPageElement(elementName);
-
             assertThat("I should find page element: " + elementName,
                 pageElement, is(notNullValue()));
 
@@ -400,5 +399,10 @@ public class SiteSteps extends AbstractSpringSteps {
     public void thenIfIInspectedTheHtmlIShouldNotFindThe(String cssClass) throws Throwable {
         assertNull("Cannot find the CSS class " + cssClass,
             sitePage.findCssClass(cssClass));
+    }
+
+    @Then("^I should see \"([^\"]+)\" on page$")
+    public void thenIShouldseeElementOnPage(String element) throws Throwable {
+        assertTrue(sitePage.isPageElementDisplayed(element));
     }
 }
