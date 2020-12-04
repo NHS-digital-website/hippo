@@ -1,0 +1,34 @@
+{
+    "openapi": "3.0.0",
+    X-PROPERTY-PLACEHOLDER
+    "paths": {
+        "/test": {
+            "parameters": [
+                {
+                    "in": "header",
+                    "name": "NHSD-Session-URID",
+                    "description": "A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.\n\nA URID belongs to a user (they are not generic) and a user may have more than one.\n\nFind out more about [User role ID](https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation)\n\nNote: This parameter is required unless interacting with the Sandbox.\n",
+                    "required": false,
+                    "schema": {
+                        "type": "string",
+                        "pattern": "^[0-9]+$",
+                        "example": "555021935107"
+                    }
+                }
+            ],
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "title": "Test Schema Title"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {}
+}

@@ -46,9 +46,9 @@
     <div id="api-description" class="article-section">
         {{{markdown appDescription}}}
     </div>
-
         {{#apiInfo}}
             {{#apis}}
+                {{#assign "tryThisApiDisabled"}}{{vendorExtensions.x-spec-publication.try-this-api.disabled}}{{/assign}}
                 {{#operations}}
                     <div id="api-{{baseName}}" class="article-section">
                         <h1>Endpoint: {{baseName}}</h1>
@@ -63,7 +63,7 @@
                                             <div class="endpoint_path">
                                                 <div class="method"><h2>{{httpMethod}}</h2></div>
                                                 <div class="pre"><pre>{{path}}</pre></div>
-                                                <div class="try"><a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                                {{#ifVariableIsFalse "tryThisApiDisabled"}}<div class="try"><a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>{{/ifVariableIsFalse}}
                                             </div>
 
                                             <p>{{{markdown notes}}}</p>

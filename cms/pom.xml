@@ -83,6 +83,10 @@
             <artifactId>swagger-codegen-generators</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.github.jknack</groupId>
+            <artifactId>handlebars-helpers</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.warrenstrange</groupId>
             <artifactId>googleauth</artifactId>
         </dependency>

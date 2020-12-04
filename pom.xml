@@ -302,6 +302,11 @@
                 <version>1.6.1</version>
             </dependency>
             <dependency>
+                <groupId>com.github.jknack</groupId>
+                <artifactId>handlebars-helpers</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+            <dependency>
                 <groupId>com.warrenstrange</groupId>
                 <artifactId>googleauth</artifactId>
                 <version>1.4.0</version>

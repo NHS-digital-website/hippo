@@ -7,8 +7,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK;
-import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
 
 import com.github.jknack.handlebars.Options;
 import io.swagger.v3.oas.models.media.ObjectSchema;
@@ -62,7 +62,7 @@ public class IfRequiredHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_MAIN_BLOCK);
     }
 
     @Test
@@ -90,7 +90,7 @@ public class IfRequiredHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
     }
 
     @Test
@@ -113,7 +113,7 @@ public class IfRequiredHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
     }
 
     @Test
@@ -139,7 +139,7 @@ public class IfRequiredHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
     }
 
     @Test
