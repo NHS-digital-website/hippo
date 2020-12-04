@@ -894,7 +894,7 @@
                                     <configfile>
                                         <file>${project.basedir}/conf/govdelivery.properties</file>
                                         <todir>conf/</todir>
-                                        <tofile>govdelivery.properties</tofile>
+                                        <tofile>hst.properties</tofile>
                                     </configfile>
                                     <configfile>
                                         <file>${project.basedir}/conf/query/lucene/indexing_configuration.xml</file>

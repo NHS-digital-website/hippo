@@ -42,9 +42,9 @@ if (document.querySelector('[data-chartsource=highchart]')) {
 if (document.querySelector('[data-eforms="setup"]')) {
     import(/* webpackChunkName: "eform-setup" */ './eforms/eforms').then(module => {
         const eform = module.default;
-        const {name, conditions, ajaxValidationUrl, ajaxSubmissionUrl} = window.eformsInfo;
+        const {name, conditions, ajaxValidationUrl, ajaxSubmissionUrl, customApiConfig} = window.eformsInfo;
 
-        eform(name, conditions, ajaxValidationUrl, ajaxSubmissionUrl)
+        eform(name, conditions, ajaxValidationUrl, ajaxSubmissionUrl, customApiConfig)
     })
 }
 

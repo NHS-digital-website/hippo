@@ -67,7 +67,7 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
         return builder.toString();
     }
 
-    private Resource validateReCaptcha(String gReCaptchaResponseCode) {
+    public Resource validateReCaptcha(String gReCaptchaResponseCode) {
         Resource resource = null;
 
         try {

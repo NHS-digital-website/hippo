@@ -10,6 +10,6 @@
         <property name="restTemplate">
             <bean class="org.springframework.web.client.RestTemplate" />
         </property>
-        <property name="baseUri" value="http://localhost:8999"/>
+        <property name="baseUri" value="https://stage-api.govdelivery.com"/>
     </bean>
 </beans>

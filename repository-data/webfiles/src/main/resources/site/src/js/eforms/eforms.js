@@ -9,7 +9,7 @@ addValidate($);
 hippoValidate($);
 
 /* eslint-disable */
-export default function (formName, formConditions, validationUrl, submissionUrl) {
+export default function (formName, formConditions, validationUrl, submissionUrl, customApiConfig) {
     // Cache DOM elements
     var $form = $(`form[name="${formName}"]`);
     var $formEl = document.forms[name = `${formName}`];
@@ -309,13 +309,13 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             type: 'POST',
             url: validationUrl,
             data: params,
-            success: function (response) {
+            success: function (data) {
                 if (typeof successCallback === 'function') {
-                    successCallback();
+                    successCallback(data);
                 }
             },
             error: function (response) {
-                var errorObject = JSON.parse(response.responseText.replace(/&quot;/g, '"').replace(/&#39;/g, '\''));
+                const errorObject = JSON.parse(response.responseText.replace(/&quot;/g, '"').replace(/&#39;/g, '\''));
 
                 showErrors(errorObject);
                 $(window).scrollTop($errorWarning.offset().top);
@@ -328,28 +328,76 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
         });
     }
 
-    function submitForm(params) {
+    function setScriptServiceParams(params, ajaxConf) {
+        const scriptServiceParams = {
+            t: $form.data('topic'),
+            k: ajaxConf.apiKey
+        };
+
+        const fields = {};
+        const allFields = $('.eforms-field *:input');
+        addFormFieldsToParameters(allFields, fields);
+
+        for (let i in fields) {
+            if (i == 'email') {
+                scriptServiceParams['e'] = fields[i];
+            } else {
+                try {
+                    scriptServiceParams['q_' + i] = atob(fields[i]);
+                } catch(e) {
+                    console.error('Couldn\'t decode answer id');
+                }
+            }
+        }
+
+        return scriptServiceParams;
+    }
+
+    function submitForm(params, ajaxConf) {
         $form.addClass('disabled');
 
-        $.post({
+        let customAjaxConf = {};
+
+        if (customApiConfig == 'scriptService') {
+            params = setScriptServiceParams(params, ajaxConf);
+
+            customAjaxConf = {
+                    url: ajaxConf.apiUrl,
+                    dataType: 'jsonp',
+                    jsonp: 'c',
+                    jsonpCallback: 'jsonpCallback'
+                }
+        }
+
+        const successFunc = function (res) {
+            if (customApiConfig == 'scriptService' && !(res && res.topic_id)) {
+                return errorFunc();
+            }
+
+            $form.attr('disabled', 'disabled');
+
+            userHitSubmit = false;
+            reset();
+            showSuccessMessage();
+        };
+
+        const errorFunc = function () {
+            // do something with the response
+            $(window).scrollTop($errorWarning.offset().top);
+            $errorWarning.show();
+            $form.removeClass('disabled');
+
+            grecaptcha.reset();
+            displayRecaptcha();
+        };
+
+        $.ajax({
+            type: $form.attr('method'),
             url: submissionUrl,
             data: params,
-            success: function (response) {
-                $form.attr('disabled', 'disabled');
-
-                userHitSubmit = false;
-                reset();
-                showSuccessMessage();
-            },
-            error: function (response) {
-                // do something with the response
-                $(window).scrollTop($errorWarning.offset().top);
-                $errorWarning.show();
-                $form.removeClass('disabled');
-
-                grecaptcha.reset();
-                displayRecaptcha();
-            }
+            ...customAjaxConf,
+            success: successFunc,
+            error: errorFunc
         });
     }
 
@@ -450,8 +498,9 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
 
         // add current page index to parameters
         params['currentPage'] = curPage.attr('id').replace(/^page/, '');
+        params['gRecaptchaResponse'] = $("#g-recaptcha-response").val();
 
-        validateUserInput(params, function () {
+        validateUserInput(params, function (ajaxConf) {
             if (curPage.attr('id') != 'page0') {
                 // Collate input from all pages since above params just includes last page
                 params = {};
@@ -459,7 +508,8 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 addFormFieldsToParameters(allFields, params);
             }
             params['gRecaptchaResponse'] = $("#g-recaptcha-response").val();
-            submitForm(params);
+
+            submitForm(params, ajaxConf);
         });
     });
 

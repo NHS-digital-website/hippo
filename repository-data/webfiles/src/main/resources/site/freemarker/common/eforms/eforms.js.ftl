@@ -5,6 +5,9 @@
         ajaxValidationUrl: "<@hst.resourceURL escapeXml=false resourceId="validation"/>",
         ajaxSubmissionUrl: "<@hst.actionURL escapeXml=false />",
         name: "${form.name}",
-        conditions: ${form.conditionsAsJsonString?no_esc}
+        conditions: ${form.conditionsAsJsonString?no_esc},
+        <#if apiScriptServiceEnabled?? && apiScriptServiceEnabled>
+        customApiConfig: 'scriptService'
+        </#if>
     }
 </script>

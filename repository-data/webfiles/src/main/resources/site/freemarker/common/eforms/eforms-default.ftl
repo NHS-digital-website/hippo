@@ -58,14 +58,12 @@
     </#if>
 <#else>
     <#if "${processDone!}" != "true">
-
-        <#assign formAction = "post">
-
-        <#if apiScriptServiceEnabled?? && apiScriptServiceEnabled>
-            <#assign formAction = "get">
-        </#if>
-        <form class="eforms form" action="<@hst.actionURL escapeXml=false />" method="${formAction}" name="${form.name!}"
-              <#if form.multipart>enctype="multipart/form-data"</#if>>
+            <#if apiScriptServiceEnabled?? && apiScriptServiceEnabled>
+                <form class="eforms form" id="eform" method="get" name="${form.name!}" data-topic="${topicId!}" accept-charset="utf-8">
+            <#else>
+                 <form class="eforms form" action="<@hst.actionURL escapeXml=false />" method="post" name="${form.name!}"
+                              <#if form.multipart>enctype="multipart/form-data"</#if>>
+            </#if>
 
             <#assign formPages = form.pages>
             <#if formPages?? && formPages?size gte 1>
@@ -104,7 +102,7 @@
             </#if>
 
             <div class="recaptcha">
-                <div class="g-recaptcha" data-sitekey="6LdAieMZAAAAAB4_mxatkiPqkCG3a4mmT9-ZoaHH" data-callback="enableSubmit" data-expired-callback="displayRecaptcha"></div>
+                <div class="g-recaptcha" data-sitekey="6LdK9HIUAAAAAKYqxARfxX087UPwOmT2Xv_OkBZ0" data-callback="enableSubmit" data-expired-callback="displayRecaptcha"></div>
             </div>
 
             <div class="eforms-buttons">
