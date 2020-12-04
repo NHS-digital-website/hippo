@@ -123,7 +123,7 @@
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
         <spring.version>5.1.14.RELEASE</spring.version>
 
-        <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
+        <org.eclipse.jetty.version>9.4.35.v20201120</org.eclipse.jetty.version>
         <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
 
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
