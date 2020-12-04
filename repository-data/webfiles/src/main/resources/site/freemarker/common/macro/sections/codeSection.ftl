@@ -17,15 +17,15 @@
     <#assign customid = "id=${slugify(section.heading)}" />
     </#if>
 
-    <div ${customid} class="article-section${(section.heading?has_content && mainHeading)?then('', '-with-sub-heading')}${section.heading?has_content?then('', '-with-no-heading')}">
+    <div ${customid} class="article-section${(section.heading?has_content && mainHeading)?then(' navigationMarker', '-with-sub-heading')}${section.heading?has_content?then('', '-with-no-heading')}">
         <#if section.heading?has_content>
             <#if mainHeading>
                 <#assign mainHeadingTag = "h" + mainHeadingLevel />
-                <${mainHeadingTag} data-uipath="website.contentblock.codesection.title" id="${slugify(section.title)}" class="navigationMarker">${section.heading}</${mainHeadingTag}>
+                <${mainHeadingTag} data-uipath="website.contentblock.codesection.title">${section.heading}</${mainHeadingTag}>
             <#else>
                 <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
                 <#assign subHeadingTag = "h" + subHeadingLevel />
-                <${subHeadingTag} data-uipath="website.contentblock.codesection.title" id="${slugify(section.title)}" class="navigationMarker">${section.heading}</${subHeadingTag}>
+                <${subHeadingTag} data-uipath="website.contentblock.codesection.title">${section.heading}</${subHeadingTag}>
             </#if>
         </#if>
 

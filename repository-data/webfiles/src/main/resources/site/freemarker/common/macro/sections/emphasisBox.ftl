@@ -24,7 +24,7 @@
         </#if>
     </#if>
 
-    <div class="emphasis-box emphasis-box-${slugify(section.emphasisType)}" ${ariaAttribute}="${ariaValue}">
+    <div class="emphasis-box emphasis-box-${slugify(section.emphasisType)} navigationMarker-sub" ${ariaAttribute}="${ariaValue}">
         <#if section.image??>
             <div class="emphasis-box__image">
                 <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />

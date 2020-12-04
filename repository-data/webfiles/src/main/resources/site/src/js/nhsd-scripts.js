@@ -3,7 +3,10 @@ import './utils/public-path';
 /**
  * Scripts to load just before `</body>`
  */
-import {initStickyNav} from "./sticky-nav/stickyNav";
+import {
+    initStickyNav,
+    initStickyNavSubItems
+} from "./sticky-nav/sticky-nav";
 import {initChapterNav} from "./chapter-nav/chapter-nav";
 import {tableSort} from "./table-sort/init-table-sort";
 import {initCookieConsent} from "./relevance/relevance-cookie";
@@ -11,7 +14,10 @@ import {initCountup} from "./statistics/statistics-countup";
 import {initSiteHeader} from "./header/site-header";
 import {activateCodeBlocks} from "./highlighter/highlighter-copy-button";
 
-initStickyNav();
+jQuery(() => {
+    initStickyNav()
+    initStickyNavSubItems()
+})
 initChapterNav();
 initSiteHeader();
 activateCodeBlocks();

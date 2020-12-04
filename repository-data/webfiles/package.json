@@ -124,12 +124,10 @@
     },
     "dependencies": {
         "countup.js": "^2.0.5",
-        "css-element-queries": "^1.2.3",
         "highcharts": "^8.2.2",
         "jquery": "^3.5.1",
         "jquery-ui": "^1.12.1",
         "papaparse": "^5.2.0",
-        "sticky-sidebar": "^3.3.1",
         "tablesort": "^5.2.0"
     }
 }

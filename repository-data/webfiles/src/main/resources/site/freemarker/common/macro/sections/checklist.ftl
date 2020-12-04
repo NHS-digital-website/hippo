@@ -6,7 +6,7 @@
       <#assign widgetClass += ' check-list-widget--with-heading' />
     </#if>
 
-    <div class="${widgetClass}">
+    <div class="${widgetClass} navigationMarker-sub">
         <#if section.heading?has_content>
             <h3 class="check-list-widget__label" id="${slugify(section.heading)}" data-uipath="website.contentblock.checklist.heading">${section.heading}</h3>
         </#if>
