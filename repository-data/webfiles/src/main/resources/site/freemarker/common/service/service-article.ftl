@@ -168,7 +168,7 @@
                 </#if>
 
                 <#if hasContactDetailsContent>
-                    <div class="article-section article-section--contact"
+                    <div class="article-section article-section--contact navigationMarker"
                          id="${slugify('Contact details')}">
                         <h2><@fmt.message key="headers.contact-details" /></h2>
                         <div class="rich-text-content">

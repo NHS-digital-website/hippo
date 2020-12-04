@@ -3,7 +3,7 @@
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Expander" -->
 
 <#macro expander section heading="" content="">
-    <div class="article-section-with-no-heading expander ${(section != "" && section.audience?? && section.audience == "Most people")?then("expander-most", "expander-some")}">
+    <div class="article-section-with-no-heading expander ${(section != "" && section.audience?? && section.audience == "Most people")?then("expander-most", "expander-some")} navigationMarker-sub">
         <details>
             <summary>
                 <span>

@@ -62,7 +62,7 @@
                 </#if>
 
                 <#if document.groupreports?has_content>
-                  <div id="groupreports" class="article-section-with-sub-heading" data-uipath="website.group.groupreports">
+                  <div id="groupreports" class="article-section-with-sub-heading navigationMarker-sub" data-uipath="website.group.groupreports">
                       <h3>This group reports to</h3>
                       <a href="<@hst.link hippobean=document.groupreports/>" >
                        ${document.groupreports.title}
@@ -70,7 +70,7 @@
                   </div>
                 </#if>
                 <#if (document.quorate?has_content && document.quorate?number > 0)>
-                  <div class="article-section-with-sub-heading">
+                  <div class="article-section-with-sub-heading navigationMarker-sub">
                     <p>This board is quorate with ${document.quorate} members</p>
                   </div>
                 </#if>
