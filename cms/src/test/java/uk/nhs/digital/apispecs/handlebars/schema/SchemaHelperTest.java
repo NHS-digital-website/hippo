@@ -12,7 +12,7 @@ import static org.mockito.Mockito.mock;
 import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
 import static uk.nhs.digital.test.util.StringTestUtils.Placeholders.placeholders;
-import static uk.nhs.digital.test.util.StringTestUtils.dropBlankLines;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringBlankLinesIn;
 
 import com.github.jknack.handlebars.HandlebarsException;
 import com.github.jknack.handlebars.Options;
@@ -43,6 +43,23 @@ import java.util.function.Function;
 @RunWith(DataProviderRunner.class)
 public class SchemaHelperTest {
 
+    // Note the use of StringTestUtils.ignoringBlankLinesIn in assertions.
+    // Removal of blank lines improves readability when debugging tests,
+    // and reduces the number of times test data files need updating.
+    //
+    // In test cases that focus on, say, a small number of specific fields,
+    // the actual output often contains many blank lines which makes it harder
+    // to see the complete structure in one glance. Blank lines are redundant in
+    // HTML output and removing them shrinks the content to a size that makes
+    // is much easier to analyse it.
+    //
+    // Changes to the templates result in the updated output to stop matching
+    // the test files, but the differences are very often limited to the blank
+    // lines which, as said above, have no actual impact on the displayed
+    // content. Ignoring those lines during assertions reduces the number of
+    // times the test files need to be updated whilst not invalidating their
+    // value as a reference content.
+
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
     private static final String TEST_DATA_FILES_CLASSPATH = "/test-data/api-specifications/SchemaHelperTest";
@@ -66,17 +83,17 @@ public class SchemaHelperTest {
     public void rendersAllSimpleFieldsOfSingleSchemaObjectAsHtml() {
 
         // given
-        final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObjectCompleteTopLevel-simpleFields.html"));
+        final String expectedSchemaHtml = readFrom("schemaObjectCompleteTopLevel-simpleFields.html");
 
         final Schema<?> schemaObject = fromJsonFile("schemaObjectCompleteTopLevel-simpleFields.json");
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("All 'simple' fields of Schema Object are rendered in HTML.",
-            actualSchemaHtml,
-            is(expectedSchemaHtml)
+            ignoringBlankLinesIn(actualSchemaHtml),
+            is(ignoringBlankLinesIn(expectedSchemaHtml))
         );
     }
 
@@ -87,16 +104,15 @@ public class SchemaHelperTest {
         final Object propertyValue,
         final Function<Schema<?>, Schema<?>> propertySetter
     ) {
-
         // given
         final Schema<?> schemaObject = propertySetter.apply(new ObjectSchema());
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Property '" + propertyName + "' is rendered for falsy value '" + propertyValue + "'.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString(propertyName + "\">" + propertyValue + "<")
         );
     }
@@ -127,15 +143,15 @@ public class SchemaHelperTest {
         // given
         final Schema<?> schemaObject = new ObjectSchema();
 
-        final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObject-empty.html"));
+        final String expectedSchemaHtml = readFrom("schemaObject-empty.html");
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Fields absent from the specifications are not rendered.",
-            actualSchemaHtml,
-            is(expectedSchemaHtml)
+            ignoringBlankLinesIn(actualSchemaHtml),
+            is(ignoringBlankLinesIn(expectedSchemaHtml))
         );
     }
 
@@ -143,17 +159,17 @@ public class SchemaHelperTest {
     public void rendersCompleteHierarchyOfSchemaObjectsWithTheirFieldsAndIndentationsAsHtml_traversingFieldsProperties() {
 
         // given
-        final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObjectsMultiLevelHierarchy-properties.html"));
+        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-properties.html");
 
         final Schema<?> schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-properties.json");
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            actualSchemaHtml,
-            is(expectedSchemaHtml)
+            ignoringBlankLinesIn(actualSchemaHtml),
+            is(ignoringBlankLinesIn(expectedSchemaHtml))
         );
     }
 
@@ -162,7 +178,7 @@ public class SchemaHelperTest {
     public void rendersCompleteHierarchyOfSchemaObjectsWithTheirFieldsAndIndentationsAsHtml_traversingFieldsXOf(final String propertyName) {
 
         // given
-        final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObjectsMultiLevelHierarchy-xOf.html"))
+        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-xOf.html")
             .replaceAll(PROPERTY_PLACEHOLDER_X_OF, propertyName);
 
         final Schema<?> schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-xOf.json",
@@ -170,12 +186,12 @@ public class SchemaHelperTest {
         );
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            actualSchemaHtml,
-            is(expectedSchemaHtml)
+            ignoringBlankLinesIn(actualSchemaHtml),
+            is(ignoringBlankLinesIn(expectedSchemaHtml))
         );
     }
 
@@ -183,17 +199,17 @@ public class SchemaHelperTest {
     public void rendersCompleteHierarchyOfSchemaObjectsWithTheirFieldsAndIndentationsAsHtml_traversingFieldsItems() {
 
         // given
-        final String expectedSchemaHtml = dropBlankLines(readFrom("schemaObjectsMultiLevelHierarchy-items.html"));
+        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-items.html");
 
         final Schema<?> schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-items.json");
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            actualSchemaHtml,
-            is(expectedSchemaHtml)
+            ignoringBlankLinesIn(actualSchemaHtml),
+            is(ignoringBlankLinesIn(expectedSchemaHtml))
         );
     }
 
@@ -206,11 +222,11 @@ public class SchemaHelperTest {
             .exclusiveMaximum(true);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Exclusive maximum is rendered as exclusive.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString("<code class=\"codeinline exclusivemaximum\">(exclusive)</code>")
         );
     }
@@ -224,11 +240,11 @@ public class SchemaHelperTest {
             .exclusiveMaximum(false);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Exclusive maximum is rendered as inclusive.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString("<code class=\"codeinline exclusivemaximum\">(inclusive)</code>")
         );
     }
@@ -240,11 +256,11 @@ public class SchemaHelperTest {
         final Schema<?> schemaObject = new ObjectSchema().exclusiveMaximum(true);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Exclusive maximum is not rendered.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             allOf(
                 not(containsString("(inclusive)")),
                 not(containsString("(exclusive)"))
@@ -260,11 +276,11 @@ public class SchemaHelperTest {
             .exclusiveMinimum(true);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Exclusive minimum is rendered as exclusive.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString("<code class=\"codeinline exclusiveminimum\">(exclusive)</code>")
         );
     }
@@ -278,11 +294,11 @@ public class SchemaHelperTest {
             .exclusiveMinimum(false);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Exclusive minimum is rendered as inclusive.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString("<code class=\"codeinline exclusiveminimum\">(inclusive)</code>")
         );
     }
@@ -294,11 +310,11 @@ public class SchemaHelperTest {
         final Schema<?> schemaObject = new ObjectSchema().exclusiveMinimum(true);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Exclusive minimum is not rendered.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             allOf(
                 not(containsString("(inclusive)")),
                 not(containsString("(exclusive)"))
@@ -312,11 +328,11 @@ public class SchemaHelperTest {
         final Schema<?> schemaObject = schemaWithItemsWithNoXOf();
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("HTML contains 'items' element.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString(">items object<")
         );
     }
@@ -329,11 +345,11 @@ public class SchemaHelperTest {
         final Schema<?> schemaObject = schemaWithXOfPropertyUnderItemsObject(propertyName);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("HTML does not contain 'items' row.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             not(containsString(">items object<"))
         );
     }
@@ -346,11 +362,11 @@ public class SchemaHelperTest {
         final Schema<?> schemaObject = schemaWithXOfPropertyUnderNonItemsObject(propertyName);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("HTML contains '" + propertyName + "' element.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             stringContainsInOrder(
                 "padding-left: 0em;",           // root
                 "padding-left: 1em;",           //   non-items
@@ -372,11 +388,11 @@ public class SchemaHelperTest {
         final Schema<?> schemaObject = schemaWithXOfPropertyUnderItemsObject(propertyName);
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("HTML contains '" + propertyName + "' element.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             stringContainsInOrder(
                 "padding-left: 0em;",           // root
                 "padding-left: 1em;",           //   array-schema
@@ -398,11 +414,11 @@ public class SchemaHelperTest {
         final Schema<?> schemaObject = schemaWithItemsWithNoXOf();
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("HTML contains '" + propertyName + "' element.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             not(containsString(">" + propertyName + "<"))
         );
     }
@@ -427,11 +443,11 @@ public class SchemaHelperTest {
         final String expectedRendering = "<div>Default: " + expectedRenderedValue.replace("CSS_CLASS", "default") + "</div>";
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Default " + testCaseDescription + " value is rendered for schema of type '" + schemaType + "'.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString(expectedRendering)
         );
     }
@@ -459,11 +475,11 @@ public class SchemaHelperTest {
         );
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Enum with " + testCaseDescription + " is rendered.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString(expectedRendering)
         );
     }
@@ -504,11 +520,11 @@ public class SchemaHelperTest {
         final String expectedRendering = format("<div>Example: %s</div>", renderedValue.replace("CSS_CLASS", "example"));
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("Example with " + testCaseDescription + " is rendered.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             containsString(expectedRendering)
         );
     }
@@ -573,11 +589,11 @@ public class SchemaHelperTest {
         final Schema<?> schemaObject = fromJsonFile("schemaObject-requiredField.json");
 
         // when
-        final String actualSchemaHtml = renderSchemaDroppingBlankLines(schemaObject);
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
 
         // then
         assertThat("HTML with 'required' status rendered for the appropriate object.",
-            actualSchemaHtml,
+            ignoringBlankLinesIn(actualSchemaHtml),
             stringContainsInOrder(
                 ">first-object<", ">required<",
                 ">second-object<",
@@ -604,31 +620,6 @@ public class SchemaHelperTest {
         // then
 
         // expectations set up in 'given' are satisfied
-    }
-
-    /**
-     * <p>
-     * Invokes the action under test, removing blank lines from the actual output
-     * rendered.
-     * <p>
-     * The removal of blank lines helps in readability when debugging tests,
-     * and in reducing the number of times test data files need updating:
-     * <p>
-     * In test cases that focus on, say, a small number of fields, the actual output
-     * often contains many blank lines which makes it harder to see the complete
-     * structure in one glance. Blank lines are redundant in HTML output and
-     * removing them 'shrinks' the content to the size that makes is much easier
-     * to analyse it.
-     * <p>
-     * Changes to the templates result in the updated output to stop matching
-     * the test files, but the differences are very often limited to the blank
-     * lines which, as said above, have not actual impact on the displayed
-     * content. Ignoring those lines during assertions reduces the number
-     * times the test files need to be updated whilst not invalidating their
-     * value as a reference content.
-     */
-    private String renderSchemaDroppingBlankLines(final Schema<?> schemaObject) {
-        return dropBlankLines(schemaHelper.apply(schemaObject, null));
     }
 
     @DataProvider

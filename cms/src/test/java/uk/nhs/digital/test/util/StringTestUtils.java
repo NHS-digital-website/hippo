@@ -111,7 +111,7 @@ public class StringTestUtils {
         }
     }
 
-    public static String dropBlankLines(final String text) {
+    public static String ignoringBlankLinesIn(final String text) {
         return stream(
             split(text, LF)
         )

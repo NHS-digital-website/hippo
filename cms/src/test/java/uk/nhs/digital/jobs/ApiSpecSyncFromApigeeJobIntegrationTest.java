@@ -13,6 +13,7 @@ import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.JcrTestUtils.*;
 import static uk.nhs.digital.test.util.JcrTestUtils.BloomReachJcrDocumentVariantType.DRAFT;
 import static uk.nhs.digital.test.util.MockJcrRepoProvider.initJcrRepoFromYaml;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringBlankLinesIn;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.collect.ImmutableMap;
@@ -204,8 +205,8 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
         assertThat(
             "CodeGen-generated specification HTML has been set on the document",
-            actualSpecHtml,
-            is(expectedSpecHtml)
+            ignoringBlankLinesIn(actualSpecHtml),
+            is(ignoringBlankLinesIn(expectedSpecHtml))
         );
     }
 
@@ -325,11 +326,11 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     }
 
     private String apigeeApiSpecificationJson() {
-        return testDataFromFile("openapi-v3-specification.json");
+        return testDataFromFile("oasV3_complete.json");
     }
 
     private String codeGenGeneratedSpecificationHtml() {
-        return testDataFromFile("customised-codegen-v3-generated-spec.html");
+        return testDataFromFile("oasV3_complete.html");
     }
 
     private String testDataFromFile(final String testDataFileName) {

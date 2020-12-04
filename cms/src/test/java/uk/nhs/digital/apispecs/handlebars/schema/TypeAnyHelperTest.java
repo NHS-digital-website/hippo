@@ -19,8 +19,6 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.apispecs.handlebars.OptionsStub;
-import uk.nhs.digital.apispecs.handlebars.schema.SchemaRenderingException;
-import uk.nhs.digital.apispecs.handlebars.schema.TypeAnyHelper;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -57,12 +55,12 @@ public class TypeAnyHelperTest {
         final Options.Buffer actualBuffer = helper.apply(jsonObject, options);
 
         // then
+        then(actualBuffer).should().append(OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK);
+
         assertThat("Returns buffer provided by Handlebars through Options.",
-            actualBuffer,
+            buffer,
             sameInstance(actualBuffer)
         );
-
-        then(actualBuffer).should().append(OptionsStub.TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
     }
 
     @Test
@@ -75,12 +73,12 @@ public class TypeAnyHelperTest {
         final Options.Buffer actualBuffer = helper.apply(arrayWithJsonObject, options);
 
         // then
+        then(actualBuffer).should().append(OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK);
+
         assertThat("Returns buffer provided by Handlebars through Options.",
-            actualBuffer,
+            buffer,
             sameInstance(actualBuffer)
         );
-
-        then(actualBuffer).should().append(OptionsStub.TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
     }
 
     @Test
@@ -93,12 +91,12 @@ public class TypeAnyHelperTest {
         final Options.Buffer actualBuffer = helper.apply(arrayWithSimpleValues, options);
 
         // then
+        then(actualBuffer).should().append(OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
+
         assertThat("Returns buffer provided by Handlebars through Options.",
-            actualBuffer,
+            buffer,
             sameInstance(actualBuffer)
         );
-
-        then(actualBuffer).should().append(OptionsStub.TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
     }
 
     @Test
@@ -111,12 +109,12 @@ public class TypeAnyHelperTest {
         final Options.Buffer actualBuffer = helper.apply(arrayWithSimpleValues, options);
 
         // then
+        then(actualBuffer).should().append(OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
+
         assertThat("Returns buffer provided by Handlebars through Options.",
-            actualBuffer,
+            buffer,
             sameInstance(actualBuffer)
         );
-
-        then(actualBuffer).should().append(OptionsStub.TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
     }
 
     @Test
@@ -129,12 +127,12 @@ public class TypeAnyHelperTest {
         final Options.Buffer actualBuffer = helper.apply(nullObject, options);
 
         // then
+        then(actualBuffer).should().append(EMPTY_STRING);
+
         assertThat("Returns buffer provided by Handlebars through Options.",
-            actualBuffer,
+            buffer,
             sameInstance(actualBuffer)
         );
-
-        then(actualBuffer).should().append(EMPTY_STRING);
     }
 
     @Test
@@ -151,12 +149,12 @@ public class TypeAnyHelperTest {
         final Options.Buffer actualBuffer = helper.apply(modelOfIgnoredType, options);
 
         // then
+        then(actualBuffer).should().append(EMPTY_STRING);
+
         assertThat("Returns buffer provided by Handlebars through Options.",
-            actualBuffer,
+            buffer,
             sameInstance(actualBuffer)
         );
-
-        then(actualBuffer).should().append(EMPTY_STRING);
     }
 
     @Test

@@ -11,8 +11,8 @@ import java.util.Map;
 
 public class OptionsStub extends Options {
 
-    public static final String TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK = randomString("main_block_content_");
-    public static final String TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK = randomString("inverse_block_content_");
+    public static final String TEMPLATE_CONTENT_FROM_MAIN_BLOCK = randomString("main_block_content_");
+    public static final String TEMPLATE_CONTENT_FROM_INVERSE_BLOCK = randomString("inverse_block_content_");
 
     private Buffer buffer;
 
@@ -25,6 +25,12 @@ public class OptionsStub extends Options {
 
     public static Options with(final Buffer buffer, final Hash hash) {
         return new OptionsStub(buffer, null, null, null, null, null, null, null, hash, emptyList());
+    }
+
+    public static Options with(final Buffer buffer, final Data data) {
+        final Context currentContext = Context.newContext("irrelevant model").data(data.getData());
+
+        return new OptionsStub(buffer, null, null, null, currentContext, null, null, null, Hash.empty(), emptyList());
     }
 
     public static Options with(final Buffer buffer) {
@@ -49,11 +55,11 @@ public class OptionsStub extends Options {
     }
 
     @Override public CharSequence fn() {
-        return TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK;
+        return TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
     }
 
     @Override public CharSequence inverse() {
-        return TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK;
+        return TEMPLATE_CONTENT_FROM_INVERSE_BLOCK;
     }
 
     @Override public Buffer buffer() {
@@ -77,6 +83,22 @@ public class OptionsStub extends Options {
 
         public Map<String, Object> hash() {
             return hash;
+        }
+    }
+
+    public static class Data {
+        private final Map<String, Object> data;
+
+        private Data(final Map<String, Object> data) {
+            this.data = data;
+        }
+
+        public static Data of(final String key, final Object value) {
+            return new Data(ImmutableMap.of(key, value));
+        }
+
+        private Map<String, Object> getData() {
+            return data;
         }
     }
 }

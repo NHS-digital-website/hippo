@@ -5,6 +5,7 @@ import static java.util.Collections.emptyMap;
 
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.helper.AssignHelper;
 import io.swagger.codegen.v3.*;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -20,6 +21,7 @@ import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 import uk.nhs.digital.apispecs.handlebars.EnumHelper;
 import uk.nhs.digital.apispecs.handlebars.HasOneItemHelper;
 import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
+import uk.nhs.digital.apispecs.handlebars.StringBooleanVariableHelper;
 import uk.nhs.digital.apispecs.handlebars.schema.SchemaHelper;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleHtmlRenderer;
@@ -114,7 +116,9 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(MarkdownHelper.NAME, markdownHelper)
             .registerHelper(HasOneItemHelper.NAME, HasOneItemHelper.INSTANCE)
             .registerHelper(SchemaHelper.NAME, new SchemaHelper(markdownHelper))
-            .registerHelper(IsAnyTrueHelper.NAME, IsAnyTrueHelper.INSTANCE);
+            .registerHelper(IsAnyTrueHelper.NAME, IsAnyTrueHelper.INSTANCE)
+            .registerHelper(AssignHelper.NAME, AssignHelper.INSTANCE)
+            .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE);
 
         handlebars.with(EscapingStrategy.NOOP);
     }
