@@ -381,6 +381,9 @@
 [website:socialmediaimages] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:socialmedialink] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:standards] > hippo:compound, hippostd:relaxed
   orderable
 
