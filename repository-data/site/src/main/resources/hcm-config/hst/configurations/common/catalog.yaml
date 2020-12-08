@@ -86,5 +86,12 @@ definitions:
           hst:template: service-list
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
+        /social-media:
+          hst:componentclassname: uk.nhs.digital.common.components.SocialMediaComponent
+          hst:iconpath: images/essentials/catalog-component-icons/social-media.png
+          hst:label: Social Media
+          hst:template: social-media
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         jcr:primaryType: hst:containeritempackage
       jcr:primaryType: hst:catalog

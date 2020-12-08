@@ -40,6 +40,16 @@ a {
     }
 }
 
+a.black-link {
+    &:link {
+        color: $col-16;
+    }
+
+    &:visited {
+        color: $col-16;
+    }
+}
+
 .link--reverse-polarity {
     @include link-reverse-polarity;
 }
