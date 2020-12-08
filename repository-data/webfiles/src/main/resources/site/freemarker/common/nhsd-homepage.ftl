@@ -4,5 +4,7 @@
 <div>
     <@hst.include ref="banner"/>
 
-    <@hst.include ref="main"/>
+    <div class="nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1">
+        <@hst.include ref="main"/>
+    </div>
 </div>
