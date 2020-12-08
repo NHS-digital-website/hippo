@@ -6,6 +6,12 @@
     <div class="column column--reset">
         <#if pageable?? && pageable.items?has_content>
             <#list pageable.items as item>
+
+                <#assign hasVideo = false />
+                <#if item.class.name == 'uk.nhs.digital.website.beans.Video'>
+                    <#assign hasVideo = true />
+                </#if>
+
                 <#assign hasLeadImage = item.leadimagesection?has_content && item.leadimagesection.leadImage?has_content/>
                 <#if hasLeadImage>
                     <#assign image = item.leadimagesection.leadImage />
@@ -23,7 +29,12 @@
                     <a href="#"
                        class="media-text-hero media-text-hero--post media-text-hero--image">
                         <figure class="media-text-hero__media">
-                            <#if image?? && image?has_content>
+                            <#if hasVideo == true && item.videoUri?has_content>
+                                <div class="iframe-wrapper iframe-wrapper--16-9">
+                                    <iframe id="ytplayer" type="text/html" src="${item.videoUri}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                                    <link itemprop="embedUrl" href="${item.videoUri}" />
+                                </div>
+                            <#elseif image?? && image?has_content>
                                 <@hst.link hippobean=image.original fullyQualified=true var="leadImage" />
                                 <img src="${leadImage}" alt="${alttext}">
                             <#else>
@@ -32,7 +43,7 @@
                         </figure>
                         <div class="media-text-hero__content media-text-hero--post__content">
                             <div class="media-text-hero__content-items">
-                                <#if pubtime??>
+                                <#if pubtime?? && pubtime?has_content>
                                 <#--shema:datePublished-->
                                     <@fmt.formatDate value=pubtime type="Date" pattern="d MMMM yyyy" var="publishedDateTimeString" timeZone="${getTimeZone()}" />
                                     <@fmt.formatDate value=pubtime type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="${getTimeZone()}" />

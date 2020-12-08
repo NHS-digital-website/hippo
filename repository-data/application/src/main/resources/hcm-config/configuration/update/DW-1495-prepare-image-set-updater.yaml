@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-1495-prepare-image-set-updater:
+      hipposys:batchsize: 100
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: INFO
+      hipposys:parameters: ''
+      hipposys:query: //content//element(*, hippogallery:stdImageGallery)
+      hipposys:script:
+        resource: /configuration/update/DW-1495-prepare-image-set-updater.groovy
+        type: string
+      hipposys:throttle: 10
+      jcr:primaryType: hipposys:updaterinfo

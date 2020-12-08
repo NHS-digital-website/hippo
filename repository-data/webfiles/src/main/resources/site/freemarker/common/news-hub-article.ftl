@@ -47,7 +47,7 @@
             <#-- Restore the bundle -->
             <@hst.setBundle basename="rb.generic.headers,rb.doctype.news-hub"/>
 
-            
+
             <div class="column column--three-quarters page-block page-block--main">
                 <div class="hub-box-list" id="hub-search-results">
                 <#if pageable?? && pageable.items?has_content>
@@ -55,15 +55,16 @@
                         <div class="grid-row">
                             <div class="column column--reset">
                                 <#list pageable.items as item>
-                                <#assign newsData = { "title": item.title, "text": item.shortsummary} />
+                                    <#assign newsData = { "title": item.title, "text": item.shortsummary} />
 
-                                <@hst.link hippobean=item var="newsLink" />
-                                <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />
+                                    <@hst.link hippobean=item var="newsLink" />
+                                    <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />
 
-                                <#assign newsData += { "link": newsLink, "date": date } />
-                                <#assign newsData += { "imagesection": item.leadimagesection?has_content?then(item.leadimagesection, "EMPTY")} />
+                                    <#assign newsData += { "link": newsLink, "date": date } />
+                                    <#assign newsData += { "imagesection": item.leadimagesection?has_content?then(item.leadimagesection, "EMPTY")} />
+                                    <#assign newsData += { "largeImage": item?is_first } />
 
-                                <@hubBox newsData></@hubBox>
+                                    <@hubBox newsData />
                                 </#list>
                             </div>
                         </div>
@@ -81,7 +82,7 @@
                         <#include "../include/pagination.ftl">
                     </#if>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 

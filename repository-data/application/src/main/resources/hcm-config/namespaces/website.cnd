@@ -95,6 +95,8 @@
 [website:contactdetailextended] > website:contactdetail
   orderable
 
+[website:corporateWebsiteImageset] > hippogallery:imageset, hippogallery:relaxed
+
 [website:ctabutton] > hippo:compound, hippostd:relaxed
   orderable
 
