@@ -747,6 +747,11 @@ definitions:
           jcr:name: Social media images
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:socialmedialink:
+        /en:
+          jcr:name: Social Media
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:statistics:
         /en:
           jcr:name: Statistics
