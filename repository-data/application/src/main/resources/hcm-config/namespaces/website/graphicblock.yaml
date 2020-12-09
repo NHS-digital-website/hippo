@@ -19,42 +19,80 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
+          /modules:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: title
+            caption: Statistics
+            compoundList: website:statisticsItem,website:statisticsFeedItem
+            contentPickerType: links
+            field: modules
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /image:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Image
+            field: image
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /introductionText:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Introduction text
+            field: introductionText
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /infographic:
+          /items:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: infographic
-            field: infographic
+            caption: Links
+            compoundList: website:externallink,website:internallink
+            contentPickerType: links
+            field: items
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /infographic:
+          /image:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:infographic
+            hipposysedit:path: website:image
             hipposysedit:primary: false
-            hipposysedit:type: website:infographic
+            hipposysedit:type: hippogallerypicker:imagelink
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
-          /title:
+          /introductionText:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:title
+            hipposysedit:path: website:introductionText
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /items:
+            hipposysedit:multiple: false
+            hipposysedit:ordered: true
+            hipposysedit:path: website:items
+            hipposysedit:type: hippo:compound
             hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /modules:
+            hipposysedit:multiple: false
+            hipposysedit:ordered: true
+            hipposysedit:path: website:modules
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
@@ -73,21 +111,12 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:infographic:
-            /website:explanatoryLine:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:icon:
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-              jcr:primaryType: hippogallerypicker:imagelink
-            /website:qualifyingInformation:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            jcr:primaryType: website:infographic
-            website:headline: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder
@@ -102,7 +131,7 @@ definitions:
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:graphicblock
-          website:title: ''
+          website:introductionText: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
