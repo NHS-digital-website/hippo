@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/ui-extensions/sitemorse:
+      frontend:displayName: Site Morse
+      frontend:extensionPoint: channel.page.tools
+      frontend:url: http://localhost:9000
+      jcr:primaryType: frontend:uiExtension
