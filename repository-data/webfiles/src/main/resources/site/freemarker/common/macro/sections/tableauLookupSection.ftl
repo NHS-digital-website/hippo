@@ -4,7 +4,7 @@
 
 <#macro tableauLookup section index>
 
-    <@hst.setBundle basename="tableau.postcode.labels"/>
+    <@hst.setBundle basename="tableau.postcode.labels, tableau.lables, tableau.postcode.configuration"/>
 
    <#if section?? && section.url??>
 
@@ -58,7 +58,6 @@
        </div>
 
         <script>
-            <@hst.setBundle basename="tableau.lables"/>
             var vizMessages = {
                 LOAD_ERROR: "<@fmt.message key="load-error"/>",
                 LOADING_MESSAGE: "<@fmt.message key="loading-message"/>",
@@ -192,7 +191,7 @@
                         return null;
                     }
                 }
-                return "https://d3167zvwcf7itc.cloudfront.net/postcodes/" + _formatPostcode() + ".json";
+                return "<@fmt.message key="postcode-api-address"/>" + _formatPostcode() + ".json";
             }
 
             function _clearValidationMessage(el) {
