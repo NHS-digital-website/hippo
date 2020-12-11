@@ -50,6 +50,7 @@ definitions:
           /introductionText:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '80'
             caption: Introduction text
             field: introductionText
             jcr:primaryType: frontend:plugin
@@ -77,7 +78,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - optional
+            - required
             jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
@@ -87,7 +88,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators:
-            - optional
+            - required
             jcr:primaryType: hipposysedit:field
           /introductionText:
             hipposysedit:mandatory: false
