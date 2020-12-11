@@ -1,0 +1,63 @@
+---
+/content/documents/administration/resources/tableau-postcode-configuration:
+  /tableau-postcode-configuration[1]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-12-11T10:01:00.450Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: tableau.postcode.configuration
+    resourcebundle:keys:
+    - postcode-api-address
+    resourcebundle:messages:
+    - https://d3167zvwcf7itc.cloudfront.net/postcodes/
+  /tableau-postcode-configuration[2]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-12-11T10:01:04.136Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: tableau.postcode.configuration
+    resourcebundle:keys:
+    - postcode-api-address
+    resourcebundle:messages:
+    - https://d3167zvwcf7itc.cloudfront.net/postcodes/
+  /tableau-postcode-configuration[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-12-11T10:01:00.450Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-12-11T10:01:10.440Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: tableau.postcode.configuration
+    resourcebundle:keys:
+    - postcode-api-address
+    resourcebundle:messages:
+    - https://d3167zvwcf7itc.cloudfront.net/postcodes/
+  hippo:name: Tableau Postcode Configuration
+  hippo:versionHistory: 6e1b7039-e1d3-4f3e-9d1d-58e0024465f8
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
