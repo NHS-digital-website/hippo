@@ -132,6 +132,7 @@
         <commonmark.version>0.15.0</commonmark.version>
 
         <hystrix-javanica.version>1.5.18</hystrix-javanica.version>
+        <bloomreach.text-search-replace.version>1.0.4</bloomreach.text-search-replace.version>
     </properties>
 
     <repositories>
