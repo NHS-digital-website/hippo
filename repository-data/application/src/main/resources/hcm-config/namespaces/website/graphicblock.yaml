@@ -38,6 +38,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /altText:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Alternative Text
+            field: altText
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /introductionText:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -60,6 +69,16 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /altText:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:altText
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -85,6 +104,7 @@ definitions:
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
+            - optional
             jcr:primaryType: hipposysedit:field
           /modules:
             hipposysedit:multiple: false
@@ -93,7 +113,7 @@ definitions:
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
-            - required
+            - optional
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -131,6 +151,7 @@ definitions:
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:graphicblock
+          website:altText: ''
           website:introductionText: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

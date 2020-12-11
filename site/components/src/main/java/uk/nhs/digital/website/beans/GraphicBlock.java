@@ -22,6 +22,11 @@ public class GraphicBlock extends CommonFieldsBean {
         return getLinkedBean("website:image", HippoGalleryImageSet.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:altText")
+    public String getAltText() {
+        return getSingleProperty("website:altText");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:introductionText")
     public HippoHtml getIntroductionText() {
         return getHippoHtml("website:introductionText");
