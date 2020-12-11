@@ -8,6 +8,9 @@ definitions:
       /about:
         hst:renderpath: webfile:/freemarker/common/about.ftl
         jcr:primaryType: hst:template
+      /adapt-learning:
+        hst:renderpath: webfile:/freemarker/common/adapt-learning.ftl
+        jcr:primaryType: hst:template
       /api-catalogue:
         hst:renderpath: webfile:/freemarker/common/api-catalogue.ftl
         jcr:primaryType: hst:template
@@ -313,6 +316,9 @@ definitions:
         jcr:primaryType: hst:template
       /social-media:
         hst:renderpath: webfile:/freemarker/common/social-media.ftl
+        jcr:primaryType: hst:template
+      /static-ui-adapt-learning:
+        hst:renderpath: webfile:/freemarker/common/static-ui/adapt-learning/adapt-learning.ftl
         jcr:primaryType: hst:template
       /static-ui-component:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/index.ftl

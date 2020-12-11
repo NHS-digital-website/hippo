@@ -6,6 +6,15 @@ definitions:
         hst:authenticated: false
         hst:containerresource: true
         jcr:primaryType: hst:sitemapitem
+      /_any_.json:
+        hst:containerresource: true
+        jcr:primaryType: hst:sitemapitem
+      /_any_.woff:
+        hst:containerresource: true
+        jcr:primaryType: hst:sitemapitem
+      /_any_.woff2:
+        hst:containerresource: true
+        jcr:primaryType: hst:sitemapitem
       /feed:
         /_any_.xml:
           hst:namedpipeline: JaxrsRestFeedPipeline
