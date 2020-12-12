@@ -8,7 +8,18 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+inputs:
+  maven-repo-server-username:
+    description: 'Maven server repository username'
+    required: true
+  maven-repo-server-password:
+    description: 'Maven server repository password'
+    required: true
+  maven-args:
+    description: 'The maven arguments'
+    required: false
+    default: ''
+    
 jobs:
   build:
 
@@ -22,4 +33,10 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-      repo-token: ${{ secrets.GITHUB_TOKEN }}
+   
+   env:
+    MAVEN_REPO_SERVER_USERNAME: ${{ inputs.maven-repo-server-username }}
+    MAVEN_REPO_SERVER_PASSWORD: ${{ inputs.maven-repo-server-password }}  
+    MAVEN_ARGS: ${{ inputs.maven-args }}  
+  
+
