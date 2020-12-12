@@ -1,0 +1,45 @@
+name: 'maven-setings-action'
+description: 'Prepare maven settings.xml'
+
+branding:
+  icon: 'settings'
+  color: 'green'
+
+inputs:
+  servers:
+    description: 'servers definition in joson array, eg: [{"id": "serverId", "username": "username", "password": "password"}]'
+    required: false
+  mirrors:
+    description: 'mirrors definition in json array, eg: [{"id": "id", "name": "name", "mirrorOf": "mirrorOf", "url": "url"}]'
+    required: false
+  properties:
+    description: 'json array with properties, eg [{"propertyName1": "propertyValue1"}, {"propertyName2": "propertyValue2"}]'
+    required: false
+  sonatypeSnapshots:
+    description: 'add https://oss.sonatype.org/content/repositories/snapshots to repository list - true or false'
+    default: "false"
+    required: false
+  apacheSnapshots:
+    description: 'add https://repository.apache.org/snapshots to repository list - true or false'
+    default: "false"
+    required: false
+  override:
+    description: 'override existing settings.xml file'
+    default: "true"
+    required: false
+  githubServer:
+    description: 'add to settings.xml servers server-id: github; username=$GITHUB_ACTOR and password=$GITHUB_TOKEN'
+    default: "true"
+    required: false
+  oracleServers:
+    description: 'servers definition in joson array, eg: [{"id": "serverId", "username": "username", "password": "password"}] for Oracle repository'
+    required: false
+  oracleRepo:
+    description: 'add Oracle Maven Repository'
+    default: "false"
+    required: false
+
+runs:
+  using: 'node12'
+  main: 'index.js'
+  post: 'cleanup.js'
