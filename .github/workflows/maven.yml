@@ -19,9 +19,9 @@ jobs:
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
-        java-version: 1.8
-        repositories: '[{ "id": "hippo-maven2-enterprise", "url": "https://maven.onehippo.com/maven2-enterprise" }]'
-        plugin_repositories: '[{ "id": "hippo-forge", "url": "https://maven.onehippo.com/maven2-forge/" }]'
-        servers: '[{ "id": "hippo-maven2-enterprise", "username": "swright", "password": ">u7v0i1t3t1" }]' 
+        java-version: 1.8 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml -Drepo.id=hippo-maven2-enterprise -Drepo.login=swright -Drepo.pwd=u7v0i1t3t1 clean install
+        #repositories: '[{ "id": "hippo-maven2-enterprise", "url": "https://maven.onehippo.com/maven2-enterprise" }]'
+        #plugin_repositories: '[{ "id": "hippo-forge", "url": "https://maven.onehippo.com/maven2-forge/" }]'
+        #servers: '[{ "id": "hippo-maven2-enterprise", "username": "swright", "password": ">u7v0i1t3t1" }]'
