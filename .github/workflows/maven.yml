@@ -21,7 +21,7 @@ jobs:
       with:
         java-version: 1.8 
     - name: maven-setings-action
-      uses: s4u/maven-settings-action@v2.2.0
+      uses: workflows/action.yml
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
