@@ -2,11 +2,6 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
 name: Java CI with Maven
-uses: whelk-io/maven-settings-xml-action@v14
-  with:
-    repositories: '[{ "id": "hippo-maven2-enterprise", "url": "https://maven.onehippo.com/maven2-enterprise" }]'
-    plugin_repositories: '[{ "id": "hippo-forge", "url": "https://maven.onehippo.com/maven2-forge/" }]'
-    servers: '[{ "id": "hippo-maven2-enterprise", "username": "swright", "password": ">u7v0i1t3t1" }]'
 
 on:
   push:
@@ -14,6 +9,12 @@ on:
   pull_request:
     branches: [ master ]
     
+  project: maven-settings-xml-action
+  repository_dispatch: whelk-io/maven-settings-xml-action@v14
+  project_column:
+      repositories: '[{ "id": "hippo-maven2-enterprise", "url": "https://maven.onehippo.com/maven2-enterprise" }]'
+      plugin_repositories: '[{ "id": "hippo-forge", "url": "https://maven.onehippo.com/maven2-forge/" }]'
+      servers: '[{ "id": "hippo-maven2-enterprise", "username": "swright", "password": ">u7v0i1t3t1" }]'  
 jobs:
   build:
 
