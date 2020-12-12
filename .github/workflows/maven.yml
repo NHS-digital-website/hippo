@@ -9,12 +9,6 @@ on:
   pull_request:
     branches: [ master ]
     
-  project: maven-settings-xml-action
-  repository_dispatch: whelk-io/maven-settings-xml-action@v14
-  project_column:
-      repositories: '[{ "id": "hippo-maven2-enterprise", "url": "https://maven.onehippo.com/maven2-enterprise" }]'
-      plugin_repositories: '[{ "id": "hippo-forge", "url": "https://maven.onehippo.com/maven2-forge/" }]'
-      servers: '[{ "id": "hippo-maven2-enterprise", "username": "swright", "password": ">u7v0i1t3t1" }]'  
 jobs:
   build:
 
@@ -26,5 +20,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+        repositories: '[{ "id": "hippo-maven2-enterprise", "url": "https://maven.onehippo.com/maven2-enterprise" }]'
+        plugin_repositories: '[{ "id": "hippo-forge", "url": "https://maven.onehippo.com/maven2-forge/" }]'
+        servers: '[{ "id": "hippo-maven2-enterprise", "username": "swright", "password": ">u7v0i1t3t1" }]' 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
