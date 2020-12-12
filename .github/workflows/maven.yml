@@ -8,9 +8,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-env:
-  MAVEN_REPO_SERVER_USERNAME: ${{ inputs.maven-repo-server-username }}
-  MAVEN_REPO_SERVER_PASSWORD: ${{ inputs.maven-repo-server-password }}
     
 jobs:
   build:
