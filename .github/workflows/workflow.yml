@@ -1,0 +1,105 @@
+ name: Maven CI/CD
+
+ on:
+   push:
+     branches: [ master ]
+   pull_request:
+     branches: [ master ]
+     
+ jobs:
+   
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8 for Shared Runner
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Display settings.xml
+      run: |
+           cp .github/workflows/.m2/settings.xml /home/runner/.m2/settings.xml
+           cat /home/runner/.m2/settings.xml
+    - name: Maven Package
+      run: mvn -B clean package
+     
+    - name: Maven Verify
+      run: mvn -B clean verify
+        
+    - name: Build project with Maven
+      run: mvn -B package --file pom.xml
+
+   # - name: Publish to GitHub Packages Apache Maven
+   #   run: mvn deploy
+      
+        # server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+        # settings-path: .m2/settings.xml # location for the settings.xml file - change to use github secrets   
+# name: Maven CI/CD
+
+# on:
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
+
+# jobs:
+
+#  test:
+#    name: Test - Units & Integrations
+#    runs-on: ubuntu-latest
+
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Set up JDK 1.8
+#        uses: actions/setup-java@v1
+#        with:
+#         java-version: 1.8 
+#      - name: Maven Package
+#        run: mvn -B clean package -DskipTests
+#      - name: Maven Verify
+#        run: mvn -B clean verify -DskipTests
+
+#  sonar:
+#    name: Test - SonarCloud Scan
+#    runs-on: ubuntu-latest
+
+#    steps:
+#       - uses: actions/checkout@v2
+#       - name: Set up JDK 1.8
+#         uses: actions/setup-java@v1
+#         with:
+#          java-version: 1.8
+#       - name: SonarCloud Scan
+#         run: mvn -B clean verify -DskipTests -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+#         env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#  artifact:
+#    name: Publish - GitHub Packages
+#    runs-on: ubuntu-18.04
+#    needs: [test, sonar]
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Set up JDK 1.8
+#        uses: actions/setup-java@v1
+#        with:
+#         java-version: 1.8
+#      - name: Publish artifact on GitHub Packages
+#        run: mvn -B -e -X clean deploy -DskipTests
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# build_and_test:
+#     runs-on: ubuntu-latest
+     
+#     steps:
+#      - uses: actions/checkout@v2
+#      - name: Set up JDK 1.8
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 1.8 
+#        env:
+#         HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+#         HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }} 
