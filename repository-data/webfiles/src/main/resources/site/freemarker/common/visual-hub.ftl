@@ -28,10 +28,10 @@
 
 <article class="article">
     <#if hasBannerImage && hasPrimaryLinks>
-        <@hst.link hippobean=document.bannerImage.pageHeaderSlimBanner fullyQualified=true var="bannerImage" />
-        <@hst.link hippobean=document.bannerImage.pageHeaderSlimBanner2x fullyQualified=true var="bannerImage2x" />
-        <@hst.link hippobean=document.bannerImage.pageHeaderSlimBannerSmall fullyQualified=true var="bannerImageSmall" />
-        <@hst.link hippobean=document.bannerImage.pageHeaderSlimBannerSmall2x fullyQualified=true var="bannerImageSmall2x" />
+        <@hst.link hippobean=document.image.pageHeaderSlimBanner fullyQualified=true var="bannerImage" />
+        <@hst.link hippobean=document.image.pageHeaderSlimBanner2x fullyQualified=true var="bannerImage2x" />
+        <@hst.link hippobean=document.image.pageHeaderSlimBannerSmall fullyQualified=true var="bannerImageSmall" />
+        <@hst.link hippobean=document.image.pageHeaderSlimBannerSmall2x fullyQualified=true var="bannerImageSmall2x" />
         <#assign slimPictureConfig = {
             "document": document,
             "bannerImageSmall": bannerImageSmall,
