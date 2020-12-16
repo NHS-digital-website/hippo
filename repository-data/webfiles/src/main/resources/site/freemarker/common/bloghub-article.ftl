@@ -130,8 +130,7 @@
                                                 <@hst.link hippobean=author.personimages.picture.authorPhoto2x fullyQualified=true var="authorImage2x" />
                                                   <img itemprop="image"
                                                        class="bloghub__item__content__author__img"
-                                                       srcset="${authorImage} 50px, ${authorPhoto2x} 100px"
-                                                       sizes="50px"
+                                                       srcset="${authorImage} 1x, ${authorImage2x} 2x"
                                                        src="${authorImage}"
                                                        alt="${author.title}"/>
                                               </#if>
