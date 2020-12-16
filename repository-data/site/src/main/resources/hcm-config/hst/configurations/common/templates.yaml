@@ -134,6 +134,9 @@ definitions:
       /group:
         hst:renderpath: webfile:/freemarker/common/group.ftl
         jcr:primaryType: hst:template
+      /hero:
+        hst:renderpath: webfile:/freemarker/common/hero.ftl
+        jcr:primaryType: hst:template
       /homeland:
         hst:renderpath: webfile:/freemarker/common/homeland.ftl
         jcr:primaryType: hst:template
