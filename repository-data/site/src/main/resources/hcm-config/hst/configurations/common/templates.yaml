@@ -20,6 +20,9 @@ definitions:
       /apitryitnow:
         hst:renderpath: webfile:/freemarker/common/api-try-it-now.ftl
         jcr:primaryType: hst:template
+      /apitryitnow-oauth-redirect:
+        hst:renderpath: webfile:/freemarker/common/api-try-it-now-oauth-redirect.ftl
+        jcr:primaryType: hst:template
       /app-layout:
         hst:renderpath: webfile:/freemarker/common/app-layout.ftl
         jcr:primaryType: hst:template
