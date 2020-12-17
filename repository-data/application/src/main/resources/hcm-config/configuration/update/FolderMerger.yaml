@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/FolderMerger:
+      hipposys:batchsize: 10
+      hipposys:description: Moves the content of a source folder into a target folder.
+        Any preexisting content in the target folder will remain untouched.
+      hipposys:dryrun: false
+      hipposys:parameters: "{ \r\n \"targetFolderPath\": \"/content/documents/corporate-website/cyber-alerts/2020\"\
+        \n }"
+      hipposys:path: /
+      hipposys:script:
+        resource: /configuration/update/FolderMerger.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo
