@@ -10,7 +10,7 @@
 <#assign hasWrappingDoc = wrappingDocument?has_content />
 <#assign hasWrappingDocLink = wrappingDocument.external?has_content || wrappingDocument.internal?has_content />
 
-<div class="nhsd-o-image-with-link-list nhsd-!t-margin-top-8">
+<div class="nhsd-o-image-with-link-list">
     <div class="nhsd-t-grid">
         <#if hasWrappingDoc>
             <div class="nhsd-t-row">
