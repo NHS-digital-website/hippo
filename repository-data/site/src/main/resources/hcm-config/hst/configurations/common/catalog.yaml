@@ -25,6 +25,12 @@ definitions:
           hst:template: document-list
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
+        /caseStudy:
+          hst:componentclassname: uk.nhs.digital.common.components.CaseStudyComponent
+          hst:label: Case study
+          hst:template: case-study
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /cyberAlert:
           hst:componentclassname: uk.nhs.digital.common.components.CyberAlertComponent
           hst:label: Cyber Alert
