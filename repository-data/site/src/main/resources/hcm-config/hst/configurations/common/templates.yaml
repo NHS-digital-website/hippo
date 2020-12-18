@@ -47,6 +47,9 @@ definitions:
       /callToAction:
         hst:renderpath: webfile:/freemarker/common/callToAction.ftl
         jcr:primaryType: hst:template
+      /case-study:
+        hst:renderpath: webfile:/freemarker/common/case-study.ftl
+        jcr:primaryType: hst:template
       /categorylist-article:
         hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl
         jcr:primaryType: hst:template
