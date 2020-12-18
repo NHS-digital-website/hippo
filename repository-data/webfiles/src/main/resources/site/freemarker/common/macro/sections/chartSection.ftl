@@ -15,22 +15,29 @@
         <#local dataFile=section.dataFile>
         <span class="attachment">
             <@externalstorageLink dataFile; url>
-            <a data-uipath="ps.publication.chart-section.data-file"
-               title="${linkText}"
-               href="${url}"
-               onClick="logGoogleAnalyticsEvent(
-                   'Download chart data','Publication','${dataFile.filename}'
-               );"
-               onKeyUp="logGoogleAnalyticsEvent(
-                   'Download chart data','Publication','${dataFile.filename}'
-               );">
+                <a data-uipath="ps.publication.chart-section.data-file"
+                   title="${linkText}"
+                   href="${url}"
+                   onClick="logGoogleAnalyticsEvent(
+                           'Download chart data','Publication','${dataFile.filename}'
+                           );"
+                   onKeyUp="logGoogleAnalyticsEvent(
+                           'Download chart data','Publication','${dataFile.filename}'
+                           );">
                 ${linkText}
             </a>
             </@externalstorageLink>
         </span>
+        <span>
+<#--            #TODO: max width so that the image does not go off page (A4)?  likely (A3)? unlikely-->
+        <#if section.htmlCode?has_content>
+            ${section.htmlCode?no_esc}
+        </#if>
+    </span>
     </#if>
 
-    <script type="text/javascript" data-chartsource="highchart" data-charttype="${type}" data-sectionid="${section.uniqueId}">
+    <script type="text/javascript" data-chartsource="highchart"
+            data-charttype="${type}" data-sectionid="${section.uniqueId}">
         window.highchartData${section.uniqueId?remove_beginning("-")} = <#outputformat "plainText">${section.chartConfig}</#outputformat>;
     </script>
 </#macro>

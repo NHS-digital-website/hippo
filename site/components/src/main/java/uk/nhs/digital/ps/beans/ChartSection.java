@@ -29,6 +29,11 @@ public class ChartSection extends HippoCompound {
         return getSingleProperty("publicationsystem:yTitle");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:htmlCode")
+    public String getHtmlCode() {
+        return getSingleProperty("website:htmlCode");
+    }
+
     @HippoEssentialsGenerated(internalName = "publicationsystem:chartConfig")
     public String getChartConfig() {
         return getSingleProperty("publicationsystem:chartConfig");

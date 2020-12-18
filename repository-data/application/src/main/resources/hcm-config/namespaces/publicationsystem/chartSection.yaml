@@ -57,6 +57,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /htmlCode:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Raw HTML - web team only
+            field: htmlHeaderCode
+            hint: This should only be used or edited by the web team.  Misuse of this
+              field could break the website, and could lead to disciplinary action.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -70,6 +80,16 @@ definitions:
             hipposysedit:validators:
             - required
             - publicationsystem-charts-datafile
+            jcr:primaryType: hipposysedit:field
+          /htmlHeaderCode:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:htmlCode
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -125,9 +145,16 @@ definitions:
             jcr:lastModified: 2008-03-26T11:03:00Z
             jcr:mimeType: application/vnd.hippo.blank
             jcr:primaryType: publicationsystem:resource
+          /publicationsystem:imagelink:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: publicationsystem:chartSection
           publicationsystem:title: ''
           publicationsystem:yTitle: ''
+          website:htmlCode: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

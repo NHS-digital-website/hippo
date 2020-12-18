@@ -13,19 +13,20 @@ import {initCookieConsent} from "./relevance/relevance-cookie";
 import {initCountup} from "./statistics/statistics-countup";
 import {initSiteHeader} from "./header/site-header";
 import {activateCodeBlocks} from "./highlighter/highlighter-copy-button";
-import {tableSortDate} from "./table-sort/table-sort-date";
+import {printingEvents} from "./events/printingEvents";
 
 jQuery(() => {
     initStickyNav()
     initStickyNavSubItems()
 })
+
+printingEvents();
 initChapterNav();
 initSiteHeader();
 activateCodeBlocks();
 
 const tables = document.querySelectorAll('table');
 if (tables.length) {
-    tableSortDate()
     tableSort(tables);
 }
 
