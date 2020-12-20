@@ -6,9 +6,9 @@
         <server>
             <!-- This id must match the distributionManagement section in pom.xml -->
             <id>${env.MAVEN_REPO_SERVER_ID}</id>
-            <username>${env.MAVEN_REPO_SERVER_USERNAME}</username>
-            <!-- Credential stored in Travis CI -->
-            <password>${env.MAVEN_REPO_SERVER_PASSWORD}</password>
+            <username>${{ secrets.HIPPO_MAVEN_USERNAME }}</username>
+            <!-- Credential stored in Github secrets -->
+            <password>${{ secrets.HIPPO_MAVEN_PASSWORD }}</password>
         </server>
     </servers>
 </settings>
