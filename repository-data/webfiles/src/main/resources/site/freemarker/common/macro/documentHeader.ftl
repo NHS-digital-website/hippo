@@ -154,7 +154,7 @@
                     </#if>
                 </div>
 
-                <@headerMetadata metadata />
+                <@headerMetadata metadata doctype />
 
                 <#if downloadPDF>
                     <div class="grid-row">
