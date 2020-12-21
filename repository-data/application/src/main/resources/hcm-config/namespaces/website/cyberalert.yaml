@@ -317,7 +317,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:NominalDate
             hipposysedit:primary: false
-            hipposysedit:type: CalendarDate
+            hipposysedit:type: Date
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
