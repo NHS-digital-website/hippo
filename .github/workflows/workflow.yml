@@ -22,10 +22,10 @@
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Display settings.xml 
-        run: | # Dirty fix due to non-priveledged access to repo settings - needs to be passed as env variable using github secret
-            cp .m2/settings.xml /home/runner/.m2/settings.xml 
-            cat /home/runner/.m2/settings.xml
+#      - name: Display settings.xml 
+#        run: | # Dirty fix due to non-priveledged access to repo settings - needs to be passed as env variable using github secret
+#            cp .m2/settings.xml /home/runner/.m2/settings.xml 
+#            cat /home/runner/.m2/settings.xml
         
 #     - name: Maven Package
 #       run: mvn -B clean package
