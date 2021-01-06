@@ -173,6 +173,9 @@ definitions:
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
         jcr:primaryType: hst:template
+      /navigationBlock:
+        hst:renderpath: webfile:/freemarker/common/navigationBlock.ftl
+        jcr:primaryType: hst:template
       /news-article:
         hst:renderpath: webfile:/freemarker/common/news-article.ftl
         jcr:primaryType: hst:template
