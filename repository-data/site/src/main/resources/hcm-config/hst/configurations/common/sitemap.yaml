@@ -181,8 +181,33 @@ definitions:
         hst:componentconfigurationid: hst:pages/apitryitnow
         jcr:primaryType: hst:sitemapitem
       /cyber-alerts:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/cyberalert
+          hst:relativecontentpath: cyber-alerts
+          jcr:primaryType: hst:sitemapitem
+        /severity:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/cyberalerthub
+            hst:relativecontentpath: faceted-cyber-alerts/severity/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/404
+          jcr:primaryType: hst:sitemapitem
+        /threat type:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/cyberalerthub
+            hst:relativecontentpath: faceted-cyber-alerts/threat type/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/404
+          jcr:primaryType: hst:sitemapitem
+        /year:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/cyberalerthub
+            hst:relativecontentpath: faceted-cyber-alerts/year/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/404
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/cyberalerthub
-        hst:relativecontentpath: cyber-alerts
+        hst:relativecontentpath: faceted-cyber-alerts
         jcr:primaryType: hst:sitemapitem
       /cyber-and-data-security:
         /services:

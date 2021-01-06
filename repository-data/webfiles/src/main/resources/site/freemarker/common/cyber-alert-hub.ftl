@@ -1,10 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/stickyNavTags.ftl">
-<#include "macro/stickyNavSections.ftl">
 <#include "macro/cyberAlertBox.ftl">
 <#include "macro/stickyGroupBlockHeader.ftl">
-<#include "macro/stickyNavYears.ftl">
 
 <@hst.setBundle basename="rb.doctype.cyberalerts"/>
 
@@ -29,54 +26,6 @@
     <#assign month = monthNames[dateString?keep_after("-")?number-1] />
     <#assign monthYear = month + " " + year />
     <#return monthYear />
-</#function>
-
-<#--Group filter tags (severity and type)  -->
-<#assign filterTypeGroupHash = {} />
-<#assign filterSeverityGroupHash = {} />
-<#list pageable.items as item>
-    <#assign filterSeverityGroupHash = filterSeverityGroupHash + {  item.severity : (filterSeverityGroupHash[item.severity]![]) + [ item ] } />
-    <#assign filterTypeGroupHash = filterTypeGroupHash + {  item.threatType  : (filterTypeGroupHash[item.threatType]![]) + [ item ] } />
-</#list>
-
-<#-- Return the type filter navigation links -->
-<#function getFilterTypeGroupHash>
-    <#assign links = [] />
-
-    <#list filterTypeGroupHash?keys?sort as key>
-        <#assign count = filterTypeGroupHash[key]?size />
-        <#assign links += [{"key" : key, "title": key + " (${count})" }] />
-    </#list>
-
-    <#return links />
-</#function>
-
-
-<#-- Return the severity filter navigation links -->
-<#function getFilterSeverityGroupHash>
-    <#assign links = [] />
-
-    <#list filterSeverityGroupHash?keys?sort as key>
-        <#assign queryStringValue = key />
-
-        <#assign count = filterSeverityGroupHash[key]?size />
-        <#assign links += [{"key" : key, "title": key + " (${count})" }] />
-    </#list>
-
-    <#return links />
-</#function>
-
-
-<#-- Return the filter navigation links for the year -->
-<#function getFilterYearLinks>
-    <#assign links = [] />
-
-    <#list years?keys as key>
-    <#assign typeCount = years?size />
-    <#assign links += [{ "key" : key, "title": key }] />
-    </#list>
-
-    <#return links?sort_by(['key'])?reverse />
 </#function>
 
 <article class="article article--news-hub">
@@ -104,24 +53,7 @@
                 <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                     <!-- start sticky-nav -->
                     <div id="sticky-nav">
-                        <#assign affix = selectedThreattype?has_content?then("&threattype=" + selectedThreattype?join("&threattype="), "") />
-                        <#assign affix += selectedSeverity?has_content?then("&severity=" + selectedSeverity?join("&severity="), "") />
-                        <@stickyNavYears getFilterYearLinks() affix></@stickyNavYears>
-
-                        <#assign links = [] />
-                        <#list monthYearGroupHash?keys as k>
-                            <#assign displayDate= getDisplayDate(k) />
-                            <#assign links += [{ "url": "#" + slugify(displayDate), "title": displayDate, "aria-label": "Jump to items starting in ${displayDate}" }] />
-                        </#list>
-                        <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
-
-                        <#assign affix = "&year=" + selectedYear />
-                        <#assign affix += selectedSeverity?has_content?then("&severity=" + selectedSeverity?join("&severity="), "") />
-                        <@stickyNavTags getFilterTypeGroupHash() affix "Filter by type" "threattype" selectedThreattype></@stickyNavTags>
-
-                        <#assign affix = "&year=" + selectedYear />
-                        <#assign affix += selectedThreattype?has_content?then("&threattype=" + selectedThreattype?join("&threattype="), "") />
-                        <@stickyNavTags getFilterSeverityGroupHash() affix "Filter by severity" "severity" selectedSeverity></@stickyNavTags>
+                        <@hst.include ref="filters"/>
                     </div>
                     <!-- end sticky-nav -->
                 </div>

@@ -3,11 +3,20 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/cyberalerthub:
       /main:
+        /filters:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsFacetsComponent
+          hst:suppresswastemessage: true
+          hst:template: cyber-alert-hub-nav
+          jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.CyberAlertsHubComponent
         hst:parameternames:
-        - defaultPageSize
+        - pageSize
+        - sortOrder
+        - sortField
         hst:parametervalues:
-        - '1000'
+        - '10'
+        - asc
+        - hippostdpubwf:publicationDate
         hst:template: cyber-alert-hub
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
