@@ -36,7 +36,15 @@
 
 <#-- Gather section nav links in a hash -->
 <#function getStickySectionNavLinks options>
-    <@hst.setBundle basename="rb.generic.headers"/>
+
+    <#assign bundles = ["rb.generic.headers"] />
+    <#if options??>
+        <#if options.keepBundles??>
+            <#assign bundles += options.keepBundles />
+        </#if>
+    </#if>
+    <#assign var1 = bundles?join(",") />
+    <@hst.setBundle basename="${var1}" />
 
     <#assign links = [] />
     <#if options??>
