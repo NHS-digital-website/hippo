@@ -18,10 +18,7 @@ import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.apache.commons.lang3.StringUtils;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
-import uk.nhs.digital.apispecs.handlebars.EnumHelper;
-import uk.nhs.digital.apispecs.handlebars.HasOneItemHelper;
-import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
-import uk.nhs.digital.apispecs.handlebars.StringBooleanVariableHelper;
+import uk.nhs.digital.apispecs.handlebars.*;
 import uk.nhs.digital.apispecs.handlebars.schema.SchemaHelper;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleHtmlRenderer;
@@ -118,6 +115,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(SchemaHelper.NAME, new SchemaHelper(markdownHelper))
             .registerHelper(IsAnyTrueHelper.NAME, IsAnyTrueHelper.INSTANCE)
             .registerHelper(AssignHelper.NAME, AssignHelper.INSTANCE)
+            .registerHelper(HtmlHeadingsFromMarkdownHelper.NAME, HtmlHeadingsFromMarkdownHelper.INSTANCE)
             .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE);
 
         handlebars.with(EscapingStrategy.NOOP);
