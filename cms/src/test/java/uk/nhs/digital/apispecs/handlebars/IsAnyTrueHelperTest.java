@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs;
+package uk.nhs.digital.apispecs.handlebars;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -11,7 +11,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import uk.nhs.digital.apispecs.swagger.IsAnyTrueHelper;
 
 import java.io.IOException;
 import java.util.*;
