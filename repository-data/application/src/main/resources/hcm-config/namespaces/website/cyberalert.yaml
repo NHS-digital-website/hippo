@@ -65,14 +65,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /severity:
+          /severitystatuschanges:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: High,Medium,Low,Information only
-            caption: Severity
-            field: severity
+            caption: Severity history
+            field: severitystatuschanges
+            hint: The threat's severity status and date this took effect can be entered
+              below. Click add to indicate a change in status. Please note only the
+              most bottom entry will be displayed as the current status on the website
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /category:
             /cluster.options:
@@ -359,13 +361,13 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field
-          /severity:
+          /severitystatuschanges:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:severity
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:severitystatuschanges
             hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
+            hipposysedit:type: website:severitystatuschange
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field

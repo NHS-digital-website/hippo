@@ -1,0 +1,19 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-1914-migrate-threat-cyber-alerts-severity-values:
+      hipposys:batchsize: 10
+      hipposys:description: MigrateThreatCyberAlertsSeverityValues. Please note that
+        the current severity field (that will become redundant in the future) has
+        been retained to avoid introducing breaking changes within the REST API until
+        the cyber alert service can migrate to the new API response structure. i.e
+        utilising the severityStatusHistory field in place of the severity field.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='website:cyberalert']
+      hipposys:script:
+        resource: /configuration/update/DW-1914-MIgrateSeverityValueToNewCompound.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

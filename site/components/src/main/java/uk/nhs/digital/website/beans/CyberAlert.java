@@ -16,6 +16,7 @@ import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
 
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -100,7 +101,19 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:severity", allowModifications = false)
     public String getSeverity() {
         if (getPublicallyAccessible()) {
-            return getSingleProperty("website:severity");
+            return getSeverityStatusHistory().stream()
+                .max(Comparator.comparing(SeverityStatusChange::getDate))
+                .map(SeverityStatusChange::getSeverity)
+                .orElse(getSingleProperty("website:severity"));
+        }
+        return null;
+    }
+
+    @JsonProperty
+    @HippoEssentialsGenerated(internalName = "website:severitystatuschanges", allowModifications = false)
+    public List<SeverityStatusChange> getSeverityStatusHistory() {
+        if (getPublicallyAccessible()) {
+            return getChildBeansByName("website:severitystatuschanges");
         }
         return null;
     }
@@ -239,7 +252,7 @@ public class CyberAlert extends CommonFieldsBean {
 
     @JsonIgnore
     private Boolean getLimitedAccess() {
-        return ! getFullAccess();
+        return !getFullAccess();
     }
 
     @JsonIgnore
@@ -261,7 +274,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:publicallyaccessible", allowModifications = false)
     public Boolean getPublicallyAccessible() {
 
-        Boolean publicallyaccessible = (Boolean)getSingleProperty("website:publicallyaccessible");
+        Boolean publicallyaccessible = (Boolean) getSingleProperty("website:publicallyaccessible");
 
         return publicallyaccessible && this.getFullAccess();
     }
@@ -270,7 +283,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:archivecontent", allowModifications = false)
     public Boolean getArchiveContent() {
 
-        Boolean archiveContent = (Boolean)getSingleProperty("website:archivecontent");
+        Boolean archiveContent = (Boolean) getSingleProperty("website:archivecontent");
 
         return archiveContent && this.getFullAccess();
     }
