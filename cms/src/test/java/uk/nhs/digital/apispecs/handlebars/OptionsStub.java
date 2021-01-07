@@ -6,6 +6,7 @@ import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
 import com.github.jknack.handlebars.*;
 import com.google.common.collect.ImmutableMap;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,9 @@ public class OptionsStub extends Options {
 
     private Buffer buffer;
 
+    private List<Object> actualMainBlockTemplateParameters = new ArrayList<>();
+    private int actualMainBlockTemplateInvocationsCount = 0;
+
     private OptionsStub(final Buffer buffer, final Handlebars handlebars, final String helperName, final TagType tagType,
                         final Context context, final Template fn, final Template inverse, final Object[] params,
                         final Hash hash, final List<String> blockParams) {
@@ -23,35 +27,49 @@ public class OptionsStub extends Options {
         this.buffer = buffer;
     }
 
-    public static Options with(final Buffer buffer, final Hash hash) {
+    public static OptionsStub empty() {
+        return new OptionsStub(null, null, null, null, null, null, null, null, Hash.empty(), emptyList());
+    }
+
+    public static OptionsStub with(final Hash hash) {
+        return new OptionsStub(null, null, null, null, null, null, null, null, hash, emptyList());
+    }
+
+    public static OptionsStub with(final Buffer buffer, final Hash hash) {
         return new OptionsStub(buffer, null, null, null, null, null, null, null, hash, emptyList());
     }
 
-    public static Options with(final Buffer buffer, final Data data) {
+    public static OptionsStub with(final Buffer buffer, final Data data) {
         final Context currentContext = Context.newContext("irrelevant model").data(data.getData());
 
         return new OptionsStub(buffer, null, null, null, currentContext, null, null, null, Hash.empty(), emptyList());
     }
 
-    public static Options with(final Buffer buffer) {
+    public static OptionsStub with(final Buffer buffer) {
         return new OptionsStub(buffer, null, null, null, null, null, null, null, Hash.empty(), emptyList());
     }
 
-    public static Options with(final Context context) {
+    public static OptionsStub with(final Context context) {
         return new OptionsStub(null, null, null, null, context, null, null, null, Hash.empty(), emptyList());
     }
 
-    public static Options with(final Buffer buffer, final Object currentContextModel) {
+    public static OptionsStub with(final Buffer buffer, final Object currentContextModel) {
         final Context currentContext = Context.newContext(currentContextModel);
 
         return new OptionsStub(buffer, null, null, null, currentContext, null, null, null, Hash.empty(), emptyList());
     }
 
-    public static Options with(final Buffer buffer, final Object currentContextModel, final Object parentContextModel) {
+    public static OptionsStub with(final Buffer buffer, final Object currentContextModel, final Object parentContextModel) {
         final Context parentContext = Context.newContext(parentContextModel);
         final Context currentContext = Context.newContext(parentContext, currentContextModel);
 
         return new OptionsStub(buffer, null, null, null, currentContext, null, null, null, Hash.empty(), emptyList());
+    }
+
+    @Override public CharSequence fn(final Object context) {
+        actualMainBlockTemplateParameters.add(context);
+
+        return TEMPLATE_CONTENT_FROM_MAIN_BLOCK + "_" + ++actualMainBlockTemplateInvocationsCount;
     }
 
     @Override public CharSequence fn() {
@@ -64,6 +82,10 @@ public class OptionsStub extends Options {
 
     @Override public Buffer buffer() {
         return buffer;
+    }
+
+    public List<Object> actualMainBlockTemplateParameters() {
+        return new ArrayList<>(actualMainBlockTemplateParameters);
     }
 
     public static class Hash {

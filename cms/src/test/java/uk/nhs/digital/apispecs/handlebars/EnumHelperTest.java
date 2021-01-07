@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs;
+package uk.nhs.digital.apispecs.handlebars;
 
 import static com.onehippo.cms7.inference.engine.core.util.ArraysUtils.asList;
 import static java.lang.String.format;

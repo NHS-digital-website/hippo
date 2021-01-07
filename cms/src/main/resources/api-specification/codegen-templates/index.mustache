@@ -9,9 +9,11 @@
                         <li>
                             <a href="#top" aria-label="Scroll to 'Top of page'" title="Scroll to 'Top of page'">Top of page</a>
                         </li>
+                        {{#headingsFromMarkdown appDescription}}
                         <li>
-                            <a href="#api-description" aria-label="Scroll to 'Overview'" title="Scroll to 'Overview'">Overview</a>
+                            <a href="#api-description__{{id}}" aria-label="Scroll to '{{text}}'" title="Scroll to '{{text}}'">{{text}}</a>
                         </li>
+                        {{/headingsFromMarkdown}}
 
                         {{#apiInfo}}
                             {{#apis}}
@@ -44,7 +46,7 @@
     <!-- API Title: {{{appName}}} -->
 
     <div id="api-description" class="article-section">
-        {{{markdown appDescription}}}
+        {{{markdown appDescription headingIdPrefix="api-description__"}}}
     </div>
         {{#apiInfo}}
             {{#apis}}

@@ -1,5 +1,3 @@
-## Environments and testing
-
 | Environment       | Base URL                                                       |
 | ----------------- | -------------------------------------------------------------- |
 | Sandbox           | `https://sandbox.api.service.nhs.uk/personal-demographics/`    |
