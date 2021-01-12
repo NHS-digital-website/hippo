@@ -1,0 +1,22 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/path-a": {
+            "get": {
+                "summary": "Get operation A"
+            },
+            "post": {
+                "summary": "Post operation A"
+            }
+        },
+        "/path-b": {
+            "get": {
+                "summary": "Get operation B"
+            },
+            "post": {
+                "summary": "Post operation B"
+            }
+        }
+    },
+    "components": {}
+}
