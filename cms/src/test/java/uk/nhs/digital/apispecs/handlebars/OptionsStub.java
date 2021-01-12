@@ -66,6 +66,10 @@ public class OptionsStub extends Options {
         return new OptionsStub(buffer, null, null, null, currentContext, null, null, null, Hash.empty(), emptyList());
     }
 
+    public static OptionsStub with(final Object[] params, final Buffer buffer) {
+        return new OptionsStub(buffer, null, null, null, null, null, null, params, Hash.empty(), emptyList());
+    }
+
     @Override public CharSequence fn(final Object context) {
         actualMainBlockTemplateParameters.add(context);
 

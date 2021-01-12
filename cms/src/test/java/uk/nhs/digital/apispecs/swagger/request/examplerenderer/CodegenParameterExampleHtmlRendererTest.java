@@ -19,8 +19,6 @@ import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 
 public class CodegenParameterExampleHtmlRendererTest {
 
-    private static final String TEST_DATA_FILES_PATH = "/test-data/api-specifications/CodegenRequestParameterExampleGeneratorTest";
-
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
     @Mock private CommonmarkMarkdownConverter markdownConverter;
@@ -164,7 +162,9 @@ public class CodegenParameterExampleHtmlRendererTest {
         return codegenParameter;
     }
 
-    private static String from(final String testFileName) {
-        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
+    private String from(final String testFileName) {
+        return contentOfFileFromClasspath(
+            "/test-data/api-specifications/CodegenRequestParameterExampleGeneratorTest/" + testFileName
+        );
     }
 }

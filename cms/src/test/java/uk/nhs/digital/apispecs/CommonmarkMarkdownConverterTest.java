@@ -11,9 +11,6 @@ import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 
 public class CommonmarkMarkdownConverterTest {
 
-    private static final String TEST_DATA_FILES_PATH =
-        "/test-data/api-specifications/CommonmarkMarkdownConverterTest";
-
     private CommonmarkMarkdownConverter commonmarkMarkdownConverter;
 
     @Before
@@ -98,6 +95,8 @@ public class CommonmarkMarkdownConverterTest {
     }
 
     private String from(final String testDataFileName) {
-        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/" + testDataFileName);
+        return contentOfFileFromClasspath(
+            "/test-data/api-specifications/CommonmarkMarkdownConverterTest/" + testDataFileName
+        );
     }
 }
