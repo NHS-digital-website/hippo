@@ -12,33 +12,36 @@
                         <li>
                             <a href="#api-description__overview" aria-label="Scroll to 'Overview'" title="Scroll to 'Overview'">Overview</a>
                         </li>
+                        <li>
+                            <a href="#api-description__legal-use" aria-label="Scroll to 'Legal use'" title="Scroll to 'Legal use'">Legal use</a>
+                        </li>
 
-                                    <li class="nav-header" data-group="Patients">
+                                    <li>
                                         <a href="#api-Patients"
-                                           aria-label="Endpoint: Patients"
-                                           title="Endpoint: Patients">Endpoint: Patients</a>
+                                           aria-label="Endpoints: Patients"
+                                           title="Endpoints: Patients">Endpoints: Patients</a>
                                     </li>
-                                        <li data-group="Patients" data-name="getPatient" class="section-numbered">
+                                        <li class="section-numbered">
                                             <a href="#api-Patients-getPatient"
                                                aria-label="getPatient"
                                                title="getPatient">Retrieve a patient's resource</a>
                                         </li>
-                                        <li data-group="Patients" data-name="searchPatient" class="section-numbered">
+                                        <li class="section-numbered">
                                             <a href="#api-Patients-searchPatient"
                                                aria-label="searchPatient"
                                                title="searchPatient">Search for patient</a>
                                         </li>
-                                        <li data-group="Patients" data-name="updatePatientPartial" class="section-numbered">
+                                        <li class="section-numbered">
                                             <a href="#api-Patients-updatePatientPartial"
                                                aria-label="updatePatientPartial"
                                                title="updatePatientPartial">Update a patient's resource</a>
                                         </li>
-                                    <li class="nav-header" data-group="Polling">
+                                    <li>
                                         <a href="#api-Polling"
-                                           aria-label="Endpoint: Polling"
-                                           title="Endpoint: Polling">Endpoint: Polling</a>
+                                           aria-label="Endpoints: Polling"
+                                           title="Endpoints: Polling">Endpoints: Polling</a>
                                     </li>
-                                        <li data-group="Polling" data-name="polling" class="section-numbered">
+                                        <li class="section-numbered">
                                             <a href="#api-Polling-polling"
                                                aria-label="polling"
                                                title="polling">Retrieve the outcome of the accepted update.</a>
@@ -48,8 +51,7 @@
             </div>
         </div>
     </div>
-    <!-- end sticky-nav -->
-</div>
+    <!-- end sticky-nav --></div>
 
 <div id="content" class="column column--two-thirds page-block page-block--main apispecification" aria-label="Document content">
 
@@ -57,14 +59,16 @@
 
     <div id="api-description" class="article-section">
         <h2 id="api-description__overview">Overview</h2>
-<p>Use this API to access the <a href="https://digital.nhs.uk/services/demographics">Personal Demographics Service (PDS)</a>
+<p>Use this API to access the <a href="https://digital.nhs.uk/services/demographics">Personal Demographics Service (PDS)</a></p>
+<h2 id="api-description__legal-use">Legal use</h2>
+<p>This API can only be used where there is a legal basis.
     </div>
 
                     <div id="api-Patients" class="article-section">
-                        <h1>Endpoint: Patients</h1>
+                        <h1>Endpoints: Patients</h1>
                     </div>
                                     <div id="api-Patients-getPatient" class="article-section-with-sub-heading">
-                                        <article id="api-Patients-getPatient-0" data-group="User" data-name="getPatient" data-version="0">
+                                        <article id="api-Patients-getPatient-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h2>Retrieve a patient's resource</h2>
                                             <div class="endpoint_path">
@@ -75,8 +79,6 @@
 
                                             <p><h2 id="overview">Overview</h2>
 <p>Use this endpoint to get patient details from PDS for a given NHS Number.</p>
-                                            <p></p>
-                                            <br/>
 
                                                 <h2>Request</h2>
 
@@ -611,7 +613,7 @@
                                         </article>
                                     </div>
                                     <div id="api-Patients-searchPatient" class="article-section-with-sub-heading">
-                                        <article id="api-Patients-searchPatient-0" data-group="User" data-name="searchPatient" data-version="0">
+                                        <article id="api-Patients-searchPatient-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h2>Search for patient</h2>
                                             <div class="endpoint_path">
@@ -622,8 +624,6 @@
 
                                             <p><h2 id="endpoint">Endpoint</h2>
 <p>Use this endpoint to search for a patient in PDS.</p>
-                                            <p></p>
-                                            <br/>
 
                                                 <h2>Request</h2>
 
@@ -1025,7 +1025,7 @@
                                         </article>
                                     </div>
                                     <div id="api-Patients-updatePatientPartial" class="article-section-with-sub-heading">
-                                        <article id="api-Patients-updatePatientPartial-0" data-group="User" data-name="updatePatientPartial" data-version="0">
+                                        <article id="api-Patients-updatePatientPartial-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h2>Update a patient's resource</h2>
                                             <div class="endpoint_path">
@@ -1036,8 +1036,6 @@
 
                                             <p><h2 id="overview">Overview</h2>
 <p>Use this endpoint to update patient details in PDS.</p>
-                                            <p></p>
-                                            <br/>
 
                                                 <h2>Request</h2>
 
@@ -1665,10 +1663,10 @@
                                     </div>
 
                     <div id="api-Polling" class="article-section">
-                        <h1>Endpoint: Polling</h1>
+                        <h1>Endpoints: Polling</h1>
                     </div>
                                     <div id="api-Polling-polling" class="article-section-with-sub-heading">
-                                        <article id="api-Polling-polling-0" data-group="User" data-name="polling" data-version="0">
+                                        <article id="api-Polling-polling-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h2>Retrieve the outcome of the accepted update.</h2>
                                             <div class="endpoint_path">
@@ -1679,8 +1677,6 @@
 
                                             <p><h2 id="overview">Overview</h2>
 <p>Use this endpoint to poll for the outcome of an updated patient record.</p>
-                                            <p></p>
-                                            <br/>
 
                                                 <h2>Request</h2>
 
@@ -2285,22 +2281,22 @@
 
 
                             <div>Example: <code class="codeinline example">invalid</code></div>
-                
+
                     </td>
                 </tr>
-                
-                
-                
-            
-            
-    
 
 
 
-                                                                    
+
+
+
+
+
+
+
                                                                     </table>                                                                </div>
-                                                    
-                                                    
+
+
                                         </article>
                                     </div>
 

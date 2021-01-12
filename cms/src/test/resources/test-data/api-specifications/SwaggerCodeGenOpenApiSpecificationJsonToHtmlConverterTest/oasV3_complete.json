@@ -3,7 +3,7 @@
     "info": {
         "version": "v1.2.29-beta",
         "title": "Personal Demographics Service (FHIR) API",
-        "description": "## Overview\nUse this API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)",
+        "description": "## Overview\nUse this API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n## Legal use\nThis API can only be used where there is a legal basis.",
         "contact": {
             "name": "Personal Demographics Service FHIR API Support",
             "url": "https://tbc.api.nhs.net",

@@ -6,12 +6,12 @@ import static java.util.Collections.emptyMap;
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.AssignHelper;
+import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import io.swagger.codegen.v3.*;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.headers.Header;
-import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
@@ -39,27 +39,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     private BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
 
     @Override
-    public void preprocessOpenAPI(OpenAPI openApi) {
+    public void preprocessOpenAPI(final OpenAPI openApi) {
         this.openAPI = openApi;
-
-        if (openAPI.getInfo() != null) {
-            Info info = openAPI.getInfo();
-            if (StringUtils.isBlank(jsProjectName) && info.getTitle() != null) {
-                // when jsProjectName is not specified, generate it from info.title
-                jsProjectName = sanitizeName(dashize(info.getTitle()));
-            }
-        }
-
-        // default values
-        if (StringUtils.isBlank(jsProjectName)) {
-            jsProjectName = "swagger-js-client";
-        }
-        if (StringUtils.isBlank(jsModuleName)) {
-            jsModuleName = camelize(underscore(jsProjectName));
-        }
-
-        additionalProperties.put("jsProjectName", jsProjectName);
-        additionalProperties.put("jsModuleName", jsModuleName);
 
         preProcessOperations(openApi);
     }
@@ -116,7 +97,9 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(IsAnyTrueHelper.NAME, IsAnyTrueHelper.INSTANCE)
             .registerHelper(AssignHelper.NAME, AssignHelper.INSTANCE)
             .registerHelper(HtmlHeadingsFromMarkdownHelper.NAME, HtmlHeadingsFromMarkdownHelper.INSTANCE)
-            .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE);
+            .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE)
+            .registerHelper(ConditionalHelpers.eq.name(), ConditionalHelpers.eq)
+        ;
 
         handlebars.with(EscapingStrategy.NOOP);
     }

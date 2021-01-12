@@ -1,44 +1,5 @@
 <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
-    <!-- start sticky-nav -->
-    <div id="sticky-nav">
-        <div class="article-section-nav-wrapper">
-            <div class="article-section-nav">
-                <h2 class="article-section-nav__title">Page contents</h2>
-                <nav>
-                    <ol class="article-section-nav__list">
-                        <li>
-                            <a href="#top" aria-label="Scroll to 'Top of page'" title="Scroll to 'Top of page'">Top of page</a>
-                        </li>
-                        {{#headingsFromMarkdown appDescription}}
-                        <li>
-                            <a href="#api-description__{{id}}" aria-label="Scroll to '{{text}}'" title="Scroll to '{{text}}'">{{text}}</a>
-                        </li>
-                        {{/headingsFromMarkdown}}
-
-                        {{#apiInfo}}
-                            {{#apis}}
-                                {{#operations}}
-                                    <li class="nav-header" data-group="{{baseName}}">
-                                        <a href="#api-{{baseName}}"
-                                           aria-label="Endpoint: {{baseName}}"
-                                           title="Endpoint: {{baseName}}">Endpoint: {{baseName}}</a>
-                                    </li>
-                                    {{#operation}}
-                                        <li data-group="{{baseName}}" data-name="{{nickname}}" class="section-numbered">
-                                            <a href="#api-{{baseName}}-{{nickname}}"
-                                               aria-label="{{nickname}}"
-                                               title="{{nickname}}">{{summary}}</a>
-                                        </li>
-                                    {{/operation}}
-                                {{/operations}}
-                            {{/apis}}
-                        {{/apiInfo}}
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- end sticky-nav -->
+{{>sticky-nav}}
 </div>
 
 <div id="content" class="column column--two-thirds page-block page-block--main apispecification" aria-label="Document content">
@@ -52,14 +13,20 @@
             {{#apis}}
                 {{#assign "tryThisApiDisabled"}}{{vendorExtensions.x-spec-publication.try-this-api.disabled}}{{/assign}}
                 {{#operations}}
-                    <div id="api-{{baseName}}" class="article-section">
-                        <h1>Endpoint: {{baseName}}</h1>
+                    {{#eq baseName 'Default'}}
+                    <div id="api-endpoints" class="article-section">
+                        <h1>Endpoints</h1>
                     </div>
+                    {{else}}
+                    <div id="api-{{baseName}}" class="article-section">
+                        <h1>Endpoints: {{baseName}}</h1>
+                    </div>
+                    {{/eq}}
                         {{#operation}}
                             {{#contents}}
                                 {{#@first}}
                                     <div id="api-{{baseName}}-{{nickname}}" class="article-section-with-sub-heading">
-                                        <article id="api-{{baseName}}-{{nickname}}-0" data-group="User" data-name="{{nickname}}" data-version="0">
+                                        <article id="api-{{baseName}}-{{nickname}}-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h2>{{summary}}</h2>
                                             <div class="endpoint_path">
@@ -69,8 +36,6 @@
                                             </div>
 
                                             <p>{{{markdown notes}}}</p>
-                                            <p></p>
-                                            <br/>
 
                                             {{#isAnyTrue this hasPathParams hasHeaderParams hasBodyParam hasFormParams hasQueryParams}}
                                                 <h2>Request</h2>
