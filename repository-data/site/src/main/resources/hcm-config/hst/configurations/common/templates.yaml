@@ -137,6 +137,9 @@ definitions:
       /general-article:
         hst:renderpath: webfile:/freemarker/common/general-article.ftl
         jcr:primaryType: hst:template
+      /global-footer:
+        hst:renderpath: webfile:/freemarker/common/global-footer.ftl
+        jcr:primaryType: hst:template
       /glossary-list:
         hst:renderpath: webfile:/freemarker/common/glossary-list.ftl
         jcr:primaryType: hst:template
