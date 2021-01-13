@@ -1,0 +1,77 @@
+name: Pull Request Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-test:
+    name: "Build and test project"
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+      HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+
+    steps:
+
+      # Step 1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Step 2
+      - name: Check commit message
+        run: make check.commit-msg
+        continue-on-error: true
+
+      # Step 3
+      - name: Print Google Chrome version
+        run: google-chrome --version
+
+      # Step 4
+      - name: Setup Java
+        uses: joschi/setup-jdk@v2
+        with:
+          java-version: '8'
+
+      # Step 5
+      - name: Setup Maven repository cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: m2-cache
+
+      # Step 6
+      - name: Check YAML formatting
+        run: make check.yaml
+
+      # Step 7
+      - name: Test Project
+        run: make test.site
+
+      # Notify via Slack that the PR's 'build and test' failed
+      - name: "Send fail message"
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: support
+          SLACK_ICON: 'https://avatars.slack-edge.com/2021-01-13/1630579512549_65b98dab3cfe3321e943_48.png'
+          SLACK_USERNAME: CI/CD Pipeline
+          SLACK_COLOR: '#ff0d0d'
+          SLACK_TITLE: PR Request 'build and test' faild
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_FOOTER: 'Oh yeah, I may have forgotten something.'
+
+      # Notify via Slack that the PR's 'build and test' succeeded
+      - name: "Send a success message"
+        if: success()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: support
+          SLACK_ICON: 'https://avatars.slack-edge.com/2021-01-13/1630579512549_65b98dab3cfe3321e943_48.png'
+          SLACK_USERNAME: CI/CD Pipeline
+          SLACK_COLOR: '#02ad0a'
+          SLACK_TITLE: PR Request 'build and test' succeeded
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_FOOTER: 'The Web Team are awesome!'
