@@ -55,3 +55,10 @@ update_configs:
     commit_message:
       prefix: "[DW-000] "
       include_scope: true
+
+  - package_manager: "javascript"
+    directory: "/repository-data/webfiles"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
