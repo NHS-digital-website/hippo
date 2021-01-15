@@ -1,0 +1,24 @@
+name: Pull Request QA Approval
+
+on:
+  issue_comment:
+    types: created
+
+jobs:
+  qa_deploy:
+    # This job only runs for pull request comments
+    if: ${{ github.event.issue.pull_request }}
+    name: QA Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - run echo ${{ context.payload.comment.body }}
+      - run echo ${{ github.context.payload.comment.body }}
+
+      - uses: actions/github-script@v3
+        id: my-script
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          result-encoding: string
+          script: return "I will be string (not JSON) encoded!"
