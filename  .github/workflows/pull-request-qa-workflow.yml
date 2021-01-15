@@ -12,9 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - run echo ${{ context.payload.comment.body }}
-      - run echo ${{ github.context.payload.comment.body }}
+      - run: echo ${{ context.payload.comment.body }}
+      - run: echo ${{ github.context.payload.comment.body }}
 
       - uses: actions/github-script@v3
         id: my-script
