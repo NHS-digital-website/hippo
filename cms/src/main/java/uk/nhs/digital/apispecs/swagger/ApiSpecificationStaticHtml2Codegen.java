@@ -16,6 +16,7 @@ import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
+import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.lang3.StringUtils;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 import uk.nhs.digital.apispecs.handlebars.*;
@@ -58,6 +59,11 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         super.postProcessParameter(parameter);
 
         postProcessRequestBody(parameter);
+    }
+
+    @Override
+    public String sanitizeTag(final String tag) {
+        return tag;
     }
 
     @Override
@@ -151,6 +157,12 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         postProcessResponses(codegenOperation.getResponses());
     }
 
+    private Optional<Tag> resolveTagObjectByName(final String tagName) {
+        return Optional.ofNullable(openAPI.getTags()).orElse(emptyList()).stream()
+            .filter(tag -> tag.getName().equalsIgnoreCase(tagName))
+            .findAny();
+    }
+
     private void postProcessResponses(final List<CodegenResponse> responses) {
         Optional.ofNullable(responses)
             .orElse(emptyList())
@@ -231,6 +243,14 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
         final Map<String, Object> operationsMap =
             (Map<String, Object>) Optional.ofNullable(operationsToPostProcess.get("operations")).orElse(emptyMap());
+
+        final String tagName = (String) operationsMap.get("pathPrefix");
+
+        resolveTagObjectByName(tagName.toLowerCase())
+            .map(Tag::getExtensions)
+            .map(extensions -> extensions.get("x-display-name"))
+            .ifPresent(displayName ->
+            operationsMap.put("x-tag-display-name", displayName));
 
         final List<CodegenOperation> operations =
             (List<CodegenOperation>) Optional.ofNullable(operationsMap.get("operation")).orElse(emptyList());

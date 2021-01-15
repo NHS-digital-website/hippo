@@ -11,6 +11,7 @@ import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.hamcrest.Matcher;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -147,10 +148,50 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
         // then
         assertThat(
-            "Headings 'Endpoint:' have been generated for each operation with a tag - in the side nav and in the content area.",
+            "Headings 'Endpoints:' have been generated for each operation with a tag - in the side nav and in the content area.",
             ignoringWhiteSpacesIn(actualSpecHtml),
             is(ignoringWhiteSpacesIn(expectedSpecHtml))
         );
+    }
+
+    @Test
+    public void endpointsHeadings_useTagDisplayName_whenTagDisplayNameIsDefined() {
+
+        // given
+        final String specificationJson = from("oasV3_tagsWithDisplayNamesPresent.json");
+
+        final String expectedSpecHtml = from("oasV3_tagsWithDisplayNamesAbsent.html");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        assertThat(
+            "Headings 'Endpoints:' have been generated with tags' display names.",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+        );
+    }
+
+    @Test
+    public void endpointsHeadings_useTagName_whenTagDisplayNameNotDefined() {
+
+        // given
+        final String specificationJson = from("oasV3_tagsWithDisplayNamesAbsent.json");
+
+        final String expectedSpecHtml = from("oasV3_tagsWithDisplayNamesAbsent.html");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        assertThat(
+            "Headings 'Endpoints:' have been generated with tags' 'id' names.",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+        );
+        Assert.fail("ADD requirement: when no x-display-name then tag name is used verbatim (pathPrefix respects sanitizeTag()?)");
+        Assert.fail("deal with capitalisation of pathPrefix");
     }
 
     @Test

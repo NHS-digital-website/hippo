@@ -1,0 +1,31 @@
+{
+    "openapi": "3.0.0",
+    "tags": [
+        {
+            "name": "resource-a",
+            "description": "Tag WITH property 'x-display-name'.",
+            "x-display-name": "Resource A"
+        },
+        {
+            "name": "resource-b",
+            "description": "Tag WITH NO property 'x-display-name'."
+        }
+    ],
+    "paths": {
+        "/path-a": {
+            "get": {
+                "summary": "Operation: '/path-a GET'",
+                "tags": ["resource-a"]
+            },
+            "post": {
+                "summary": "Operation: '/path-a POST'",
+                "tags": ["resource-b"]
+            },
+            "PUT": {
+                "summary": "Operation: '/path-b PUT'",
+                "tags": ["tag-with-no-tag-object"]
+            }
+        }
+    },
+    "components": {}
+}

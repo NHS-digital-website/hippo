@@ -27,7 +27,7 @@
                                     <li>
                                         <a href="#api-{{baseName}}"
                                            aria-label="Endpoints: {{baseName}}"
-                                           title="Endpoints: {{baseName}}">Endpoints: {{baseName}}</a>
+                                           title="Endpoints: {{baseName}}">Endpoints: {{#x-tag-display-name}}{{this}}{{else}}{{baseName}}{{/x-tag-display-name}}</a>
                                     </li>
                                     {{/eq}}
                                     {{#operation}}

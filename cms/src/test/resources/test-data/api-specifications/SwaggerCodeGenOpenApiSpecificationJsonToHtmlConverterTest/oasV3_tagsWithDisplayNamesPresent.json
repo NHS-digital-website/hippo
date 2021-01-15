@@ -1,0 +1,38 @@
+{
+    "openapi": "3.0.0",
+    "tags": [
+        {
+            "name": "tag-a",
+            "description": "No space in the tag's name, no capitalisation",
+            "x-display-name": "Tag A"
+        },
+        {
+            "name": "tag B",
+            "description": "Space in the tag's name, capitalisation",
+            "x-display-name": "Tag B"
+        }
+    ],
+    "paths": {
+        "/path-a": {
+            "get": {
+                "summary": "Operation: '/path-a GET'",
+                "tags": ["Tag-a"]
+            },
+            "post": {
+                "summary": "Operation: '/path-a POST'",
+                "tags": ["tag B"]
+            }
+        },
+        "/path-b": {
+            "get": {
+                "summary": "Operation: '/path-b GET'",
+                "tags": ["Tag-a"]
+            },
+            "post": {
+                "summary": "Operation: '/path-b POST'",
+                "tags": ["Tag B"]
+            }
+        }
+    },
+    "components": {}
+}
