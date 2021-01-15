@@ -1,0 +1,201 @@
+name: Slack Deployment Command
+
+on:
+  repository_dispatch:
+    types:
+      - slack-deploy-command
+
+jobs:
+
+  build:
+    name: Build Commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+      BRANCH: ${{ github.event.client_payload.data.text }}
+      CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+      SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
+      USER_NAME: ${{  github.event.client_payload.data.user_name }}
+      RD_URL: ${{ secrets.RD_API }}
+      RD_USER: ${{ secrets.RD_USER }}
+      RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
+      RD_AUTH_PROMPT: false
+      RD_COLOR: 0
+
+    steps:
+
+      #
+      # Identify target server
+      #
+      - name: Identify target
+        uses: actions/github-script@v3
+        id: find-target
+        with:
+          result-encoding: string
+          script: |
+            const environments = {
+              C01KGP0B78R: "debugging",
+              C011BKDNUS1: "dev",
+              C01119ANCJE: "tst",
+              C01119BULFL: "trn"
+            }
+            if(environments[`${process.env.CHANNEL_ID}`] === undefined) {
+              core.setFailed("No target environment has been identifed.")
+            } else {
+              return environments[`${process.env.CHANNEL_ID}`]
+            }
+
+      - name: Slack message (failed to identify the target)
+        if: ${{ failure() }}
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Cannot find the target server. Are you running the command from the correct channel?",  "color": "#DA291C" }] }'
+
+      - name: Print Identify target for debugging
+        run: echo ${{steps.find-target.outputs.result}}
+
+      #
+      # Checkout the branch
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0 # Need all the tags for versioning
+
+      - name: Slack message (failed to checkout the branch)
+        if: ${{ failure() }}
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Cannot find the branch named ${{ env.BRANCH }}",  "color": "#DA291C" }] }'
+
+
+      #
+      # Build the branch
+      #
+      - name: Slack message (building the branch)
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Building the branch (${{ env.BRANCH }})", "color": "#78BE20" }] }'
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Setup cache (Maven packages)
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-nhs-digital-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-nhs-digital-
+            ${{ runner.os }}-maven-nhs-
+
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-nhs-digital-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-nhs-digital-
+            ${{ runner.os }}-node-nhs-
+
+      - name: Build branch
+        run: make clean build
+        env:
+          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+
+      - name: Slack message (failed to build the branch)
+        if: ${{ failure() }}
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Failed to build the branch named ${{ env.BRANCH }}",  "color": "#DA291C" }] }'
+
+
+      #
+      # Prepare RD communication
+      #
+      - name: Configure SSH certificates
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.IDM_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.IDM_PUB }}" > ~/.ssh/id_rsa.pub
+          chmod 400 ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa.pub
+
+      - name: Configure known hosts
+        run: |
+          touch ~/.ssh/known_hosts
+          ssh-keygen -R ${{ secrets.RD_FTP }}
+          ssh-keyscan -H -t rsa ${{ secrets.RD_FTP }} >> ~/.ssh/known_hosts
+
+      #
+      # Upload the build
+      #
+      - name: Slack message (uploading the build)
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Uploading the build to RunDeck", "color": "#78BE20" }] }'
+
+      - name: Upload build
+        run: make ondemand.upload
+
+      - name: Slack message (failed to build the branch)
+        if: ${{ failure() }}
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Failed to upload the build",  "color": "#DA291C" }] }'
+
+
+      #
+      # Request deployment from RunDeck
+      #
+      - name: Slack message (requesting deployment)
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Requesting a deployment on RunDeck going to ${{steps.find-target.outputs.result}}", "color": "#78BE20" }] }'
+
+      - name: Deploy request
+        id: pipeline-deploy
+        run: |
+          make ondemand.pipeline-deploy > pipeline-deploy-output.txt
+          echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
+        env:
+          ENV: ${{steps.find-target.outputs.result}}
+
+      - name: Slack message (failed to deploy)
+        if: ${{ failure() }}
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "RunDeck failed to start a deployment",  "color": "#DA291C" }] }'
+
+
+      #
+      # End with a success message
+      #
+      - name: Slack message (end message)
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "RunDeck is deploying. <@${{ env.USER_NAME }}> You can track progress here ${{steps.pipeline-deploy.outputs.PIPELINE_DEPLOY_URL}}", "color": "#78BE20" }] }'
+
+
+      - name: Slack message (failed end message)
+        if: ${{ always() }}
+        uses: muinmomin/webhook-action@v1.0.0
+        env:
+          GITHUB_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline Finished", "attachments": [{ "text" : "End of communication. The logs are here ${{ env.GITHUB_WORKFLOW_URL }}",  "color": "#005EB8" }] }'
