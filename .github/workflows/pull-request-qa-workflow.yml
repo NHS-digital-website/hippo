@@ -16,7 +16,7 @@ jobs:
 
   qa_deploy:
     # This job only runs for pull request comments
-    if: ${{ github.event.issue.pull_request }}
+    # if: ${{ github.event.issue.pull_request }}
     name: QA Deployment
     runs-on: ubuntu-latest
 
