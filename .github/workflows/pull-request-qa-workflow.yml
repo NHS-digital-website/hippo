@@ -1,9 +1,6 @@
 name: Pull Request QA Approval
 
 on:
-  push:
-    branches:
-      - DW-1529-qa-approve
   issue_comment:
     types: [created]
 
