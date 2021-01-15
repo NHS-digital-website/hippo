@@ -1,10 +1,22 @@
 name: Pull Request QA Approval
 
 on:
+  push:
+    branches:
+      - DW-1529-qa-approve
   issue_comment:
-    types: created
+    types: [created]
+
 
 jobs:
+  testing:
+    name: Check acction starts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        run: echo "Hello"
+
   qa_deploy:
     # This job only runs for pull request comments
     if: ${{ github.event.issue.pull_request }}
