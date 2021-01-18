@@ -182,6 +182,9 @@ definitions:
       /jobrole:
         hst:renderpath: webfile:/freemarker/common/jobrole.ftl
         jcr:primaryType: hst:template
+      /jobsfeedcomponent:
+        hst:renderpath: webfile:/freemarker/common/jobfeed.ftl
+        jcr:primaryType: hst:template
       /legacypublication:
         hst:renderpath: webfile:/freemarker/publicationsystem/legacy-publication.ftl
         jcr:primaryType: hst:template
