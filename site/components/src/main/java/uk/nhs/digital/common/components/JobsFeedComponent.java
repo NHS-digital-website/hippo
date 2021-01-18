@@ -27,19 +27,14 @@ public class JobsFeedComponent extends CommonComponent {
         String button1Text = paramInfo.getButton1Text();
         String button1Url = paramInfo.getButton1Url();
         String button2Text = paramInfo.getButton2Text();
-        String button2Url = paramInfo.getButton2Url();
+        String button2Url = paramInfo.getButton2Text();
         String feedHeader = paramInfo.getHeader();
 
         request.setAttribute("feedHeader", feedHeader);
-
-        if (StringUtils.isNotBlank(button1Text) && StringUtils.isNotBlank(button1Url)) {
-            request.setAttribute("button1Text", button1Text);
-            request.setAttribute("button1Url", button1Url);
-        }
-        if (StringUtils.isNotBlank(button2Text) && StringUtils.isNotBlank(button2Url)) {
-            request.setAttribute("button2Text", button2Text);
-            request.setAttribute("button2Url", button2Url);
-        }
+        request.setAttribute("button1Text", button1Text);
+        request.setAttribute("button2Text", button2Text);
+        request.setAttribute("button1Url", button1Url);
+        request.setAttribute("button2Url", button2Url);
 
         String feedUrl = paramInfo.getFeedMasterUri();
         String recordLimit = paramInfo.getNumToDisplay();
@@ -56,7 +51,6 @@ public class JobsFeedComponent extends CommonComponent {
         String postcode = paramInfo.getPostcode();
         if (StringUtils.isNotBlank(postcode)) {
             queryString.append("&Postcode=" + postcode);
-            queryString.append("&Radius=30");
         }
 
         String vacancyType = paramInfo.getVacancyType();
