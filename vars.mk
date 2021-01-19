@@ -12,6 +12,13 @@ PROFILE_RUN ?= cargo.run
 S3_BUCKET ?= files.local.nhsd.io
 S3_REGION ?= eu-west-1
 
+# Path to local JCR database. Configuring it means no longer losing local documents between
+# 'make serve' sessions.
+# Set it to '-Drepo.path=storage' in env.mk to have the dir automatically created for you
+# within the project directory. This name is ignored by git, so you're not risking
+# committing it by accident.
+REPO_PATH ?=
+
 # Settings related to automated imports of OAS specifications
 # into API Specification documents from Apigee.
 # Override relevant variables (typically only APIGEE_USER, APIGEE_PASS and APIGEE_OTPKEY)

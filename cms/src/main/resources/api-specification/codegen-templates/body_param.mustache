@@ -14,7 +14,7 @@
         {{^example}}
             {{^examples}}
                 {{#schema.example}}
-                    <div class="body__example__header">Example</div>
+                    <h6 class="body__example__header">Example</h6>
                     <div><pre><code>{{this}}</code></pre></div>
                 {{/schema.example}}
             {{/examples}}
@@ -23,9 +23,9 @@
         {{#examples}}
             {{#@first}}
                 {{#hasOneItem examples}}
-                    <div class="body__example__header">Example</div>
+                    <h6 class="body__example__header">Example</h6>
                 {{else}}
-                    <div class="body__example__header">Examples</div>
+                    <h6 class="body__example__header">Examples</h6>
                 {{/hasOneItem}}
             {{/@first}}
 
@@ -34,14 +34,14 @@
             {{/summary}}
 
             {{#description}}
-            <div class="body__example__description">{{{markdown description}}}</div>
+            <div class="body__example__description">{{{markdown description levelToNormaliseHeadingsTo=7}}}</div>
             {{/description}}
 
             <div><pre><code>{{value}}</code></pre></div>
         {{/examples}}
 
         {{#if schema}}
-            <div class="body__schema__header">Schema</div>
+            <h6 class="body__schema__header">Schema</h6>
 
             <div class="body__schema">
             {{#vendorExtensions.x-schema}}
