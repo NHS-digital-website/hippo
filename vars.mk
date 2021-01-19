@@ -11,8 +11,14 @@ SPLUNK_URL ?= http://localhost
 PROFILE_RUN ?= cargo.run
 S3_BUCKET ?= files.local.nhsd.io
 S3_REGION ?= eu-west-1
-# Path to local JCR database (-Drepo.path=storage)
+
+# Path to local JCR database. Configuring it means no longer losing local documents between
+# 'make serve' sessions.
+# Set it to '-Drepo.path=storage' in env.mk to have the dir automatically created for you
+# within the project directory. This name is ignored by git, so you're not risking
+# committing it by accident.
 REPO_PATH ?=
+
 # Settings related to automated imports of OAS specifications
 # into API Specification documents from Apigee.
 # Override relevant variables (typically only APIGEE_USER, APIGEE_PASS and APIGEE_OTPKEY)
@@ -27,7 +33,7 @@ REPO_PATH ?=
 # enable the scheduled jobs in a local CMS instance. In order to keep this out of version
 # control, we recommend setting both variables in env.mk as needed, e.g.
 # 	APIGEE_SYNC_CRON = 0 0/2 * ? * *
-# 	APIGEE_RERENDER_CRON = 0 0/10 * ? * *
+# 	APIGEE_RERENDER_CRON = 0 1/1 * ? * *
 
 APIGEE_SYNC_CRON ?=
 APIGEE_RERENDER_CRON ?=
