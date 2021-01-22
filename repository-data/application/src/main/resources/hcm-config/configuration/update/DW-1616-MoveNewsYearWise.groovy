@@ -56,7 +56,7 @@ class MoveNewsYearWise extends BaseNodeUpdateVisitor {
         if (ruleResult.getNodes().size() != 0) {
             ruleFolderNode = ruleResult.getNodes().next()
         }
-        newsResult = manager.createQuery("/jcr:root/content/documents/corporate-website/news-and-events", Query.XPATH).execute()
+        newsResult = manager.createQuery("/jcr:root/content/documents/corporate-website/news", Query.XPATH).execute()
         newsFolderNode = newsResult.getNodes().next()
 
     }
