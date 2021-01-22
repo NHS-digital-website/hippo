@@ -35,10 +35,12 @@
                 ${tile.description}
             </p>
             <p class="navigation-tile__link">
-                <span class="navigation-tile__link-text">${tile.actionDescription}</span>
-                <span class="navigation-tile__link-arrow">
-                    <img aria-hidden="true" alt="Right Arrow"
-                         src="<@hst.webfile path="/images/chapter-navigation/right-arrow.svg"/>">
+                <span class="navigation-tile__link-content">
+                    <#t><span class="navigation-tile__link-text">${tile.actionDescription}</span>
+                    <#t><span class="navigation-tile__link-arrow">
+                        <img aria-hidden="true" alt="Right Arrow"
+                             src="<@hst.webfile path="/images/chapter-navigation/right-arrow.svg"/>">
+                    </span>
                 </span>
             </p>
         </div>

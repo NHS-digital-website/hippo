@@ -36,7 +36,6 @@
 .body__schema__header { font-weight: bold; }
 
 .body__schema {
-  display: none;
 
   .propertyName { font-weight: bold; }
   .title { font-weight: bold; }
@@ -46,6 +45,8 @@
   .nullable,
   .readonly,
   .writeonly { color: $grey-9; }
+
+  .required { color: #d14; }
 
   .description { margin-bottom: 1em; }
 

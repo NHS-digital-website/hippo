@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-1806-set-narrow-view-as-defaul:
+      hipposys:batchsize: 10
+      hipposys:description: Adds a website:navigationcontroller if it does not exist
+        and gives it a default value.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='website:general'
+        or @jcr:primaryType='website:service']
+      hipposys:script:
+        resource: /configuration/update/DW-1806-set-narrow-view-as-default.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

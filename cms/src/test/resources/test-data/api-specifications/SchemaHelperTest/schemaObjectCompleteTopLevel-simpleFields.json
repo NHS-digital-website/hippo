@@ -28,9 +28,11 @@
                                 "format": "int(32)",
                                 "nullable": true,
                                 "readOnly": true,
-                                "writeOnly": true
+                                "writeOnly": true,
+                                "enum": ["enum-a", "enum-b"],
+                                "default"  : {"property": "default value"},
+                                "example": {"property": "example value"}
                             }
-
                         }
                     }
                 }

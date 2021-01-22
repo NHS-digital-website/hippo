@@ -81,28 +81,27 @@
 
 
         <div class="grid-row">
-            <#if navStatus == "withNav">
-                <#if renderNav>
-                    <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
-                        <!-- start sticky-nav -->
-                        <div id="sticky-nav">
-                            <#assign links = [{ "url": "#top", "title": "Top of page" }] />
-                            <#if document.latestNews?has_content >
-                                <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
-                            </#if>
-                            <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
-                            <#if document.relatedEvents?has_content >
-                                <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
-                            </#if>
-                            <@stickyNavSections links=links></@stickyNavSections>
-                        </div>
-                        <!-- end sticky-nav -->
-                        <#-- Restore the bundle -->
-                        <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
+            <#if navStatus == "withNav" && renderNav>
+                <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
+                    <!-- start sticky-nav -->
+                    <div id="sticky-nav">
+                        <#assign links = [{ "url": "#top", "title": "Top of page" }] />
+                        <#if document.latestNews?has_content >
+                            <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
+                        </#if>
+                        <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
+                        <#if document.relatedEvents?has_content >
+                            <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
+                        </#if>
+                        <@stickyNavSections links=links></@stickyNavSections>
                     </div>
-                </#if>
+                    <!-- end sticky-nav -->
+                    <#-- Restore the bundle -->
+                    <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
+                </div>
             </#if>
-            <div class="column column--two-thirds page-block page-block--main">
+
+            <div class="column ${(navStatus == "withNav" || navStatus == "withoutNav")?then("column--two-thirds", "column--wide-mode")} page-block page-block--main">
                 <#if hasBannerImage>
                     <#if hasSummaryContent>
                         <div class="article-header__subtitle"
@@ -169,7 +168,7 @@
                 </#if>
 
                 <#if hasContactDetailsContent>
-                    <div class="article-section article-section--contact"
+                    <div class="article-section article-section--contact navigationMarker"
                          id="${slugify('Contact details')}">
                         <h2><@fmt.message key="headers.contact-details" /></h2>
                         <div class="rich-text-content">

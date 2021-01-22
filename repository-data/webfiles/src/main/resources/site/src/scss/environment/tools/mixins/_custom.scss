@@ -21,17 +21,17 @@
 }
 
 @mixin touch-scroll-x() {
-    overflow-x: scroll;   
+    overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
 }
 
 @mixin touch-scroll-y() {
-    overflow-y: scroll;   
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
 
 @mixin touch-scroll() {
-    overflow: scroll;   
+    overflow: scroll;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -42,4 +42,24 @@
 
     width: 100%;
     height: 100%;
+}
+
+@mixin colourStripeBottom($height: 8px, $colour1: $col-undenary, $colour2: $col-primary, $colour3: $col-24, $colour4: $col-28) {
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgb(0,48,135);
+        background: linear-gradient(90deg, $colour1 0%, $colour1 56.66%, $colour2 56.66%, $colour2 76.06%, $colour3 76.06%, $colour3 93.01%, $colour4 93.01%);
+        height: $height;
+    }
+}
+
+@mixin fullViewportWidth() {
+    transform: translateX(-50vw);
+    width: 100vw;
+    margin-left: 50%;
+    overflow: hidden;
 }

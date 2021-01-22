@@ -31,7 +31,6 @@
 <#assign hasHtmlCode = document.htmlCode?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
-<#assign wideMode = document.wideMode />
 <#assign idsuffix = slugify(document.title) />
 <#assign navStatus = document.navigationController />
 <#assign hasBannerImage = document.image?has_content />
@@ -74,7 +73,7 @@
             </div>
         </#if>
         <div class="grid-row">
-            <#if navStatus == "withNav" && renderNav && !wideMode>
+            <#if navStatus == "withNav" && renderNav>
                 <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                     <!-- start sticky-nav -->
                     <div id="sticky-nav">

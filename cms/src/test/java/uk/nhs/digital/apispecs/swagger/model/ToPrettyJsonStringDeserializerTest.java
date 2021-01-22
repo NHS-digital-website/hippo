@@ -4,7 +4,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -14,9 +13,6 @@ import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ToPrettyJsonStringD
 import java.io.IOException;
 
 public class ToPrettyJsonStringDeserializerTest {
-
-    private static final String TEST_DATA_FILES_PATH =
-        "/test-data/api-specifications/ToPrettyJsonStringDeserializerTest";
 
     private final ObjectMapper objectMapper = new ObjectMapper()
         .configure(MapperFeature.USE_ANNOTATIONS, true);
@@ -31,14 +27,14 @@ public class ToPrettyJsonStringDeserializerTest {
         final String jsonPrettyPrinted = "{\n  \"some\" : \"json\"\n}";
 
         // when
-        final String actualDeserialisedContent = deserializer.deserialize(
-            jsonParserFor(jsonObject),
+        final String actualDeserializedContent = deserializer.deserialize(
+            objectMapper.createParser(jsonObject),
             null // ignored
         );
 
         // then
         assertThat("Deserialises JSON content into pretty-printed JSON string.",
-            actualDeserialisedContent,
+            actualDeserializedContent,
             is(jsonPrettyPrinted)
         );
     }
@@ -100,12 +96,10 @@ public class ToPrettyJsonStringDeserializerTest {
         );
     }
 
-    private JsonParser jsonParserFor(final String jsonToDeserialise) throws IOException {
-        return objectMapper.createParser(jsonToDeserialise);
-    }
-
     private String from(final String testFileName) {
-        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
+        return contentOfFileFromClasspath(
+            "/test-data/api-specifications/ToPrettyJsonStringDeserializerTest/" + testFileName
+        );
     }
 
     public static class TestDto {

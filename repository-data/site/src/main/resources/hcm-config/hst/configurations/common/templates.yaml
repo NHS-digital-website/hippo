@@ -20,6 +20,9 @@ definitions:
       /apitryitnow:
         hst:renderpath: webfile:/freemarker/common/api-try-it-now.ftl
         jcr:primaryType: hst:template
+      /apitryitnow-oauth-redirect:
+        hst:renderpath: webfile:/freemarker/common/api-try-it-now-oauth-redirect.ftl
+        jcr:primaryType: hst:template
       /app-layout:
         hst:renderpath: webfile:/freemarker/common/app-layout.ftl
         jcr:primaryType: hst:template
@@ -104,6 +107,12 @@ definitions:
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
+      /feature:
+        hst:renderpath: webfile:/freemarker/common/feature.ftl
+        jcr:primaryType: hst:template
+      /feedlist:
+        hst:renderpath: webfile:/freemarker/common/feedlist.ftl
+        jcr:primaryType: hst:template
       /financial-article:
         hst:renderpath: webfile:/freemarker/common/financial-article.ftl
         jcr:primaryType: hst:template
@@ -127,6 +136,9 @@ definitions:
         jcr:primaryType: hst:template
       /group:
         hst:renderpath: webfile:/freemarker/common/group.ftl
+        jcr:primaryType: hst:template
+      /hero:
+        hst:renderpath: webfile:/freemarker/common/hero.ftl
         jcr:primaryType: hst:template
       /homeland:
         hst:renderpath: webfile:/freemarker/common/homeland.ftl
@@ -307,6 +319,9 @@ definitions:
         jcr:primaryType: hst:template
       /team:
         hst:renderpath: webfile:/freemarker/common/team.ftl
+        jcr:primaryType: hst:template
+      /video-page:
+        hst:renderpath: webfile:/freemarker/common/video-page.ftl
         jcr:primaryType: hst:template
       /visual-hub:
         hst:renderpath: webfile:/freemarker/common/visual-hub.ftl

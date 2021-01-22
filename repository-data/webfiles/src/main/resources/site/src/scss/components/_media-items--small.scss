@@ -1,0 +1,24 @@
+.media-items--small .media-item__title {
+    font-size: 18px;
+    letter-spacing: -0.45px;
+    line-height: 26px;
+}
+.media-items--small .media-item__date {
+    font-size: 14px;
+    letter-spacing: -0.1px;
+    line-height: 26px;
+}
+.media-items--small .media-item__body {
+    font-size: 16px;
+    letter-spacing: -0.36px;
+    line-height: 24px;
+}
+
+.media-items--small.media-items--4up {
+    @include media(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include media(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

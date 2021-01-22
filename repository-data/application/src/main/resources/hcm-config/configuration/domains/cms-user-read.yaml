@@ -85,4 +85,13 @@ definitions:
         - statistical-publications-and-clinical-indicators-editor
         hipposys:role: readonly
         jcr:primaryType: hipposys:authrole
+      /taxonomy-node:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/taxonomies
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       jcr:primaryType: hipposys:domain

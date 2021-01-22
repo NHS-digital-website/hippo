@@ -1,42 +1,5 @@
 <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
-    <!-- start sticky-nav -->
-    <div id="sticky-nav">
-        <div class="article-section-nav-wrapper">
-            <div class="article-section-nav">
-                <h2 class="article-section-nav__title">Page contents</h2>
-                <nav>
-                    <ol class="article-section-nav__list">
-                        <li>
-                            <a href="#top" aria-label="Scroll to 'Top of page'" title="Scroll to 'Top of page'">Top of page</a>
-                        </li>
-                        <li>
-                            <a href="#api-description" aria-label="Scroll to 'Overview'" title="Scroll to 'Overview'">Overview</a>
-                        </li>
-
-                        {{#apiInfo}}
-                            {{#apis}}
-                                {{#operations}}
-                                    <li class="nav-header" data-group="{{baseName}}">
-                                        <a href="#api-{{baseName}}"
-                                           aria-label="Endpoint: {{baseName}}"
-                                           title="Endpoint: {{baseName}}">Endpoint: {{baseName}}</a>
-                                    </li>
-                                    {{#operation}}
-                                        <li data-group="{{baseName}}" data-name="{{nickname}}" class="section-numbered">
-                                            <a href="#api-{{baseName}}-{{nickname}}"
-                                               aria-label="{{nickname}}"
-                                               title="{{nickname}}">{{summary}}</a>
-                                        </li>
-                                    {{/operation}}
-                                {{/operations}}
-                            {{/apis}}
-                        {{/apiInfo}}
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- end sticky-nav -->
+{{>sticky-nav}}
 </div>
 
 <div id="content" class="column column--two-thirds page-block page-block--main apispecification" aria-label="Document content">
@@ -44,31 +7,35 @@
     <!-- API Title: {{{appName}}} -->
 
     <div id="api-description" class="article-section">
-        {{{markdown appDescription}}}
+        {{{markdown appDescription headingIdPrefix="api-description__"}}}
     </div>
-
         {{#apiInfo}}
             {{#apis}}
+                {{#assign "tryThisApiDisabled"}}{{vendorExtensions.x-spec-publication.try-this-api.disabled}}{{/assign}}
                 {{#operations}}
-                    <div id="api-{{baseName}}" class="article-section">
-                        <h1>Endpoint: {{baseName}}</h1>
+                    {{#eq baseName 'Default'}}
+                    <div id="api-endpoints" class="article-section">
+                        <h1>Endpoints</h1>
                     </div>
+                    {{else}}
+                    <div id="api-{{baseName}}" class="article-section">
+                        <h1>Endpoints: {{baseName}}</h1>
+                    </div>
+                    {{/eq}}
                         {{#operation}}
                             {{#contents}}
                                 {{#@first}}
                                     <div id="api-{{baseName}}-{{nickname}}" class="article-section-with-sub-heading">
-                                        <article id="api-{{baseName}}-{{nickname}}-0" data-group="User" data-name="{{nickname}}" data-version="0">
+                                        <article id="api-{{baseName}}-{{nickname}}-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h2>{{summary}}</h2>
                                             <div class="endpoint_path">
                                                 <div class="method"><h2>{{httpMethod}}</h2></div>
                                                 <div class="pre"><pre>{{path}}</pre></div>
-                                                <div class="try"><a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                                {{#ifVariableIsFalse "tryThisApiDisabled"}}<div class="try"><a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>{{/ifVariableIsFalse}}
                                             </div>
 
                                             <p>{{{markdown notes}}}</p>
-                                            <p></p>
-                                            <br/>
 
                                             {{#isAnyTrue this hasPathParams hasHeaderParams hasBodyParam hasFormParams hasQueryParams}}
                                                 <h2>Request</h2>
@@ -89,6 +56,21 @@
                                                 </div>
                                             {{/hasPathParams}}
 
+                                            {{#hasQueryParams}}
+                                                <div class="httpparams">
+                                                    <h3>Query parameters</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#queryParams}}
+                                                            {{>request_param}}
+                                                        {{/queryParams}}
+                                                    </table>
+                                                </div>
+                                            {{/hasQueryParams}}
+
                                             {{#hasHeaderParams}}
                                                 <div class="httpparams">
                                                     <h3>Headers</h3>
@@ -103,19 +85,6 @@
                                                     </table>
                                                 </div>
                                             {{/hasHeaderParams}}
-
-                                            {{#hasBodyParam}}
-                                                <div class="httpparams">
-                                                    <h3>Body</h3>
-                                                    {{#bodyParams}}
-                                                    {{#required}}<div class="httpparams__required">Required</div>{{/required}}
-
-                                                    {{#vendorExtensions.x-body}}
-                                                        {{>body_param}}
-                                                    {{/vendorExtensions.x-body}}
-                                                    {{/bodyParams}}
-                                                </div>
-                                            {{/hasBodyParam}}
 
                                             {{#hasFormParams}}
                                                 <div class="httpparams">
@@ -132,20 +101,18 @@
                                                 </div>
                                             {{/hasFormParams}}
 
-                                            {{#hasQueryParams}}
+                                            {{#hasBodyParam}}
                                                 <div class="httpparams">
-                                                    <h3>Query parameters</h3>
-                                                    <table data-disablesort="true">
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Description</th>
-                                                        </tr>
-                                                        {{#queryParams}}
-                                                            {{>request_param}}
-                                                        {{/queryParams}}
-                                                    </table>
+                                                    <h3>Body</h3>
+                                                    {{#bodyParams}}
+                                                        {{#required}}<div class="httpparams__required">Required</div>{{/required}}
+
+                                                        {{#vendorExtensions.x-body}}
+                                                            {{>body_param}}
+                                                        {{/vendorExtensions.x-body}}
+                                                    {{/bodyParams}}
                                                 </div>
-                                            {{/hasQueryParams}}
+                                            {{/hasBodyParam}}
 
                                             {{#responses}}
                                                 {{#@first}}

@@ -36,6 +36,7 @@
     padding-left: 0;
     @include media($size: desktop) {
         display: flex;
+        width: 100%;
     }
 }
 

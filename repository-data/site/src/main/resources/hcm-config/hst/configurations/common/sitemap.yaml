@@ -16,6 +16,7 @@ definitions:
           - website:gdprsummary
           - website:publishedwork
           - website:publishedworkchapter
+          - website:feature
           - website:financial
           - website:generalnonsearch
           - website:roadmap
@@ -42,6 +43,7 @@ definitions:
           - website:projectfeed
           - website:projectupdate
           - website:signup
+          - website:video
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -53,6 +55,7 @@ definitions:
           - hst:pages/gdprsummary
           - hst:pages/publishedwork
           - hst:pages/publishedworkchapter
+          - hst:pages/feature
           - hst:pages/financial
           - hst:pages/general
           - hst:pages/roadmap
@@ -79,6 +82,7 @@ definitions:
           - hst:pages/project-update-feed
           - hst:pages/project-update
           - hst:pages/sign-up
+          - hst:pages/video
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -93,6 +97,7 @@ definitions:
         - website:gdprsummary
         - website:publishedwork
         - website:publishedworkchapter
+        - website:feature
         - website:financial
         - website:generalnonsearch
         - website:roadmap
@@ -119,6 +124,7 @@ definitions:
         - website:projectfeed
         - website:projectupdate
         - website:signup
+        - website:video
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -130,6 +136,7 @@ definitions:
         - hst:pages/gdprsummary
         - hst:pages/publishedwork
         - hst:pages/publishedworkchapter
+        - hst:pages/feature
         - hst:pages/financial
         - hst:pages/general
         - hst:pages/roadmap
@@ -156,6 +163,7 @@ definitions:
         - hst:pages/project-update-feed
         - hst:pages/project-update
         - hst:pages/sign-up
+        - hst:pages/video
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -167,6 +175,9 @@ definitions:
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
       /api-spec-try-it-now:
+        /oauth-redirect:
+          hst:componentconfigurationid: hst:pages/apitryitnow-oauth-redirect
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/apitryitnow
         jcr:primaryType: hst:sitemapitem
       /cyber-alerts:

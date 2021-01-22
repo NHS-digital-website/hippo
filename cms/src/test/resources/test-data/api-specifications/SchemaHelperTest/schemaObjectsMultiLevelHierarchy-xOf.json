@@ -37,6 +37,9 @@
                                                     "nullable": true,
                                                     "readOnly": true,
                                                     "writeOnly": true,
+                                                    "enum": ["enum-a", "enum-b"],
+                                                    "default"  : {"property": "default value"},
+                                                    "example": {"property": "example value"},
                                                     "properties": {
                                                         "property-1.1.1.1.1.1.1": {
                                                             "type": "object",
@@ -74,25 +77,6 @@
                                             {
                                                 "type": "object",
                                                 "title": "1.1.2.1 - 'xOfPropertyPlaceholder'",
-                                                "deprecated": true,
-                                                "description": "Test Schema Object description in `Markdown`.",
-                                                "multipleOf": 1.4,
-                                                "minimum": -2.5,
-                                                "exclusiveMinimum": false,
-                                                "maximum": 2.6,
-                                                "exclusiveMaximum": true,
-                                                "minLength": 13,
-                                                "maxLength": 24,
-                                                "pattern": "^(?:[1])?",
-                                                "maxItems": 46,
-                                                "minItems": 376,
-                                                "uniqueItems": true,
-                                                "minProperties": 5,
-                                                "maxProperties": 7,
-                                                "format": "int(32)",
-                                                "nullable": true,
-                                                "readOnly": true,
-                                                "writeOnly": true,
                                                 "properties": {
                                                     "property-1.1.2.1.1.1": {
                                                         "title": "1.1.2.1.1.1 - object within 'xOfPropertyPlaceholder'",

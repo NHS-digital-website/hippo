@@ -3,15 +3,15 @@
 <#include "../fileIconByMimeType.ftl">
 
 <#macro gallerySection section mainHeadingLevel=2 >
-    <div id="${slugify(section.heading)}" class="${(section.headingLevel?has_content && section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
+    <div id="${slugify(section.heading)}" class="${(section.headingLevel?has_content && section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines')}">
 
         <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
             <#assign mainHeadingTag = "h" + mainHeadingLevel />
-            <${mainHeadingTag} data-uipath="website.contentblock.gallerysection.title" id="${slugify(section.title)}" class="navigationMarker">${section.title}</${mainHeadingTag}>
+            <${mainHeadingTag} data-uipath="website.contentblock.gallerysection.title">${section.title}</${mainHeadingTag}>
         <#else>
             <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
             <#assign subHeadingTag = "h" + subHeadingLevel />
-            <${subHeadingTag} data-uipath="website.contentblock.gallerysection.title" id="${slugify(section.title)}" class="navigationMarker">${section.title}</${subHeadingTag}>
+            <${subHeadingTag} data-uipath="website.contentblock.gallerysection.title">${section.title}</${subHeadingTag}>
         </#if>
 
         <div data-uipath="website.contentblock.gallerysection.description">

@@ -141,9 +141,25 @@
                 <#if hasLeadImage>
                     <div class="lead-image-container" >
                         <div class="lead-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-                            <@hst.link hippobean=document.leadImage.original fullyQualified=true var="leadImage" />
+                            <@hst.link hippobean=document.leadImage.postImageSmall fullyQualified=true var="leadImageSmall" />
+                            <@hst.link hippobean=document.leadImage.postImageSmall2x fullyQualified=true var="leadImageSmall2x" />
+                            <@hst.link hippobean=document.leadImage.newsPostImage fullyQualified=true var="leadImage" />
+                            <@hst.link hippobean=document.leadImage.newsPostImage2x fullyQualified=true var="leadImage2x" />
+                            <@hst.link hippobean=document.leadImage.newsPostImageLarge fullyQualified=true var="leadImageLarge" />
+                            <@hst.link hippobean=document.leadImage.newsPostImageLarge2x fullyQualified=true var="leadImageLarge2x" />
                             <meta itemprop="url" content="${leadImage}">
-                            <img itemprop="contentUrl" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadImageAltText}</#if>" />
+                            <img itemprop="contentUrl"
+                                 srcset="
+                                    ${leadImageSmall} 343px,
+                                    ${leadImageSmall2x} 686px,
+                                    ${leadImage} 640px,
+                                    ${leadImage2x} 1280px,
+                                    ${leadImageLarge} 992px,
+                                    ${leadImageLarge2x} 1984px
+                                 "
+                                 sizes="(min-width: 1520px) 992px, (min-width: 990px) 640px, (min-width: 925px) calc(67vw - 32px), calc(100vw - 32px)"
+                                 src="${leadImage}"
+                                 alt="<#if hasLeadImageAltText>${document.leadImageAltText}</#if>"/>
                         </div>
                         <#if hasLeadImageCaption>
                           <div class="lead-image-caption" data-uipath="website.blog.leadimagecaption">

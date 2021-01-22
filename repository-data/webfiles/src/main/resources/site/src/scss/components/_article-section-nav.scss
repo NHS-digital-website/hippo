@@ -1,9 +1,23 @@
 @import "../units/list";
 
-.navMarker{
+.navigationMarker, navigationMarker-sub { /* do not use - used by sticky-nav.js - are here to aid intellisense  */ }
+
+[data-nav-marker^="|"] {
     border-left: solid #ffb81c;
-    padding-left: 12px;
     text-decoration: none;
+
+    & a {
+        padding-left: 12px;
+    }
+
+    // Reset so that only the first instance gets the style
+    & ~ & {
+        border: none;
+
+        a {
+          padding-left: 0;
+        }
+    }
 }
 
 .article-section-nav {
@@ -61,6 +75,7 @@
 
         li {
             padding-left: 0;
+            margin-top: 10px;
 
             &:first-child {
                 a {
@@ -71,11 +86,10 @@
 
         a {
             color: $blue;
-            margin-top: 10px;
             display: inline-block;
             text-decoration: underline;
             padding-top: 3px;
-            padding-bottom: 3px;
+            padding-bottom: 4px;
 
             &:hover {
               text-decoration: none;

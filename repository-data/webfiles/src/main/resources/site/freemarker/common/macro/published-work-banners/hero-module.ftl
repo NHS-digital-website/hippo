@@ -14,22 +14,56 @@ topTextLink - string: make top text into a link if this is supplied
 
 -->
 <#macro heroModule config>
-    <#assign document = config.document />
-    <#assign bannerImage = config.bannerImage />
-    <#assign bannerImageAltText = config.bannerImageAltText />
-    <#assign button = config.button />
-    <#assign buttonText = config.buttonText />
-    <#assign showTime = config.showTime />
-    <#assign topText = config.topText />
-    <#assign topTextLink = config.topTextLink />
+    <#local document = config.document />
+    <#local bannerImage = config.bannerImage />
+    <#if config.bannerImageSmall2x??>
+        <#local bannerImageSmall2x = config.bannerImageSmall2x />
+    </#if>
+    <#if config.bannerImageSmall??>
+        <#local bannerImageSmall = config.bannerImageSmall />
+    </#if>
+    <#if config.bannerImage2x??>
+        <#local bannerImage2x = config.bannerImage2x />
+    </#if>
+    <#if config.bannerImage??>
+        <#local bannerImage = config.bannerImage />
+    </#if>
+    <#local bannerImageAltText = config.bannerImageAltText />
+    <#local button = config.button />
+    <#local buttonText = config.buttonText />
+    <#local showTime = config.showTime />
+    <#local topText = config.topText />
+    <#local topTextLink = config.topTextLink />
 
     <#local hasSummaryContent = document.summary?? && document.summary.content?has_content />
 
+    <@hst.headContribution>
+        <style type="text/css">
+            .article-header--hero-module {
+                background-image: url(${bannerImage});
+            }
+
+            @media screen and (min-device-pixel-ratio: 2) {
+                .article-header--hero-module {
+                    background-image: url(${bannerImage2x});
+                }
+            }
+        </style>
+    </@hst.headContribution>
+
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="hero-module article-header article-header--hero-module"
-             style="background-image: url(${bannerImage})">
+        <div class="hero-module article-header article-header--hero-module">
             <figure class="hero-module__mobile-image">
-                <img src="${bannerImage}" alt="${bannerImageAltText}">
+                <#if bannerImage?? && bannerImage2x??>
+                    <img srcset="
+                        ${bannerImageSmall} 375w,
+                        ${bannerImageSmall2x} 750w,
+                        ${bannerImage} 1270w,
+                        ${bannerImage2x} 2540w"
+                        sizes="100vw" src="${bannerImage}" alt="${bannerImageAltText}">
+                <#else>
+                    <img src="${bannerImage}" alt="${bannerImageAltText}">
+                </#if>
             </figure>
             <div class="grid-row">
                 <div class="hero-module__inner">

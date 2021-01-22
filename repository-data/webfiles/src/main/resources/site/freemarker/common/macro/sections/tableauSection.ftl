@@ -13,7 +13,7 @@
 
         <#assign divId = "tableau-${index}"/>
 
-        <div id="${divId}" class="viz-wrapper">
+        <div id="${divId}" class="viz-wrapper navigationMarker-sub">
             <#if section.placeholderImageLocation?has_content>
                 <div id="${divId}-viz" class="viz-wrapper-item hidden-viz"></div>
                 <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" />

@@ -2,7 +2,6 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -48,17 +47,13 @@ public class General extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:pageicon")
-    public HippoGalleryImageSet getPageIcon() {
-        return getLinkedBean("website:pageicon", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getPageIcon()  {
+        return getLinkedBean("website:pageicon", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimage")
-    public HippoGalleryImageSet getLeadImage() {
-        return getLinkedBean("website:leadimage", HippoGalleryImageSet.class);
-    }
-
-    public Boolean getWideMode()  {
-        return getSingleProperty("website:wideMode",false);
+    public CorporateWebsiteImageset getLeadImage()  {
+        return getLinkedBean("website:leadimage", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:navigationcontroller")
@@ -67,7 +62,7 @@ public class General extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:image")
-    public HippoGalleryImageSet getImage() {
-        return getLinkedBean("website:image", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getImage() {
+        return getLinkedBean("website:image", CorporateWebsiteImageset.class);
     }
 }

@@ -2,7 +2,6 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -83,8 +82,8 @@ public class Location extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "website:imageofsite")
-    public HippoGalleryImageSet getImageofsite() {
-        return getLinkedBean("website:imageofsite", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getImageofsite() {
+        return getLinkedBean("website:imageofsite", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:imageofsitealttext")

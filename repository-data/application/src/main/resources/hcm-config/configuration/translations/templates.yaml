@@ -27,6 +27,8 @@ definitions:
       new-supplementary-info-folder: new folder
       new-supplementary-info-hub-document: new supplementary information hub document
       new-translated-folder: new folder
+      new-website-corporateWebsiteImageset-folder: new folder
+      new-website-corporateWebsiteImageset-image: New Image
     /hippo:configuration/hippo:translations/hippo:types:
       /common:stringlist:
         /en:
@@ -268,6 +270,8 @@ definitions:
           jcr:name: Contact details (extended)
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:corporateWebsiteImageset:
+        jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
         /en:
           jcr:name: CTA
@@ -366,6 +370,11 @@ definitions:
       /website:externallinkbase:
         /en:
           jcr:name: External link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:feature:
+        /en:
+          jcr:name: Feature
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:financial:
@@ -816,6 +825,11 @@ definitions:
       /website:userNeedandcontactdocument:
         /en:
           jcr:name: User need and contact document
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:video:
+        /en:
+          jcr:name: Video
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:visualassetlink:

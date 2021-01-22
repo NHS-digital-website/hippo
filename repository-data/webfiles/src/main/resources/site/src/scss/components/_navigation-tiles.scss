@@ -111,24 +111,32 @@
 
 .navigation-tile__link-text {
     border-bottom: 1px solid;
+}
+.navigation-tile:hover .navigation-tile__link-text {
+    border-bottom-color: transparent;
+}
+
+.navigation-tile__link-content {
     box-decoration-break: clone;
 }
 
-.navigation-tile:hover .navigation-tile__link-text,
-.navigation-tile:focus .navigation-tile__link-text,
-.navigation-tile:active .navigation-tile__link-text {
-    border-bottom-color: transparent;
-    padding: 2px 4px;
+.navigation-tile:hover .navigation-tile__link {
     margin-right: -4px;
     margin-left: -4px;
 }
 
-.navigation-tile:hover .navigation-tile__link-text {
+.navigation-tile:hover .navigation-tile__link-content,
+.navigation-tile:focus .navigation-tile__link-content,
+.navigation-tile:active .navigation-tile__link-content {
+    padding: 2px 4px;
+}
+
+.navigation-tile:hover .navigation-tile__link-content {
     background: $yellow-link-hover;
 }
 
-.navigation-tile:focus .navigation-tile__link-text,
-.navigation-tile:active .navigation-tile__link-text {
+.navigation-tile:focus .navigation-tile__link-content,
+.navigation-tile:active .navigation-tile__link-content {
     background: $yellow-link-active;
 }
 
@@ -136,4 +144,5 @@
     display: inline-block;
     vertical-align: middle;
     margin-left: 4px;
+    margin-top: 0;
 }

@@ -18,50 +18,12 @@
                                         "items": {
                                             "type": "object",
                                             "title": "object 1.1.1.1 - items",
-                                            "deprecated": true,
-                                            "description": "Test Schema Object description in `Markdown`.",
-                                            "multipleOf": 1.2,
-                                            "minimum": -2.3,
-                                            "exclusiveMinimum": false,
-                                            "maximum": 2.4,
-                                            "exclusiveMaximum": true,
-                                            "minLength": 11,
-                                            "maxLength": 22,
-                                            "pattern": "^(?:[2])?",
-                                            "maxItems": 44,
-                                            "minItems": 35,
-                                            "uniqueItems": true,
-                                            "minProperties": 3,
-                                            "maxProperties": 5,
-                                            "format": "int",
-                                            "nullable": true,
-                                            "readOnly": true,
-                                            "writeOnly": true,
 
                                             "properties": {
 
                                                 "item-1.1.1.1.1.1": {
                                                     "type": "array",
                                                     "title": "object 1.1.1.1.1.1 - item",
-                                                    "deprecated": true,
-                                                    "description": "Test Schema Object description in `Markdown`.",
-                                                    "multipleOf": 1.3,
-                                                    "minimum": -2.4,
-                                                    "exclusiveMinimum": false,
-                                                    "maximum": 2.5,
-                                                    "exclusiveMaximum": true,
-                                                    "minLength": 12,
-                                                    "maxLength": 23,
-                                                    "pattern": "^(?:[1])?",
-                                                    "maxItems": 45,
-                                                    "minItems": 36,
-                                                    "uniqueItems": true,
-                                                    "minProperties": 4,
-                                                    "maxProperties": 6,
-                                                    "format": "float",
-                                                    "nullable": true,
-                                                    "readOnly": true,
-                                                    "writeOnly": true,
 
                                                     "items": {
                                                         "type": "object",
@@ -84,7 +46,10 @@
                                                         "format": "int(32)",
                                                         "nullable": true,
                                                         "readOnly": true,
-                                                        "writeOnly": true
+                                                        "writeOnly": true,
+                                                        "enum": ["enum-a", "enum-b"],
+                                                        "default"  : {"property": "default value"},
+                                                        "example": {"property": "example value"}
                                                     }
                                                 },
                                                 "item-1.1.1.1.1.2": {

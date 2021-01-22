@@ -1,9 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:groups/cyber-alerts-editor:
-      hipposys:description: Users of the cyber alerts folders who are editors
-      hipposys:members:
-      - ca-editor
-      hipposys:securityprovider: internal
-      jcr:primaryType: hipposys:group

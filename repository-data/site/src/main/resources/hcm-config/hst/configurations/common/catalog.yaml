@@ -38,6 +38,19 @@ definitions:
           hst:template: eventlist-main-eventlist
           hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
+        /feedlist:
+          hst:componentclassname: uk.nhs.digital.common.components.FeedListComponent
+          hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+          hst:label: Feed List
+          hst:template: feedlist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        /hero:
+          hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+          hst:label: Hero
+          hst:template: hero
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /list:
           hst:componentclassname: uk.nhs.digital.common.components.PublicationListComponent
           hst:iconpath: images/catalog/component-products-30x30.png

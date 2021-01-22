@@ -16,6 +16,7 @@
         {{#nullable}}<div><code class="nullable">nullable</code></div>{{/nullable}}
         {{#readOnly}}<div><code class="readonly">read-only</code></div>{{/readOnly}}
         {{#writeOnly}}<div><code class="writeonly">write-only</code></div>{{/writeOnly}}
+        {{#ifRequired}}<div><code class="required">required</code></div>{{/ifRequired}}
     </td>
 
     {{! 'Description' column (actual description + values that do require labels) }}
@@ -26,28 +27,43 @@
 
         {{#pattern}}<div>Pattern: <code class="codeinline pattern">{{this}}</code></div>{{/pattern}}
 
-        {{#ifNumberNotNull multipleOf}}<div>Multiple of: <code class="codeinline multipleof">{{multipleOf}}</code><div>{{/ifNumberNotNull}}
+        {{#ifNotNull multipleOf}}<div>Multiple of: <code class="codeinline multipleof">{{multipleOf}}</code><div>{{/ifNotNull}}
 
-        {{#ifNumberNotNull maximum}}
+        {{#ifNotNull maximum}}
         <div>Maximum: <code class="codeinline maximum">{{maximum}}</code>
             <code class="codeinline exclusivemaximum">{{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}</code>
         </div>
-        {{/ifNumberNotNull}}
+        {{/ifNotNull}}
 
-        {{#ifNumberNotNull minimum}}
+        {{#ifNotNull minimum}}
         <div>Minimum: <code class="codeinline minimum">{{minimum}}</code>
             <code class="codeinline exclusiveminimum">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</code>
         </div>
-        {{/ifNumberNotNull}}
+        {{/ifNotNull}}
 
-        {{#ifNumberNotNull maxLength}}<div>Max length: <code class="codeinline maxlength">{{maxLength}}</code></div>{{/ifNumberNotNull}}
-        {{#ifNumberNotNull minLength}}<div>Min length: <code class="codeinline minlength">{{minLength}}</code></div>{{/ifNumberNotNull}}
+        {{#ifNotNull maxLength}}<div>Max length: <code class="codeinline maxlength">{{maxLength}}</code></div>{{/ifNotNull}}
+        {{#ifNotNull minLength}}<div>Min length: <code class="codeinline minlength">{{minLength}}</code></div>{{/ifNotNull}}
 
-        {{#ifNumberNotNull maxItems}}<div>Max items: <code class="codeinline maxitems">{{maxItems}}</code></div>{{/ifNumberNotNull}}
-        {{#ifNumberNotNull minItems}}<div>Min items: <code class="codeinline minitems">{{minItems}}</code></div>{{/ifNumberNotNull}}
+        {{#ifNotNull maxItems}}<div>Max items: <code class="codeinline maxitems">{{maxItems}}</code></div>{{/ifNotNull}}
+        {{#ifNotNull minItems}}<div>Min items: <code class="codeinline minitems">{{minItems}}</code></div>{{/ifNotNull}}
 
-        {{#ifNumberNotNull maxProperties}}<div>Max properties: <code class="codeinline maxproperties">{{maxProperties}}</code></div>{{/ifNumberNotNull}}
-        {{#ifNumberNotNull minProperties}}<div>Min properties: <code class="codeinline minproperties">{{minProperties}}</code></div>{{/ifNumberNotNull}}
+        {{#ifNotNull maxProperties}}<div>Max properties: <code class="codeinline maxproperties">{{maxProperties}}</code></div>{{/ifNotNull}}
+        {{#ifNotNull minProperties}}<div>Min properties: <code class="codeinline minproperties">{{minProperties}}</code></div>{{/ifNotNull}}
+
+        {{#if enum}}<div>Allowed values: {{{enumeration enum}}}</div>{{/if}}
+
+        {{#valueOfTypeAny default}}
+            <div>Default: <pre><code>{{prettyJson default}}</code></pre></div>
+        {{else}}
+            <div>Default: <code class="codeinline default">{{sanitiseTypeAny default}}</code></div>
+        {{/valueOfTypeAny}}
+
+        {{#valueOfTypeAny example ignoreClass="java.util.Map"}}
+            <div>Example: <pre><code>{{prettyJson example}}</code></pre></div>
+        {{else}}
+            <div>Example: <code class="codeinline example">{{sanitiseTypeAny example}}</code></div>
+        {{/valueOfTypeAny}}
+
     </td>
 </tr>
 

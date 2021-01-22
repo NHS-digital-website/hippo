@@ -1,28 +1,6 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:domains/hippofolders/readonly:
-      hipposys:groups:
-        operation: add
-        type: string
-        value:
-        - sitewriters
-    /hippo:configuration/hippo:domains/live-documents/readonly:
-      hipposys:groups:
-        operation: add
-        type: string
-        value:
-        - liveusers
-    /hippo:configuration/hippo:domains/preview-documents/readonly:
-      hipposys:groups:
-        operation: add
-        type: string
-        value:
-        - previewusers
-    /hippo:configuration/hippo:groups/webmaster:
-      hipposys:members:
-      - hippo-relevance
-      - editor
     /hippo:configuration/hippo:modules/webfiles/hippo:moduleconfig:
       maxFileLengthKb: 2048
       watchedModules:

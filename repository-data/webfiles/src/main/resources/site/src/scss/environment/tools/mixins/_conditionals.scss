@@ -45,6 +45,10 @@
       @media (max-width: 640px) {
         @content;
       }
+    } @else if $min-width != false and $max-width != false {
+      @media (min-width: $min-width) and (max-width: $max-width) {
+        @content;
+      }
     } @else if $max-width != false {
       @media (max-width: $max-width) {
         @content;
