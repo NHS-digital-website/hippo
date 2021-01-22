@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:groups/intranet-editor:
-      hipposys:members:
-      - in-editor

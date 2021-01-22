@@ -83,9 +83,14 @@
             display: none !important;
         }
 
-        /* Hides the 'Servers' drop-down */
-        .scheme-container {
+        /* Servers */
+        .servers, .servers-title {
             display: none;
+        }
+
+        .swagger-ui .scheme-container {
+            display: contents;
+            background: transparent;
         }
 
         /*
@@ -146,25 +151,40 @@
                     <script>
                         const specification = ${document.json?no_esc}
 
-                            window.onload = function () {
+                        // URL that has to be configured as 'Callback URL' (a.k.a. 'redirect URL) in the Apigee Developer Portal for each client application
+                        // of given API that has to support OAuth2 authentication. The configured URL has to match the one generated below _exactly_ for the
+                        // authentication to succeed.
+                        //
+                        // Adding '/site' helps testing locally or on non-prod servers without requiring code changes.
+                        // Depending on context, the URL generated is:
+                        // - in local settings: http://localhost:8080/site/api-spec-try-it-now/oauth-redirect
+                        // - in production: https://digital.nhs.uk/api-spec-try-it-now/oauth-redirect
+                        const tryThisApiOauth2RedirectUrl =
+                              window.location.origin
+                            + (window.location.pathname.startsWith('/site/') ? '/site' : '')
+                            + '/api-spec-try-it-now/oauth-redirect'
 
-                                const ui = SwaggerUIBundle({
-                                    spec: specification,
+                        window.onload = function () {
 
-                                    dom_id: '#content',
-                                    deepLinking: true,
-                                    presets: [
-                                        SwaggerUIBundle.presets.apis,
-                                        SwaggerUIStandalonePreset
-                                    ],
-                                    plugins: [
-                                        SwaggerUIBundle.plugins.DownloadUrl
-                                    ],
-                                    layout: "StandaloneLayout"
-                                })
+                            const ui = SwaggerUIBundle({
+                                spec: specification,
 
-                                window.ui = ui
-                            }
+                                dom_id: '#content',
+                                deepLinking: true,
+                                presets: [
+                                    SwaggerUIBundle.presets.apis,
+                                    SwaggerUIStandalonePreset
+                                ],
+                                plugins: [
+                                    SwaggerUIBundle.plugins.DownloadUrl
+                                ],
+                                layout: "StandaloneLayout",
+
+                                oauth2RedirectUrl: tryThisApiOauth2RedirectUrl
+                            })
+
+                            window.ui = ui
+                        }
                     </script>
                 <#else>
                     <#assign section = {

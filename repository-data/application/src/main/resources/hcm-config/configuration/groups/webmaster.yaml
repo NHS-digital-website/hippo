@@ -1,0 +1,13 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/webmaster:
+      hipposys:members:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - editor
+        - hippo-relevance
+      hipposys:securityprovider: internal
+      jcr:primaryType: hipposys:group

@@ -23,7 +23,7 @@ public class HubNewsAndEvents extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:publicationdate")
     public Calendar getPublicationDate() {
-        return getProperty("website:publicationdate");
+        return getSingleProperty("website:publicationdate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:socialmedia")
@@ -33,7 +33,7 @@ public class HubNewsAndEvents extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:signupsummary")
     public String getSignupsummary() {
-        return getProperty("website:signupsummary");
+        return getSingleProperty("website:signupsummary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:ctabutton")
