@@ -30,35 +30,26 @@ public class S3ConnectorValve extends AbstractOrderableValve {
 
         s3Connector.download(s3Reference, s3File -> {
 
-            OutputStream responseOutputStream = null;
-            InputStream s3InputStream = null;
-            String fileName = null;
+            final HttpServletResponse response = context.getServletResponse();
 
-            try {
-                final HttpServletResponse response = context.getServletResponse();
+            if (context.getRequestContext().isChannelManagerPreviewRequest()) {
 
-                if (context.getRequestContext().isCmsRequest()) {
+                String fileName = context.getServletRequest().getParameter("fileName");
 
-                    fileName = context.getServletRequest().getParameter("fileName");
+                response.setContentType("application/octet-stream");
+                response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
+                response.setHeader("Content-Length", String.valueOf(s3File.getLength()));
+                response.setStatus(HttpServletResponse.SC_ACCEPTED);
 
-                    response.setContentType("application/octet-stream");
-                    response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
-                    response.setHeader("Content-Length", String.valueOf(s3File.getLength()));
-                    response.setStatus(HttpServletResponse.SC_ACCEPTED);
-
-                    s3InputStream = s3File.getContent();
-
-                    responseOutputStream = response.getOutputStream();
+                try (OutputStream responseOutputStream = response.getOutputStream();
+                     InputStream s3InputStream = s3File.getContent()) {
                     IOUtils.copyLarge(s3InputStream, responseOutputStream);
-                } else {
-                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                } catch (final Exception ex) {
+                    throw new RuntimeException("Failed to download content from S3: " + fileName + ": " + s3Reference, ex);
                 }
-            } catch (final Exception ex) {
-                throw new RuntimeException("Failed to download content from S3: " + fileName + ": " + s3Reference, ex);
 
-            } finally {
-                IOUtils.closeQuietly(responseOutputStream);
-                IOUtils.closeQuietly(s3InputStream);
+            } else {
+                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             }
         });
     }

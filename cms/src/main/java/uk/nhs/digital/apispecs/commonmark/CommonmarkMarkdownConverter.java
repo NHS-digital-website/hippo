@@ -1,56 +1,108 @@
 package uk.nhs.digital.apispecs.commonmark;
 
+import static java.util.Collections.singletonList;
+import static org.apache.commons.lang.StringUtils.removeStart;
+import static org.apache.commons.lang3.StringUtils.removeEnd;
+
 import org.commonmark.Extension;
 import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class CommonmarkMarkdownConverter {
 
-    List<Extension> extensions = Arrays.asList(TablesExtension.create());
-
-    private final Parser parser = Parser.builder().extensions(extensions).build();
-    private final HtmlRenderer renderer = HtmlRenderer.builder()
-        .attributeProviderFactory(context -> new CodeAttributeProvider())
-        .attributeProviderFactory(context -> new TableSortOffAttributeProvider())
-        .extensions(extensions)
-        .build();
 
     /**
-     * Convert input markdown text to HTML.
-     * Simple text is not wrapped in <p>...</p>.
-     * @param markdown text with Markdown styles. If <code>null</code>, <code>""</code> is returned.
-     * @return HTML rendering from the Markdown
+     * <p>
+     * Renders Markdown as HTML.
+     * </p>
+     * <p>
+     * Headings get '{@code id}' attributes populated with values calculated from
+     * the heading's text. Useful as targets for hyperlinks.
+     * </p>
+     * <p>
+     * For example, heading:
+     * </p>
+     * <pre>
+     *     ## Legal use
+     * </pre>
+     * <p>
+     * ...will be rendered as:
+     * </p>
+     * <pre>
+     *     &lt;h2 id=&quot;legal-use&quot;&gt;Legal use&lt;/h2&gt;
+     * </pre>
+     *
+     * @param markdown Markdown to render as HTML.
+     * @return Rendered HTML.
      */
-    public String toHtml(String markdown) {
-        if (markdown == null) {
-            return "";
-        }
-        Node document = parser.parse(markdown);
-        String html = renderer.render(document);
-        html = unwrapped(html);
-        return html;
+    public String toHtml(final String markdown) {
+        return toHtml(markdown, "");
     }
 
-    // The CommonMark library wraps the HTML with
-    //  <p> ... html ... </p>\n
-    // This method removes that markup wrapper if there are no other <p> elements,
-    // do that Markdown can be used in non-block contexts such as operation summary etc.
-    private static final String P_END = "</p>\n";
-    private static final String P_START = "<p>";
+    /**
+     * <p>
+     * Renders Markdown as HTML.
+     * </p>
+     * <p>
+     * Headings get '{@code id}' attributes populated with values calculated from
+     * the heading's text, prepended with provided prefix. Useful as targets for hyperlinks,
+     * where the prefix provides additional context and uniqueness to the ids.
+     * </p>
+     * <p>
+     * For example, for '{@code headingIpPrefix}' given as '{@code customPrefix__}' heading:
+     * </p>
+     * <pre>
+     *     ## Legal use
+     * </pre>
+     * <p>
+     * ...will be rendered as:
+     * </p>
+     * <pre>
+     *     &lt;h2 id=&quot;customPrefix__legal-use&quot;&gt;Legal use&lt;/h2&gt;
+     * </pre>
+     *
+     * @param markdown Markdown to render as HTML.
+     */
+    public String toHtml(final String markdown, final String headingIpPrefix) {
+        return Optional.ofNullable(markdown)
+            .map(md -> renderMarkdownToHtml(md, headingIpPrefix))
+            .map(this::trimSurroundingParagraphsTags)
+            .orElse("");
+    }
 
-    private String unwrapped(String html) {
+    private String renderMarkdownToHtml(final String md, final String headingIpPrefix) {
 
-        if (html.startsWith(P_START) && html.endsWith(P_END)
-            && html.lastIndexOf(P_START) == 0) {
-            return html.substring(P_START.length(),
-                html.length() - P_END.length());
-        } else {
-            return html;
-        }
+        final List<Extension> extensions = singletonList(TablesExtension.create());
+
+        final Parser parser = Parser.builder().extensions(extensions).build();
+
+        final HtmlRenderer renderer = HtmlRenderer.builder()
+            .attributeProviderFactory(context -> new CodeAttributeProvider())
+            .attributeProviderFactory(context -> new HeadingAttributeProvider(headingIpPrefix))
+            .attributeProviderFactory(context -> new TableSortOffAttributeProvider())
+            .extensions(extensions)
+            .build();
+
+        final Node document = parser.parse(md);
+
+        return renderer.render(document);
+    }
+
+
+    /**
+     * See comments against {@linkplain io.swagger.codegen.v3.utils.Markdown#unwrapped(String)}
+     * which this method is based on.
+     */
+    private String trimSurroundingParagraphsTags(final String html) {
+        return Optional.of(html)
+            .map(String::trim)
+            .map(text -> removeStart(text, "<p>"))
+            .map(text -> removeEnd(text, "</p>"))
+            .orElse("");
     }
 }

@@ -6,22 +6,19 @@ import static java.util.Collections.emptyMap;
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.AssignHelper;
+import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import io.swagger.codegen.v3.*;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.headers.Header;
-import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.apache.commons.lang3.StringUtils;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
-import uk.nhs.digital.apispecs.handlebars.EnumHelper;
-import uk.nhs.digital.apispecs.handlebars.HasOneItemHelper;
-import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
-import uk.nhs.digital.apispecs.handlebars.StringBooleanVariableHelper;
+import uk.nhs.digital.apispecs.handlebars.*;
 import uk.nhs.digital.apispecs.handlebars.schema.SchemaHelper;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleHtmlRenderer;
@@ -42,27 +39,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     private BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
 
     @Override
-    public void preprocessOpenAPI(OpenAPI openApi) {
+    public void preprocessOpenAPI(final OpenAPI openApi) {
         this.openAPI = openApi;
-
-        if (openAPI.getInfo() != null) {
-            Info info = openAPI.getInfo();
-            if (StringUtils.isBlank(jsProjectName) && info.getTitle() != null) {
-                // when jsProjectName is not specified, generate it from info.title
-                jsProjectName = sanitizeName(dashize(info.getTitle()));
-            }
-        }
-
-        // default values
-        if (StringUtils.isBlank(jsProjectName)) {
-            jsProjectName = "swagger-js-client";
-        }
-        if (StringUtils.isBlank(jsModuleName)) {
-            jsModuleName = camelize(underscore(jsProjectName));
-        }
-
-        additionalProperties.put("jsProjectName", jsProjectName);
-        additionalProperties.put("jsModuleName", jsModuleName);
 
         preProcessOperations(openApi);
     }
@@ -118,7 +96,10 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(SchemaHelper.NAME, new SchemaHelper(markdownHelper))
             .registerHelper(IsAnyTrueHelper.NAME, IsAnyTrueHelper.INSTANCE)
             .registerHelper(AssignHelper.NAME, AssignHelper.INSTANCE)
-            .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE);
+            .registerHelper(HtmlHeadingsFromMarkdownHelper.NAME, HtmlHeadingsFromMarkdownHelper.INSTANCE)
+            .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE)
+            .registerHelper(ConditionalHelpers.eq.name(), ConditionalHelpers.eq)
+        ;
 
         handlebars.with(EscapingStrategy.NOOP);
     }

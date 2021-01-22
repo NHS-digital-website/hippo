@@ -18,13 +18,7 @@ import java.util.Map;
 
 public class BodyRenderingTest {
 
-    private static final String TEST_DATA_FILES_PATH = "/test-data/api-specifications/BodyRenderingTest";
-
     private static final ObjectMapper OBJECT_MAPPER = BodyWithMediaTypesExtractor.OBJECT_MAPPER;
-
-    private static String fromFile(final String testFileName) {
-        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
-    }
 
     @Test
     public void rendersExampleSpecifiedOnMediaTypeObject_evenWhenExampleIsSpecifiedOnSchema() throws IOException {
@@ -197,11 +191,10 @@ public class BodyRenderingTest {
 
     }
 
-    private String renderFor(final String jsonDefinition) throws IOException {
+    private String renderFor(final String parameterjsonDefinition) throws IOException {
 
-        final String parameterJsonDefinition = jsonDefinition;
-
-        final BodyWithMediaTypeObjects bodyWithMediaTypeObjects = fromJson(parameterJsonDefinition, BodyWithMediaTypeObjects.class);
+        final BodyWithMediaTypeObjects bodyWithMediaTypeObjects =
+            fromJson(parameterjsonDefinition, BodyWithMediaTypeObjects.class);
 
         final Map<String, Object> model = new HashMap<>();
         model.put("mediaTypes", bodyWithMediaTypeObjects.getMediaTypes());
@@ -226,5 +219,9 @@ public class BodyRenderingTest {
         } catch (final JsonProcessingException e) {
             throw new RuntimeException("Failed to create test data objects from JSON.", e);
         }
+    }
+
+    private String fromFile(final String testFileName) {
+        return contentOfFileFromClasspath("/test-data/api-specifications/BodyRenderingTest/" + testFileName);
     }
 }

@@ -5,12 +5,12 @@ import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.sameInstance;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
 
 import com.github.jknack.handlebars.Options;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -20,21 +20,17 @@ import java.util.Collection;
 
 public class HasOneItemHelperTest {
 
-    private static final String TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK = RandomStringUtils.random(10);
-    private static final String TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK = RandomStringUtils.random(10);
-
     private final HasOneItemHelper hasOneItemHelper = HasOneItemHelper.INSTANCE;
 
-    @Mock private Options options;
+    private Options options;
+
     @Mock private Options.Buffer buffer;
 
     @Before
     public void setUp() throws Exception {
         initMocks(this);
 
-        given(options.fn()).willReturn(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
-        given(options.inverse()).willReturn(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
-        given(options.buffer()).willReturn(buffer);
+        options = OptionsStub.with(buffer);
     }
 
     @Test
@@ -52,7 +48,7 @@ public class HasOneItemHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_MAIN_BLOCK);
     }
 
     @Test
@@ -70,7 +66,7 @@ public class HasOneItemHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
     }
 
     @Test
@@ -88,7 +84,7 @@ public class HasOneItemHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
     }
 
     @Test
@@ -109,6 +105,6 @@ public class HasOneItemHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
     }
 }
