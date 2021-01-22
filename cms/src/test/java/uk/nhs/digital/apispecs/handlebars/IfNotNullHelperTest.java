@@ -6,9 +6,10 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
 
 import com.github.jknack.handlebars.Options;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Before;
 import org.junit.Rule;
@@ -20,14 +21,12 @@ import java.io.IOException;
 
 public class IfNotNullHelperTest {
 
-    private static final String TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK = randomString("main_block_content_");
-    private static final String TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK = randomString("inverse_block_content_");
-
     private static final int RANDOM_NUMBER = RandomUtils.nextInt();
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
-    @Mock private Options options;
+    private Options options;
+
     @Mock private Options.Buffer buffer;
 
     private final IfNotNullHelper ifNotNullHelper = IfNotNullHelper.INSTANCE;
@@ -36,9 +35,7 @@ public class IfNotNullHelperTest {
     public void setUp() throws Exception {
         initMocks(this);
 
-        given(options.buffer()).willReturn(buffer);
-        given(options.fn()).willReturn(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
-        given(options.inverse()).willReturn(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
+        options = OptionsStub.with(buffer);
     }
 
     @Test
@@ -56,7 +53,7 @@ public class IfNotNullHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_MAIN_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_MAIN_BLOCK);
     }
 
     @Test
@@ -74,7 +71,7 @@ public class IfNotNullHelperTest {
             sameInstance(actualBuffer)
         );
 
-        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_THE_INVERSE_BLOCK);
+        then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
     }
 
     @Test
@@ -95,9 +92,5 @@ public class IfNotNullHelperTest {
 
         // then
         // expectations in 'given' are satisfied
-    }
-
-    private static String randomString(final String prefix) {
-        return prefix + RandomStringUtils.random(10, true, true);
     }
 }

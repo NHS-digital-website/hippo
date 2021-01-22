@@ -175,6 +175,9 @@ definitions:
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
       /api-spec-try-it-now:
+        /oauth-redirect:
+          hst:componentconfigurationid: hst:pages/apitryitnow-oauth-redirect
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/apitryitnow
         jcr:primaryType: hst:sitemapitem
       /cyber-alerts:

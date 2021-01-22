@@ -1,9 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:users/liveuser:
-      hipposys:active: true
-      hipposys:passkey: jvm://
-      hipposys:securityprovider: internal
-      hipposys:system: true
-      jcr:primaryType: hipposys:user

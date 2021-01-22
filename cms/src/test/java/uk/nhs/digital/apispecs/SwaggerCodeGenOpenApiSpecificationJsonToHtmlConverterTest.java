@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
-import static uk.nhs.digital.test.util.StringTestUtils.ignoringBlankLinesIn;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
@@ -19,12 +19,12 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
+import uk.nhs.digital.test.util.TestDataCache;
 
 @RunWith(DataProviderRunner.class)
 public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
-    private static final String TEST_DATA_FILES_PATH =
-        "/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest";
+    private TestDataCache cache = TestDataCache.create();
 
     private final String specificationId = "123456";
 
@@ -44,7 +44,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    public void getHtmlForSpec_convertsOpenApiJsonToHtml() {
+    public void getHtmlForSpec_rendersCompleteOpenApiJsonAsHtml() {
 
         // given
         final String specificationJson = from("oasV3_complete.json");
@@ -56,9 +56,9 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
         // then
         assertThat(
-            "Specification HTML has been generated using customised Swagger CodeGen v3",
-            ignoringBlankLinesIn(actualSpecHtml),
-            is(ignoringBlankLinesIn(expectedSpecHtml))
+            "A complete spec has been rendered as HTML using customised Swagger CodeGen v3",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
         );
     }
 
@@ -89,14 +89,15 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     ) {
 
         // given
-        final String specificationJson = from("oasV3_withCustomExtension.json.template").replaceAll("X-PROPERTY-PLACEHOLDER", propertyJson);
+        final String specificationJson = from("oasV3_withCustomExtension.json.template")
+            .replaceAll("X-PROPERTY-PLACEHOLDER", propertyJson);
 
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
 
         // then
         assertThat(
-            "Try this API button is " + outcomeDescription + " when property x-spec-publication.try-this-api.disabled is " + thePropertyIs,
+            "Button 'Try this API' is " + outcomeDescription + " when property x-spec-publication.try-this-api.disabled is " + thePropertyIs,
             actualSpecHtml,
             meetsExpectation
         );
@@ -115,7 +116,45 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    public void hideRequestHeaderWhenSectionIsEmpty() {
+    public void rendersEndpointsHeading_whenOperationsNotTagged() {
+
+        // given
+        final String specificationJson = from("oasV3_operationsNotTagged.json");
+
+        final String expectedSpecHtml = from("oasV3_operationsNotTagged.html");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        assertThat(
+            "Heading 'Endpoints' has been generated for operations with no tags - in the side nav and in the content area.",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+        );
+    }
+
+    @Test
+    public void rendersEndpointsHeadings_whenOperationsTagged() {
+
+        // given
+        final String specificationJson = from("oasV3_operationsTagged.json");
+
+        final String expectedSpecHtml = from("oasV3_operationsTagged.html");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        assertThat(
+            "Headings 'Endpoint:' have been generated for each operation with a tag - in the side nav and in the content area.",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+        );
+    }
+
+    @Test
+    public void hidesRequestHeading_whenSectionIsEmpty() {
 
         // given
         final String specificationJson = from("oasV3_withNoRequest.json");
@@ -127,14 +166,14 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
         // then
         assertThat(
-            "Specification HTML has been generated using customised Swagger CodeGen v3",
-            ignoringBlankLinesIn(actualSpecHtml),
-            is(ignoringBlankLinesIn(expectedSpecHtml))
+            "Heading 'Request' is not rendered when request content absent from the specification.",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
         );
     }
 
     @Test
-    public void hideResponseHeaderWhenSectionIsEmpty() {
+    public void hidesResponseHeading_whenSectionIsEmpty() {
 
         // given
         final String specificationJson = from("oasV3_withNoResponse.json");
@@ -146,13 +185,15 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
         // then
         assertThat(
-            "Specification HTML has been generated using customised Swagger CodeGen v3",
-            ignoringBlankLinesIn(actualSpecHtml),
-            is(ignoringBlankLinesIn(expectedSpecHtml))
+            "Heading 'Response' is not rendered when response content absent from the specification.",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
         );
     }
 
     private String from(final String fileName) {
-        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/" + fileName);
+        return cache.get(fileName, () -> contentOfFileFromClasspath(
+            "/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/" + fileName)
+        );
     }
 }

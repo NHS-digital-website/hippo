@@ -12,7 +12,7 @@ import static org.mockito.Mockito.mock;
 import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
 import static uk.nhs.digital.test.util.StringTestUtils.Placeholders.placeholders;
-import static uk.nhs.digital.test.util.StringTestUtils.ignoringBlankLinesIn;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 
 import com.github.jknack.handlebars.HandlebarsException;
 import com.github.jknack.handlebars.Options;
@@ -34,6 +34,7 @@ import org.junit.runner.RunWith;
 import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
 import uk.nhs.digital.test.util.FileUtils;
 import uk.nhs.digital.test.util.StringTestUtils.Placeholders;
+import uk.nhs.digital.test.util.TestDataCache;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -43,7 +44,7 @@ import java.util.function.Function;
 @RunWith(DataProviderRunner.class)
 public class SchemaHelperTest {
 
-    // Note the use of StringTestUtils.ignoringBlankLinesIn in assertions.
+    // Note the use of StringTestUtils.ignoringWhiteSpacesIn in assertions.
     // Removal of blank lines improves readability when debugging tests,
     // and reduces the number of times test data files need updating.
     //
@@ -62,7 +63,8 @@ public class SchemaHelperTest {
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
-    private static final String TEST_DATA_FILES_CLASSPATH = "/test-data/api-specifications/SchemaHelperTest";
+    private static final TestDataCache cache = TestDataCache.create();
+
     private static final String PROPERTY_PLACEHOLDER_X_OF = "xOfPropertyPlaceholder";
 
     private SchemaHelper schemaHelper;
@@ -92,8 +94,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("All 'simple' fields of Schema Object are rendered in HTML.",
-            ignoringBlankLinesIn(actualSchemaHtml),
-            is(ignoringBlankLinesIn(expectedSchemaHtml))
+            ignoringWhiteSpacesIn(actualSchemaHtml),
+            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
         );
     }
 
@@ -112,7 +114,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Property '" + propertyName + "' is rendered for falsy value '" + propertyValue + "'.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             containsString(propertyName + "\">" + propertyValue + "<")
         );
     }
@@ -150,8 +152,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Fields absent from the specifications are not rendered.",
-            ignoringBlankLinesIn(actualSchemaHtml),
-            is(ignoringBlankLinesIn(expectedSchemaHtml))
+            ignoringWhiteSpacesIn(actualSchemaHtml),
+            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
         );
     }
 
@@ -168,8 +170,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            ignoringBlankLinesIn(actualSchemaHtml),
-            is(ignoringBlankLinesIn(expectedSchemaHtml))
+            ignoringWhiteSpacesIn(actualSchemaHtml),
+            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
         );
     }
 
@@ -190,8 +192,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            ignoringBlankLinesIn(actualSchemaHtml),
-            is(ignoringBlankLinesIn(expectedSchemaHtml))
+            ignoringWhiteSpacesIn(actualSchemaHtml),
+            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
         );
     }
 
@@ -208,8 +210,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            ignoringBlankLinesIn(actualSchemaHtml),
-            is(ignoringBlankLinesIn(expectedSchemaHtml))
+            ignoringWhiteSpacesIn(actualSchemaHtml),
+            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
         );
     }
 
@@ -226,7 +228,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Exclusive maximum is rendered as exclusive.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             containsString("<code class=\"codeinline exclusivemaximum\">(exclusive)</code>")
         );
     }
@@ -244,7 +246,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Exclusive maximum is rendered as inclusive.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             containsString("<code class=\"codeinline exclusivemaximum\">(inclusive)</code>")
         );
     }
@@ -260,7 +262,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Exclusive maximum is not rendered.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             allOf(
                 not(containsString("(inclusive)")),
                 not(containsString("(exclusive)"))
@@ -280,7 +282,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Exclusive minimum is rendered as exclusive.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             containsString("<code class=\"codeinline exclusiveminimum\">(exclusive)</code>")
         );
     }
@@ -298,7 +300,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Exclusive minimum is rendered as inclusive.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             containsString("<code class=\"codeinline exclusiveminimum\">(inclusive)</code>")
         );
     }
@@ -314,7 +316,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Exclusive minimum is not rendered.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             allOf(
                 not(containsString("(inclusive)")),
                 not(containsString("(exclusive)"))
@@ -332,7 +334,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("HTML contains 'items' element.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             containsString(">items object<")
         );
     }
@@ -349,7 +351,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("HTML does not contain 'items' row.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             not(containsString(">items object<"))
         );
     }
@@ -366,7 +368,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("HTML contains '" + propertyName + "' element.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             stringContainsInOrder(
                 "padding-left: 0em;",           // root
                 "padding-left: 1em;",           //   non-items
@@ -392,7 +394,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("HTML contains '" + propertyName + "' element.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             stringContainsInOrder(
                 "padding-left: 0em;",           // root
                 "padding-left: 1em;",           //   array-schema
@@ -418,7 +420,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("HTML contains '" + propertyName + "' element.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             not(containsString(">" + propertyName + "<"))
         );
     }
@@ -447,7 +449,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Default " + testCaseDescription + " value is rendered for schema of type '" + schemaType + "'.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            actualSchemaHtml,
             containsString(expectedRendering)
         );
     }
@@ -479,7 +481,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Enum with " + testCaseDescription + " is rendered.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             containsString(expectedRendering)
         );
     }
@@ -524,7 +526,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Example with " + testCaseDescription + " is rendered.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            actualSchemaHtml,
             containsString(expectedRendering)
         );
     }
@@ -593,7 +595,7 @@ public class SchemaHelperTest {
 
         // then
         assertThat("HTML with 'required' status rendered for the appropriate object.",
-            ignoringBlankLinesIn(actualSchemaHtml),
+            ignoringWhiteSpacesIn(actualSchemaHtml),
             stringContainsInOrder(
                 ">first-object<", ">required<",
                 ">second-object<",
@@ -672,7 +674,7 @@ public class SchemaHelperTest {
     }
 
     private String classPathOf(final String testDataFileName) {
-        return TEST_DATA_FILES_CLASSPATH + "/" + testDataFileName;
+        return "/test-data/api-specifications/SchemaHelperTest/" + testDataFileName;
     }
 
     private Schema<?> fromJsonFile(final String specJsonFileName) {
@@ -685,8 +687,8 @@ public class SchemaHelperTest {
     ) {
         File targetSpecJsonFile = null;
         try {
-            final String specJsonWithPlaceholders =
-                contentOfFileFromClasspath(classPathOf(specJsonTemplateFileName));
+            final String specJsonWithPlaceholders = cache.get(specJsonTemplateFileName,
+                () -> contentOfFileFromClasspath(classPathOf(specJsonTemplateFileName)));
 
             final String specJsonWithResolvedPlaceholders = placeholders.resolveIn(specJsonWithPlaceholders);
 
@@ -718,6 +720,6 @@ public class SchemaHelperTest {
     }
 
     private String readFrom(final String testDataFileName) {
-        return contentOfFileFromClasspath(classPathOf(testDataFileName));
+        return cache.get(testDataFileName, () -> contentOfFileFromClasspath(classPathOf(testDataFileName)));
     }
 }

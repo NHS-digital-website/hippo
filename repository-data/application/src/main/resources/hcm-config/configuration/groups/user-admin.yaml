@@ -1,0 +1,20 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/user-admin:
+      hipposys:description: Admins with CMS access who can change and create user
+        accounts
+      hipposys:members:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value: []
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.security.user-admin
+        - xm.cms.user
+      jcr:primaryType: hipposys:group

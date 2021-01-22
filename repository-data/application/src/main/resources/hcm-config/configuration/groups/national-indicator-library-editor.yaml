@@ -1,0 +1,25 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/national-indicator-library-editor:
+      hipposys:description: Users of the national indicator library folders who are
+        editors
+      hipposys:members:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value: []
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.cms.user
+        - xm.dashboard.user
+        - xm.channel.viewer
+        - xm.project.viewer
+        - xm.content.user
+        - xm.form.user
+        - xm.report.user
+      jcr:primaryType: hipposys:group

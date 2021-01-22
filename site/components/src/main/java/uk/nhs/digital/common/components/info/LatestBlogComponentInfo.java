@@ -2,9 +2,9 @@ package uk.nhs.digital.common.components.info;
 
 import org.hippoecm.hst.core.parameters.JcrPath;
 import org.hippoecm.hst.core.parameters.Parameter;
-import org.onehippo.cms7.essentials.components.info.EssentialsBlogComponentInfo;
+import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 
-public interface LatestBlogComponentInfo extends EssentialsBlogComponentInfo {
+public interface LatestBlogComponentInfo extends EssentialsListComponentInfo {
 
     @Parameter(
         name = "pageSize",

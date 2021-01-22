@@ -99,14 +99,14 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
             new S3TransfersReportingTracker()
         );
 
-        HippoServiceRegistry.registerService(pooledS3Connector, PooledS3Connector.class);
+        HippoServiceRegistry.register(pooledS3Connector, PooledS3Connector.class);
     }
 
     private void unregisterServiceIfRegistered() {
 
         if (HippoServiceRegistry.getService(PooledS3Connector.class) != null) {
 
-            HippoServiceRegistry.unregisterService(pooledS3Connector, PooledS3Connector.class);
+            HippoServiceRegistry.register(pooledS3Connector, PooledS3Connector.class);
 
             // null checks protect against failed doInitialize/doConfigure
             Optional.ofNullable(downloadExecutorService).ifPresent(ExecutorService::shutdown);

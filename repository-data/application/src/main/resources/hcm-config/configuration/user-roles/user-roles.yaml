@@ -1,0 +1,21 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:userroles:
+      /xm.default-user.author:
+        hipposys:userroles:
+          operation: add
+          value:
+          - xm.form.user
+          - xm.report.user
+      /xm.default-user.editor:
+        hipposys:userroles:
+          operation: add
+          value:
+          - xm.form.user
+          - xm.report.user
+      /xm.default-user.system-admin:
+        hipposys:userroles:
+          operation: add
+          value:
+          - xm.report.user

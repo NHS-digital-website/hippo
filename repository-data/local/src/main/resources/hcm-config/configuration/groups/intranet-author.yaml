@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:groups/intranet-author:
-      hipposys:members:
-      - in-author

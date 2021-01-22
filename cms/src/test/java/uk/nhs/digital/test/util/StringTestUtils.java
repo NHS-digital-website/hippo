@@ -111,11 +111,24 @@ public class StringTestUtils {
         }
     }
 
-    public static String ignoringBlankLinesIn(final String text) {
+    /**
+     * <p>
+     * Trims leading and trailing spaces from lines in the given text,
+     * and removes blank lines altogether.
+     * <p>
+     * Useful for making assertions of texts where blank lines
+     * as well as leading and trailing spaces do not matter,
+     * such as when comparing HTML content. Ignoring white
+     * spaces in such test cases makes the tests less brittle
+     * by ignoring changes such as changes to indentation
+     * of HTML content.
+     */
+    public static String ignoringWhiteSpacesIn(final String text) {
         return stream(
             split(text, LF)
         )
             .filter(line -> !isBlank(line))
+            .map(String::trim)
             .collect(joining(LF));
     }
 }
