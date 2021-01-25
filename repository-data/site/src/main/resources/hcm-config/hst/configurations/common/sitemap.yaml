@@ -374,6 +374,10 @@ definitions:
         - hst:pages/news-events-homepage
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
+      /nhsd-data-hub:
+        hst:componentconfigurationid: hst:pages/nhsd-data-hub
+        hst:relativecontentpath: data-hub
+        jcr:primaryType: hst:sitemapitem
       /nhsd-homepage:
         hst:componentconfigurationid: hst:pages/nhsd-homepage
         hst:relativecontentpath: nhsd-homepage

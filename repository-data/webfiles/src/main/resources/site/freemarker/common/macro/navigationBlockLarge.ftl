@@ -11,7 +11,6 @@
     <#assign hasImage = item.image?has_content />
     <#assign hasLink = item.external?has_content || item.internal?has_content />
     <#assign hasLabel = item.label?has_content />
-    <#assign label = hasLabel?then(item.label, item.title) />
     <#assign colVarWithYellowCheck = (colourVariant == yellow)?then("light-yellow", colourVariant) />
 
     <div class="nhsd-m-nav-block ${isDarkMolecule}" id="${id}">
@@ -60,12 +59,15 @@
                 <#if hasContent>
                     <p class="nhsd-t-body">${item.content}</p>
                 </#if>
-                <span class="nhsd-a-button ${isDarkButton}">
-                    <span class="nhsd-a-button__label">${label}</span>
-                    <#if item.external?has_content>
-                        <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
-                    </#if>
-                </span>
+
+                <#if hasLink && hasLabel>
+                    <span class="nhsd-a-button ${isDarkButton}">
+                        <span class="nhsd-a-button__label">${item.label}</span>
+                        <#if item.external?has_content>
+                            <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
+                        </#if>
+                    </span>
+                </#if>
             </div>
             <@digiBlock colourVariant position/>
         </div>

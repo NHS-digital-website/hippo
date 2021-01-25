@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 
 <footer id="footer">
-    <div class="nhsd-o-global-footer nhsd-!t-margin-top-8">
+    <div class="nhsd-o-global-footer">
         <div class="nhsd-t-grid nhsd-t-grid--full-width">
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col-12 nhsd-!t-no-gutters">

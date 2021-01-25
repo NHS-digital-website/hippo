@@ -206,6 +206,9 @@ definitions:
       /newslist-main-newslist:
         hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
         jcr:primaryType: hst:template
+      /nhsd-data-hub:
+        hst:renderpath: webfile:/freemarker/common/nhsd-data-hub.ftl
+        jcr:primaryType: hst:template
       /nhsd-homepage:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage.ftl
         jcr:primaryType: hst:template
@@ -349,5 +352,8 @@ definitions:
         jcr:primaryType: hst:template
       /visual-hub:
         hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
+        jcr:primaryType: hst:template
+      /white-space:
+        hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates
