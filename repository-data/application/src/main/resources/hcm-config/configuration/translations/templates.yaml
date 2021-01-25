@@ -722,6 +722,11 @@ definitions:
           jcr:name: Service
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:severitystatuschange:
+        /en:
+          jcr:name: Severity status change
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:signup:
         /en:
           jcr:name: Sign up page
