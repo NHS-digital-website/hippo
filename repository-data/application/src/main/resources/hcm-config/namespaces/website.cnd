@@ -375,6 +375,9 @@
 [website:service] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:severitystatuschange] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:signup] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

@@ -51,6 +51,7 @@
 <#assign hasTopics = document.keys?? && document.keys?has_content />
 <#assign hasCVE = document.cveIdentifiers?? && document.cveIdentifiers?has_content />
 <#assign hasAcknowledgement = document.cyberAcknowledgements?? && document.cyberAcknowledgements?has_content />
+<#assign cveUrl = "https://cve.mitre.org/cgi-bin/cvename.cgi?name=" />
 
 
 <#assign links = [] />
@@ -276,8 +277,8 @@
                         <ul>
                             <#list document.cveIdentifiers as item>
                                 <li>
-                                    <div>${item.cveIdentifier}</div>
-                                    <div><#if item.cveStatus??>Status: ${item.cveStatus}</#if></div>
+                                    <div><a href="${cveUrl + item.cveIdentifier}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${cveUrl + item.cveIdentifier}');" onKeyUp="return vjsu.onKeyUp(event)">${item.cveIdentifier}</a></div>
+                                    <div><#if item.cveStatus?? && item.cveStatus != "Not Known">Status: ${item.cveStatus}</#if></div>
                                     <div><@hst.html hippohtml=item.cveText contentRewriter=gaContentRewriter/></div>
                                 </li>
                             </#list>
