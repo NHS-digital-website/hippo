@@ -427,6 +427,11 @@ definitions:
           jcr:name: Glossary list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:graphicblock:
+        /en:
+          jcr:name: Graphic block
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:group:
         /en:
           jcr:name: Group
