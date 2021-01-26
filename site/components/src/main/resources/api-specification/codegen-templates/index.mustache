@@ -1,0 +1,164 @@
+<div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
+{{>sticky-nav}}
+</div>
+
+<div id="content" class="column column--two-thirds page-block page-block--main apispecification" aria-label="Document content">
+
+    <!-- API Title: {{{appName}}} -->
+
+    <div id="api-description" class="article-section">
+        {{{markdown appDescription headingIdPrefix="api-description__"}}}
+    </div>
+        {{#apiInfo}}
+            {{#apis}}
+                {{#assign "tryThisApiDisabled"}}{{vendorExtensions.x-spec-publication.try-this-api.disabled}}{{/assign}}
+                {{#operations}}
+                    {{#eq baseName 'Default'}}
+                    <div id="api-endpoints" class="article-section">
+                        <h1>Endpoints</h1>
+                    </div>
+                    {{else}}
+                    <div id="api-{{baseName}}" class="article-section">
+                        <h1>Endpoints: {{baseName}}</h1>
+                    </div>
+                    {{/eq}}
+                        {{#operation}}
+                            {{#contents}}
+                                {{#@first}}
+                                    <div id="api-{{baseName}}-{{nickname}}" class="article-section-with-sub-heading">
+                                        <article id="api-{{baseName}}-{{nickname}}-0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>{{summary}}</h2>
+                                            <div class="endpoint_path">
+                                                <div class="method"><h2>{{httpMethod}}</h2></div>
+                                                <div class="pre"><pre>{{path}}</pre></div>
+                                                {{#ifVariableIsFalse "tryThisApiDisabled"}}<div class="try"><a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>{{/ifVariableIsFalse}}
+                                            </div>
+
+                                            <p>{{{markdown notes}}}</p>
+
+                                            {{#isAnyTrue this hasPathParams hasHeaderParams hasBodyParam hasFormParams hasQueryParams}}
+                                                <h2>Request</h2>
+                                            {{/isAnyTrue}}
+
+                                            {{#hasPathParams}}
+                                                <div class="httpparams">
+                                                    <h3>Path parameters</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#pathParams}}
+                                                            {{>request_param}}
+                                                        {{/pathParams}}
+                                                    </table>
+                                                </div>
+                                            {{/hasPathParams}}
+
+                                            {{#hasQueryParams}}
+                                                <div class="httpparams">
+                                                    <h3>Query parameters</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#queryParams}}
+                                                            {{>request_param}}
+                                                        {{/queryParams}}
+                                                    </table>
+                                                </div>
+                                            {{/hasQueryParams}}
+
+                                            {{#hasHeaderParams}}
+                                                <div class="httpparams">
+                                                    <h3>Headers</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#headerParams}}
+                                                            {{>request_param}}
+                                                        {{/headerParams}}
+                                                    </table>
+                                                </div>
+                                            {{/hasHeaderParams}}
+
+                                            {{#hasFormParams}}
+                                                <div class="httpparams">
+                                                    <h3>Form parameters</h3>
+                                                    <table data-disablesort="true">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                        </tr>
+                                                        {{#formParams}}
+                                                            {{>request_param}}
+                                                        {{/formParams}}
+                                                    </table>
+                                                </div>
+                                            {{/hasFormParams}}
+
+                                            {{#hasBodyParam}}
+                                                <div class="httpparams">
+                                                    <h3>Body</h3>
+                                                    {{#bodyParams}}
+                                                        {{#required}}<div class="httpparams__required">Required</div>{{/required}}
+
+                                                        {{#vendorExtensions.x-body}}
+                                                            {{>body_param}}
+                                                        {{/vendorExtensions.x-body}}
+                                                    {{/bodyParams}}
+                                                </div>
+                                            {{/hasBodyParam}}
+
+                                            {{#responses}}
+                                                {{#@first}}
+                                                    <h2>Response</h2>
+                                                {{/@first}}
+
+                                                <h3>HTTP status: {{code}}</h3>
+                                                <div>{{{markdown message}}}</div>
+
+                                                {{#hasHeaders}}
+                                                    <div class="httpparams">
+                                                        <h3>Headers</h3>
+                                                        <table data-disablesort="true">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                            {{#headers}}
+                                                                {{>response_header}}
+                                                            {{/headers}}
+                                                        </table>
+                                                    </div>
+                                                {{/hasHeaders}}
+
+                                                {{#vendorExtensions.x-body}}
+                                                    {{#mediaTypes}}
+                                                        {{#@first}}
+                                                        <h4>Body</h4>
+                                                        {{/@first}}
+                                                    {{/mediaTypes}}
+                                                    {{>body_param}}
+                                                {{/vendorExtensions.x-body}}
+                                            {{/responses}}
+                                        </article>
+                                    </div>
+                                {{/@first}}
+                            {{/contents}}
+                        {{/operation}}
+                {{/operations}}
+            {{/apis}}
+        {{/apiInfo}}
+
+    {{^hideGenerationTimestamp}}          <div id="generator">
+        <div class="content">
+            Generated {{generatedDate}}
+        </div>
+    </div>
+    {{/hideGenerationTimestamp}}
+</div>

@@ -14,7 +14,6 @@
     <description>NHS Digital Website CMS</description>
 
     <dependencies>
-
         <dependency>
             <groupId>uk.nhs.digital</groupId>
             <artifactId>s3-connector</artifactId>

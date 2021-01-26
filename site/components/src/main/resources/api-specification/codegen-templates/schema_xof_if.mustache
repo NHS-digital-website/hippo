@@ -1,0 +1,27 @@
+{{#if anyOf}}
+    <tr>
+        <td style="padding-left: {{indentation}}em;" colspan="2">anyOf</td>
+    </tr>
+{{/if}}
+{{#each anyOf}}
+    {{#partial "propertyName"}}{{/partial}}
+    {{>schema_object}}
+{{/each}}
+{{#if oneOf}}
+    <tr>
+        <td style="padding-left: {{indentation}}em;" colspan="2">oneOf</td>
+    </tr>
+{{/if}}
+{{#each oneOf}}
+    {{#partial "propertyName"}}{{/partial}}
+    {{>schema_object}}
+{{/each}}
+{{#if allOf}}
+    <tr>
+        <td style="padding-left: {{indentation}}em;" colspan="2">allOf</td>
+    </tr>
+{{/if}}
+{{#each allOf}}
+    {{#partial "propertyName"}}{{/partial}}
+    {{>schema_object}}
+{{/each}}

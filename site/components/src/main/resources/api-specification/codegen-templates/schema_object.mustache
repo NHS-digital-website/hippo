@@ -1,0 +1,86 @@
+{{! For model's reference see io.swagger.v3.oas.models.media.Schema and extending classes}}
+<tr>
+    {{! 'Name' column (values that don't require labels) }}
+    <td style="padding-left: {{indentation}}em;" class="name_column">
+        {{#block "propertyName"}}{{/block}}
+
+        {{#or type format}}
+        <div>
+            {{#type}}<code class="type">{{this}}</code>{{/type}}
+            {{#format}}<code class="format">{{this}}</code>{{/format}}
+        </div>
+        {{/or}}
+
+        {{#deprecated}}<div><code class="deprecated">deprecated</code></div>{{/deprecated}}
+        {{#uniqueItems}}<div><code class="uniqueitems">unique items</code></div>{{/uniqueItems}}
+        {{#nullable}}<div><code class="nullable">nullable</code></div>{{/nullable}}
+        {{#readOnly}}<div><code class="readonly">read-only</code></div>{{/readOnly}}
+        {{#writeOnly}}<div><code class="writeonly">write-only</code></div>{{/writeOnly}}
+        {{#ifRequired}}<div><code class="required">required</code></div>{{/ifRequired}}
+    </td>
+
+    {{! 'Description' column (actual description + values that do require labels) }}
+    <td class="description_column">
+        {{#title}}<div class="title">{{this}}</div>{{/title}}
+
+        {{#description}}<div class="description">{{{markdown this}}}</div>{{/description}}
+
+        {{#pattern}}<div>Pattern: <code class="codeinline pattern">{{this}}</code></div>{{/pattern}}
+
+        {{#ifNotNull multipleOf}}<div>Multiple of: <code class="codeinline multipleof">{{multipleOf}}</code><div>{{/ifNotNull}}
+
+        {{#ifNotNull maximum}}
+        <div>Maximum: <code class="codeinline maximum">{{maximum}}</code>
+            <code class="codeinline exclusivemaximum">{{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}</code>
+        </div>
+        {{/ifNotNull}}
+
+        {{#ifNotNull minimum}}
+        <div>Minimum: <code class="codeinline minimum">{{minimum}}</code>
+            <code class="codeinline exclusiveminimum">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</code>
+        </div>
+        {{/ifNotNull}}
+
+        {{#ifNotNull maxLength}}<div>Max length: <code class="codeinline maxlength">{{maxLength}}</code></div>{{/ifNotNull}}
+        {{#ifNotNull minLength}}<div>Min length: <code class="codeinline minlength">{{minLength}}</code></div>{{/ifNotNull}}
+
+        {{#ifNotNull maxItems}}<div>Max items: <code class="codeinline maxitems">{{maxItems}}</code></div>{{/ifNotNull}}
+        {{#ifNotNull minItems}}<div>Min items: <code class="codeinline minitems">{{minItems}}</code></div>{{/ifNotNull}}
+
+        {{#ifNotNull maxProperties}}<div>Max properties: <code class="codeinline maxproperties">{{maxProperties}}</code></div>{{/ifNotNull}}
+        {{#ifNotNull minProperties}}<div>Min properties: <code class="codeinline minproperties">{{minProperties}}</code></div>{{/ifNotNull}}
+
+        {{#if enum}}<div>Allowed values: {{{enumeration enum}}}</div>{{/if}}
+
+        {{#valueOfTypeAny default}}
+            <div>Default: <pre><code>{{prettyJson default}}</code></pre></div>
+        {{else}}
+            <div>Default: <code class="codeinline default">{{sanitiseTypeAny default}}</code></div>
+        {{/valueOfTypeAny}}
+
+        {{#valueOfTypeAny example ignoreClass="java.util.Map"}}
+            <div>Example: <pre><code>{{prettyJson example}}</code></pre></div>
+        {{else}}
+            <div>Example: <code class="codeinline example">{{sanitiseTypeAny example}}</code></div>
+        {{/valueOfTypeAny}}
+
+    </td>
+</tr>
+
+{{#each properties}}
+    {{#partial "propertyName"}}
+        {{#@key}}<div><code class="propertyName">{{this}}</code></div>{{/@key}}
+    {{/partial}}
+    {{>schema_object}}
+{{/each}}
+
+{{#items}}
+    {{#or anyOf oneOf allOf}}
+        {{>schema_xof_if}}
+    {{else}}
+        {{#partial "propertyName"}}{{/partial}}
+        {{>schema_object}}
+    {{/or}}
+{{/items}}
+
+{{>schema_xof_with}}
