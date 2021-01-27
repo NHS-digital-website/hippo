@@ -40,7 +40,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.m2/repository
-          key: m2-cache
+          key: ${{ runner.os }}-maven-nhs-digital-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-nhs-digital-
 
       # Step 6
       - name: Check YAML formatting
@@ -59,7 +61,7 @@ jobs:
           SLACK_ICON: 'https://avatars.slack-edge.com/2021-01-13/1630579512549_65b98dab3cfe3321e943_48.png'
           SLACK_USERNAME: CI/CD Pipeline
           SLACK_COLOR: '#ff0d0d'
-          SLACK_TITLE: PR Request 'build and test' faild
+          SLACK_TITLE: PR Request 'build and test' failed
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_FOOTER: 'Oh yeah, I may have forgotten something.'
 
