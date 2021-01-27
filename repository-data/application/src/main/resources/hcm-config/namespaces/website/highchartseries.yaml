@@ -22,7 +22,7 @@ definitions:
           /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: column,line
+              selectable.options: column,line,suppress
             caption: Type
             field: type
             hint: ''

@@ -57,7 +57,7 @@ public class SchemaHelper implements Helper<Schema<?>> {
         }
     }
 
-    private Handlebars initialiseHandlebars(final MarkdownHelper helper) {
+    private Handlebars initialiseHandlebars(final MarkdownHelper markdownHelper) {
 
         final ClassPathTemplateLoader classPathTemplateLoader =
             new ClassPathTemplateLoader(TEMPLATES_CLASSPATH, TEMPLATE_EXTENSION);
@@ -68,7 +68,7 @@ public class SchemaHelper implements Helper<Schema<?>> {
             .parentScopeResolution(false)
             .infiniteLoops(true)
             .prettyPrint(true)
-            .registerHelper(MarkdownHelper.NAME, helper)
+            .registerHelper(MarkdownHelper.NAME, markdownHelper)
             .registerHelper(IndentationHelper.NAME, new IndentationHelper(contextStackFactory))
             .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
             .registerHelper(IfRequiredHelper.NAME, new IfRequiredHelper(contextStackFactory))

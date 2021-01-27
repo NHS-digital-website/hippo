@@ -1,0 +1,26 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/path-a": {
+            "get": {
+                "summary": "Get operation A",
+                "tags": ["resource-a"]
+            },
+            "post": {
+                "summary": "Post operation A",
+                "tags": ["resource-a"]
+            }
+        },
+        "/path-b": {
+            "get": {
+                "summary": "Get operation B",
+                "tags": ["resource-b"]
+            },
+            "post": {
+                "summary": "Post operation B",
+                "tags": ["resource-b"]
+            }
+        }
+    },
+    "components": {}
+}

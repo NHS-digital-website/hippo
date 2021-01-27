@@ -1,6 +1,8 @@
 ---
 group:
-  after: hippo-cms
+  after:
+  - hippo-cms
+  - bloomreach-forge
   name: publicationsystem
 module:
   after: website-repository-data-application

@@ -73,6 +73,7 @@ public class DocumentTypeCharacteristicPlugin extends CharacteristicPlugin {
         documentTypes.add(createDocumentType("General","website:general"));
         documentTypes.add(createDocumentType("General non searchable","website:generalnonsearch"));
         documentTypes.add(createDocumentType("Glossary list","website:glossarylist"));
+        documentTypes.add(createDocumentType("Graphic block","website:graphicblock"));
         documentTypes.add(createDocumentType("Hub","website:hub"));
         documentTypes.add(createDocumentType("Links list","website:componentlist"));
         documentTypes.add(createDocumentType("Location","website:location"));

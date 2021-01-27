@@ -6,6 +6,7 @@ definitions:
         hipposys:groups:
         - cyber-alerts-author
         hipposys:role: author
+        hipposys:userrole: xm.default-user.author
         jcr:primaryType: hipposys:authrole
       /cyber-alert-documents:
         /path-by-uuid:
@@ -20,6 +21,7 @@ definitions:
         hipposys:groups:
         - cyber-alerts-editor
         hipposys:role: editor
+        hipposys:userrole: xm.default-user.editor
         jcr:primaryType: hipposys:authrole
       /organisation-documents:
         /path-by-uuid:

@@ -4,5 +4,22 @@ definitions:
     /hippo:configuration/hippo:groups/intranet-editor:
       hipposys:description: Users with editor role in Intranet and read-only in Corporate
         Website
+      hipposys:members:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value: []
       hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.cms.user
+        - xm.dashboard.user
+        - xm.channel.viewer
+        - xm.project.viewer
+        - xm.content.user
+        - xm.form.user
+        - xm.report.user
       jcr:primaryType: hipposys:group

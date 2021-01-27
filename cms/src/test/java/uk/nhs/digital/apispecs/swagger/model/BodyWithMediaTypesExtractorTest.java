@@ -16,9 +16,6 @@ import java.util.Optional;
 
 public class BodyWithMediaTypesExtractorTest {
 
-    private static final String TEST_DATA_FILES_PATH =
-        "/test-data/api-specifications/" + BodyWithMediaTypesExtractorTest.class.getSimpleName();
-
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
     final BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
@@ -119,7 +116,9 @@ public class BodyWithMediaTypesExtractorTest {
         return bodyWithMediaTypeObjects;
     }
 
-    private static String from(final String testFileName) {
-        return contentOfFileFromClasspath(TEST_DATA_FILES_PATH + "/" + testFileName);
+    private String from(final String testFileName) {
+        return contentOfFileFromClasspath(
+            "/test-data/api-specifications/BodyWithMediaTypesExtractorTest/" + testFileName
+        );
     }
 }

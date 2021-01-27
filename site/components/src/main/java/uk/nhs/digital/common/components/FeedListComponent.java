@@ -320,10 +320,14 @@ public class FeedListComponent extends EssentialsListComponent {
         String titleText = info.getTitleText();
         String buttonText = info.getButtonText();
         String buttonDestination = info.getButtonDestination();
+        String secondaryButtonText = info.getSecondaryButtonText();
+        String secondaryButtonDestination = info.getSecondaryButtonDestination();
 
         request.setAttribute("titleText", titleText);
         request.setAttribute("buttonText", buttonText);
         request.setAttribute("buttonDestination", buttonDestination);
+        request.setAttribute("secondaryButtonText", secondaryButtonText);
+        request.setAttribute("secondaryButtonDestination", secondaryButtonDestination);
     }
 }
 // resume CPD analysis - CPD-ON

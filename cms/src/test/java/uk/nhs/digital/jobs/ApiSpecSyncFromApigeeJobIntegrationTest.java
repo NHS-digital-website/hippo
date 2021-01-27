@@ -13,7 +13,7 @@ import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.JcrTestUtils.*;
 import static uk.nhs.digital.test.util.JcrTestUtils.BloomReachJcrDocumentVariantType.DRAFT;
 import static uk.nhs.digital.test.util.MockJcrRepoProvider.initJcrRepoFromYaml;
-import static uk.nhs.digital.test.util.StringTestUtils.ignoringBlankLinesIn;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.collect.ImmutableMap;
@@ -205,8 +205,8 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
         assertThat(
             "CodeGen-generated specification HTML has been set on the document",
-            ignoringBlankLinesIn(actualSpecHtml),
-            is(ignoringBlankLinesIn(expectedSpecHtml))
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
         );
     }
 

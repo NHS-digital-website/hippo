@@ -1,0 +1,20 @@
+---
+/content/documents/corporate-website/faceted-cyber-alerts:
+  hippo:docbase: a88fe893-1e7e-474c-9fc7-28d383dd03cf
+  hippofacnav:facetnodenames:
+  - year${sortby:'facetvalue', sortorder:'descending'}
+  - month${after:'year', sortby:'facetvalue', sortorder:'ascending'}
+  - threat type
+  - severity
+  hippofacnav:facets:
+  - publicationsystem:NominalDate$year
+  - publicationsystem:NominalDate$month
+  - website:threattype
+  - website:severity
+  hippofacnav:filters:
+  - jcr:primaryType=website:cyberalert
+  hippofacnav:sortby:
+  - publicationsystem:NominalDate
+  hippofacnav:sortorder:
+  - descending
+  jcr:primaryType: hippofacnav:facetnavigation
