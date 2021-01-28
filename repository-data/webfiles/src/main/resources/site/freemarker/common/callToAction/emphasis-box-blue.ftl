@@ -14,7 +14,7 @@
     <#assign hasImage = document.image?has_content />
     <#assign hasLink = (document.external?has_content || document.internal?has_content) && document.label?has_content />
 
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
+    <div class="nhsd-t-grid">
         <div class="nhsd-t-row nhsd-t-row--centred">
             <div class="nhsd-t-col-xs-12">
                 <div class="nhsd-m-emphasis-box nhsd-m-emphasis-box--centred">
