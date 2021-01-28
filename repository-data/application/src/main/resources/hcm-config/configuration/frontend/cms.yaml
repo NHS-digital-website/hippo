@@ -4,10 +4,12 @@ definitions:
     /hippo:configuration/hippo:frontend/cms:
       frontend:privileges: jcr:read
     /hippo:configuration/hippo:frontend/cms/cms-advanced-search/genericFilters:
+      document.subtypes.included: true
       document.type.namespaces:
       - website
       - nationalindicatorlibrary
       - publicationsystem
+      search.input.maxlength: 100
     /hippo:configuration/hippo:frontend/cms/cms-folder-views/urlrewriter:ruleset:
       list.page.size: '20'
       list.view.size: '20'

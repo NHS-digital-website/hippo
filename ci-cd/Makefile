@@ -142,6 +142,14 @@ ondemand.deploy: vendor/rd
 		-bootstrap full \
 		-distribution "$(VERSION).tar.gz"
 
+ondemand.pipeline-deploy: vendor/rd
+	source vendor/rd run \
+		--project nhs \
+		--job "jobs/$(OD_ENV)/Deploy" \
+		-- \
+		-bootstrap full \
+		-distribution "$(VERSION).tar.gz"
+
 ## Schedule deployment of the "rc" tag for next working day
 # Please make note this does not take into account bank holidays.
 #

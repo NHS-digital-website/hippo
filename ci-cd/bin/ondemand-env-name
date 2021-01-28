@@ -15,6 +15,9 @@ case $1 in
     training)
         echo "training";
         ;;
+    trn)
+        echo "training";
+        ;;
     tst)
         echo "test";
         ;;
