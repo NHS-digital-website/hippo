@@ -8,15 +8,20 @@ version: 0.1
 phases:
   install:
     commands:
+      ## Above not sure what's needed if any next
       - apt-get update
       - apt-get install -qqy software-properties-common python-software-properties
       - apt-get install -qqy build-essential git curl python-pip python-dev
       - pip install virtualenv
 
+
+
+    ## No need
       # remove oracle java
       - update-alternatives --remove "java" "/usr/lib/jvm/java-8-oracle/jre/bin/java"
       - rm -r /usr/lib/jvm/java-8-oracle
 
+    ## Done
       # Java 8 install
       - apt-get update
       - apt-get install -y openjdk-8-jdk
@@ -26,20 +31,24 @@ phases:
       - update-alternatives --config java
       - java -version
 
+    ## not needed
       # AWS CLI
       - pip install --upgrade pip
       - pip --version
       - pip install awscli --upgrade --user
       - aws --version
 
+    ## Will store in Github secretes - DONE
       # SSH key
       - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
       - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/nhs-ci_rsa.pub $HOME/.ssh/nhs-ci_rsa.pub
       - chmod 600 $HOME/.ssh/nhs-ci_rsa
 
+    ## Will store in Github secretes - DONE
       # Rundeck credentials
       - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/rd.password $HOME/rd.password
 
+    ## Will need to do this, but copy it from slack-deploy-command.yml - DONE
       # Add static.hosting.onehippo.com and github.com as known host
       - touch $HOME/.ssh/known_hosts
       - ssh-keygen -R static.hosting.onehippo.com
@@ -47,11 +56,14 @@ phases:
       - ssh-keygen -R github.com
       - ssh-keyscan github.com >> $HOME/.ssh/known_hosts
 
+    ## No need as was for debugging AWS in the passed
       # Print the Ubuntu version
       - cat /etc/lsb-release
 
   build:
     commands:
+
+    ## To copy (not blindly) across to new script
       # Tag
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
@@ -72,10 +84,12 @@ phases:
         make git.update-environment-tag &&
         git push --tags"
 
+## No sure what this is but is probably an AWS thing
 artifacts:
   files:
     - "**/*"
 
+## Done with github action cache
 cache:
   paths:
     - '/root/.m2/**/*'
