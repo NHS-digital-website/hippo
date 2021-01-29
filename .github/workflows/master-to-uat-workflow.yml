@@ -1,0 +1,131 @@
+name: Deploy to UAT and Git Tag
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build Master
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
+      CHANNEL_ID: C8QJFKBC2 # support channel
+
+    steps:
+
+      #
+      # Step 1
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+
+      #
+      # Step 2
+      #
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      #
+      # Step 3
+      # Get the Caches
+      #
+      - name: Setup cache (Maven packages)
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-nhs-digital-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-nhs-digital-
+            ${{ runner.os }}-maven-nhs-
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-nhs-digital-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-nhs-digital-
+            ${{ runner.os }}-node-nhs-
+
+      #
+      # Step 4
+      # Prepare for RD communication
+      #
+      - name: Configure SSH certificates
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.IDM_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.IDM_PUB }}" > ~/.ssh/id_rsa.pub
+          chmod 400 ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa.pub
+      - name: Configure known hosts
+        run: |
+          touch ~/.ssh/known_hosts
+          ssh-keygen -R ${{ secrets.RD_FTP }}
+          ssh-keyscan -H -t rsa ${{ secrets.RD_FTP }} >> ~/.ssh/known_hosts
+
+      #
+      # Step 5
+      #
+      - name: Bump the version number
+        run: make version.bumpup
+
+
+      #
+      # Step 6
+      #
+      - name: Build master
+        run: make clean build
+        env:
+          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+
+
+      #
+      # Step 7
+      #
+      - name: Set the commit's Git status
+        run: make github.status.success
+
+      #
+      # Step 8
+      #
+      - name: Upload build
+        run: make ondemand.upload
+
+      #
+      # Step 9
+      #
+      - name: Deploy request
+        id: pipeline-deploy
+        run: |
+          make ondemand.pipeline-deploy > pipeline-deploy-output.txt
+          echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
+        env:
+          ENV: "uat"
+          RD_URL: ${{ secrets.RD_URL }}
+          RD_USER: ${{ secrets.RD_USER }}
+
+      #
+      # Step 10
+      #
+      - name: Push tag back to github
+        run: |
+          make git.update-environment-tag
+          git push --tags
+
+      #
+      # Step 11
+      #
+      - name: Slack message (end message)
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Master is being deployed", "attachments": [{ "text" : "RunDeck is deploying. You can track progress here ${{steps.pipeline-deploy.outputs.PIPELINE_DEPLOY_URL}}", "color": "#78BE20" }] }'
+
