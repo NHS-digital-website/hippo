@@ -22,6 +22,8 @@ jobs:
       #
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
 
       #
       # Step 2
