@@ -1,7 +1,7 @@
 name: Deploy to UAT and Git Tag
 
 on:
-  pull_request:
+  push:
     branches:
       - DW-1953-deploy-to-uat-replacement
 
