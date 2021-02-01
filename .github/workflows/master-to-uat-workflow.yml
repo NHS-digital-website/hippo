@@ -111,6 +111,7 @@ jobs:
           ENV: "uat"
           RD_URL: ${{ secrets.RD_URL }}
           RD_USER: ${{ secrets.RD_USER }}
+          RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
 
       #
       # Step 10
