@@ -135,6 +135,8 @@
         <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
         <bloomreach.text-search-replace.version>2.0.0</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>5.0</forge.resetpassword.version>
+        <bloomreach.text-search-replace.version>1.0.4</bloomreach.text-search-replace.version>
+        <bloomreach.forge.sitemapv2.version>2.0.3</bloomreach.forge.sitemapv2.version>
     </properties>
 
     <repositories>
@@ -193,6 +195,17 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.onehippo.cms7</groupId>
+                <artifactId>hippo-plugin-sitemapv2-component</artifactId>
+                <version>${bloomreach.forge.sitemapv2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.onehippo.cms7</groupId>
+                <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId>
+                <version>${bloomreach.forge.sitemapv2.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.h2database</groupId>
