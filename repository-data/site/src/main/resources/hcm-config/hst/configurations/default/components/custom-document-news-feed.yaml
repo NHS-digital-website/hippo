@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:components/custom-document-news-feed:
+      jcr:primaryType: hst:component
+      hst:componentclassname: org.onehippo.forge.sitemapv2.components.NewsFeed
+      hst:parameternames: [query-primaryTypes]
+      hst:parametervalues: ['website:newsdocument']
+      hst:template: forge-sitemapv2-feed.ftl
