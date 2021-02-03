@@ -2,7 +2,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:components/custom-document-news-feed:
       hst:componentclassname: org.onehippo.forge.sitemapv2.components.NewsFeed
-      hst:parameternames: [query-primaryTypes, query-sortOrder, uery-sortField]
+      hst:parameternames: [query-primaryTypes, query-sortOrder, query-sortField]
       hst:parametervalues: ['website:news', Ascending, publisheddatetime]
       hst:template: forge-sitemapv2-feed.ftl
       jcr:primaryType: hst:component
