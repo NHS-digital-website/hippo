@@ -16,12 +16,7 @@ jobs:
       BRANCH: ${{ github.event.client_payload.data.text }}
       CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
       SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
-      USER_NAME: ${{  github.event.client_payload.data.user_name }}
-      RD_URL: ${{ secrets.RD_API }}
-      RD_USER: ${{ secrets.RD_USER }}
-      RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
-      RD_AUTH_PROMPT: false
-      RD_COLOR: 0
+      USER_ID: ${{  github.event.client_payload.data.user_id }}
 
     steps:
 
@@ -35,7 +30,6 @@ jobs:
           result-encoding: string
           script: |
             const environments = {
-              C01KGP0B78R: "debugging",
               C011BKDNUS1: "dev",
               C01119ANCJE: "tst",
               C01119BULFL: "trn"
@@ -191,6 +185,9 @@ jobs:
           echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
         env:
           ENV: ${{steps.find-target.outputs.result}}
+          RD_URL: ${{ secrets.RD_API }}
+          RD_USER: ${{ secrets.RD_USER }}
+          RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
 
       - name: Slack message (failed to deploy)
         if: ${{ failure() }}
@@ -207,7 +204,7 @@ jobs:
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "RunDeck is deploying. <@${{ env.USER_NAME }}> You can track progress here ${{steps.pipeline-deploy.outputs.PIPELINE_DEPLOY_URL}}", "color": "#78BE20" }] }'
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "RunDeck is deploying. <@${{ env.USER_ID }}> You can track progress here ${{steps.pipeline-deploy.outputs.PIPELINE_DEPLOY_URL}}", "color": "#78BE20" }] }'
 
 
       - name: Slack message (failed end message)
