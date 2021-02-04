@@ -183,7 +183,7 @@ definitions:
       /cyber-alerts:
         /_any_:
           hst:componentconfigurationid: hst:pages/cyberalert
-          hst:relativecontentpath: cyber-alerts
+          hst:relativecontentpath: cyber-alerts/${1}
           jcr:primaryType: hst:sitemapitem
         /severity:
           /_any_:
