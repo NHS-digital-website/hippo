@@ -127,7 +127,7 @@ jobs:
           echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
         env:
           ENV: "uat"
-          RD_URL: ${{ secrets.RD_URL }}
+          RD_URL: ${{ secrets.RD_API }}
           RD_USER: ${{ secrets.RD_USER }}
           RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
 
