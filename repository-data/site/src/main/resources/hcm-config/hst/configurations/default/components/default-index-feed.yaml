@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:components/forge-sitemapv2-default-index-feed:
+      hst:componentclassname: org.onehippo.forge.sitemapv2.components.DefaultSitemapIndexFeed
+      hst:template: forge-sitemapv2-feed.ftl
+      jcr:primaryType: hst:component

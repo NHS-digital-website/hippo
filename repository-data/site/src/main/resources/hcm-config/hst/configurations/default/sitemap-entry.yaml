@@ -1,0 +1,26 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-document-_default_.xml:
+      hst:cacheable: true
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-document-feed
+      hst:hiddeninchannelmanager: true
+      hst:refId: sitemap-document-offset
+      jcr:primaryType: hst:sitemapitem
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-index.xml:
+      hst:cacheable: true
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-default-index-feed
+      hst:hiddeninchannelmanager: true
+      jcr:primaryType: hst:sitemapitem
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-news.xml:
+      hst:cacheable: true
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-news-feed
+      hst:hiddeninchannelmanager: true
+      hst:refId: sitemap-news
+      jcr:primaryType: hst:sitemapitem
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-pages.xml:
+      hst:cacheable: true
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-page-feed
+      hst:hiddeninchannelmanager: true
+      hst:refId: sitemap-pages
+      jcr:primaryType: hst:sitemapitem

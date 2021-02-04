@@ -7,6 +7,9 @@ definitions:
     /hst:hst/hst:configurations/hst:default/hst:templates/essentials-carousel:
       hst:renderpath: webfile:/freemarker/hstdefault/essentials-carousel.ftl
       jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/hst:default/hst:templates/forge-sitemapv2-feed.ftl:
+      hst:script: '<#ftl attributes={"content_type": "application/xml"} />${sitemap}'
+      jcr:primaryType: hst:template
     /hst:hst/hst:configurations/hst:default/hst:templates/robotstxt.ftl:
       hst:renderpath: webfile:/freemarker/common/robotstxt.ftl
       hst:script:
