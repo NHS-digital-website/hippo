@@ -1,31 +1,5 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/hst:default/hst:sitemap:
-      /BingSiteAuth.xml:
-        hst:authenticated: false
-        hst:containerresource: true
-        jcr:primaryType: hst:sitemapitem
-      /feed:
-        /_any_.xml:
-          hst:namedpipeline: JaxrsRestFeedPipeline
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
-        hst:relativecontentpath: feeds
-        jcr:primaryType: hst:sitemapitem
-      /googlec9ae176a412840f1.html:
-        hst:authenticated: false
-        hst:containerresource: true
-        jcr:primaryType: hst:sitemapitem
-      /login:
-        .meta:delete: true
-      /s3endpoint:
-        /_any_:
-          jcr:primaryType: hst:sitemapitem
-        hst:containerresource: true
-        hst:namedpipeline: S3ConnectorPipeline
-        hst:refId: S3CONNECTOR-PIPELINE-ID
-        jcr:primaryType: hst:sitemapitem
-      /version:
-        hst:containerresource: true
-        jcr:primaryType: hst:sitemapitem
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap.xml:
+      .meta:delete: true
