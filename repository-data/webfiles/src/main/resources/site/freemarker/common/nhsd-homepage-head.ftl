@@ -25,10 +25,10 @@
     <meta name="twitter:site" content="@NHSDigital">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
 
-    <link href="https://d176o86m147x8h.cloudfront.net/" rel="preconnect" crossorigin>
-    <link type="font/woff2" href="https://d176o86m147x8h.cloudfront.net/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://d176o86m147x8h.cloudfront.net/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://d176o86m147x8h.cloudfront.net/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
+    <link href="https://s3.eu-west-2.amazonaws.com/ui-toolkit.digital.nhs.uk/" rel="preconnect" crossorigin>
+    <link type="font/woff2" href="https://s3.eu-west-2.amazonaws.com/ui-toolkit.digital.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="https://s3.eu-west-2.amazonaws.com/ui-toolkit.digital.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="https://s3.eu-west-2.amazonaws.com/ui-toolkit.digital.nhs.uk/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
 
     <#-- Preconnect to 3rd parties to improve proformance -->
     <link rel="preconnect" href="https://in.hotjar.com" crossorigin>
