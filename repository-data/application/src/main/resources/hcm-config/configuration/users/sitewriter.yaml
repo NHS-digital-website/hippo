@@ -1,0 +1,12 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:users/sitewriter:
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.form.writer
+        - xm.cms.user
+        - xm.content.editor

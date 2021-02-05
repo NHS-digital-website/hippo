@@ -36,6 +36,11 @@
                 <bean class="uk.nhs.digital.intranet.rest.stub.AuthorizationResourceStub"/>
             </constructor-arg>
         </bean>
+          <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+              <constructor-arg>
+                  <bean class="uk.nhs.digital.website.rest.PublicationApiResource"/>
+              </constructor-arg>
+          </bean>
       </list>
     </property>
   </bean>
