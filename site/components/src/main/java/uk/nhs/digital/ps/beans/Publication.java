@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.beans;
 
+import org.hippoecm.hst.content.beans.ContentNodeBinder;
+import org.hippoecm.hst.content.beans.ContentNodeBindingException;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
@@ -10,10 +12,13 @@ import uk.nhs.digital.website.beans.Infographic;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.jcr.RepositoryException;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publication")
-public class Publication extends PublicationBase implements Paginated {
+public class Publication extends PublicationBase implements Paginated, ContentNodeBinder {
+
+    private String title;
 
     @HippoEssentialsGenerated(internalName = PublicationBase.PropertyKeys.SUMMARY)
     public StructuredText getSummary() {
@@ -92,5 +97,33 @@ public class Publication extends PublicationBase implements Paginated {
     @Override
     public Pagination paginate() {
         return new Pagination(null, getPageIndex().stream().skip(1).findFirst().orElse(null));
+    }
+
+
+    public void setTitle(final String title) {
+        this.title = title;
+    }
+
+    @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)
+    public String getTitle() {
+        if (title == null) {
+            return getPropertyIfPermittedSingle(PropertyKeys.TITLE);
+        }
+        assertPropertyPermitted(PropertyKeys.TITLE);
+        return title;
+    }
+
+    @Override
+    public boolean bind(Object content, javax.jcr.Node node) throws ContentNodeBindingException {
+        try {
+            if (content instanceof Publication) {
+                final Publication publicationBean = (Publication) content;
+                node.setProperty("publicationsystem:Title", publicationBean.getTitle());
+                return true;
+            }
+        } catch (RepositoryException e) {
+            throw new ContentNodeBindingException(e);
+        }
+        return false;
     }
 }
