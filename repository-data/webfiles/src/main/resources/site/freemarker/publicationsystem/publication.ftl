@@ -22,7 +22,7 @@
 <#assign document = publication />
 <#assign idsuffix = slugify(publication.title) />
 <#assign hasRelatedNews = publication.relatedNews?has_content>
-<#assign earlyAccessKey = hstRequest.request.getParameter("key")>
+<#assign earlyAccessKey = hstRequest.request.getParameter("key")!"">
 
 <@metaTags></@metaTags>
 
@@ -317,7 +317,7 @@
 <#-- ACTUAL TEMPLATE -->
 <#if publication?? >
 <#-- Gather the related document links for PDF printing -->
-    <#if publication.pages?has_content>
+    <#if publication.pages?? && publication.pages?has_content>
         <#assign relatedDocumentLinks = "" />
         <#list publication.pages as page>
             <@hst.link var="documentLink" hippobean=page />
