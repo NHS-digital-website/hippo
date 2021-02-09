@@ -124,7 +124,6 @@
         <spring.version>5.1.14.RELEASE</spring.version>
 
         <bloomreach.inference-engine.version>4.0.0</bloomreach.inference-engine.version>
-        <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
         <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
 
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
@@ -332,31 +331,6 @@
                 <groupId>com.github.fge</groupId>
                 <artifactId>jackson-coreutils</artifactId>
                 <version>1.8</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-server</artifactId>
-                <version>${org.eclipse.jetty.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-util</artifactId>
-                <version>${org.eclipse.jetty.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-security</artifactId>
-                <version>${org.eclipse.jetty.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-continuation</artifactId>
-                <version>${org.eclipse.jetty.version}</version>
-                <scope>test</scope>
             </dependency>
 
             <dependency>
