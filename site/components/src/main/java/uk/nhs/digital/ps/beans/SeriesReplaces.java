@@ -19,6 +19,6 @@ public class SeriesReplaces extends HippoCompound {
     }
 
     public Calendar getChangeDate() {
-        return getProperty("publicationsystem:changeDate");
+        return getSingleProperty("publicationsystem:changeDate");
     }
 }

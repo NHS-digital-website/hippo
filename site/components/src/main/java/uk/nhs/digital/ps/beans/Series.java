@@ -58,11 +58,11 @@ public class Series extends BaseDocument {
     }
 
     public String[] getInformationType() {
-        return getProperty(PublicationBase.PropertyKeys.INFORMATION_TYPE);
+        return getMultipleProperty(PublicationBase.PropertyKeys.INFORMATION_TYPE);
     }
 
     public String[] getKeys() {
-        return getProperty(PublicationBase.PropertyKeys.TAXONOMY);
+        return getMultipleProperty(PublicationBase.PropertyKeys.TAXONOMY);
     }
 
     public List<String> getFullTaxonomyList() {
@@ -70,15 +70,15 @@ public class Series extends BaseDocument {
     }
 
     public String[] getGeographicCoverage() {
-        return geographicCoverageValuesToRegionValue(getProperty(PublicationBase.PropertyKeys.GEOGRAPHIC_COVERAGE));
+        return geographicCoverageValuesToRegionValue(getMultipleProperty(PublicationBase.PropertyKeys.GEOGRAPHIC_COVERAGE));
     }
 
     public String[] getGranularity() {
-        return getProperty(PublicationBase.PropertyKeys.GRANULARITY);
+        return getMultipleProperty(PublicationBase.PropertyKeys.GRANULARITY);
     }
 
     public String getAdministrativeSources() {
-        return getProperty(PublicationBase.PropertyKeys.ADMINISTRATIVE_SOURCES);
+        return getSingleProperty(PublicationBase.PropertyKeys.ADMINISTRATIVE_SOURCES);
     }
 
     public Publication getLatestPublication() throws HstComponentException, QueryException {
@@ -117,15 +117,15 @@ public class Series extends BaseDocument {
     }
 
     public String getShortTitle() {
-        return getProperty("publicationsystem:shortTitle");
+        return getSingleProperty("publicationsystem:shortTitle");
     }
 
     public String getSubTitle() {
-        return getProperty("publicationsystem:subTitle");
+        return getSingleProperty("publicationsystem:subTitle");
     }
 
     public String getDateNaming() {
-        return getProperty("publicationsystem:dateNaming");
+        return getSingleProperty("publicationsystem:dateNaming");
     }
 
     public HippoHtml getAbout() {
@@ -137,19 +137,19 @@ public class Series extends BaseDocument {
     }
 
     public String getFrequency() {
-        return getProperty("publicationsystem:frequency");
+        return getSingleProperty("publicationsystem:frequency");
     }
 
     public Long getRefNumber() {
-        return getProperty("publicationsystem:refNumber");
+        return getSingleProperty("publicationsystem:refNumber");
     }
 
     public String getIssn() {
-        return getProperty("publicationsystem:issn");
+        return getSingleProperty("publicationsystem:issn");
     }
 
     public String getPublicationTier()  {
-        return getProperty("publicationsystem:publicationTier");
+        return getSingleProperty("publicationsystem:publicationTier");
     }
 
     public List<ReleaseSubject> getReleaseSubjects() {

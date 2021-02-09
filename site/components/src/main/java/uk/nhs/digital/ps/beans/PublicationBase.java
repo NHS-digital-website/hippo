@@ -152,7 +152,7 @@ public abstract class PublicationBase extends BaseDocument {
 
         Calendar cal = Calendar.getInstance();
         if (nominalPublicationDate == null) {
-            nominalPublicationDate = Optional.ofNullable(getProperty(PropertyKeys.NOMINAL_DATE))
+            nominalPublicationDate = Optional.ofNullable(getSingleProperty(PropertyKeys.NOMINAL_DATE))
                 .map(object -> (Calendar)object)
                 .map(this::nominalPublicationDateCalendarToRestrictedDate)
                 .orElse(null);
