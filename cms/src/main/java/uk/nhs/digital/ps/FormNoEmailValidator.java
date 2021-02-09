@@ -23,8 +23,15 @@ public class FormNoEmailValidator implements Validator<Node> {
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
 
         try {
-            final boolean apiEnabled = Boolean.parseBoolean(node.getProperty("eforms:govdeliveryapi").getString());
-            final boolean apiScriptServiceEnabled = Boolean.parseBoolean(node.getProperty("eforms:govdeliveryScriptService").getString());
+            boolean apiEnabled = false;
+            boolean apiScriptServiceEnabled = false;
+            if (node.hasProperty("eforms:govdeliveryapi")) {
+                apiEnabled = Boolean.parseBoolean(node.getProperty("eforms:govdeliveryapi").getString());
+            }
+            if (node.hasProperty("eforms:govdeliveryScriptService")) {
+                apiScriptServiceEnabled = Boolean.parseBoolean(node.getProperty("eforms:govdeliveryScriptService").getString());
+            }
+
             if (apiEnabled || apiScriptServiceEnabled) {
                 boolean emailFieldFound = false;
                 final NodeIterator pageNodes = node.getNodes("page*");
@@ -45,7 +52,7 @@ public class FormNoEmailValidator implements Validator<Node> {
                 }
             }
         } catch (RepositoryException e) {
-            LOGGER.error("Error occured while validating form", e);
+            LOGGER.error("Error occurred while validating form", e);
         }
         return Optional.empty();
     }
