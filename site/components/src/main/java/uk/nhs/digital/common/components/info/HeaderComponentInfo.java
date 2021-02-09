@@ -8,7 +8,7 @@ import org.hippoecm.hst.core.parameters.*;
     ),
     @FieldGroup(
     titleKey = "Layout",
-    value = {"colour"}
+    value = {"alignment", "colour", "digiblockposition"}
     ),
     @FieldGroup(
     titleKey = "Button 1",
@@ -32,6 +32,15 @@ public interface HeaderComponentInfo {
     String getBannerDoc();
 
     @Parameter(
+        name = "alignment",
+        required = true,
+        defaultValue = "Centre",
+        displayName = "Text Alignment"
+        )
+    @DropDownList({"Centre", "Left"})
+    String getAlignment();
+
+    @Parameter(
         name = "colour",
         required = true,
         defaultValue = "Light Grey",
@@ -39,6 +48,15 @@ public interface HeaderComponentInfo {
         )
     @DropDownList({"Light Grey", "Dark Grey", "Blue", "Yellow"})
     String getColour();
+
+    @Parameter(
+        name = "digiblockposition",
+        required = true,
+        defaultValue = "Left & Right",
+        displayName = "Digiblock Position"
+        )
+    @DropDownList({"Left & Right", "Right"})
+    String getDigiblockPosition();
 
     @Parameter(
         name = "button1text",
