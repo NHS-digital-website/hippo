@@ -23,6 +23,12 @@ public class HeaderComponent extends CommonComponent {
         String colour = componentParametersInfo.getColour();
         request.setAttribute("colour", colour);
 
+        String digiblockPosition = componentParametersInfo.getDigiblockPosition();
+        request.setAttribute("digiblockposition", digiblockPosition);
+
+        String alignment = componentParametersInfo.getAlignment();
+        request.setAttribute("alignment", alignment);
+
         String button1text = componentParametersInfo.getButton1Text();
         String button1Url = componentParametersInfo.getButton1Url();
         request.setAttribute("button1text", button1text);
