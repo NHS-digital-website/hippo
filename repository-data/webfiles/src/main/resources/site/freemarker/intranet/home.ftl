@@ -5,11 +5,12 @@
 <#include "../common/macro/svgIcons.ftl">
 
 <#include "macro/metaTags.ftl">
+<#include "macro/homePageHeader.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
+<@homePageHeader></@homePageHeader>
 
-<div class="intra-home-header"></div>
 <div class="intra-home-grid">
     <div class="intra-home-grid__left-col">
         <@hst.include ref = "left"/>

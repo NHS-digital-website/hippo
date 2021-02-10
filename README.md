@@ -51,7 +51,7 @@ automatic startup and shutdown of the application.
 
 ```
 mvn verify
-mvn -Pcargo.run
+mvn -Pcargo.run -Dspring.profiles.active=local
 ```
 
 This will run Hippo in a standalone mode, useful during development and manual tests. The first line runs unit tests and
@@ -75,6 +75,22 @@ mvn verify -f acceptance-tests/pom.xml -Pacceptance-test
 
 See [Automated Acceptance Tests](#automated-acceptance-tests) section for more details on how to further optimise the
 development cycle when working on acceptance tests.
+
+## Environment profiles
+
+This application requires a Spring environment profile be specified at runtime. The `make`
+commands have already been configured to use the `local` environment profile by default.
+All the remaining environments have been configured to use their own profile, respectively:
+
+* `local` (local development, default)
+* `dev`
+* `test`
+* `training`
+* `acct` (UAT)
+* `prod`
+
+Please note that if using the `mvn` command to start the application, failing to
+specify a Spring profile will result in the application failing to start.
 
 ## Auto-export
 

@@ -60,10 +60,23 @@
     </context-param>
 
     <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/securityContext.xml
+            /WEB-INF/securityContext-local.xml
+        </param-value>
+    </context-param>
+
+    <context-param>
         <param-name>contextInitializerClasses</param-name>
         <param-value>uk.nhs.digital.website.config.SpringProfileInitializer
         </param-value>
     </context-param>
+
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
 
     <!-- IMPORTANT
     XSSUrlFilter should ALWAYS be the FIRST filter applied in the configuration
@@ -141,6 +154,12 @@
     </filter>
 
     <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+  <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
@@ -177,6 +196,10 @@
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
     <!-- HstContextLoaderListener configuring/initializing/destroying HST Container -->
     <listener>
         <listener-class>org.hippoecm.hst.site.container.HstContextLoaderListener
@@ -189,6 +212,17 @@
             org.hippoecm.hst.site.container.session.HttpSessionEventPublisher
         </listener-class>
     </listener>
+
+    <servlet>
+        <servlet-name>saml</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>saml</servlet-name>
+        <url-pattern>/saml/web/*</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>BinariesServlet</servlet-name>

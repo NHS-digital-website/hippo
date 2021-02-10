@@ -1,0 +1,54 @@
+---
+/content/urlrewriter/rules/site/development:
+  /development[1]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:57:20.880Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from dev.nhsd.io/site/ to dev.nhsd.io/
+    urlrewriter:rulefrom: dev.nhsd.io/site/**
+    urlrewriter:ruleto: https://dev.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  /development[2]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:57:13.022Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from dev.nhsd.io/site/ to dev.nhsd.io/
+    urlrewriter:rulefrom: dev.nhsd.io/site/**
+    urlrewriter:ruleto: https://dev.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  /development[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:57:20.880Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-17T15:57:23.366Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from dev.nhsd.io/site/ to dev.nhsd.io/
+    urlrewriter:rulefrom: dev.nhsd.io/site/**
+    urlrewriter:ruleto: https://dev.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  hippo:name: Development
+  hippo:versionHistory: 4c02bea0-1a8d-4217-8695-8d2f0fc64a87
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

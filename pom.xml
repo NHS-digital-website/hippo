@@ -127,6 +127,12 @@
         <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
         <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
 
+        <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
+        <essentials.version>13.4.2</essentials.version>
+        <spring.version>5.2.0.RELEASE</spring.version>
+        <spring-security.version>5.2.0.RELEASE</spring-security.version>
+        <hst-springsec.version>2.1.0</hst-springsec.version>
+
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
 
         <commonmark.version>0.15.0</commonmark.version>
