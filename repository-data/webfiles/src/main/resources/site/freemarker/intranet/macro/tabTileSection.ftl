@@ -19,12 +19,24 @@
                     </div>
                 </#if>
 
+
                 <#if options.type?has_content>
-                    <div class="tile-item__content-tag intra-info-tag--inline-right">
+                    <div class="tile-item__content-tag intra-info-tag--block-right">
                         <p class="intra-info-tag intra-info-tag--bg-grey">${options.type}</p>
                     </div>
                 </#if>
 
+                <#if options.date?has_content>
+                    <div class="tile-item__content">
+                        <p class="cta__text">${options.date}</p>
+                    </div>
+                </#if>
+
+                <#--  <#if options.type?has_content>
+                    <div class="tile-item__content-tag">
+                        <span class="cta__meta">19 Nov 2020</span>
+                    </div>
+                </#if>  -->
                 <h2 class="tile-item__content-title">
                     <#if options.linkType == "internal">
                         <#assign link><@hst.link hippobean=options.link/></#assign>
@@ -40,6 +52,7 @@
                         </a>
                     </#if>
                 </h2>
+               
             </div>
         </div>
     </#if>
