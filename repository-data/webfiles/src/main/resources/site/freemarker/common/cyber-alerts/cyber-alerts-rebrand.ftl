@@ -21,7 +21,7 @@
                                 <div class="nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey">
                                     <div class="nhsd-m-card__content-box">
                                         <div class="nhsd-m-card__tag-list">
-                                            <span class="nhsd-a-tag nhsd-a-tag--bg-dark-grey">${cyberAlert.severity}</span>
+                                            <span class="nhsd-a-tag nhsd-a-tag--bg-light-${(cyberAlert.severity?lower_case == "high")?then("red", "blue")}">${cyberAlert.severity}</span>
                                         </div>
                                         <span class="nhsd-m-card__date">${publishedDate} (updated ${lastModifiedDate})</span>
 
