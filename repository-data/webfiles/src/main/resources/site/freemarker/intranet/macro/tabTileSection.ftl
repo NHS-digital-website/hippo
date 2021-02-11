@@ -4,6 +4,8 @@
 <#macro tabTileSection options indexId>
     <#if options??>
         <#assign title = options.title???then(options.title, "") />
+        <#assign modified = options.modified???then(options.modified, "NOMODIFIED") />
+        <#assign summary = options.summary???then(options.summary, "") />
 
         <div class="tile-item">
             <div class="tile-item__content">
@@ -26,17 +28,17 @@
                     </div>
                 </#if>
 
-                <#if options.date?has_content>
+                <#if summary?has_content>
                     <div class="tile-item__content">
-                        <p class="cta__text">${options.date}</p>
+                        <p class="cta__text">${summary}</p>
                     </div>
                 </#if>
 
-                <#--  <#if options.type?has_content>
+                <#if modified?has_content>
                     <div class="tile-item__content-tag">
-                        <span class="cta__meta">19 Nov 2020</span>
+                        <span class="cta__meta">${modified}</span>
                     </div>
-                </#if>  -->
+                </#if>
                 <h2 class="tile-item__content-title">
                     <#if options.linkType == "internal">
                         <#assign link><@hst.link hippobean=options.link/></#assign>
