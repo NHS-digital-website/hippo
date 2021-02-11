@@ -408,6 +408,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/nhsd-cyber-hub
         hst:relativecontentpath: nhsd-cyber-hub
         jcr:primaryType: hst:sitemapitem
+      /nhsd-data-hub:
+        hst:componentconfigurationid: hst:pages/nhsd-data-hub
+        hst:relativecontentpath: nhsd-homepage
+        jcr:primaryType: hst:sitemapitem
       /nhsd-developer-hub:
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
         hst:relativecontentpath: nhsd-developer-hub
