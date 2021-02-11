@@ -11,26 +11,21 @@
   properties:
     common:searchable: true
     hippostd:state: draft
-    website:json: '{ "json" : "payload A" }'
-    website:html: <p>API Specification - A</p>
     website:specification_id: api-specification-id-a
 - path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[2]
   primaryType: website:apispecification
   properties:
     common:searchable: true
     hippostd:state: unpublished
-    website:json: '{ "json" : "payload A" }'
-    website:html: <p>API Specification - A</p>
-    website:specification_id: api-specification-id-a
 - path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[3]
   primaryType: website:apispecification
   properties:
     common:searchable: true
     hippostd:state: published
     hippostdpubwf:publicationDate: '2020-07-08T08:37:03.915Z'
-    website:json: '{ "json" : "payload A" }'
-    website:html: <p>API Specification - A</p>
-    website:specification_id: api-specification-id-a
+    website:json: '{ "json" : "payload A on PUBLISHED" }'
+    website:html: <p>API Specification A on PUBLISHED</p>
+    website:lastChangeCheckInstant: '2020-07-08T08:37:10.900Z'
 
 # Folder B
 - path: /content/documents/corporate-website/api-specifications-location-b
@@ -43,17 +38,12 @@
   properties:
     common:searchable: true
     hippostd:state: draft
-    website:json: '{ "json" : "payload B" }'
-    website:html: <p>API Specification - B</p>
     website:specification_id: api-specification-id-b
 - path: /content/documents/corporate-website/api-specifications-location-b/api-spec-b/api-spec-b[2]
   primaryType: website:apispecification
   properties:
     common:searchable: true
     hippostd:state: unpublished
-    website:json: '{ "json" : "payload B" }'
-    website:html: <p>API Specification - B</p>
-    website:specification_id: api-specification-id-b
 - path: /content/documents/corporate-website/api-specifications-location-b/api-spec-b/api-spec-b[3]
   primaryType: website:apispecification
   properties:
@@ -62,3 +52,5 @@
     website:json: '{ "json" : "payload B" }'
     website:html: <p>API Specification - B</p>
     website:specification_id: api-specification-id-b
+    website:lastChangeCheckInstant: '2020-07-08T08:37:10.900Z'
+    hippostdpubwf:publicationDate: '2020-07-08T08:37:03.920Z'

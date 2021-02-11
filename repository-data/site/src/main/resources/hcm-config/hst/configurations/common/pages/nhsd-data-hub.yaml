@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/nhsd-data-hub:
+      /main:
+        /banner:
+          hst:referencecomponent: nhsd-data-hub/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: nhsd-data-hub/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: nhsd-homepage
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/nhsd-homepage
+      jcr:primaryType: hst:component

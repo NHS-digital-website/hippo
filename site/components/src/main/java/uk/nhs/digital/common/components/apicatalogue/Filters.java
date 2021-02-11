@@ -11,6 +11,8 @@ public class Filters {
 
     private final List<Section> sections;
 
+    private List<Section> allSectionsFlattened;
+
     private Filters(final FiltersWalker filtersWalker, final List<Section> sections) {
         this.filtersWalker = filtersWalker;
         this.sections = sections;
@@ -29,11 +31,16 @@ public class Filters {
 
     public List<Section> sectionsInOrderOfDeclaration() {
 
-        final SectionsCollectingFilterVisitor sectionsCollector = new SectionsCollectingFilterVisitor();
+        if (allSectionsFlattened == null) {
 
-        filtersWalker.walk(this, sectionsCollector, true);
+            final SectionsCollectingFilterVisitor sectionsCollector = new SectionsCollectingFilterVisitor();
 
-        return sectionsCollector.sections();
+            filtersWalker.walk(this, sectionsCollector, true);
+
+            allSectionsFlattened = sectionsCollector.sections();
+        }
+
+        return allSectionsFlattened;
     }
 
     Filters initialisedWith(final Set<String> filteredTaxonomyTags,

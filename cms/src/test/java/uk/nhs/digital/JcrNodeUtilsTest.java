@@ -8,7 +8,9 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
+import static uk.nhs.digital.test.util.TimeTestUtils.calendarFrom;
 
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -16,6 +18,7 @@ import org.onehippo.repository.mock.MockNode;
 import org.onehippo.repository.mock.MockNodeIterator;
 
 import java.time.Instant;
+import java.util.Calendar;
 import java.util.Optional;
 import java.util.stream.Stream;
 import javax.jcr.*;
@@ -166,14 +169,31 @@ public class JcrNodeUtilsTest {
     }
 
     @Test
+    public void setInstantPropertyQuietly() throws RepositoryException {
+
+        // given
+        final Node node = mock(Node.class);
+
+        final String expectedPropertyName = "expectedPropertyName";
+        final Instant expectedPropertyValue = Instant.parse("2020-05-04T10:30:00.000Z");
+
+        // when
+        JcrNodeUtils.setInstantPropertyQuietly(node, expectedPropertyName, expectedPropertyValue);
+
+        // then
+        then(node).should().setProperty(expectedPropertyName, calendarFrom(expectedPropertyValue));
+    }
+
+    @Test
     public void getInstantPropertyQuietly_returnsValueOfGivenPropertyOnGivenNode() throws RepositoryException {
 
         // given
         final String expectedPropertyName = "expectedPropertyName";
-        final String expectedPropertyValue = "2020-05-04T10:30:00.000Z";
+        final Instant expectedPropertyValue = Instant.parse("2020-05-04T10:30:00.000Z");
+        final Calendar expectedCalendar = calendarFrom(expectedPropertyValue);
 
         final Property expectedProperty = mock(Property.class);
-        given(expectedProperty.getString()).willReturn(expectedPropertyValue);
+        given(expectedProperty.getDate()).willReturn(expectedCalendar);
 
         final Node node = mock(Node.class);
         given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
@@ -186,8 +206,8 @@ public class JcrNodeUtilsTest {
         // then
         assertThat(
             "Value returned was read from the given node",
-            actualValue.get(),
-            is(Instant.parse(expectedPropertyValue))
+            actualValue,
+            is(Optional.of(expectedPropertyValue))
         );
     }
 
