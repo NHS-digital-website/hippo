@@ -30,15 +30,10 @@
 
                 <#if summary?has_content>
                     <div class="tile-item__content">
-                        <p class="cta__text">${summary}</p>
+                        <p class="intra-home-article-grid__summary intra-info-tag--txt--block-left">${summary}</p>
                     </div>
                 </#if>
 
-                <#if modified?has_content>
-                    <div class="tile-item__content-tag">
-                        <span class="cta__meta">${modified}</span>
-                    </div>
-                </#if>
                 <h2 class="tile-item__content-title">
                     <#if options.linkType == "internal">
                         <#assign link><@hst.link hippobean=options.link/></#assign>
@@ -54,6 +49,12 @@
                         </a>
                     </#if>
                 </h2>
+
+                <#if modified?has_content>
+                    <div class="tile-item__content">
+                        <span class="intra-home-article-grid__date intra-info-tag--block-right">${modified?date}</span>
+                    </div>
+                </#if>
                
             </div>
         </div>
