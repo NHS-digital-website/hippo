@@ -7,7 +7,7 @@
 <@hst.setBundle basename="rb.doctype.data-security-homepage"/>
 <@fmt.message key="labels.alert-severity" var="alertsSeverityLabel" />
 
-<div class="nhsd-o-card-list">
+<div class="nhsd-o-card-list nhsd-!t-margin-bottom-9">
     <div class="nhsd-t-grid">
         <#list cyberAlertList?chunk(3) as row>
             <div class="nhsd-t-row nhsd-o-card-list__items">
