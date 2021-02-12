@@ -22,7 +22,7 @@
                 </#if>
 
                 <#if options.type?has_content>
-                    <div class="tile-item__content-tag intra-info-tag--block-right">
+                    <div>
                         <p class="intra-info-tag intra-info-tag--bg-grey">${options.type}</p>
                     </div>
                 </#if>
