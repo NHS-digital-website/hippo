@@ -21,16 +21,9 @@
                     </div>
                 </#if>
 
-
                 <#if options.type?has_content>
                     <div class="tile-item__content-tag intra-info-tag--block-right">
                         <p class="intra-info-tag intra-info-tag--bg-grey">${options.type}</p>
-                    </div>
-                </#if>
-
-                <#if summary?has_content>
-                    <div class="tile-item__content">
-                        <p class="intra-home-article-grid__summary intra-info-tag--txt--block-left">${summary}</p>
                     </div>
                 </#if>
 
@@ -49,13 +42,18 @@
                         </a>
                     </#if>
                 </h2>
-
+                
                 <#if modified?has_content>
-                    <div class="tile-item__content">
-                        <span class="intra-home-article-grid__date intra-info-tag--block-right">${modified?date}</span>
+                    <div class="tile-item">
+                        <span class="tile-item__content-date">${modified?date}</span>
                     </div>
                 </#if>
-               
+
+                 <#if summary?has_content>
+                    <div class="tile-item">
+                        <p class="tile-item__content-summary">${summary}</p>
+                    </div>
+                </#if>              
             </div>
         </div>
     </#if>

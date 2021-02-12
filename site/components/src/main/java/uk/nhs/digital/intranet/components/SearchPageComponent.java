@@ -11,7 +11,6 @@ import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.web.util.UriComponentsBuilder;
-import uk.nhs.digital.intranet.beans.BaseDocument;
 import uk.nhs.digital.intranet.enums.SearchArea;
 import uk.nhs.digital.intranet.model.Person;
 import uk.nhs.digital.intranet.model.SearchResultTab;
@@ -96,31 +95,10 @@ public class SearchPageComponent extends CommonComponent {
         final String searchQuery = getSearchQuery(request, true);
 
         if (searchArea != SearchArea.PEOPLE) {
-
-            // get results
             final Pageable<HippoBean> bloomreachResults = bloomreachSearchProvider
                 .getBloomreachResults(searchQuery,
                     getComponentInfo(request).getPageSize(),
                     getCurrentPage(request), searchArea);
-
-            // if query is blank sort by date
-            if (searchQuery.equals("")) {
-                final List listItems = bloomreachResults
-                    .getItems();
-
-//                bloomreachResults
-//                    .getItems().stream().sorted((l1, l2) -> {
-//
-//                });
-
-                Comparator<BaseDocument> comparator = Comparator.comparing(BaseDocument::getLastModified);
-                Collections.sort(listItems, comparator);
-
-//                final sortedBloomreachResults =
-//              final Pageable<HippoBean> finalBloomreachResults =
-                request.setAttribute(REQUEST_ATTR_PAGEABLE, bloomreachResults);
-            }
-            // set results in request
             request.setAttribute(REQUEST_ATTR_PAGEABLE, bloomreachResults);
             if (searchArea != SearchArea.ALL) {
                 searchResultTabs.add(new SearchResultTab(searchArea,
