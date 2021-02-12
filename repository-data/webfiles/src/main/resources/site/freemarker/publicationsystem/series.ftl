@@ -208,8 +208,12 @@
                                     <#if pastObject.type == "replacedSeries">
                                         <@fmt.formatDate value=object.changeDate.time?date var="changeDate" type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
 
+                                        <#assign objTitle>
+                                            <a href="<@hst.link hippobean=object.replacementSeries/>" class="cta__button" itemprop="url">${object.replacementSeries.title}</a>
+                                        </#assign>
+
                                         <#assign replacedSeriesData = {
-                                            "title": object.replacementSeries.title,
+                                            "title": objTitle,
                                             "content": object.whyReplaced,
                                             "severity": "information",
                                             "calloutType": "change",
@@ -235,7 +239,9 @@
                                             </div>
 
                                             <div class="callout-box__content callout-box__content--narrow">
-                                                <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-1">${pubData.title}</span>
+                                                <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-1">
+                                                    <h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url">${pubData.title}</a></h3>
+                                                </span>
 
                                                 <div class="callout-box__content-description">
                                                     <div class="rich-text-content">
