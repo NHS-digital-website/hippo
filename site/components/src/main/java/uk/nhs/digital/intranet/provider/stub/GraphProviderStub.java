@@ -14,9 +14,9 @@ public class GraphProviderStub implements GraphProvider {
 
     private static final Person PERSON_1 = new Person("1", "John Doe", "john.doe@local.com",
         "Manager", "Operations", "Leeds", "07777777777", Collections.singletonList("06666666666"), null);
-    private static final Person PERSON_2 = new Person("2", "Jane Doe", "jane.doe@local.com",
+    private static final Person PERSON_2 = new Person("2", "Jane Dze", "jane.doe@local.com",
         "Director", "IT", "Leeds", "05555555555", Collections.singletonList("04444444444"), null);
-    private static final Person PERSON_3 = new Person("3", "Alice Bob", "alice.bob@local.com",
+    private static final Person PERSON_3 = new Person("3", "Alice Doe", "alice.bob@local.com",
         "Developer", "IT", "Manchester", "03333333333", Collections.singletonList("02222222222"), null);
     private static final Person PERSON_4 = new Person("4", "Richard Doe", "rich.doe@local.com",
         "Developer", "IT", "Manchester", "02222222222", Collections.singletonList("01111111111"), null);
@@ -31,6 +31,13 @@ public class GraphProviderStub implements GraphProvider {
         return PEOPLE
             .stream()
             .filter(person -> person.getDisplayName().toLowerCase().contains(searchTerm.toLowerCase()))
+            .sorted((person1, person2) -> {
+                if (person1.getDisplayName().split(" ")[1].compareTo(person2.getDisplayName().split(" ")[1]) == 0) {
+                    return person1.getDisplayName().split(" ")[0].compareTo(person2.getDisplayName().split(" ")[0]);
+                } else {
+                    return person1.getDisplayName().split(" ")[1].compareTo(person2.getDisplayName().split(" ")[1]);
+                } 
+            })
             .collect(Collectors.toList());
     }
 

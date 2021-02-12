@@ -13,6 +13,13 @@ public class PersonFactory {
         return userList
             .stream()
             .map(this::createPerson)
+            .sorted((p1, p2) -> {
+                if (p1.getDisplayName().split(" ")[1].compareTo(p2.getDisplayName().split(" ")[1]) == 0) {
+                    return p1.getDisplayName().split(" ")[0].compareTo(p2.getDisplayName().split(" ")[0]);
+                } else {
+                    return p1.getDisplayName().split(" ")[1].compareTo(p2.getDisplayName().split(" ")[1]);
+                } 
+            })
             .collect(Collectors.toList());
     }
 
