@@ -49,11 +49,13 @@ public class GraphProviderImpl implements GraphProvider {
             + String.format("startsWith(surname, '%s')", cleanSearchTerm)
             + " or "
             + String.format("startsWith(mail, '%s')", cleanSearchTerm);
+        final String order = String.format("surname ASC, givenName ASC");
 
         final URI uri = UriComponentsBuilder.fromUriString(BASE_URL_V1)
             .pathSegment("users")
             .queryParam("$filter", filter)
             .queryParam("$select", SELECTED_FIELDS_SHORT)
+            .queryParam("$orderBy", order)
             .build()
             .toUri();
 
