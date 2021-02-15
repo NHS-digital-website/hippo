@@ -12,6 +12,8 @@ public class PersonFactory {
     public List<Person> createPersons(final List<User> userList) {
         return userList
             .stream()
+            .filter(user -> !user.getDisplayName().split(" ")[1].equals(
+                user.getDisplayName().split(" ")[1].toUpperCase()))
             .map(this::createPerson)
             .collect(Collectors.toList());
     }
