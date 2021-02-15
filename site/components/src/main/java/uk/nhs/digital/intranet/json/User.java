@@ -14,6 +14,21 @@ public class User {
     private String userPrincipalName;
     private String id;
 
+    public User() {}
+
+    public User(List<String> businessPhones, String displayName, String department, String jobTitle,
+                String mail, String mobilePhone, String officeLocation, String userPrincipalName, String id) {
+        this.businessPhones = businessPhones;
+        this.displayName = displayName;
+        this.department = department;
+        this.jobTitle = jobTitle;
+        this.mail = mail;
+        this.mobilePhone = mobilePhone;
+        this.officeLocation = officeLocation;
+        this.userPrincipalName = userPrincipalName;
+        this.id = id;
+    }
+
     public List<String> getBusinessPhones() {
         return businessPhones;
     }
