@@ -41,13 +41,6 @@ public class GraphProviderStub implements GraphProvider {
             USER
                 .stream()
                 .filter(user -> user.getDisplayName().toLowerCase().contains(searchTerm.toLowerCase()))
-                .sorted((u1, u2) -> {
-                    if (u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]) == 0) {
-                        return u1.getDisplayName().split(" ")[0].compareTo(u2.getDisplayName().split(" ")[0]);
-                    } else {
-                        return u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]);
-                    } 
-                })
                 .collect(Collectors.toList())
         );
     }

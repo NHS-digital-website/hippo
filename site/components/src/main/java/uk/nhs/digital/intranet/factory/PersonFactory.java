@@ -12,6 +12,13 @@ public class PersonFactory {
     public List<Person> createPersons(final List<User> userList) {
         return userList
             .stream()
+            .sorted((u1, u2) -> {
+                if (u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]) == 0) {
+                    return u1.getDisplayName().split(" ")[0].compareTo(u2.getDisplayName().split(" ")[0]);
+                } else {
+                    return u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]);
+                } 
+            })
             .map(this::createPerson)
             .collect(Collectors.toList());
     }
