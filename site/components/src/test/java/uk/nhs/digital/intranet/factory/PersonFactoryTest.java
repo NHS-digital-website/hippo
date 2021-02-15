@@ -61,9 +61,9 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonListFromUserList() {
-        final User user1 = getUser("user1", null);
-        final User user2 = getUser("user2", null);
-        final User user3 = getUser("user3", null);
+        final User user1 = getUser("user one", null);
+        final User user2 = getUser("user two", null);
+        final User user3 = getUser("user three", null);
         final List<User> users = Arrays.asList(user1, user2, user3);
 
         final List<Person> persons = personFactory.createPersons(users);
