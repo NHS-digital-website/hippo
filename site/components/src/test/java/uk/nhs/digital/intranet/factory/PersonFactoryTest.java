@@ -93,25 +93,14 @@ public class PersonFactoryTest {
         
         final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
 
-        final List<User> sortedUsers = users.stream()
-            .sorted((u1, u2) ->
-                u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]))
-            .collect(Collectors.toList());
-
         final List<Person> persons = personFactory.createPersons(users);
 
         assertEquals(5, persons.size());
-        IntStream.range(0, 5).forEach(index -> {
-            assertEquals(sortedUsers.get(index).getDisplayName(), persons.get(index).getDisplayName());
-            assertEquals(sortedUsers.get(index).getDepartment(), persons.get(index).getDepartment());
-            assertEquals(sortedUsers.get(index).getId(), persons.get(index).getId());
-            assertNull(persons.get(index).getBusinessPhones());
-            assertNull(persons.get(index).getEmail());
-            assertNull(persons.get(index).getPhoneNumber());
-            assertNull(persons.get(index).getJobRole());
-            assertNull(persons.get(index).getOfficeLocation());
-            assertNull(persons.get(index).getPhoto());
-        });
+        assertEquals(user3.getDisplayName(), persons.get(0).getDisplayName());
+        assertEquals(user5.getDisplayName(), persons.get(1).getDisplayName());
+        assertEquals(user2.getDisplayName(), persons.get(2).getDisplayName());
+        assertEquals(user4.getDisplayName(), persons.get(3).getDisplayName());
+        assertEquals(user1.getDisplayName(), persons.get(4).getDisplayName());
     }
 
     @Test
@@ -124,25 +113,14 @@ public class PersonFactoryTest {
         
         final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
 
-        final List<User> sortedUsers = users.stream()
-            .sorted((u1, u2) ->
-                u1.getDisplayName().split(" ")[0].compareTo(u2.getDisplayName().split(" ")[0]))
-            .collect(Collectors.toList());
-
         final List<Person> persons = personFactory.createPersons(users);
 
         assertEquals(5, persons.size());
-        IntStream.range(0, 5).forEach(index -> {
-            assertEquals(sortedUsers.get(index).getDisplayName(), persons.get(index).getDisplayName());
-            assertEquals(sortedUsers.get(index).getDepartment(), persons.get(index).getDepartment());
-            assertEquals(sortedUsers.get(index).getId(), persons.get(index).getId());
-            assertNull(persons.get(index).getBusinessPhones());
-            assertNull(persons.get(index).getEmail());
-            assertNull(persons.get(index).getPhoneNumber());
-            assertNull(persons.get(index).getJobRole());
-            assertNull(persons.get(index).getOfficeLocation());
-            assertNull(persons.get(index).getPhoto());
-        });
+        assertEquals(user1.getDisplayName(), persons.get(0).getDisplayName());
+        assertEquals(user2.getDisplayName(), persons.get(1).getDisplayName());
+        assertEquals(user5.getDisplayName(), persons.get(2).getDisplayName());
+        assertEquals(user4.getDisplayName(), persons.get(3).getDisplayName());
+        assertEquals(user3.getDisplayName(), persons.get(4).getDisplayName());
     }
 
     @Test
@@ -155,30 +133,14 @@ public class PersonFactoryTest {
         
         final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
 
-        final List<User> sortedUsers = users.stream()
-            .sorted((u1, u2) -> {
-                if (u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]) == 0) {
-                    return u1.getDisplayName().split(" ")[0].compareTo(u2.getDisplayName().split(" ")[0]);
-                } else {
-                    return u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]);
-                } 
-            })
-            .collect(Collectors.toList());
-
         final List<Person> persons = personFactory.createPersons(users);
 
         assertEquals(5, persons.size());
-        IntStream.range(0, 5).forEach(index -> {
-            assertEquals(sortedUsers.get(index).getDisplayName(), persons.get(index).getDisplayName());
-            assertEquals(sortedUsers.get(index).getDepartment(), persons.get(index).getDepartment());
-            assertEquals(sortedUsers.get(index).getId(), persons.get(index).getId());
-            assertNull(persons.get(index).getBusinessPhones());
-            assertNull(persons.get(index).getEmail());
-            assertNull(persons.get(index).getPhoneNumber());
-            assertNull(persons.get(index).getJobRole());
-            assertNull(persons.get(index).getOfficeLocation());
-            assertNull(persons.get(index).getPhoto());
-        });
+        assertEquals(user5.getDisplayName(), persons.get(0).getDisplayName());
+        assertEquals(user3.getDisplayName(), persons.get(1).getDisplayName());
+        assertEquals(user4.getDisplayName(), persons.get(2).getDisplayName());
+        assertEquals(user1.getDisplayName(), persons.get(3).getDisplayName());
+        assertEquals(user2.getDisplayName(), persons.get(4).getDisplayName());
     }
 
     private User getUser(final String name, String email) {
