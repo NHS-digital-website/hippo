@@ -10,6 +10,7 @@ import uk.nhs.digital.intranet.model.Person;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PersonFactoryTest {
@@ -73,6 +74,104 @@ public class PersonFactoryTest {
             assertEquals(users.get(index).getDisplayName(), persons.get(index).getDisplayName());
             assertEquals(users.get(index).getDepartment(), persons.get(index).getDepartment());
             assertEquals(users.get(index).getId(), persons.get(index).getId());
+            assertNull(persons.get(index).getBusinessPhones());
+            assertNull(persons.get(index).getEmail());
+            assertNull(persons.get(index).getPhoneNumber());
+            assertNull(persons.get(index).getJobRole());
+            assertNull(persons.get(index).getOfficeLocation());
+            assertNull(persons.get(index).getPhoto());
+        });
+    }
+
+    @Test
+    public void createsPersonListFromUserListSortedAlphabeticallySameGivenName() {
+        final User user1 = getUser("User White", null);
+        final User user2 = getUser("User Brown", null);
+        final User user3 = getUser("User Black", null);
+        final User user4 = getUser("User Red", null);
+        final User user5 = getUser("User Blue", null);
+        
+        final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
+
+        final List<User> sortedUsers = users.stream()
+            .sorted((u1, u2) ->
+                u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]))
+            .collect(Collectors.toList());
+
+        final List<Person> persons = personFactory.createPersons(users);
+
+        assertEquals(5, persons.size());
+        IntStream.range(0, 5).forEach(index -> {
+            assertEquals(sortedUsers.get(index).getDisplayName(), persons.get(index).getDisplayName());
+            assertEquals(sortedUsers.get(index).getDepartment(), persons.get(index).getDepartment());
+            assertEquals(sortedUsers.get(index).getId(), persons.get(index).getId());
+            assertNull(persons.get(index).getBusinessPhones());
+            assertNull(persons.get(index).getEmail());
+            assertNull(persons.get(index).getPhoneNumber());
+            assertNull(persons.get(index).getJobRole());
+            assertNull(persons.get(index).getOfficeLocation());
+            assertNull(persons.get(index).getPhoto());
+        });
+    }
+
+    @Test
+    public void createsPersonListFromUserListSortedAlphabeticallySameSurname() {
+        final User user1 = getUser("Albert User", null);
+        final User user2 = getUser("James User", null);
+        final User user3 = getUser("Kyle User", null);
+        final User user4 = getUser("John User", null);
+        final User user5 = getUser("Jane User", null);
+        
+        final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
+
+        final List<User> sortedUsers = users.stream()
+            .sorted((u1, u2) ->
+                u1.getDisplayName().split(" ")[0].compareTo(u2.getDisplayName().split(" ")[0]))
+            .collect(Collectors.toList());
+
+        final List<Person> persons = personFactory.createPersons(users);
+
+        assertEquals(5, persons.size());
+        IntStream.range(0, 5).forEach(index -> {
+            assertEquals(sortedUsers.get(index).getDisplayName(), persons.get(index).getDisplayName());
+            assertEquals(sortedUsers.get(index).getDepartment(), persons.get(index).getDepartment());
+            assertEquals(sortedUsers.get(index).getId(), persons.get(index).getId());
+            assertNull(persons.get(index).getBusinessPhones());
+            assertNull(persons.get(index).getEmail());
+            assertNull(persons.get(index).getPhoneNumber());
+            assertNull(persons.get(index).getJobRole());
+            assertNull(persons.get(index).getOfficeLocation());
+            assertNull(persons.get(index).getPhoto());
+        });
+    }
+
+    @Test
+    public void createsPersonListFromUserListSortedAlphabetically() {
+        final User user1 = getUser("Bob Smith", null);
+        final User user2 = getUser("Kyle Smith", null);
+        final User user3 = getUser("John Doe", null);
+        final User user4 = getUser("Allan Smith", null);
+        final User user5 = getUser("Bob Doe", null);
+        
+        final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
+
+        final List<User> sortedUsers = users.stream()
+            .sorted((u1, u2) -> {
+                if (u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]) == 0) {
+                    return u1.getDisplayName().split(" ")[0].compareTo(u2.getDisplayName().split(" ")[0]);
+                } else {
+                    return u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]);
+                } 
+            })
+            .collect(Collectors.toList());
+
+        final List<Person> persons = personFactory.createPersons(users);
+
+        assertEquals(5, persons.size());
+        IntStream.range(0, 5).forEach(index -> {
+            assertEquals(sortedUsers.get(index).getDisplayName(), persons.get(index).getDisplayName());
+            assertEquals(sortedUsers.get(index).getDepartment(), persons.get(index).getDepartment());
+            assertEquals(sortedUsers.get(index).getId(), persons.get(index).getId());
             assertNull(persons.get(index).getBusinessPhones());
             assertNull(persons.get(index).getEmail());
             assertNull(persons.get(index).getPhoneNumber());
