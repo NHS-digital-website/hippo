@@ -31,22 +31,22 @@ public class Archive extends BaseDocument {
     }
 
     public String[] getKeys() {
-        return getProperty(PublicationBase.PropertyKeys.TAXONOMY);
+        return getMultipleProperty(PublicationBase.PropertyKeys.TAXONOMY);
     }
 
     public String[] getInformationType() {
-        return getProperty(PublicationBase.PropertyKeys.INFORMATION_TYPE);
+        return getMultipleProperty(PublicationBase.PropertyKeys.INFORMATION_TYPE);
     }
 
     public String[] getGranularity() {
-        return getProperty(PublicationBase.PropertyKeys.GRANULARITY);
+        return getMultipleProperty(PublicationBase.PropertyKeys.GRANULARITY);
     }
 
     public String[] getGeographicCoverage() {
-        return geographicCoverageValuesToRegionValue(getProperty(PublicationBase.PropertyKeys.GEOGRAPHIC_COVERAGE));
+        return geographicCoverageValuesToRegionValue(getMultipleProperty(PublicationBase.PropertyKeys.GEOGRAPHIC_COVERAGE));
     }
 
     public String getAdministrativeSources() {
-        return getProperty(PublicationBase.PropertyKeys.ADMINISTRATIVE_SOURCES);
+        return getSingleProperty(PublicationBase.PropertyKeys.ADMINISTRATIVE_SOURCES);
     }
 }
