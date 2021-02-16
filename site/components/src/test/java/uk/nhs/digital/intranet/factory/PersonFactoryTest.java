@@ -82,6 +82,22 @@ public class PersonFactoryTest {
         });
     }
 
+    @Test
+    public void createsPersonListFromUserListFiltersNonUsersWithCaps() {
+        final User user1 = getUser("user A", null);
+        final User user2 = getUser("user a", null);
+        final User user3 = getUser("user b", null);
+        final User user4 = getUser("user B", null);
+        final User user5 = getUser("user C", null);
+        final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
+
+        final List<Person> persons = personFactory.createPersons(users);
+
+        assertEquals(2, persons.size());
+        assertEquals(user2.getDisplayName(), persons.get(0).getDisplayName());
+        assertEquals(user3.getDisplayName(), persons.get(1).getDisplayName());
+    }
+
     private User getUser(final String name, String email) {
         final User user = new User();
         user.setDisplayName(name);
