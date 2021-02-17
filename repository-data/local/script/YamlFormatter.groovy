@@ -48,9 +48,19 @@ class YamlFormatter extends Script {
         File rootDir = new File("${project.parent.parent.basedir}/repository-data")
         rootDir.eachFileRecurse(FileType.DIRECTORIES) {
             dir ->
+                if (dir.getPath().contains('node_modules')) {
+                    return;
+                }
                 dir.eachFileMatch(FileType.FILES, ~/.*.yaml/) { file ->
                     String text = file.getText()
-                    LinkedHashMap map = parser.load(text)
+
+                    LinkedHashMap map
+                    try {
+                        map = parser.load(text)
+                    } catch (Exception parsingException) {
+                        log.error("Failed to parse file: $file", parsingException)
+                        throw parsingException
+                    }
 
                     boolean removeUuid = !keepUuidFiles.contains(file.getName())
                     map = format(map, null, removeUuid)
