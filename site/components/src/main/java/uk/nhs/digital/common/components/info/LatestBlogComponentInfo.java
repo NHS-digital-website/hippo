@@ -19,6 +19,7 @@ public interface LatestBlogComponentInfo extends EssentialsListComponentInfo {
         required = false
         )
     @JcrPath(
+        isRelative = true,
         pickerConfiguration = "cms-pickers/documents",
         pickerSelectableNodeTypes = {"hippostd:folder"},
         pickerInitialPath = "/content/documents/corporate-website/blogs"
