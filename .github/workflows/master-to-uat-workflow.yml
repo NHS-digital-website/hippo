@@ -13,6 +13,7 @@ jobs:
     env:
       SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
       CHANNEL_ID: C8QJFKBC2 # support channel
+      ENV: "uat"
 
     steps:
 
@@ -126,7 +127,6 @@ jobs:
           make ondemand.pipeline-deploy > pipeline-deploy-output.txt
           echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
         env:
-          ENV: "uat"
           RD_URL: ${{ secrets.RD_API }}
           RD_USER: ${{ secrets.RD_USER }}
           RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
