@@ -12,8 +12,7 @@ public class PersonFactory {
     public List<Person> createPersons(final List<User> userList) {
         return userList
             .stream()
-            .filter(user -> !user.getDisplayName().split(" ")[1].equals(
-                user.getDisplayName().split(" ")[1].toUpperCase()))
+            .filter(user -> !user.getSurname().equals(user.getSurname().toUpperCase()))
             .map(this::createPerson)
             .collect(Collectors.toList());
     }
@@ -22,6 +21,8 @@ public class PersonFactory {
         return new Person(
             user.getId(),
             user.getDisplayName(),
+            user.getGivenName(),
+            user.getSurname(),
             user.getDepartment()
         );
     }
@@ -30,6 +31,8 @@ public class PersonFactory {
         return new Person(
             user.getId(),
             user.getDisplayName(),
+            user.getGivenName(),
+            user.getSurname(),
             StringUtils.hasText(user.getMail()) ? user.getMail() : user.getUserPrincipalName(),
             user.getJobTitle(),
             user.getDepartment(),

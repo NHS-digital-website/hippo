@@ -6,6 +6,8 @@ public class User {
 
     private List<String> businessPhones;
     private String displayName;
+    private String givenName;
+    private String surname;
     private String department;
     private String jobTitle;
     private String mail;
@@ -16,10 +18,13 @@ public class User {
 
     public User() {}
 
-    public User(List<String> businessPhones, String displayName, String department, String jobTitle,
-                String mail, String mobilePhone, String officeLocation, String userPrincipalName, String id) {
+    public User(List<String> businessPhones, String displayName, String givenName, String surname, 
+                String department, String jobTitle, String mail, String mobilePhone, 
+                String officeLocation, String userPrincipalName, String id) {
         this.businessPhones = businessPhones;
         this.displayName = displayName;
+        this.givenName = givenName;
+        this.surname = surname;
         this.department = department;
         this.jobTitle = jobTitle;
         this.mail = mail;
@@ -43,6 +48,22 @@ public class User {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+    }
+
+    public String getGivenName() {
+        return givenName;
+    }
+
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getDepartment() {

@@ -27,8 +27,10 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonFromUserAndPhoto() {
-        final String userName = "user1";
-        final User user = getUser(userName, String.format(MAIL_FORMAT, userName));
+        final String userName = "user 1";
+        final String givenName = "user";
+        final String surname = "1";
+        final User user = getUser(userName, givenName, surname, String.format(MAIL_FORMAT, userName));
 
         final Person person = personFactory.createPerson(user, PHOTO);
 
@@ -45,7 +47,9 @@ public class PersonFactoryTest {
     @Test
     public void createsPersonFromUserAndPhotoUsingUserPrincipalNameAsMail() {
         final String userName = "user1";
-        final User user = getUser(userName, null);
+        final String givenName = "user";
+        final String surname = "1";
+        final User user = getUser(userName, givenName, surname, null);
 
         final Person person = personFactory.createPerson(user, PHOTO);
 
@@ -61,9 +65,9 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonListFromUserList() {
-        final User user1 = getUser("user a", null);
-        final User user2 = getUser("user b", null);
-        final User user3 = getUser("user c", null);
+        final User user1 = getUser("user a", "user", "a", null);
+        final User user2 = getUser("user b", "user", "b", null);
+        final User user3 = getUser("user c", "user", "c", null);
         final List<User> users = Arrays.asList(user1, user2, user3);
 
         final List<Person> persons = personFactory.createPersons(users);
@@ -84,11 +88,11 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonListFromUserListFiltersNonUsersWithCaps() {
-        final User user1 = getUser("user A", null);
-        final User user2 = getUser("user a", null);
-        final User user3 = getUser("user b", null);
-        final User user4 = getUser("user B", null);
-        final User user5 = getUser("user C", null);
+        final User user1 = getUser("user A", "user", "A", null);
+        final User user2 = getUser("user a", "user", "a", null);
+        final User user3 = getUser("user b", "user", "b", null);
+        final User user4 = getUser("B, User", "user", "B", null);
+        final User user5 = getUser("user C", "user", "C", null);
         final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
 
         final List<Person> persons = personFactory.createPersons(users);
@@ -98,9 +102,12 @@ public class PersonFactoryTest {
         assertEquals(user3.getDisplayName(), persons.get(1).getDisplayName());
     }
 
-    private User getUser(final String name, String email) {
+    private User getUser(final String displayName, final String givenName, 
+                         final String surname, String email) {
         final User user = new User();
-        user.setDisplayName(name);
+        user.setDisplayName(displayName);
+        user.setGivenName(givenName);
+        user.setSurname(surname);
         user.setDepartment(DEPT);
         user.setBusinessPhones(Collections.singletonList(BUSINESS_PHONE));
         user.setId(ID);
@@ -108,7 +115,7 @@ public class PersonFactoryTest {
         user.setMail(email);
         user.setMobilePhone(MOBILE_PHONE);
         user.setOfficeLocation(OFFICE);
-        user.setUserPrincipalName(String.format(USER_PRINCIPAL_NAME_FORMAT, name));
+        user.setUserPrincipalName(String.format(USER_PRINCIPAL_NAME_FORMAT, displayName));
         return user;
     }
 }

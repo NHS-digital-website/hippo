@@ -168,7 +168,7 @@ public class SearchPageComponentTest {
         Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(anyString(), eq(SearchArea.TASKS))).thenReturn(tasksResults);
         Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(anyString(), eq(SearchArea.TEAMS))).thenReturn(teamsResults);
 
-        List<Person> expectedPeopleResults = Collections.singletonList(new Person("1", "bob", "finance"));
+        List<Person> expectedPeopleResults = Collections.singletonList(new Person("1", "bob bo", "bob", "bo", "finance"));
         Mockito.when(graphProvider.getPeople(anyString())).thenReturn(expectedPeopleResults);
 
         underTest.doBeforeRender(request, new MockHstResponse());
