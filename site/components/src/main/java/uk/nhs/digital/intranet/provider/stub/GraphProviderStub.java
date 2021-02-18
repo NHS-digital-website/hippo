@@ -17,25 +17,37 @@ public class GraphProviderStub implements GraphProvider {
     private final PersonFactory personFactory = new PersonFactory();
 
     private static final User USER_1 = new User(Collections.singletonList("06666666666"), "John Doe",
-        "Operations", "Manager", "john.doe@local.com", "05555555555", "Leeds", "jane.doe@domain.com", "2");
+        "John", "Doe", "Operations", "Manager", "john.doe@local.com", "05555555555", "Leeds", 
+        "jane.doe@domain.com", "2");
     private static final User USER_2 = new User(Collections.singletonList("04444444444"), "Jane Doe",
-        "Director", "IT", "jane.doe@local.com", "07777777777", "Leeds", "john.doe@domain.com", "1");
+        "Jane", "Doe", "Director", "IT", "jane.doe@local.com", "07777777777", "Leeds", 
+        "john.doe@domain.com", "1");
     private static final User USER_3 = new User(Collections.singletonList("02222222222"), "Alice Bob",
-        "Developer", "IT", "alice.bob@local.com", "03333333333", "Manchester", "alice.bob@domain.com", "3");
+        "Alice", "Bob", "Developer", "IT", "alice.bob@local.com", "03333333333", "Manchester", 
+        "alice.bob@domain.com", "3");
     private static final User USER_4 = new User(Collections.singletonList("01111111111"), "Richard Doe",
-        "Developer", "IT", "rich.doe@local.com", "02222222222", "Manchester", "rich.doe@domain.com", "4");
+        "Richard", "Doe", "Developer", "IT", "rich.doe@local.com", "02222222222", "Manchester", 
+        "rich.doe@domain.com", "4");
     private static final User USER_5 = new User(Collections.singletonList("07777777777"), "Jake Bob",
-        "Tester", "IT", "jake.bob@local.com", "08888888888", "Leeds", "jake.bob@domain.com", "5");
+        "Jake", "Bob", "Tester", "IT", "jake.bob@local.com", "08888888888", "Leeds", 
+        "jake.bob@domain.com", "5");
     private static final User USER_6 = new User(Collections.singletonList("09999999999"), "Sarah Jones",
-        "Operations", "Manager", "sarah.jones@local.com", "0666666666", "Birmingham", "sarah.jones@domain.com", "6");
+        "Sarah", "Jones", "Operations", "Manager", "sarah.jones@local.com", "0666666666", "Birmingham", 
+        "sarah.jones@domain.com", "6");
     private static final User USER_7 = new User(Collections.singletonList("03333333333"), "Albert Jones",
-        "Director", "IT", "albery.jones@local.com", "01111111111", "Birmingham", "albert.jones@domain.com", "7");
+        "Albert", "Jones", "Director", "IT", "albery.jones@local.com", "01111111111", "Birmingham", 
+        "albert.jones@domain.com", "7");
     private static final User USER_8 = new User(Collections.singletonList("06666666666"), "John DOE",
-        "Operations", "Manager", "john.doe@local.com", "05555555555", "Leeds", "jane.doe@domain.com", "8");
-    private static final User USER_9 = new User(Collections.singletonList("04444444444"), "Jane DOE",
-        "Director", "IT", "jane.doe@local.com", "07777777777", "Leeds", "john.doe@domain.com", "9");
+        "John", "DOE", "Operations", "Manager", "john.doe@local.com", "05555555555", "Leeds", 
+        "john.doe@domain.com", "8");
+    private static final User USER_9 = new User(Collections.singletonList("05555555555"), "Jane DOE",
+        "Jane", "DOE", "Director", "IT", "jane.doe@local.com", "07777777777", "Leeds", 
+        "jane.doe@domain.com", "9");
+    private static final User USER_10 = new User(Collections.singletonList("04444444444"), "DOE, Tony",
+        "Tony", "DOE", "Director", "IT", "tony.doe@local.com", "01111111111", "Leeds", 
+        "tony.doe@domain.com", "10");
     private static final List<User> USER = Arrays.asList(USER_1, USER_2, USER_3, USER_4, USER_5, USER_6, USER_7,
-        USER_8, USER_9);
+        USER_8, USER_9, USER_10);
 
     @Override
     public List<Person> getPeople(final String searchTerm) {
