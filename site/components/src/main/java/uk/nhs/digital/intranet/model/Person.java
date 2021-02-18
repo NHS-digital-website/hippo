@@ -8,6 +8,8 @@ public class Person {
 
     private String id;
     private String displayName;
+    private String givenName;
+    private String surname;
     private String email;
     private String jobRole;
     private String department;
@@ -16,16 +18,21 @@ public class Person {
     private List<String> businessPhones;
     private String photo;
 
-    public Person(String id, String displayName, String department) {
+    public Person(String id, String displayName, String givenName, String surname, String department) {
         this.id = id;
         this.displayName = displayName;
+        this.givenName = givenName;
+        this.surname = surname;
         this.department = department;
     }
 
-    public Person(String id, String displayName, String email, String jobRole, String department,
-                  String officeLocation, String phoneNumber, List<String> businessPhones, String photo) {
+    public Person(String id, String displayName, String givenName, String surname, String email, 
+                  String jobRole, String department, String officeLocation, String phoneNumber, 
+                  List<String> businessPhones, String photo) {
         this.id = id;
         this.displayName = displayName;
+        this.givenName = givenName;
+        this.surname = surname;
         this.email = email;
         this.jobRole = jobRole;
         this.department = department;
@@ -37,6 +44,14 @@ public class Person {
 
     public String getDisplayName() {
         return displayName;
+    }
+    
+    public String getGivenName() {
+        return givenName;
+    }
+
+    public String getSurname() {
+        return surname;
     }
 
     public String getType() {
