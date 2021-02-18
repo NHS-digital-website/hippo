@@ -35,6 +35,8 @@ public class PersonFactoryTest {
         final Person person = personFactory.createPerson(user, PHOTO);
 
         assertEquals(user.getDisplayName(), person.getDisplayName());
+        assertEquals(user.getGivenName(), person.getGivenName());
+        assertEquals(user.getSurname(), person.getSurname());
         assertEquals(user.getBusinessPhones(), person.getBusinessPhones());
         assertEquals(user.getDepartment(), person.getDepartment());
         assertEquals(user.getJobTitle(), person.getJobRole());
@@ -54,6 +56,8 @@ public class PersonFactoryTest {
         final Person person = personFactory.createPerson(user, PHOTO);
 
         assertEquals(user.getDisplayName(), person.getDisplayName());
+        assertEquals(user.getGivenName(), person.getGivenName());
+        assertEquals(user.getSurname(), person.getSurname());
         assertEquals(user.getBusinessPhones(), person.getBusinessPhones());
         assertEquals(user.getDepartment(), person.getDepartment());
         assertEquals(user.getJobTitle(), person.getJobRole());
@@ -75,6 +79,8 @@ public class PersonFactoryTest {
         assertEquals(3, persons.size());
         IntStream.range(0, 3).forEach(index -> {
             assertEquals(users.get(index).getDisplayName(), persons.get(index).getDisplayName());
+            assertEquals(users.get(index).getGivenName(), persons.get(index).getGivenName());
+            assertEquals(users.get(index).getSurname(), persons.get(index).getSurname());
             assertEquals(users.get(index).getDepartment(), persons.get(index).getDepartment());
             assertEquals(users.get(index).getId(), persons.get(index).getId());
             assertNull(persons.get(index).getBusinessPhones());
