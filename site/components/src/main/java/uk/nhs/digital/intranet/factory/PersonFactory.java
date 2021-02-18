@@ -13,10 +13,10 @@ public class PersonFactory {
         return userList
             .stream()
             .sorted((u1, u2) -> {
-                if (u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]) == 0) {
-                    return u1.getDisplayName().split(" ")[0].compareTo(u2.getDisplayName().split(" ")[0]);
+                if (u1.getSurname().compareTo(u2.getSurname()) == 0) {
+                    return u1.getGivenName().compareTo(u2.getGivenName());
                 } else {
-                    return u1.getDisplayName().split(" ")[1].compareTo(u2.getDisplayName().split(" ")[1]);
+                    return u1.getSurname().compareTo(u2.getSurname());
                 } 
             })
             .map(this::createPerson)
@@ -27,6 +27,8 @@ public class PersonFactory {
         return new Person(
             user.getId(),
             user.getDisplayName(),
+            user.getGivenName(),
+            user.getSurname(),
             user.getDepartment()
         );
     }
@@ -35,6 +37,8 @@ public class PersonFactory {
         return new Person(
             user.getId(),
             user.getDisplayName(),
+            user.getGivenName(),
+            user.getSurname(),
             StringUtils.hasText(user.getMail()) ? user.getMail() : user.getUserPrincipalName(),
             user.getJobTitle(),
             user.getDepartment(),

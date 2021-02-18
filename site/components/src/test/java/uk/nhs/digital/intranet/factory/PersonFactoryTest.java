@@ -28,12 +28,16 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonFromUserAndPhoto() {
-        final String userName = "user1";
-        final User user = getUser(userName, String.format(MAIL_FORMAT, userName));
+        final String userName = "user 1";
+        final String givenName = "user";
+        final String surname = "1";
+        final User user = getUser(userName, givenName, surname, String.format(MAIL_FORMAT, userName));
 
         final Person person = personFactory.createPerson(user, PHOTO);
 
         assertEquals(user.getDisplayName(), person.getDisplayName());
+        assertEquals(user.getGivenName(), person.getGivenName());
+        assertEquals(user.getSurname(), person.getSurname());
         assertEquals(user.getBusinessPhones(), person.getBusinessPhones());
         assertEquals(user.getDepartment(), person.getDepartment());
         assertEquals(user.getJobTitle(), person.getJobRole());
@@ -46,11 +50,15 @@ public class PersonFactoryTest {
     @Test
     public void createsPersonFromUserAndPhotoUsingUserPrincipalNameAsMail() {
         final String userName = "user1";
-        final User user = getUser(userName, null);
+        final String givenName = "user";
+        final String surname = "1";
+        final User user = getUser(userName, givenName, surname, null);
 
         final Person person = personFactory.createPerson(user, PHOTO);
 
         assertEquals(user.getDisplayName(), person.getDisplayName());
+        assertEquals(user.getGivenName(), person.getGivenName());
+        assertEquals(user.getSurname(), person.getSurname());
         assertEquals(user.getBusinessPhones(), person.getBusinessPhones());
         assertEquals(user.getDepartment(), person.getDepartment());
         assertEquals(user.getJobTitle(), person.getJobRole());
@@ -62,9 +70,9 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonListFromUserList() {
-        final User user1 = getUser("user a", null);
-        final User user2 = getUser("user b", null);
-        final User user3 = getUser("user c", null);
+        final User user1 = getUser("user a", "user", "a", null);
+        final User user2 = getUser("user b", "user", "b", null);
+        final User user3 = getUser("user c", "user", "c", null);
         final List<User> users = Arrays.asList(user1, user2, user3);
 
         final List<Person> persons = personFactory.createPersons(users);
@@ -72,6 +80,8 @@ public class PersonFactoryTest {
         assertEquals(3, persons.size());
         IntStream.range(0, 3).forEach(index -> {
             assertEquals(users.get(index).getDisplayName(), persons.get(index).getDisplayName());
+            assertEquals(users.get(index).getGivenName(), persons.get(index).getGivenName());
+            assertEquals(users.get(index).getSurname(), persons.get(index).getSurname());
             assertEquals(users.get(index).getDepartment(), persons.get(index).getDepartment());
             assertEquals(users.get(index).getId(), persons.get(index).getId());
             assertNull(persons.get(index).getBusinessPhones());
@@ -85,11 +95,11 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonListFromUserListSortedAlphabeticallySameGivenName() {
-        final User user1 = getUser("User White", null);
-        final User user2 = getUser("User Brown", null);
-        final User user3 = getUser("User Black", null);
-        final User user4 = getUser("User Red", null);
-        final User user5 = getUser("User Blue", null);
+        final User user1 = getUser("User White", "User", "White", null);
+        final User user2 = getUser("User Brown", "User", "Brown", null);
+        final User user3 = getUser("User Black", "User", "Black", null);
+        final User user4 = getUser("User Red", "User", "Red", null);
+        final User user5 = getUser("User Blue", "User", "Blue", null);
         
         final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
 
@@ -105,11 +115,11 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonListFromUserListSortedAlphabeticallySameSurname() {
-        final User user1 = getUser("Albert User", null);
-        final User user2 = getUser("James User", null);
-        final User user3 = getUser("Kyle User", null);
-        final User user4 = getUser("John User", null);
-        final User user5 = getUser("Jane User", null);
+        final User user1 = getUser("Albert User", "Albert", "User", null);
+        final User user2 = getUser("James User", "James", "User", null);
+        final User user3 = getUser("Kyle User", "Kyle", "User", null);
+        final User user4 = getUser("John User", "John", "User", null);
+        final User user5 = getUser("Jane User", "Jane", "User", null);
         
         final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
 
@@ -125,11 +135,11 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonListFromUserListSortedAlphabetically() {
-        final User user1 = getUser("Bob Smith", null);
-        final User user2 = getUser("Kyle Smith", null);
-        final User user3 = getUser("John Doe", null);
-        final User user4 = getUser("Allan Smith", null);
-        final User user5 = getUser("Bob Doe", null);
+        final User user1 = getUser("Bob Smith", "Bob", "Smith", null);
+        final User user2 = getUser("Kyle Smith", "Kyle", "Smith", null);
+        final User user3 = getUser("John Doe", "John", "Doe", null);
+        final User user4 = getUser("Allan Smith", "Allan", "Smith", null);
+        final User user5 = getUser("Bob Doe", "Bob", "Doe", null);
         
         final List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
 
@@ -143,9 +153,12 @@ public class PersonFactoryTest {
         assertEquals(user2.getDisplayName(), persons.get(4).getDisplayName());
     }
 
-    private User getUser(final String name, String email) {
+    private User getUser(final String displayName, final String givenName, 
+                         final String surname, String email) {
         final User user = new User();
-        user.setDisplayName(name);
+        user.setDisplayName(displayName);
+        user.setGivenName(givenName);
+        user.setSurname(surname);
         user.setDepartment(DEPT);
         user.setBusinessPhones(Collections.singletonList(BUSINESS_PHONE));
         user.setId(ID);
@@ -153,7 +166,7 @@ public class PersonFactoryTest {
         user.setMail(email);
         user.setMobilePhone(MOBILE_PHONE);
         user.setOfficeLocation(OFFICE);
-        user.setUserPrincipalName(String.format(USER_PRINCIPAL_NAME_FORMAT, name));
+        user.setUserPrincipalName(String.format(USER_PRINCIPAL_NAME_FORMAT, displayName));
         return user;
     }
 }
