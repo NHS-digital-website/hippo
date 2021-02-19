@@ -87,16 +87,6 @@ Feature: Ensure publication page displays required fields.
             | Morbi eget congue turpis. Fusce in purus mollis ...           |
             | Aliquam erat volutpat. Quisque eget massa ...                 |
 
-    Scenario: Show attachments with and without display names
-        Given I navigate to "attachment test publication" page
-        Then I should see publication page titled "Attachment Test Publication"
-        And I should also see element with UI path "ps.publication.resources-attachments" with:
-            | attachment.pdf\nPDF 7 KB       |
-            | Attachment with text\nPDF 7 KB |
-        And I can download following files:
-            | attachment.pdf       | attachment.pdf      |
-            | Attachment with text | attachment-text.pdf |
-
     Scenario: Dataset order on a publication
         Given I navigate to "ordered publication" page
         Then I should see "Publication Data Sets" with:
