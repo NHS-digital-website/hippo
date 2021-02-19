@@ -81,6 +81,8 @@ public class WebDriverProvider {
             chromeOptions.addArguments("--headless");
         }
 
+        chromeOptions.addArguments("--host-resolver-rules=MAP consent.cookiebot.com 127.0.0.1");
+
         webDriver = new RemoteWebDriver(webDriverServiceProvider.getUrl(), chromeOptions);
     }
 
