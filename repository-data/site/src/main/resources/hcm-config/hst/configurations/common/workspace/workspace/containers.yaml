@@ -83,6 +83,15 @@ definitions:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
+      /nhsd-services-hub:
+        /banner:
+          hst:label: Banner
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /servicepage:
         /servicepage-bottom:
           .meta:residual-child-node-category: content

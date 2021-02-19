@@ -382,6 +382,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/nhsd-homepage
         hst:relativecontentpath: nhsd-homepage
         jcr:primaryType: hst:sitemapitem
+      /nhsd-services-hub:
+        hst:componentconfigurationid: hst:pages/nhsd-services-hub
+        hst:relativecontentpath: nhsd-services-hub
+        jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:relativecontentpath: ../administration/robots
