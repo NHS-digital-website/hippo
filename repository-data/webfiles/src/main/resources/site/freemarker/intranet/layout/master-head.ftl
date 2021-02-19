@@ -32,6 +32,10 @@
 
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet.css"/>" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-print.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/src/scss/intranet/intranet.scss"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/src/scss/intranet/intranet-component.scss"/>" media="print" type="text/css"/>
+
+    <script type="text/javascript" src="../../../src/js/intranet/intranet.js"></script>
 
     <#include "../scripts/intranet-header-scripts.ftl" />
 </head>
