@@ -23,6 +23,6 @@ window.cookies = {
 }
 window.Papa = require("papaparse");
 
-initBreadcrumbs();
+jQuery(() => initBreadcrumbs());
 initAria();
 initPolyfill();
