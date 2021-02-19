@@ -44,6 +44,5 @@
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-print.css"/>" media="print" type="text/css"/>
     -->
 
-
     <#include "../scripts/intranet-header-scripts.ftl" />
 </head>
