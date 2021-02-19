@@ -60,7 +60,7 @@
         <#-- [FTL-END] Update group -->
 
         <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+            <div class="column column--one-third page-block page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <#assign links = [] />
@@ -128,7 +128,7 @@
 
                             <div class="callout-box__content callout-box__content--narrow">
                                 <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
-                                    <a href="<@hst.link hippobean=series.latestPublication />">${series.latestPublication.title}</a>
+                                    <h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />"class="cta__button" itemprop="url">${series.latestPublication.title}</a></h3>
                                 </span>
 
                                 <div class="callout-box__content-description">
