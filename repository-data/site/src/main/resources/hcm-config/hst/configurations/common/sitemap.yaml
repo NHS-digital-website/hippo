@@ -390,6 +390,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/nhsd-about-us-hub
         hst:relativecontentpath: nhsd-homepage
         jcr:primaryType: hst:sitemapitem
+      /nhsd-coronavirus:
+        hst:componentconfigurationid: hst:pages/nhsd-coronavirus
+        hst:relativecontentpath: nhsd-coronavirus
+        jcr:primaryType: hst:sitemapitem
       /nhsd-homepage:
         hst:componentconfigurationid: hst:pages/nhsd-homepage
         hst:relativecontentpath: nhsd-homepage
