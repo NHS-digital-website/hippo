@@ -378,6 +378,10 @@ definitions:
         - hst:pages/news-events-homepage
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
+      /nhsd-coronavirus:
+        hst:componentconfigurationid: hst:pages/nhsd-coronavirus
+        hst:relativecontentpath: nhsd-coronavirus
+        jcr:primaryType: hst:sitemapitem
       /nhsd-cyber-hub:
         hst:componentconfigurationid: hst:pages/nhsd-cyber-hub
         hst:relativecontentpath: nhsd-cyber-hub
