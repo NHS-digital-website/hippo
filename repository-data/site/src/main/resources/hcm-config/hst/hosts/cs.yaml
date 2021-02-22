@@ -24,7 +24,7 @@ definitions:
                   hst:types:
                   - rest
                   jcr:primaryType: hst:mount
-                hst:contentSearchEnabled: true
+                hst:contentSearchEnabled: 'true'
                 hst:homepage: root
                 hst:mountpoint: /hst:hst/hst:sites/common
                 hst:responseheaders:
