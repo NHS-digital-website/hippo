@@ -332,6 +332,13 @@ definitions:
           hst:refId: pagenotfound
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /events:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/event
+          hst:relativecontentpath: /news-and-events/events/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/latestevents
+        jcr:primaryType: hst:sitemapitem
       /forms:
         /_any_:
           hst:componentconfigurationid: hst:pages/form-mail
@@ -364,13 +371,6 @@ definitions:
         hst:componentconfigurationid: hst:pages/news-hub
         jcr:primaryType: hst:sitemapitem
       /news-and-events:
-        /events:
-          /_any_:
-            hst:componentconfigurationid: hst:pages/event
-            hst:relativecontentpath: /news-and-events/events/${1}
-            jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/latestevents
-          jcr:primaryType: hst:sitemapitem
         /news:
           /_any_:
             hst:componentconfigurationid: hst:pages/news
