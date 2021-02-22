@@ -127,9 +127,9 @@
                             </div>
 
                             <div class="callout-box__content callout-box__content--narrow">
-                                <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
-                                    <h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />"class="cta__button" itemprop="url">${series.latestPublication.title}</a></h3>
-                                </span>
+                                <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
+                                    <h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url">${series.latestPublication.title}</a></h3>
+                                </div>
 
                                 <div class="callout-box__content-description">
                                     <div class="rich-text-content">
@@ -233,15 +233,15 @@
                                             "date": publishDate
                                         } />
 
-                                        <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-grey-1">
+                                        <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-${slugify(pubData.title)}">
                                             <div class="callout-box__icon-wrapper">
                                                 <@calloutBoxWebIcon />
                                             </div>
 
                                             <div class="callout-box__content callout-box__content--narrow">
-                                                <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-1">
+                                                <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
                                                     <h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url">${pubData.title}</a></h3>
-                                                </span>
+                                                </div>
 
                                                 <div class="callout-box__content-description">
                                                     <div class="rich-text-content">
