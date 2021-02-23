@@ -178,7 +178,7 @@ definitions:
           /ncsclink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: NCSC Link
+            caption: Other Links
             field: ncsclink
             hint: Link to the equivalent National Cyber Security Centre entry for
               this threat
@@ -297,7 +297,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /ncsclink:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: false
             hipposysedit:path: website:ncsclink
             hipposysedit:primary: false
