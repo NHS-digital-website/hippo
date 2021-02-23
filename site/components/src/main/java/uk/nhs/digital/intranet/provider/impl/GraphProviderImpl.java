@@ -27,8 +27,8 @@ public class GraphProviderImpl implements GraphProvider {
     private static final Logger LOGGER = LoggerFactory.getLogger(GraphProviderImpl.class);
     private static final String BASE_URL_V1 = "https://graph.microsoft.com/v1.0/";
     private static final String BASE_URL_BETA = "https://graph.microsoft.com/beta/";
-    private static final String SELECTED_FIELDS_SHORT = "displayName,department,id";
-    private static final String SELECTED_FIELDS_LONG = "businessPhones,displayName,jobTitle,mail,mobilePhone,officeLocation,userPrincipalName,department,id";
+    private static final String SELECTED_FIELDS_SHORT = "displayName,department,id,givenName,surname,mail";
+    private static final String SELECTED_FIELDS_LONG = "businessPhones,displayName,jobTitle,mail,mobilePhone,officeLocation,userPrincipalName,department,id,givenName,surname";
 
     private final RestTemplate restTemplate;
     private final PersonFactory personFactory;
@@ -59,6 +59,11 @@ public class GraphProviderImpl implements GraphProvider {
 
         try {
             final ResponseEntity<UserResponse> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, httpRequest, UserResponse.class);
+            // TEMP LOGGING
+            List<User> users = responseEntity.getBody().getValue();
+            for (User user: users) {
+                LOGGER.info(user.toString());
+            }
             Assert.notNull(responseEntity.getBody(), "Received null response from Microsoft Graph API.");
             return personFactory.createPersons(responseEntity.getBody().getValue());
         } catch (final HttpStatusCodeException e) {

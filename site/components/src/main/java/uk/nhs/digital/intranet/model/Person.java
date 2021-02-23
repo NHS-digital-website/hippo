@@ -26,8 +26,8 @@ public class Person {
         this.department = department;
     }
 
-    public Person(String id, String displayName, String givenName, String surname, String email, 
-                  String jobRole, String department, String officeLocation, String phoneNumber, 
+    public Person(String id, String displayName, String givenName, String surname, String email,
+                  String jobRole, String department, String officeLocation, String phoneNumber,
                   List<String> businessPhones, String photo) {
         this.id = id;
         this.displayName = displayName;
@@ -43,7 +43,11 @@ public class Person {
     }
 
     public String getDisplayName() {
-        return displayName;
+        return displayName
+            + " s="
+            + surname
+            + " g="
+            + givenName;
     }
 
     public String getGivenName() {

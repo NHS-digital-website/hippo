@@ -18,8 +18,8 @@ public class User {
 
     public User() {}
 
-    public User(List<String> businessPhones, String displayName, String givenName, String surname, 
-                String department, String jobTitle, String mail, String mobilePhone, 
+    public User(List<String> businessPhones, String displayName, String givenName, String surname,
+                String department, String jobTitle, String mail, String mobilePhone,
                 String officeLocation, String userPrincipalName, String id) {
         this.businessPhones = businessPhones;
         this.displayName = displayName;
@@ -120,5 +120,22 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{"
+            + "businessPhones=" + businessPhones
+            + ", displayName='" + displayName + '\''
+            + ", givenName='" + givenName + '\''
+            + ", surname='" + surname + '\''
+            + ", department='" + department + '\''
+            + ", jobTitle='" + jobTitle + '\''
+            + ", mail='" + mail + '\''
+            + ", mobilePhone='" + mobilePhone + '\''
+            + ", officeLocation='" + officeLocation + '\''
+            + ", userPrincipalName='" + userPrincipalName + '\''
+            + ", id='" + id + '\''
+            + '}';
     }
 }
