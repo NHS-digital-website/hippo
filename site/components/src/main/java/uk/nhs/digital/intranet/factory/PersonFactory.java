@@ -12,7 +12,7 @@ public class PersonFactory {
     public List<Person> createPersons(final List<User> userList) {
         return userList
             .stream()
-            .filter(user -> !user.getSurname().equals(user.getSurname().toUpperCase()))
+            .filter(user -> user.getSurname() == null || !user.getSurname().equals(user.getSurname().toUpperCase()))
             .map(this::createPerson)
             .collect(Collectors.toList());
     }
