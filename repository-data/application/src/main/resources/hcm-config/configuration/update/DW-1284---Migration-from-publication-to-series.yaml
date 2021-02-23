@@ -1,0 +1,117 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-1284 - Migration from publication to series:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: true
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: "{\r\n    \"inputFile\" :  \"/content/assets/assetsmiguel/seriesinfoexport.json/seriesinfoexport.json/hippogallery:asset\"\
+        \ \r\n}"
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:series')]
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.hippoecm.repository.util.JcrUtils\r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\
+        \nimport javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport\
+        \ javax.jcr.Session\r\nimport org.json.JSONArray;\r\nimport org.json.JSONException;\r\
+        \nimport org.json.JSONObject;\r\n\r\n/*\r\nThis script has a parameter called\
+        \ \"inputFile\", that is passed in the \"parameters\" field in the CMS script\
+        \ runner \r\n(Setup icon/ Update editor).\r\nAn example would be:\r\n{\r\n\
+        \    \"inputFile\" :  \"/content/assets/assetsmiguel/seriesinfoexport.json/seriesinfoexport.json/hippogallery:asset\"\
+        \ \r\n}\r\nAs you can see, the value is a path in the JCR. That path is a\
+        \ file in the assets folder.\r\nThe last bit of the path \"seriesinfoexport.json/hippogallery:asset\"\
+        \ is the actual node that contains the content.\r\nThe content of that file\
+        \ should be a file in json format.\r\n\r\nTo upload that file in the CMS,\
+        \ sign-in in the CMS, go to \"Content\" section, in the dropdown change to\
+        \ \"assets\". Once in the assets,\r\nif needed, create a folder and then in\
+        \ that folder choose \"add file\" and choose the file to upload.\r\n\r\nNow\
+        \ to find out the path, go to the CMS console, sign-in, open /content/assets\
+        \ folder and try to find the node that represents \r\nthe file you have just\
+        \ uploaded in the CMS, once in the file, there is a property called path on\
+        \ top of the window,\r\nit should look like this, for example:\r\n\"/content/assets/assetsmiguel/seriesinfoexport.json/seriesinfoexport.json/hippogallery:asset\"\
+        \ \r\n\r\nOnce imported you can remove that file from the CMS and if you created\
+        \ a subfolder in assets, you can remove that too.\r\n\r\n*/\r\n\r\nclass DW1284MigrationFromPublicationToSeries\
+        \ extends BaseNodeUpdateVisitor {\r\n\r\n  private final static JSON_FIELD_TITLE\
+        \ = \"Current Series Page Title\"\r\n  private final static JSON_FIELD_GRANULARITY\
+        \ = \"Granularity\"\r\n  private final static JSON_FIELD_GEOGRAPHIC_COVERAGE\
+        \ = \"Geographic Coverage\"\r\n  private final static JSON_FIELD_INFORMATION_TYPES\
+        \ = \"Information Type\"\r\n  private final static JSON_FIELD_TAXONOMY = \"\
+        Taxonomy topics\"\r\n  private final static JSON_FIELD_ADMINISTRATIVE_SOURCES\
+        \ = \"AdministrativeSources\"\r\n  \r\n  private final static JCR_PROPERTY_TITLE\
+        \ = \"publicationsystem:Title\"\r\n  private final static JCR_PROPERTY_GRANULARITY\
+        \ = \"publicationsystem:Granularity\"\r\n  private final static JCR_PROPERTY_GEOGRAPHIC_COVERAGE\
+        \ = \"publicationsystem:GeographicCoverage\"\r\n  private final static JCR_PROPERTY_INFORMATION_TYPE\
+        \ = \"publicationsystem:InformationType\"\r\n  private final static JCR_PROPERTY_TAXONOMY\
+        \ = \"common:FullTaxonomy\"\r\n  private final static JCR_PROPERTY_ADMINISTRATIVE_SOURCES\
+        \ = \"publicationsystem:AdministrativeSources\"\r\n  \r\n  Session session\r\
+        \n  JSONArray jsonArray\r\n  \r\n  void initialize(Session session) {\r\n\
+        \    this.session = session\r\n    \r\n    try {        \r\n        String\
+        \ fileInJsonPath //= \"/content/assets/assetsmiguel/seriesinfoexport.json/seriesinfoexport.json/hippogallery:asset\"\
+        \r\n        if (parametersMap.containsKey(\"inputFile\")) {\r\n          fileInJsonPath\
+        \ = parametersMap.get(\"inputFile\")\r\n        }\r\n        Node nodeInputFileResource\
+        \ = session.getNode(fileInJsonPath)\r\n        log.debug(\"Loading input file\
+        \ in path=\" + nodeInputFileResource.getPath())\r\n        String jsonString\
+        \ = nodeInputFileResource.getProperty(\"jcr:data\").getString()\r\n      \r\
+        \n        jsonArray = new JSONArray(jsonString)\r\n        log.info(\"\\nInput\
+        \ data contains [\" + jsonArray.length() + \"] series\")\r\n      //  log.debug(\"\
+        \\nInput data content: \" + jsonArray)\r\n        log.debug(\"\\n\\n\\n\"\
+        )\r\n      \r\n    } catch (JSONException e) {\r\n        log.error(\"Exception\
+        \ converting json: \", e)\r\n    }      \r\n  }\r\n  \r\n  boolean doUpdate(Node\
+        \ node) {  \r\n    // Query returns the hippo:handle node for the document\r\
+        \n    // (which has the 3 variants)\r\n    try {\r\n        if (node.hasNodes())\
+        \ {\r\n            return updateNode(node)\r\n        }\r\n    } catch (e)\
+        \ {\r\n        log.error(\"Failed to process node: \" + node.getPath() + \"\
+        , exception: \" + e)\r\n    }\r\n    return false\r\n  }\r\n\r\n  boolean\
+        \ undoUpdate(Node node) {\r\n      throw new UnsupportedOperationException('Updater\
+        \ does not implement undoUpdate method')\r\n  }\r\n  \r\n  boolean updateNode(Node\
+        \ n) {\r\n    JcrUtils.ensureIsCheckedOut(n)\r\n\r\n    def path = n.getPath()\r\
+        \n    def nodeType = n.getPrimaryNodeType().getName()\r\n    def title = n.getProperty(JCR_PROPERTY_TITLE).getString()\r\
+        \n    \r\n    log.info(\"\\n\\nProcessing node\")\r\n    log.info(\"  path=\"\
+        \ + path)\r\n    log.info(\"  title=\" + title)\r\n\r\n    if ((\"publicationsystem:series\"\
+        .equals(nodeType)))  {\r\n      SeriesNewFields series = getSeriesFieldsByTitle(title,\
+        \ jsonArray)\r\n      if (series == null) {\r\n        return false\r\n  \
+        \    } else {\r\n        return updateProperties(n, series)\r\n      }\r\n\
+        \    }\r\n    \r\n    return false\r\n  }\r\n\r\n  class SeriesNewFields {\r\
+        \n    public String title\r\n    public String[] granularity\r\n    public\
+        \ String[] geographicCoverage\r\n    public String[] informationTypes\r\n\
+        \    public String[] taxonomy\r\n    public String administrativeSources\r\
+        \n    \r\n    public SeriesNewFields(JSONObject jsonObject) {\r\n        \
+        \  this.title                 = jsonObject.get(JSON_FIELD_TITLE).toString()\r\
+        \n          this.granularity           = jsonObject.get(JSON_FIELD_GRANULARITY).toString().replace('[','').replace(']','').split(\"\
+        ,\")\r\n          this.geographicCoverage    = jsonObject.get(JSON_FIELD_GEOGRAPHIC_COVERAGE).toString().replace('[',\
+        \ '').replace(']', '').split(\",\")\r\n          this.informationTypes   \
+        \   = jsonObject.get(JSON_FIELD_INFORMATION_TYPES).toString().replace('[',\
+        \ '').replace(']', '').split(\",\")\r\n          this.taxonomy           \
+        \   = jsonObject.get(JSON_FIELD_TAXONOMY).toString().replace('[', '').replace(']',\
+        \ '').split(\",\")\r\n          this.administrativeSources = jsonObject.get(JSON_FIELD_ADMINISTRATIVE_SOURCES).toString()\r\
+        \n    }\r\n    \r\n    public String toString() {\r\n      StringBuilder sb\
+        \ = new StringBuilder();\r\n      sb.append(\"\\ntitle: \").append(title)\r\
+        \n      sb.append(\"\\n granularity: \").append(arrayToString(granularity))\r\
+        \n      sb.append(\"\\n geographicCoverage: \").append(arrayToString(geographicCoverage))\r\
+        \n      sb.append(\"\\n informationTypes: \").append(arrayToString(informationTypes))\r\
+        \n      sb.append(\"\\n taxonomy: \").append(arrayToString(taxonomy))\r\n\
+        \      sb.append(\"\\n administrativeSources: \").append(administrativeSources)\r\
+        \n    }\r\n    \r\n    private String arrayToString(String[] myArray) {\r\n\
+        \      StringBuilder sb = new StringBuilder()\r\n      for (int i=0; i < myArray.length;\
+        \ i++) {\r\n        sb.append(myArray[i])\r\n        sb.append(\", \")\r\n\
+        \      }\r\n      if(sb.length() > 0) {\r\n        return sb.substring(0,\
+        \ sb.length()-2)\r\n      } else {\r\n        return \"\" \r\n      }\r\n\
+        \    }\r\n  }\r\n\r\n  \r\n  SeriesNewFields getSeriesFieldsByTitle(title,\
+        \ myArray) {\r\n    try {\r\n      Iterator iterator = myArray.iterator()\r\
+        \n      Boolean found = false\r\n      JSONObject item\r\n      while (iterator.hasNext()\
+        \ && !found) {\r\n        item = (JSONObject) iterator.next();\r\n       \
+        \ String titleItem = item.get(JSON_FIELD_TITLE)\r\n        if (title.equals(titleItem))\
+        \ found = true;\r\n      }\r\n      if (found) {\r\n        SeriesNewFields\
+        \ series = new SeriesNewFields(item)\r\n//        log.debug(\"  series found=\"\
+        \ + series.toString())\r\n        log.debug(\"  series found\")\r\n      \
+        \  return series\r\n      } else {\r\n        log.debug(\"  series not found\"\
+        )\r\n      }\r\n    } catch (Exception ex) {\r\n      log.error(\"  Exception\
+        \ in getSeriesFieldsByTitle=\" + ex)\r\n      ex.printStackTrace()\r\n   \
+        \ }\r\n    return null\r\n  }\r\n\r\n  boolean updateProperties(Node node,\
+        \ SeriesNewFields series) { \r\n    node.setProperty(JCR_PROPERTY_GRANULARITY,\
+        \ series.granularity)\r\n    node.setProperty(JCR_PROPERTY_GEOGRAPHIC_COVERAGE,\
+        \ series.geographicCoverage)\r\n    node.setProperty(JCR_PROPERTY_INFORMATION_TYPE,\
+        \ series.informationTypes)\r\n    node.setProperty(JCR_PROPERTY_TAXONOMY,\
+        \ series.taxonomy) \r\n    node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES,\
+        \ series.administrativeSources)\r\n//    node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES,\
+        \ \"New administrative sources 4\")\r\n    return true\r\n  }\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
