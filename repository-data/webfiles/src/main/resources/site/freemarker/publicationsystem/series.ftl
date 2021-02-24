@@ -128,7 +128,7 @@
 
                             <div class="callout-box__content callout-box__content--narrow">
                                 <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
-                                    <h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url">${series.latestPublication.title}</a></h3>
+                                    <h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url" data-uipath="ps.series.publications-list.latest" title="${series.latestPublication.title}">${series.latestPublication.title}</a></h3>
                                 </div>
 
                                 <div class="callout-box__content-description">
@@ -240,7 +240,7 @@
 
                                             <div class="callout-box__content callout-box__content--narrow">
                                                 <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
-                                                    <h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url">${pubData.title}</a></h3>
+                                                    <h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url" title="${pubData.title}" data-uipath="ps.series.publications-list.previous">${pubData.title}</a></h3>
                                                 </div>
 
                                                 <div class="callout-box__content-description">

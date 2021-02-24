@@ -45,15 +45,15 @@ Feature: Display of publications forming a series
     Scenario: Headers for series publications
         Given I navigate to the "valid publication series" page
         Then I should see headers:
-            | Latest Version    |
-            | Previous Versions |
-            | Upcoming          |
+            | Latest statistics     |
+            | Past publications     |
+            | Upcoming publications |
         When I navigate to the "series with publication with datasets" page
         Then I should see header:
-            | Latest Version    |
+            | Latest statistics     |
         And I should not see header:
-            | Previous Versions |
-            | Upcoming          |
+            | Past publications     |
+            | Upcoming publications |
 
     Scenario: No version headers for series publications without flag
         Given I navigate to the "series without latest" page
@@ -75,6 +75,7 @@ Feature: Display of publications forming a series
             | 2019 - Upcoming ... |
             | 2020 - Upcoming ... |
             | 2021 - Upcoming ... |
+
 
     Scenario: Ordering of publications by title
         When I navigate to the "series without latest" page
