@@ -47,7 +47,9 @@ public class Person {
             + " s="
             + surname
             + " g="
-            + givenName;
+            + givenName
+            + " e="
+            + email;
     }
 
     public String getGivenName() {
