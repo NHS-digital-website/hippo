@@ -3,6 +3,24 @@ definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:workspace:
       /hst:containers:
+        /footer:
+          /footer-col-1:
+            hippo:identifier: 7c774b35-2310-41cb-b959-f32b41b40711
+            hst:label: footer-col-1 Container
+            jcr:primaryType: hst:containercomponent
+          /footer-col-2:
+            hippo:identifier: 7a7ba45d-5ec7-4846-a578-a063fb64c9a1
+            hst:label: footer-col-2 Container
+            jcr:primaryType: hst:containercomponent
+          /footer-col-3:
+            hippo:identifier: 49c4d5f1-cd84-4e3b-9a34-ba1e4df3326e
+            hst:label: footer-col-3 Container
+            jcr:primaryType: hst:containercomponent
+          /footer-col-4:
+            hippo:identifier: 3d4e2afd-4a71-42ff-aaf6-7204d95936b6
+            hst:label: footer-col-4 Container
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
         /homepage:
           /left:
             hst:label: Left container
