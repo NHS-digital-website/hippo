@@ -23,7 +23,8 @@ public class PersonFactory {
             user.getDisplayName(),
             user.getGivenName(),
             user.getSurname(),
-            user.getDepartment()
+            user.getDepartment(),
+            user.getMail()
         );
     }
 
