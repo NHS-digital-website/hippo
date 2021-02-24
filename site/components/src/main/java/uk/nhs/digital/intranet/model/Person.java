@@ -18,6 +18,14 @@ public class Person {
     private List<String> businessPhones;
     private String photo;
 
+    public Person(String id, String displayName, String givenName, String surname, String department) {
+        this.id = id;
+        this.displayName = displayName;
+        this.givenName = givenName;
+        this.surname = surname;
+        this.department = department;
+    }
+
     public Person(String id, String displayName, String givenName, String surname, String department, String email) {
         this.id = id;
         this.displayName = displayName;
