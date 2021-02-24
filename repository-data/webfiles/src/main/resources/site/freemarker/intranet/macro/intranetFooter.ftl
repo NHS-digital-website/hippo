@@ -164,5 +164,5 @@
             </div>
             </div>
         </div>
-        </footer>
+    </footer>
 </#macro>

@@ -2,6 +2,21 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:abstractpages/master-no-header-search:
+      /footer:
+        /footer-col-1:
+          hst:referencecomponent: homepage/footer/footer-col-1
+          jcr:primaryType: hst:containercomponentreference
+        /footer-col-2:
+          hst:referencecomponent: homepage/footer/footer-col-2
+          jcr:primaryType: hst:containercomponentreference
+        /footer-col-3:
+          hst:referencecomponent: homepage/footer/footer-col-3
+          jcr:primaryType: hst:containercomponentreference
+        /footer-col-4:
+          hst:referencecomponent: homepage/footer/footer-col-4
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: intranet-footer
+        jcr:primaryType: hst:component
       /ie-banner:
         hst:componentclassname: uk.nhs.digital.common.components.IeBanner
         hst:template: ie-banner
