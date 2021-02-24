@@ -68,20 +68,6 @@
 </#list>
 
 <article class="article article--intranet-home">
-    <#if searchTabs?has_content>
-        <div class="grid-wrapper">
-            <div class="grid-row top-margin-20">
-                <form role="search" method="get" class="search-banner__form" id="search" aria-label="intra-search-form">
-                    <div>
-                        <input type="text" name="query" id="query" class="search-banner__input" placeholder="Search" value="${query!""}" aria-label="intra-search-input" style="background-color: white">
-                    </div>
-                </form>
-            </div>
-            <div class="grid-row">
-                <@tabTileHeadings tabs "search" area query />
-            </div>
-        </div>
-    </#if>
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-quarter page-block page-block--sidebar article-section-nav-outer-wrapper">
@@ -89,6 +75,18 @@
             </div>
 
             <div class="column column--three-quarters page-block page-block--main">
+                <#if searchTabs?has_content>
+                    <div class="grid-row top-margin-20">
+                        <form role="search" method="get" class="search-banner__form" id="search" aria-label="intra-search-form">
+                            <div>
+                                <input type="text" name="query" id="query" class="search-banner__input" placeholder="Search" value="${query!""}" aria-label="intra-search-input" style="background-color: white">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="grid-row">
+                        <@tabTileHeadings tabs "search" area query />
+                    </div>
+                </#if>
                 <div class="article-section">
                     <#assign queryResultsString = (query?? && query?has_content)?then(textContaining + " '" + query + "'", "") />
                     <span class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--txt-grey intra-info-tag--block-right">${totalCount} ${resultsLabel} ${queryResultsString}</span>
