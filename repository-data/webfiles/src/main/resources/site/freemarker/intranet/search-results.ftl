@@ -68,42 +68,39 @@
 </#list>
 
 <article class="article article--intranet-home">
-    <div class="grid-wrapper grid-wrapper--article">
-        <div class="grid-row">
-            <div class="column column--one-quarter page-block page-block--sidebar article-section-nav-outer-wrapper">
+    <div class="nhsd-t-grid">
+        <div class="nhsd-t-row">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3 nhsd-t-col-m-3 nhsd-t-col-l-3 nhsd-t-col-xl-3">
                 <#--INSERT FILTERS HERE-->
             </div>
-
-            <div class="column column--three-quarters page-block page-block--main">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-col-m-9 nhsd-t-col-l-6 nhsd-t-col-xl-6">
                 <#if searchTabs?has_content>
-                    <div class="grid-row top-margin-20">
+                    <div class="nhsd-t-row top-margin-20">
                         <form role="search" method="get" class="search-banner__form" id="search" aria-label="intra-search-form">
                             <div>
                                 <input type="text" name="query" id="query" class="search-banner__input" placeholder="Search" value="${query!""}" aria-label="intra-search-input" style="background-color: white">
                             </div>
                         </form>
                     </div>
-                    <div class="grid-row">
+                    <span class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--txt-grey intra-info-tag--block-right">${totalCount} ${resultsLabel} ${queryResultsString}</span>
+                    <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
+                    <div class="nhsd-t-row">
                         <@tabTileHeadings tabs "search" area query />
                     </div>
+                    <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
                 </#if>
-                <div class="article-section">
+                <div class="article-section no-border no-top-margin no-top-padding">
                     <#assign queryResultsString = (query?? && query?has_content)?then(textContaining + " '" + query + "'", "") />
-                    <span class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--txt-grey intra-info-tag--block-right">${totalCount} ${resultsLabel} ${queryResultsString}</span>
-
-                    <div class="grid-row">
-                        <div class="column column--reset">
+                    <div class="nhsd-t-row">
+                        <div class="nhsd-t-col-12 nhsd-!t-padding-0">
                             <div class="tile-panel" role="tabpanel">
                                 <#assign indexId = 1 />
                                 <#assign isAllOrPeopleTab = isAllTab || isPeopleTab />
                                 <#assign isFirstPaginationPage = isAllTab?then(pageable?has_content && pageable.currentPage == 1, true) />
-
                                 <#assign hasPeopleLinks = peopleLinks?has_content />
                                 <#assign hasDocumentsLinks = documentLinks?has_content/>
                                 <#assign hasErrorMessages = accessTokenRequired?? || searchTermErrorMessage?? || apiErrorMessage?? />
-
                                 <#assign displayHeaders = isAllTab && isFirstPaginationPage && hasDocumentsLinks && (hasPeopleLinks || hasErrorMessages) />
-
                                 <#-- People -->
                                 <#if displayHeaders>
                                     <span class="intra-info-tag intra-info-tag--txt-grey intra-info-tag--bg-flat intra-info-tag--block">${peopleHeader}</span>
@@ -130,6 +127,7 @@
                                             <@tabTileSection links indexId/>
                                         </div>
                                         <#assign indexId++ />
+                                        <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
                                     </#list>
                                     <#if morePeople?? && isAllTab>
                                         <p class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--block-right">
@@ -137,7 +135,6 @@
                                         </p>
                                     </#if>
                                 </#if>
-
                                 <#-- Documents -->
                                 <#if displayHeaders>
                                     <span class="intra-info-tag intra-info-tag--txt-grey intra-info-tag--bg-flat intra-info-tag--block">${documentHeader}</span>
@@ -153,9 +150,9 @@
                                             <@tabTileSection links indexId/>
                                         </div>
                                         <#assign indexId++ />
+                                        <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
                                     </#list>
                                 </#if>
-
                                 <#-- No result message -->
                                 <#if (isAllTab && !hasPeopleLinks && !hasDocumentsLinks) || (isPeopleTab && !hasPeopleLinks) || (!isAllOrPeopleTab && !hasDocumentsLinks)>
                                     <span class="intra-info-tag intra-info-tag--txt-black intra-info-tag--bg-flat intra-info-tag--block">${noSearchResults}</span>
@@ -164,7 +161,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="article-section no-border no-top-margin" id="intra-search-pagination">
                     <#if pageable.totalPages gt 1>
                         <#include "../include/pagination.ftl">
