@@ -60,7 +60,8 @@
                     "alttext": imageData[1],
                     "shortsummary": itemShortSummary,
                     "link": linkDestination,
-                    "background": cardColour
+                    "background": cardColour,
+                    "cardClass": "nhsd-m-card--full-height"
                 }/>
 
                 <div class="${getGridCol(cards)} nhsd-!t-margin-bottom-4">
