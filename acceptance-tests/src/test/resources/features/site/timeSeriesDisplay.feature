@@ -76,12 +76,11 @@ Feature: Display of publications forming a series
             | 2020 - Upcoming ... |
             | 2021 - Upcoming ... |
 
-
     Scenario: Ordering of publications by title
         When I navigate to the "series without latest" page
-        Then I should see the "Series Publications" list containing:
-            | A publication 2018 ... |
+        Then I should see the "Series Previous Publications" list containing:
             | Latest 2019 ...        |
+            | A publication 2018 ... |
             | Publication 2017 ...   |
         And I should see the "Series Upcoming Publications" list containing:
             | 2020 Upcoming ... |
