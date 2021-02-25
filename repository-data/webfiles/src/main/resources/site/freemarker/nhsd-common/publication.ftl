@@ -360,7 +360,8 @@
                                             "alttext": imageData[1],
                                             "shortSummary": itemShortSummary,
                                             "linkDestination": linkDestination,
-                                            "background": "pale-grey"
+                                            "background": "pale-grey",
+                                            "cardClass": "nhsd-m-card--full-height"
                                         }/>
                                         <div class="${getGridCol(document.relatedNews?size)} nhsd-!t-margin-bottom-4">
                                             <@cardItem cardProps />
