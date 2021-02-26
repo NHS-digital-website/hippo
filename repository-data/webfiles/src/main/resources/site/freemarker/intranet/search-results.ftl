@@ -96,15 +96,15 @@
                             </form>
                         </div>
                     </div>
-                    <span class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--txt-grey intra-info-tag--block-right">${totalCount} ${resultsLabel} ${queryResultsString}</span>
-                    <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
+                    <#assign queryResultsString = (query?? && query?has_content)?then(textContaining + " '" + query + "'", "") />
+                    <span class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--txt-grey">${totalCount} ${resultsLabel} ${queryResultsString}</span>
+                    <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-bottom-6"></a>
                     <div class="nhsd-t-row">
                         <@tabTileHeadings tabs "search" area query />
                     </div>
-                    <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
+                    <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-bottom-1"></a>
                 </#if>
                 <div class="article-section no-border no-top-margin no-top-padding">
-                    <#assign queryResultsString = (query?? && query?has_content)?then(textContaining + " '" + query + "'", "") />
                     <div class="nhsd-t-row">
                         <div class="nhsd-t-col-12 nhsd-!t-padding-0">
                             <div class="tile-panel" role="tabpanel">
