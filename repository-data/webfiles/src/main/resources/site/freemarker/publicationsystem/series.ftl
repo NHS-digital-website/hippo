@@ -126,18 +126,20 @@
                                 <@calloutBoxWebIcon />
                             </div>
 
-                            <div class="callout-box__content callout-box__content--narrow">
-                                <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
-                                    <h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url">${series.latestPublication.title}</a></h3>
-                                </div>
-
-                                <div class="callout-box__content-description">
-                                    <div class="rich-text-content">
-                                        <@truncate text=series.latestPublication.summary.firstParagraph size="150" />
+                            <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.latest">
+                                <div class="callout-box__content callout-box__content--narrow">
+                                    <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
+                                        <li><h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url" title="${series.latestPublication.title}">${series.latestPublication.title}</a></h3></li>
                                     </div>
-                                    <p class="callout-box__content-description-date"><@fmt.message key="labels.latest-publication-date-label"/> ${publishDate}</p>
+
+                                    <div class="callout-box__content-description">
+                                        <div class="rich-text-content">
+                                            <@truncate text=series.latestPublication.summary.firstParagraph size="150" />
+                                        </div>
+                                        <p class="callout-box__content-description-date"><@fmt.message key="labels.latest-publication-date-label"/> ${publishDate}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </ul>
                         </div>
                     </div>
                     </#if>
@@ -201,10 +203,9 @@
                             <h2>${pastPublicationsSectionHeader}</h2>
                             <#assign suppInfoList = [] />
 
-                            <ul class="list list--reset cta-list">
+                            <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.previous">
                             <#list pastPublicationsAndSeriesChanges as pastObject>
                                 <#assign object = pastObject.object />
-                                <li>
                                     <#if pastObject.type == "replacedSeries">
                                         <@fmt.formatDate value=object.changeDate.time?date var="changeDate" type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
 
@@ -240,7 +241,7 @@
 
                                             <div class="callout-box__content callout-box__content--narrow">
                                                 <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
-                                                    <h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url">${pubData.title}</a></h3>
+                                                    <li><h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url" title="${pubData.title}">${pubData.title}</a></h3></li>
                                                 </div>
 
                                                 <div class="callout-box__content-description">
