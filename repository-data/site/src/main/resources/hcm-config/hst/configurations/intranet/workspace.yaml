@@ -4,14 +4,24 @@ definitions:
     /hst:hst/hst:configurations/intranet/hst:workspace:
       /hst:containers:
         /homepage:
-          /left:
-            hst:label: Left container
-            hst:lastmodified: 2020-04-16T14:53:34.625Z
+          /homepagecontainer1:
+            hst:label: Container1
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
-          /right:
-            hst:label: Right container
-            hst:lastmodified: 2020-04-22T13:42:45.671Z
+          /homepagecontainer2:
+            hst:label: Container2
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /homepagecontainer3:
+            hst:label: Container3
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /homepagecontainer4:
+            hst:label: Container4
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /homepagecontainer5:
+            hst:label: Container5
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           jcr:primaryType: hst:containercomponentfolder
