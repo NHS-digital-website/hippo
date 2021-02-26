@@ -11,11 +11,17 @@ definitions:
       hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
         \r\nimport org.hippoecm.repository.util.JcrUtils\r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\
         \nimport javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport\
-        \ javax.jcr.Session\r\nimport org.json.JSONArray;\r\nimport org.json.JSONException;\r\
-        \nimport org.json.JSONObject;\r\n\r\n/*\r\nThis script has a parameter called\
-        \ \"inputFile\", that is passed in the \"parameters\" field in the CMS script\
-        \ runner \r\n(Setup icon/ Update editor).\r\nAn example would be:\r\n{\r\n\
-        \    \"inputFile\" :  \"/content/assets/assetsmiguel/seriesinfoexport.json/seriesinfoexport.json/hippogallery:asset\"\
+        \ javax.jcr.Session\r\nimport org.json.JSONArray\r\nimport org.json.JSONException\r\
+        \nimport org.json.JSONObject\r\n\r\n/*\r\nThis script takes the series fields\
+        \ (Granularity, Geographic Coverage, Administrative sources, Taxonomy and\
+        \ Information Types) from a file and finds\r\nthe corresponding series in\
+        \ the JCR and then overides the existing values with the ones coming from\
+        \ the file.\r\nBear in mind if a field of a series in the input is empty or\
+        \ blank, it will remove it in the JCR.\r\n\r\n\r\nWhen runnin this script\
+        \ \"XPath query\" should be for example:\r\n/jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:series')]\r\
+        \n\r\nThis script has a parameter called \"inputFile\", that is passed in\
+        \ the \"parameters\" field in the CMS script runner \r\n(Setup icon/ Update\
+        \ editor).\r\nAn example would be:\r\n{\r\n    \"inputFile\" :  \"/content/assets/assetsmiguel/seriesinfoexport.json/seriesinfoexport.json/hippogallery:asset\"\
         \ \r\n}\r\nAs you can see, the value is a path in the JCR. That path is a\
         \ file in the assets folder.\r\nThe last bit of the path \"seriesinfoexport.json/hippogallery:asset\"\
         \ is the actual node that contains the content.\r\nThe content of that file\
@@ -39,8 +45,9 @@ definitions:
         \ = \"publicationsystem:Title\"\r\n  private final static JCR_PROPERTY_GRANULARITY\
         \ = \"publicationsystem:Granularity\"\r\n  private final static JCR_PROPERTY_GEOGRAPHIC_COVERAGE\
         \ = \"publicationsystem:GeographicCoverage\"\r\n  private final static JCR_PROPERTY_INFORMATION_TYPE\
-        \ = \"publicationsystem:InformationType\"\r\n  private final static JCR_PROPERTY_TAXONOMY\
-        \ = \"common:FullTaxonomy\"\r\n  private final static JCR_PROPERTY_ADMINISTRATIVE_SOURCES\
+        \ = \"publicationsystem:InformationType\"\r\n  private final static JCR_PROPERTY_FULL_TAXONOMY\
+        \ = \"common:FullTaxonomy\"\r\n  private final static JCR_PROPERTY_TAXONOMY_KEYS\
+        \ = \"hippotaxonomy:keys\"\r\n  private final static JCR_PROPERTY_ADMINISTRATIVE_SOURCES\
         \ = \"publicationsystem:AdministrativeSources\"\r\n  \r\n  Session session\r\
         \n  JSONArray jsonArray\r\n  \r\n  void initialize(Session session) {\r\n\
         \    this.session = session\r\n    \r\n    try {        \r\n        String\
@@ -49,23 +56,23 @@ definitions:
         \ = parametersMap.get(\"inputFile\")\r\n        }\r\n        Node nodeInputFileResource\
         \ = session.getNode(fileInJsonPath)\r\n        log.debug(\"Loading input file\
         \ in path=\" + nodeInputFileResource.getPath())\r\n        String jsonString\
-        \ = nodeInputFileResource.getProperty(\"jcr:data\").getString()\r\n      \r\
-        \n        jsonArray = new JSONArray(jsonString)\r\n        log.info(\"\\nInput\
-        \ data contains [\" + jsonArray.length() + \"] series\")\r\n      //  log.debug(\"\
-        \\nInput data content: \" + jsonArray)\r\n        log.debug(\"\\n\\n\\n\"\
-        )\r\n      \r\n    } catch (JSONException e) {\r\n        log.error(\"Exception\
-        \ converting json: \", e)\r\n    }      \r\n  }\r\n  \r\n  boolean doUpdate(Node\
-        \ node) {  \r\n    // Query returns the hippo:handle node for the document\r\
-        \n    // (which has the 3 variants)\r\n    try {\r\n        if (node.hasNodes())\
-        \ {\r\n            return updateNode(node)\r\n        }\r\n    } catch (e)\
-        \ {\r\n        log.error(\"Failed to process node: \" + node.getPath() + \"\
-        , exception: \" + e)\r\n    }\r\n    return false\r\n  }\r\n\r\n  boolean\
-        \ undoUpdate(Node node) {\r\n      throw new UnsupportedOperationException('Updater\
-        \ does not implement undoUpdate method')\r\n  }\r\n  \r\n  boolean updateNode(Node\
-        \ n) {\r\n    JcrUtils.ensureIsCheckedOut(n)\r\n\r\n    def path = n.getPath()\r\
-        \n    def nodeType = n.getPrimaryNodeType().getName()\r\n    def title = n.getProperty(JCR_PROPERTY_TITLE).getString()\r\
-        \n    \r\n    log.info(\"\\n\\nProcessing node\")\r\n    log.info(\"  path=\"\
-        \ + path)\r\n    log.info(\"  title=\" + title)\r\n\r\n    if ((\"publicationsystem:series\"\
+        \ = nodeInputFileResource.getProperty(\"jcr:data\").getString()\r\n      \
+        \  \r\n        jsonArray = new JSONArray(jsonString)\r\n        log.info(\"\
+        \\nInput data contains [\" + jsonArray.length() + \"] series\")\r\n      \
+        \  log.debug(\"\\n\\n\\n\")\r\n      \r\n    } catch (JSONException e) {\r\
+        \n        log.error(\"Exception converting json: \", e)\r\n    }      \r\n\
+        \  }\r\n  \r\n  boolean doUpdate(Node node) {  \r\n    // Query returns the\
+        \ hippo:handle node for the document\r\n    // (which has the 3 variants)\r\
+        \n    try {\r\n        if (node.hasNodes()) {\r\n            return updateNode(node)\r\
+        \n        }\r\n    } catch (e) {\r\n        log.error(\"Failed to process\
+        \ node: \" + node.getPath() + \", exception: \" + e)\r\n    }\r\n    return\
+        \ false\r\n  }\r\n\r\n  boolean undoUpdate(Node node) {\r\n      throw new\
+        \ UnsupportedOperationException('Updater does not implement undoUpdate method')\r\
+        \n  }\r\n  \r\n  boolean updateNode(Node n) {\r\n    JcrUtils.ensureIsCheckedOut(n)\r\
+        \n\r\n    def path = n.getPath()\r\n    def nodeType = n.getPrimaryNodeType().getName()\r\
+        \n    def title = n.getProperty(JCR_PROPERTY_TITLE).getString()\r\n    \r\n\
+        \    log.info(\"\\n\\nProcessing node\")\r\n    log.info(\"  path=\" + path)\r\
+        \n    log.info(\"  title=\" + title)\r\n\r\n    if ((\"publicationsystem:series\"\
         .equals(nodeType)))  {\r\n      SeriesNewFields series = getSeriesFieldsByTitle(title,\
         \ jsonArray)\r\n      if (series == null) {\r\n        return false\r\n  \
         \    } else {\r\n        return updateProperties(n, series)\r\n      }\r\n\
@@ -75,26 +82,35 @@ definitions:
         \    public String[] taxonomy\r\n    public String administrativeSources\r\
         \n    \r\n    public SeriesNewFields(JSONObject jsonObject) {\r\n        \
         \  this.title                 = jsonObject.get(JSON_FIELD_TITLE).toString()\r\
-        \n          this.granularity           = jsonObject.get(JSON_FIELD_GRANULARITY).toString().replace('[','').replace(']','').split(\"\
-        ,\")\r\n          this.geographicCoverage    = jsonObject.get(JSON_FIELD_GEOGRAPHIC_COVERAGE).toString().replace('[',\
-        \ '').replace(']', '').split(\",\")\r\n          this.informationTypes   \
-        \   = jsonObject.get(JSON_FIELD_INFORMATION_TYPES).toString().replace('[',\
-        \ '').replace(']', '').split(\",\")\r\n          this.taxonomy           \
-        \   = jsonObject.get(JSON_FIELD_TAXONOMY).toString().replace('[', '').replace(']',\
-        \ '').split(\",\")\r\n          this.administrativeSources = jsonObject.get(JSON_FIELD_ADMINISTRATIVE_SOURCES).toString()\r\
-        \n    }\r\n    \r\n    public String toString() {\r\n      StringBuilder sb\
-        \ = new StringBuilder();\r\n      sb.append(\"\\ntitle: \").append(title)\r\
-        \n      sb.append(\"\\n granularity: \").append(arrayToString(granularity))\r\
-        \n      sb.append(\"\\n geographicCoverage: \").append(arrayToString(geographicCoverage))\r\
-        \n      sb.append(\"\\n informationTypes: \").append(arrayToString(informationTypes))\r\
-        \n      sb.append(\"\\n taxonomy: \").append(arrayToString(taxonomy))\r\n\
-        \      sb.append(\"\\n administrativeSources: \").append(administrativeSources)\r\
-        \n    }\r\n    \r\n    private String arrayToString(String[] myArray) {\r\n\
-        \      StringBuilder sb = new StringBuilder()\r\n      for (int i=0; i < myArray.length;\
-        \ i++) {\r\n        sb.append(myArray[i])\r\n        sb.append(\", \")\r\n\
-        \      }\r\n      if(sb.length() > 0) {\r\n        return sb.substring(0,\
-        \ sb.length()-2)\r\n      } else {\r\n        return \"\" \r\n      }\r\n\
-        \    }\r\n  }\r\n\r\n  \r\n  SeriesNewFields getSeriesFieldsByTitle(title,\
+        \n          \r\n          this.granularity           = jsonObject.get(JSON_FIELD_GRANULARITY).toString().replace('[',\
+        \ '').replace(']', '').split(\",\")\r\n          if (this.granularity != null\
+        \ && this.granularity.length == 1 && this.granularity[0].trim().equals(\"\"\
+        )) {\r\n            this.granularity = null\r\n          }\r\n      \r\n \
+        \         this.geographicCoverage    = jsonObject.get(JSON_FIELD_GEOGRAPHIC_COVERAGE).toString().replace('[',\
+        \ '').replace(']', '').split(\",\")\r\n          if (this.geographicCoverage\
+        \ != null && this.geographicCoverage.length == 1 && this.geographicCoverage[0].trim().equals(\"\
+        \")) {\r\n            this.geographicCoverage = null\r\n          }\r\n  \
+        \    \r\n          this.informationTypes      = jsonObject.get(JSON_FIELD_INFORMATION_TYPES).toString().replace('[',\
+        \ '').replace(']', '').split(\",\")\r\n          if (this.informationTypes\
+        \ != null && this.informationTypes.length == 1 && this.informationTypes[0].trim().equals(\"\
+        \")) {\r\n            this.informationTypes = null\r\n          }\r\n    \
+        \  \r\n          this.taxonomy              = jsonObject.get(JSON_FIELD_TAXONOMY).toString().replace('[',\
+        \ '').replace(']', '').split(\",\")\r\n          if (this.taxonomy != null\
+        \ && this.taxonomy.length == 1 && this.taxonomy[0].trim().equals(\"\")) {\r\
+        \n            this.taxonomy = null\r\n          }\r\n      \r\n          this.administrativeSources\
+        \ = jsonObject.get(JSON_FIELD_ADMINISTRATIVE_SOURCES).toString()\r\n    }\r\
+        \n    \r\n    public String toString() {\r\n      StringBuilder sb = new StringBuilder();\r\
+        \n      sb.append(\"\\ntitle: \").append(title)\r\n      sb.append(\"\\n granularity:\
+        \ \").append(arrayToString(granularity))\r\n      sb.append(\"\\n geographicCoverage:\
+        \ \").append(arrayToString(geographicCoverage))\r\n      sb.append(\"\\n informationTypes:\
+        \ \").append(arrayToString(informationTypes))\r\n      sb.append(\"\\n taxonomy:\
+        \ \").append(arrayToString(taxonomy))\r\n      sb.append(\"\\n administrativeSources:\
+        \ \").append(administrativeSources)\r\n    }\r\n    \r\n    private String\
+        \ arrayToString(String[] myArray) {\r\n      StringBuilder sb = new StringBuilder()\r\
+        \n      for (int i=0; i < myArray.length; i++) {\r\n        sb.append(myArray[i])\r\
+        \n        sb.append(\", \")\r\n      }\r\n      if(sb.length() > 0) {\r\n\
+        \        return sb.substring(0, sb.length()-2)\r\n      } else {\r\n     \
+        \   return \"\" \r\n      }\r\n    }\r\n  }\r\n\r\n  SeriesNewFields getSeriesFieldsByTitle(title,\
         \ myArray) {\r\n    try {\r\n      Iterator iterator = myArray.iterator()\r\
         \n      Boolean found = false\r\n      JSONObject item\r\n      while (iterator.hasNext()\
         \ && !found) {\r\n        item = (JSONObject) iterator.next();\r\n       \
@@ -106,12 +122,21 @@ definitions:
         )\r\n      }\r\n    } catch (Exception ex) {\r\n      log.error(\"  Exception\
         \ in getSeriesFieldsByTitle=\" + ex)\r\n      ex.printStackTrace()\r\n   \
         \ }\r\n    return null\r\n  }\r\n\r\n  boolean updateProperties(Node node,\
-        \ SeriesNewFields series) { \r\n    node.setProperty(JCR_PROPERTY_GRANULARITY,\
-        \ series.granularity)\r\n    node.setProperty(JCR_PROPERTY_GEOGRAPHIC_COVERAGE,\
-        \ series.geographicCoverage)\r\n    node.setProperty(JCR_PROPERTY_INFORMATION_TYPE,\
-        \ series.informationTypes)\r\n    node.setProperty(JCR_PROPERTY_TAXONOMY,\
-        \ series.taxonomy) \r\n    node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES,\
-        \ series.administrativeSources)\r\n//    node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES,\
-        \ \"New administrative sources 4\")\r\n    return true\r\n  }\r\n}"
+        \ SeriesNewFields series) { \r\n    if (series.granularity == null || series.granularity.length\
+        \ == 0) {\r\n      node.setProperty(JCR_PROPERTY_GRANULARITY, (String[]) null)\r\
+        \n    } else {\r\n      node.setProperty(JCR_PROPERTY_GRANULARITY, series.granularity)\r\
+        \n    }\r\n    \r\n    if (series.geographicCoverage == null || series.geographicCoverage.length\
+        \ == 0) {\r\n      node.setProperty(JCR_PROPERTY_GEOGRAPHIC_COVERAGE, (String[])\
+        \ null)\r\n    } else {\r\n      node.setProperty(JCR_PROPERTY_GEOGRAPHIC_COVERAGE,\
+        \ series.geographicCoverage)\r\n    }\r\n    \r\n    if (series.informationTypes\
+        \ == null || series.informationTypes.length == 0) {\r\n      node.setProperty(JCR_PROPERTY_INFORMATION_TYPE,\
+        \ (String[]) null)\r\n    } else {\r\n      node.setProperty(JCR_PROPERTY_INFORMATION_TYPE,\
+        \ series.informationTypes)\r\n    }\r\n    \r\n    if (series.taxonomy ==\
+        \ null || series.taxonomy.length == 0) {\r\n      node.setProperty(JCR_PROPERTY_FULL_TAXONOMY,\
+        \ (String[]) null)\r\n      node.setProperty(JCR_PROPERTY_TAXONOMY_KEYS, (String[])\
+        \ null)\r\n    } else {\r\n      node.setProperty(JCR_PROPERTY_FULL_TAXONOMY,\
+        \ series.taxonomy)\r\n      node.setProperty(JCR_PROPERTY_TAXONOMY_KEYS, series.taxonomy)\
+        \      \r\n    }\r\n    \r\n    node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES,\
+        \ series.administrativeSources)\r\n    \r\n    return true\r\n  }\r\n}"
       hipposys:throttle: 1000
       jcr:primaryType: hipposys:updaterinfo

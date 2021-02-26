@@ -5,11 +5,19 @@ import org.onehippo.repository.update.BaseNodeUpdateVisitor
 import javax.jcr.Node
 import javax.jcr.RepositoryException
 import javax.jcr.Session
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 
 /*
+This script takes the series fields (Granularity, Geographic Coverage, Administrative sources, Taxonomy and Information Types) from a file and finds
+the corresponding series in the JCR and then overides the existing values with the ones coming from the file.
+Bear in mind if a field of a series in the input is empty or blank, it will remove it in the JCR.
+
+
+When runnin this script "XPath query" should be for example:
+/jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:series')]
+
 This script has a parameter called "inputFile", that is passed in the "parameters" field in the CMS script runner
 (Setup icon/ Update editor).
 An example would be:
@@ -45,7 +53,8 @@ class DW1284MigrationFromPublicationToSeries extends BaseNodeUpdateVisitor {
     private final static JCR_PROPERTY_GRANULARITY = "publicationsystem:Granularity"
     private final static JCR_PROPERTY_GEOGRAPHIC_COVERAGE = "publicationsystem:GeographicCoverage"
     private final static JCR_PROPERTY_INFORMATION_TYPE = "publicationsystem:InformationType"
-    private final static JCR_PROPERTY_TAXONOMY = "common:FullTaxonomy"
+    private final static JCR_PROPERTY_FULL_TAXONOMY = "common:FullTaxonomy"
+    private final static JCR_PROPERTY_TAXONOMY_KEYS = "hippotaxonomy:keys"
     private final static JCR_PROPERTY_ADMINISTRATIVE_SOURCES = "publicationsystem:AdministrativeSources"
 
     Session session
@@ -65,7 +74,6 @@ class DW1284MigrationFromPublicationToSeries extends BaseNodeUpdateVisitor {
 
             jsonArray = new JSONArray(jsonString)
             log.info("\nInput data contains [" + jsonArray.length() + "] series")
-            //  log.debug("\nInput data content: " + jsonArray)
             log.debug("\n\n\n")
 
         } catch (JSONException e) {
@@ -123,10 +131,27 @@ class DW1284MigrationFromPublicationToSeries extends BaseNodeUpdateVisitor {
 
         public SeriesNewFields(JSONObject jsonObject) {
             this.title                 = jsonObject.get(JSON_FIELD_TITLE).toString()
-            this.granularity           = jsonObject.get(JSON_FIELD_GRANULARITY).toString().replace('[','').replace(']','').split(",")
+
+            this.granularity           = jsonObject.get(JSON_FIELD_GRANULARITY).toString().replace('[', '').replace(']', '').split(",")
+            if (this.granularity != null && this.granularity.length == 1 && this.granularity[0].trim().equals("")) {
+                this.granularity = null
+            }
+
             this.geographicCoverage    = jsonObject.get(JSON_FIELD_GEOGRAPHIC_COVERAGE).toString().replace('[', '').replace(']', '').split(",")
+            if (this.geographicCoverage != null && this.geographicCoverage.length == 1 && this.geographicCoverage[0].trim().equals("")) {
+                this.geographicCoverage = null
+            }
+
             this.informationTypes      = jsonObject.get(JSON_FIELD_INFORMATION_TYPES).toString().replace('[', '').replace(']', '').split(",")
+            if (this.informationTypes != null && this.informationTypes.length == 1 && this.informationTypes[0].trim().equals("")) {
+                this.informationTypes = null
+            }
+
             this.taxonomy              = jsonObject.get(JSON_FIELD_TAXONOMY).toString().replace('[', '').replace(']', '').split(",")
+            if (this.taxonomy != null && this.taxonomy.length == 1 && this.taxonomy[0].trim().equals("")) {
+                this.taxonomy = null
+            }
+
             this.administrativeSources = jsonObject.get(JSON_FIELD_ADMINISTRATIVE_SOURCES).toString()
         }
 
@@ -154,7 +179,6 @@ class DW1284MigrationFromPublicationToSeries extends BaseNodeUpdateVisitor {
         }
     }
 
-
     SeriesNewFields getSeriesFieldsByTitle(title, myArray) {
         try {
             Iterator iterator = myArray.iterator()
@@ -181,12 +205,34 @@ class DW1284MigrationFromPublicationToSeries extends BaseNodeUpdateVisitor {
     }
 
     boolean updateProperties(Node node, SeriesNewFields series) {
-        node.setProperty(JCR_PROPERTY_GRANULARITY, series.granularity)
-        node.setProperty(JCR_PROPERTY_GEOGRAPHIC_COVERAGE, series.geographicCoverage)
-        node.setProperty(JCR_PROPERTY_INFORMATION_TYPE, series.informationTypes)
-        node.setProperty(JCR_PROPERTY_TAXONOMY, series.taxonomy)
+        if (series.granularity == null || series.granularity.length == 0) {
+            node.setProperty(JCR_PROPERTY_GRANULARITY, (String[]) null)
+        } else {
+            node.setProperty(JCR_PROPERTY_GRANULARITY, series.granularity)
+        }
+
+        if (series.geographicCoverage == null || series.geographicCoverage.length == 0) {
+            node.setProperty(JCR_PROPERTY_GEOGRAPHIC_COVERAGE, (String[]) null)
+        } else {
+            node.setProperty(JCR_PROPERTY_GEOGRAPHIC_COVERAGE, series.geographicCoverage)
+        }
+
+        if (series.informationTypes == null || series.informationTypes.length == 0) {
+            node.setProperty(JCR_PROPERTY_INFORMATION_TYPE, (String[]) null)
+        } else {
+            node.setProperty(JCR_PROPERTY_INFORMATION_TYPE, series.informationTypes)
+        }
+
+        if (series.taxonomy == null || series.taxonomy.length == 0) {
+            node.setProperty(JCR_PROPERTY_FULL_TAXONOMY, (String[]) null)
+            node.setProperty(JCR_PROPERTY_TAXONOMY_KEYS, (String[]) null)
+        } else {
+            node.setProperty(JCR_PROPERTY_FULL_TAXONOMY, series.taxonomy)
+            node.setProperty(JCR_PROPERTY_TAXONOMY_KEYS, series.taxonomy)
+        }
+
         node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES, series.administrativeSources)
-//    node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES, "New administrative sources 4")
+
         return true
     }
 }
