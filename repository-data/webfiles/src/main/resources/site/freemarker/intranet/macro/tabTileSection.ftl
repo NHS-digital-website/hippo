@@ -13,19 +13,7 @@
                     <#assign mainTag = options.dept/>
                 </#if>
 
-                <#if mainTag?has_content>
-                    <div class="tile-item__content-tag">
-                        <p class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--txt-black">${mainTag?upper_case}</p>
-                    </div>
-                </#if>
-
-                <#if options.type?has_content>
-                    <div class="tile-item__content-tag intra-info-tag--inline-right">
-                        <p class="intra-info-tag intra-info-tag--bg-grey">${options.type}</p>
-                    </div>
-                </#if>
-
-                <h2 class="tile-item__content-title">
+                <h5 class="nhsd-t-heading-s nhsd-!t-margin-0">
                     <#if options.linkType == "internal">
                         <#assign link><@hst.link hippobean=options.link/></#assign>
                     <#elseif options.linkType == "external">
@@ -33,13 +21,21 @@
                     </#if>
 
                     <#if options.linkType??>
-                        <a href="${link}" intra-result-rank="${indexId}" intra-result-type="${options.type?lower_case}">
+                        <a class="nhsd-a-link" style="border-bottom:none" href="${link}" intra-result-rank="${indexId}" intra-result-type="${options.type?lower_case}">
                     </#if>
                         ${title}
                     <#if options.linkType??>
                         </a>
                     </#if>
-                </h2>
+                </h5>
+
+                <#if mainTag?has_content>
+                    <p class="nhsd-t-body">${mainTag}</p>
+                </#if>
+
+                <#if options.type?has_content>
+                    <span class="nhsd-a-tag nhsd-a-tag--bg-light-grey">${options.type}</span>
+                </#if>
             </div>
         </div>
     </#if>

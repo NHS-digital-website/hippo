@@ -75,11 +75,11 @@
             </div>
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-col-m-9 nhsd-t-col-l-6 nhsd-t-col-xl-6">
                 <#if searchTabs?has_content>
-                    <div class="nhsd-t-row top-margin-20">
+                    <div class="nhsd-t-row">
                         <div class="nhsd-t-heading-xl">Search results for:</div>
                         <div class="nhsd-m-search-bar nhsd-!t-padding-0">
                             <form role="search" method="get" class="nhsd-t-form" novalidate autocomplete="off" aria-label="Search">
-                                <div class="nhsd-t-form-group">
+                                <div class="nhsd-t-form-group nhsd-!t-margin-bottom-0">
                                     <div class="nhsd-t-form-control">
                                         <input class="nhsd-t-form-input" type="text" id="query" name="query" autocomplete="off" value="${query!""}" placeholder="What are you looking for today?" aria-label="Keywords" />
                                         <span class="nhsd-t-form-control__button">
@@ -117,7 +117,7 @@
                                 <#assign displayHeaders = isAllTab && isFirstPaginationPage && hasDocumentsLinks && (hasPeopleLinks || hasErrorMessages) />
                                 <#-- People -->
                                 <#if displayHeaders>
-                                    <span class="intra-info-tag intra-info-tag--txt-grey intra-info-tag--bg-flat intra-info-tag--block">${peopleHeader}</span>
+                                    <h6 class="nhsd-t-heading-xs">${peopleHeader}</h6>
                                 </#if>
                                 <#if isAllOrPeopleTab && hasErrorMessages && isFirstPaginationPage>
                                     <span class="intra-info-tag intra-info-tag--txt-black intra-info-tag--bg-flat intra-info-tag--block">
@@ -144,9 +144,7 @@
                                         <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
                                     </#list>
                                     <#if morePeople?? && isAllTab>
-                                        <p class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--block-right">
-                                            <a href="${searchLink}?area=people&query=${query}">${peopleMoreResults}</a>
-                                        </p>
+                                        <a class="nhsd-a-link" href="${searchLink}?area=people&query=${query}">${peopleMoreResults}</a>
                                     </#if>
                                 </#if>
                                 <#-- Documents -->
