@@ -184,20 +184,4 @@ public class SearchPageComponentTest {
             newsResults + tasksResults + teamsResults + expectedPeopleResults
                 .size())));
     }
-
-    @Test
-    public void blankQueryReturnsOrderedByLastModified() {
-
-        Task task = new Task();
-        Task task2 = new Task();
-        task.getLastModified();
-        List<Task> tasks = new ArrayList<>();
-        tasks.add(task);
-        tasks.add(task2);
-
-        Pageable<HippoBean> documentResults = new DefaultPagination(tasks);
-        Mockito.when(bloomreachSearchProvider.getBloomreachResults(null, 1, 1, SearchArea.TASKS)).thenReturn(documentResults);
-
-//        assertEquals(, "Test");
-    }
 }
