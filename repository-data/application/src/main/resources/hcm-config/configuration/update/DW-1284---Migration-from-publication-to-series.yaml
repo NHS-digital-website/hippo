@@ -12,12 +12,21 @@ definitions:
         \r\nimport org.hippoecm.repository.util.JcrUtils\r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\
         \nimport javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport\
         \ javax.jcr.Session\r\nimport org.json.JSONArray\r\nimport org.json.JSONException\r\
-        \nimport org.json.JSONObject\r\n\r\n/*\r\nThis script takes the series fields\
-        \ (Granularity, Geographic Coverage, Administrative sources, Taxonomy and\
-        \ Information Types) from a file and finds\r\nthe corresponding series in\
-        \ the JCR and then overides the existing values with the ones coming from\
-        \ the file.\r\nBear in mind if a field of a series in the input is empty or\
-        \ blank, it will remove it in the JCR.\r\n\r\n\r\nWhen runnin this script\
+        \nimport org.json.JSONObject\r\n\r\n// IMPORTS FOR SearchableTaxonomyTask\r\
+        \nimport static java.util.stream.Collectors.toSet;\r\nimport static org.apache.cxf.common.util.CollectionUtils.isEmpty;\r\
+        \n\r\nimport org.apache.commons.lang3.ArrayUtils;\r\nimport org.apache.jackrabbit.value.StringValue;\r\
+        \nimport org.onehippo.repository.documentworkflow.DocumentVariant;\r\nimport\
+        \ org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;\r\n\
+        import org.slf4j.Logger;\r\nimport org.slf4j.LoggerFactory;\r\n\r\nimport\
+        \ java.util.ArrayList;\r\nimport java.util.Arrays;\r\nimport java.util.Optional;\r\
+        \nimport java.util.Set;\r\nimport java.util.stream.Stream;\r\nimport java.util.stream.StreamSupport;\r\
+        \nimport javax.jcr.Node;\r\nimport javax.jcr.RepositoryException;\r\nimport\
+        \ javax.jcr.Session;\r\nimport javax.jcr.Value;\r\n\r\n/*\r\nThis script takes\
+        \ the series fields (Granularity, Geographic Coverage, Administrative sources,\
+        \ Taxonomy and Information Types) from a file and finds\r\nthe corresponding\
+        \ series in the JCR and then overides the existing values with the ones coming\
+        \ from the file.\r\nBear in mind if a field of a series in the input is empty\
+        \ or blank, it will remove it in the JCR.\r\n\r\n\r\nWhen runnin this script\
         \ \"XPath query\" should be for example:\r\n/jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:series')]\r\
         \n\r\nThis script has a parameter called \"inputFile\", that is passed in\
         \ the \"parameters\" field in the CMS script runner \r\n(Setup icon/ Update\
@@ -49,9 +58,10 @@ definitions:
         \ = \"common:FullTaxonomy\"\r\n  private final static JCR_PROPERTY_TAXONOMY_KEYS\
         \ = \"hippotaxonomy:keys\"\r\n  private final static JCR_PROPERTY_ADMINISTRATIVE_SOURCES\
         \ = \"publicationsystem:AdministrativeSources\"\r\n  \r\n  Session session\r\
-        \n  JSONArray jsonArray\r\n  \r\n  void initialize(Session session) {\r\n\
-        \    this.session = session\r\n    \r\n    try {        \r\n        String\
-        \ fileInJsonPath //= \"/content/assets/assetsmiguel/seriesinfoexport.json/seriesinfoexport.json/hippogallery:asset\"\
+        \n  JSONArray jsonArray\r\n  SearchableTaxonomyTask taxonomyTask;\r\n  \r\n\
+        \  void initialize(Session session) {\r\n    this.session = session\r\n  \
+        \  this.taxonomyTask = new SearchableTaxonomyTask()\r\n    \r\n    try { \
+        \       \r\n        String fileInJsonPath //= \"/content/assets/assetsmiguel/seriesinfoexport.json/seriesinfoexport.json/hippogallery:asset\"\
         \r\n        if (parametersMap.containsKey(\"inputFile\")) {\r\n          fileInJsonPath\
         \ = parametersMap.get(\"inputFile\")\r\n        }\r\n        Node nodeInputFileResource\
         \ = session.getNode(fileInJsonPath)\r\n        log.debug(\"Loading input file\
@@ -134,9 +144,116 @@ definitions:
         \ series.informationTypes)\r\n    }\r\n    \r\n    if (series.taxonomy ==\
         \ null || series.taxonomy.length == 0) {\r\n      node.setProperty(JCR_PROPERTY_FULL_TAXONOMY,\
         \ (String[]) null)\r\n      node.setProperty(JCR_PROPERTY_TAXONOMY_KEYS, (String[])\
-        \ null)\r\n    } else {\r\n      node.setProperty(JCR_PROPERTY_FULL_TAXONOMY,\
-        \ series.taxonomy)\r\n      node.setProperty(JCR_PROPERTY_TAXONOMY_KEYS, series.taxonomy)\
-        \      \r\n    }\r\n    \r\n    node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES,\
-        \ series.administrativeSources)\r\n    \r\n    return true\r\n  }\r\n}"
+        \ null)\r\n    } else {\r\n      node.setProperty(JCR_PROPERTY_TAXONOMY_KEYS,\
+        \ series.taxonomy)      \r\n//      node.setProperty(JCR_PROPERTY_FULL_TAXONOMY,\
+        \ series.taxonomy)\r\n      taxonomyTask.updateFullTaxonomyAndSearchableTags(node)\r\
+        \n    }\r\n    \r\n    node.setProperty(JCR_PROPERTY_ADMINISTRATIVE_SOURCES,\
+        \ series.administrativeSources)\r\n    \r\n    return true\r\n  }\r\n  \r\n\
+        \  \r\n  /* Code taken from hippo proyect class SearchableTaxonomyTask. Originally\
+        \ that was in Java, it has been adapted to Groovy */\r\n  public class SearchableTaxonomyTask\
+        \ {\r\n\r\n    static final String HIPPO_CLASSIFIABLE_PATH = \"/hippo:namespaces/publicationsystem/series/editor:templates/_default_/classifiable\"\
+        ;\r\n\r\n    static final String FULL_TAXONOMY_PROPERTY = \"common:FullTaxonomy\"\
+        ;\r\n    static final String SEARCHABLE_TAGS_PROPERTY = \"common:SearchableTags\"\
+        ;\r\n\r\n    static final String TAXONOMY_NODE_NAME_PROPERTY = \"essentials-taxonomy-name\"\
+        ;\r\n    static final String TAXONOMY_CATEGORY_NODE_TYPE = \"hippotaxonomy:category\"\
+        ;\r\n\r\n    static final String TAXONOMY_CATEGORY_INFOS_PROPERTY = \"hippotaxonomy:categoryinfos\"\
+        ;\r\n    static final String TAXONOMY_NAME_PROPERTY = \"hippotaxonomy:name\"\
+        ;\r\n    static final String TAXONOMY_KEY_PROPERTY = \"hippotaxonomy:key\"\
+        ;\r\n    static final String TAXONOMY_KEYS_PROPERTY = \"hippotaxonomy:keys\"\
+        ;\r\n    static final String TAXONOMY_SYNONYMS_PROPERTY = \"hippotaxonomy:synonyms\"\
+        ;\r\n\r\n      public Object updateFullTaxonomyAndSearchableTags(Node node)\
+        \ throws RepositoryException {\r\n        try {\r\n            if (node.hasProperty(TAXONOMY_KEYS_PROPERTY))\
+        \ {\r\n                createFullTaxonomyProperty(node);\r\n             \
+        \   createSearchableTagsProperty(node);\r\n            }\r\n        } catch\
+        \ (RepositoryExceptionWrapper wrapper) {\r\n            // If a function in\
+        \ a stream has caused an exception, we wrap it in an\r\n            // unchecked\
+        \ exception so we need to rethrow it here\r\n            throw wrapper.re;\r\
+        \n        }\r\n        return null;\r\n    }\r\n\r\n    \r\n    @SuppressWarnings(\"\
+        WeakerAccess\")\r\n    protected void createSearchableTagsProperty(Node document)\
+        \ throws RepositoryException {\r\n        Value[] values = document.getProperty(TAXONOMY_KEYS_PROPERTY).getValues();\r\
+        \n        Set<String> keys = Arrays.stream(values)\r\n            .map{value\
+        \ -> getWrapExceptions(value.&getString)}\r\n            .collect(toSet());\r\
+        \n\r\n        Set<String> searchableTags = getTaxonomyTermsAndSynonyms(keys);\r\
+        \n\r\n        if (!isEmpty(searchableTags)) {\r\n            try {\r\n   \
+        \             document.setProperty(SEARCHABLE_TAGS_PROPERTY, stringsToValues(searchableTags));\r\
+        \n            } catch (RepositoryException re) {\r\n                log.error(\"\
+        Failed to set searchable tags on node: \" + document, re);\r\n           \
+        \ }\r\n        }\r\n    }\r\n\r\n    private Set<String> getTaxonomyTermsAndSynonyms(Set<String>\
+        \ keys) throws RepositoryException {\r\n      return getDescendantTaxonomyNodes(getTaxonomyTreeNode())\r\
+        \n        .filter{node -> keys.contains(getWrapExceptions({ -> getTaxonomyKey(node)}))}\r\
+        \n        .flatMap{node -> getWrapExceptions({ -> getTermsAndSynonyms(node)})}\r\
+        \n            .collect(toSet());\r\n    }\r\n\r\n    private Stream<String>\
+        \ getTermsAndSynonyms(Node taxonomyNode) throws RepositoryException {\r\n\
+        \        Node info = taxonomyNode.getNode(TAXONOMY_CATEGORY_INFOS_PROPERTY).getNode(\"\
+        en\");\r\n\r\n        String taxonomyName = info.getProperty(TAXONOMY_NAME_PROPERTY).getString();\r\
+        \n        Stream<String> stream = Stream.of(taxonomyName);\r\n\r\n       \
+        \ if (info.hasProperty(TAXONOMY_SYNONYMS_PROPERTY)) {\r\n          stream\
+        \ = Stream.concat(\r\n                stream,\r\n                Arrays.stream(info.getProperty(TAXONOMY_SYNONYMS_PROPERTY).getValues())\r\
+        \n              .map{value -> getWrapExceptions(value.&getString)}\r\n   \
+        \         );\r\n        }\r\n\r\n        return stream;\r\n    }\r\n\r\n \
+        \   @SuppressWarnings(\"WeakerAccess\")\r\n    protected void createFullTaxonomyProperty(Node\
+        \ document) throws RepositoryException {\r\n        Set<String> fullTaxonomyKeys\
+        \ = getFullTaxonomyKeys(document);\r\n        Value[] fullTaxonomy = stringsToValues(fullTaxonomyKeys);\r\
+        \n\r\n        // We have seen this happen when a document has only invalid\
+        \ taxonomy keys\r\n        // Don't create the new property in this case\r\
+        \n        if (ArrayUtils.isEmpty(fullTaxonomy)) {\r\n            return;\r\
+        \n        }\r\n\r\n        try {\r\n            document.setProperty(FULL_TAXONOMY_PROPERTY,\
+        \ fullTaxonomy);\r\n        } catch (RepositoryException re) {\r\n       \
+        \     log.error(\"Failed to set full taxonomy on node: \" + document, re);\r\
+        \n        }\r\n    }\r\n\r\n    private Value[] stringsToValues(Set<String>\
+        \ strings) {\r\n        return strings.stream()\r\n          .map {value ->\
+        \ new StringValue(value) }\r\n          .toArray {value2 -> new Value[value2]};\r\
+        \n    }\r\n\r\n    private Set<String> getFullTaxonomyKeys(Node document)\
+        \ throws RepositoryException {\r\n        Value[] values = document.getProperty(TAXONOMY_KEYS_PROPERTY).getValues();\r\
+        \n        Set<String> toReturn = Arrays.stream(values)\r\n          .map{value\
+        \ -> getWrapExceptions(value.&getString)}\r\n          .flatMap{key -> getWrapExceptions({\
+        \ -> getTaxonomyList(key)})}\r\n            .collect(toSet());\r\n      \r\
+        \n        return toReturn\r\n    }\r\n\r\n    private Node getTaxonomyTreeNode()\
+        \ throws RepositoryException {\r\n        String taxonomyName = session\r\n\
+        \            .getNode(HIPPO_CLASSIFIABLE_PATH)\r\n            .getProperty(TAXONOMY_NODE_NAME_PROPERTY)\r\
+        \n            .getString();\r\n\r\n        // get the published taxonomy\r\
+        \n        return session.getNode(\"/content/taxonomies/\" + taxonomyName +\
+        \ \"/\" + taxonomyName);\r\n    }\r\n\r\n    private Stream<String> getTaxonomyList(String\
+        \ key) throws RepositoryException {\r\n        Optional<Node> taxonomyNodeOptional\
+        \ = getDescendantTaxonomyNodes(getTaxonomyTreeNode())\r\n          .filter{node\
+        \ -> getWrapExceptions({ -> getTaxonomyKey(node)}).equals(key)}\r\n      \
+        \      .findAny();\r\n\r\n        if (!taxonomyNodeOptional.isPresent()) {\r\
+        \n            log.error(\"Couldn't find taxonomy key in tree: \" + key);\r\
+        \n            return Stream.empty();\r\n        }\r\n\r\n        Node taxonomyNode\
+        \ = taxonomyNodeOptional.get();\r\n        ArrayList<String> taxonomyKeys\
+        \ = new ArrayList<>();\r\n        while (taxonomyNode.getPrimaryNodeType()\r\
+        \n            .isNodeType(TAXONOMY_CATEGORY_NODE_TYPE)) {\r\n\r\n        \
+        \    taxonomyKeys.add(getTaxonomyKey(taxonomyNode));\r\n            taxonomyNode\
+        \ = taxonomyNode.getParent();\r\n        }\r\n\r\n        return taxonomyKeys.stream();\r\
+        \n    }\r\n\r\n    private String getTaxonomyKey(Node node) throws RepositoryException\
+        \ {\r\n        return node.getProperty(TAXONOMY_KEY_PROPERTY).getString();\r\
+        \n    }\r\n\r\n    private Stream<Node> getDescendantTaxonomyNodes(Node node)\
+        \ {\r\n      Stream<Node> toReturn = streamChildTaxonomyNodes(node)\r\n  \
+        \      .flatMap{childNode -> Stream.concat(\r\n             Stream.of(childNode),\r\
+        \n             getDescendantTaxonomyNodes(childNode))}\r\n      return toReturn\
+        \    \r\n    }\r\n\r\n    \r\n    private Stream<Node> streamChildTaxonomyNodes(Node\
+        \ parentNode) {\r\n      Stream<Node> toReturn = streamChildNodes(parentNode)\r\
+        \n        .filter { value -> getWrapExceptions(value.&getPrimaryNodeType)\r\
+        \n                .isNodeType(TAXONOMY_CATEGORY_NODE_TYPE)\r\n        }\r\n\
+        \      return toReturn;\r\n    }\r\n\r\n    @SuppressWarnings(\"unchecked\"\
+        )\r\n    private Stream<Node> streamChildNodes(Node parentNode) {\r\n    \
+        \  Iterable<Node> iterableNode = (Iterable<Node>) {-> getWrapExceptions(parentNode.&getNodes)}\r\
+        \n      Stream<Node> toReturn = StreamSupport.stream(\r\n           iterableNode.spliterator(),\r\
+        \n           false\r\n        );\r\n      return toReturn\r\n    }\r\n\r\n\
+        \    /**\r\n     * This is not used in normal operation, session is set when\
+        \ we are hooking in the the task directly in\r\n     */\r\n    /*protected\
+        \ void setSession(Session session) {\r\n        this.session = session;\r\n\
+        \    }*/\r\n\r\n    /**\r\n     * Handling for repository operations that\
+        \ throw exceptions that we can use in streams\r\n     */\r\n    static <T>\
+        \ T getWrapExceptions(RepositoryOperation<T> repositoryOperation) {\r\n  \
+        \      if (repositoryOperation == null) {\r\n            return null;\r\n\
+        \        }\r\n\r\n        try {\r\n            return repositoryOperation.get();\r\
+        \n        } catch (RepositoryException re) {\r\n            throw new RepositoryExceptionWrapper(re);\r\
+        \n        }\r\n    }\r\n\r\n    public void setVariant(DocumentVariant variant)\
+        \ {\r\n        this.variant = variant;\r\n    }\r\n\r\n    @FunctionalInterface\r\
+        \n    interface RepositoryOperation<T> {\r\n        T get() throws RepositoryException;\r\
+        \n    }\r\n\r\n    static class RepositoryExceptionWrapper extends RuntimeException\
+        \ {\r\n        private RepositoryException re;\r\n\r\n        RepositoryExceptionWrapper(RepositoryException\
+        \ re) {\r\n            this.re = re;\r\n        }\r\n\r\n    }\r\n  }\r\n}"
       hipposys:throttle: 1000
       jcr:primaryType: hipposys:updaterinfo
