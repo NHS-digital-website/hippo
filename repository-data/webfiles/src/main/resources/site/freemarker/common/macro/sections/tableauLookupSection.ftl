@@ -6,7 +6,7 @@
 
     <@hst.setBundle basename="tableau.postcode.labels, tableau.lables, tableau.postcode.configuration"/>
 
-   <#if section?? && section.url??>
+    <#if section?? && section.url??>
 
         <@hst.headContribution>
             <script src="${section.tableauBase}javascripts/api/tableau-2.min.js"></script>
@@ -14,48 +14,49 @@
 
         <#assign divId = "tableau-${index}"/>
 
-       <div class="eforms">
-           <form action="javascript:void(0);">
-               <div class="eforms-field" style="max-width: 300px">
-                   <label for="${divId}-postcode" class="eforms-label"><@fmt.message key="postcode-label"/><span class="eforms-req"></span></label>
-                   <input type="text" id="${divId}-postcode" />
-                   <div id="${divId}-postcode-validation-message" class="eforms-field__error-message visually-hidden"></div>
-                   <span class="eforms-hint"><@fmt.message key="postcode-hint"/></span>
-               </div>
-               <div class="eforms-field" style="max-width: 300px">
-                   <label for="${divId}-distance" class="eforms-label"><@fmt.message key="distance-label"/><span class="eforms-req"></span></label>
-                   <select id="${divId}-distance" style="margin-top: 8px;">
-                       <option value="1">1 mile</option>
-                       <option value="2">2 miles</option>
-                       <option selected value="3">3 miles</option>
-                       <option value="4">4 miles</option>
-                       <option value="5">5 miles</option>
-                       <option value="6">6 miles</option>
-                       <option value="7">7 miles</option>
-                       <option value="8">8 miles</option>
-                       <option value="9">9 miles</option>
-                       <option value="10">10 miles</option>
-                   </select>
-                   <span class="eforms-hint"><@fmt.message key="distance-hint"/></span>
-               </div>
-               <div class="eforms-buttons">
-                   <input class="button" type="submit" value="Go" onclick="lookup()"/>
-               </div>
-           </form>
+        <div class="eforms">
+            <form action="javascript:void(0);">
+                <div class="eforms-field" style="max-width: 300px">
+                    <label for="${divId}-postcode" class="eforms-label"><@fmt.message key="postcode-label"/><span class="eforms-req"></span></label>
+                    <input type="text" id="${divId}-postcode" />
+                    <div id="${divId}-postcode-validation-message" class="eforms-field__error-message visually-hidden"></div>
+                    <span class="eforms-hint"><@fmt.message key="postcode-hint"/></span>
+                </div>
+                <div class="eforms-field" style="max-width: 300px">
+                    <label for="${divId}-distance" class="eforms-label"><@fmt.message key="distance-label"/><span class="eforms-req"></span></label>
+                    <select id="${divId}-distance" style="margin-top: 8px;">
+                        <option value="1">1 mile</option>
+                        <option value="2">2 miles</option>
+                        <option selected value="3">3 miles</option>
+                        <option value="4">4 miles</option>
+                        <option value="5">5 miles</option>
+                        <option value="6">6 miles</option>
+                        <option value="7">7 miles</option>
+                        <option value="8">8 miles</option>
+                        <option value="9">9 miles</option>
+                        <option value="10">10 miles</option>
+                    </select>
+                    <span class="eforms-hint"><@fmt.message key="distance-hint"/></span>
+                </div>
+                <div class="eforms-buttons">
+                    <input class="button" type="submit" value="Go" onclick="lookup()"/>
+                </div>
+            </form>
 
-       </div>
+        </div>
 
-       <div id="${divId}" class="viz-wrapper">
-           <div id="${divId}-viz" class="viz-wrapper-item"></div>
-           <div id="${divId}-loading" class="viz-wrapper-item visually-hidden">
-               <div class="viz-wrapper-loading">
-                   <span id="${divId}-loading-message"></span>
-                   <div class="viz-wrapper-loading-icon">
-                       <img id="${divId}-loading-icon" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading data " />
-                   </div>
-               </div>
-           </div>
-       </div>
+        <div id="${divId}" class="viz-wrapper">
+            <div id="${divId}-viz" class="viz-wrapper-item"></div>
+            <div id="${divId}-downLoadData"></div>
+            <div id="${divId}-loading" class="viz-wrapper-item visually-hidden">
+                <div class="viz-wrapper-loading">
+                    <span id="${divId}-loading-message"></span>
+                    <div class="viz-wrapper-loading-icon">
+                        <img id="${divId}-loading-icon" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading data " />
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script>
             var vizMessages = {
@@ -67,7 +68,6 @@
         </script>
 
         <script>
-
             // Viz instance
             var viz${index};
 
@@ -100,10 +100,12 @@
                 },
                 distance: function () {
                     return document.getElementById("${divId}-distance");
+                },
+                vizLink: function (){
+                    return document.getElementById('${divId}-downLoadData');
                 }
             };
-
-            function loadViz() {
+            function loadViz(downloadVizLink) {
                 function options() {
                     var options = {
                         "onFirstInteractive": function () {
@@ -129,18 +131,16 @@
                         viz${index}.dispose();
                     }
                     viz${index} = new tableau.Viz(viz${index}Elements.vizDiv(), viz${index}Url, options());
+                    viz${index}Elements.vizLink().innerHTML = "<br><a href='"+downloadVizLink+"' target='_blank'>Download the coronavirus data for '"+formatPostcode(viz${index}Elements.postcode().value, " ")+"'</a>";
                 } else {
                     _showLoadingError();
                 }
             }
-
             function _showLoadingError() {
                 viz${index}Elements.containerDiv().innerHTML = vizMessages.LOAD_ERROR;
             }
-
             function lookup() {
                 _clearValidationMessage(viz${index}Elements.validationMessageDiv());
-
                 fetch(postcodeApiUrl(viz${index}Elements.postcode().value))
                     .then(response => {
                         if (!response.ok) {
@@ -156,19 +156,18 @@
                         var latitude = data["result"]["latitude"];
                         var longitude = data["result"]["longitude"];
                         viz${index}Url = encodeURI("${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
-
+                        // build the download link and base it on div being empty
+                        var downloadVizLink = encodeURI("${section.url}".split("?")[0]+".csv" + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
                         // Start Viz load
                         _hideLoadingSpinner()
-                        loadViz();
+                        loadViz(downloadVizLink);
                         _showLoadingSpinner();
-
                         // Init loading retry
                         viz${index}Loaded = false;
                         viz${index}LoadingTimerStart = Date.now();
                         viz${index}LoadingRetryAtempIntervales = [<#list section.retryIntervals as intervale>${intervale},</#list>];
                         clearInterval(viz${index}LoadingTimer); <#-- if set -->
                         viz${index}LoadingTimer = setInterval(_retry, 1000);
-
                     }).catch(error => error.json().then(data => {
                         if(!!viz${index}) {
                             viz${index}.dispose();
@@ -180,34 +179,30 @@
                         }
                 }));
             }
-
-            function postcodeApiUrl(input) {
-                function _formatPostcode() {
-                    if ((typeof input === 'string' || input instanceof String) && input.length >= 5) {
-                        var postcode = input.split(" ").join("");;
-                        postcode = postcode.toUpperCase();
-                        return postcode.substr(0, postcode.length - 3) + "/" + postcode.substr(postcode.length - 3);
-                    } else {
-                        return null;
-                    }
+            function formatPostcode(postcode, divider) {
+                if ((typeof postcode === 'string' || postcode instanceof String) && postcode.length >= 5) {
+                    var p = postcode.split(" ").join("");
+                    p = p.toUpperCase();
+                    return p.substr(0, p.length - 3) + divider + p.substr(p.length - 3);
+                } else {
+                    return null;
                 }
-                return "<@fmt.message key="postcode-api-address"/>" + _formatPostcode() + ".json";
             }
-
+            function postcodeApiUrl(postcode) {
+                return "<@fmt.message key="postcode-api-address"/>" + formatPostcode(postcode, "/") + ".json";
+            }
             function _clearValidationMessage(el) {
                 if(el instanceof HTMLElement) {
                     el.innerText = "";
                     el.classList.add("visually-hidden");
                 }
             }
-
             function _showValidationMessage(el, message) {
                 if(el instanceof HTMLElement) {
                     el.innerText = message;
                     el.classList.remove("visually-hidden");
                 }
             }
-
             function _showLoadingSpinner() {
                 var loaderDiv = viz${index}Elements.loadingDiv();
                 if (loaderDiv instanceof HTMLElement) {
@@ -223,7 +218,6 @@
                     _setMessage(vizMessages.LOADING_MESSAGE);
                 }
             }
-
             function _hideLoadingSpinner() {
                 var loader = viz${index}Elements.loadingDiv();
                 if (loader instanceof HTMLElement) {
@@ -234,14 +228,12 @@
                     message.classList.remove("viz-wrapper-loading-message");
                 }
             }
-
             function _setMessage(message) {
                 var message${index} = viz${index}Elements.loadingMessage();
                 if(!!(message${index})) {
                     message${index}.innerHTML = message;
                 }
             }
-
             function _retry() {
                 if(!viz${index}Loaded && viz${index}LoadingRetryAtempIntervales.length <= 0){
                     clearInterval(viz${index}LoadingTimer);
@@ -254,7 +246,6 @@
                     }
                 }
             }
-
             function _fail(){
                 setTimeout(function(){
                     if(!viz${index}Loaded) {
