@@ -108,6 +108,10 @@ public class SitePage extends AbstractSitePage {
         return helper.findElement(By.xpath("//*[@data-uipath='document.title']")).getText();
     }
 
+    public String getDocumentSummary() {
+        return helper.findElement(By.xpath("//*[@data-uipath='document.summary']")).getText();
+    }
+
     public String getDocumentContent() {
         return helper.findElement(By.xpath("//*[@data-uipath='ps.document.content']")).getText();
     }
