@@ -26,7 +26,7 @@
         <@hst.include ref="main"/>
     </main>
 
-    <@intranetFooter />
+    <@hst.include ref="footer"/>
 
     <#include "../scripts/intranet-footer-scripts.ftl" />
 </body>
