@@ -5,7 +5,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 
 import java.util.Optional;
 
-public class ApiSpecificationComponent extends BaseGaContentComponent {
+public class ApiSpecificationComponent extends ContentRewriterComponent {
 
     @Override public void doBeforeRender(final HstRequest request,
                                          final HstResponse response) {

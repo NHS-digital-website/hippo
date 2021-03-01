@@ -4,6 +4,10 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/general:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.DocumentChildComponent
+        hst:parameternames:
+        - brandRefreshContentRewriter
+        hst:parametervalues:
+        - 'true'
         hst:template: general-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage

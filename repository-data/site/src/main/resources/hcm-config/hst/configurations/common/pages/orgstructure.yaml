@@ -3,7 +3,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/orgstructure:
       /main:
-        hst:componentclassname: uk.nhs.digital.common.components.BaseGaContentComponent
+        hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
         hst:template: orgstructure
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
