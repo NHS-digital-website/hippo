@@ -17,7 +17,7 @@ import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.api.resource.ResourceBeanMapper;
 import uk.nhs.digital.apispecs.OpenApiSpecificationRepositoryException;
-import uk.nhs.digital.apispecs.model.OpenApiSpecificationStatus;
+import uk.nhs.digital.apispecs.model.OpenApiSpecification;
 
 import java.util.List;
 
@@ -51,16 +51,16 @@ public class ApigeeServiceTest {
     public void apiSpecificationStatuses_retrievesSpecificationsStatusesFromResourceServiceBroker() {
 
         // given
-        final OpenApiSpecificationStatus specA = new OpenApiSpecificationStatus("specA", "2020-06-10T11:17:00.017Z");
-        final OpenApiSpecificationStatus specB = new OpenApiSpecificationStatus("specB", "2020-06-10T11:23:00.017Z");
-        final ApigeeSpecificationsStatuses expectedStatuses = new ApigeeSpecificationsStatuses(asList(specA, specB));
+        final OpenApiSpecification specA = new OpenApiSpecification("specA", "2020-06-10T11:17:00.017Z");
+        final OpenApiSpecification specB = new OpenApiSpecification("specB", "2020-06-10T11:23:00.017Z");
+        final OpenApiSpecifications expectedStatuses = new OpenApiSpecifications(asList(specA, specB));
 
         given(broker.resolve(any(), any())).willReturn(resource);
         given(broker.getResourceBeanMapper(any())).willReturn(resourceBeanMapper);
         given(resourceBeanMapper.map(any(), any())).willReturn(expectedStatuses);
 
         // when
-        final List<OpenApiSpecificationStatus> actualStatuses = apigeeService.apiSpecificationStatuses();
+        final List<OpenApiSpecification> actualStatuses = apigeeService.apiSpecificationStatuses();
 
         // then
         then(broker).should().resolve(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API, URL_ALL_SPECS);

@@ -24,6 +24,7 @@ import uk.nhs.digital.test.util.ReflectionTestUtils;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.jcr.Node;
 import javax.jcr.Session;
@@ -50,21 +51,40 @@ public class ApiSpecificationDocumentJcrRepositoryQueryTest {
 
         // given
         apiSpecsPresentInTheSystem();
-        final String specificationIdInJcrRepo = "api-specification-id-a";
-        final Instant lastPublicationInstantInJcrRepo = Instant.parse("2020-07-08T08:37:03.915Z");
+
+        final String specificationIdInJcr = "api-specification-id-a";
+        final Optional<String> jsonInJcr = Optional.of("{ \"json\" : \"payload A on PUBLISHED\" }");
+        final Optional<String> htmlInJcr = Optional.of("<p>API Specification A on PUBLISHED</p>");
+        final Optional<Instant> lastChangeCheckTimeInJcr = Optional.of(Instant.parse("2020-07-08T08:37:10.900Z"));
+        final Optional<Instant> lastPublicationInstantInJcr = Optional.of(Instant.parse("2020-07-08T08:37:03.915Z"));
 
         // when
         final ApiSpecificationDocument actualApiSpec = apiSpecJcrRepository.findAllApiSpecifications().get(0);
 
         // then
-        assertThat("Document contains last publication instant as present on published variant in the JCR repo.",
+        assertThat("Document contains specification id as present on draft variant in the JCR repo.",
             actualApiSpec.getId(),
-            is(specificationIdInJcrRepo)
+            is(specificationIdInJcr)
         );
 
-        assertThat("Document contains last publication instant as present on draft variant in the JCR repo.",
-            actualApiSpec.getLastPublicationInstant().get(),
-            is(lastPublicationInstantInJcrRepo)
+        assertThat("Document contains JSON as present on published variant in the JCR repo.",
+            actualApiSpec.json(),
+            is(jsonInJcr)
+        );
+
+        assertThat("Document contains HTML as present on published variant in the JCR repo.",
+            actualApiSpec.html(),
+            is(htmlInJcr)
+        );
+
+        assertThat("Document contains last change check instant as present on published variant in the JCR repo.",
+            actualApiSpec.lastChangeCheckInstant(),
+            is(lastChangeCheckTimeInJcr)
+        );
+
+        assertThat("Document contains last publication instant as present on published variant in the JCR repo.",
+            actualApiSpec.lastPublicationInstant(),
+            is(lastPublicationInstantInJcr)
         );
     }
 
@@ -81,6 +101,16 @@ public class ApiSpecificationDocumentJcrRepositoryQueryTest {
         assertThat("All specifications present in the system have been found and returned",
             actualApiSpecs.size(),
             is(2)
+        );
+
+        assertThat("First document corresponds to one of the specifications in JCR.",
+            actualApiSpecs.get(0).getId(),
+            is("api-specification-id-a")
+        );
+
+        assertThat("Second document corresponds to the other specifications in JCR.",
+            actualApiSpecs.get(1).getId(),
+            is("api-specification-id-b")
         );
     }
 

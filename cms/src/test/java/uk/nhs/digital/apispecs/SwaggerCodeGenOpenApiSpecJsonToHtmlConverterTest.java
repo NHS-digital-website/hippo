@@ -22,7 +22,7 @@ import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToH
 import uk.nhs.digital.test.util.TestDataCache;
 
 @RunWith(DataProviderRunner.class)
-public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
+public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
 
     private TestDataCache cache = TestDataCache.create();
 

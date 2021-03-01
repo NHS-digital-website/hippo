@@ -19,6 +19,12 @@ definitions:
           hst:template: homeland-bloglist
           hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
+        /button:
+          hst:componentclassname: uk.nhs.digital.common.components.ButtonComponent
+          hst:label: Button
+          hst:template: button
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /callToAction:
           hst:componentclassname: uk.nhs.digital.common.components.CallToActionComponent
           hst:label: Call To Action
@@ -70,6 +76,12 @@ definitions:
           hst:label: Hero
           hst:template: hero
           hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        /jobsfeedcomponent:
+          hst:componentclassname: uk.nhs.digital.common.components.JobsFeedComponent
+          hst:label: Jobs Feed Component
+          hst:template: jobsfeedcomponent
+          hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
         /list:
           hst:componentclassname: uk.nhs.digital.common.components.PublicationListComponent
