@@ -3,13 +3,13 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/alphabeticalFilterNav.ftl">
-<#include "macro/alphabeticalGroupOfBlocks.ftl">
+<#include "macro/apiCatalogueEntries.ftl">
 <#include "macro/component/lastModified.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.Filters" -->
-<#-- @ftlvariable name="section" type="uk.nhs.digital.common.components.apicatalogue.Filters.Section" -->
-<#-- @ftlvariable name="filter" type="uk.nhs.digital.common.components.apicatalogue.Filters.Subsection" -->
+<#-- @ftlvariable name="section" type="uk.nhs.digital.common.components.apicatalogue.Section" -->
+<#-- @ftlvariable name="filter" type="uk.nhs.digital.common.components.apicatalogue.Subsection" -->
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="column column--two-thirds page-block page-block--main">
-                    <@alphabeticalGroupOfBlocks alphabetical_hash></@alphabeticalGroupOfBlocks>
+                    <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
                     <div class="article-section muted">
                         <@lastModified document.lastModified false></@lastModified>
                     </div>
@@ -95,7 +95,7 @@
     <li>
         <@hst.renderURL var="filterLink">
             <#if !filter.selected>
-                <@hst.param name="filters" value="${filter.taxonomyKey}" />
+                <@hst.param name="filters" value="${filter.key}" />
             </#if>
         </@hst.renderURL>
         <#if filter.selectable>

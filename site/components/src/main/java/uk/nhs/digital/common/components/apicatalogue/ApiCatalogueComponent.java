@@ -1,8 +1,9 @@
 package uk.nhs.digital.common.components.apicatalogue;
 
-import static uk.nhs.digital.common.components.apicatalogue.Filters.Section.section;
-import static uk.nhs.digital.common.components.apicatalogue.Filters.Subsection.subsection;
+import static java.util.stream.Collectors.toList;
 import static uk.nhs.digital.common.components.apicatalogue.Filters.filters;
+import static uk.nhs.digital.common.components.apicatalogue.Section.section;
+import static uk.nhs.digital.common.components.apicatalogue.Subsection.subsection;
 
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -29,6 +30,7 @@ public class ApiCatalogueComponent extends BaseGaContentComponent {
 
         final List<?> apiCatalogueLinksFiltered =
             apiCatalogueLinksFilteredBySelectedTags(apiCatalogueLinksAll, selectedTags);
+
         final Filters filtersModel = filtersModel(apiCatalogueLinksAll, selectedTags);
 
         request.setAttribute("apiCatalogueLinks", apiCatalogueLinksFiltered);
@@ -54,20 +56,16 @@ public class ApiCatalogueComponent extends BaseGaContentComponent {
             return links;
         }
 
-        return internalLinksFrom(links, selectedTags).collect(Collectors.toList());
+        return internalLinksFrom(links, selectedTags).collect(toList());
     }
 
     private Filters filtersModel(final List<?> apiCatalogueLinks, final Set<String> selectedTags) {
 
-        final FilterVisitor visitor = new FilterVisitor(
-            filteredTaxonomyTags(selectedTags, apiCatalogueLinks),
-            selectedTags
-        );
-
-        final Filters filtersModel = newFiltersModel();
-        filtersModel.getSections().forEach(visitor::visit);
-
-        return filtersModel;
+        return newFiltersModel()
+            .initialisedWith(
+                filteredTaxonomyTags(selectedTags, apiCatalogueLinks),
+                selectedTags
+            );
     }
 
     private Set<String> filteredTaxonomyTags(final Set<String> selectedTags, final List<?> links) {
@@ -90,13 +88,16 @@ public class ApiCatalogueComponent extends BaseGaContentComponent {
         return selectedTags.isEmpty() || taxonomyKeys.stream().anyMatch(selectedTags::contains);
     }
 
-
     private static Set<String> getTagsFromLink(final Internallink link) {
         return new HashSet<>(Arrays.asList((String[]) link.getLink().getProperties().getOrDefault("hippotaxonomy:keys", new String[0])));
     }
 
     private static Filters newFiltersModel() {
+
+        final FiltersWalker depthFirstFiltersWalker = new DepthFirstFiltersWalker();
+
         return filters(
+            depthFirstFiltersWalker,
             section("Services",
                 subsection("Community", "community-health-care"),
                 subsection("Dentistry", "dental-health"),
