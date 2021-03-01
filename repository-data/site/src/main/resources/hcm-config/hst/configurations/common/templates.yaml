@@ -36,7 +36,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
         jcr:primaryType: hst:template
       /az-list:
-        hst:renderpath: webfile:/freemarker/common/az-list.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/components/az-list.ftl
         jcr:primaryType: hst:template
       /base-top-menu:
         hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
@@ -223,6 +223,9 @@ definitions:
         jcr:primaryType: hst:template
       /nhsd-homepage-layout:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage-layout.ftl
+        jcr:primaryType: hst:template
+      /nhsd-list-article:
+        hst:renderpath: webfile:/freemarker/nhsd-common/nhsd-list-article.ftl
         jcr:primaryType: hst:template
       /nhsd-main-nav:
         hst:renderpath: webfile:/freemarker/common/nhsd-main-nav.ftl
