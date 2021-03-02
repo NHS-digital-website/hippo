@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "./macro/tabTileHeadings.ftl">
 <#include "./macro/tabTileSection.ftl">
+<#include "../common/macro/results.ftl">
 
 <#-- Resource bundle -->
 <@hst.setBundle basename="rb.intra.search"/>
@@ -63,6 +64,8 @@
     "title": item.searchResultTitle,
     "linkType": "internal",
     "link": item,
+    "modified": item.lastModified,
+    "summary": item.shortsummary,
     "type": item.searchResultType
     }] />
 </#list>
@@ -79,7 +82,7 @@
                         <div class="nhsd-t-heading-xl">Search results for:</div>
                         <div class="nhsd-m-search-bar nhsd-!t-padding-0">
                             <form role="search" method="get" class="nhsd-t-form" novalidate autocomplete="off" aria-label="Search">
-                                <div class="nhsd-t-form-group nhsd-!t-margin-bottom-0">
+                                <div class="nhsd-t-form-group nhsd-!t-margin-bottom-5">
                                     <div class="nhsd-t-form-control">
                                         <input class="nhsd-t-form-input" type="text" id="query" name="query" autocomplete="off" value="${query!""}" placeholder="What are you looking for today?" aria-label="Keywords" />
                                         <span class="nhsd-t-form-control__button">
@@ -97,7 +100,7 @@
                         </div>
                     </div>
                     <#assign queryResultsString = (query?? && query?has_content)?then(textContaining + " '" + query + "'", "") />
-                    <span class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--txt-grey">${totalCount} ${resultsLabel} ${queryResultsString}</span>
+                    <span class="nhsd-t-body-s nhsd-!t-margin-bottom-0">${totalCount} ${resultsLabel} ${queryResultsString}</span>
                     <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-bottom-6"></a>
                     <div class="nhsd-t-row">
                         <@tabTileHeadings tabs "search" area query />
@@ -120,7 +123,7 @@
                                     <h6 class="nhsd-t-heading-xs">${peopleHeader}</h6>
                                 </#if>
                                 <#if isAllOrPeopleTab && hasErrorMessages && isFirstPaginationPage>
-                                    <span class="intra-info-tag intra-info-tag--txt-black intra-info-tag--bg-flat intra-info-tag--block">
+                                    <p class="nhsd-t-body-s">
                                         <#if accessTokenRequired??>
                                             <@fmt.message key="text.accessTokenRequired"/>
                                         <#elseif searchTermErrorMessage??>
@@ -128,7 +131,7 @@
                                         <#elseif apiErrorMessage??>
                                             <@fmt.message key="text.apiErrorMessage"/>
                                         </#if>
-                                    </span>
+                                    </p>
                                     <#if loginRequired>
                                         <div class="ctabtn--div">
                                             <a class="ctabtn--nhs-digital-button" href="${authorizationUrl}"><@fmt.message key="labels.peopleSearchBtn"/></a>
@@ -137,19 +140,19 @@
                                 </#if>
                                 <#if isAllOrPeopleTab && hasPeopleLinks && isFirstPaginationPage>
                                     <#list peopleLinks as links>
-                                        <div class="tile-panel-group">
-                                            <@tabTileSection links indexId/>
-                                        </div>
+                                        <@tabTileSection links indexId/>
                                         <#assign indexId++ />
                                         <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
                                     </#list>
                                     <#if morePeople?? && isAllTab>
-                                        <a class="nhsd-a-link" href="${searchLink}?area=people&query=${query}">${peopleMoreResults}</a>
+                                        <div style="text-align:center; margin:0;">
+                                            <a class="nhsd-t-body-s nhsd-!t-col-red" href="${searchLink}?area=people&query=${query}" style="text-decoration:none">${peopleMoreResults}</a>
+                                        </div>
                                     </#if>
                                 </#if>
                                 <#-- Documents -->
                                 <#if displayHeaders>
-                                    <span class="intra-info-tag intra-info-tag--txt-grey intra-info-tag--bg-flat intra-info-tag--block">${documentHeader}</span>
+                                    <h6 class="nhsd-t-heading-xs">${documentHeader}</h6>
                                 </#if>
                                 <#if hasDocumentsLinks>
                                     <#assign peopleNumbers = 0 />
@@ -158,16 +161,14 @@
                                     </#if>
                                     <#assign indexId += pageable.startOffset + peopleNumbers/>
                                     <#list documentLinks as links>
-                                        <div class="tile-panel-group">
-                                            <@tabTileSection links indexId/>
-                                        </div>
+                                        <@tabTileSection links indexId/>
                                         <#assign indexId++ />
                                         <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
                                     </#list>
                                 </#if>
                                 <#-- No result message -->
                                 <#if (isAllTab && !hasPeopleLinks && !hasDocumentsLinks) || (isPeopleTab && !hasPeopleLinks) || (!isAllOrPeopleTab && !hasDocumentsLinks)>
-                                    <span class="intra-info-tag intra-info-tag--txt-black intra-info-tag--bg-flat intra-info-tag--block">${noSearchResults}</span>
+                                    <p class="nhsd-t-body-s">${noSearchResults}</p>
                                 </#if>
                             </div>
                         </div>
@@ -175,7 +176,7 @@
                 </div>
                 <div class="article-section no-border no-top-margin" id="intra-search-pagination">
                     <#if pageable.totalPages gt 1>
-                        <#include "../include/pagination.ftl">
+                        <#include "include/pagination.ftl">
                     </#if>
                 </div>
             </div>
