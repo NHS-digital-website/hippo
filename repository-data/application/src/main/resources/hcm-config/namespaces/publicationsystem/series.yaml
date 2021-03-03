@@ -339,6 +339,8 @@ definitions:
             hipposysedit:path: publicationsystem:dateNaming
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+            hipposysedit:validators:
+              - required
             jcr:primaryType: hipposysedit:field
           /frequency:
             hipposysedit:mandatory: false
