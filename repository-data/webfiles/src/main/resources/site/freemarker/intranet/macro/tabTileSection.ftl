@@ -14,7 +14,9 @@
                 </#if>
 
                 <#if options.modified?has_content>
-                    <p class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-0">${options.modified?date}</p>
+                    <p class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-0">
+                        <@fmt.formatDate value=options.modified type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                    </p>
                 </#if>
 
                 <h6 class="nhsd-t-heading-xs nhsd-!t-margin-0">

@@ -101,11 +101,11 @@
                     </div>
                     <#assign queryResultsString = (query?? && query?has_content)?then(textContaining + " '" + query + "'", "") />
                     <span class="nhsd-t-body-s nhsd-!t-margin-bottom-0">${totalCount} ${resultsLabel} ${queryResultsString}</span>
-                    <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-bottom-6"></a>
+                    <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-bottom-6" />
                     <div class="nhsd-t-row">
                         <@tabTileHeadings tabs "search" area query />
                     </div>
-                    <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-bottom-1"></a>
+                    <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-bottom-1" />
                 </#if>
                 <div class="article-section no-border no-top-margin no-top-padding">
                     <div class="nhsd-t-row">
@@ -142,7 +142,7 @@
                                     <#list peopleLinks as links>
                                         <@tabTileSection links indexId/>
                                         <#assign indexId++ />
-                                        <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
+                                        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s" />
                                     </#list>
                                     <#if morePeople?? && isAllTab>
                                         <div style="text-align:center; margin:0;">
@@ -163,7 +163,7 @@
                                     <#list documentLinks as links>
                                         <@tabTileSection links indexId/>
                                         <#assign indexId++ />
-                                        <a class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s"></a>
+                                        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s" />
                                     </#list>
                                 </#if>
                                 <#-- No result message -->
