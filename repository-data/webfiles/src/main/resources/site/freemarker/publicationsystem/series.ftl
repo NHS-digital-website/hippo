@@ -128,9 +128,9 @@
 
                             <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.latest">
                                 <div class="callout-box__content callout-box__content--narrow">
-                                    <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
+                                    <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
                                         <li><h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url" title="${series.latestPublication.title}">${series.latestPublication.title}</a></h3></li>
-                                    </div>
+                                    </span>
 
                                     <div class="callout-box__content-description">
                                         <div class="rich-text-content">
@@ -240,9 +240,9 @@
                                             </div>
 
                                             <div class="callout-box__content callout-box__content--narrow">
-                                                <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
+                                                <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
                                                     <li><h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url" title="${pubData.title}">${pubData.title}</a></h3></li>
-                                                </div>
+                                                </span>
 
                                                 <div class="callout-box__content-description">
                                                     <div class="rich-text-content">
@@ -288,7 +288,6 @@
                                             </div>
                                         </div>
                                     </#if>
-                                </li>
                             </#list>
                             </ul>
                         </div>
