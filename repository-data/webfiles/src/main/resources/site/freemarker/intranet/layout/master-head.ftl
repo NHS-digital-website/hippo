@@ -35,7 +35,5 @@
 
     <script defer src="<@hst.webfile path="/dist/intranet-scripts.bundle.js"/>"></script>
 
-    <script defer src="<@hst.webfile path="/dist/intranet-scripts.bundle.js"/>"></script>
-
     <#include "../scripts/intranet-header-scripts.ftl" />
 </head>
