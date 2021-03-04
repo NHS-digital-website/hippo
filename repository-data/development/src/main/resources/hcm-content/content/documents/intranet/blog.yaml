@@ -1,0 +1,307 @@
+---
+/content/documents/intranet/blog:
+  /blog-example-one:
+    /blog-example-one[1]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: |-
+          <p>Curabitur quis enim congue, ullamcorper purus sed, viverra elit. In ullamcorper turpis non leo suscipit congue. Ut sem nisl, luctus id sem tincidunt, vulputate sollicitudin diam. Phasellus odio massa, faucibus vel arcu ac, ullamcorper tempor augue. Sed at finibus arcu, vel condimentum ante. Curabitur ullamcorper tincidunt nulla, quis elementum velit porttitor a. Morbi pharetra tincidunt nulla, a viverra dui molestie ac. Sed sed nunc a lorem dignissim bibendum at eu mi. Suspendisse dignissim gravida fringilla. Vivamus et tellus ut enim egestas hendrerit sed a mauris. Phasellus eleifend felis in est egestas molestie. In quis vulputate tortor. Nullam lacinia nibh mauris, et venenatis mi eleifend sagittis. Proin et efficitur justo.</p>
+
+          <p>Nulla sodales, arcu et consequat blandit, nulla nibh rhoncus nibh, sit amet gravida ligula nulla in erat. Nunc velit turpis, porttitor lobortis metus et, commodo placerat risus. Ut dictum et neque eu semper. Vivamus nunc magna, finibus et imperdiet vel, imperdiet pellentesque est. Etiam pulvinar tincidunt fringilla. Curabitur vestibulum risus ut ligula tempus, nec vulputate nisi scelerisque. Cras posuere metus eu odio dapibus, a convallis arcu bibendum. Morbi interdum rutrum dolor at scelerisque. Nunc maximus velit at porta elementum.</p>
+
+          <p>Proin vitae risus tincidunt, finibus quam eget, varius nunc. In hac habitasse platea dictumst. Donec non fringilla massa, auctor porta diam. Vivamus sed urna dui. Quisque nec malesuada dolor. Vivamus varius suscipit placerat. Integer a nisl non elit ultrices efficitur in ac odio. Praesent non aliquam nisi, eleifend tincidunt metus. Sed congue neque ac urna consequat, quis vulputate lacus commodo.</p>
+
+          <p>Sed finibus erat vitae magna molestie ullamcorper. Proin aliquam vehicula enim sit amet ullamcorper. Ut suscipit vestibulum dui, eget iaculis diam faucibus ac. Pellentesque quis justo nec magna condimentum laoreet et ac sapien. Nunc ac dictum libero, aliquam laoreet dolor. Nullam semper sagittis dui, ac tristique ante suscipit quis. Morbi ornare nibh lorem, at maximus ipsum pellentesque in. Nam sit amet mauris odio. Donec consequat neque a pharetra elementum.</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.
+          Proin consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices
+          augue libero, at tempor felis blandit non. Orci varius natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus,
+          laoreet erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam
+          ultrices, nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat
+          mi augue in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum
+          magna, eu sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus
+          tristique.</p>
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.&nbsp;
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.
+          Proin consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices
+          augue libero, at tempor felis blandit non. Orci varius natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus,
+          laoreet erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam
+          ultrices, nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat
+          mi augue in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum
+          magna, eu sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus
+          tristique.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-17T11:41:29.529Z
+      hippostdpubwf:lastModificationDate: 2021-11-17T11:41:29.529Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ec085522-59f5-4b9d-a93f-3e6ab99f83bc
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: Geoffrey Hayward
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2021-11-17T00:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+        tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+        a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus. Proin
+        consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices augue
+        libero, at tempor felis blandit non. Orci varius natoque penatibus et magnis
+        dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus, laoreet
+        erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam ultrices,
+        nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat mi augue
+        in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum magna, eu
+        sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus tristique.
+      website:title: Blob Example One
+    /blog-example-one[2]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: |-
+          <p>Curabitur quis enim congue, ullamcorper purus sed, viverra elit. In ullamcorper turpis non leo suscipit congue. Ut sem nisl, luctus id sem tincidunt, vulputate sollicitudin diam. Phasellus odio massa, faucibus vel arcu ac, ullamcorper tempor augue. Sed at finibus arcu, vel condimentum ante. Curabitur ullamcorper tincidunt nulla, quis elementum velit porttitor a. Morbi pharetra tincidunt nulla, a viverra dui molestie ac. Sed sed nunc a lorem dignissim bibendum at eu mi. Suspendisse dignissim gravida fringilla. Vivamus et tellus ut enim egestas hendrerit sed a mauris. Phasellus eleifend felis in est egestas molestie. In quis vulputate tortor. Nullam lacinia nibh mauris, et venenatis mi eleifend sagittis. Proin et efficitur justo.</p>
+
+          <p>Nulla sodales, arcu et consequat blandit, nulla nibh rhoncus nibh, sit amet gravida ligula nulla in erat. Nunc velit turpis, porttitor lobortis metus et, commodo placerat risus. Ut dictum et neque eu semper. Vivamus nunc magna, finibus et imperdiet vel, imperdiet pellentesque est. Etiam pulvinar tincidunt fringilla. Curabitur vestibulum risus ut ligula tempus, nec vulputate nisi scelerisque. Cras posuere metus eu odio dapibus, a convallis arcu bibendum. Morbi interdum rutrum dolor at scelerisque. Nunc maximus velit at porta elementum.</p>
+
+          <p>Proin vitae risus tincidunt, finibus quam eget, varius nunc. In hac habitasse platea dictumst. Donec non fringilla massa, auctor porta diam. Vivamus sed urna dui. Quisque nec malesuada dolor. Vivamus varius suscipit placerat. Integer a nisl non elit ultrices efficitur in ac odio. Praesent non aliquam nisi, eleifend tincidunt metus. Sed congue neque ac urna consequat, quis vulputate lacus commodo.</p>
+
+          <p>Sed finibus erat vitae magna molestie ullamcorper. Proin aliquam vehicula enim sit amet ullamcorper. Ut suscipit vestibulum dui, eget iaculis diam faucibus ac. Pellentesque quis justo nec magna condimentum laoreet et ac sapien. Nunc ac dictum libero, aliquam laoreet dolor. Nullam semper sagittis dui, ac tristique ante suscipit quis. Morbi ornare nibh lorem, at maximus ipsum pellentesque in. Nam sit amet mauris odio. Donec consequat neque a pharetra elementum.</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.
+          Proin consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices
+          augue libero, at tempor felis blandit non. Orci varius natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus,
+          laoreet erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam
+          ultrices, nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat
+          mi augue in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum
+          magna, eu sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus
+          tristique.</p>
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.&nbsp;
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.
+          Proin consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices
+          augue libero, at tempor felis blandit non. Orci varius natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus,
+          laoreet erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam
+          ultrices, nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat
+          mi augue in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum
+          magna, eu sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus
+          tristique.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-17T11:41:29.529Z
+      hippostdpubwf:lastModificationDate: 2021-11-17T11:43:06.168Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ec085522-59f5-4b9d-a93f-3e6ab99f83bc
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: Geoffrey Hayward
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2021-11-17T00:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+        tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+        a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus. Proin
+        consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices augue
+        libero, at tempor felis blandit non. Orci varius natoque penatibus et magnis
+        dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus, laoreet
+        erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam ultrices,
+        nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat mi augue
+        in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum magna, eu
+        sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus tristique.
+      website:title: Blob Example One
+    /blog-example-one[3]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: |-
+          <p>Curabitur quis enim congue, ullamcorper purus sed, viverra elit. In ullamcorper turpis non leo suscipit congue. Ut sem nisl, luctus id sem tincidunt, vulputate sollicitudin diam. Phasellus odio massa, faucibus vel arcu ac, ullamcorper tempor augue. Sed at finibus arcu, vel condimentum ante. Curabitur ullamcorper tincidunt nulla, quis elementum velit porttitor a. Morbi pharetra tincidunt nulla, a viverra dui molestie ac. Sed sed nunc a lorem dignissim bibendum at eu mi. Suspendisse dignissim gravida fringilla. Vivamus et tellus ut enim egestas hendrerit sed a mauris. Phasellus eleifend felis in est egestas molestie. In quis vulputate tortor. Nullam lacinia nibh mauris, et venenatis mi eleifend sagittis. Proin et efficitur justo.</p>
+
+          <p>Nulla sodales, arcu et consequat blandit, nulla nibh rhoncus nibh, sit amet gravida ligula nulla in erat. Nunc velit turpis, porttitor lobortis metus et, commodo placerat risus. Ut dictum et neque eu semper. Vivamus nunc magna, finibus et imperdiet vel, imperdiet pellentesque est. Etiam pulvinar tincidunt fringilla. Curabitur vestibulum risus ut ligula tempus, nec vulputate nisi scelerisque. Cras posuere metus eu odio dapibus, a convallis arcu bibendum. Morbi interdum rutrum dolor at scelerisque. Nunc maximus velit at porta elementum.</p>
+
+          <p>Proin vitae risus tincidunt, finibus quam eget, varius nunc. In hac habitasse platea dictumst. Donec non fringilla massa, auctor porta diam. Vivamus sed urna dui. Quisque nec malesuada dolor. Vivamus varius suscipit placerat. Integer a nisl non elit ultrices efficitur in ac odio. Praesent non aliquam nisi, eleifend tincidunt metus. Sed congue neque ac urna consequat, quis vulputate lacus commodo.</p>
+
+          <p>Sed finibus erat vitae magna molestie ullamcorper. Proin aliquam vehicula enim sit amet ullamcorper. Ut suscipit vestibulum dui, eget iaculis diam faucibus ac. Pellentesque quis justo nec magna condimentum laoreet et ac sapien. Nunc ac dictum libero, aliquam laoreet dolor. Nullam semper sagittis dui, ac tristique ante suscipit quis. Morbi ornare nibh lorem, at maximus ipsum pellentesque in. Nam sit amet mauris odio. Donec consequat neque a pharetra elementum.</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.
+          Proin consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices
+          augue libero, at tempor felis blandit non. Orci varius natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus,
+          laoreet erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam
+          ultrices, nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat
+          mi augue in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum
+          magna, eu sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus
+          tristique.</p>
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.&nbsp;
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+          tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+          a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus.
+          Proin consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices
+          augue libero, at tempor felis blandit non. Orci varius natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus,
+          laoreet erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam
+          ultrices, nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat
+          mi augue in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum
+          magna, eu sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus
+          tristique.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-17T11:41:29.529Z
+      hippostdpubwf:lastModificationDate: 2021-11-17T11:43:06.168Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-11-17T11:43:11.354Z
+      hippotranslation:id: ec085522-59f5-4b9d-a93f-3e6ab99f83bc
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: Geoffrey Hayward
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2021-11-17T00:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed convallis ligula tellus, sed pellentesque urna blandit quis. Nam metus
+        tellus, pharetra non lobortis sit amet, aliquet et est. Nulla interdum lectus
+        a erat semper, et lobortis enim vulputate. Curabitur ac ultricies risus. Proin
+        consequat eros ex, interdum sodales dui rhoncus quis. Curabitur ultrices augue
+        libero, at tempor felis blandit non. Orci varius natoque penatibus et magnis
+        dis parturient montes, nascetur ridiculus mus. Ut sed nibh tempus, laoreet
+        erat in, cursus eros. Pellentesque vitae pellentesque diam. Etiam ultrices,
+        nisi semper faucibus volutpat, lectus nulla mattis felis, a feugiat mi augue
+        in ante. Ut feugiat, nulla at pellentesque dictum, dui dui dictum magna, eu
+        sollicitudin ante mi eu libero. Nullam ultricies purus ac tempus tristique.
+      website:title: Blob Example One
+    hippo:name: Blog Example One
+    hippo:versionHistory: e6e9121a-f2f2-430f-b71c-893bb508b700
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Blog
+  hippostd:foldertype:
+  - new-intranet-folder
+  - new-intranet-document
+  hippotranslation:id: 6f74518f-0d4e-481f-aa16-8a9eb1da42ba
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:referenceable
+  jcr:primaryType: hippostd:folder
