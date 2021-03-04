@@ -24,7 +24,7 @@
         Consult https://chromedriver.chromium.org/downloads
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>94.0.4606.61</chromedriver.version>
+        <chromedriver.version>95.0.4638.69</chromedriver.version>
     </properties>
 
     <dependencies>
