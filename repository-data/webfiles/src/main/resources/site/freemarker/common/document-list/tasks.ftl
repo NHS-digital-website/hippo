@@ -1,3 +1,5 @@
+
+
 <#ftl output_format="HTML">
 <#include "../../common/macro/component/actionLink.ftl">
 <#include "../../common/macro/svgIcons.ftl">
@@ -5,49 +7,74 @@
 <#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="task" type="uk.nhs.digital.intranet.beans.Task" -->
 
-<div class="intra-box intra-box--nested">
+<div class="nhsd-a-box nhsd-a-box--bg-light-grey nhsd-!t-padding-0">
 
     <#if wrappingDocument.title?? && wrappingDocument.title?has_content>
-        <h2 class="intra-box__title"> ${wrappingDocument.title}</h2>
+        <h2 class="nhsd-t-heading-s"> ${wrappingDocument.title}</h2>
     </#if>
 
     <#if pageable?? && pageable.items?has_content>
-        <ul class="intra-task-grid">
-            <#list pageable.items as task>
 
-                <@hst.link hippobean=task.bannercontrols.icon fullyQualified=true var="image" />
-                <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                <#assign imageHoverUrl =  imageUrl + "?colour=00000" />
-                <#assign imageUrl += "?colour=005EB8" />
+    <div class="nhsd-o-image-with-link-list nhsd-!t-margin-0 nhsd-!t-padding-0">
+        <div class="nhsd-t-grid nhsd-!t-margin-0 nhsd-!t-no-gutters">
+            <div class="nhsd-t-row nhsd-o-image-with-link-list__items nhsd-t-row--centred nhsd-!t-margin-0 nhsd=!t-padding-0">
+                <#list pageable.items as task>
 
-                <li class="intra-task-grid-item">
-                    <article class="intra-task-grid-task">
-                        <div style="position:relative">
-                            <@hst.manageContent hippobean=task />
-                        </div>
-                        <a href="<@hst.link hippobean=task/>"
-                           class="intra-task-grid-task__link">
-                            <div class="intra-task-grid-task__icon">
-                                <#if task.bannercontrols??>
-                                    <img src="${imageUrl}"
-                                         alt="${task.title} icon" aria-hidden="true">
-                                    <img src="${imageHoverUrl}"
-                                         alt="${task.title} icon" aria-hidden="true">
-                                </#if>
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-margin-0 nhsd=!t-padding-0 nhsd-!t-no-gutters">
+                        <#if task.bannercontrols??>
+                            <@hst.link hippobean=task.bannercontrols.icon fullyQualified=true var="image" />
+                        <#else>
+                            <@hst.link path="/binaries/content/gallery/website/icons/process/arrow-right.svg" fullyQualified=true var="image" />
+                        </#if>
+                        <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
+                        <#assign imageHoverUrl =  imageUrl + "?colour=00000" />
+                        <#assign imageUrl += "?colour=005EB8" />
+
+                        <div class="nhsd-m-image-with-link nhsd-!t-margin-0 nhsd=!t-padding-0">
+                            <figure class="nhsd-a-image nhsd-a-image--round-corners nhsd-!t-margin-bottom-1" aria-hidden="true">
+                                    <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
+                                        <img src="${imageUrl}" alt="${task.title} icon" aria-hidden="true" focusable="false" />
+                                    </span>
+                            </figure>
+                            <div class="intra-task-grid-task__title">
+                                <a class="nhsd-a-link" href="<@hst.link hippobean=task/>">${task.title}</a>
                             </div>
-                            <h1 class="intra-task-grid-task__title">${task.title}</h1>
-                        </a>
-                    </article>
-                </li>
-            </#list>
-        </ul>
+                        </div>
+                    </div>
+
+
+                </#list>
+            </div>
+        </div>
+    </div>
     </#if>
+
+
 
     <#if wrappingDocument.internal?has_content>
         <@hst.link var="link" hippobean=wrappingDocument.internal/>
     <#else>
         <#assign link=wrappingDocument.external/>
     </#if>
-    <@actionLink title="${wrappingDocument.getLabel()}" link="${link}" />
+
+
+
+
+<a class="nhsd-a-button nhsd-a-button--responsive" href="${link}" >
+  
+  <span class="nhsd-a-icon nhsd-a-icon--size-s">
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+  <!--
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+        -->
+    <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+  </svg>
+
+  </span>
+  <span class="nhsd-a-button__label">${wrappingDocument.getLabel()}</span>
+
+</a>
+
 
 </div>
