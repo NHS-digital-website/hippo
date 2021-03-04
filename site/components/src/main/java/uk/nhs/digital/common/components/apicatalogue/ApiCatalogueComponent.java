@@ -98,7 +98,7 @@ public class ApiCatalogueComponent extends BaseGaContentComponent {
 
         return filters(
             depthFirstFiltersWalker,
-            section("Services",
+            section("Care Setting",
                 subsection("Community", "community-health-care"),
                 subsection("Dentistry", "dental-health"),
                 subsection("Hospital", "hospital",
