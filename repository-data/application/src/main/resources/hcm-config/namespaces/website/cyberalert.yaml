@@ -388,6 +388,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field
+          /severity:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:severity
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /severitystatuschanges:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
