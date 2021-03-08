@@ -340,7 +340,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators:
-              - required
+            - required
             jcr:primaryType: hipposysedit:field
           /frequency:
             hipposysedit:mandatory: false
