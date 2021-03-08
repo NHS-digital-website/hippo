@@ -26,7 +26,10 @@ class YamlFormatter extends Script {
          "events.yaml",
          "news.yaml",
          "news-and-events-hub.yaml",
-         "cyber-alerts.yaml"]
+         "news-and-events.yaml",
+         "cyber-alerts.yaml",
+         "api-catalogue.yaml",
+        ]
 
     // We don't want to change the order of the children of '/_default_' tags
     // as these are used below '/editor:templates:' tags and determine the order
