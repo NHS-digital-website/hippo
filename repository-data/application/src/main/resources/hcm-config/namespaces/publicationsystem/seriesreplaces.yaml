@@ -61,6 +61,8 @@ definitions:
             hipposysedit:path: publicationsystem:changeDate
             hipposysedit:primary: false
             hipposysedit:type: Date
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /mirror:
             hipposysedit:mandatory: false
