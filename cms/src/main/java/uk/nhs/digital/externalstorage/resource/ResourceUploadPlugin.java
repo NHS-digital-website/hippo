@@ -9,6 +9,7 @@ import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.jquery.upload.FileUploadViolationException;
 import org.hippoecm.frontend.plugins.jquery.upload.single.FileUploadPanel;
+import org.hippoecm.frontend.plugins.yui.upload.processor.DefaultFileUploadPreProcessorService;
 import org.hippoecm.frontend.plugins.yui.upload.validation.DefaultUploadValidationService;
 import org.hippoecm.frontend.plugins.yui.upload.validation.FileUploadValidationService;
 import org.hippoecm.frontend.service.IEditor;
@@ -45,7 +46,8 @@ public class ResourceUploadPlugin extends RenderPlugin {
     }
 
     private FileUploadPanel createFileUploadPanel() {
-        final FileUploadPanel panel = new FileUploadPanel("fileUpload", getPluginConfig(), getValidationService()) {
+
+        final FileUploadPanel panel = new FileUploadPanel("fileUpload", getPluginConfig(), getValidationService(), new DefaultFileUploadPreProcessorService()) {
             @Override
             public void onFileUpload(final FileUpload fileUpload) throws FileUploadViolationException {
                 handleUpload(fileUpload);

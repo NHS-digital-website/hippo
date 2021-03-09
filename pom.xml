@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.3.3</version>
+        <version>14.5.0</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -81,7 +81,7 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <hippo.version>14.3.3</hippo.version>
+        <bloomreach.version>14.5.0</bloomreach.version>
         <h2.database.version>1.4.199</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
@@ -121,8 +121,8 @@
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
         <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
+        <spring.version>5.1.15.RELEASE</spring.version>
         <bloomreach.forge.ipfilter.version>3.0.1</bloomreach.forge.ipfilter.version>
-        <spring.version>5.1.14.RELEASE</spring.version>
 
         <bloomreach.inference-engine.version>4.0.0</bloomreach.inference-engine.version>
         <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
@@ -180,6 +180,13 @@
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-targeting-shared-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-content-feed-search-api</artifactId>
+            <version>${bloomreach.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -598,7 +605,7 @@
             <dependency>
                 <groupId>org.onehippo.cms7</groupId>
                 <artifactId>hippo-addon-crisp-mock</artifactId>
-                <version>${hippo.version}</version>
+                <version>${bloomreach.version}</version>
             </dependency>
 
             <dependency>
@@ -946,7 +953,7 @@
                                     <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
-                                    <dynamic.bean.generation>false</dynamic.bean.generation>
+                                    <dynamic.bean.generation>true</dynamic.bean.generation>
                                     <spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
 
                                     <!-- Apigee access config -->
@@ -968,6 +975,11 @@
                                     <dependency>
                                         <groupId>com.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-targeting-shared-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.onehippo.cms7</groupId>
+                                        <artifactId>hippo-addon-content-feed-search-api</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                 </dependencies>

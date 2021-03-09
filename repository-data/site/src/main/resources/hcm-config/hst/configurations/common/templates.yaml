@@ -149,6 +149,9 @@ definitions:
       /group:
         hst:renderpath: webfile:/freemarker/common/group.ftl
         jcr:primaryType: hst:template
+      /header-banner:
+        hst:renderpath: webfile:/freemarker/common/header-banner.ftl
+        jcr:primaryType: hst:template
       /hero:
         hst:renderpath: webfile:/freemarker/common/hero.ftl
         jcr:primaryType: hst:template
@@ -265,6 +268,9 @@ definitions:
         jcr:primaryType: hst:template
       /roadmapitem:
         hst:renderpath: webfile:/freemarker/common/roadmapitem.ftl
+        jcr:primaryType: hst:template
+      /search-results-layout:
+        hst:renderpath: webfile:/freemarker/common/search-results-layout.ftl
         jcr:primaryType: hst:template
       /searchbanner:
         hst:renderpath: webfile:/freemarker/common/search-banner.ftl

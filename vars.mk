@@ -49,8 +49,7 @@ APIGEE_BASIC ?= ZWRnZWNsaTplZGdlY2xpc2VjcmV0
 #	-Dsplunk.url=$(SPLUNK_URL) \
 #	-Dsplunk.hec.name=$(SPLUNK_HEC) \
 
-MVN_VARS = -Ddynamic.bean.generation=false \
-	-Dexternalstorage.aws.bucket=$(S3_BUCKET) \
+MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Dexternalstorage.aws.region=$(S3_REGION) \
 	-Dspring.profiles.active=local \
     "-Ddevzone.apispec.sync.daily-cron-expression=$(APIGEE_SYNC_CRON)" \

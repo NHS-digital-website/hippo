@@ -52,6 +52,17 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
+          /taxonomyClassificationField:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            caption: Taxonomy - Used for Search (Do Not Edit)
+            field: taxonomyClassificationField
+            hint: ''
+            hipposys:userrole: xm.default-user.webmaster
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /introduction:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -199,6 +210,14 @@ definitions:
             - contentblocks-validator
             - required
             jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
@@ -208,6 +227,14 @@ definitions:
             hipposysedit:type: hippostd:seoSummary
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /seosummarytext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummarytext
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: true
@@ -228,6 +255,11 @@ definitions:
             hipposysedit:type: hippostd:html
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /taxonomyClassificationField:
+            hipposysedit:multiple: true
+            hipposysedit:path: website:taxonomyClassificationField
+            hipposysedit:type: TaxonomyClassification
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: true

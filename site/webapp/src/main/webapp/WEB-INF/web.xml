@@ -96,6 +96,7 @@
         <async-supported>true</async-supported>
     </filter>
 
+
     <filter>
         <filter-name>PingFilter</filter-name>
         <filter-class>org.hippoecm.hst.container.PingFilter</filter-class>

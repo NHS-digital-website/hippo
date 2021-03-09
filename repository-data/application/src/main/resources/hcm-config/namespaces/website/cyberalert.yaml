@@ -178,7 +178,7 @@ definitions:
           /ncsclink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: NCSC Link
+            caption: Other Links
             field: ncsclink
             hint: Link to the equivalent National Cyber Security Centre entry for
               this threat
@@ -213,6 +213,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+          /taxonomyClassificationField:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            caption: Taxonomy - Used for Search (Do Not Edit)
+            field: taxonomyClassificationField
+            hint: ''
+            hipposys:userrole: xm.default-user.webmaster
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /cybercveidentifiers:
             /cluster.options:
@@ -297,7 +308,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /ncsclink:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: false
             hipposysedit:path: website:ncsclink
             hipposysedit:primary: false
@@ -337,6 +348,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: website:remediationstep
             jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
             hipposysedit:ordered: true
@@ -353,6 +372,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:seoSummary
             jcr:primaryType: hipposysedit:field
+          /seosummarytext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummarytext
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /services:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -360,6 +387,14 @@ definitions:
             hipposysedit:path: website:service
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /severity:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:severity
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /severitystatuschanges:
             hipposysedit:mandatory: false
@@ -394,6 +429,11 @@ definitions:
             hipposysedit:path: website:summary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /taxonomyClassificationField:
+            hipposysedit:multiple: true
+            hipposysedit:path: website:taxonomyClassificationField
+            hipposysedit:type: TaxonomyClassification
             jcr:primaryType: hipposysedit:field
           /threataffects:
             hipposysedit:mandatory: false
