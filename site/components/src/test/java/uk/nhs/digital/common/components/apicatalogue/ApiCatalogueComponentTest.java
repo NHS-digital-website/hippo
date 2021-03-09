@@ -8,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.common.components.apicatalogue.Filters.Subsection;
 
 import org.hippoecm.hst.container.ModifiableRequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -133,7 +132,7 @@ public class ApiCatalogueComponentTest {
     private List<String> getSectionTagsByCondition(final Filters filters, final Predicate<Subsection> predicate) {
         return subsectionsStreamFrom(filters)
             .filter(predicate)
-            .map(Subsection::getTaxonomyKey)
+            .map(Section::getKey)
             .collect(toList());
     }
 
@@ -142,7 +141,9 @@ public class ApiCatalogueComponentTest {
     }
 
     private static Stream<Subsection> subsectionsStreamFrom(final Filters model) {
-        return model.getSections().stream()
-            .flatMap(section -> section.getEntries().stream());
+        return model.sectionsInOrderOfDeclaration().stream()
+            .filter(Subsection.class::isInstance)
+            .map(Subsection.class::cast)
+            ;
     }
 }

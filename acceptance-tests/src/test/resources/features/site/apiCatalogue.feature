@@ -18,10 +18,16 @@ Feature: API Catalogue in Developer hub
             | B Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-b  |
             | External Resource                | https://google.com                                             |
             | No Mapped Taxonomy Tags          | /site/developer/api-catalogue/doc-with-no-mapped-taxonomy-tags |
+        And I should see elements with attributes:
+            | text         | id                                               |
+            | Inpatient    | a-doc-with-mapped-taxonomy-tags-inpatient-tag    |
+            | Demographics | a-doc-with-mapped-taxonomy-tags-demographics-tag |
+            | Inpatient    | b-doc-with-mapped-taxonomy-tags-inpatient-tag    |
+            | Outpatient   | b-doc-with-mapped-taxonomy-tags-outpatient-tag   |
 
     Scenario: API Catalogue renders filtered results when filters applied
         Given I navigate to "Static API Catalogue" page
-        When I click on the label for "toggler_services"
+        When I click on the label for "toggler_care-setting"
         And I click on the "Filter by Inpatient" button
         Then the index is rendered with entries:
             | text | href  | aria-label                                    |
@@ -31,6 +37,10 @@ Feature: API Catalogue in Developer hub
             | text                             | href                                                           |
             | A Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-a  |
             | B Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-b  |
+        And I should see elements with attributes:
+            | text         | id                                            |
+            | Inpatient    | a-doc-with-mapped-taxonomy-tags-inpatient-tag |
+            | Inpatient    | b-doc-with-mapped-taxonomy-tags-inpatient-tag |
 
     Scenario: API Catalogue is available through Search
         Given I navigate to the "home" page
