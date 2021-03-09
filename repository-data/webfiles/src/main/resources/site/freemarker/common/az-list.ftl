@@ -6,11 +6,11 @@
 <#assign navList = [] />
 <#if navigationDocument.blocks??>
     <#assign navList = navigationDocument.blocks />
+    <#assign alphabetical_hash = group_blocks(flat_blocks(navList true))/>
 <#elseif navigationDocument.glossaryItems??>
     <#assign navList = navigationDocument.glossaryItems />
+    <#assign alphabetical_hash = group_blocks(navList)/>
 </#if>
-
-<#assign alphabetical_hash = group_blocks(navList)/>
 
 <div class="nhsd-m-character-block-list nhsd-!t-margin-bottom-9">
     <div class="nhsd-t-grid nhsd-!t-no-gutters">
