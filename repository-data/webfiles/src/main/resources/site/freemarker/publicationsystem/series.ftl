@@ -127,18 +127,20 @@
                             </div>
 
                             <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.latest">
-                                <div class="callout-box__content callout-box__content--narrow">
-                                    <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
-                                        <li><h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url" title="${series.latestPublication.title}">${series.latestPublication.title}</a></h3></li>
-                                    </span>
-
-                                    <div class="callout-box__content-description">
-                                        <div class="rich-text-content">
-                                            <@truncate text=series.latestPublication.summary.firstParagraph size="150" />
+                                <li>
+                                    <div class="callout-box__content callout-box__content--narrow">
+                                        <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
+                                            <h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url" title="${series.latestPublication.title}">${series.latestPublication.title}</a></h3>
                                         </div>
-                                        <p class="callout-box__content-description-date"><@fmt.message key="labels.latest-publication-date-label"/> ${publishDate}</p>
+
+                                        <div class="callout-box__content-description">
+                                            <div class="rich-text-content">
+                                                <@truncate text=series.latestPublication.summary.firstParagraph size="150" />
+                                            </div>
+                                            <p class="callout-box__content-description-date"><@fmt.message key="labels.latest-publication-date-label"/> ${publishDate}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -234,59 +236,61 @@
                                             "date": publishDate
                                         } />
 
-                                        <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-${slugify(pubData.title)}">
-                                            <div class="callout-box__icon-wrapper">
-                                                <@calloutBoxWebIcon />
-                                            </div>
+                                        <li>
+                                            <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-${slugify(pubData.title)}">
+                                                <div class="callout-box__icon-wrapper">
+                                                    <@calloutBoxWebIcon />
+                                                </div>
 
-                                            <div class="callout-box__content callout-box__content--narrow">
-                                                <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
-                                                    <li><h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url" title="${pubData.title}">${pubData.title}</a></h3></li>
-                                                </span>
-
-                                                <div class="callout-box__content-description">
-                                                    <div class="rich-text-content">
-                                                        <@truncate text=object.summary.firstParagraph size="150" />
-                                                    </div>
-                                                    <div class="clearfix">
-                                                        <p class="callout-box__content-description-date">${pubData.date}</p>
+                                                <div class="callout-box__content callout-box__content--narrow">
+                                                    <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
+                                                        <h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url" title="${pubData.title}">${pubData.title}</a></h3>
                                                     </div>
 
-                                                    <#-- Make sure no supp info gets rendered twice -->
-                                                    <#assign renderSuppinfo = false />
-                                                    <#if object.supplementaryInformation?has_content>
-                                                        <#list object.supplementaryInformation as suppInfo>
-                                                            <#if !suppInfoList?seq_contains(suppInfo)>
-                                                                <#assign renderSuppinfo = true />
-                                                            </#if>
-                                                        </#list>
-                                                    </#if>
+                                                    <div class="callout-box__content-description">
+                                                        <div class="rich-text-content">
+                                                            <@truncate text=object.summary.firstParagraph size="150" />
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <p class="callout-box__content-description-date">${pubData.date}</p>
+                                                        </div>
 
-                                                    <#if renderSuppinfo>
-                                                    <div class="inset-text">
-                                                        <h3 class="inset-text__title"><@fmt.message key="headers.supplementary-information-requests" /></h3>
-                                                        <ul class="inset-text__blocks">
-                                                        <#list object.supplementaryInformation as suppInfo>
-                                                            <#if !suppInfoList?seq_contains(suppInfo)>
-                                                                <#assign suppInfoList += [suppInfo] />
-                                                                <#if suppInfo.publishedDate??>
-                                                                    <@fmt.formatDate var="suppInfoPublishDate" value=suppInfo.publishedDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                                        <#-- Make sure no supp info gets rendered twice -->
+                                                        <#assign renderSuppinfo = false />
+                                                        <#if object.supplementaryInformation?has_content>
+                                                            <#list object.supplementaryInformation as suppInfo>
+                                                                <#if !suppInfoList?seq_contains(suppInfo)>
+                                                                    <#assign renderSuppinfo = true />
                                                                 </#if>
+                                                            </#list>
+                                                        </#if>
 
-                                                                <li class="inset-text__block">
-                                                                    <h4 class="inset-text__block-title"><a href="<@hst.link hippobean=suppInfo />">${suppInfo.title}</a> <#if suppInfo.publishedDate??><span>(${suppInfoPublishDate})</span></#if></h4>
-                                                                    <div class="inset-text__block-content rich-text-content" itemprop="description">
-                                                                        <@truncate text=suppInfo.shortsummary size="250" />
-                                                                    </div>
-                                                                </li>
-                                                            </#if>
-                                                        </#list>
-                                                        </ul>
+                                                        <#if renderSuppinfo>
+                                                        <div class="inset-text">
+                                                            <h3 class="inset-text__title"><@fmt.message key="headers.supplementary-information-requests" /></h3>
+                                                            <ul class="inset-text__blocks">
+                                                            <#list object.supplementaryInformation as suppInfo>
+                                                                <#if !suppInfoList?seq_contains(suppInfo)>
+                                                                    <#assign suppInfoList += [suppInfo] />
+                                                                    <#if suppInfo.publishedDate??>
+                                                                        <@fmt.formatDate var="suppInfoPublishDate" value=suppInfo.publishedDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                                                    </#if>
+
+                                                                    <li class="inset-text__block">
+                                                                        <h4 class="inset-text__block-title"><a href="<@hst.link hippobean=suppInfo />">${suppInfo.title}</a> <#if suppInfo.publishedDate??><span>(${suppInfoPublishDate})</span></#if></h4>
+                                                                        <div class="inset-text__block-content rich-text-content" itemprop="description">
+                                                                            <@truncate text=suppInfo.shortsummary size="250" />
+                                                                        </div>
+                                                                    </li>
+                                                                </#if>
+                                                            </#list>
+                                                            </ul>
+                                                        </div>
+                                                        </#if>
                                                     </div>
-                                                    </#if>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </li>
                                     </#if>
                             </#list>
                             </ul>
