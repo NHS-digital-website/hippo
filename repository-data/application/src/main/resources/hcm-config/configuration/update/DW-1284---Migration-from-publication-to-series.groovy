@@ -418,6 +418,7 @@ class DW1284MigrationFromPublicationToSeries extends BaseNodeUpdateVisitor {
             }
             log.info("Team '" + team + "' not found. Using default which is empty")
         }
+
         return RESPONSIBLE_TEAM_DEFAULT_VALUE_HIPPO_BASE
     }
 

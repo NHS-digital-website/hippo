@@ -255,7 +255,7 @@ definitions:
         \                    }\r\n                        }\r\n                  \
         \  }\r\n                }\r\n            }\r\n            log.info(\"Statistician\
         \ '\" + statistician + \"' not found. Using default which is empty\")\r\n\
-        \        }\r\n        return RESPONSIBLE_STASTICIAN_DEFAULT_VALUE_HIPPO_BASE\r\
+        \        }\r\n        \r\n        return RESPONSIBLE_STASTICIAN_DEFAULT_VALUE_HIPPO_BASE\r\
         \n    }\r\n\r\n    String getResponsibleTeamUUIDForJCR(String team) {\r\n\
         \        if (team != null && !team.trim().equalsIgnoreCase(\"\")) {\r\n  \
         \          QueryResult resultTeams = queryManager.createQuery(\r\n       \
