@@ -148,11 +148,11 @@
             <name>Hippo Maven 2 Repository</name>
             <url>https://maven.onehippo.com/maven2-forge/</url>
         </repository>
-        <!--<repository>
+        <repository>
             <id>splunk-artifactory</id>
             <name>Splunk Releases</name>
-            <url>http://splunk.artifactoryonline.com/splunk/ext-releases-local</url>
-        </repository>-->
+            <url>https://splunk.jfrog.io/splunk/ext-releases-local</url>
+        </repository>
         <repository>
             <releases>
                 <updatePolicy>never</updatePolicy>
@@ -292,10 +292,15 @@
             </dependency>
 
             <dependency>
+            <groupId>com.splunk.logging</groupId>
+            <artifactId>splunk-library-javalogging</artifactId>
+            <version>1.8.0</version>
+            </dependency>
+            <dependency>
                 <groupId>org.awaitility</groupId>
                 <artifactId>awaitility</artifactId>
                 <version>4.0.3</version>
-                <scope>test</scope>
+                <scope>test</scope>master
             </dependency>
 
             <!--<dependency>
@@ -452,7 +457,7 @@
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
-                <version>2.8.5</version>
+                <version>2.8.6</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -540,7 +545,7 @@
                 <version>3.0.1</version>
             </dependency>
             <dependency>
-                <groupId>org.yaml</groupId>
+                <groupImasterd>org.yaml</groupImasterd>
                 <artifactId>snakeyaml</artifactId>
                 <version>1.26</version>
             </dependency>
