@@ -14,26 +14,22 @@
     <description>NHS Digital Website CMS</description>
 
     <dependencies>
-
         <dependency>
             <groupId>uk.nhs.digital</groupId>
             <artifactId>s3-connector</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
             <groupId>uk.nhs.digital</groupId>
             <artifactId>website-repository-data-application</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-content-feed-dependencies-cms</artifactId>
             <version>${bloomreach.version}</version>
             <type>pom</type>
         </dependency>
-
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-package-cms-dependencies</artifactId>
@@ -56,7 +52,6 @@
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-gallerypicker</artifactId>
@@ -86,7 +81,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-
         <dependency>
             <groupId>io.swagger.codegen.v3</groupId>
             <artifactId>swagger-codegen-generators</artifactId>
@@ -105,11 +99,15 @@
             <groupId>com.warrenstrange</groupId>
             <artifactId>googleauth</artifactId>
         </dependency>
-
-        <!--<dependency>
+        <dependency>
             <groupId>com.splunk.logging</groupId>
             <artifactId>splunk-library-javalogging</artifactId>
-        </dependency>-->
+            <version>1.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.onehippo.forge.content-exim</groupId>
             <artifactId>content-exim-core</artifactId>
@@ -124,7 +122,6 @@
             <artifactId>hippo-addon-urlrewriter-module-repository</artifactId>
             <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-content-blocks</artifactId>
@@ -148,7 +145,6 @@
             <groupId>org.onehippo.forge.folderctxmenus</groupId>
             <artifactId>folderctxmenus-repository</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.onehippo.forge.folderctxmenus</groupId>
             <artifactId>folderctxmenus-frontend</artifactId>
@@ -195,25 +191,21 @@
             <artifactId>relevance-inference-engine-core</artifactId>
             <scope>runtime</scope>
         </dependency>
-
         <dependency>
             <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
             <artifactId>relevance-inference-engine-data-collector</artifactId>
             <scope>runtime</scope>
         </dependency>
-
         <dependency>
             <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
             <artifactId>relevance-inference-engine-plugin</artifactId>
             <scope>runtime</scope>
         </dependency>
-
         <dependency>
             <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
             <artifactId>relevance-inference-engine-collector-plugin</artifactId>
             <scope>runtime</scope>
         </dependency>
-
         <dependency>
             <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
             <artifactId>relevance-inference-engine-repository</artifactId>
@@ -231,7 +223,6 @@
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-selections-hst-client</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.bloomreach.forge.ipfilter</groupId>
             <artifactId>bloomreach-ipfilter-cms</artifactId>
@@ -241,7 +232,6 @@
             <artifactId>text-search-replace-repository</artifactId>
             <version>${bloomreach.text-search-replace.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.bloomreach.cms.text-search-replace</groupId>
             <artifactId>text-search-replace-frontend</artifactId>
