@@ -153,11 +153,11 @@
             <name>Hippo Maven 2 Repository</name>
             <url>https://maven.onehippo.com/maven2-forge/</url>
         </repository>
-        <!--<repository>
+        <repository>
             <id>splunk-artifactory</id>
             <name>Splunk Releases</name>
-            <url>http://splunk.artifactoryonline.com/splunk/ext-releases-local</url>
-        </repository>-->
+            <url>https://splunk.jfrog.io/splunk/ext-releases-local</url>
+        </repository>
         <repository>
             <releases>
                 <updatePolicy>never</updatePolicy>
@@ -301,6 +301,11 @@
                 <version>3.10.0</version>
             </dependency>
 
+            <dependency>
+            <groupId>com.splunk.logging</groupId>
+            <artifactId>splunk-library-javalogging</artifactId>
+            <version>1.8.0</version>
+            </dependency>
             <dependency>
                 <groupId>org.awaitility</groupId>
                 <artifactId>awaitility</artifactId>
