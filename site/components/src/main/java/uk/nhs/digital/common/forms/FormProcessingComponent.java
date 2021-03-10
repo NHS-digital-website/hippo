@@ -97,13 +97,19 @@ public class FormProcessingComponent extends EformComponent {
             return;
         }
 
-        ComponentManager componentManager = HstServices.getComponentManager();
-        String govDeliveryKey = componentManager.getContainerConfiguration().getString("govdelivery.api.key");
-        String govDeliveryUrl = componentManager.getContainerConfiguration().getString("govdelivery.api.base.url");
-        String scriptServiceUrl = componentManager.getContainerConfiguration().getString("govdelivery.api.scriptservice.url");
+        try {
+            ComponentManager componentManager = HstServices.getComponentManager();
+            String govDeliveryKey = componentManager.getContainerConfiguration().getString("govdelivery.api.key");
+            String govDeliveryUrl = componentManager.getContainerConfiguration().getString("govdelivery.api.base.url");
+            String scriptServiceUrl = componentManager.getContainerConfiguration().getString("govdelivery.api.scriptservice.url");
 
-        json.put("apiKey", govDeliveryKey);
-        json.put("apiUrl", govDeliveryUrl.concat(scriptServiceUrl));
-        request.setAttribute("jsonString", json.toString());
+            json.put("apiKey", govDeliveryKey);
+            json.put("apiUrl", govDeliveryUrl.concat(scriptServiceUrl));
+            request.setAttribute("jsonString", json.toString());
+        } catch (NullPointerException e) {
+            LOGGER.error("Error fetching govdelivery config");
+
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
     }
 }
