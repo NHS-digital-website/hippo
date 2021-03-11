@@ -61,6 +61,7 @@
 <#assign hasNewKeyfacts = (publication.keyFactsHead?? && publication.keyFactsHead.content?has_content)
 || (publication.keyFactsTail?? && publication.keyFactsTail.content?has_content)
 || (publication.keyFactInfographics?? && publication.keyFactInfographics?size >0)  />
+<#assign hasSectionContent = document.sections?has_content />
 
 <#macro fullContentOfPubliclyAvailablePublication>
     <@publicationHeader publication=publication restricted=false downloadPDF=true/>
@@ -297,6 +298,10 @@
                             </#list>
                         </ul>
                     </div>
+                </#if>
+
+                <#if hasSectionContent>
+                    <@sections document.sections></@sections>
                 </#if>
 
                 <@lastModified publication.lastModified></@lastModified>
