@@ -98,6 +98,10 @@
                         itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></div>
                 </div>
 
+                <#if hasSectionContent>
+                    <@sections document.sections></@sections>
+                </#if>
+
                 <div data-uipath="ps.publication.body"></div>
 
                 <#if hasOldKeyfacts || hasNewKeyfacts || publication.interactivetool?has_content>
@@ -298,10 +302,6 @@
                             </#list>
                         </ul>
                     </div>
-                </#if>
-
-                <#if hasSectionContent>
-                    <@sections document.sections></@sections>
                 </#if>
 
                 <@lastModified publication.lastModified></@lastModified>
