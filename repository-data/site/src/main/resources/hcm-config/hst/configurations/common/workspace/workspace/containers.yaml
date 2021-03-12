@@ -71,6 +71,42 @@ definitions:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
+      /nhsd-coronavirus:
+        /banner:
+          hst:label: Banner
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
+      /nhsd-cyber-hub:
+        /banner:
+          hst:label: Banner
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
+      /nhsd-data-hub:
+        /banner:
+          hst:label: Banner
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
+      /nhsd-developer-hub:
+        /banner:
+          hst:label: Banner
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /nhsd-homepage:
         /banner:
           hst:label: Banner
