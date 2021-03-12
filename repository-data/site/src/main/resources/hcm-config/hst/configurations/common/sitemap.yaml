@@ -174,10 +174,6 @@ definitions:
         hst:componentconfigurationid: hst:pages/about
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
-      /api-catalogue-preview:
-        hst:componentconfigurationid: hst:pages/api-catalogue
-        hst:relativecontentpath: developer/api-catalogue/preview
-        jcr:primaryType: hst:sitemapitem
       /api-spec-try-it-now:
         /oauth-redirect:
           hst:componentconfigurationid: hst:pages/apitryitnow-oauth-redirect
@@ -316,6 +312,20 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
         jcr:primaryType: hst:sitemapitem
+      /developer:
+        /_index_:
+          hst:componentconfigurationid: hst:pages/visualhub
+          hst:relativecontentpath: ${parent}/content
+          jcr:primaryType: hst:sitemapitem
+        /api-catalogue:
+          /_index_:
+            hst:componentconfigurationid: hst:pages/api-catalogue
+            hst:relativecontentpath: ${parent}/content
+            jcr:primaryType: hst:sitemapitem
+          hst:relativecontentpath: developer/api-catalogue
+          jcr:primaryType: hst:sitemapitem
+        hst:relativecontentpath: developer
+        jcr:primaryType: hst:sitemapitem
       /error:
         /404:
           hst:componentconfigurationid: hst:pages/404
@@ -389,6 +399,22 @@ definitions:
       /nhsd-about-us-hub:
         hst:componentconfigurationid: hst:pages/nhsd-about-us-hub
         hst:relativecontentpath: nhsd-homepage
+        jcr:primaryType: hst:sitemapitem
+      /nhsd-coronavirus:
+        hst:componentconfigurationid: hst:pages/nhsd-coronavirus
+        hst:relativecontentpath: nhsd-coronavirus
+        jcr:primaryType: hst:sitemapitem
+      /nhsd-cyber-hub:
+        hst:componentconfigurationid: hst:pages/nhsd-cyber-hub
+        hst:relativecontentpath: nhsd-cyber-hub
+        jcr:primaryType: hst:sitemapitem
+      /nhsd-data-hub:
+        hst:componentconfigurationid: hst:pages/nhsd-data-hub
+        hst:relativecontentpath: nhsd-homepage
+        jcr:primaryType: hst:sitemapitem
+      /nhsd-developer-hub:
+        hst:componentconfigurationid: hst:pages/nhsd-developer-hub
+        hst:relativecontentpath: nhsd-developer-hub
         jcr:primaryType: hst:sitemapitem
       /nhsd-homepage:
         hst:componentconfigurationid: hst:pages/nhsd-homepage
