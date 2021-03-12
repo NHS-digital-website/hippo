@@ -27,7 +27,7 @@ public class JobsFeedComponent extends CommonComponent {
         String button1Text = paramInfo.getButton1Text();
         String button1Url = paramInfo.getButton1Url();
         String button2Text = paramInfo.getButton2Text();
-        String button2Url = paramInfo.getButton2Text();
+        String button2Url = paramInfo.getButton2Url();
         String feedHeader = paramInfo.getHeader();
 
         request.setAttribute("feedHeader", feedHeader);
