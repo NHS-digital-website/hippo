@@ -2,12 +2,11 @@ package uk.nhs.digital.apispecs;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.hippoecm.repository.util.WorkflowUtils.Variant.PUBLISHED;
-import static org.hippoecm.repository.util.WorkflowUtils.Variant.UNPUBLISHED;
+import static org.hippoecm.repository.util.WorkflowUtils.Variant.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.never;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.*;
 
@@ -27,7 +26,9 @@ import uk.nhs.digital.JcrNodeUtils;
 import uk.nhs.digital.apispecs.jcr.JcrDocumentLifecycleSupport;
 import uk.nhs.digital.test.util.ReflectionTestUtils;
 
+import java.sql.Date;
 import java.time.Instant;
+import java.util.Calendar;
 import java.util.Optional;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -63,21 +64,21 @@ public class JcrDocumentLifecycleSupportTest {
     }
 
     @Test
-    public void setProperty_updatesPropertyWithGivenValueOnDraftVariant() throws Exception {
+    public void setStringProperty_updatesPropertyWithGivenValueOnDraftVariant() throws Exception {
 
         // given
         final String expectedPropertyName = "aPropertyName";
         final String expectedPropertyValue = "aPropertyValue";
 
         // when
-        jcrDocumentLifecycleSupport.setProperty(expectedPropertyName, expectedPropertyValue);
+        jcrDocumentLifecycleSupport.setStringPropertyWithCheckout(expectedPropertyName, expectedPropertyValue);
 
         // then
         then(draftNodeCheckedOut).should().setProperty(expectedPropertyName, expectedPropertyValue);
     }
 
     @Test
-    public void setProperty_throwsException_onFailure() {
+    public void setStringProperty_throwsException_onFailure() {
 
         // given
         final String expectedPropertyName = "aPropertyName";
@@ -93,7 +94,7 @@ public class JcrDocumentLifecycleSupportTest {
         expectedException.expectCause(sameInstance(originalException));
 
         // when
-        jcrDocumentLifecycleSupport.setProperty(expectedPropertyName, expectedPropertyValue);
+        jcrDocumentLifecycleSupport.setStringPropertyWithCheckout(expectedPropertyName, expectedPropertyValue);
 
         // then
         // expectations set in 'given' are satisfied
@@ -157,6 +158,88 @@ public class JcrDocumentLifecycleSupportTest {
     }
 
     @Test
+    public void setInstantProperty_updatesPropertyWithGivenValueOnRequestedVariant() throws Exception {
+
+        // given
+        final String expectedPropertyName = "aPropertyName";
+        final Instant newPropertyValue = Instant.parse("2020-07-08T08:37:10.900Z");
+        final Calendar expectedCalendar = new Calendar.Builder().setInstant(Date.from(newPropertyValue)).build();
+
+        final Node documentVariantNode = mock(Node.class);
+        final Optional<Node> documentVariantNodeOptional = Optional.of(documentVariantNode);
+
+        mockStatic(WorkflowUtils.class);
+        given(WorkflowUtils.getDocumentVariantNode(documentHandleNode, DRAFT)).willReturn(documentVariantNodeOptional);
+
+        // when
+        jcrDocumentLifecycleSupport.setInstantPropertyNoCheckout(expectedPropertyName, DRAFT, newPropertyValue);
+
+        // then
+        then(documentVariantNode).should().setProperty(expectedPropertyName, expectedCalendar);
+    }
+
+    @Test
+    public void setInstantProperty_throwsException_onFailure() {
+
+        // given
+        final String expectedPropertyName = "aPropertyName";
+        final Instant expectedPropertyValue = Instant.parse("2020-07-08T08:37:10.900Z");
+
+        final RuntimeException originalException = new RuntimeException("");
+
+        mockStatic(WorkflowUtils.class);
+        given(WorkflowUtils.getDocumentVariantNode(any(), any())).willThrow(originalException);
+
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage(startsWith("Failed to update property " + expectedPropertyName + " on "));
+        expectedException.expectCause(sameInstance(originalException));
+
+        // when
+        jcrDocumentLifecycleSupport.setInstantPropertyNoCheckout(expectedPropertyName, PUBLISHED, expectedPropertyValue);
+
+        // then
+        // expectations set in 'given' are satisfied
+    }
+
+    @Test
+    public void getInstantProperty_returnsPropertyValueFromNodeOfRequestedDocumentVariant() throws RepositoryException {
+
+        // given
+        final String propertyName = "aPropertyName";
+        final Optional<Instant> expectedPropertyValue = Optional.of(Instant.parse("2020-07-08T08:37:10.900Z"));
+
+        final Node documentVariantNode = mock(Node.class);
+        final Optional<Node> documentVariantNodeOptional = Optional.of(documentVariantNode);
+
+        final WorkflowUtils.Variant expectedDocumentVariantType = UNPUBLISHED;
+
+        mockStatic(WorkflowUtils.class);
+        given(WorkflowUtils.getDocumentVariantNode(any(Node.class), any(WorkflowUtils.Variant.class)))
+            .willReturn(documentVariantNodeOptional);
+
+        mockStatic(JcrNodeUtils.class);
+        given(JcrNodeUtils.getInstantPropertyQuietly(any(Node.class), any(String.class)))
+            .willReturn(expectedPropertyValue);
+
+        // when
+        final Optional<Instant> actualPropertyValue =
+            jcrDocumentLifecycleSupport.getInstantProperty(propertyName, expectedDocumentVariantType);
+
+        // then
+        assertThat(
+            "Value returned was read from requested document variant node",
+            actualPropertyValue,
+            is(expectedPropertyValue)
+        );
+
+        verifyStatic(WorkflowUtils.class);
+        WorkflowUtils.getDocumentVariantNode(documentHandleNode, expectedDocumentVariantType);
+
+        verifyStatic(JcrNodeUtils.class);
+        JcrNodeUtils.getInstantPropertyQuietly(documentVariantNode, propertyName);
+    }
+
+    @Test
     public void getLastPublicationInstant_returnsValueFromNodeOfPublishedDocumentVariant() {
 
         // given
@@ -212,10 +295,63 @@ public class JcrDocumentLifecycleSupportTest {
     }
 
     @Test
+    public void save_savesSession_andCommitsEditableDoc_whenChangesMade() {
+
+        // given
+        jcrDocumentLifecycleSupport.setStringPropertyWithCheckout("aPropertyName", "aPropertyValue");
+
+        // when
+        jcrDocumentLifecycleSupport.save();
+
+        // then
+        verifyStatic(JcrDocumentUtils.class);
+        JcrDocumentUtils.saveQuietly(session);
+
+        then(documentManager).should().commitEditableDocument(draftDocumentVariant);
+    }
+
+    @Test
+    public void save_savesSession_butDoesNotCommitEditableDoc_whenNoChangesMade() {
+
+        // given
+        // no changes made
+
+        // when
+        jcrDocumentLifecycleSupport.save();
+
+        // then
+        verifyStatic(JcrDocumentUtils.class);
+        JcrDocumentUtils.saveQuietly(session);
+
+        then(documentManager).should(never()).commitEditableDocument(any(Document.class));
+    }
+
+    @Test
+    public void save_throwsException_onFailure() {
+
+        // given
+        final RuntimeException collaboratorException = new RuntimeException();
+
+        mockStatic(JcrNodeUtils.class);
+        given(JcrNodeUtils.getSessionQuietly(any(Node.class)))
+            .willThrow(collaboratorException);
+
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage(startsWith("Failed to save"));
+        expectedException.expectCause(sameInstance(collaboratorException));
+
+        // when
+        jcrDocumentLifecycleSupport.save();
+
+        // then
+        // expectations set in 'given' are satisfied
+    }
+
+    @Test
     public void saveAndPublish_savesChangeAndPublishesDocument_whenChangesMade() {
 
         // given
-        jcrDocumentLifecycleSupport.setProperty("aPropertyName", "aPropertyValue");
+        jcrDocumentLifecycleSupport.setStringPropertyWithCheckout("aPropertyName", "aPropertyValue");
 
         // when
         jcrDocumentLifecycleSupport.saveAndPublish();
@@ -224,12 +360,14 @@ public class JcrDocumentLifecycleSupportTest {
         verifyStatic(JcrDocumentUtils.class);
         JcrDocumentUtils.saveQuietly(session);
 
+        then(documentManager).should().commitEditableDocument(draftDocumentVariant);
+
         verifyStatic(JcrDocumentUtils.class);
         JcrDocumentUtils.publish(documentHandleNode);
     }
 
     @Test
-    public void saveAndPublish_doesNotSaveChangesButPublishesDocument_whenNoChangesMadeButUnpublishedVersionAvailable() {
+    public void saveAndPublish_savesSessionAndPublishesDocumentButDoesNotCommitEditableDoc_whenNoChangesMadeButUnpublishedVersionAvailable() {
 
         // given
         // no changes applied to the document
@@ -238,8 +376,10 @@ public class JcrDocumentLifecycleSupportTest {
         jcrDocumentLifecycleSupport.saveAndPublish();
 
         // then
-        verifyStatic(JcrDocumentUtils.class, times(0));
+        verifyStatic(JcrDocumentUtils.class);
         JcrDocumentUtils.saveQuietly(session);
+
+        then(documentManager).should(never()).commitEditableDocument(any(Document.class));
 
         verifyStatic(JcrDocumentUtils.class);
         JcrDocumentUtils.publish(documentHandleNode);
@@ -250,7 +390,7 @@ public class JcrDocumentLifecycleSupportTest {
 
         // given
         jcrDocumentLifecycleSupport // sets 'dirty' flag which enables 'save' and 'publish'
-            .setProperty("aPropertyName", "aPropertyValue");
+            .setStringPropertyWithCheckout("aPropertyName", "aPropertyValue");
 
         final RuntimeException collaboratorException = new RuntimeException();
 
@@ -274,7 +414,7 @@ public class JcrDocumentLifecycleSupportTest {
 
         // given
         jcrDocumentLifecycleSupport // sets 'dirty' flag which enables 'save' and 'publish'
-            .setProperty("aPropertyName", "aPropertyValue");
+            .setStringPropertyWithCheckout("aPropertyName", "aPropertyValue");
 
         final RuntimeException collaboratorException = new RuntimeException();
 
