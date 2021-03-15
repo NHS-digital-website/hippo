@@ -6,17 +6,17 @@
 
 <div class="content-box content-box--secondary content-box--visible-sections content-box--latest-publications">
 
-    <#if jobList?has_content>
-        <div class="nhsd-o-card-list">
-            <div class="nhsd-t-grid">
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col">
-                        <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7">
-                            ${feedHeader}</h2>
-                    </div>
+
+    <div class="nhsd-o-card-list">
+        <div class="nhsd-t-grid">
+            <div class="nhsd-t-row">
+                <div class="nhsd-t-col">
+                    <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7">
+                        ${feedHeader}</h2>
                 </div>
+            </div>
 
-
+            <#if jobList?has_content>
                 <div class="nhsd-t-row nhsd-t-row--centred nhsd-o-card-list__items">
                     <#list jobList as item>
                         <div class="nhsd-t-col-xs-12 ${getGridCol(jobList?size)}">
@@ -53,32 +53,33 @@
                         </div>
                     </#list>
                 </div>
-                <#if button1Text?has_content || button2Text?has_content>
-                    <nav class="nhsd-m-button-nav">
-                        <div class="nhsd-t-grid">
-                            <div class="nhsd-t-row">
-                                <#if button1Text?has_content>
-                                    <div class="nhsd-t-col-6 nhsd-!t-text-align-m-right nhsd-!t-text-align-l-right nhsd-!t-text-align-xl-right">
-                                        <a class="nhsd-a-button"
-                                           href="${button1Url}">
-                                            <span class="nhsd-a-button__label">${button1Text}</span>
-                                        </a>
-                                    </div>
-                                </#if>
-                                <#if button2Text?has_content>
-                                    <div class="nhsd-t-col-6 nhsd-!t-text-align-m-left nhsd-!t-text-align-l-left nhsd-!t-text-align-xl-left">
-                                        <a class="nhsd-a-button nhsd-a-button--outline"
-                                           href="${button2Url}">
-                                            <span class="nhsd-a-button__label">${button2Text}</span>
-                                        </a>
-                                    </div>
-                                </#if>
-                            </div>
+            </#if>
+            <#if button1Text?has_content || button2Text?has_content>
+                <nav class="nhsd-m-button-nav">
+                    <div class="nhsd-t-grid">
+                        <div class="nhsd-t-row">
+                            <#if button1Text?has_content>
+                                <div class="nhsd-t-col-6 nhsd-!t-text-align-m-right nhsd-!t-text-align-l-right nhsd-!t-text-align-xl-right">
+                                    <a class="nhsd-a-button"
+                                       href="${button1Url}">
+                                        <span class="nhsd-a-button__label">${button1Text}</span>
+                                    </a>
+                                </div>
+                            </#if>
+                            <#if button2Text?has_content>
+                                <div class="nhsd-t-col-6 nhsd-!t-text-align-m-left nhsd-!t-text-align-l-left nhsd-!t-text-align-xl-left">
+                                    <a class="nhsd-a-button nhsd-a-button--outline"
+                                       href="${button2Url}">
+                                        <span class="nhsd-a-button__label">${button2Text}</span>
+                                    </a>
+                                </div>
+                            </#if>
                         </div>
-                    </nav>
-                </#if>
-            </div>
+                    </div>
+                </nav>
+            </#if>
         </div>
-    </#if>
+    </div>
+
 </div>
 
