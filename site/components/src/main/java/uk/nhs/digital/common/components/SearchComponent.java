@@ -151,7 +151,7 @@ public class SearchComponent extends CommonComponent {
                     request.getRequestContext().setAttribute("isContentSearch", true);
                     setCommonSearchRequestAttributes(request, paramInfo);
                 } else {
-                    LOGGER.error("Content Search returned a failure, falling back to HST search");
+                    LOGGER.error("Content Search returned a failure, falling back to HST search. Query exception: " + queryResponse.getQueryException());
                     buildAndExecuteHstSearch(request, paramInfo);
                 }
             } catch (InterruptedException | ExecutionException | TimeoutException | RuntimeException ex) {
