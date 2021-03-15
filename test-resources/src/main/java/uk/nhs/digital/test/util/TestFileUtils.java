@@ -1,26 +1,27 @@
 package uk.nhs.digital.test.util;
 
-import org.springframework.util.StreamUtils;
-
 import java.io.File;
-import java.io.InputStream;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FileUtils {
+public class TestFileUtils {
 
     public static String contentOfFileFromClasspath(final String fileClasspathPath) {
 
-        if (FileUtils.class.getResource(fileClasspathPath) == null) {
+        final URL resource = TestFileUtils.class.getResource(fileClasspathPath);
+
+        if (resource == null) {
             throw new TestFileAccessException("Failed to read test data file as it was not found at: " + fileClasspathPath);
         }
 
-        try (final InputStream resourceAsStream = FileUtils.class.getResourceAsStream(fileClasspathPath)) {
+        try {
+            final File file = new File(resource.toURI());
 
-            return StreamUtils.copyToString(
-                resourceAsStream, StandardCharsets.UTF_8
+            return org.apache.commons.io.FileUtils.readFileToString(
+                file, StandardCharsets.UTF_8
             );
 
         } catch (final Exception e) {

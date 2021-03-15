@@ -1,9 +1,10 @@
-package uk.nhs.digital.common.components.apicatalogue;
+package uk.nhs.digital.common.components.apicatalogue.filters;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static uk.nhs.digital.common.components.apicatalogue.Section.section;
-import static uk.nhs.digital.common.components.apicatalogue.Subsection.subsection;
+import static org.hamcrest.Matchers.is;
+import static uk.nhs.digital.common.components.apicatalogue.filters.FiltersTestUtils.section;
+import static uk.nhs.digital.common.components.apicatalogue.filters.FiltersTestUtils.subsection;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,11 +37,13 @@ public class DepthFirstFiltersWalkerTest {
 
         filtersWalker = new DepthFirstFiltersWalker();
 
-        filters = Filters.filters(
-            filtersWalker,
+        filters = FiltersTestUtils.filters(
             section("Section A",
                 subsection("Tag A-A", "tag-a-a"),
-                subsection("Tag A-B", "tag-a-b")
+                subsection("Tag A-B", "tag-a-b",
+                    subsection("Tag A-B-A", "tag-a-b-a"),
+                    subsection("Tag A-B-B", "tag-a-b-b")
+                )
             ),
             section("Section B",
                 subsection("Tag B-A", "tag-b-a"),
@@ -56,19 +59,21 @@ public class DepthFirstFiltersWalkerTest {
         // setUp()
 
         // when
-        filtersWalker.walk(filters, filterVisitor, true);
+        filtersWalker.walkVisitingBeforeDescending(filters, filterVisitor);
 
         // then
-        assertThat("Tags are recorded in the node-before-children order.",
+        assertThat("Tags are recorded in the parent-before-children order.",
             keysOfActualNodesVisited,
-            contains(
+            is(asList(
                 "section-a",
                 "tag-a-a",
                 "tag-a-b",
+                "tag-a-b-a",
+                "tag-a-b-b",
                 "section-b",
                 "tag-b-a",
                 "tag-b-b"
-            )
+            ))
         );
     }
 
@@ -79,19 +84,21 @@ public class DepthFirstFiltersWalkerTest {
         // setUp()
 
         // when
-        filtersWalker.walk(filters, filterVisitor, false);
+        filtersWalker.walkVisitingAfterDescending(filters, filterVisitor);
 
         // then
         assertThat("Tags are recorded in the children-before-parent order.",
             keysOfActualNodesVisited,
-            contains(
+            is(asList(
                 "tag-a-a",
+                "tag-a-b-a",
+                "tag-a-b-b",
                 "tag-a-b",
                 "section-a",
                 "tag-b-a",
                 "tag-b-b",
                 "section-b"
-            )
+            ))
         );
     }
 }

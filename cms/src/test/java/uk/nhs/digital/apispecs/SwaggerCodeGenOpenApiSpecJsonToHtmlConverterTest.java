@@ -4,8 +4,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
+import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;

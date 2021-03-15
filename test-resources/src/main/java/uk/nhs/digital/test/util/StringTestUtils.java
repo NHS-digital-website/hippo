@@ -1,21 +1,19 @@
 package uk.nhs.digital.test.util;
 
 import static java.util.Arrays.stream;
-import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.*;
 import static uk.nhs.digital.test.util.StringTestUtils.Placeholders.Placeholder.placeholder;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StringTestUtils {
 
     /**
      * <p>
-     * A convenience, wrapper around {@linkplain StringUtils#replaceEach(String, String[], String[])}.
+     * A convenience, wrapper around {@linkplain org.apache.commons.lang3.StringUtils#replaceEach(String, String[], String[])}.
      * <p>
      * Useful in tests where several test cases may want to load a large text content (e.g. JSON),
      * where only one or two small fragments (e.g. JSON properties' values) should differ between the test cases,
@@ -129,6 +127,6 @@ public class StringTestUtils {
         )
             .filter(line -> !isBlank(line))
             .map(String::trim)
-            .collect(joining(LF));
+            .collect(Collectors.joining(LF));
     }
 }

@@ -3,8 +3,8 @@ package uk.nhs.digital.apispecs.swagger.model;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
+import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.google.common.collect.ImmutableMap;

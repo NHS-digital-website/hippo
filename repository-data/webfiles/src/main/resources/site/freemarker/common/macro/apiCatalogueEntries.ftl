@@ -4,6 +4,8 @@
 <#include "typeSpan.ftl">
 <#include "stickyGroupBlockHeader.ftl">
 
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
+
 <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
 <#assign matchesFound = 0/>
