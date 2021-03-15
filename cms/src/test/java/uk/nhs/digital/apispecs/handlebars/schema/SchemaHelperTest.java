@@ -9,10 +9,10 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
 import static uk.nhs.digital.test.util.StringTestUtils.Placeholders.placeholders;
 import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
+import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.github.jknack.handlebars.HandlebarsException;
 import com.github.jknack.handlebars.Options;
@@ -32,9 +32,9 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
-import uk.nhs.digital.test.util.FileUtils;
 import uk.nhs.digital.test.util.StringTestUtils.Placeholders;
 import uk.nhs.digital.test.util.TestDataCache;
+import uk.nhs.digital.test.util.TestFileUtils;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -702,7 +702,7 @@ public class SchemaHelperTest {
             throw new RuntimeException("Failed to read in schema from " + specJsonTemplateFileName, e);
 
         } finally {
-            Optional.ofNullable(targetSpecJsonFile).ifPresent(FileUtils::deleteFileOrEmptyDirIfExists);
+            Optional.ofNullable(targetSpecJsonFile).ifPresent(TestFileUtils::deleteFileOrEmptyDirIfExists);
         }
     }
 

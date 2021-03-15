@@ -9,8 +9,8 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.apispecs.CommonmarkMarkdownConverterTest.Levels.levels;
-import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
+import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;

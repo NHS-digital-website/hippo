@@ -1,4 +1,4 @@
-package uk.nhs.digital.common.components.apicatalogue;
+package uk.nhs.digital.common.components.apicatalogue.filters;
 
 import static java.util.Collections.unmodifiableList;
 

@@ -1,13 +1,13 @@
-package uk.nhs.digital.common.components.apicatalogue;
+package uk.nhs.digital.common.components.apicatalogue.filters;
 
 import java.util.Set;
 import java.util.function.Predicate;
 
-public class UpdatingFilterVisitor implements FilterVisitor {
+public class StatusUpdatingFilterVisitor implements FilterVisitor {
     private Set<String> filteredTags;
     private Set<String> selectedTags;
 
-    public UpdatingFilterVisitor(final Set<String> filteredTags, final Set<String> selectedTags) {
+    public StatusUpdatingFilterVisitor(final Set<String> filteredTags, final Set<String> selectedTags) {
         this.filteredTags = filteredTags;
         this.selectedTags = selectedTags;
     }
