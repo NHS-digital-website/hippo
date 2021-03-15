@@ -51,6 +51,7 @@ public class JobsFeedComponent extends CommonComponent {
         String postcode = paramInfo.getPostcode();
         if (StringUtils.isNotBlank(postcode)) {
             queryString.append("&Postcode=" + postcode);
+            queryString.append("&Radius=30");
         }
 
         String vacancyType = paramInfo.getVacancyType();
