@@ -449,16 +449,16 @@
     /update-severity:
       /selection:listitem[1]:
         jcr:primaryType: selection:listitem
-        selection:key: information
-        selection:label: Information only
+        selection:key: emphasis
+        selection:label: Emphasis
       /selection:listitem[2]:
         jcr:primaryType: selection:listitem
-        selection:key: important
-        selection:label: Important warning
+        selection:key: warning
+        selection:label: Warning
       /selection:listitem[3]:
         jcr:primaryType: selection:listitem
-        selection:key: critical
-        selection:label: Critical failure
+        selection:key: important
+        selection:label: Important
       hippo:availability:
       - live
       - preview
