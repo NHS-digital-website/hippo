@@ -24,28 +24,49 @@
         </#if>
     </#if>
 
-    <div class="emphasis-box emphasis-box-${slugify(section.emphasisType)} navigationMarker-sub" ${ariaAttribute}="${ariaValue}">
-        <#if section.image??>
-            <div class="emphasis-box__image">
-                <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
-                <#if iconImage?ends_with("svg")>
-                    <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="${section.heading}" width="100" height="100" />
-                <#else>
-                    <img src="${iconImage}" alt="${section.heading}" width="100" height="100" />
+    <#if section.emphasisType == 'Warning'>
+        <#assign borderColour = 'red' />
+    <#elseif section.emphasisType == 'Important'>
+        <#assign borderColour = 'yellow' />
+    <#elseif section.emphasisType == 'Emphasis'>
+        <#assign borderColour = 'blue' />
+    <#elseif section.emphasisType == 'Note'>
+        <#assign borderColour = 'grey' />
+    </#if>
+
+    <div class="nhsd-m-emphasis-box nhsd-m-emphasis-box--${slugify(section.emphasisType)} nhsd-!t-margin-bottom-6" ${ariaAttribute}="${ariaValue}">
+        <div class="nhsd-a-box nhsd-a-box--border-${borderColour}">
+
+            <#if section.image??>
+                <div class="nhsd-m-emphasis-box__image-box">
+                    <figure class="nhsd-a-image">
+                        <picture class="nhsd-a-image__picture">
+                            <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
+                            <#if iconImage?ends_with("svg")>
+                                <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="${section.heading}" style="object-fit:fill" />
+                            <#else>
+                                <img src="${iconImage}" alt="${section.heading}" style="object-fit:contain" />
+                            </#if>
+                        </picture>
+                    </figure>
+                </div>
+            </#if>
+
+            <div class="nhsd-m-emphasis-box__content-box">
+
+                <#if section.heading?has_content && slug??>
+                    <p class="nhsd-t-heading-s nhsd-t-word-break" role="heading" id="${slugify(slug)}" data-uipath="website.contentblock.emphasis.heading">${section.heading}</p>
                 </#if>
+
+                <#if section.body?? && section.body.content?has_content>
+                    <div data-uipath="website.contentblock.emphasis.content" class="nhsd-t-word-break"><@hst.html hippohtml=section.body contentRewriter=brContentRewriter /></div>
+                <#elseif section.bodyCustom??>
+                    <div data-uipath="website.contentblock.emphasis.content">
+                        <p class="nhsd-t-body-s nhsd-t-word-break">${section.bodyCustom}</p>
+                    </div>
+                </#if>
+                
             </div>
-        </#if>
-
-        <div class="emphasis-box__content">
-            <#if section.heading?has_content && slug??>
-                <strong role="heading" class="emphasis-box__heading" id="${slugify(slug)}" data-uipath="website.contentblock.emphasis.heading">${section.heading}</strong>
-            </#if>
-
-            <#if section.body?? && section.body.content?has_content>
-                <div data-uipath="website.contentblock.emphasis.content"><@hst.html hippohtml=section.body contentRewriter=gaContentRewriter /></div>
-            <#elseif section.bodyCustom??>
-                <div data-uipath="website.contentblock.emphasis.content">${section.bodyCustom}</div>
-            </#if>
         </div>
     </div>
 </#macro>
