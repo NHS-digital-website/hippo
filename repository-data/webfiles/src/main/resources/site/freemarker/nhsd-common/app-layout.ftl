@@ -20,4 +20,3 @@
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
 </body>
 </html>
-
