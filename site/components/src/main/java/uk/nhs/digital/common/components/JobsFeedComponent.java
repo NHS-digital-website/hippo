@@ -31,10 +31,15 @@ public class JobsFeedComponent extends CommonComponent {
         String feedHeader = paramInfo.getHeader();
 
         request.setAttribute("feedHeader", feedHeader);
-        request.setAttribute("button1Text", button1Text);
-        request.setAttribute("button2Text", button2Text);
-        request.setAttribute("button1Url", button1Url);
-        request.setAttribute("button2Url", button2Url);
+
+        if (StringUtils.isNotBlank(button1Text) && StringUtils.isNotBlank(button1Url)) {
+            request.setAttribute("button1Text", button1Text);
+            request.setAttribute("button1Url", button1Url);
+        }
+        if (StringUtils.isNotBlank(button2Text) && StringUtils.isNotBlank(button2Url)) {
+            request.setAttribute("button2Text", button2Text);
+            request.setAttribute("button2Url", button2Url);
+        }
 
         String feedUrl = paramInfo.getFeedMasterUri();
         String recordLimit = paramInfo.getNumToDisplay();
