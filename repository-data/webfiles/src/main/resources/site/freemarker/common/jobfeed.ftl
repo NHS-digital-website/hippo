@@ -54,7 +54,7 @@
                     </#list>
                 </div>
             </#if>
-            <#if button1Text?has_content || button2Text?has_content>
+            <#if button1Text?has_content && button2Text?has_content>
                 <nav class="nhsd-m-button-nav">
                     <div class="nhsd-t-grid">
                         <div class="nhsd-t-row">
@@ -74,6 +74,19 @@
                                     </a>
                                 </div>
                             </#if>
+                        </div>
+                    </div>
+                </nav>
+            <#elseif button1Text?has_content || button2Text?has_content>
+                <nav class="nhsd-m-button-nav">
+                    <div class="nhsd-t-grid">
+                        <div class="nhsd-t-row">
+                            <div class="nhsd-t-col nhsd-!t-text-align-m-center nhsd-!t-text-align-l-center">
+                                <a class="nhsd-a-button"
+                                   href="${button1Text?has_content?then(button1Url,button2Url)}">
+                                    <span class="nhsd-a-button__label">${button1Text?has_content?then(button1Text,button2Text)}</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </nav>
