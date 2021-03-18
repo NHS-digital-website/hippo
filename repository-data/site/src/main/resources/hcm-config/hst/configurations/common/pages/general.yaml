@@ -3,7 +3,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/general:
       /main:
-        hst:componentclassname: uk.nhs.digital.common.components.DocumentChildComponent
+        hst:componentclassname: uk.nhs.digital.common.components.BaseBrContentComponent
         hst:template: general-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
