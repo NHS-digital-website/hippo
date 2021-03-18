@@ -149,6 +149,7 @@
                         viz${index}.dispose();
                     }
                     viz${index} = new tableau.Viz(viz${index}Elements.vizDiv(), viz${index}Url, options());
+                    viz${index}Elements.vizLink().innerHTML = "<br><a href='"+downloadVizLink+"' target='_blank'>Download the coronavirus data for '"+formatPostcode(viz${index}Elements.postcode().value, " ")+"'</a>";
                 } else {
                     _fail();
                 }
@@ -171,7 +172,8 @@
                         var latitude = data["result"]["latitude"];
                         var longitude = data["result"]["longitude"];
                         viz${index}Url = encodeURI("${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
-
+                        // build the download link and base it on div being empty
+                        var downloadVizLink = encodeURI("${section.url}".split("?")[0]+".csv" + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
                         // Start Viz load
                         _hideLoadingSpinner();
                         loadViz();
