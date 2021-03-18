@@ -92,8 +92,6 @@
         <dependency>
             <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
-            <version>3.1.6</version>
-            <scope>test</scope>
         </dependency>
 
         <!--
@@ -440,8 +438,9 @@
                                     <devzone.apigee.resources.specs.all.url>${devzone.apigee.resources.specs.all.url}</devzone.apigee.resources.specs.all.url>
                                     <devzone.apigee.resources.specs.individual.url>${devzone.apigee.resources.specs.individual.url}</devzone.apigee.resources.specs.individual.url>
                                     <!-- Apigee API specifications sync schedule properties -->
-                                    <devzone.apispec.sync.enabled>${devzone.apispec.sync.enabled}</devzone.apispec.sync.enabled>
-                                    <devzone.apispec.sync.cron-expression>${devzone.apispec.sync.cron-expression}</devzone.apispec.sync.cron-expression>
+                                    <devzone.apispec.sync.schedule-delay-duration>${devzone.apispec.sync.schedule-delay-duration}</devzone.apispec.sync.schedule-delay-duration>
+                                    <devzone.apispec.sync.daily-cron-expression>${devzone.apispec.sync.daily-cron-expression}</devzone.apispec.sync.daily-cron-expression>
+                                    <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
 
                                 </systemProperties>
 
