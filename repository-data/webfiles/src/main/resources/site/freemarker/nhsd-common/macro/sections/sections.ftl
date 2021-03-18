@@ -32,7 +32,7 @@
     <#assign isPreviousEmphasisBox = false />
     <#list sections as section>
         <#if wrap>
-        <div class="article-section no-border">
+        <div >
         </#if>
             <#if section.sectionType == 'text'>
                 <@textSection section=section />
@@ -40,7 +40,7 @@
                 <#if section.isNumberedList>
                     <#assign numberedListCount++ />
                 </#if>
-                <@websiteSection section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox numberedListCount=numberedListCount mainHeadingLevel=mainHeadingLevel />
+                <@websiteSection section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox numberedListCount=numberedListCount isLastSection=section?is_last mainHeadingLevel=mainHeadingLevel sectionCounter=section?counter />
                 <#assign isPreviousEmphasisBox = false />
             <#elseif section.sectionType == 'image'>
                 <@imageSection section=section />

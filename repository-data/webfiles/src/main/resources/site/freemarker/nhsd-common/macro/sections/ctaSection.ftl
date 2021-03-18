@@ -17,7 +17,7 @@
 
         <#if ctalink.linkType == "internal">
         <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, ctalink.link.title) />
-          <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed nhsd-!t-text-align-${slugify(section.alignment)}">
+          <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed nhsd-!t-text-align-${slugify(section.alignment)} nhsd-!t-margin-bottom-6">
             <a class="nhsd-a-button nhsd-a-button${typeOfButton}" 
                 href="<@hst.link hippobean=ctalink.link />"
                 id="nhsd-a-button-${slugify(section.title)}" 
@@ -28,7 +28,7 @@
           </nav>
         <#elseif ctalink.linkType == "external">
           <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, ctalink.link) />
-          <nav class="nhsd-m-button-nav nhsd-!t-text-align-${slugify(section.alignment)}">
+          <nav class="nhsd-m-button-nav nhsd-!t-text-align-${slugify(section.alignment)} nhsd-!t-margin-bottom-6">
             <a class="nhsd-a-button nhsd-a-button${typeOfButton}" 
                 href="${ctalink.link}" 
                 id="nhsd-a-button-${slugify(section.title)}" 

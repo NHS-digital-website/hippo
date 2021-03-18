@@ -40,25 +40,48 @@ public class BrandRefreshContentRewriterTest {
     }
 
     @Test
-    public void rewriteTest() {
+    public void rewriteTestForPTag() {
 
         BrandRefreshContentRewriter rewriter = new BrandRefreshContentRewriter();
 
-        String hmtl = "<h3>SCR for patients</h3><p> If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about <a href='/pagenotfound'>including additional information</a> to do with long term conditions, care preferences or specific communications needs.</p><p><a href='/pagenotfound'> Read more patient information on SCR</a></p>";
-        String expectedHmtl = "<h3>SCR for patients</h3><p class=\"nhsd-t-body-s\"> If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about <a href='/pagenotfound'>including additional information</a> to do with long term conditions, care preferences or specific communications needs.</p><p class=\"nhsd-t-body-s\"><a href='/pagenotfound'> Read more patient information on SCR</a></p>";
+        String html = "<h3>SCR for patients</h3><p> If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about <a href='/pagenotfound'>including additional information</a> to do with long term conditions, care preferences or specific communications needs.</p><p><a href='/pagenotfound'> Read more patient information on SCR</a></p>";
+        String expectedHtml = "<h3>SCR for patients</h3><p class=\"nhsd-t-body\"> If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about <a href='/pagenotfound'>including additional information</a> to do with long term conditions, care preferences or specific communications needs.</p><p class=\"nhsd-t-body\"><a href='/pagenotfound'> Read more patient information on SCR</a></p>";
 
-        String result = rewriter.rewrite(hmtl, node,requestContext,targetMount);
+        String result = rewriter.rewrite(html, node,requestContext,targetMount);
 
         TagNode rootNode = getHtmlCleaner().clean(result);
         TagNode[] paragraphs = rootNode.getElementsByName("p", true);
 
-        TagNode expectedRootNode = getHtmlCleaner().clean(expectedHmtl);
+        TagNode expectedRootNode = getHtmlCleaner().clean(expectedHtml);
         TagNode[] expectedParagraphs = expectedRootNode.getElementsByName("p", true);
 
         for (int i = 0; i < paragraphs.length; i++) {
             assertEquals(expectedParagraphs[i].getName(), paragraphs[i].getName()); //p
-            assertEquals(expectedParagraphs[i].getAttributes(), paragraphs[i].getAttributes()); //class=nhsd-t-body-s
-            assertEquals(expectedParagraphs[i].getText().toString(), expectedParagraphs[i].getText().toString()); //text
+            assertEquals(expectedParagraphs[i].getAttributeByName("class"), paragraphs[i].getAttributeByName("class")); //nhsd-t-body
+            assertEquals(expectedParagraphs[i].getText().toString(), paragraphs[i].getText().toString()); //text
+        }
+    }
+
+    @Test
+    public void rewriteTestForATag() {
+
+        BrandRefreshContentRewriter rewriter = new BrandRefreshContentRewriter();
+
+        String html = "<h3>SCR for patients</h3><p> If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about <a href='/pagenotfound'>including additional information</a> to do with long term conditions, care preferences or specific communications needs.</p><p><a href='/pagenotfound'> Read more patient information on SCR</a></p>";
+        String expectedHtml = "<h3>SCR for patients</h3><p> If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about <a href='/pagenotfound' class=\"nhsd-a-link\">including additional information</a> to do with long term conditions, care preferences or specific communications needs.</p><p><a href='/pagenotfound' class=\"nhsd-a-link\"> Read more patient information on SCR</a></p>";
+
+        String result = rewriter.rewrite(html, node,requestContext,targetMount);
+
+        TagNode rootNode = getHtmlCleaner().clean(result);
+        TagNode[] links = rootNode.getElementsByName("a", true);
+
+        TagNode expectedRootNode = getHtmlCleaner().clean(expectedHtml);
+        TagNode[] expectedLinks = expectedRootNode.getElementsByName("a", true);
+
+        for (int i = 0; i < links.length; i++) {
+            assertEquals(expectedLinks[i].getName(), links[i].getName()); //a
+            assertEquals(expectedLinks[i].getAttributeByName("class"), links[i].getAttributeByName("class")); //nhsd-a-link
+            assertEquals(expectedLinks[i].getText().toString(), links[i].getText().toString()); //text
         }
     }
 }

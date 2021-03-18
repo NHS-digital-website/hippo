@@ -9,7 +9,12 @@
 
     <#if section.title?has_content>
         <div id="${slugify(section.title)}" class="${articleSectionClass} <#if isPreviousSectionEmphasisBox>article-section--highlighted</#if>">
-            <h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)} data-uipath="website.contentblock.section.title"><#if section.isNumberedList>${numberedListCount}. </#if>${section.title}</h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)}>
+            <h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)} data-uipath="website.contentblock.section.title">
+                <#if section.isNumberedList>
+                    ${numberedListCount}. 
+                </#if>
+                ${section.title}
+            </h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)}>
             <div data-uipath="website.contentblock.section.content" class="rich-text-content">
                 <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/>
             </div>

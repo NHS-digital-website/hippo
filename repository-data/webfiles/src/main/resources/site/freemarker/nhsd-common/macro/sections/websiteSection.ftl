@@ -1,24 +1,27 @@
 <#ftl output_format="HTML">
 
-<#macro websiteSection section isPreviousSectionEmphasisBox numberedListCount mainHeadingLevel=2 >
-    <#assign articleSectionClass = 'article-section navigationMarker' />
+<#macro websiteSection section isPreviousSectionEmphasisBox numberedListCount isLastSection mainHeadingLevel=2 sectionCounter=0 >
     <#assign subHeading = section.headingLevel?has_content && section.headingLevel == 'Sub heading'/>
-    <#if subHeading>
-        <#assign articleSectionClass = 'article-section-with-sub-heading navigationMarker-sub' />
-    </#if>
 
     <#if section.title?has_content>
-        <div id="${slugify(section.title)}" class="${articleSectionClass} <#if isPreviousSectionEmphasisBox>article-section--highlighted</#if>">
-            <h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)} data-uipath="website.contentblock.section.title"><#if section.isNumberedList>${numberedListCount}. </#if>${section.title}</h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)}>
-            <div data-uipath="website.contentblock.section.content" class="rich-text-content">
-                <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/>
+        <div id="${slugify(section.title)}" class="nhsd-!t-margin-top-6">
+            <hr class="nhsd-a-horizontal-rule" style="<#if isPreviousSectionEmphasisBox || subHeading || sectionCounter == 1 >display:none;</#if>" />
+            <h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)} class="${subHeading?then("nhsd-t-heading-l", "nhsd-t-heading-xl")}" data-uipath="website.contentblock.section.title">
+                <#if section.isNumberedList>
+                    ${numberedListCount}. 
+                </#if>${section.title}
+            </h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)}>
+            <div data-uipath="website.contentblock.section.content">
+                <@hst.html hippohtml=section.html contentRewriter=brContentRewriter/>
             </div>
+            <hr class="nhsd-a-horizontal-rule" style="<#if !isLastSection>display:none;</#if>" />
         </div>
     <#else>
-        <div class="article-section-with-no-heading">
-            <div data-uipath="website.contentblock.section.content" class="rich-text-content">
-                <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/>
+        <div id="${slugify(section.title)}" class="nhsd-!t-margin-top-6">
+            <div data-uipath="website.contentblock.section.content">
+                <@hst.html hippohtml=section.html contentRewriter=brContentRewriter/>
             </div>
-        </div>
+            <hr class="nhsd-a-horizontal-rule" style="<#if !isLastSection>display:none;</#if>" />
+        </div> 
     </#if>
 </#macro>
