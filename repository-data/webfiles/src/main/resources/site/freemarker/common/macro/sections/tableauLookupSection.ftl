@@ -47,7 +47,7 @@
 
        <div id="${divId}" class="viz-wrapper">
            <div id="${divId}-viz" class="viz-wrapper-item"></div>
-           <div id="downLoadData"></div>
+           <div id="${divId}-downLoadData"></div>
            <div id="${divId}-loading" class="viz-wrapper-item visually-hidden">
                <div class="viz-wrapper-loading">
                    <span id="${divId}-loading-message"></span>
@@ -78,9 +78,7 @@
             var viz${index}LoadingTimerStart;
             var viz${index}LoadingRetryAtempIntervales;
             var viz${index}LoadingTimer;
-
-            var downloadVizLink;
-            var showPostcode;
+            var viz${index}downloadVizLink;
 
             // Viz instance supporting HTML elements
             var viz${index}Elements = {
@@ -104,6 +102,9 @@
                 },
                 distance: function () {
                     return document.getElementById("${divId}-distance");
+                },
+                vizLink: function (){
+                  return document.getElementById('downLoadData').innerHTML = "<br><a href='"+viz${index}downloadVizLink+"'>Download the coronavirus data for '"+viz${index}Elements.postcode()+"'</a>";
                 }
             };
 
@@ -133,7 +134,7 @@
                         viz${index}.dispose();
                     }
                     viz${index} = new tableau.Viz(viz${index}Elements.vizDiv(), viz${index}Url, options());
-                    document.getElementById('downLoadData').innerHTML = "<br><a href='"+downloadVizLink+"'>Download the coronavirus data for '"+showPostcode+"'</a>";
+                    viz${index}.vizLink();
                 } else {
                     _showLoadingError();
                 }
@@ -163,8 +164,7 @@
                         viz${index}Url = encodeURI("${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
 
                         // build the download link and base it on div being empty
-                        downloadVizLink = encodeURI("${section.url}".split("?")[0]+".csv" + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
-                        showPostcode = postcode;
+                        viz${index}downloadVizLink = encodeURI("${section.url}".split("?")[0]+".csv" + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
 
                         // Start Viz load
                         _hideLoadingSpinner()
