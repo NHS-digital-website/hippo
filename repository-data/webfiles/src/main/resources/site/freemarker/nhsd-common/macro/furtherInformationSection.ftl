@@ -10,11 +10,12 @@
     <@hst.setBundle basename="rb.generic.headers"/>
     <#-- BEGIN optional 'Further information section' -->
     <#if childPages?has_content>
-    <div class="article-section article-section--child-pages" id="further-information">
-        <h2><@fmt.message key="headers.further-information" /></h2>
-        <ol class="list list--reset cta-list">
+    <div class="nhsd-!t-margin-bottom-8" id="further-information">
+        <h2 class="nhsd-t-heading-xl"><@fmt.message key="headers.further-information" /></h2>
+        <div class="nhsd-t-grid">
             <#list childPages as childPage>
-                <li>
+                <div class="nhsd-t-row">
+                    <div class="nhsd-t-col-12">
                     <#-- If external link -->
                     <#if childPage.linkType??>
 
@@ -22,48 +23,54 @@
                         <@typeSpan childPage.linkType />
 
                         <#if childPage.linkType == "external">
-                            <article class="cta cta--hf">
-                                <h2 class="cta__title"><a href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a></h2>
+                            <article class="nhsd-!t-margin-bottom-8">
+                                <a class="nhsd-a-link" href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" target="_blank" rel="external">
+                                    ${childPage.title}
+                                    <span class="nhsd-t-sr-only">(external link, opens in a new tab)</span>
+                                </a>
                                 <#if childPage.shortsummary?? && childPage.shortsummary?has_content>
-                                    <p class="cta__text">${childPage.shortsummary}</p>
+                                    <p class="nhsd-t-body-s nhsd-!t-margin-top-1">${childPage.shortsummary}</p>
                                 </#if>
                             </article>
                         </#if>
 
                     <#-- If internal link -->
                     <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
-                        <article class="cta cta--hf">
-                        <@typeSpan "internal" />
-                        <h2 class="cta__title"><a href="<@hst.link hippobean=childPage />">${childPage.title}</a></h2>
+                        <article class="nhsd-!t-margin-bottom-8">
+                            <@typeSpan "internal" />
+                            <a class="nhsd-a-link" href="<@hst.link hippobean=childPage />">${childPage.title}</a>
                             <#if childPage.shortsummary?? && childPage.shortsummary?has_content>
-                                <p class="cta__text">${childPage.shortsummary}</p>
+                                <p class="nhsd-t-body-s nhsd-!t-margin-top-1">${childPage.shortsummary}</p>
                             </#if>
                         </article>
                     </#if>
-                </li>
+                    </div>
+                </div>
             </#list>
-        </ol>
+        </div>
 
-        <ol class="list list--reset">
+        <div class="nhsd-t-grid">
         <#list childPages as childPage>
-            <li>
+            <div class="nhsd-t-row">
                 <#if childPage.linkType??>
                     <#-- If asset link -->
                     <#if childPage.linkType == "asset">
-                        <a href="<@hst.link hippobean=childPage.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
-                            <div class="block-link__header">
-                                <@fileIconByMimeType childPage.link.asset.mimeType></@fileIconByMimeType>
-                            </div>
-                            <div class="block-link__body">
-                                <span class="block-link__title">${childPage.title}</span>
-                                <@fileMetaAppendix childPage.link.asset.getLength(), childPage.link.asset.mimeType></@fileMetaAppendix>
-                            </div>
-                        </a>
+                        <div class="nhsd-t-col-12">
+                            <a href="<@hst.link hippobean=childPage.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
+                                <div class="block-link__header">
+                                    <@fileIconByMimeType childPage.link.asset.mimeType></@fileIconByMimeType>
+                                </div>
+                                <div class="block-link__body">
+                                    <span class="block-link__title">${childPage.title}</span>
+                                    <@fileMetaAppendix childPage.link.asset.getLength(), childPage.link.asset.mimeType></@fileMetaAppendix>
+                                </div>
+                            </a>
+                        </div>
                     </#if>
                 </#if>
-            </li>
+            </div>
         </#list>
-        </ol>
+        </div>
     </div>
     </#if>
     <#-- END optional 'Further information section' -->

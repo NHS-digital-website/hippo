@@ -4,7 +4,7 @@
     <#setting time_zone="GMT">
     <#assign output>${label}${datetime?string["d MMMM yyyy h:mm a"]?replace("AM", "am")?replace("PM", "pm")}</#assign>
     <#if chrome>
-        <div class="article-section muted no-border no-top-padding" id="last-edited">
+        <div class="nhsd-t-body nhsd-!t-margin-top-0 nhsd-!t-margin-bottom-8" id="last-edited">
             ${output}
         </div>
     <#else>

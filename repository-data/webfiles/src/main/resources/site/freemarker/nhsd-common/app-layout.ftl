@@ -4,10 +4,12 @@
 
 <!DOCTYPE html>
 <html lang="en" class="nhsd-no-js">
-    <#include "./nhsd-homepage-head.ftl">
+    <#include "./app-layout-head.ftl">
 <body>
     <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
         <@globalHeader true/>
+
+        <@hst.include ref="breadcrumb"/>
 
         <@hst.include ref= "main"/>
 

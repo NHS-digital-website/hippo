@@ -54,7 +54,14 @@ public class BrandRefreshContentRewriter extends SimpleContentRewriter {
             TagNode[] paragraphs = rootNode.getElementsByName("p", true);
 
             for (TagNode paragraph : paragraphs) {
-                paragraph.addAttribute("class", "nhsd-t-body-s");
+                paragraph.addAttribute("class", "nhsd-t-body");
+            }
+
+            //Add styling to links within the <p> tag
+            TagNode[] links = rootNode.getElementsByName("a", true);
+
+            for (TagNode link : links) {
+                link.addAttribute("class", "nhsd-a-link");
             }
 
             // everything is rewritten. Now write the "body" element

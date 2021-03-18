@@ -218,6 +218,9 @@ definitions:
       /newslist-main-newslist:
         hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
         jcr:primaryType: hst:template
+      /nhsd-app-layout:
+        hst:renderpath: webfile:/freemarker/nhsd-common/app-layout.ftl
+        jcr:primaryType: hst:template
       /nhsd-developer-hub:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage.ftl
         jcr:primaryType: hst:template
