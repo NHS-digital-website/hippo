@@ -106,7 +106,7 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
 
         if (HippoServiceRegistry.getService(PooledS3Connector.class) != null) {
 
-            HippoServiceRegistry.register(pooledS3Connector, PooledS3Connector.class);
+            HippoServiceRegistry.unregister(pooledS3Connector, PooledS3Connector.class);
 
             // null checks protect against failed doInitialize/doConfigure
             Optional.ofNullable(downloadExecutorService).ifPresent(ExecutorService::shutdown);

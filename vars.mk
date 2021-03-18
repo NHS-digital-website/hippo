@@ -37,6 +37,7 @@ REPO_PATH ?=
 
 APIGEE_SYNC_CRON ?=
 APIGEE_RERENDER_CRON ?=
+APIGEE_SYNC_SCHEDULE_DELAY ?= PT90S
 APIGEE_TOKEN_URL ?= https://login.apigee.com/oauth/token
 APIGEE_SPECS_ALL_URL ?= https://apigee.com/dapi/api/organizations/nhsd-nonprod/specs/folder/home
 APIGEE_SPECS_ONE_URL ?= https://apigee.com/dapi/api/organizations/nhsd-nonprod/specs/doc/{specificationId}/content
@@ -54,6 +55,7 @@ MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Dspring.profiles.active=local \
     "-Ddevzone.apispec.sync.daily-cron-expression=$(APIGEE_SYNC_CRON)" \
     "-Ddevzone.apispec.sync.nightly-cron-expression=$(APIGEE_RERENDER_CRON)" \
+    -Ddevzone.apispec.sync.schedule-delay-duration=$(APIGEE_SYNC_SCHEDULE_DELAY) \
     -Ddevzone.apigee.resources.specs.all.url=$(APIGEE_SPECS_ALL_URL) \
     -Ddevzone.apigee.resources.specs.individual.url=$(APIGEE_SPECS_ONE_URL) \
 	-Ddevzone.apigee.oauth.token.url=$(APIGEE_TOKEN_URL)
