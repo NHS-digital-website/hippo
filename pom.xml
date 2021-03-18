@@ -833,6 +833,7 @@
                 <module>repository</module>
                 <module>site</module>
                 <module>acceptance-tests</module>
+                <module>publication-automation</module>
             </modules>
         </profile>
 

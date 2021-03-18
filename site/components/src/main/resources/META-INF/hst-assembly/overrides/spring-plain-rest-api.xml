@@ -45,9 +45,19 @@
     </property>
   </bean>
 
-  <!--
-    JAXB CONTEXT MAPPINGS
-  -->
+    <bean id="customJaxrsRestEntityProviders"
+          class="org.springframework.beans.factory.config.ListFactoryBean">
+        <property name="sourceList">
+            <list>
+                <bean class="uk.nhs.digital.LoginExceptionMapper" />
+                <bean class="uk.nhs.digital.RepositoryExceptionMapper" />
+            </list>
+        </property>
+    </bean>
+
+    <!--
+      JAXB CONTEXT MAPPINGS
+    -->
   <bean id="jaxrsHippoContextProvider" class="org.onehippo.cms7.essentials.components.rest.JaxbContextProvider">
     <property name="beansPackage" value="uk.nhs.digital.website.beans"/>
     <!--

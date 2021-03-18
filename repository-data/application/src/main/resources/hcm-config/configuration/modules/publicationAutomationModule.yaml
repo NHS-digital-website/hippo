@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/publicationAutomationModule:
+      /hippo:moduleconfig:
+        jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: uk.nhs.digital.publicationautomation.PublicationFilesApiModule
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module

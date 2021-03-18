@@ -20,6 +20,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>uk.nhs.digital</groupId>
+            <artifactId>s3-connector</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.netflix.hystrix</groupId>
             <artifactId>hystrix-javanica</artifactId>
         </dependency>
