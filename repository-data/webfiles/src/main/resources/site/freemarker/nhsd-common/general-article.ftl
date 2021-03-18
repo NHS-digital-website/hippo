@@ -12,6 +12,8 @@
 <#include "macro/latestblogs.ftl">
 <#include "macro/component/calloutBox.ftl">
 <#include "macro/contentPixel.ftl">
+<#include "macros/header-banner.ftl">
+
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
@@ -20,8 +22,6 @@
         <@hst.headContribution category="metadata">
             ${md?no_esc}
         </@hst.headContribution>
-
-        <#--  <@hst.headContribution category="css, scripts">  -->
     </#list>
 </#if>
 
@@ -41,7 +41,7 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<article class="article article--general">
+<article >
     <#if hasBannerImage>
         <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
         <div class="banner-image" aria-label="Document Header"
@@ -57,13 +57,12 @@
             </div>
         </div>
     <#else>
-        <@documentHeader document 'general'></@documentHeader>
+        <@headerBanner document />
     </#if>
-    <div class="grid-wrapper grid-wrapper--article">
+    <div class="nhsd-t-grid">
         <#if document.updates?has_content>
-            <div class="grid-row">
-                <div class="column column--no-padding">
-                    <div class="callout-box-group">
+            <div class="nhsd-t-row">
+                    <div class="nhsd-t-col-12">
                         <#assign item = {} />
                         <#list document.updates as update>
                             <#assign item += update />
@@ -74,11 +73,9 @@
                 </div>
             </div>
         </#if>
-        <div class="grid-row">
+        <div class="nhsd-t-row">
             <#if navStatus == "withNav" && renderNav>
-                <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
-                    <!-- start sticky-nav -->
-                    <div id="sticky-nav">
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
                         <#assign links = [{ "url": "#top", "title": "Top of page" }] />
                         <#if document.latestNews?has_content >
                             <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
@@ -88,22 +85,14 @@
                             <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
                         </#if>
                         <@stickyNavSections links></@stickyNavSections>
-                    </div>
                     <!-- end sticky-nav -->
                     <#-- Restore the bundle -->
                     <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
                 </div>
             </#if>
 
-            <div class="column ${(navStatus == "withNav" || navStatus == "withoutNav")?then("column--two-thirds", "column--wide-mode")} page-block page-block--main">
-                <#if hasBannerImage>
-                    <#if hasSummaryContent>
-                        <div class="article-header__subtitle"
-                             data-uipath="website.general.summary">
-                            <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>
-                        </div>
-                    </#if>
-                </#if>
+            <div class="${(navStatus == "withNav" || navStatus == "withoutNav")?then("nhsd-t-col-xs-12 nhsd-t-col-s-8", "nhsd-t-col-12")}">
+
                 <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' />
 
                 <#if hasSectionContent>
@@ -120,7 +109,7 @@
 
                 <@latestblogs document.relatedEvents 'General' 'events-' + idsuffix 'Forthcoming events' />
 
-                <div class="article-section muted">
+                <div class="nhsd-t-body nhsd-!t-margin-bottom-8">
                     <@lastModified document.lastModified false></@lastModified>
                 </div>
             </div>
