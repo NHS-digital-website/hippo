@@ -11,7 +11,9 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.*;
+import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Publication;
+import uk.nhs.digital.ps.beans.Series;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +59,7 @@ public class PublicationComponent extends ContentRewriterComponent {
             index.add(KEY_FACTS_ID);
         }
 
-        if (isNotBlank(publication.getAdministrativeSources())) {
+        if (parentIsSeriesAndAdminSourcesNotBlank(publication) || parentIsArchiveAndAdminSourcesNotBlank(publication) || isNotBlank(publication.getAdministrativeSources())) {
             index.add(ADMIN_SOURCES_ID);
         }
 
@@ -83,5 +85,13 @@ public class PublicationComponent extends ContentRewriterComponent {
         }
 
         return index;
+    }
+
+    private boolean parentIsSeriesAndAdminSourcesNotBlank(Publication publication) {
+        return publication.getParentDocument() instanceof Series && isNotBlank(((Series) publication.getParentDocument()).getAdministrativeSources());
+    }
+
+    private boolean parentIsArchiveAndAdminSourcesNotBlank(Publication publication) {
+        return publication.getParentDocument() instanceof Archive && isNotBlank(((Archive) publication.getParentDocument()).getAdministrativeSources());
     }
 }
