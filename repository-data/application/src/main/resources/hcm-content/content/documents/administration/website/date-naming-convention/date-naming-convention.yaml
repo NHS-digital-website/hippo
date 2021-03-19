@@ -1,0 +1,70 @@
+---
+/content/documents/administration/website/date-naming-convention:
+  /date-naming-convention:
+    /date-naming-convention:
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: yearOfPublication
+        selection:label: At year of publication
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: yearOfCoverageEnd
+        selection:label: At year of coverage end
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: financialYearsOfCoverage
+        selection:label: At financial years of coverage start and end
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: monthOfPublication
+        selection:label: At month of publication
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: monthOfCoverageEnd
+        selection:label: At month of coverage end
+      /selection:listitem[6]:
+        jcr:primaryType: selection:listitem
+        selection:key: financialQuarterEndingOfCoverageEnd
+        selection:label: At financial quarter ending of coverage end
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: coverageRangeYear
+        selection:label: Coverage range by year (e.g 2018-19)
+      /selection:listitem[8]:
+        jcr:primaryType: selection:listitem
+        selection:key: coverageRangeMonth
+        selection:label: Coverage range by month and year (e.g March 2018 - Sept 2018)
+      /selection:listitem[9]:
+        jcr:primaryType: selection:listitem
+        selection:key: weekEndingCoverageEnd
+        selection:label: Week ending of coverage end
+      /selection:listitem[10]:
+        jcr:primaryType: selection:listitem
+        selection:key: dayCoverageEnd
+        selection:label: Day of coverage end
+      /selection:listitem[11]:
+        jcr:primaryType: selection:listitem
+        selection:key: noDate
+        selection:label: No date
+      hippo:availability:
+      - live
+      - preview
+      hippotranslation:id: c3e742a4-bda3-4524-af02-ae8230e6d63c
+      hippotranslation:locale: inherited - from query
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: selection:valuelist
+    hippo:name: Date naming convention
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Date naming convention
+  hippostd:foldertype:
+  - new-document
+  - new-folder
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
