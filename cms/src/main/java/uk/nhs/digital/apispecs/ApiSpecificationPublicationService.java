@@ -53,12 +53,27 @@ public class ApiSpecificationPublicationService {
         final SyncResults syncResults = localSpecs.stream()
             .filter(specificationsPresentInBothSystems(remoteSpecsById))
             .map(toInitialSpecSyncData(remoteSpecsById))
+            .peek(determineEligibility())
             .peek(renderHtmlIfContentActuallyChanged())
             .peek(setLastChangeCheckInstant())
             .peek(publishSpecIfActuallyChanged())
             .collect(syncResults());
 
         reportPublicationStatusFor(localSpecs.size(), remoteSpecs.size(), syncResults);
+    }
+
+    private Consumer<SpecificationSyncData> determineEligibility() {
+        return specSyncData -> {
+            if (specSyncData.failedEarlier()) {
+                return;
+            }
+
+            try {
+                specSyncData.setEligible(specSyncData.specContentChanged());
+            } catch (final Exception e) {
+                specSyncData.setError("Failed to determine whether the spec is eligible for update.", e);
+            }
+        };
     }
 
     private Function<ApiSpecificationDocument, SpecificationSyncData> toInitialSpecSyncData(
@@ -71,52 +86,68 @@ public class ApiSpecificationPublicationService {
 
     private Consumer<SpecificationSyncData> renderHtmlIfContentActuallyChanged() {
         return specSyncData -> {
-            if (specSyncData.specContentChanged()) {
-                try {
+            if (specSyncData.failedEarlier()) {
+                return;
+            }
+
+            try {
+                if (specSyncData.eligible()) {
+
                     specSyncData.remoteSpec()
                         .getSpecJson()
                         .map(json -> openApiSpecificationJsonToHtmlConverter.htmlFrom(json))
                         .ifPresent(specSyncData::setHtml);
-                } catch (final Exception e) {
-                    specSyncData.setError("Failed to render JSON into HTML.", e);
+
+                } else {
+                    if (specSyncData.specReportedAsUpdated()) {
+                        reportSkippingUnchangedSpec(specSyncData);
+                    }
                 }
-            } else {
-                if (specSyncData.specReportedAsUpdated()) {
-                    log.debug(
-                        "Remote spec's modification timestamp ({}) indicates a change after the last check ({}) but the content has not changed; skipping spec with id {} at {}.",
-                        specSyncData.remoteSpec().getModified(),
-                        specSyncData.localSpec().lastChangeCheckInstant().map(Instant::toString).orElse("n/a"),
-                        specSyncData.localSpec().getId(),
-                        specSyncData.localSpec().path()
-                    );
-                }
+            } catch (final Exception e) {
+                specSyncData.setError("Failed to render JSON into HTML.", e);
             }
         };
     }
 
+    private void reportSkippingUnchangedSpec(final SpecificationSyncData specSyncData) {
+        log.debug(
+            "Remote spec's modification timestamp ({}) indicates a change after the last check ({}) but the content has not changed;"
+                + " skipping spec with id {} at {}.",
+            specSyncData.remoteSpec().getModified(),
+            specSyncData.localSpec().lastChangeCheckInstant().map(Instant::toString).orElse("n/a"),
+            specSyncData.localSpec().getId(),
+            specSyncData.localSpec().path()
+        );
+    }
+
     private Consumer<SpecificationSyncData> setLastChangeCheckInstant() {
         return specSyncData -> {
+            if (specSyncData.failedEarlier()) {
+                return;
+            }
 
-            if (specSyncData.noFailure()) {
-                try {
-                    specSyncData.localSpec().setLastChangeCheckInstant(TimeProvider.getNowInstant());
-                    specSyncData.localSpec().save();
-                } catch (final Exception cause) {
-                    specSyncData.setError(
-                        format("Failed to record time of last check on spec with id %s at %s.",
-                            specSyncData.localSpec().getId(),
-                            specSyncData.localSpec().path()
-                        ),
-                        cause
-                    );
-                }
+            try {
+                specSyncData.localSpec().setLastChangeCheckInstant(TimeProvider.getNowInstant());
+                specSyncData.localSpec().save();
+            } catch (final Exception cause) {
+                specSyncData.setError(
+                    format("Failed to record time of last check on spec with id %s at %s.",
+                        specSyncData.localSpec().getId(),
+                        specSyncData.localSpec().path()
+                    ),
+                    cause
+                );
             }
         };
     }
 
     private Consumer<SpecificationSyncData> publishSpecIfActuallyChanged() {
         return specSyncData -> {
-            if (specSyncData.noFailure() && specSyncData.specContentChanged()) {
+            if (specSyncData.failedEarlier()) {
+                return;
+            }
+
+            if (specSyncData.eligible()) {
                 updateAndPublish(specSyncData);
             }
         };

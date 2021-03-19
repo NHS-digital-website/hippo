@@ -16,7 +16,7 @@ public class SyncResults {
             specificationSyncData.localSpec().getId(),
             specificationSyncData.localSpec().path(),
             specificationSyncData.error(),
-            specificationSyncData.specContentChanged(),
+            specificationSyncData.eligible(),
             specificationSyncData.published());
     }
 

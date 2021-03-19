@@ -11,13 +11,19 @@ import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.ApiSpecDocMocker.localSpec;
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
 
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.Appender;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.apispecs.model.OpenApiSpecification;
@@ -37,6 +43,12 @@ public class ApiSpecificationPublicationServiceTest {
     @Mock
     private OpenApiSpecificationJsonToHtmlConverter apiSpecHtmlProvider;
 
+    @Mock
+    private Appender<ILoggingEvent> appender;
+
+    @Captor
+    private ArgumentCaptor<ILoggingEvent> loggerArgCaptor;
+
     private ApiSpecificationPublicationService apiSpecificationPublicationService;
 
     @Before
@@ -48,15 +60,21 @@ public class ApiSpecificationPublicationServiceTest {
             apiSpecDocumentRepo,
             apiSpecHtmlProvider
         );
+
+        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(ApiSpecificationPublicationService.class))
+            .addAppender(appender);
     }
 
     @After
     public void tearDown() {
         resetTimeProvider();
+
+        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(ApiSpecificationPublicationService.class))
+            .detachAppender(appender);
     }
 
     @Test
-    public void publish_publishesSpecifications_existingInCmsButNeverPublished() {
+    public void sync_publishesSpecifications_existingInCmsButNeverPublished() {
 
         // given
         // @formatter:off
@@ -95,7 +113,7 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void publish_publishesSpecifications_thatChangedInApigeeAfterItWasPublishedInCms() {
+    public void sync_publishesSpecifications_thatChangedInApigeeAfterItWasPublishedInCms() {
 
         // given
         // @formatter:off
@@ -139,7 +157,7 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void publish_doesNotChangeNorPublishSpecifications_whereApigeeReportsChangeAfterLastCheckInCms_butApigeeContentHasNotActuallyChanged() {
+    public void sync_doesNotChangeNorPublishSpecifications_whereApigeeReportsChangeAfterLastCheckInCms_butApigeeContentHasNotActuallyChanged() {
 
         // given
         // @formatter:off
@@ -180,7 +198,7 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void publish_doesNotChangeNorPublishSpecifications_ifApigeeReportsNoChangeAfterLastCheckInCms() {
+    public void sync_doesNotChangeNorPublishSpecifications_ifApigeeReportsNoChangeAfterLastCheckInCms() {
 
         // given
         // @formatter:off
@@ -214,7 +232,7 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void publish_doesNotChangeNorPublishSpecifications_whichDoNotHaveMatchingCounterpartsInRemoteSystem() {
+    public void sync_doesNotChangeNorPublishSpecifications_whichDoNotHaveMatchingCounterpartsInRemoteSystem() {
 
         // given
         // @formatter:off
@@ -245,7 +263,7 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void publish_doesNotMakeAnyRequestToRemoteSystem_ifThereAreNoLocalApiSpecDocuments() {
+    public void sync_doesNotMakeAnyRequestToRemoteSystem_ifThereAreNoLocalApiSpecDocuments() {
 
         // given
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(emptyList());
@@ -258,7 +276,7 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void publish_handlesMultipleSpecifications() {
+    public void sync_handlesMultipleSpecifications() {
 
         // given
         // @formatter:off
@@ -322,6 +340,47 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublishedB).should().setJson(remoteSpecificationJsonB);
         then(localSpecNeverPublishedB).should().setHtml(newSpecificationHtmlB);
         then(localSpecNeverPublishedB).should().saveAndPublish();
+    }
+
+    @Test
+    public void sync_logsSpecAsFailed_onFailureTo_retrieveRemoteSpecJson() {
+        Assert.fail("Test not implemented, yet");
+
+        // given
+
+        // when
+
+
+        // then
+
+    }
+
+    @Test
+    public void sync_logsSpecAsFailed_onFailureTo_determineEligibilityForUpdate() {
+        Assert.fail("Test not implemented, yet");
+
+        // given
+
+        // when
+
+        // then
+
+    }
+
+    @Test
+    public void sync_logsSpecAsFailed_onFailureTo_renderJsonToHtml() {
+        Assert.fail("Test not implemented, yet");
+
+        // given
+
+
+        // when
+        apiSpecificationPublicationService.syncEligibleSpecifications();
+
+        // then
+        // https://stackoverflow.com/questions/38121652/testing-that-a-logback-log-statment-was-called-using-junit
+        then(appender).should().doAppend(loggerArgCaptor.capture());
+        loggerArgCaptor.getValue();
     }
 
     @Test
