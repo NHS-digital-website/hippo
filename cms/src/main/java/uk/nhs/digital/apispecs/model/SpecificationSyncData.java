@@ -9,10 +9,11 @@ public class SpecificationSyncData {
 
     private final ApiSpecificationDocument localSpec;
     private final OpenApiSpecification remoteSpec;
-    private Boolean specContentChanged;
     private String html;
     private Exception error;
     private boolean published;
+    private boolean eligible;
+    private boolean skipped;
 
     private SpecificationSyncData(
         final ApiSpecificationDocument localSpec,
@@ -47,15 +48,11 @@ public class SpecificationSyncData {
 
     public boolean specContentChanged() {
 
-        if (specContentChanged == null) {
+        return specReportedAsUpdated() && specContentDiffersIgnoringVersion(
+            remoteSpec.getSpecJson().orElse(""),
+            localSpec.json().orElse("")
+        );
 
-            specContentChanged = specReportedAsUpdated() && specContentDiffersIgnoringVersion(
-                remoteSpec.getSpecJson().orElse(""),
-                localSpec.json().orElse("")
-            );
-        }
-
-        return specContentChanged;
     }
 
     public boolean specReportedAsUpdated() {
@@ -87,6 +84,10 @@ public class SpecificationSyncData {
         return error == null;
     }
 
+    public boolean failedEarlier() {
+        return !noFailure();
+    }
+
     public void markPublished() {
         published = true;
     }
@@ -103,11 +104,27 @@ public class SpecificationSyncData {
         return html;
     }
 
+    public void setEligible(final boolean eligible) {
+        this.eligible = eligible;
+    }
+
+    public boolean eligible() {
+        return eligible;
+    }
+
     Exception error() {
         return error;
     }
 
     boolean published() {
         return published;
+    }
+
+    public void markSkipped() {
+        skipped = true;
+    }
+
+    public boolean skipped() {
+        return skipped;
     }
 }
