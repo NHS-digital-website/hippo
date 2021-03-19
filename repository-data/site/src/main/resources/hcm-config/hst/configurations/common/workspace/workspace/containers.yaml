@@ -128,6 +128,11 @@ definitions:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
+      /nhsd-news:
+        /main:
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /nhsd-services-hub:
         /banner:
           hst:label: Banner
