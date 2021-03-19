@@ -12,12 +12,4 @@
         </property>
         <property name="baseUri" value="http://localhost:8999"/>
     </bean>
-    <bean id="eployApi"
-          parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
-          class="org.onehippo.cms7.crisp.core.resource.jdom.SimpleJdomRestTemplateResourceResolver">
-        <property name="cacheEnabled" value="false"/>
-        <property name="restTemplate">
-            <bean class="org.springframework.web.client.RestTemplate"/>
-        </property>
-    </bean>
 </beans>

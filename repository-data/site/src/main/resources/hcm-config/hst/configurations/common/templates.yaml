@@ -35,9 +35,6 @@ definitions:
       /archive:
         hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
         jcr:primaryType: hst:template
-      /az-list:
-        hst:renderpath: webfile:/freemarker/common/az-list.ftl
-        jcr:primaryType: hst:template
       /base-top-menu:
         hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
         jcr:primaryType: hst:template
@@ -187,9 +184,6 @@ definitions:
         jcr:primaryType: hst:template
       /jobrole:
         hst:renderpath: webfile:/freemarker/common/jobrole.ftl
-        jcr:primaryType: hst:template
-      /jobsfeedcomponent:
-        hst:renderpath: webfile:/freemarker/common/jobfeed.ftl
         jcr:primaryType: hst:template
       /legacypublication:
         hst:renderpath: webfile:/freemarker/publicationsystem/legacy-publication.ftl

@@ -5,13 +5,6 @@ definitions:
       /publicationsystem-catalog:
         jcr:primaryType: hst:containeritempackage
       /website-catalog:
-        /az-list:
-          hst:componentclassname: uk.nhs.digital.common.components.AzListComponent
-          hst:iconpath: images/essentials/catalog-component-icons/az-nav.png
-          hst:label: A-Z List
-          hst:template: az-list
-          hst:xtype: hst.item
-          jcr:primaryType: hst:containeritemcomponent
         /bloglist:
           hst:componentclassname: uk.nhs.digital.common.components.LatestBlogComponent
           hst:iconpath: images/essentials/catalog-component-icons/news-list.png
@@ -76,12 +69,6 @@ definitions:
           hst:label: Hero
           hst:template: hero
           hst:xtype: hst.item
-          jcr:primaryType: hst:containeritemcomponent
-        /jobsfeedcomponent:
-          hst:componentclassname: uk.nhs.digital.common.components.JobsFeedComponent
-          hst:label: Jobs Feed Component
-          hst:template: jobsfeedcomponent
-          hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
         /list:
           hst:componentclassname: uk.nhs.digital.common.components.PublicationListComponent
