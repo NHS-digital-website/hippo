@@ -26,7 +26,7 @@ public class TimeProviderTestUtils {
      * {@linkplain org.junit.AfterClass @AfterClass}.
      */
     public static void resetTimeProvider() {
-        ReflectionTestUtils.setFieldOnClass(TimeProvider.class, "nowInstantSupplier", (Supplier<Instant>) Instant::now);
+        ReflectionTestUtils.setFieldOnClass(TimeProvider.class, NOW_SUPPLIER_FIELD_NAME, (Supplier<Instant>) Instant::now);
     }
 
     /**
