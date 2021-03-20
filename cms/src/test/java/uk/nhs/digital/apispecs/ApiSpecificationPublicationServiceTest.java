@@ -509,14 +509,67 @@ public class ApiSpecificationPublicationServiceTest {
 
     @Test
     public void sync_syncsEligibleSpecification_evenWhenPrecedingOneFailed() {
-        Assert.fail("Test not implemented, yet");
 
         // given
+        // @formatter:off
+        final String specificationIdA            = "248569";
+        final String specificationIdB            = "965842";
+
+        final String remoteSpecModificationTimeA =               "2020-05-20T10:30:00.000Z";
+
+        final String remoteSpecificationJsonA    = "{ \"new-spec\": \"json-a\" }";
+
+        final String remoteSpecModificationTimeB =               "2020-05-20T10:30:01.000Z";
+        final Instant newCheckTimeB              = Instant.parse("2020-05-10T10:30:03.001Z");
+
+        final String remoteSpecificationJsonB    = "{ \"new-spec\": \"json-b\" }";
+        final String newSpecificationHtmlB       = "<html><body> new spec html B</body></html>";
+        // @formatter:on
+
+        nextNowsAre(newCheckTimeB); // expecting only B to be read - we're breaking A before it can read the time
+
+        final ApiSpecificationDocument localSpecNeverPublishedA = localSpec()
+            .withId(specificationIdA)
+            .mock();
+
+        final ApiSpecificationDocument localSpecNeverPublishedB = localSpec()
+            .withId(specificationIdB)
+            .mock();
+
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(asList(
+            localSpecNeverPublishedA, localSpecNeverPublishedB
+        ));
+
+        final OpenApiSpecification remoteSpecA = remoteSpec(specificationIdA, remoteSpecModificationTimeA);
+        final OpenApiSpecification remoteSpecB = remoteSpec(specificationIdB, remoteSpecModificationTimeB);
+
+        given(apigeeService.apiSpecificationStatuses()).willReturn(asList(
+            remoteSpecA, remoteSpecB
+        ));
+
+        given(apigeeService.apiSpecificationJsonForSpecId(specificationIdA)).willReturn(remoteSpecificationJsonA);
+        given(apigeeService.apiSpecificationJsonForSpecId(specificationIdB)).willReturn(remoteSpecificationJsonB);
+
+        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJsonA)).willThrow(new RuntimeException("Invalid spec."));
+        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJsonB)).willReturn(newSpecificationHtmlB);
 
         // when
+        apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
+        then(localSpecNeverPublishedA).should(never()).setLastChangeCheckInstant(any());
+        then(localSpecNeverPublishedA).should(never()).save();
 
+        then(localSpecNeverPublishedA).should(never()).setJson(any());
+        then(localSpecNeverPublishedA).should(never()).setHtml(any());
+        then(localSpecNeverPublishedA).should(never()).saveAndPublish();
+
+        then(localSpecNeverPublishedB).should().setLastChangeCheckInstant(newCheckTimeB);
+        then(localSpecNeverPublishedB).should().save();
+
+        then(localSpecNeverPublishedB).should().setJson(remoteSpecificationJsonB);
+        then(localSpecNeverPublishedB).should().setHtml(newSpecificationHtmlB);
+        then(localSpecNeverPublishedB).should().saveAndPublish();
     }
 
     @Test
