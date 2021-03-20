@@ -3,16 +3,21 @@ package uk.nhs.digital.apispecs;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.ApiSpecDocMocker.localSpec;
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Appender;
+import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -29,7 +34,9 @@ import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.apispecs.model.OpenApiSpecification;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ApiSpecificationPublicationServiceTest {
@@ -369,18 +376,43 @@ public class ApiSpecificationPublicationServiceTest {
 
     @Test
     public void sync_logsSpecAsFailed_onFailureTo_renderJsonToHtml() {
-        Assert.fail("Test not implemented, yet");
 
         // given
+        // @formatter:off
+        final String specificationId            = "248569";
 
+        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
+
+        final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
+        // @formatter:on
+
+        final ApiSpecificationDocument localSpecNeverPublished = localSpec()
+            .withId(specificationId)
+            .mock();
+
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecNeverPublished));
+
+        final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
+        given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
+
+        given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
+
+        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJson)).willThrow(new RuntimeException("Invalid spec."));
 
         // when
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
         // https://stackoverflow.com/questions/38121652/testing-that-a-logback-log-statment-was-called-using-junit
-        then(appender).should().doAppend(loggerArgCaptor.capture());
-        loggerArgCaptor.getValue();
+        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
+
+        final List<String> actualLogMessages = loggerArgCaptor.getAllValues().stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1",
+                "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
+            )));
     }
 
     @Test
