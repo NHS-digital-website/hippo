@@ -71,7 +71,7 @@ public class ApiSpecificationPublicationService {
             try {
                 specSyncData.setEligible(specSyncData.specContentChanged());
             } catch (final Exception e) {
-                specSyncData.setError("Failed to determine whether the spec is eligible for update.", e);
+                specSyncData.setError("Failed to determine whether the specification is eligible for update.", e);
             }
         };
     }
@@ -104,7 +104,7 @@ public class ApiSpecificationPublicationService {
                     }
                 }
             } catch (final Exception e) {
-                specSyncData.setError("Failed to render JSON into HTML.", e);
+                specSyncData.setError("Failed to render OAS JSON into HTML.", e);
             }
         };
     }
@@ -131,7 +131,7 @@ public class ApiSpecificationPublicationService {
                 specSyncData.localSpec().save();
             } catch (final Exception cause) {
                 specSyncData.setError(
-                    format("Failed to record time of last check on spec with id %s at %s.",
+                    format("Failed to record time of last check on specification with id %s at %s.",
                         specSyncData.localSpec().getId(),
                         specSyncData.localSpec().path()
                     ),

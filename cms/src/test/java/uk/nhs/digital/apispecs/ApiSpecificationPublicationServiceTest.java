@@ -16,6 +16,7 @@ import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.Api
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.core.Appender;
 import org.hamcrest.Matchers;
 import org.junit.After;
@@ -350,28 +351,52 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void sync_logsSpecAsFailed_onFailureTo_retrieveRemoteSpecJson() {
-        Assert.fail("Test not implemented, yet");
-
-        // given
-
-        // when
-
-
-        // then
-
-    }
-
-    @Test
     public void sync_logsSpecAsFailed_onFailureTo_determineEligibilityForUpdate() {
-        Assert.fail("Test not implemented, yet");
 
         // given
+        // @formatter:off
+        final String specificationId            = "248569";
+
+        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
+        // @formatter:on
+
+        final ApiSpecificationDocument localSpecNeverPublished = localSpec()
+            .withId(specificationId)
+            .mock();
+
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecNeverPublished));
+
+        final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
+        given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
+
+        given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willThrow(new RuntimeException("Failed to retrieve remote spec."));
 
         // when
+        apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
+        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
 
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 1",
+                "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
+            )));
+
+        final IThrowableProxy actualError = allLoggingEvents.get(allLoggingEvents.size() - 1).getThrowableProxy();
+        final IThrowableProxy actualCause = actualError.getCause();
+        assertThat(
+            actualError.getMessage(),
+            is("Failed to determine whether the specification is eligible for update.")
+        );
+
+        assertThat(
+            actualCause.getMessage(),
+            is("Failed to retrieve remote spec.")
+        );
     }
 
     @Test
@@ -403,16 +428,52 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        // https://stackoverflow.com/questions/38121652/testing-that-a-logback-log-statment-was-called-using-junit
         then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
 
-        final List<String> actualLogMessages = loggerArgCaptor.getAllValues().stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
         assertThat(
             actualLogMessages,
             is(asList(
                 "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1",
                 "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
             )));
+
+        final IThrowableProxy actualError = allLoggingEvents.get(allLoggingEvents.size() - 1).getThrowableProxy();
+        final IThrowableProxy actualCause = actualError.getCause();
+        assertThat(
+            actualError.getMessage(),
+            is("Failed to render OAS JSON into HTML.")
+        );
+
+        assertThat(
+            actualCause.getMessage(),
+            is("Invalid spec.")
+        );
+    }
+
+    @Test
+    public void sync_logsSpecAsFailed_onFailureTo_saveLastCheckTime() {
+        Assert.fail("Test not implemented, yet");
+
+        // given
+
+        // when
+
+        // then
+
+    }
+
+    @Test
+    public void sync_syncsEligibleSpecification_evenWhenPrecedingOneFailed() {
+        Assert.fail("Test not implemented, yet");
+
+        // given
+
+        // when
+
+        // then
+
     }
 
     @Test
