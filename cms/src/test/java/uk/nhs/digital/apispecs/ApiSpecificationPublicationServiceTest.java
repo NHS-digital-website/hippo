@@ -9,8 +9,7 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.ApiSpecDocMocker.localSpec;
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
@@ -454,14 +453,58 @@ public class ApiSpecificationPublicationServiceTest {
 
     @Test
     public void sync_logsSpecAsFailed_onFailureTo_saveLastCheckTime() {
-        Assert.fail("Test not implemented, yet");
 
         // given
+        // @formatter:off
+        final String specificationId            = "248569";
+
+        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
+        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z");
+
+        final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
+        final String newSpecificationHtml       = "<html><body> new spec html </body></html>";
+        // @formatter:on
+
+        final ApiSpecificationDocument localSpecNeverPublished = localSpec()
+            .withId(specificationId)
+            .withBrokenSave()
+            .mock();
+
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecNeverPublished));
+
+        final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
+        given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
+
+        given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
+
+        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJson)).willReturn(newSpecificationHtml);
 
         // when
+        apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
+        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
 
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1",
+                "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
+            )));
+
+        final IThrowableProxy actualError = allLoggingEvents.get(allLoggingEvents.size() - 1).getThrowableProxy();
+        final IThrowableProxy actualCause = actualError.getCause();
+        assertThat(
+            actualError.getMessage(),
+            is("Failed to record time of last check on specification with id 248569 at /content/docs/248569.")
+        );
+
+        assertThat(
+            actualCause.getMessage(),
+            is("Failed to save.")
+        );
     }
 
     @Test
@@ -597,6 +640,12 @@ public class ApiSpecificationPublicationServiceTest {
 
         public ApiSpecDocMocker withLastCheckedInstant(final String instant) {
             given(spec.lastChangeCheckInstant()).willReturn(Optional.of(instant).map(Instant::parse));
+
+            return this;
+        }
+
+        public ApiSpecDocMocker withBrokenSave() {
+            doThrow(new RuntimeException("Failed to save.")).when(spec).save();
 
             return this;
         }
