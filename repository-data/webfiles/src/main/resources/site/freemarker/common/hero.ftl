@@ -3,6 +3,7 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Video" -->
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
@@ -25,9 +26,9 @@
 <#assign hasColourBar = isTall?then(displayColourBar, false) />
 
 <#if hasDocument>
-    <#assign isCtaDoc = document.class.simpleName == "Calltoaction"/>
-    <#assign isBannerDoc = document.class.simpleName == "Banner"/>
-    <#assign isVideoDoc = document.class.simpleName == "Video"/>
+    <#assign isCtaDoc = document.class.simpleName?starts_with("Calltoaction") />
+    <#assign isBannerDoc = document.class.simpleName?starts_with("Banner") />
+    <#assign isVideoDoc = document.class.simpleName?starts_with("Video") />
 
     <#assign hasTitle = document.title?has_content />
     <#assign hasContent = document.content?has_content || document.introduction?has_content />
@@ -98,8 +99,8 @@
                 <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters ${colSize}">
                     <figure class="nhsd-a-image ${imageSize}" aria-hidden="true">
                         <#if isVideoDoc && document.videoUri???has_content>
-                             <div style="padding-bottom: 56.25%; position: relative">
-                                <iframe style="width: 100%; height: 100%; position: absolute" type="text/html" src="${document.videoUri}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                             <div class="nhsd-o-hero__iframe-wrapper">
+                                <iframe class="nhsd-o-hero__iframe" type="text/html" src="${document.videoUri}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                                 <link itemprop="embedUrl" href="${document.videoUri}" />
                              </div>
                         <#elseif document.image?has_content>
