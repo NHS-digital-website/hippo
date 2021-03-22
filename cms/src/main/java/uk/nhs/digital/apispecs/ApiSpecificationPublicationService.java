@@ -14,7 +14,6 @@ import uk.nhs.digital.apispecs.model.SpecificationSyncData;
 import uk.nhs.digital.apispecs.model.SyncResults;
 import uk.nhs.digital.common.util.TimeProvider;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
