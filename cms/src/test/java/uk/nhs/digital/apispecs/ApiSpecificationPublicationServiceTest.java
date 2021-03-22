@@ -68,16 +68,14 @@ public class ApiSpecificationPublicationServiceTest {
             apiSpecHtmlProvider
         );
 
-        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(ApiSpecificationPublicationService.class))
-            .addAppender(appender);
+        setUpLogger();
     }
 
     @After
     public void tearDown() {
         resetTimeProvider();
 
-        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(ApiSpecificationPublicationService.class))
-            .detachAppender(appender);
+        resetLogger();
     }
 
     @Test
@@ -87,7 +85,7 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
+        final String remoteSpecModificationTime =           "2020-05-10T10:30:00.000Z";
         final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z");
 
         final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
@@ -117,6 +115,16 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublished).should().setJson(remoteSpecificationJson);
         then(localSpecNeverPublished).should().setHtml(newSpecificationHtml);
         then(localSpecNeverPublished).should().saveAndPublish();
+
+        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
+                "Synchronised API Specification with id 248569 at /content/docs/248569"
+            )));
     }
 
     @Test
@@ -161,6 +169,16 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should().setJson(remoteSpecificationJson);
         then(localSpecPublishedBefore).should().setHtml(newSpecificationHtml);
         then(localSpecPublishedBefore).should().saveAndPublish();
+
+        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
+                "Synchronised API Specification with id 248569 at /content/docs/248569"
+            )));
     }
 
     @Test
@@ -202,6 +220,16 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).setJson(any());
         then(localSpecPublishedBefore).should(never()).setHtml(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
+
+        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0",
+                "Modification timestamps indicate a change but the content has not changed; skipping spec with id 248569 at /content/docs/248569."
+            )));
     }
 
     @Test
@@ -211,9 +239,9 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String oldLocalCheckTime          =                     "2020-05-10T10:30:00.000Z";
-        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
-        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z");
+        final String oldLocalCheckTime          =           "2020-05-10T10:30:01.000Z";
+        final String remoteSpecModificationTime =           "2020-05-10T10:30:00.000Z";
+        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:02.001Z");
         // @formatter:on
 
         final ApiSpecificationDocument localSpecPublishedBefore = localSpec()
@@ -236,6 +264,15 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).setJson(any());
         then(localSpecPublishedBefore).should(never()).setHtml(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
+
+        then(appender).should(times(1)).doAppend(loggerArgCaptor.capture());
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0"
+            )));
     }
 
     @Test
@@ -267,6 +304,15 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).setJson(any());
         then(localSpecPublishedBefore).should(never()).setHtml(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
+
+        then(appender).should(times(1)).doAppend(loggerArgCaptor.capture());
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0"
+            )));
     }
 
     @Test
@@ -347,6 +393,17 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublishedB).should().setJson(remoteSpecificationJsonB);
         then(localSpecNeverPublishedB).should().setHtml(newSpecificationHtmlB);
         then(localSpecNeverPublishedB).should().saveAndPublish();
+
+        then(appender).should(times(3)).doAppend(loggerArgCaptor.capture());
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 2, synced: 2, failed to sync: 0",
+                "Synchronised API Specification with id 248569 at /content/docs/248569",
+                "Synchronised API Specification with id 965842 at /content/docs/965842"
+            )));
     }
 
     @Test
@@ -356,7 +413,7 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
+        final String remoteSpecModificationTime = "2020-05-20T10:30:00.000Z";
         // @formatter:on
 
         final ApiSpecificationDocument localSpecNeverPublished = localSpec()
@@ -570,6 +627,18 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublishedB).should().setJson(remoteSpecificationJsonB);
         then(localSpecNeverPublishedB).should().setHtml(newSpecificationHtmlB);
         then(localSpecNeverPublishedB).should().saveAndPublish();
+
+        then(appender).should(times(3)).doAppend(loggerArgCaptor.capture());
+
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(asList(
+                "API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 2, synced: 1, failed to sync: 1",
+                "Synchronised API Specification with id 965842 at /content/docs/965842",
+                "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
+            )));
     }
 
     @Test
@@ -656,6 +725,16 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublished).shouldHaveNoMoreInteractions();
     }
 
+    private void setUpLogger() {
+        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(ApiSpecificationPublicationService.class))
+            .addAppender(appender);
+    }
+
+    private void resetLogger() {
+        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(ApiSpecificationPublicationService.class))
+            .detachAppender(appender);
+    }
+
     private OpenApiSpecification remoteSpec(final String specificationId, final String lastModifiedInstant) {
 
         final OpenApiSpecification remoteApiSpecification = new OpenApiSpecification(specificationId, lastModifiedInstant);
@@ -663,8 +742,8 @@ public class ApiSpecificationPublicationServiceTest {
 
         return remoteApiSpecification;
     }
-
     static class ApiSpecDocMocker {
+
 
         private final ApiSpecificationDocument spec = Mockito.mock(ApiSpecificationDocument.class);
 

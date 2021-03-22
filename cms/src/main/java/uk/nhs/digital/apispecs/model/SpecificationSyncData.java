@@ -13,6 +13,7 @@ public class SpecificationSyncData {
     private Exception error;
     private boolean published;
     private boolean eligible;
+    private boolean skipped;
 
     private SpecificationSyncData(
         final ApiSpecificationDocument localSpec,
@@ -117,5 +118,13 @@ public class SpecificationSyncData {
 
     boolean published() {
         return published;
+    }
+
+    public void markSkipped() {
+        skipped = true;
+    }
+
+    public boolean skipped() {
+        return skipped;
     }
 }

@@ -17,7 +17,9 @@ public class SyncResults {
             specificationSyncData.localSpec().path(),
             specificationSyncData.error(),
             specificationSyncData.eligible(),
-            specificationSyncData.published());
+            specificationSyncData.published(),
+            specificationSyncData.skipped()
+        );
     }
 
     public void accumulate(final SpecificationSyncData specificationSyncData) {
@@ -46,25 +48,31 @@ public class SyncResults {
         return ImmutableSet.copyOf(results);
     }
 
+    public Set<SyncResult> skipped() {
+        return results.stream().filter(SyncResult::skipped).collect(toSet());
+    }
+
     public static class SyncResult {
         private final String id;
         private final String localSpecPath;
         private final Exception error;
         private final boolean eligible;
         private final boolean published;
+        private final boolean skipped;
 
         private SyncResult(
             final String id,
             final String localSpecPath,
             final Exception error,
             final boolean eligible,
-            final boolean published
-        ) {
+            final boolean published,
+            final boolean skipped) {
             this.id = id;
             this.localSpecPath = localSpecPath;
             this.error = error;
             this.eligible = eligible;
             this.published = published;
+            this.skipped = skipped;
         }
 
         public String specId() {
@@ -89,6 +97,10 @@ public class SyncResults {
 
         private boolean eligible() {
             return eligible;
+        }
+
+        private boolean skipped() {
+            return skipped;
         }
     }
 }

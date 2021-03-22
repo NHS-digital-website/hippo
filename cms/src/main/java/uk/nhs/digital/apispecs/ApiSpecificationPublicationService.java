@@ -100,24 +100,13 @@ public class ApiSpecificationPublicationService {
 
                 } else {
                     if (specSyncData.specReportedAsUpdated()) {
-                        reportSkippingUnchangedSpec(specSyncData);
+                        specSyncData.markSkipped();
                     }
                 }
             } catch (final Exception e) {
                 specSyncData.setError("Failed to render OAS JSON into HTML.", e);
             }
         };
-    }
-
-    private void reportSkippingUnchangedSpec(final SpecificationSyncData specSyncData) {
-        log.debug(
-            "Remote spec's modification timestamp ({}) indicates a change after the last check ({}) but the content has not changed;"
-                + " skipping spec with id {} at {}.",
-            specSyncData.remoteSpec().getModified(),
-            specSyncData.localSpec().lastChangeCheckInstant().map(Instant::toString).orElse("n/a"),
-            specSyncData.localSpec().getId(),
-            specSyncData.localSpec().path()
-        );
     }
 
     private Consumer<SpecificationSyncData> setLastChangeCheckInstant() {
@@ -167,6 +156,12 @@ public class ApiSpecificationPublicationService {
         syncResults.failed().forEach(syncResult ->
             log.error("Failed to synchronise API Specification with id " + syncResult.specId()
                 + " at " + syncResult.localSpecPath(), syncResult.error())
+        );
+
+        syncResults.skipped().forEach(syncResult ->
+            log.debug("Modification timestamps indicate a change but the content has not changed; skipping spec with id {} at {}.",
+                syncResult.specId(), syncResult.localSpecPath()
+            )
         );
     }
 
