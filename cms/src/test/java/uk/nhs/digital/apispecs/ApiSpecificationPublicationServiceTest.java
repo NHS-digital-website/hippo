@@ -134,9 +134,9 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
-        final String oldLocalCheckTime          =                     "2020-05-10T10:30:00.000Z";
-        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z");
+        final String remoteSpecModificationTime =           "2020-05-10T10:30:00.001Z";
+        final String oldLocalCheckTime          =           "2020-05-10T10:30:00.000Z";
+        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.002Z");
 
         final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
         final String oldLocalSpecificationJson  = "{ \"old-spec\": \"json\" }";
@@ -189,7 +189,7 @@ public class ApiSpecificationPublicationServiceTest {
         final String specificationId            = "248569";
 
         final String oldLocalCheckTime          =                     "2020-05-10T10:30:00.000Z";
-        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
+        final String remoteSpecModificationTime =                     "2020-05-10T10:30:00.001Z";
         final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z");
 
         // Specs differing only in version; this field is ignored when comparing specs' JSON for changes:
@@ -239,9 +239,9 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String oldLocalCheckTime          =           "2020-05-10T10:30:01.000Z";
+        final String oldLocalCheckTime          =           "2020-05-10T10:30:00.000Z";
         final String remoteSpecModificationTime =           "2020-05-10T10:30:00.000Z";
-        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:02.001Z");
+        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.002Z");
         // @formatter:on
 
         final ApiSpecificationDocument localSpecPublishedBefore = localSpec()
@@ -284,7 +284,7 @@ public class ApiSpecificationPublicationServiceTest {
         final String remoteSpecificationId      = "248569";
 
         final String localCheckTime             = "2020-05-10T10:30:00.000Z";
-        final String remoteSpecModificationTime = "2020-05-20T10:30:00.000Z";
+        final String remoteSpecModificationTime = "2020-05-10T10:30:00.001Z";
         // @formatter:on
 
         final ApiSpecificationDocument localSpecPublishedBefore = localSpec()
@@ -336,14 +336,14 @@ public class ApiSpecificationPublicationServiceTest {
         final String specificationIdA            = "248569";
         final String specificationIdB            = "965842";
 
-        final String remoteSpecModificationTimeA =               "2020-05-20T10:30:00.000Z";
-        final Instant newCheckTimeA              = Instant.parse("2020-05-10T10:30:02.001Z");
+        final String remoteSpecModificationTimeA =               "2020-05-10T10:30:00.005Z";
+        final Instant newCheckTimeA              = Instant.parse("2020-05-10T10:30:00.007Z");
 
         final String remoteSpecificationJsonA    = "{ \"new-spec\": \"json-a\" }";
         final String newSpecificationHtmlA       = "<html><body> new spec html A</body></html>";
 
-        final String remoteSpecModificationTimeB =               "2020-05-20T10:30:01.000Z";
-        final Instant newCheckTimeB              = Instant.parse("2020-05-10T10:30:03.001Z");
+        final String remoteSpecModificationTimeB =               "2020-05-10T10:30:00.006Z";
+        final Instant newCheckTimeB              = Instant.parse("2020-05-10T10:30:00.008Z");
 
         final String remoteSpecificationJsonB    = "{ \"new-spec\": \"json-b\" }";
         final String newSpecificationHtmlB       = "<html><body> new spec html B</body></html>";
@@ -413,7 +413,7 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String remoteSpecModificationTime = "2020-05-20T10:30:00.000Z";
+        final String remoteSpecModificationTime = "2020-05-10T10:30:00.000Z";
         // @formatter:on
 
         final ApiSpecificationDocument localSpecNeverPublished = localSpec()
@@ -462,7 +462,7 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
+        final String remoteSpecModificationTime = "2020-05-10T10:30:00.000Z";
 
         final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
         // @formatter:on
@@ -515,8 +515,7 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String remoteSpecModificationTime =                     "2020-05-20T10:30:00.000Z";
-        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z");
+        final String remoteSpecModificationTime = "2020-05-10T10:30:00.000Z";
 
         final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
         final String newSpecificationHtml       = "<html><body> new spec html </body></html>";
@@ -572,12 +571,11 @@ public class ApiSpecificationPublicationServiceTest {
         final String specificationIdA            = "248569";
         final String specificationIdB            = "965842";
 
-        final String remoteSpecModificationTimeA =               "2020-05-20T10:30:00.000Z";
-
+        final String remoteSpecModificationTimeA =               "2020-05-10T10:30:00.000Z";
         final String remoteSpecificationJsonA    = "{ \"new-spec\": \"json-a\" }";
 
-        final String remoteSpecModificationTimeB =               "2020-05-20T10:30:01.000Z";
-        final Instant newCheckTimeB              = Instant.parse("2020-05-10T10:30:03.001Z");
+        final String remoteSpecModificationTimeB =               "2020-05-10T10:30:00.000Z";
+        final Instant newCheckTimeB              = Instant.parse("2020-05-10T10:30:00.001Z");
 
         final String remoteSpecificationJsonB    = "{ \"new-spec\": \"json-b\" }";
         final String newSpecificationHtmlB       = "<html><body> new spec html B</body></html>";
