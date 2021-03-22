@@ -18,7 +18,7 @@
             <#if item.internal?has_content>
                 <a href="<@hst.link hippobean=item.internal/>" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}">
             <#else>
-                <a href="${item.external}" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}" target="_blank" rel="external">
+                <a href="${item.external}" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}">
             </#if>
         </#if>
         <div class="nhsd-a-box nhsd-a-box--bg-${colVarWithYellowCheck}">
