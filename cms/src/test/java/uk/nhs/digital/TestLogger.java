@@ -95,7 +95,7 @@ public class TestLogger {
             return this;
         }
 
-        public Optional<String> error() {
+        public Optional<String> exceptionMessage() {
             return Optional.ofNullable(exceptionMessage);
         }
 
@@ -115,7 +115,7 @@ public class TestLogger {
                     .append(expected.level)
                     .append(": ")
                     .append(expected.logMessage)
-                    .append(expected.error()
+                    .append(expected.exceptionMessage()
                         .map(errorMessage -> "\n  EXCEPTION: " + errorMessage).orElse(""))
                     .append(expected.causeMessage()
                         .map(causeMessage -> "\n    CAUSE: " + causeMessage).orElse(""))
