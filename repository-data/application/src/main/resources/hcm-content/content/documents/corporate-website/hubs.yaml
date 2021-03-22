@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/hubs:
+  .meta:order-before: events
   hippo:name: Hubs
   hippostd:foldertype:
   - new-digital-website-folder

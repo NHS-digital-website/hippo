@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/general:
+  .meta:order-before: events
   hippo:name: General
   hippostd:foldertype:
   - new-digital-website-folder

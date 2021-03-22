@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/forms:
+  .meta:order-before: events
   hippo:name: Forms
   hippostd:foldertype:
   - new-enterprise-forms-document

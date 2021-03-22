@@ -1038,11 +1038,13 @@
       common:searchRank: 5
       common:searchable: true
       hippo:availability: []
+      hippostd:retainable: false
       hippostd:state: draft
+      hippostd:transferable: false
       hippostdpubwf:createdBy: system
       hippostdpubwf:creationDate: 2018-04-11T16:09:28.737Z
-      hippostdpubwf:lastModificationDate: 2018-08-13T12:04:28.654Z
-      hippostdpubwf:lastModifiedBy: david.gold1
+      hippostdpubwf:lastModificationDate: 2021-03-22T16:30:02.680Z
+      hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6b58d597-cce0-4685-b46c-4e7396284a2e
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -1051,6 +1053,8 @@
       jcr:uuid: 78982a41-f93b-4e4e-8ebb-a679dc05c5da
       website:gossid: 329
       website:listtitle: ''
+      website:seosummarytext: NHS Digital hosts meetings, conferences, seminars and
+        workshops, and our staff attend health events nationwide.
       website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
         workshops, and our staff attend health events nationwide.
       website:title: Events
@@ -1276,6 +1280,8 @@
       jcr:uuid: 847188ac-f72a-45d3-a615-c8a9f1ef415a
       website:gossid: 329
       website:listtitle: ''
+      website:seosummarytext: NHS Digital hosts meetings, conferences, seminars and
+        workshops, and our staff attend health events nationwide.
       website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
         workshops, and our staff attend health events nationwide.
       website:title: Events
@@ -1493,7 +1499,7 @@
       hippostdpubwf:creationDate: 2018-04-11T16:09:28.737Z
       hippostdpubwf:lastModificationDate: 2018-09-13T06:30:19.038Z
       hippostdpubwf:lastModifiedBy: david.gold1
-      hippostdpubwf:publicationDate: 2018-09-13T06:30:58.013Z
+      hippostdpubwf:publicationDate: 2021-03-22T16:30:50.036Z
       hippotranslation:id: 6b58d597-cce0-4685-b46c-4e7396284a2e
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -1502,12 +1508,16 @@
       jcr:uuid: 95df7833-d33d-4b4f-91c8-af9d24c2cede
       website:gossid: 329
       website:listtitle: ''
+      website:seosummarytext: NHS Digital hosts meetings, conferences, seminars and
+        workshops, and our staff attend health events nationwide.
       website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
         workshops, and our staff attend health events nationwide.
       website:title: Events
     hippo:name: Events
+    hippo:versionHistory: 8f963d40-6cd0-4804-9ff1-16729fc194b3
     jcr:mixinTypes:
     - hippo:named
+    - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
     jcr:uuid: 8e62c402-f9e5-4081-a4c7-911cdc826295

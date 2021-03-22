@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/national-indicator-library:
+  .meta:order-before: events
   hippo:name: National Indicator Library
   hippostd:foldertype:
   - new-national-indicator-library-document

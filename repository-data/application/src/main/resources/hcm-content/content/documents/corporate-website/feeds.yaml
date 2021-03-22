@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/feeds:
+  .meta:order-before: events
   /all-blog-feed:
     /all-blog-feed[1]:
       /feed:image:

@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/news:
+  .meta:order-before: events
   /content:
     /content[1]:
       /website:bannerimagelink:

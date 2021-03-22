@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/faceted-news:
+  .meta:order-before: events
   hippo:docbase: 0f3406bf-9d17-425a-944a-e10ebcb111e4
   hippofacnav:facetnodenames:
   - year${sortby:'facetvalue', sortorder:'descending'}

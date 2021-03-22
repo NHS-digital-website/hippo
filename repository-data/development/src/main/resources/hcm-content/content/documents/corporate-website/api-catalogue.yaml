@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/developer:
+  .meta:order-before: events
   /api-catalogue:
     /content:
       /content[1]:

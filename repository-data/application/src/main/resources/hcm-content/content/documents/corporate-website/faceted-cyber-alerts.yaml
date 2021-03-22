@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/faceted-cyber-alerts:
+  .meta:order-before: events
   hippo:docbase: a88fe893-1e7e-474c-9fc7-28d383dd03cf
   hippofacnav:facetnodenames:
   - year${sortby:'facetvalue', sortorder:'descending'}
