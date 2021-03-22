@@ -177,8 +177,8 @@ public class ApiSpecificationPublicationServiceTest {
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String oldLocalCheckTime          =                     "2020-05-10T10:30:00.000Z";
-        final String remoteSpecModificationTime =                     "2020-05-10T10:30:00.001Z";
+        final String oldLocalCheckTime          =           "2020-05-10T10:30:00.000Z";
+        final String remoteSpecModificationTime =           "2020-05-10T10:30:00.001Z";
         final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z");
 
         // Specs differing only in version; this field is ignored when comparing specs' JSON for changes:
@@ -708,35 +708,38 @@ public class ApiSpecificationPublicationServiceTest {
             return Optional.ofNullable(causeMessage);
         }
 
+        @SuppressWarnings("StringBufferReplaceableByString")
         public static void assertLogs(final Appender<ILoggingEvent> appender,
                                       final ArgumentCaptor<ILoggingEvent> loggerArgCaptor,
                                       final LogAssertionBuilder... expectedLogEntries
         ) {
             then(appender).should(times(expectedLogEntries.length)).doAppend(loggerArgCaptor.capture());
 
-            final String expectedEntries = Arrays.stream(expectedLogEntries)
+            final String expectedLog = Arrays.stream(expectedLogEntries)
                 .map(expected -> new StringBuilder()
                     .append(expected.level.name())
                     .append(": ")
                     .append(expected.logMessage)
-                    .append(expected.error().map(errorMessage -> "\n  EXCEPTION: " + errorMessage).orElse(""))
-                    .append(expected.causeMessage().map(causeMessage -> "\n    CAUSE: " + causeMessage).orElse("")).toString())
+                    .append(expected.error()
+                        .map(errorMessage -> "\n  EXCEPTION: " + errorMessage).orElse(""))
+                    .append(expected.causeMessage()
+                        .map(causeMessage -> "\n    CAUSE: " + causeMessage).orElse(""))
+                    .toString())
                 .collect(joining("\n"));
 
-
-            final String actualEntries = loggerArgCaptor.getAllValues().stream()
+            final String actualLog = loggerArgCaptor.getAllValues().stream()
                 .map(actual -> new StringBuilder()
                     .append(actual.getLevel().toString())
                     .append(": ")
                     .append(actual.getFormattedMessage())
-                    .append(Optional.ofNullable(actual.getThrowableProxy()).map(IThrowableProxy::getMessage).map(message -> "\n  EXCEPTION: " + message).orElse(""))
-                    .append(Optional.ofNullable(actual.getThrowableProxy()).map(IThrowableProxy::getCause).map(IThrowableProxy::getMessage).map(message -> "\n    CAUSE: " + message).orElse("")).toString())
+                    .append(Optional.ofNullable(actual.getThrowableProxy())
+                        .map(IThrowableProxy::getMessage).map(message -> "\n  EXCEPTION: " + message).orElse(""))
+                    .append(Optional.ofNullable(actual.getThrowableProxy()).map(IThrowableProxy::getCause)
+                        .map(IThrowableProxy::getMessage).map(message -> "\n    CAUSE: " + message).orElse(""))
+                    .toString())
                 .collect(joining("\n"));
 
-            assertThat(
-                actualEntries,
-                is(expectedEntries)
-            );
+            assertThat("Key events are logged.", actualLog, is(expectedLog));
         }
 
         public enum LogLevels {
