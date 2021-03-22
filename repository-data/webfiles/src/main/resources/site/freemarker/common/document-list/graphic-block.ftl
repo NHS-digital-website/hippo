@@ -67,9 +67,8 @@
                                             <a href="<@hst.link hippobean=link.link/>" class="nhsd-a-link nhsd-t-body-s">
                                         <#else>
                                             <#assign linkLabel = link.title />
-                                            <a href="${link.link}" class="nhsd-a-link nhsd-t-body-s" target="_blank" rel="external">
+                                            <a href="${link.link}" class="nhsd-a-link nhsd-t-body-s">
                                         </#if>
-
                                         <span class="nhsd-a-link__label nhsd-t-body-s">${linkLabel}</span>
 
                                         <#if link.linkType == "external">

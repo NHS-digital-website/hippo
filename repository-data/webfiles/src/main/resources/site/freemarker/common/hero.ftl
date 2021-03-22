@@ -73,12 +73,7 @@
                                 </#if>
 
                                 <#if linkLabel?has_content>
-                                    <#if document.external?has_content>
-                                        <a class="nhsd-a-button ${marginSize}" href="${link}" target="_blank" rel="external">
-                                    <#else>
-                                        <a class="nhsd-a-button ${marginSize}" href="${link}">
-                                    </#if>
-
+                                    <a class="nhsd-a-button ${marginSize}" href="${link}">
                                     <span class="nhsd-a-button__label">${linkLabel}</span>
 
                                     <#if document.external?has_content>
