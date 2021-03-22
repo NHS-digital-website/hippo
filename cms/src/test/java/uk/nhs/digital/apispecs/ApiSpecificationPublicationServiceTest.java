@@ -9,7 +9,7 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.never;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.TestLogger.LogAssertionBuilder.*;
+import static uk.nhs.digital.TestLogger.LogAssertor.*;
 import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.ApiSpecDocMockBuilder.localSpec;
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
 

@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.TestLogger.LogAssertionBuilder.assertLogs;
+import static uk.nhs.digital.TestLogger.LogAssertor.assertLogs;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;
@@ -36,8 +36,7 @@ public class TestLogger {
 
         initMocks(this);
 
-        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(loggingClassUnderTest))
-            .addAppender(appender);
+        registerMockAppenderFor(loggingClassUnderTest);
     }
 
     public static TestLogger initialiseFor(final Class<?> loggingClassUnderTest) {
@@ -49,48 +48,57 @@ public class TestLogger {
             .detachAppender(appender);
     }
 
-    public void shouldReceive(final LogAssertionBuilder... expectedLogEntries) {
+    public void shouldReceive(final LogAssertor... expectedLogEntries) {
         assertLogs(appender, loggerArgCaptor, expectedLogEntries);
     }
 
-    public static class LogAssertionBuilder {
+    private void registerMockAppenderFor(final Class<?> loggingClassUnderTest) {
+        deregisterMockAppenderFor(loggingClassUnderTest);
+    }
+
+    private void deregisterMockAppenderFor(final Class<?> loggingClassUnderTest) {
+        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(loggingClassUnderTest))
+            .addAppender(appender);
+    }
+
+    public static class LogAssertor {
         private final Level level;
 
         private final String logMessage;
         private String exceptionMessage;
         private String causeMessage;
 
-        private LogAssertionBuilder(final Level level, final String logMessage) {
+        private LogAssertor(final Level level, final String logMessage) {
             this.level = level;
             this.logMessage = logMessage;
         }
 
-        public static LogAssertionBuilder info(final String message) {
-            return new LogAssertionBuilder(INFO, message);
+        public static LogAssertor info(final String message) {
+            return new LogAssertor(INFO, message);
         }
 
-        public static LogAssertionBuilder error(final String message) {
-            return new LogAssertionBuilder(ERROR, message);
+        public static LogAssertor error(final String message) {
+            return new LogAssertor(ERROR, message);
         }
 
-        public static LogAssertionBuilder warn(final String message) {
-            return new LogAssertionBuilder(WARN, message);
+        public static LogAssertor warn(final String message) {
+            return new LogAssertor(WARN, message);
         }
 
-        public static LogAssertionBuilder debug(final String message) {
-            return new LogAssertionBuilder(DEBUG, message);
+        public static LogAssertor debug(final String message) {
+            return new LogAssertor(DEBUG, message);
         }
 
-        public static LogAssertionBuilder trace(final String message) {
-            return new LogAssertionBuilder(TRACE, message);
+        public static LogAssertor trace(final String message) {
+            return new LogAssertor(TRACE, message);
         }
 
-        public LogAssertionBuilder withException(final String message) {
+        public LogAssertor withException(final String message) {
             exceptionMessage = message;
             return this;
         }
 
-        public LogAssertionBuilder withCause(final String message) {
+        public LogAssertor withCause(final String message) {
             causeMessage = message;
             return this;
         }
@@ -104,9 +112,9 @@ public class TestLogger {
         }
 
         @SuppressWarnings("StringBufferReplaceableByString")
-        public static void assertLogs(final Appender<ILoggingEvent> appender,
+        static void assertLogs(final Appender<ILoggingEvent> appender,
                                final ArgumentCaptor<ILoggingEvent> loggerArgCaptor,
-                               final LogAssertionBuilder... expectedLogEntries
+                               final LogAssertor... expectedLogEntries
         ) {
             then(appender).should(times(expectedLogEntries.length)).doAppend(loggerArgCaptor.capture());
 
