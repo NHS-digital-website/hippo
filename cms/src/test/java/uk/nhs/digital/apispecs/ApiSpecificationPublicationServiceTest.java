@@ -11,15 +11,14 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.ApiSpecDocMocker.localSpec;
+import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.ApiSpecDocMockBuilder.localSpec;
+import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.LogAssertionBuilder.LogLevels.*;
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.core.Appender;
-import org.hamcrest.Matchers;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,7 +35,6 @@ import uk.nhs.digital.apispecs.model.OpenApiSpecification;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ApiSpecificationPublicationServiceTest {
@@ -116,15 +114,10 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublished).should().setHtml(newSpecificationHtml);
         then(localSpecNeverPublished).should().saveAndPublish();
 
-        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
-                "Synchronised API Specification with id 248569 at /content/docs/248569"
-            )));
+        assertLogStatements(
+            "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
+            "Synchronised API Specification with id 248569 at /content/docs/248569"
+        );
     }
 
     @Test
@@ -170,15 +163,10 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should().setHtml(newSpecificationHtml);
         then(localSpecPublishedBefore).should().saveAndPublish();
 
-        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
-                "Synchronised API Specification with id 248569 at /content/docs/248569"
-            )));
+        assertLogStatements(
+            "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
+            "Synchronised API Specification with id 248569 at /content/docs/248569"
+        );
     }
 
     @Test
@@ -221,15 +209,10 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).setHtml(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
-        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0",
-                "Modification timestamps indicate a change but the content has not changed; skipping spec with id 248569 at /content/docs/248569."
-            )));
+        assertLogStatements(
+            "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0",
+            "Modification timestamps indicate a change but the content has not changed; skipping spec with id 248569 at /content/docs/248569."
+        );
     }
 
     @Test
@@ -265,14 +248,9 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).setHtml(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
-        then(appender).should(times(1)).doAppend(loggerArgCaptor.capture());
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0"
-            )));
+        assertLogStatements(
+            "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0"
+        );
     }
 
     @Test
@@ -305,27 +283,9 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).setHtml(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
-        then(appender).should(times(1)).doAppend(loggerArgCaptor.capture());
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0"
-            )));
-    }
-
-    @Test
-    public void sync_doesNotMakeAnyRequestToRemoteSystem_ifThereAreNoLocalApiSpecDocuments() {
-
-        // given
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(emptyList());
-
-        // when
-        apiSpecificationPublicationService.syncEligibleSpecifications();
-
-        // then
-        then(apigeeService).shouldHaveZeroInteractions();
+        assertLogStatements(
+            "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0"
+        );
     }
 
     @Test
@@ -394,16 +354,11 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublishedB).should().setHtml(newSpecificationHtmlB);
         then(localSpecNeverPublishedB).should().saveAndPublish();
 
-        then(appender).should(times(3)).doAppend(loggerArgCaptor.capture());
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 2, synced: 2, failed to sync: 0",
-                "Synchronised API Specification with id 248569 at /content/docs/248569",
-                "Synchronised API Specification with id 965842 at /content/docs/965842"
-            )));
+        assertLogStatements(
+            "API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 2, synced: 2, failed to sync: 0",
+            "Synchronised API Specification with id 248569 at /content/docs/248569",
+            "Synchronised API Specification with id 965842 at /content/docs/965842"
+        );
     }
 
     @Test
@@ -431,16 +386,11 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
+        final List<ILoggingEvent> allLoggingEvents = assertLogStatements(
+            "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 1",
+            "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
+        );
         then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
-
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 1",
-                "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
-            )));
 
         final IThrowableProxy actualError = allLoggingEvents.get(allLoggingEvents.size() - 1).getThrowableProxy();
         final IThrowableProxy actualCause = actualError.getCause();
@@ -484,16 +434,10 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
-
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1",
-                "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
-            )));
+        final List<ILoggingEvent> allLoggingEvents = assertLogStatements(
+            "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1",
+            "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
+        );
 
         final IThrowableProxy actualError = allLoggingEvents.get(allLoggingEvents.size() - 1).getThrowableProxy();
         final IThrowableProxy actualCause = actualError.getCause();
@@ -539,28 +483,116 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(appender).should(times(2)).doAppend(loggerArgCaptor.capture());
-
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1",
-                "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
-            )));
-
-        final IThrowableProxy actualError = allLoggingEvents.get(allLoggingEvents.size() - 1).getThrowableProxy();
-        final IThrowableProxy actualCause = actualError.getCause();
-        assertThat(
-            actualError.getMessage(),
-            is("Failed to record time of last check on specification with id 248569 at /content/docs/248569.")
+        LogAssertionBuilder.assertLogs(appender, loggerArgCaptor,
+            LogAssertionBuilder.info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1"),
+            LogAssertionBuilder.error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
+            .withError("Failed to record time of last check on specification with id 248569 at /content/docs/248569.")
+            .withCause("Failed to save.")
         );
+    }
 
-        assertThat(
-            actualCause.getMessage(),
-            is("Failed to save.")
-        );
+    public static class LogAssertionBuilder {
+        private final LogLevels level;
+
+        private final String message;
+        private String errorMessage;
+        private String causeMessage;
+
+        private LogAssertionBuilder(final LogLevels level, final String message) {
+            this.level = level;
+            this.message = message;
+        }
+
+        public static LogAssertionBuilder info(final String message) {
+            return new LogAssertionBuilder(INFO, message);
+        }
+
+        public static LogAssertionBuilder error(final String message) {
+            return new LogAssertionBuilder(ERROR, message);
+        }
+
+        public static LogAssertionBuilder warn(final String message) {
+            return new LogAssertionBuilder(WARN, message);
+        }
+
+        public LogAssertionBuilder withError(final String errorMessage) {
+            this.errorMessage = errorMessage;
+
+            return this;
+        }
+
+        public LogAssertionBuilder withCause(final String message) {
+            causeMessage = message;
+
+            return this;
+        }
+
+        public Optional<String> error() {
+            return Optional.ofNullable(errorMessage);
+        }
+
+        public Optional<String> cause() {
+            return Optional.ofNullable(causeMessage);
+        }
+
+        public static void assertLogs(final Appender<ILoggingEvent> appender,
+                                      final ArgumentCaptor<ILoggingEvent> loggerArgCaptor,
+                                      final LogAssertionBuilder... expectedLogEntries
+        ) {
+            then(appender).should(times(expectedLogEntries.length)).doAppend(loggerArgCaptor.capture());
+
+            final List<ILoggingEvent> actualLogEntries = loggerArgCaptor.getAllValues();
+
+            for (int i = 0; i < expectedLogEntries.length; i++) {
+                final LogAssertionBuilder expectedLogEntry = expectedLogEntries[i];
+                final ILoggingEvent actualLogEntry = actualLogEntries.get(i);
+
+                assertThat(
+                    "Message is logged.",
+                    actualLogEntry.getFormattedMessage(),
+                    is(expectedLogEntry.message)
+                );
+
+                assertThat(
+                    "Log level.",
+                    actualLogEntry.getLevel().levelStr,
+                    is(expectedLogEntry.level.name())
+                );
+
+                expectedLogEntry.error().ifPresent(expectedErrorMessage -> {
+
+                    final String actualErrorMessage = Optional.ofNullable(actualLogEntry.getThrowableProxy())
+                        .map(IThrowableProxy::getMessage)
+                        .orElse(null);
+
+                    assertThat(
+                        "Error message.",
+                        actualErrorMessage,
+                        is(expectedErrorMessage)
+                    );
+                });
+
+                expectedLogEntry.cause().ifPresent(expectedCauseMessage -> {
+
+                    final String actualCauseMessage = Optional.ofNullable(actualLogEntry.getThrowableProxy())
+                        .map(IThrowableProxy::getCause)
+                        .map(IThrowableProxy::getMessage)
+                        .orElse(null);
+
+                    assertThat(
+                        "Error's cause message.",
+                        actualCauseMessage,
+                        is(expectedCauseMessage)
+                    );
+                });
+            }
+        }
+
+        public enum LogLevels {
+            INFO,
+            ERROR,
+            WARN
+        }
     }
 
     @Test
@@ -626,17 +658,24 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublishedB).should().setHtml(newSpecificationHtmlB);
         then(localSpecNeverPublishedB).should().saveAndPublish();
 
-        then(appender).should(times(3)).doAppend(loggerArgCaptor.capture());
+        assertLogStatements(
+            "API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 2, synced: 1, failed to sync: 1",
+            "Synchronised API Specification with id 965842 at /content/docs/965842",
+            "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
+        );
+    }
 
-        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
-        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
-        assertThat(
-            actualLogMessages,
-            is(asList(
-                "API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 2, synced: 1, failed to sync: 1",
-                "Synchronised API Specification with id 965842 at /content/docs/965842",
-                "Failed to synchronise API Specification with id 248569 at /content/docs/248569"
-            )));
+    @Test
+    public void sync_doesNotMakeAnyRequestToRemoteSystem_ifThereAreNoLocalApiSpecDocuments() {
+
+        // given
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(emptyList());
+
+        // when
+        apiSpecificationPublicationService.syncEligibleSpecifications();
+
+        // then
+        then(apigeeService).shouldHaveZeroInteractions();
     }
 
     @Test
@@ -740,41 +779,56 @@ public class ApiSpecificationPublicationServiceTest {
 
         return remoteApiSpecification;
     }
-    static class ApiSpecDocMocker {
 
+    private List<ILoggingEvent> assertLogStatements(final String... messages) {
+
+        final List<String> expectedMessages = asList(messages);
+
+        then(appender).should(times(expectedMessages.size())).doAppend(loggerArgCaptor.capture());
+
+        final List<ILoggingEvent> allLoggingEvents = loggerArgCaptor.getAllValues();
+        final List<String> actualLogMessages = allLoggingEvents.stream().map(ILoggingEvent::getFormattedMessage).collect(toList());
+        assertThat(
+            actualLogMessages,
+            is(expectedMessages));
+
+        return allLoggingEvents;
+    }
+
+    static class ApiSpecDocMockBuilder {
 
         private final ApiSpecificationDocument spec = Mockito.mock(ApiSpecificationDocument.class);
 
-        public static ApiSpecDocMocker localSpec() {
-            return new ApiSpecDocMocker();
+        public static ApiSpecDocMockBuilder localSpec() {
+            return new ApiSpecDocMockBuilder();
         }
 
-        public ApiSpecDocMocker withId(final String specificationId) {
+        public ApiSpecDocMockBuilder withId(final String specificationId) {
             given(spec.getId()).willReturn(specificationId);
             given(spec.path()).willReturn("/content/docs/" + specificationId);
 
             return this;
         }
 
-        public ApiSpecDocMocker withJson(final String json) {
+        public ApiSpecDocMockBuilder withJson(final String json) {
             given(spec.json()).willReturn(Optional.of(json));
 
             return this;
         }
 
-        public ApiSpecDocMocker withHtml(final String html) {
+        public ApiSpecDocMockBuilder withHtml(final String html) {
             given(spec.html()).willReturn(Optional.of(html));
 
             return this;
         }
 
-        public ApiSpecDocMocker withLastCheckedInstant(final String instant) {
+        public ApiSpecDocMockBuilder withLastCheckedInstant(final String instant) {
             given(spec.lastChangeCheckInstant()).willReturn(Optional.of(instant).map(Instant::parse));
 
             return this;
         }
 
-        public ApiSpecDocMocker withBrokenSave() {
+        public ApiSpecDocMockBuilder withBrokenSave() {
             doThrow(new RuntimeException("Failed to save.")).when(spec).save();
 
             return this;
