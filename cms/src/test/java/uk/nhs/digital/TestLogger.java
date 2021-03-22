@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs;
+package uk.nhs.digital;
 
 import static ch.qos.logback.classic.Level.*;
 import static java.util.stream.Collectors.joining;
@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.apispecs.TestLogger.LogAssertionBuilder.assertLogs;
+import static uk.nhs.digital.TestLogger.LogAssertionBuilder.assertLogs;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;
@@ -17,9 +17,6 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
 import org.slf4j.LoggerFactory;
-
-
-
 
 import java.util.Arrays;
 import java.util.Optional;

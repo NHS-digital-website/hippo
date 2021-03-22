@@ -9,8 +9,8 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.never;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static uk.nhs.digital.TestLogger.LogAssertionBuilder.*;
 import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.ApiSpecDocMockBuilder.localSpec;
-import static uk.nhs.digital.apispecs.TestLogger.LogAssertionBuilder.*;
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
 
 import org.junit.After;
@@ -20,6 +20,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import uk.nhs.digital.TestLogger;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.apispecs.model.OpenApiSpecification;
@@ -349,7 +350,7 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void sync_logsSpecAsFailed_onFailureTo_determineEligibilityForUpdate() {
+    public void sync_doesNotChangeOrPublishSpec_onFailureTo_determineEligibilityForUpdate() {
 
         // given
         // @formatter:off
@@ -358,11 +359,11 @@ public class ApiSpecificationPublicationServiceTest {
         final String remoteSpecModificationTime = "2020-05-10T10:30:00.000Z";
         // @formatter:on
 
-        final ApiSpecificationDocument localSpecNeverPublished = localSpec()
+        final ApiSpecificationDocument localSpec = localSpec()
             .withId(specificationId)
             .mock();
 
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecNeverPublished));
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpec));
 
         final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
@@ -373,6 +374,13 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
+        then(localSpec).should(never()).setLastChangeCheckInstant(any());
+        then(localSpec).should(never()).save();
+
+        then(localSpec).should(never()).setJson(any());
+        then(localSpec).should(never()).setHtml(any());
+        then(localSpec).should(never()).saveAndPublish();
+
         logger.shouldReceive(
             info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 1"),
             error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
@@ -382,7 +390,7 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void sync_logsSpecAsFailed_onFailureTo_renderJsonToHtml() {
+    public void sync_doesNotChangeOrPublishSpec_onFailureTo_renderJsonToHtml() {
 
         // given
         // @formatter:off
@@ -393,11 +401,11 @@ public class ApiSpecificationPublicationServiceTest {
         final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
         // @formatter:on
 
-        final ApiSpecificationDocument localSpecNeverPublished = localSpec()
+        final ApiSpecificationDocument localSpec = localSpec()
             .withId(specificationId)
             .mock();
 
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecNeverPublished));
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpec));
 
         final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
@@ -410,6 +418,13 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
+        then(localSpec).should(never()).setLastChangeCheckInstant(any());
+        then(localSpec).should(never()).save();
+
+        then(localSpec).should(never()).setJson(any());
+        then(localSpec).should(never()).setHtml(any());
+        then(localSpec).should(never()).saveAndPublish();
+
         logger.shouldReceive(
             info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1"),
             error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
@@ -419,24 +434,25 @@ public class ApiSpecificationPublicationServiceTest {
     }
 
     @Test
-    public void sync_logsSpecAsFailed_onFailureTo_saveLastCheckTime() {
+    public void sync_doesNotChangeOrPublishSpec_onFailureTo_saveLastCheckTime() {
 
         // given
         // @formatter:off
         final String specificationId            = "248569";
 
-        final String remoteSpecModificationTime = "2020-05-10T10:30:00.000Z";
+        final String remoteSpecModificationTime =           "2020-05-10T10:30:00.000Z";
+        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z");
 
         final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
         final String newSpecificationHtml       = "<html><body> new spec html </body></html>";
         // @formatter:on
 
-        final ApiSpecificationDocument localSpecNeverPublished = localSpec()
+        final ApiSpecificationDocument localSpec = localSpec()
             .withId(specificationId)
             .withBrokenSave()
             .mock();
 
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecNeverPublished));
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpec));
 
         final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
@@ -449,6 +465,13 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
+        then(localSpec).should().setLastChangeCheckInstant(newCheckTime);
+        then(localSpec).should().save();
+
+        then(localSpec).should(never()).setJson(any());
+        then(localSpec).should(never()).setHtml(any());
+        then(localSpec).should(never()).saveAndPublish();
+
         logger.shouldReceive(
             info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1"),
             error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
