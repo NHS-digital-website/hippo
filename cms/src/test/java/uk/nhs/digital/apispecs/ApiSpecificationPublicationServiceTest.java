@@ -84,7 +84,7 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecNeverPublished));
 
-        final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
+        final OpenApiSpecification remoteSpec = remoteSpecWith(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
 
         given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
@@ -133,7 +133,7 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
 
-        final OpenApiSpecification remoteSpecUpdatedSincePublishedLocally = remoteSpec(specificationId, remoteSpecModificationTime);
+        final OpenApiSpecification remoteSpecUpdatedSincePublishedLocally = remoteSpecWith(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpecUpdatedSincePublishedLocally));
 
         given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
@@ -181,7 +181,7 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
 
-        final OpenApiSpecification remoteSpecWithContentUnchangedSincePublishedLocally = remoteSpec(specificationId, remoteSpecModificationTime);
+        final OpenApiSpecification remoteSpecWithContentUnchangedSincePublishedLocally = remoteSpecWith(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpecWithContentUnchangedSincePublishedLocally));
 
         given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
@@ -222,7 +222,7 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
 
-        final OpenApiSpecification remoteSpecUnchangedSincePublishedLocally = remoteSpec(specificationId, remoteSpecModificationTime);
+        final OpenApiSpecification remoteSpecUnchangedSincePublishedLocally = remoteSpecWith(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpecUnchangedSincePublishedLocally));
 
         // when
@@ -260,7 +260,7 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
 
-        final OpenApiSpecification remoteSpec = remoteSpec(remoteSpecificationId, remoteSpecModificationTime);
+        final OpenApiSpecification remoteSpec = remoteSpecWith(remoteSpecificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
 
         // when
@@ -281,71 +281,124 @@ public class ApiSpecificationPublicationServiceTest {
 
         // given
         // @formatter:off
-        final String specificationIdA            = "248569";
-        final String specificationIdB            = "965842";
 
-        final String remoteSpecModificationTimeA =               "2020-05-10T10:30:00.005Z";
-        final Instant newCheckTimeA              = Instant.parse("2020-05-10T10:30:00.007Z");
+        final String neverPublishedEligible_id            = "neverPublishedEligible";
+        final String neverPublishedEligible_remoteModTime =               "2020-05-10T10:30:00.001Z";
+        final Instant neverPublishedEligible_newCheckTime = Instant.parse("2020-05-10T10:30:00.007Z");
+        final String neverPublishedEligible_newJson       = "{ \"json\": \"neverPublishedEligible\" }";
+        final String neverPublishedEligible_newHtml       = "<html><body>neverPublishedEligible</body></html>";
+        final ApiSpecificationDocument neverPublishedEligible_localSpec = localSpec().withId(neverPublishedEligible_id).mock();
+        final OpenApiSpecification neverPublishedEligible_remoteSpec = remoteSpecWith(neverPublishedEligible_id, neverPublishedEligible_remoteModTime);
+        given(apigeeService.apiSpecificationJsonForSpecId(neverPublishedEligible_id)).willReturn(neverPublishedEligible_newJson);
+        given(apiSpecHtmlProvider.htmlFrom(neverPublishedEligible_newJson)).willReturn(neverPublishedEligible_newHtml);
 
-        final String remoteSpecificationJsonA    = "{ \"new-spec\": \"json-a\" }";
-        final String newSpecificationHtmlA       = "<html><body> new spec html A</body></html>";
+        final String publishedChanged_id                   = "publishedChanged";
+        final String publishedChangedRemote_modTime        =               "2020-05-10T10:30:00.002Z";
+        final String publishedChanged_oldCheckTime         =               "2020-05-10T10:30:00.001Z";
+        final Instant publishedChanged_newCheckTime        = Instant.parse("2020-05-10T10:30:00.003Z");
+        final String publishedChanged_newJson              = "{ \"json\": \"publishedChanged\" }";
+        final String publishedChanged_newHtml              = "<html><body>publishedChanged</body></html>";
+        final ApiSpecificationDocument publishedChanged_localSpec = localSpec()
+            .withId(publishedChanged_id)
+            .withLastCheckedInstant(publishedChanged_oldCheckTime)
+            .mock();
+        final OpenApiSpecification publishedChanged_remoteSpec = remoteSpecWith(publishedChanged_id, publishedChangedRemote_modTime);
+        given(apigeeService.apiSpecificationJsonForSpecId(publishedChanged_id)).willReturn(publishedChanged_newJson);
+        given(apiSpecHtmlProvider.htmlFrom(publishedChanged_newJson)).willReturn(publishedChanged_newHtml);
 
-        final String remoteSpecModificationTimeB =               "2020-05-10T10:30:00.006Z";
-        final Instant newCheckTimeB              = Instant.parse("2020-05-10T10:30:00.008Z");
+        final String eligibleFailing_id            = "eligibleFailing";
+        final String eligibleFailingRemote_modTime = "2020-05-10T10:30:00.003Z";
+        final String eligibleFailingOld_checkTime  = "2020-05-10T10:30:00.002Z";
+        final String eligibleFailing_newJson       = "{ \"json\": \"eligibleFailing new\" }";
+        final String eligibleFailing_oldJson       = "{ \"json\": \"eligibleFailing old\" }";
+        final ApiSpecificationDocument eligibleFailing_localSpec = localSpec()
+            .withId(eligibleFailing_id)
+            .withLastCheckedInstant(eligibleFailingOld_checkTime)
+            .withJson(eligibleFailing_oldJson)
+            .mock();
+        final OpenApiSpecification eligibleFailing_remoteSpec = remoteSpecWith(eligibleFailing_id, eligibleFailingRemote_modTime);
+        given(apigeeService.apiSpecificationJsonForSpecId(eligibleFailing_id)).willReturn(eligibleFailing_newJson);
+        given(apiSpecHtmlProvider.htmlFrom(eligibleFailing_newJson)).willThrow(new RuntimeException("Invalid spec JSON."));
 
-        final String remoteSpecificationJsonB    = "{ \"new-spec\": \"json-b\" }";
-        final String newSpecificationHtmlB       = "<html><body> new spec html B</body></html>";
+        final String publishedNotChanged_id = "publishedNotChanged";
+        final String publishedNotChangedRemote_modTime = "2020-05-10T10:30:00.001Z";
+        final String publishedNotChangedOld_checkTime = "2020-05-10T10:30:00.002Z";
+        final Instant publishedNotChanged_newCheckTime = Instant.parse("2020-05-10T10:30:00.002Z");
+        final ApiSpecificationDocument publishedNotChanged_localSpec = localSpec()
+            .withId(publishedNotChanged_id)
+            .withLastCheckedInstant(publishedNotChangedOld_checkTime)
+            .mock();
+        final OpenApiSpecification publishedNotChanged_remoteSpec = remoteSpecWith(publishedNotChanged_id, publishedNotChangedRemote_modTime);
+
+        final String noCounterpartInApigee_id = "noCounterpartInApigee";
+        final ApiSpecificationDocument noCounterpartInApigee_localSpec = localSpec().withId(noCounterpartInApigee_id).mock();
         // @formatter:on
 
-        nextNowsAre(newCheckTimeA, newCheckTimeB);
-
-        final ApiSpecificationDocument localSpecNeverPublishedA = localSpec()
-            .withId(specificationIdA)
-            .mock();
-
-        final ApiSpecificationDocument localSpecNeverPublishedB = localSpec()
-            .withId(specificationIdB)
-            .mock();
+        // keep the order of 'next nows' matching that of the results returned by the mocked call to apiSpecDocumentRepo.findAllApiSpecifications() below
+        nextNowsAre(
+            neverPublishedEligible_newCheckTime,
+            // nothing for eligibleFailing - because of the programmed failure, we won't be asking for new check time
+            publishedChanged_newCheckTime,
+            publishedNotChanged_newCheckTime
+        );
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(asList(
-            localSpecNeverPublishedA, localSpecNeverPublishedB
+            neverPublishedEligible_localSpec,
+            publishedChanged_localSpec,
+            eligibleFailing_localSpec,
+            noCounterpartInApigee_localSpec,
+            publishedNotChanged_localSpec
         ));
-
-        final OpenApiSpecification remoteSpecA = remoteSpec(specificationIdA, remoteSpecModificationTimeA);
-        final OpenApiSpecification remoteSpecB = remoteSpec(specificationIdB, remoteSpecModificationTimeB);
 
         given(apigeeService.apiSpecificationStatuses()).willReturn(asList(
-            remoteSpecA, remoteSpecB
+            neverPublishedEligible_remoteSpec,
+            publishedChanged_remoteSpec,
+            publishedNotChanged_remoteSpec,
+            eligibleFailing_remoteSpec
         ));
 
-        given(apigeeService.apiSpecificationJsonForSpecId(specificationIdA)).willReturn(remoteSpecificationJsonA);
-        given(apigeeService.apiSpecificationJsonForSpecId(specificationIdB)).willReturn(remoteSpecificationJsonB);
-
-        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJsonA)).willReturn(newSpecificationHtmlA);
-        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJsonB)).willReturn(newSpecificationHtmlB);
 
         // when
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpecNeverPublishedA).should().setLastChangeCheckInstant(newCheckTimeA);
-        then(localSpecNeverPublishedA).should().save();
+        then(neverPublishedEligible_localSpec).should().setLastChangeCheckInstant(neverPublishedEligible_newCheckTime);
+        then(neverPublishedEligible_localSpec).should().save();
+        then(neverPublishedEligible_localSpec).should().setJson(neverPublishedEligible_newJson);
+        then(neverPublishedEligible_localSpec).should().setHtml(neverPublishedEligible_newHtml);
+        then(neverPublishedEligible_localSpec).should().saveAndPublish();
 
-        then(localSpecNeverPublishedA).should().setJson(remoteSpecificationJsonA);
-        then(localSpecNeverPublishedA).should().setHtml(newSpecificationHtmlA);
-        then(localSpecNeverPublishedA).should().saveAndPublish();
+        then(publishedChanged_localSpec).should().setLastChangeCheckInstant(publishedChanged_newCheckTime);
+        then(publishedChanged_localSpec).should().save();
+        then(publishedChanged_localSpec).should().setJson(publishedChanged_newJson);
+        then(publishedChanged_localSpec).should().setHtml(publishedChanged_newHtml);
+        then(publishedChanged_localSpec).should().saveAndPublish();
 
-        then(localSpecNeverPublishedB).should().setLastChangeCheckInstant(newCheckTimeB);
-        then(localSpecNeverPublishedB).should().save();
+        then(eligibleFailing_localSpec).should(never()).setLastChangeCheckInstant(any());
+        then(eligibleFailing_localSpec).should(never()).save();
+        then(eligibleFailing_localSpec).should(never()).setJson(any());
+        then(eligibleFailing_localSpec).should(never()).setHtml(any());
+        then(eligibleFailing_localSpec).should(never()).saveAndPublish();
 
-        then(localSpecNeverPublishedB).should().setJson(remoteSpecificationJsonB);
-        then(localSpecNeverPublishedB).should().setHtml(newSpecificationHtmlB);
-        then(localSpecNeverPublishedB).should().saveAndPublish();
+        then(publishedNotChanged_localSpec).should().setLastChangeCheckInstant(publishedNotChanged_newCheckTime);
+        then(publishedNotChanged_localSpec).should().save();
+        then(publishedNotChanged_localSpec).should(never()).setJson(any());
+        then(publishedNotChanged_localSpec).should(never()).setHtml(any());
+        then(publishedNotChanged_localSpec).should(never()).saveAndPublish();
+
+        then(noCounterpartInApigee_localSpec).should(never()).setLastChangeCheckInstant(any());
+        then(noCounterpartInApigee_localSpec).should(never()).save();
+        then(noCounterpartInApigee_localSpec).should(never()).setJson(any());
+        then(noCounterpartInApigee_localSpec).should(never()).setHtml(any());
+        then(noCounterpartInApigee_localSpec).should(never()).saveAndPublish();
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 2, synced: 2, failed to sync: 0"),
-            info("Synchronised API Specification with id 248569 at /content/docs/248569"),
-            info("Synchronised API Specification with id 965842 at /content/docs/965842")
+            info("API Specifications found: in CMS: 5, in Apigee: 4, updated in Apigee and eligible to publish in CMS: 3, synced: 2, failed to sync: 1"),
+            info("Synchronised API Specification with id neverPublishedEligible at /content/docs/neverPublishedEligible"),
+            info("Synchronised API Specification with id publishedChanged at /content/docs/publishedChanged"),
+            error("Failed to synchronise API Specification with id eligibleFailing at /content/docs/eligibleFailing")
+                .withException("Failed to render OAS JSON into HTML.")
+                .withCause("Invalid spec JSON.")
         );
     }
 
@@ -365,7 +418,7 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpec));
 
-        final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
+        final OpenApiSpecification remoteSpec = remoteSpecWith(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
 
         given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willThrow(new RuntimeException("Failed to retrieve remote spec."));
@@ -407,7 +460,7 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpec));
 
-        final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
+        final OpenApiSpecification remoteSpec = remoteSpecWith(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
 
         given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
@@ -454,7 +507,7 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpec));
 
-        final OpenApiSpecification remoteSpec = remoteSpec(specificationId, remoteSpecModificationTime);
+        final OpenApiSpecification remoteSpec = remoteSpecWith(specificationId, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
 
         given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
@@ -512,8 +565,8 @@ public class ApiSpecificationPublicationServiceTest {
             localSpecNeverPublishedA, localSpecNeverPublishedB
         ));
 
-        final OpenApiSpecification remoteSpecA = remoteSpec(specificationIdA, remoteSpecModificationTimeA);
-        final OpenApiSpecification remoteSpecB = remoteSpec(specificationIdB, remoteSpecModificationTimeB);
+        final OpenApiSpecification remoteSpecA = remoteSpecWith(specificationIdA, remoteSpecModificationTimeA);
+        final OpenApiSpecification remoteSpecB = remoteSpecWith(specificationIdB, remoteSpecModificationTimeB);
 
         given(apigeeService.apiSpecificationStatuses()).willReturn(asList(
             remoteSpecA, remoteSpecB
@@ -649,7 +702,7 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublished).shouldHaveNoMoreInteractions();
     }
 
-    private OpenApiSpecification remoteSpec(final String specificationId, final String lastModifiedInstant) {
+    private OpenApiSpecification remoteSpecWith(final String specificationId, final String lastModifiedInstant) {
 
         final OpenApiSpecification remoteApiSpecification = new OpenApiSpecification(specificationId, lastModifiedInstant);
         remoteApiSpecification.setApigeeService(apigeeService);
