@@ -288,7 +288,9 @@ public class ApiSpecificationPublicationServiceTest {
         final Instant neverPublishedEligible_newCheckTime = Instant.parse("2020-05-10T10:30:00.007Z");
         final String neverPublishedEligible_newJson       = "{ \"json\": \"neverPublishedEligible\" }";
         final String neverPublishedEligible_newHtml       = "<html><body>neverPublishedEligible</body></html>";
-        final ApiSpecificationDocument neverPublishedEligible_localSpec = localSpec().withId(neverPublishedEligible_id).mock();
+        final ApiSpecificationDocument neverPublishedEligible_localSpec = localSpec()
+            .withId(neverPublishedEligible_id)
+            .mock();
         final OpenApiSpecification neverPublishedEligible_remoteSpec = remoteSpecWith(neverPublishedEligible_id, neverPublishedEligible_remoteModTime);
         given(apigeeService.apiSpecificationJsonForSpecId(neverPublishedEligible_id)).willReturn(neverPublishedEligible_newJson);
         given(apiSpecHtmlProvider.htmlFrom(neverPublishedEligible_newJson)).willReturn(neverPublishedEligible_newHtml);
