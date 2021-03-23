@@ -6,7 +6,7 @@
 
     <@hst.setBundle basename="tableau.postcode.labels, tableau.lables, tableau.postcode.configuration"/>
 
-   <#if section?? && section.url??>
+    <#if section?? && section.url??>
 
         <@hst.headContribution>
             <script src="${section.tableauBase}javascripts/api/tableau-2.min.js"></script>
@@ -14,49 +14,48 @@
 
         <#assign divId = "tableau-${index}"/>
 
-       <div class="eforms">
-           <form action="javascript:void(0);">
-               <div class="eforms-field" style="max-width: 300px">
-                   <label for="${divId}-postcode" class="eforms-label"><@fmt.message key="postcode-label"/><span class="eforms-req"></span></label>
-                   <input type="text" id="${divId}-postcode" />
-                   <div id="${divId}-postcode-validation-message" class="eforms-field__error-message visually-hidden"></div>
-                   <span class="eforms-hint"><@fmt.message key="postcode-hint"/></span>
-               </div>
-               <div class="eforms-field" style="max-width: 300px">
-                   <label for="${divId}-distance" class="eforms-label"><@fmt.message key="distance-label"/><span class="eforms-req"></span></label>
-                   <select id="${divId}-distance" style="margin-top: 8px;">
-                       <option value="1">1 mile</option>
-                       <option value="2">2 miles</option>
-                       <option selected value="3">3 miles</option>
-                       <option value="4">4 miles</option>
-                       <option value="5">5 miles</option>
-                       <option value="6">6 miles</option>
-                       <option value="7">7 miles</option>
-                       <option value="8">8 miles</option>
-                       <option value="9">9 miles</option>
-                       <option value="10">10 miles</option>
-                   </select>
-                   <span class="eforms-hint"><@fmt.message key="distance-hint"/></span>
-               </div>
-               <div class="eforms-buttons">
-                   <input class="button" type="submit" value="Go" onclick="lookup()"/>
-               </div>
-           </form>
+        <div class="eforms">
+            <form action="javascript:void(0);">
+                <div class="eforms-field" style="max-width: 300px">
+                    <label for="${divId}-postcode" class="eforms-label"><@fmt.message key="postcode-label"/><span class="eforms-req"></span></label>
+                    <input type="text" id="${divId}-postcode" />
+                    <div id="${divId}-postcode-validation-message" class="eforms-field__error-message visually-hidden"></div>
+                    <span class="eforms-hint"><@fmt.message key="postcode-hint"/></span>
+                </div>
+                <div class="eforms-field" style="max-width: 300px">
+                    <label for="${divId}-distance" class="eforms-label"><@fmt.message key="distance-label"/><span class="eforms-req"></span></label>
+                    <select id="${divId}-distance" style="margin-top: 8px;">
+                        <option value="1">1 mile</option>
+                        <option value="2">2 miles</option>
+                        <option selected value="3">3 miles</option>
+                        <option value="4">4 miles</option>
+                        <option value="5">5 miles</option>
+                        <option value="6">6 miles</option>
+                        <option value="7">7 miles</option>
+                        <option value="8">8 miles</option>
+                        <option value="9">9 miles</option>
+                        <option value="10">10 miles</option>
+                    </select>
+                    <span class="eforms-hint"><@fmt.message key="distance-hint"/></span>
+                </div>
+                <div class="eforms-buttons">
+                    <input class="button" type="submit" value="Go" onclick="lookup()"/>
+                </div>
+            </form>
 
-       </div>
+        </div>
 
-       <div id="${divId}" class="viz-wrapper">
-           <div id="${divId}-viz" class="viz-wrapper-item"></div>
-           <div id="${divId}-downLoadData"></div>
-           <div id="${divId}-loading" class="viz-wrapper-item visually-hidden">
-               <div class="viz-wrapper-loading">
-                   <span id="${divId}-loading-message"></span>
-                   <div class="viz-wrapper-loading-icon">
-                       <img id="${divId}-loading-icon" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading data " />
-                   </div>
-               </div>
-           </div>
-       </div>
+        <div id="${divId}" class="viz-wrapper">
+            <div id="${divId}-viz" class="viz-wrapper-item"></div>
+            <div id="${divId}-loading" class="viz-wrapper-item visually-hidden">
+                <div class="viz-wrapper-loading">
+                    <span id="${divId}-loading-message"></span>
+                    <div class="viz-wrapper-loading-icon">
+                        <img id="${divId}-loading-icon" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading data " />
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script>
             var vizMessages = {
@@ -78,6 +77,9 @@
             var viz${index}LoadingTimerStart;
             var viz${index}LoadingRetryAtempIntervales;
             var viz${index}LoadingTimer;
+
+            var downloadVizLink;
+            var showPostcode;
 
             // Viz instance supporting HTML elements
             var viz${index}Elements = {
@@ -101,13 +103,10 @@
                 },
                 distance: function () {
                     return document.getElementById("${divId}-distance");
-                },
-                vizLink: function (){
-                  return document.getElementById('downLoadData');
                 }
             };
 
-            function loadViz(downloadVizLink) {
+            function loadViz() {
                 function options() {
                     var options = {
                         "onFirstInteractive": function () {
@@ -133,7 +132,7 @@
                         viz${index}.dispose();
                     }
                     viz${index} = new tableau.Viz(viz${index}Elements.vizDiv(), viz${index}Url, options());
-                    viz${index}Elements.vizLink().innerHTML = "<br><a href='"+viz${index}downloadVizLink+"'>Download the coronavirus data for '"+viz${index}Elements.postcode()+"'</a>";
+                    document.getElementsByClassName('viz-wrapper-item').innerHTML = "<br><a href='"+downloadVizLink+"'>Download the coronavirus data for '"+showPostcode+"'</a>";
                 } else {
                     _showLoadingError();
                 }
@@ -147,45 +146,46 @@
                 _clearValidationMessage(viz${index}Elements.validationMessageDiv());
 
                 fetch(postcodeApiUrl(viz${index}Elements.postcode().value))
-                    .then(response => {
-                        if (!response.ok) {
-                            // Rejected if not a 2xx response.
-                            throw response;
-                        }
-                        return response.json()
-                    })
-                    .then(data => {
-                        // Make Viz URL
-                        var msoa = data["result"]["msoa"];
-                        var postcode = data["result"]["postcode"];
-                        var latitude = data["result"]["latitude"];
-                        var longitude = data["result"]["longitude"];
-                        viz${index}Url = encodeURI("${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
+                        .then(response => {
+                            if (!response.ok) {
+                                // Rejected if not a 2xx response.
+                                throw response;
+                            }
+                            return response.json()
+                        })
+                        .then(data => {
+                            // Make Viz URL
+                            var msoa = data["result"]["msoa"];
+                            var postcode = data["result"]["postcode"];
+                            var latitude = data["result"]["latitude"];
+                            var longitude = data["result"]["longitude"];
+                            viz${index}Url = encodeURI("${section.url}".split("?")[0] + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
 
-                        // build the download link and base it on div being empty
-                        var downloadVizLink = encodeURI("${section.url}".split("?")[0]+".csv" + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
+                            // build the download link and base it on div being empty
+                            downloadVizLink = encodeURI("${section.url}".split("?")[0]+".csv" + "?MSOA Code=" + msoa + "&Lat=" + latitude + "&Lon=" + longitude + "&Distance=" + parseInt(viz${index}Elements.distance().value) + "&Postcode=" + postcode + "&:refresh=yes");
+                            showPostcode = postcode;
 
-                        // Start Viz load
-                        _hideLoadingSpinner()
-                        loadViz(downloadVizLink);
-                        _showLoadingSpinner();
+                            // Start Viz load
+                            _hideLoadingSpinner()
+                            loadViz();
+                            _showLoadingSpinner();
 
-                        // Init loading retry
-                        viz${index}Loaded = false;
-                        viz${index}LoadingTimerStart = Date.now();
-                        viz${index}LoadingRetryAtempIntervales = [<#list section.retryIntervals as intervale>${intervale},</#list>];
-                        clearInterval(viz${index}LoadingTimer); <#-- if set -->
-                        viz${index}LoadingTimer = setInterval(_retry, 1000);
+                            // Init loading retry
+                            viz${index}Loaded = false;
+                            viz${index}LoadingTimerStart = Date.now();
+                            viz${index}LoadingRetryAtempIntervales = [<#list section.retryIntervals as intervale>${intervale},</#list>];
+                            clearInterval(viz${index}LoadingTimer); <#-- if set -->
+                            viz${index}LoadingTimer = setInterval(_retry, 1000);
 
-                    }).catch(error => error.json().then(data => {
-                        if(!!viz${index}) {
-                            viz${index}.dispose();
-                        }
-                        if(data.hasOwnProperty('error')){
-                            _showValidationMessage(viz${index}Elements.validationMessageDiv(), data["error"]);
-                        } else {
-                            _showValidationMessage(viz${index}Elements.validationMessageDiv(), vizMessages.LOAD_ERROR);
-                        }
+                        }).catch(error => error.json().then(data => {
+                    if(!!viz${index}) {
+                        viz${index}.dispose();
+                    }
+                    if(data.hasOwnProperty('error')){
+                        _showValidationMessage(viz${index}Elements.validationMessageDiv(), data["error"]);
+                    } else {
+                        _showValidationMessage(viz${index}Elements.validationMessageDiv(), vizMessages.LOAD_ERROR);
+                    }
                 }));
             }
 
