@@ -282,6 +282,7 @@ public class ApiSpecificationPublicationServiceTest {
         // given
         // @formatter:off
 
+        // never published but has counterpart in Apigee - expect to be updated and published
         final String neverPublishedEligible_id            = "neverPublishedEligible";
         final String neverPublishedEligible_remoteModTime =               "2020-05-10T10:30:00.001Z";
         final Instant neverPublishedEligible_newCheckTime = Instant.parse("2020-05-10T10:30:00.007Z");
@@ -292,6 +293,7 @@ public class ApiSpecificationPublicationServiceTest {
         given(apigeeService.apiSpecificationJsonForSpecId(neverPublishedEligible_id)).willReturn(neverPublishedEligible_newJson);
         given(apiSpecHtmlProvider.htmlFrom(neverPublishedEligible_newJson)).willReturn(neverPublishedEligible_newHtml);
 
+        // published before but changed in Apigee - expect to be updated and published
         final String publishedChanged_id                   = "publishedChanged";
         final String publishedChangedRemote_modTime        =               "2020-05-10T10:30:00.002Z";
         final String publishedChanged_oldCheckTime         =               "2020-05-10T10:30:00.001Z";
@@ -306,11 +308,12 @@ public class ApiSpecificationPublicationServiceTest {
         given(apigeeService.apiSpecificationJsonForSpecId(publishedChanged_id)).willReturn(publishedChanged_newJson);
         given(apiSpecHtmlProvider.htmlFrom(publishedChanged_newJson)).willReturn(publishedChanged_newHtml);
 
-        final String eligibleFailing_id            = "eligibleFailing";
-        final String eligibleFailingRemote_modTime = "2020-05-10T10:30:00.003Z";
-        final String eligibleFailingOld_checkTime  = "2020-05-10T10:30:00.002Z";
-        final String eligibleFailing_newJson       = "{ \"json\": \"eligibleFailing new\" }";
-        final String eligibleFailing_oldJson       = "{ \"json\": \"eligibleFailing old\" }";
+        // has a changed counterpart in Apigee but programmed to fail - expect to not be updated nor published
+        final String eligibleFailing_id                    = "eligibleFailing";
+        final String eligibleFailingRemote_modTime         = "2020-05-10T10:30:00.003Z";
+        final String eligibleFailingOld_checkTime          = "2020-05-10T10:30:00.002Z";
+        final String eligibleFailing_newJson               = "{ \"json\": \"eligibleFailing new\" }";
+        final String eligibleFailing_oldJson               = "{ \"json\": \"eligibleFailing old\" }";
         final ApiSpecificationDocument eligibleFailing_localSpec = localSpec()
             .withId(eligibleFailing_id)
             .withLastCheckedInstant(eligibleFailingOld_checkTime)
@@ -320,17 +323,19 @@ public class ApiSpecificationPublicationServiceTest {
         given(apigeeService.apiSpecificationJsonForSpecId(eligibleFailing_id)).willReturn(eligibleFailing_newJson);
         given(apiSpecHtmlProvider.htmlFrom(eligibleFailing_newJson)).willThrow(new RuntimeException("Invalid spec JSON."));
 
-        final String publishedNotChanged_id = "publishedNotChanged";
-        final String publishedNotChangedRemote_modTime = "2020-05-10T10:30:00.001Z";
-        final String publishedNotChangedOld_checkTime = "2020-05-10T10:30:00.002Z";
-        final Instant publishedNotChanged_newCheckTime = Instant.parse("2020-05-10T10:30:00.002Z");
+        // published before but not changed in Apigee - expect to not be updated nor published
+        final String publishedNotChanged_id                = "publishedNotChanged";
+        final String publishedNotChangedRemote_modTime     = "2020-05-10T10:30:00.001Z";
+        final String publishedNotChangedOld_checkTime      = "2020-05-10T10:30:00.002Z";
+        final Instant publishedNotChanged_newCheckTime     = Instant.parse("2020-05-10T10:30:00.002Z");
         final ApiSpecificationDocument publishedNotChanged_localSpec = localSpec()
             .withId(publishedNotChanged_id)
             .withLastCheckedInstant(publishedNotChangedOld_checkTime)
             .mock();
         final OpenApiSpecification publishedNotChanged_remoteSpec = remoteSpecWith(publishedNotChanged_id, publishedNotChangedRemote_modTime);
 
-        final String noCounterpartInApigee_id = "noCounterpartInApigee";
+        // has no counterpart in Apigee - expect to be ignored
+        final String noCounterpartInApigee_id              = "noCounterpartInApigee";
         final ApiSpecificationDocument noCounterpartInApigee_localSpec = localSpec().withId(noCounterpartInApigee_id).mock();
         // @formatter:on
 
