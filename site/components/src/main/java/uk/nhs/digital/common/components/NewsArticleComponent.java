@@ -11,7 +11,7 @@ import org.onehippo.forge.selection.hst.util.SelectionUtil;
 @ParametersInfo(
     type = NewsArticleComponent.class
 )
-public class NewsArticleComponent extends BaseGaContentComponent {
+public class NewsArticleComponent extends ContentRewriterComponent {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {

@@ -35,9 +35,6 @@ definitions:
       /archive:
         hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
         jcr:primaryType: hst:template
-      /az-list:
-        hst:renderpath: webfile:/freemarker/common/az-list.ftl
-        jcr:primaryType: hst:template
       /base-top-menu:
         hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
         jcr:primaryType: hst:template
@@ -188,9 +185,6 @@ definitions:
       /jobrole:
         hst:renderpath: webfile:/freemarker/common/jobrole.ftl
         jcr:primaryType: hst:template
-      /jobsfeedcomponent:
-        hst:renderpath: webfile:/freemarker/common/jobfeed.ftl
-        jcr:primaryType: hst:template
       /legacypublication:
         hst:renderpath: webfile:/freemarker/publicationsystem/legacy-publication.ftl
         jcr:primaryType: hst:template
@@ -235,6 +229,9 @@ definitions:
         jcr:primaryType: hst:template
       /nhsd-main-nav:
         hst:renderpath: webfile:/freemarker/common/nhsd-main-nav.ftl
+        jcr:primaryType: hst:template
+      /nhsd-news:
+        hst:renderpath: webfile:/freemarker/common/nhsd-news.ftl
         jcr:primaryType: hst:template
       /nihub:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl

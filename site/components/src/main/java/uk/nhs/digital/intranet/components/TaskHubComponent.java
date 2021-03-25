@@ -2,7 +2,7 @@ package uk.nhs.digital.intranet.components;
 
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import uk.nhs.digital.common.components.BaseGaContentComponent;
+import uk.nhs.digital.common.components.*;
 import uk.nhs.digital.intranet.beans.Task;
 import uk.nhs.digital.website.beans.ComponentList;
 import uk.nhs.digital.website.beans.Internallink;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class TaskHubComponent extends BaseGaContentComponent {
+public class TaskHubComponent extends ContentRewriterComponent {
 
     @Override
     public void doBeforeRender(HstRequest request,

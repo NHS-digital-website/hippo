@@ -8,7 +8,7 @@ import org.hippoecm.hst.util.*;
 import org.slf4j.*;
 import uk.nhs.digital.website.beans.*;
 
-public class PublishedWorkLinkedBeansComponent extends BaseGaContentComponent {
+public class PublishedWorkLinkedBeansComponent extends ContentRewriterComponent {
 
     private static Logger log =
         LoggerFactory.getLogger(PublishedWorkLinkedBeansComponent.class);

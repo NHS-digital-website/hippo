@@ -3,10 +3,7 @@
 <#include 'macro/gridColumnGenerator.ftl'>
 <#setting date_format="dd MMMM yyyy">
 
-
 <div class="content-box content-box--secondary content-box--visible-sections content-box--latest-publications">
-
-
     <div class="nhsd-o-card-list">
         <div class="nhsd-t-grid">
             <div class="nhsd-t-row">
@@ -93,6 +90,4 @@
             </#if>
         </div>
     </div>
-
 </div>
-
