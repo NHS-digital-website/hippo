@@ -10,13 +10,13 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.common.components.BaseGaContentComponent;
+import uk.nhs.digital.common.components.*;
 import uk.nhs.digital.ps.beans.Publication;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PublicationComponent extends BaseGaContentComponent {
+public class PublicationComponent extends ContentRewriterComponent {
 
     private static final String SUMMARY_ID = "Summary";
     private static final String KEY_FACTS_ID = "Key facts";

@@ -5,7 +5,7 @@ import org.hippoecm.hst.core.component.*;
 import org.onehippo.forge.selection.hst.contentbean.*;
 import org.onehippo.forge.selection.hst.util.*;
 
-public class CategoryListComponent extends BaseGaContentComponent {
+public class CategoryListComponent extends ContentRewriterComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);

@@ -12,7 +12,7 @@ import uk.nhs.digital.website.beans.*;
 import java.util.*;
 import javax.jcr.*;
 
-public class DocumentChildComponent extends BaseGaContentComponent {
+public class DocumentChildComponent extends ContentRewriterComponent {
 
     private static Logger log = LoggerFactory.getLogger(DocumentChildComponent.class);
 
