@@ -3,17 +3,13 @@ package org.hippoecm.frontend.plugins.cms.admin.updater
 import org.apache.commons.lang.StringUtils
 import org.hippoecm.repository.util.JcrUtils
 import org.onehippo.repository.update.BaseNodeUpdateVisitor
-import org.onehippo.repository.util.NodeTypeUtils
 
 import javax.jcr.Node
-import javax.jcr.NodeIterator
 
-class MoveKeyfactsToSection extends BaseNodeUpdateVisitor {
+class MoveLegacyKeyfactsToSection extends BaseNodeUpdateVisitor {
 
     def subNodes = [
-        "publicationsystem:KeyFactsHead",
-        "publicationsystem:keyFactInfographics",
-        "publicationsystem:KeyFactsTail"
+        "publicationsystem:KeyFacts"
     ];
 
     boolean doUpdate(Node node) {
@@ -39,29 +35,11 @@ class MoveKeyfactsToSection extends BaseNodeUpdateVisitor {
         subNodes.eachWithIndex{ String subNode, i ->
 
             if (publicationNode.hasNode(subNode)) {
-
-                if (subNode.equals("publicationsystem:keyFactInfographics")) {
-
-                    NodeIterator it = publicationNode.getNodes(subNode)
-                    while (it.hasNext()) {
-                        Node infoGraphicNode = publicationNode.addNode("website:sections", "website:infographic")
-                        JcrUtils.copyTo(it.nextNode(), infoGraphicNode)
-                    }
-                    NodeIterator it2 = publicationNode.getNodes(subNode)
-                    while (it2.hasNext()) {
-                        it2.nextNode().remove()
-                    }
-
-                }
-
-                if (subNode.equals("publicationsystem:KeyFactsHead") || subNode.equals("publicationsystem:KeyFactsTail")) {
-
-                    if(StringUtils.isNotEmpty(publicationNode.getNode(subNode).getProperty("hippostd:content").toString())) {
+                if(StringUtils.isNotEmpty(publicationNode.getNode(subNode).getProperty("hippostd:content").toString())) {
                         def body = publicationNode.getNode(subNode)
                         Node section = publicationNode.addNode("website:sections","website:section")
                         Node bodyNode = section.addNode("website:html", "hippostd:html")
 
-                        String property = body.getProperty("hippostd:content").toString()
                         bodyNode.setProperty("hippostd:content", JcrUtils.getStringProperty(body, "hippostd:content", ""))
 
                         if(body.getNodes().hasNext()) {
@@ -75,7 +53,6 @@ class MoveKeyfactsToSection extends BaseNodeUpdateVisitor {
 
                 log.info("  UPDATED: test")
             }
-        }
 
         return false
     }
