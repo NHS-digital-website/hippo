@@ -7,7 +7,7 @@ import static uk.nhs.digital.common.components.apicatalogue.Subsection.subsectio
 
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import uk.nhs.digital.common.components.BaseGaContentComponent;
+import uk.nhs.digital.common.components.*;
 import uk.nhs.digital.website.beans.ComponentList;
 import uk.nhs.digital.website.beans.Internallink;
 
@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ApiCatalogueComponent extends BaseGaContentComponent {
+public class ApiCatalogueComponent extends ContentRewriterComponent {
 
     private static final Predicate<Internallink> INTERNAL_LINKS = link -> link.getLinkType().equals("internal");
 
