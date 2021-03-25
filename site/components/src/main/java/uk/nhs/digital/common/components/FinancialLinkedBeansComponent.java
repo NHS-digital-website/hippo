@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.website.beans.Financial;
 import uk.nhs.digital.website.beans.Publishedwork;
 
-public class FinancialLinkedBeansComponent extends BaseGaContentComponent {
+public class FinancialLinkedBeansComponent extends ContentRewriterComponent {
 
     private static Logger log =
         LoggerFactory.getLogger(FinancialLinkedBeansComponent.class);

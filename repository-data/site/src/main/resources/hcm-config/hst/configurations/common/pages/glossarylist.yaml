@@ -3,7 +3,11 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/glossarylist:
       /main:
-        hst:componentclassname: uk.nhs.digital.common.components.ListArticleComponent
+        hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
+        hst:parameternames:
+        - stripTagsContentRewriter
+        hst:parametervalues:
+        - 'true'
         hst:template: nhsd-list-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-homepage
