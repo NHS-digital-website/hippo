@@ -420,6 +420,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/nhsd-homepage
         hst:relativecontentpath: nhsd-homepage
         jcr:primaryType: hst:sitemapitem
+      /nhsd-news:
+        hst:componentconfigurationid: hst:pages/nhsd-news
+        hst:relativecontentpath: news
+        jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:relativecontentpath: ../administration/robots
