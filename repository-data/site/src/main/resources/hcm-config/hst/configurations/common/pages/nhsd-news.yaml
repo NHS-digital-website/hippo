@@ -1,0 +1,12 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/nhsd-news:
+      /main:
+        /main:
+          hst:referencecomponent: nhsd-news/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: nhsd-news
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/nhsd-homepage
+      jcr:primaryType: hst:component

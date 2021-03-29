@@ -230,6 +230,9 @@ definitions:
       /nhsd-main-nav:
         hst:renderpath: webfile:/freemarker/common/nhsd-main-nav.ftl
         jcr:primaryType: hst:template
+      /nhsd-news:
+        hst:renderpath: webfile:/freemarker/common/nhsd-news.ftl
+        jcr:primaryType: hst:template
       /nihub:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl
         jcr:primaryType: hst:template
