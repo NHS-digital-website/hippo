@@ -182,7 +182,7 @@ public class TestContentUrls {
 
         // Publication with National Statistic logo
         addSiteUrl("national statistic publication",
-            "/data-and-information/publications/lorem-ipsum-content/morbi-tempor-euismod-vehicula");
+            "/data-and-information/publications/valid-publication-series/2014");
 
         // Breadcrumbs
         addSiteUrl("series-publication-with-datasets Dataset",
@@ -218,11 +218,11 @@ public class TestContentUrls {
         addSiteUrl("Geographic Coverage - Great Britain",
             "/data-and-information/publications/acceptance-tests/geographiccoverage-test/great-britain");
         addSiteUrl("Geographic Coverage - United Kingdom",
-            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/united-kingdom");
+            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/uk/united-kingdom");
         addSiteUrl("Geographic Coverage - British Isles",
-            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/british-isles");
+            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/the-british-isles/british-isles");
         addSiteUrl("Geographic Coverage - Other combination",
-            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/other-combination");
+            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/other/other-combination");
 
         // General page
         addSiteUrl("General test document",

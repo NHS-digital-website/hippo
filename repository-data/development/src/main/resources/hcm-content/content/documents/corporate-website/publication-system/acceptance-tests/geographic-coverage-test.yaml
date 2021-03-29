@@ -188,6 +188,206 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /other:
+    /other-combination:
+      /other-combination[1]:
+        common:orderedSearchDate: 1517184000000
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+        hippostdpubwf:lastModificationDate: 2018-01-29T12:26:27.027Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6fdf4051-7034-4bba-8983-45356e8bf546
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 2018-01-27T00:00:00Z
+        publicationsystem:CoverageStart: 2018-01-27T00:00:00Z
+        publicationsystem:GeographicCoverage:
+        - England
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: Other combination test Document
+        publicationsystem:Title: Other combination test Document
+        publicationsystem:month: January
+        publicationsystem:year: '2018'
+      /other-combination[2]:
+        common:orderedSearchDate: 1517184000000
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+        hippostdpubwf:lastModificationDate: 2018-01-29T12:26:27.027Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-11-25T16:09:35.739Z
+        hippotranslation:id: 6fdf4051-7034-4bba-8983-45356e8bf546
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 2018-01-27T00:00:00Z
+        publicationsystem:CoverageStart: 2018-01-27T00:00:00Z
+        publicationsystem:GeographicCoverage:
+        - England
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: Other combination test Document
+        publicationsystem:Title: Other combination test Document
+        publicationsystem:month: January
+        publicationsystem:year: '2018'
+      hippo:name: Other combination
+      hippo:versionHistory: f5b12850-9d3c-4a4d-ab6a-c74720e2a071
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /series:
+      /series[1]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T16:09:30.171Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ef5d6387-c8e6-4906-8828-7c287849c1da
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      /series[2]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T16:08:38.879Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ef5d6387-c8e6-4906-8828-7c287849c1da
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      /series[3]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T16:09:30.171Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-11-25T16:09:32.395Z
+        hippotranslation:id: ef5d6387-c8e6-4906-8828-7c287849c1da
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      hippo:name: Series
+      hippo:versionHistory: 6da888d5-2c35-4808-ac45-a85899801574
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Other
+    hippostd:foldertype:
+    - new-statistical-publications-and-clinical-indicators-folder
+    - new-statistical-publications-and-clinical-indicators-document
+    hippotranslation:id: 4f4fffd7-086b-4f5f-a1f3-be2c8729ef94
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /other-combination:
     /other-combination[1]:
       common:orderedSearchDate: 1517184000000
@@ -279,6 +479,541 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /series:
+    /series[1]:
+      /publicationsystem:statistician:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /publicationsystem:team:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:FacetType: series
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+      hippostdpubwf:lastModificationDate: 2021-11-25T15:37:56.410Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6c0bbf90-5f2f-4405-b8e5-6d83d2ea9154
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      - Wales
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Summary
+      publicationsystem:Title: Title
+      publicationsystem:dateNaming: yearOfPublication
+      publicationsystem:frequency: ''
+      publicationsystem:publicationTier: Tier 1
+      publicationsystem:shortTitle: Publication Short Title
+      publicationsystem:subTitle: ''
+    /series[2]:
+      /publicationsystem:statistician:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /publicationsystem:team:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:FacetType: series
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+      hippostdpubwf:lastModificationDate: 2021-11-25T15:38:16.514Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6c0bbf90-5f2f-4405-b8e5-6d83d2ea9154
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      - Wales
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Summary
+      publicationsystem:Title: Title
+      publicationsystem:dateNaming: yearOfPublication
+      publicationsystem:frequency: ''
+      publicationsystem:publicationTier: Tier 1
+      publicationsystem:shortTitle: Publication Short Title
+      publicationsystem:subTitle: ''
+    /series[3]:
+      /publicationsystem:statistician:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /publicationsystem:team:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:FacetType: series
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+      hippostdpubwf:lastModificationDate: 2021-11-25T15:38:16.514Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-11-25T15:38:18.374Z
+      hippotranslation:id: 6c0bbf90-5f2f-4405-b8e5-6d83d2ea9154
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      - Wales
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Summary
+      publicationsystem:Title: Title
+      publicationsystem:dateNaming: yearOfPublication
+      publicationsystem:frequency: ''
+      publicationsystem:publicationTier: Tier 1
+      publicationsystem:shortTitle: Publication Short Title
+      publicationsystem:subTitle: ''
+    hippo:name: Series
+    hippo:versionHistory: 1ba00f9c-766d-43a7-b7ea-a9f274731276
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /the-british-isles:
+    /british-isles:
+      /british-isles[1]:
+        common:orderedSearchDate: 1517184000000
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+        hippostdpubwf:lastModificationDate: 2018-01-29T12:26:27.027Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 8a7fda68-5fc6-4a82-846d-4c7109503c61
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 2018-01-27T00:00:00Z
+        publicationsystem:CoverageStart: 2018-01-27T00:00:00Z
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: British Isles test Document
+        publicationsystem:Title: British Isles test Document
+        publicationsystem:month: January
+        publicationsystem:year: '2018'
+      /british-isles[2]:
+        common:orderedSearchDate: 1517184000000
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+        hippostdpubwf:lastModificationDate: 2018-01-29T12:26:27.027Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-11-25T15:54:19.831Z
+        hippotranslation:id: 8a7fda68-5fc6-4a82-846d-4c7109503c61
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 2018-01-27T00:00:00Z
+        publicationsystem:CoverageStart: 2018-01-27T00:00:00Z
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: British Isles test Document
+        publicationsystem:Title: British Isles test Document
+        publicationsystem:month: January
+        publicationsystem:year: '2018'
+      hippo:name: British Isles
+      hippo:versionHistory: a67b9729-f107-42e2-87b6-3cdf21313df1
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /series:
+      /series[1]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T15:54:10.171Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f52674ca-0e7c-40e3-ac44-6d238e1b87a2
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      /series[2]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T15:54:05.864Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f52674ca-0e7c-40e3-ac44-6d238e1b87a2
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      /series[3]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T15:54:10.171Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-11-25T15:54:22.930Z
+        hippotranslation:id: f52674ca-0e7c-40e3-ac44-6d238e1b87a2
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        - Republic of Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      hippo:name: Series
+      hippo:versionHistory: b6182376-370c-471d-bcb7-544044a3aca3
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: The British Isles
+    hippostd:foldertype:
+    - new-statistical-publications-and-clinical-indicators-folder
+    - new-statistical-publications-and-clinical-indicators-document
+    hippotranslation:id: f4027061-f962-4253-ba87-6fdf8223dbd0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  /uk:
+    /series-copy:
+      /series-copy[1]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T15:45:53.654Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: c2e11dd8-5fba-458e-b936-25941b5dcec4
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      /series-copy[2]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T15:45:53.654Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-11-25T15:45:55.377Z
+        hippotranslation:id: c2e11dd8-5fba-458e-b936-25941b5dcec4
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      /series-copy[3]:
+        /publicationsystem:statistician:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /publicationsystem:team:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:FacetType: series
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-11-25T15:37:56.410Z
+        hippostdpubwf:lastModificationDate: 2021-11-25T15:45:50.351Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: c2e11dd8-5fba-458e-b936-25941b5dcec4
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        publicationsystem:ShowLatest: false
+        publicationsystem:Summary: Summary
+        publicationsystem:Title: Title
+        publicationsystem:dateNaming: yearOfPublication
+        publicationsystem:frequency: ''
+        publicationsystem:publicationTier: Tier 1
+        publicationsystem:shortTitle: Publication Short Title
+        publicationsystem:subTitle: ''
+      hippo:name: Series
+      hippo:versionHistory: 2c533d86-679a-46a7-891a-5ac3a04bc9c0
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /united-kingdom:
+      /united-kingdom[1]:
+        common:orderedSearchDate: 1517184000000
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+        hippostdpubwf:lastModificationDate: 2018-01-29T12:26:27.027Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 54c6a6bf-d7a6-4486-85b1-43a3fb70c863
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 2018-01-27T00:00:00Z
+        publicationsystem:CoverageStart: 2018-01-27T00:00:00Z
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: United Kingdom test Document
+        publicationsystem:Title: United Kingdom test Document
+        publicationsystem:month: January
+        publicationsystem:year: '2018'
+      /united-kingdom[2]:
+        common:orderedSearchDate: 1517184000000
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+        hippostdpubwf:lastModificationDate: 2018-01-29T12:26:27.027Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-11-25T15:45:36.027Z
+        hippotranslation:id: 54c6a6bf-d7a6-4486-85b1-43a3fb70c863
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 2018-01-27T00:00:00Z
+        publicationsystem:CoverageStart: 2018-01-27T00:00:00Z
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
+        - Wales
+        - Northern Ireland
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: United Kingdom test Document
+        publicationsystem:Title: United Kingdom test Document
+        publicationsystem:month: January
+        publicationsystem:year: '2018'
+      hippo:name: United Kingdom Test Document
+      hippo:versionHistory: 0f971558-4d44-442e-9368-52fc5d0693ea
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: UK
+    hippostd:foldertype:
+    - new-statistical-publications-and-clinical-indicators-folder
+    - new-statistical-publications-and-clinical-indicators-document
+    hippotranslation:id: 69bc79c6-0568-4d44-a03e-3cc619dda642
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /united-kingdom:
     /united-kingdom[1]:
       common:orderedSearchDate: 1517184000000
