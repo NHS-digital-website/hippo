@@ -8,9 +8,9 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.common.components.BaseGaContentComponent;
 import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
@@ -18,7 +18,7 @@ import uk.nhs.digital.ps.beans.Series;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PublicationComponent extends BaseGaContentComponent {
+public class PublicationComponent extends EssentialsContentComponent {
 
     private static final String SUMMARY_ID = "Summary";
     private static final String KEY_FACTS_ID = "Key facts";
@@ -59,7 +59,7 @@ public class PublicationComponent extends BaseGaContentComponent {
             index.add(KEY_FACTS_ID);
         }
 
-        if (parentIsSeriesAndAdminSourcesNotBlank(publication) || parentIsArchiveAndAdminSourcesNotBlank(publication) || isNotBlank(publication.getAdministrativeSources())) {
+        if (parentIsSeriesAndAdminSourcesNotBlank(publication) || parentIsArchiveAndAdminSourcesNotBlank(publication)) {
             index.add(ADMIN_SOURCES_ID);
         }
 
