@@ -344,6 +344,23 @@
             <artifactId>resetpassword-bootstrap-content</artifactId>
             <version>${forge.resetpassword.version}</version>
         </dependency>
+        <dependency>
+            <artifactId>hippo-addon-reporting-dashboard-frontend</artifactId>
+            <groupId>com.onehippo.cms7</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>hippo-addon-reporting-dashboard-repository</artifactId>
+            <groupId>com.onehippo.cms7</groupId>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-cms-google-analytics-frontend</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.onehippo.cms7.hst.client-modules</groupId>
+            <artifactId>hst-google-analytics-repository</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>cms</finalName>
