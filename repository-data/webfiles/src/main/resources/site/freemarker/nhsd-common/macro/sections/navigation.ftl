@@ -8,25 +8,34 @@
 
     <#local headingClass = (section.headingLevel?has_content && section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines') />
 
-<div id="${slugify(section.heading)}"
-     class="navigation-section navigation-section--${tileType} navigation-section--${imageType} ${headingClass}">
+    <div id="${slugify(section.heading)}">
 
-    <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
-        <#local mainHeadingTag = "h2" />
-        <${mainHeadingTag}>${section.title}</${mainHeadingTag}>
-    <#else>
-        <#local subHeadingTag = "h3" />
-        <${subHeadingTag}>${section.title}</${subHeadingTag}>
-    </#if>
+        <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
+            <p class="nhsd-t-heading-l">${section.title}</p>
+        <#else>
+            <p class="nhsd-t-heading-s">${section.title}</p>
+        </#if>
 
-    <div class="navigation-section__introduction">
-        <@hst.html hippohtml=section.sectionIntroduction contentRewriter=gaContentRewriter />
+        <#if section.sectionIntroduction?has_content>
+            <@hst.html hippohtml=section.sectionIntroduction contentRewriter=brContentRewriter />
+        </#if>
+
+        <div class="nhsd-o-nav-block-list">
+            <div class="nhsd-t-grid">
+                <div class="nhsd-t-row nhsd-o-nav-block-list__items nhsd-t-row--centred">
+                    <#list section.navigationTiles as tile>
+                        <div class="nhsd-t-col-xs-12 
+                            <#if section.navigationTiles?size gt 1>
+                                nhsd-t-col-s-6
+                            </#if>
+                            <#if section.navigationTiles?size gt 2>
+                                nhsd-t-col-l-4
+                            </#if>">
+                            <@navigationTile tile tileType imageType />
+                        </div>
+                    </#list>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="navigation-section__tiles">
-        <#list section.navigationTiles as tile>
-            <@navigationTile tile tileType imageType />
-        </#list>
-    </div>
-</div>
 </#macro>
