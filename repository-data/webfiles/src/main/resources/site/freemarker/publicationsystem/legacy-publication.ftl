@@ -40,7 +40,7 @@
 <#function shouldRenderNav>
     <#assign result = false />
 
-    <#list [hasAdministrativeSources, hasAttachments, hasKeyFacts, hasResourceLinks, hasDataSets, hasRelatedLinks, hasResources] as section>
+    <#list [hasAdministrativeSources, hasAttachments, hasKeyFacts, hasResourceLinks, hasDataSets, hasRelatedLinks, hasResources, hasSectionContent] as section>
         <#if section>
             <#assign sectionCounter += 1 />
         </#if>
@@ -237,7 +237,7 @@
                 <#if hasRelatedLinks>
                     <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
                 </#if>
-                <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
+                <@stickyNavSections getStickySectionNavLinks({"document": legacyPublication, "sections": links})></@stickyNavSections>
             </div>
             <!-- end sticky-nav -->
         </div>
