@@ -1,5 +1,122 @@
 ---
 /content/documents/corporate-website/publication-system/acceptance-tests/publication-rich:
+  /series:
+    /series[1]:
+      /publicationsystem:statistician:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /publicationsystem:team:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:FacetType: series
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-25T15:33:10.218Z
+      hippostdpubwf:lastModificationDate: 2021-11-25T15:33:10.218Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: e2e98aa3-b024-4838-8f91-0d41060bee46
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - Experimental statistics
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Summary
+      publicationsystem:Title: Title
+      publicationsystem:dateNaming: yearOfPublication
+      publicationsystem:frequency: ''
+      publicationsystem:publicationTier: Tier 1
+      publicationsystem:shortTitle: Publication Short Title
+      publicationsystem:subTitle: ''
+    /series[2]:
+      /publicationsystem:statistician:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /publicationsystem:team:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:FacetType: series
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-25T15:33:10.218Z
+      hippostdpubwf:lastModificationDate: 2021-11-25T15:33:59.726Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: e2e98aa3-b024-4838-8f91-0d41060bee46
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - Experimental statistics
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Summary
+      publicationsystem:Title: Title
+      publicationsystem:dateNaming: yearOfPublication
+      publicationsystem:frequency: ''
+      publicationsystem:publicationTier: Tier 1
+      publicationsystem:shortTitle: Publication Short Title
+      publicationsystem:subTitle: ''
+    /series[3]:
+      /publicationsystem:statistician:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /publicationsystem:team:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:FacetType: series
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-25T15:33:10.218Z
+      hippostdpubwf:lastModificationDate: 2021-11-25T15:33:59.726Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-11-25T15:34:01.802Z
+      hippotranslation:id: e2e98aa3-b024-4838-8f91-0d41060bee46
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - Experimental statistics
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Summary
+      publicationsystem:Title: Title
+      publicationsystem:dateNaming: yearOfPublication
+      publicationsystem:frequency: ''
+      publicationsystem:publicationTier: Tier 1
+      publicationsystem:shortTitle: Publication Short Title
+      publicationsystem:subTitle: ''
+    hippo:name: Series
+    hippo:versionHistory: f8122d26-abf2-4771-aaaa-006bb9ee438b
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Publication With Rich Content
   hippostd:foldertype:
   - new-statistical-publications-and-clinical-indicators-document
