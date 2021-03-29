@@ -10,7 +10,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.common.components.*;
+import uk.nhs.digital.common.components.ContentRewriterComponent;
 import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
@@ -64,7 +64,7 @@ public class PublicationComponent extends ContentRewriterComponent {
             index.add(KEY_FACTS_ID);
         }
 
-        if (parentIsSeriesAndAdminSourcesNotBlank(publication) || parentIsArchiveAndAdminSourcesNotBlank(publication) || isNotBlank(publication.getAdministrativeSources())) {
+        if (parentIsSeriesAndAdminSourcesNotBlank(publication) || parentIsArchiveAndAdminSourcesNotBlank(publication)) {
             index.add(ADMIN_SOURCES_ID);
         }
 
