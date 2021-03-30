@@ -329,7 +329,8 @@ public class PublicationTest {
             "getTitle",
             "getNominalPublicationDate",
             "isPubliclyAccessible",
-            "getSelfLinkBean"
+            "getSelfLinkBean",
+            "getTaxonomyClassificationField"
         );
 
         return allPublicGetters().stream()
