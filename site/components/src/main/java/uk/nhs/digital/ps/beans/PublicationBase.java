@@ -25,6 +25,7 @@ import uk.nhs.digital.website.beans.News;
 import uk.nhs.digital.website.beans.SupplementaryInformation;
 import uk.nhs.digital.website.beans.Update;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -72,13 +73,36 @@ public abstract class PublicationBase extends BaseDocument {
             List<HippoBean> parentBeans = new ArrayList<>();
 
             //   The parent object of the publication could be either
-            //   Series or Archive and this will find which of those
-            //   it is and return the parents bean
+            //   Series or Archive
             parentBeans.addAll(folder.getChildBeans(Series.class));
             parentBeans.addAll(folder.getChildBeans(Archive.class));
-            Iterator<HippoBean> iterator = parentBeans.iterator();
-            if (iterator.hasNext()) {
-                parentBean = iterator.next();
+
+            parentBeans.sort(new Comparator<HippoBean>() {
+                @Override
+                public int compare(HippoBean o1, HippoBean o2) {
+                    if (null != o1.getBean("publicationsystem:replaces", SeriesReplaces.class) && null != o2.getBean("publicationsystem:replaces", SeriesReplaces.class)) {
+                        SeriesReplaces o1Replaces = o1.getBean("publicationsystem:replaces", SeriesReplaces.class);
+                        SeriesReplaces o2Replaces = o2.getBean("publicationsystem:replaces", SeriesReplaces.class);
+                        return o1Replaces.getChangeDate().compareTo(o2Replaces.getChangeDate());
+                    } else {
+                        return 0;
+                    }
+                }
+            });
+
+            if (!parentBeans.isEmpty()) {
+                parentBean = parentBeans.get(0);
+                for (HippoBean seriesBean : parentBeans) {
+                    if (null != seriesBean.getBean("publicationsystem:replaces", SeriesReplaces.class)) {
+                        SeriesReplaces seriesReplaces = seriesBean.getBean("publicationsystem:replaces", SeriesReplaces.class);
+                        if (seriesReplaces.getChangeDate().getTime().after(getNominalPublicationDateCalendar())) {
+                            parentBean = seriesReplaces.getReplacementSeries();
+                            break;
+                        } else {
+                            parentBean = seriesBean;
+                        }
+                    }
+                }
                 break;
             } else {
                 folder = folder.getParentBean();
@@ -141,7 +165,7 @@ public abstract class PublicationBase extends BaseDocument {
     public RestrictableDate getNominalPublicationDate() {
         if (nominalPublicationDate == null) {
             nominalPublicationDate = Optional.ofNullable(getSingleProperty(PropertyKeys.NOMINAL_DATE))
-                .map(object -> (Calendar)object)
+                .map(object -> (Calendar) object)
                 .map(this::nominalPublicationDateCalendarToRestrictedDate)
                 .orElse(null);
         }
@@ -153,7 +177,7 @@ public abstract class PublicationBase extends BaseDocument {
         Calendar cal = Calendar.getInstance();
         if (nominalPublicationDate == null) {
             nominalPublicationDate = Optional.ofNullable(getSingleProperty(PropertyKeys.NOMINAL_DATE))
-                .map(object -> (Calendar)object)
+                .map(object -> (Calendar) object)
                 .map(this::nominalPublicationDateCalendarToRestrictedDate)
                 .orElse(null);
         }
@@ -189,7 +213,67 @@ public abstract class PublicationBase extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)
     public String getTitle() {
-        return getPropertyIfPermittedSingle(PropertyKeys.TITLE);
+        String title = getPropertyIfPermittedSingle(PropertyKeys.TITLE);
+        if (!title.isEmpty()) {
+            return getPropertyIfPermittedSingle(PropertyKeys.TITLE);
+        } else {
+            return getTitleOverride();
+        }
+    }
+
+    public String getTitleOverride() {
+        String parentSeriesShortTitle = getParentDocument().getSingleProperty("publicationsystem:shortTitle");
+        String dateNaming = getParentDocument().getSingleProperty("publicationsystem:dateNaming");
+        String pubDateYear = getNominalPublicationDate().getYear().toString();
+
+        String dateForPublicationTitle;
+
+        try {
+            switch (dateNaming) {
+                case "yearOfPublication":
+                    dateForPublicationTitle = pubDateYear;
+                    break;
+                case "yearOfCoverageEnd":
+                    dateForPublicationTitle = String.valueOf(getCoverageEnd().get(Calendar.YEAR));
+                    break;
+                case "financialYearsOfCoverage":
+                    dateForPublicationTitle = "financial year " + getCoverageStart().get(Calendar.YEAR) + "/" + getCoverageEnd().get(Calendar.YEAR);
+                    break;
+                case "monthOfPublication":
+                    dateForPublicationTitle = new SimpleDateFormat("MMMM").format(getNominalPublicationDateCalendar()) + " " + pubDateYear;
+                    break;
+                case "monthOfCoverageEnd":
+                    dateForPublicationTitle = new SimpleDateFormat("MMMM").format(getCoverageEnd().getTime()) + " " + (getCoverageEnd().get(Calendar.YEAR));
+                    break;
+                case "financialQuarterEndingOfCoverageEnd":
+                    dateForPublicationTitle = "financial quarter ending "
+                        + new SimpleDateFormat("MMMM").format(getCoverageEnd().getTime())
+                        + " "
+                        + (getCoverageEnd().get(Calendar.YEAR));
+                    break;
+                case "coverageRangeYear":
+                    dateForPublicationTitle = (getCoverageStart().get(Calendar.YEAR)) + "-" + (getCoverageEnd().get(Calendar.YEAR));
+                    break;
+                case "coverageRangeMonth":
+                    dateForPublicationTitle = new SimpleDateFormat("MMMM").format(getCoverageStart().getTime()) + " " + (getCoverageStart().get(Calendar.YEAR))
+                        + "-"
+                        + new SimpleDateFormat("MMMM").format(getCoverageEnd().getTime()) + " " + (getCoverageEnd().get(Calendar.YEAR));
+                    break;
+                case "weekEndingCoverageEnd":
+                    dateForPublicationTitle = "week ending " + new SimpleDateFormat("d MMMM yyyy").format(getCoverageEnd().getTime());
+                    break;
+                case "dayCoverageEnd":
+                    dateForPublicationTitle = new SimpleDateFormat("d MMMM yyyy").format(getCoverageEnd().getTime());
+                    break;
+                default:
+                    return parentSeriesShortTitle;
+            }
+            return parentSeriesShortTitle + " " + dateForPublicationTitle;
+        } catch (NullPointerException e) {
+            String errorMessage = "Relevant dates are unavailable for date naming convention: " + dateNaming;
+            log.error(errorMessage);
+            return parentSeriesShortTitle;
+        }
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.SEO_SUMMARY)

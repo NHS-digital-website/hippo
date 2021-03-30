@@ -134,9 +134,6 @@
                                         </div>
 
                                         <div class="callout-box__content-description">
-                                            <div class="rich-text-content">
-                                                <@truncate text=series.latestPublication.summary.firstParagraph size="150" />
-                                            </div>
                                             <p class="callout-box__content-description-date"><@fmt.message key="labels.latest-publication-date-label"/> ${publishDate}</p>
                                         </div>
                                     </div>
@@ -247,13 +244,10 @@
                                                         <h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url" title="${pubData.title}">${pubData.title}</a></h3>
                                                     </div>
 
-                                                    <div class="callout-box__content-description">
-                                                        <div class="rich-text-content">
-                                                            <@truncate text=object.summary.firstParagraph size="150" />
-                                                        </div>
-                                                        <div class="clearfix">
-                                                            <p class="callout-box__content-description-date">${pubData.date}</p>
-                                                        </div>
+                                                <div class="callout-box__content-description">
+                                                    <div class="clearfix">
+                                                        <p class="callout-box__content-description-date">${pubData.date}</p>
+                                                    </div>
 
                                                         <#-- Make sure no supp info gets rendered twice -->
                                                         <#assign renderSuppinfo = false />

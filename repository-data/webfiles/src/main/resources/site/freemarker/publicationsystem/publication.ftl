@@ -40,7 +40,6 @@
     </div>
 </#macro>
 
-<@fmt.message key="headers.summary" var="summaryHeader" />
 <@fmt.message key="headers.related-links" var="relatedLinksHeader" />
 <@fmt.message key="headers.key-facts" var="keyFactsHeader" />
 <@fmt.message key="headers.administrative-sources" var="administrativeResourcesHeader" />
@@ -89,13 +88,6 @@
             </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
-
-                <div id="summary"
-                     class="article-section article-section--summary no-border">
-                    <h2>${summaryHeader}</h2>
-                    <div
-                        itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></div>
-                </div>
 
                 <div data-uipath="ps.publication.body"></div>
 

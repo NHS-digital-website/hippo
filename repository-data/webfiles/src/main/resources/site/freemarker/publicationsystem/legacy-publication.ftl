@@ -23,7 +23,6 @@
 <#assign granularity = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.granularity?has_content?then(legacyPublication.parentDocument.granularity, legacyPublication.granularity), legacyPublication.granularity) />
 <#assign administrativeSources = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.administrativeSources?has_content?then(legacyPublication.parentDocument.administrativeSources, legacyPublication.administrativeSources), legacyPublication.administrativeSources) />
 
-<#assign hasSummary = legacyPublication.summary.content?has_content>
 <#assign hasAdministrativeSources = administrativeSources?has_content>
 <#assign hasAttachments = legacyPublication.getAttachments()?size gt 0>
 <#assign hasKeyFacts = legacyPublication.keyFacts.content?has_content>
@@ -44,7 +43,7 @@
             <#assign sectionCounter += 1 />
         </#if>
     </#list>
-    <#return (hasSummary && sectionCounter gte 1 || sectionCounter gt 1)?then(true, false) />
+    <#return (sectionCounter gte 1 || sectionCounter gt 1)?then(true, false) />
 </#function>
 
 <#assign renderNav = shouldRenderNav() />
@@ -218,9 +217,6 @@
             <!-- start sticky-nav -->
             <div id="sticky-nav">
                 <#assign links = [] />
-                <#if hasSummary>
-                    <#assign links = [{ "url": "#" + slugify(summaryHeader), "title": summaryHeader }] />
-                </#if>
                 <#if hasKeyFacts>
                     <#assign links += [{ "url": "#" + slugify(keyFactsHeader), "title": keyFactsHeader }] />
                 </#if>
@@ -242,22 +238,6 @@
         </div>
         </#if>
         <div class="column column--two-thirds page-block page-block--main">
-            <#if hasKeyFacts>
-                <#assign summarySectionClassName = "article-section article-section--summary no-border">
-            <#else>
-                <#assign summarySectionClassName = "article-section article-section--summary">
-            </#if>
-
-            <#if hasSummary>
-            <div class="${summarySectionClassName}" id="${slugify(summaryHeader)}">
-                <h2>${summaryHeader}</h2>
-                <div class="rich-text-content">
-                    <div itemprop="description"><@hst.html hippohtml=legacyPublication.summary contentRewriter=gaContentRewriter/></div>
-                </div>
-            </div>
-            </#if>
-            <#-- [FTL-END] mandatory 'Summary' section -->
-
             <#-- [FTL-BEGIN] optional list of 'Key facts' section -->
             <#if hasKeyFacts>
             <div class="article-section article-section--highlighted" id="${slugify(keyFactsHeader)}">

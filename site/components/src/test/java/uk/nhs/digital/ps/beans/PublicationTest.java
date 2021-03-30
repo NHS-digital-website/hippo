@@ -3,13 +3,17 @@ package uk.nhs.digital.ps.beans;
 import static java.util.Arrays.asList;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
+import static org.easymock.EasyMock.mock;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.powermock.api.mockito.PowerMockito.doReturn;
+import static org.powermock.api.mockito.PowerMockito.spy;
 import static uk.nhs.digital.ps.beans.RestrictableDateTest.assertRestrictableDate;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -20,10 +24,12 @@ import org.hippoecm.hst.content.beans.manager.ObjectConverter;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.mock.core.request.MockHstRequestContext;
 import org.hippoecm.hst.provider.jcr.JCRValueProvider;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,6 +68,12 @@ public class PublicationTest {
     private static final String KEY_FACT_INFOGRAPHICS = "publicationsystem:keyFactInfographics";
     private static final String INTERACTIVE_TOOL_KEY = "publicationsystem:interactivetool";
     private static final String CHANGE_NOTICE_KEY = "publicationsystem:changenotice";
+    private static final String TITLE = "publicationsystem:Title";
+    private static final String DATE_NAMING_CONVENTION = "publicationsystem:dateNaming";
+    private static final String SERIES_SHORT_TITLE = "publicationsystem:shortTitle";
+    private static final String COVERAGE_START = "publicationsystem:CoverageStart";
+    private static final String COVERAGE_END = "publicationsystem:CoverageEnd";
+
 
     @Mock private JCRValueProvider valueProvider;
     @Mock private Node node;
@@ -74,10 +86,12 @@ public class PublicationTest {
     @Mock private HstQueryBuilder queryBuilder;
     @Mock private HstQuery query;
     @Mock private HstQueryResult queryResult;
+    @Mock private HippoBean parentBean;
 
     private final Map<String, Object> beanProperties = new HashMap<>();
     private Publication publication;
     private Calendar cutOffDate;
+
     private static final int WEEKS_TO_CUTOFF = 8;
 
     @Before
@@ -176,6 +190,61 @@ public class PublicationTest {
     }
 
     @Test
+    public void returnsPublicationTitle_whenPublicationTitleIsPopulated() {
+        setBeanProperty(PUBLICLY_ACCESSIBLE_PROPERTY_KEY, true);
+        setBeanProperty(TITLE, "Publication title");
+
+        Assert.assertEquals("Publication title", publication.getTitle());
+    }
+
+    @Test
+    public void returnsTitleOverride_whenPublicationTitleNotPopulated() {
+        setBeanProperty(PUBLICLY_ACCESSIBLE_PROPERTY_KEY, true);
+        setBeanProperty(TITLE, "");
+
+        setBeanProperty(NOMINAL_DATE_PROPERTY_KEY, new GregorianCalendar(2021, Calendar.MARCH, 22));
+        setBeanProperty(COVERAGE_START, new GregorianCalendar(2018, Calendar.JANUARY, 1));
+        setBeanProperty(COVERAGE_END, new GregorianCalendar(2019, Calendar.JANUARY, 1));
+
+        Publication publicationSpy = spy(publication);
+        doReturn(parentBean).when(publicationSpy).getParentDocument();
+        doReturn("Smoking statistics").when(parentBean).getSingleProperty(SERIES_SHORT_TITLE);
+
+        doReturn("yearOfPublication").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics 2021", publicationSpy.getTitle());
+
+        doReturn("yearOfCoverageEnd").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics 2019", publicationSpy.getTitle());
+
+        doReturn("financialYearsOfCoverage").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics financial year 2018/2019", publicationSpy.getTitle());
+
+        doReturn("monthOfPublication").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics March 2021", publicationSpy.getTitle());
+
+        doReturn("monthOfCoverageEnd").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics January 2019", publicationSpy.getTitle());
+
+        doReturn("financialQuarterEndingOfCoverageEnd").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics financial quarter ending January 2019", publicationSpy.getTitle());
+
+        doReturn("coverageRangeYear").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics 2018-2019", publicationSpy.getTitle());
+
+        doReturn("coverageRangeMonth").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics January 2018-January 2019", publicationSpy.getTitle());
+
+        doReturn("weekEndingCoverageEnd").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics week ending 1 January 2019", publicationSpy.getTitle());
+
+        doReturn("dayCoverageEnd").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics 1 January 2019", publicationSpy.getTitle());
+
+        doReturn("noDate").when(parentBean).getSingleProperty(DATE_NAMING_CONVENTION);
+        Assert.assertEquals("Smoking statistics", publicationSpy.getTitle());
+    }
+
+    @Test
     @UseDataProvider("gettersForbiddenInUpcomingPublication")
     public void restrictsGetters_whenPublicationNotPubliclyAvailable(
         final Method forbiddenGetter) throws Exception {
@@ -260,8 +329,7 @@ public class PublicationTest {
             "getTitle",
             "getNominalPublicationDate",
             "isPubliclyAccessible",
-            "getSelfLinkBean",
-            "getTaxonomyClassificationField"
+            "getSelfLinkBean"
         );
 
         return allPublicGetters().stream()

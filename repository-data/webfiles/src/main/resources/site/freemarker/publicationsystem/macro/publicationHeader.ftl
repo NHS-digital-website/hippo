@@ -16,7 +16,7 @@
                     <@nationalStatsStamp informationTypes=informationTypes/>
 
                     <#if publication.parentDocument??>
-                        <span class="article-header__label"><@fmt.message key="labels.publication"/>, Part of <a itemprop="url" href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>" title="${publication.parentDocument.title}"><span itemprop="name">${publication.parentDocument.title}</span></a></span>
+                        <span class="article-header__label"><@fmt.message key="labels.publication"/>, Part of <a itemprop="url" href="<@hst.link hippobean=publication.parentDocument/>" title="${publication.parentDocument.title}"><span itemprop="name">${publication.parentDocument.title}</span></a></span>
                     <#else>
                         <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
                     </#if>

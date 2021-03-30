@@ -44,18 +44,6 @@ definitions:
             wicket.css:
             - nominal-date
             wicket.id: ${cluster.id}.right.item
-          /Title:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              maxlength: '250'
-            caption: Title
-            field: title
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - document-title
-            wicket.id: ${cluster.id}.left.item
           /publicly_accessible:
             /cluster.options:
               falseLabel: UPCOMING (Show in upcoming publications list only)
@@ -169,6 +157,18 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+          /Title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '250'
+            caption: Title
+            field: title
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - document-title
+            wicket.id: ${cluster.id}.left.item
           /taxonomyClassificationField:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -322,8 +322,6 @@ definitions:
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           /year:
             hipposysedit:mandatory: false

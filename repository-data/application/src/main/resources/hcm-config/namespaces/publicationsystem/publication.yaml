@@ -44,18 +44,6 @@ definitions:
             wicket.css:
             - nominal-date
             wicket.id: ${cluster.id}.right.item
-          /Title:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              maxlength: '250'
-            caption: Title
-            field: title
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - document-title
-            wicket.id: ${cluster.id}.left.item
           /publicly_accessible:
             /cluster.options:
               falseLabel: UPCOMING (Show in upcoming publications list only)
@@ -242,6 +230,18 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /Title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '250'
+            caption: Title
+            field: title
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - document-title
+            wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -422,14 +422,12 @@ definitions:
             hipposysedit:type: TaxonomyClassification
             jcr:primaryType: hipposysedit:field
           /title:
-            hipposysedit:mandatory: true
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           /year:
             hipposysedit:mandatory: false

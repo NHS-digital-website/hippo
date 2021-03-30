@@ -44,7 +44,22 @@ public class SeriesComponent extends EssentialsContentComponent {
 
             seriesIndexDocument = seriesIndexDocuments.get(0);
         } else if (contentBean instanceof Series) {
-            seriesIndexDocument = (Series) contentBean;
+            HippoBean folder = contentBean.getParentBean();
+            List<Series> availableSeries = new ArrayList<>(folder.getChildBeans(Series.class));
+
+            if (availableSeries.size() > 1) {
+                List<Pair> datedSeries = new ArrayList<>();
+                for (Series series : availableSeries) {
+                    if (null != series.getSeriesReplaces()) {
+                        Pair<String, Series> pair = new Pair("", series, series.getSeriesReplaces().getChangeDate().getTime());
+                        datedSeries.add(pair);
+                    }
+                }
+                datedSeries.sort(Comparator.comparing(Pair::getDate, Comparator.reverseOrder()));
+                seriesIndexDocument = (Series) datedSeries.get(0).getObject();
+            } else {
+                seriesIndexDocument = (Series) contentBean;
+            }
         } else {
             reportInvalidInvocation(request, contentBean);
             return;
@@ -100,12 +115,13 @@ public class SeriesComponent extends EssentialsContentComponent {
                 pastPublicationsAndSeriesChanges.add(pair);
             }
 
-            if (seriesIndexDocument.getSeriesReplaces() != null) {
-                SeriesReplaces seriesReplaces = seriesIndexDocument.getSeriesReplaces();
+            SeriesReplaces seriesReplaces = seriesIndexDocument.getSeriesReplaces();
+            while (seriesReplaces != null) {
                 if (seriesReplaces.getChangeDate() != null) {
                     Pair<String, Series> pair = new Pair("replacedSeries", seriesReplaces, seriesReplaces.getChangeDate().getTime());
                     pastPublicationsAndSeriesChanges.add(pair);
                 }
+                seriesReplaces = seriesReplaces.getReplacementSeries().getSeriesReplaces();
             }
 
             pastPublicationsAndSeriesChanges.sort(Comparator.comparing(Pair::getDate, Comparator.reverseOrder()));
