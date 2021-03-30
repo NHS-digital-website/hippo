@@ -14,6 +14,7 @@ import org.onehippo.repository.scheduling.RepositoryScheduler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.exception.ApiCatalogueJobException;
+import uk.nhs.digital.apispecs.exception.ApiCatalogueModuleException;
 import uk.nhs.digital.apispecs.jobs.ApiSpecRerenderJob;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob;
 
@@ -55,7 +56,7 @@ public class ApiSpecSyncFromApigeeModule implements DaemonModule {
         final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
         Arrays.stream(ScheduledJobs.values()).forEach(job -> {
-            log.info("Deferring scheduling of job " + job.jobName + " by " + schedulingDelay);
+            log.info("Deferring scheduling of job {}/{} by {}", JOB_GROUP, job.jobName, schedulingDelay);
 
             scheduledExecutorService.schedule(() -> scheduleInJcr(job), schedulingDelay.getSeconds(), SECONDS);
         });
@@ -111,10 +112,11 @@ public class ApiSpecSyncFromApigeeModule implements DaemonModule {
     }
 
     private void schedule(final ScheduledJobs job) throws RepositoryException {
+        final String cronExpression = cronExpression(job)
+            .orElseThrow(() -> new ApiCatalogueModuleException(
+                "No cron expression available; expected one to be configured via system property " + job.systemPropertyName));
 
         final RepositoryJobInfo jobInfo = new RepositoryJobInfo(job.jobName, JOB_GROUP, job.jobClass);
-
-        final String cronExpression = cronExpression(job);
 
         final RepositoryJobCronTrigger trigger = new RepositoryJobCronTrigger(JOB_TRIGGER_NAME, cronExpression);
 
@@ -135,18 +137,13 @@ public class ApiSpecSyncFromApigeeModule implements DaemonModule {
     }
 
     private boolean shouldBeEnabled(final ScheduledJobs job) {
-
-        final Optional<String> cronExprFromSystemProperty = Optional.ofNullable(System.getProperty(job.systemPropertyName));
-
-        return cronExprFromSystemProperty.isPresent();
+        return cronExpression(job).isPresent();
     }
 
-    private String cronExpression(final ScheduledJobs job) {
-
-        final Optional<String> cronExprFromSystemProperty = Optional.ofNullable(System.getProperty(job.systemPropertyName));
-
-        return cronExprFromSystemProperty
-            .orElseThrow(() -> new RuntimeException("Cron expression has not been configured."));
+    private Optional<String> cronExpression(final ScheduledJobs job) {
+        return Optional.ofNullable(System.getProperty(job.systemPropertyName))
+            .map(String::trim)
+            .filter(StringUtils::isNotBlank);
     }
 
     enum ScheduledJobs {

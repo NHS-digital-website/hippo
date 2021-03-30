@@ -77,9 +77,15 @@
                             <div class="emphasis-box emphasis-box-important" aria-label="Important Information">
                                 <div class="emphasis-box__content">
                                     <div>
-                                        <p>Do not try to create your own icons or amend existing ones. Any requirement for new icons should be directed to the communications team at:
-                                            <br />
-                                            <a href="mailto:brandteam@nhs.net">brandteam@nhs.net</a></p>
+                                        <p>
+                                            <strong>
+                                              Icons no longer available from 1 July 2021
+                                            </strong>
+                                        </p>
+                                        <br />
+                                        <p>
+                                        From 1 July 2021, these icons will no longer be available via this website. We are, however, happy to share the icons in our current icon library with NHS and social care organisations.
+                                          </p> <br /><p>Contact <a href="mailto:brandteam@nhs.net">brandteam@nhs.net</a> to receive the full set of icons.</p>
                                     </div>
                                 </div>
                             </div>
