@@ -31,7 +31,7 @@ definitions:
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
-              contentSearchEnabled: false
+              contentSearchEnabled: 'true'
               hst:cacheable: true
               hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/common
