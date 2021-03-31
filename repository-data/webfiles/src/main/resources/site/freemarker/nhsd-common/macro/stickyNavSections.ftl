@@ -3,13 +3,14 @@
 <#assign isStickySectionMainHeading="uk.nhs.digital.freemarker.indices.IsStickySectionMainHeading"?new() />
 
 <#macro stickyNavSections links title="Page contents">
-<div class="article-section-nav-wrapper">
-    <div class="article-section-nav">
-        <h2 class="article-section-nav__title">${title}</h2>
+    <div class="nhsd-m-sticky-navigation nhsd-t-display-sticky nhsd-t-display-sticky--offset-2 nhsd-!t-margin-top-6">
+        <span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">${title}</span>
+        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs nhsd-!t-margin-bottom-2"/>
+
         <#assign numberedListCount=0 />
         <#if links??>
-            <nav>
-                <ol class="article-section-nav__list">
+           <nav aria-labelledby="sticky-nav-header">
+                <ul>
                     <#list links as link>
                         <#assign label = "Scroll to '${link.title}'" />
                         <#if link["aria-label"]??>
@@ -18,20 +19,19 @@
                         <#if link.isNumberedList?? && link.isNumberedList>
                             <#assign numberedListCount++ />
                             <#assign numberedLinkTitle = numberedListCount + ". " + link.title>
-                            <li id="${link.url}_list" class="section-numbered">
-                                <a href="${link.url}" aria-label="${label}" title="${label}" id="${link.url}_link" class="nonNavActive">${numberedLinkTitle}</a>
+                            <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="${slugify(link.title)}">
+                                <a href="${link.url}" aria-label="${label}" title="${label}" class="nhsd-a-link">${numberedLinkTitle}</a>
                             </li>
                         <#else>
-                            <li id="${link.url}_list">
-                                <a href="${link.url}" aria-label="${label}" title="${label}" id="${link.url}_link" class="nonNavActive">${link.title}</a>
+                            <li class="nhsd-m-sticky-navigation__item" data-nav-content="${slugify(link.title)}">
+                                <a href="${link.url}" aria-label="${label}" title="${label}" class="nhsd-a-link">${link.title}</a>
                             </li>
                         </#if>
                     </#list>
-                </ol>
+                </ul>
             </nav>
         </#if>
     </div>
-</div>
 </#macro>
 
 <#-- Gather section nav links in a hash -->
