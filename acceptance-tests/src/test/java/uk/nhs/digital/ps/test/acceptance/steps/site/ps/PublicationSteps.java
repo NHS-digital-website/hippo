@@ -132,14 +132,6 @@ public class PublicationSteps extends AbstractSpringSteps {
         assertThat("Publication title is as expected", sitePage.getDocumentTitle(),
             is(publication.getTitle()));
 
-        assertThat("Geographic coverage is as expected", publicationPage.getGeographicCoverage(),
-            is(Optional.ofNullable(publication.getGeographicCoverage()).map(GeographicCoverage::getDisplayValue).orElse(null)));
-
-        assertThat("Publication information type is as expected", publicationPage.getInformationType(),
-            is(Optional.ofNullable(publication.getInformationType()).map(InformationType::getDisplayName).orElse(null)));
-
-        assertThat("Granularity is as expected", publicationPage.getGranularity(),
-            is(Optional.ofNullable(publication.getGranularity()).map(Granularity::getDisplayValue).orElse(null)));
     }
 
     @Then("^I should see the key fact infographics$")
