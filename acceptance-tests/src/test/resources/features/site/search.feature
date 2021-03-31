@@ -217,15 +217,3 @@ Feature: Basic search
         When I search for "SynonymTest"
         Then I should see 1 search result
         And I can click on link "synonym test"
-
-    Scenario: National Statistics kite mark on National statistic information type
-        Given I navigate to the "search" page
-        When I search for ""
-        And I click on the "National statistics" link
-        Then I should see search results which have the national statistics logo
-
-    Scenario: National Statistics kite mark not displayed on other information type
-        Given I navigate to the "search" page
-        When I search for ""
-        And I click on the "Audit" link
-        Then I should see search results which doesnt have the national statistics logo
