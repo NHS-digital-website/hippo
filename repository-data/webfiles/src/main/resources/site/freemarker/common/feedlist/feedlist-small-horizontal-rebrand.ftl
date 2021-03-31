@@ -76,13 +76,13 @@
                 <div class="nhsd-t-col">
                     <nav class="nhsd-m-button-nav">
                         <#if hasPrimaryButton>
-                            <a class="nhsd-a-button" href="${buttonDestination}" target="_blank" rel="external">
+                            <a class="nhsd-a-button" href="${buttonDestination}">
                                 <span class="nhsd-a-button__label">${buttonText}</span>
                                 <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                             </a>
                         </#if>
                         <#if hasSecondaryButton>
-                            <a class="nhsd-a-button nhsd-a-button--outline" href="${secondaryButtonDestination}" target="_blank" rel="external">
+                            <a class="nhsd-a-button nhsd-a-button--outline" href="${secondaryButtonDestination}">
                                 <span class="nhsd-a-button__label">${secondaryButtonText}</span>
                                 <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                             </a>
