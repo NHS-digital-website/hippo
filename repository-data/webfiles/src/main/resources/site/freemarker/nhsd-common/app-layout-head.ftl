@@ -46,6 +46,6 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/latest/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
-
+    
     <#include "scripts/header-scripts.ftl" />
 </head>
