@@ -17,6 +17,24 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: "Continually target emerging quality\
+        \ vectors vis-a-vis progressive communities. Monotonectally streamline collaborative\
+        \ data before global internal or \"organic\" sources. Energistically supply\
+        \ cutting-edge paradigms before functionalized infrastructures. Globally whiteboard\
+        \ magnetic quality vectors whereas turnkey leadership skills. Competently\
+        \ orchestrate cross-media synergy whereas user friendly core competencies.\r\
+        \n\r\nProgressively facilitate effective networks via worldwide e-commerce.\
+        \ Collaboratively leverage other's cross functional technology without scalable\
+        \ quality vectors. Rapidiously initiate diverse vortals before emerging ROI.\
+        \ Authoritatively create emerging users after performance."
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      publicationsystem:Granularity:
+      - Care Trusts
+      - Government Office Regions
+      publicationsystem:InformationType:
+      - Experimental statistics
       publicationsystem:Summary: List legacy publications
       publicationsystem:Title: Legacy Publications List
     /content[2]:
@@ -37,6 +55,24 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: "Continually target emerging quality\
+        \ vectors vis-a-vis progressive communities. Monotonectally streamline collaborative\
+        \ data before global internal or \"organic\" sources. Energistically supply\
+        \ cutting-edge paradigms before functionalized infrastructures. Globally whiteboard\
+        \ magnetic quality vectors whereas turnkey leadership skills. Competently\
+        \ orchestrate cross-media synergy whereas user friendly core competencies.\r\
+        \n\r\nProgressively facilitate effective networks via worldwide e-commerce.\
+        \ Collaboratively leverage other's cross functional technology without scalable\
+        \ quality vectors. Rapidiously initiate diverse vortals before emerging ROI.\
+        \ Authoritatively create emerging users after performance."
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      publicationsystem:Granularity:
+      - Care Trusts
+      - Government Office Regions
+      publicationsystem:InformationType:
+      - Experimental statistics
       publicationsystem:Summary: List legacy publications
       publicationsystem:Title: Legacy Publications List
     /content[3]:
@@ -57,6 +93,24 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: publicationsystem:series
+      publicationsystem:AdministrativeSources: "Continually target emerging quality\
+        \ vectors vis-a-vis progressive communities. Monotonectally streamline collaborative\
+        \ data before global internal or \"organic\" sources. Energistically supply\
+        \ cutting-edge paradigms before functionalized infrastructures. Globally whiteboard\
+        \ magnetic quality vectors whereas turnkey leadership skills. Competently\
+        \ orchestrate cross-media synergy whereas user friendly core competencies.\r\
+        \n\r\nProgressively facilitate effective networks via worldwide e-commerce.\
+        \ Collaboratively leverage other's cross functional technology without scalable\
+        \ quality vectors. Rapidiously initiate diverse vortals before emerging ROI.\
+        \ Authoritatively create emerging users after performance."
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      publicationsystem:Granularity:
+      - Care Trusts
+      - Government Office Regions
+      publicationsystem:InformationType:
+      - Experimental statistics
       publicationsystem:Summary: List legacy publications
       publicationsystem:Title: Legacy Publications List
     hippo:name: content

@@ -6,9 +6,6 @@ Feature: Ensure publication page displays required fields.
         And I should also see:
             | Publication Summary                   | Etiam vitae tincidunt lectus. Nulla posuere ultricies ...         |
             | Publication Key Facts                 | Cras eget elementum erat. Aliquam ornare urna ut ligula ...       |
-            | Publication Geographic Coverage       | England                                                           |
-            | Publication Granularity               | NHS Trusts                                                        |
-            | Publication Administrative Sources    | Mauris pretium orci ac gravida accumsan. Cras mattis massa ...    |
             | Publication Date Range                | 10 Feb 2015 to 15 Sep 2016                                        |
             | Publication Date                      | 10 Oct 2016                                                       |
 
@@ -51,12 +48,9 @@ Feature: Ensure publication page displays required fields.
         Given I navigate to the "publication with datasets" page
         Then I should see headers:
             | Publication Date:         |
-            | Geographic Coverage:      |
-            | Geographical Granularity: |
             | Date Range:               |
             | Summary                   |
             | Key Facts                 |
-            | Administrative Sources    |
             | Data Sets                 |
             | Resources                 |
             | Related Links             |
@@ -104,27 +98,3 @@ Feature: Ensure publication page displays required fields.
             | 1.9 Dataset  |
             | 1.10 Dataset |
             | 2.0 Dataset  |
-
-    Scenario: National Statistics kite mark on National statistic information type only
-        Given I navigate to the "national statistic publication" page
-        Then I should also see:
-            | Publication Information Types | National statistics           |
-        And I can see "National Statistics" image
-        When I navigate to "publication with rich content" page
-        Then I should also see:
-            | Publication Information Types | Experimental statistics       |
-        And I should not see element with title "National statistics"
-
-    Scenario: Geographic Coverage displays appropriate label based on selections
-        Given I navigate to the "Geographic Coverage - Great Britain" page
-        Then I should also see:
-            | Publication Geographic Coverage | Great Britain                                  |
-        When I navigate to the "Geographic Coverage - United Kingdom" page
-        Then I should also see:
-            | Publication Geographic Coverage | United Kingdom                                 |
-        When I navigate to the "Geographic Coverage - British Isles" page
-        Then I should also see:
-            | Publication Geographic Coverage | British Isles                                  |
-        When I navigate to the "Geographic Coverage - Other combination" page
-        Then I should also see:
-            | Publication Geographic Coverage | England, Northern Ireland, Republic of Ireland |
