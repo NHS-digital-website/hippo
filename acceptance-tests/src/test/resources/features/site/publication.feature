@@ -69,13 +69,6 @@ Feature: Ensure publication page displays required fields.
             | Data set            |
             | Archive             |
 
-    Scenario: Display multiparagraph summary
-        Given I navigate to "publication with datasets" page
-        Then I should also see multiple "Publication Summary" with:
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit ...   |
-            | Nunc at quam sed tellus ultricies sagittis. Cras et sem ...   |
-            | Quisque blandit viverra pulvinar. Morbi accumsan bibendum ... |
-
     Scenario: Display multiparagraph key facts
         Given I navigate to "publication with rich content" page
         Then I should also see multiple "Publication Key Facts" with:
