@@ -57,6 +57,7 @@
 <@fmt.message key="headers.summary" var="summaryHeader" />
 <@fmt.message key="headers.key-facts" var="keyFactsHeader" />
 <@fmt.message key="headers.administrative-sources" var="adminSourcesHeader" />
+<@fmt.message key="headers.highlights" var="highlightsHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
 <@fmt.message key="headers.related-links" var="relatedLinksHeader" />
 
@@ -260,7 +261,10 @@
             <#-- [FTL-END] mandatory 'Summary' section -->
 
             <#if hasSectionContent>
-                <@sections legacyPublication.sections></@sections>
+            <div class="article-section article-section--highlighted">
+                <h2>${highlightsHeader}</h2>
+                    <@sections legacyPublication.sections></@sections>
+            </div>
             </#if>
 
             <#-- [FTL-BEGIN] optional list of 'Key facts' section -->

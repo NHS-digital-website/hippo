@@ -46,6 +46,7 @@
     - headers.resources
     - headers.related-links
     - headers.administrative-sources
+    - headers.highlights
     - headers.date-range
     - headers.geographical-coverage
     - headers.geographical-granularity
@@ -75,6 +76,7 @@
     - Resources
     - Related Links
     - Administrative Sources
+    - Highlights
     - 'Date Range:'
     - 'Geographic Coverage:'
     - 'Geographical Granularity:'
@@ -146,6 +148,7 @@
     - headers.resources
     - headers.related-links
     - headers.administrative-sources
+    - headers.highlights
     - headers.date-range
     - headers.geographical-coverage
     - headers.geographical-granularity
@@ -175,6 +178,7 @@
     - Resources
     - Related Links
     - Administrative Sources
+    - Highlights
     - 'Date Range:'
     - 'Geographic Coverage:'
     - 'Geographical Granularity:'
@@ -246,6 +250,7 @@
     - headers.resources
     - headers.related-links
     - headers.administrative-sources
+    - headers.highlights
     - headers.date-range
     - headers.geographical-coverage
     - headers.geographical-granularity
@@ -275,6 +280,7 @@
     - Resources
     - Related Links
     - Administrative Sources
+    - Highlights
     - 'Date Range:'
     - 'Geographic Coverage:'
     - 'Geographical Granularity:'
