@@ -44,6 +44,7 @@
 <@fmt.message key="headers.related-links" var="relatedLinksHeader" />
 <@fmt.message key="headers.key-facts" var="keyFactsHeader" />
 <@fmt.message key="headers.administrative-sources" var="administrativeResourcesHeader" />
+<@fmt.message key="headers.highlights" var="highlightsHeader" />
 <@fmt.message key="headers.datasets" var="datasetsHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
 <@fmt.message key="headers.supplementary-information-requests" var="supplementaryHeader" />
@@ -99,7 +100,10 @@
                 </div>
 
                 <#if hasSectionContent>
-                    <@sections document.sections></@sections>
+                    <div class="article-section article-section--highlighted">
+                        <h2>${highlightsHeader}</h2>
+                        <@sections document.sections></@sections>
+                    </div>
                 </#if>
 
                 <div data-uipath="ps.publication.body"></div>
