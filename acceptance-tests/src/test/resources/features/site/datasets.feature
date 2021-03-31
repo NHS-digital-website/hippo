@@ -55,12 +55,9 @@ Feature: As a consumer I need to be able to navigate to publication data sets
         Given I navigate to "series with publication with datasets" series page
         When I click on link "series publication with datasets"
         Then I should see publication page titled "series publication with datasets"
-        And I should also see:
-            | Publication Summary           | Maecenas pharetra, magna ut pulvinar mattis, augue nisi ...       |
         When I click on link "series-publication-with-datasets Dataset"
         Then I should see data set page titled "series-publication-with-datasets Dataset"
         And I should also see:
-            | Dataset Summary               | Sed viverra, odio nec eleifend sodales, ligula lectus varius ...  |
             | Dataset Granularity           | NHS Health Boards                                                 |
             | Dataset Geographic Coverage   | Northern Ireland                                                  |
 
@@ -76,13 +73,6 @@ Feature: As a consumer I need to be able to navigate to publication data sets
     Scenario: Hide dataset if it doesn't have a parent publication
         Given I navigate to the "dataset without publication" dataset page
         Then I should see the page not found error page
-
-    Scenario: Display multiparagraph summary
-        Given I navigate to "publication with datasets dataset" dataset page
-        Then I should also see multiple "Dataset Summary" with:
-            | Mauris ex est, dapibus in dictum ut, elementum sit amet odio. Proin ...       |
-            | Cras fringilla odio sit amet tellus pellentesque posuere. Etiam semper ...    |
-            | Curabitur quis eros nisi. Nulla leo est, elementum non gravida suscipit ...   |
 
     Scenario: Show files with and without display names
         Given I navigate to "attachment test dataset" page
