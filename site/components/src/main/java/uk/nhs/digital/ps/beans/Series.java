@@ -1,8 +1,6 @@
 package uk.nhs.digital.ps.beans;
 
 import static org.apache.commons.collections.IteratorUtils.toList;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
-import static uk.nhs.digital.ps.beans.PublicationBase.PropertyKeys.NOMINAL_DATE;
 
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
@@ -15,7 +13,6 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.ContentBeanUtils;
-import org.hippoecm.repository.util.DateTools.Resolution;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.common.util.DocumentUtils;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
@@ -23,9 +20,6 @@ import uk.nhs.digital.website.beans.Person;
 import uk.nhs.digital.website.beans.Team;
 import uk.nhs.digital.website.beans.Update;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:series")
@@ -94,19 +88,21 @@ public class Series extends BaseDocument {
 
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
             .ofTypes(Publication.class)
-            .where(constraint(NOMINAL_DATE).lessOrEqualThan(
-                GregorianCalendar.from(ZonedDateTime.now(ZoneId.of("UTC"))
-                    .minusHours(Publication.HOUR_OF_PUBLIC_RELEASE)
-                    .minusMinutes(Publication.MINUTE_OF_PUBLIC_RELEASE)),
-                Resolution.SECOND))
             .orderByDescending("publicationsystem:NominalDate")
-            .limit(1)
             .build()
             .execute()
             .getHippoBeans();
 
-        if (hippoBeans.hasNext()) {
-            return (Publication) hippoBeans.nextHippoBean();
+        boolean found = false;
+        Publication publication = null;
+        while (!found && hippoBeans.hasNext()) {
+            HippoBean hippoBean = hippoBeans.nextHippoBean();
+            publication = (Publication) hippoBean;
+            found = publication.isPubliclyAccessible();
+        }
+
+        if (found) {
+            return publication;
         }
 
         return null;
