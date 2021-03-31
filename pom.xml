@@ -300,7 +300,7 @@
                 <groupId>org.awaitility</groupId>
                 <artifactId>awaitility</artifactId>
                 <version>4.0.3</version>
-                <scope>test</scope>master
+                <scope>test</scope>
             </dependency>
 
             <!--<dependency>
@@ -545,7 +545,7 @@
                 <version>3.0.1</version>
             </dependency>
             <dependency>
-                <groupImasterd>org.yaml</groupImasterd>
+                <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
                 <version>1.26</version>
             </dependency>
