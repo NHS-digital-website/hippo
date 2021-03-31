@@ -100,7 +100,7 @@
                 </div>
 
                 <#if hasSectionContent>
-                    <div class="article-section article-section--highlighted">
+                    <div class="article-section" id="highlights">
                         <h2>${highlightsHeader}</h2>
                         <@sections document.sections></@sections>
                     </div>

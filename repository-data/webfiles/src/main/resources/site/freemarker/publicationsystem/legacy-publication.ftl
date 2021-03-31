@@ -223,6 +223,9 @@
                 <#if hasSummary>
                     <#assign links = [{ "url": "#" + slugify(summaryHeader), "title": summaryHeader }] />
                 </#if>
+                <#if hasSectionContent>
+                    <#assign links = [{ "url": "#" + slugify(highlightsHeader), "title": highlightsHeader }] />
+                </#if>
                 <#if hasKeyFacts>
                     <#assign links += [{ "url": "#" + slugify(keyFactsHeader), "title": keyFactsHeader }] />
                 </#if>
@@ -261,7 +264,7 @@
             <#-- [FTL-END] mandatory 'Summary' section -->
 
             <#if hasSectionContent>
-            <div class="article-section article-section--highlighted">
+            <div class="article-section" id="highlights">
                 <h2>${highlightsHeader}</h2>
                     <@sections legacyPublication.sections></@sections>
             </div>
