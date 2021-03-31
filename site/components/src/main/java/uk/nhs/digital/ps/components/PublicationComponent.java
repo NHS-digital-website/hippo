@@ -21,6 +21,7 @@ import java.util.List;
 public class PublicationComponent extends BaseGaContentComponent {
 
     private static final String SUMMARY_ID = "Summary";
+    private static final String HIGHLIGHTS_ID = "Highlights";
     private static final String KEY_FACTS_ID = "Key facts";
     private static final String ADMIN_SOURCES_ID = "Administrative sources";
     private static final String DATASETS_ID = "Data sets";
@@ -53,6 +54,10 @@ public class PublicationComponent extends BaseGaContentComponent {
 
         if (!publication.getSummary().isEmpty()) {
             index.add(SUMMARY_ID);
+        }
+
+        if (!publication.getSections().isEmpty()) {
+            index.add(HIGHLIGHTS_ID);
         }
 
         if (!publication.getKeyFacts().isEmpty()) {
