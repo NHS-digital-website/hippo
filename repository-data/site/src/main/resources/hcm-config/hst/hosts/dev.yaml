@@ -25,7 +25,7 @@ definitions:
                 - rest
                 jcr:primaryType: hst:mount
               contentSearchEnabled: false
-              hst:cacheable: true
+              hst:cacheable: false
               hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/common
               hst:responseheaders:
