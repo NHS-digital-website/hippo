@@ -30,7 +30,7 @@ definitions:
               hst:types:
               - rest
               jcr:primaryType: hst:mount
-            hst:cacheable: true
+            hst:cacheable: false
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
             jcr:primaryType: hst:mount
