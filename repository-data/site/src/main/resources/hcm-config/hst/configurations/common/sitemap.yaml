@@ -410,10 +410,6 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /nhsd-data-hub:
         hst:componentconfigurationid: hst:pages/nhsd-data-hub
-        hst:relativecontentpath: data-and-information
-        jcr:primaryType: hst:sitemapitem
-      /nhsd-data-hub:
-        hst:componentconfigurationid: hst:pages/nhsd-data-hub
         hst:relativecontentpath: nhsd-homepage
         jcr:primaryType: hst:sitemapitem
       /nhsd-developer-hub:
