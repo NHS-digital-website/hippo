@@ -275,6 +275,14 @@ definitions:
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
+        /publication-new:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/publication
+            hst:relativecontentpath: /publication-system/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/publication-feed-hub
+          hst:relativecontentpath: data-and-information/publication-feed-hub
+          jcr:primaryType: hst:sitemapitem
         /publications:
           /_any_:
             /_index_:

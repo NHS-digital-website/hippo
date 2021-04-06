@@ -269,6 +269,9 @@ definitions:
       /publication:
         hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftl
         jcr:primaryType: hst:template
+      /publication-feed-hub-template:
+        hst:renderpath: webfile:/freemarker/common/publication-feed-hub.ftl
+        jcr:primaryType: hst:template
       /publicationPage:
         hst:renderpath: webfile:/freemarker/publicationsystem/publicationPage.ftl
         jcr:primaryType: hst:template
