@@ -13,6 +13,7 @@ public class ContentRewriterComponent extends EssentialsContentComponent {
     private static final BrandRefreshContentRewriter brContentRewriter = new BrandRefreshContentRewriter();
     private static final GoogleAnalyticsContentRewriter gaContentRewriter = new GoogleAnalyticsContentRewriter();
     private static final StripTagsContentRewriter stripTagsContentRewriter = new StripTagsContentRewriter();
+    private static final StripTagsWithLinksContentRewriter stripTagsWithLinksContentRewriter = new StripTagsWithLinksContentRewriter();
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -23,6 +24,9 @@ public class ContentRewriterComponent extends EssentialsContentComponent {
         }
         if (useStripTagsContentRewriter()) {
             request.setAttribute("stripTagsContentRewriter", stripTagsContentRewriter);
+        }
+        if (useStripTagsWithLinksContentRewriter()) {
+            request.setAttribute("stripTagsWithLinksContentRewriter", stripTagsWithLinksContentRewriter);
         }
         if (useGoogleAnalyticsContentRewriter()) {
             request.setAttribute("gaContentRewriter", gaContentRewriter);
@@ -35,6 +39,10 @@ public class ContentRewriterComponent extends EssentialsContentComponent {
 
     private boolean useStripTagsContentRewriter() {
         return useContentRewriter("stripTagsContentRewriter", false);
+    }
+
+    private boolean useStripTagsWithLinksContentRewriter() {
+        return useContentRewriter("stripTagsWithLinksContentRewriter", false);
     }
 
     private boolean useGoogleAnalyticsContentRewriter() {
