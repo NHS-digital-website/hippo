@@ -42,7 +42,7 @@
     </#if>
 
     <#if banner??>
-        <div class="nhsd-o-hero ${bgClass} ${textClass} ${textAlignmentClass}">
+        <div class="nhsd-o-hero ${bgClass} ${textClass} ${textAlignmentClass} nhsd-!t-margin-bottom-6">
             <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
                 <div class="nhsd-t-row nhsd-t-row--centred">
                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-9 nhsd-!t-text-align-l-left nhsd-!t-no-gutters">
