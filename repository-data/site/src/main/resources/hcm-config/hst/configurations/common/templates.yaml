@@ -309,7 +309,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/publicationsystem/series.ftl
         jcr:primaryType: hst:template
       /service-article:
-        hst:renderpath: webfile:/freemarker/common/service/service-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/service/service-article.ftl
         jcr:primaryType: hst:template
       /service-list:
         hst:renderpath: webfile:/freemarker/common/service-list.ftl
