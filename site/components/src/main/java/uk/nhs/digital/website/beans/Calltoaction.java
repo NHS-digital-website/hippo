@@ -36,4 +36,19 @@ public class Calltoaction extends BaseDocument {
     public CorporateWebsiteImageset getImage() {
         return getLinkedBean("website:image", CorporateWebsiteImageset.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "website:altText")
+    public String getAltText() {
+        return getSingleProperty("website:altText");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:isDecorative")
+    public String getIsDecorative() {
+        return getSingleProperty("website:isDecorative");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:icon")
+    public CorporateWebsiteImageset getIcon() {
+        return getLinkedBean("website:image", CorporateWebsiteImageset.class);
+    }
 }
