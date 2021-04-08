@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#include "./macro/nhsd/header-banner.ftl">
+<#include "../nhsd-common/macros/header-banner.ftl">
 
 <#assign banner1 = {
     text: button1Text,

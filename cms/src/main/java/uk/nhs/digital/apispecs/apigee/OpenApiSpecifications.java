@@ -1,22 +1,22 @@
 package uk.nhs.digital.apispecs.apigee;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import uk.nhs.digital.apispecs.model.OpenApiSpecificationStatus;
+import uk.nhs.digital.apispecs.model.OpenApiSpecification;
 
 import java.beans.ConstructorProperties;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApigeeSpecificationsStatuses {
+public class OpenApiSpecifications {
 
-    private final List<OpenApiSpecificationStatus> contents;
+    private final List<OpenApiSpecification> contents;
 
     @ConstructorProperties({"contents"})
-    public ApigeeSpecificationsStatuses(final List<OpenApiSpecificationStatus> contents) {
+    public OpenApiSpecifications(final List<OpenApiSpecification> contents) {
         this.contents = contents;
     }
 
-    public List<OpenApiSpecificationStatus> getContents() {
+    public List<OpenApiSpecification> getContents() {
         return contents;
     }
 }

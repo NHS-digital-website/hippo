@@ -64,7 +64,8 @@ jobs:
             const environments = {
               C011BKDNUS1: "dev",
               C01119ANCJE: "tst",
-              C01119BULFL: "trn"
+              C01119BULFL: "trn",
+              C01T1PKNP3L: "cs"
             }
             if(environments[`${process.env.CHANNEL_ID}`] === undefined) {
               core.setFailed("No target environment has been identifed.")
