@@ -86,6 +86,30 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /altText:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Picture alt text
+            field: altText
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /isDecorative:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Image is decorative only
+            field: isDecorative
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /icon:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Icon
+            field: icon
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -97,6 +121,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          /altText:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:altText
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /external:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -104,6 +136,14 @@ definitions:
             hipposysedit:path: website:external
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /icon:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:icon
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
             jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
@@ -120,6 +160,14 @@ definitions:
             hipposysedit:path: website:internal
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /isDecorative:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:isDecorative
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
           /text:
             hipposysedit:mandatory: false
@@ -152,6 +200,12 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:icon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           /website:image:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
@@ -174,8 +228,10 @@ definitions:
           - mix:referenceable
           jcr:primaryType: website:calltoaction
           website:Label: ''
+          website:altText: ''
           website:content: ''
           website:external: ''
+          website:isDecorative: false
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
