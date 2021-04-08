@@ -16,7 +16,7 @@
                 ${section.title}
             </h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)}>
             <div data-uipath="website.contentblock.section.content" class="rich-text-content">
-                <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/>
+                <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/> 
             </div>
         </div>
     <#else>
