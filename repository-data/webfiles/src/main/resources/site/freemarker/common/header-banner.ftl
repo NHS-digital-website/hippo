@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#include "./macro/nhsd/header-banner.ftl">
+<#include "../nhsd-common/macros/header-banner.ftl">
 
 <#assign banner1 = {
     text: button1Text,
@@ -12,7 +12,7 @@
 }/>
 
 <#if banner??>
-    <div class="nhsd-!t-margin-bottom-9">
+    <div class="nhsd-!t-margin-bottom-6">
         <@headerBanner banner banner1 banner2 color alignment digiblockposition />
     </div>
 </#if>

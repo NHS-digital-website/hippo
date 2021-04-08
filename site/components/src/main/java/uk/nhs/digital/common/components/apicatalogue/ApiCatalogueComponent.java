@@ -122,7 +122,7 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
                 )
             ),
             section("Business Use",
-                subsection("Appointment / Scheduling", "appointment-scheduling",
+                subsection("Appointment / Scheduling", "appointments-scheduling",
                     subsection("Referrals", "referrals")
                 ),
                 subsection("Access to Records", "access-to-records_1"),
@@ -148,7 +148,7 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
                 subsection("SOAP", "soap"),
                 subsection("HL7 V3", "hl7-v3"),
                 subsection("MESH", "mesh"),
-                subsection("Adaptor", "adaptors")
+                subsection("Adaptors", "adaptors")
             ),
             section("API Service or Standard",
                 subsection("API Service", "api-service",

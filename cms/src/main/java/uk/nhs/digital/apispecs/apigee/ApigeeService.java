@@ -1,6 +1,7 @@
 package uk.nhs.digital.apispecs.apigee;
 
 import static java.util.Collections.unmodifiableList;
+import static java.util.stream.Collectors.toList;
 
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
@@ -9,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.util.UriComponentsBuilder;
 import uk.nhs.digital.apispecs.OpenApiSpecificationRepository;
 import uk.nhs.digital.apispecs.OpenApiSpecificationRepositoryException;
-import uk.nhs.digital.apispecs.model.OpenApiSpecificationStatus;
+import uk.nhs.digital.apispecs.model.OpenApiSpecification;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -35,7 +36,7 @@ public class ApigeeService implements OpenApiSpecificationRepository {
     }
 
     @Override
-    public List<OpenApiSpecificationStatus> apiSpecificationStatuses() throws OpenApiSpecificationRepositoryException {
+    public List<OpenApiSpecification> apiSpecificationStatuses() throws OpenApiSpecificationRepositoryException {
 
         log.debug("Retrieving list of available specifications.");
 
@@ -75,17 +76,20 @@ public class ApigeeService implements OpenApiSpecificationRepository {
         return resourceServiceBroker.resolve(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API, url);
     }
 
-    private List<OpenApiSpecificationStatus> apigeeApiSpecificationsStatusesFrom(final Resource resource) {
-        final List<OpenApiSpecificationStatus> openApiSpecificationStatuses = unmodifiableList(
+    private List<OpenApiSpecification> apigeeApiSpecificationsStatusesFrom(final Resource resource) {
+        final List<OpenApiSpecification> remoteApiSpecifications = unmodifiableList(
             resourceServiceBroker
                 .getResourceBeanMapper(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API)
-                .map(resource, ApigeeSpecificationsStatuses.class)
+                .map(resource, OpenApiSpecifications.class)
                 .getContents()
+                .stream()
+                    .peek(openApiSpecification -> openApiSpecification.setApigeeService(this))
+                .collect(toList())
         );
 
-        log.debug("Found {} specifications.", openApiSpecificationStatuses.size());
+        log.debug("Found {} specifications.", remoteApiSpecifications.size());
 
-        return openApiSpecificationStatuses;
+        return remoteApiSpecifications;
     }
 
     private String apigeeApiSpecificationJsonFrom(final Resource resource) {

@@ -398,23 +398,31 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /nhsd-about-us-hub:
         hst:componentconfigurationid: hst:pages/nhsd-about-us-hub
-        hst:relativecontentpath: nhsd-homepage
+        hst:relativecontentpath: about-nhs-digital
         jcr:primaryType: hst:sitemapitem
       /nhsd-coronavirus:
         hst:componentconfigurationid: hst:pages/nhsd-coronavirus
-        hst:relativecontentpath: nhsd-coronavirus
+        hst:relativecontentpath: coronavirus
         jcr:primaryType: hst:sitemapitem
       /nhsd-cyber-hub:
         hst:componentconfigurationid: hst:pages/nhsd-cyber-hub
-        hst:relativecontentpath: nhsd-cyber-hub
+        hst:relativecontentpath: cyber-and-data-security
+        jcr:primaryType: hst:sitemapitem
+      /nhsd-data-hub:
+        hst:componentconfigurationid: hst:pages/nhsd-data-hub
+        hst:relativecontentpath: data-and-information
         jcr:primaryType: hst:sitemapitem
       /nhsd-developer-hub:
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
-        hst:relativecontentpath: nhsd-developer-hub
+        hst:relativecontentpath: developer
         jcr:primaryType: hst:sitemapitem
       /nhsd-homepage:
         hst:componentconfigurationid: hst:pages/nhsd-homepage
         hst:relativecontentpath: nhsd-homepage
+        jcr:primaryType: hst:sitemapitem
+      /nhsd-news:
+        hst:componentconfigurationid: hst:pages/nhsd-news
+        hst:relativecontentpath: news
         jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt

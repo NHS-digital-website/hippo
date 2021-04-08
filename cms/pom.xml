@@ -273,6 +273,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
@@ -337,6 +343,23 @@
             <groupId>org.bloomreach.forge.resetpassword</groupId>
             <artifactId>resetpassword-bootstrap-content</artifactId>
             <version>${forge.resetpassword.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>hippo-addon-reporting-dashboard-frontend</artifactId>
+            <groupId>com.onehippo.cms7</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>hippo-addon-reporting-dashboard-repository</artifactId>
+            <groupId>com.onehippo.cms7</groupId>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-cms-google-analytics-frontend</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.onehippo.cms7.hst.client-modules</groupId>
+            <artifactId>hst-google-analytics-repository</artifactId>
         </dependency>
     </dependencies>
     <build>
