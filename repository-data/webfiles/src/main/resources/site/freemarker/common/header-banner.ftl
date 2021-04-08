@@ -2,13 +2,13 @@
 <#include "../nhsd-common/macros/header-banner.ftl">
 
 <#assign banner1 = {
-    text: button1Text,
-    url: button1Url
+text: button1Text,
+url: button1Url
 }/>
 
 <#assign banner2 = {
-    text: button2Text,
-    url: button2Url
+text: button2Text,
+url: button2Url
 }/>
 
 <#if banner??>

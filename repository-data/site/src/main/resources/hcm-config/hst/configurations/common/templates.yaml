@@ -35,9 +35,6 @@ definitions:
       /archive:
         hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
         jcr:primaryType: hst:template
-      /az-list:
-        hst:renderpath: webfile:/freemarker/nhsd-common/components/az-list.ftl
-        jcr:primaryType: hst:template
       /base-top-menu:
         hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
         jcr:primaryType: hst:template
