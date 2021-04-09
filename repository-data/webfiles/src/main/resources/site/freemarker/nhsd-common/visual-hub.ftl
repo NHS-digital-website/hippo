@@ -120,26 +120,30 @@
     </#if>
 
     <#if hasPrimaryLinks>
-        <div class="nhsd-t-row">
-            <#list document.primarySections as primarySection>
-                <#list primarySection.primarySectionsTiles as link>
-                    <div class="nhsd-t-col-s-12 nhsd-t-col-m-6 nhsd-!t-margin-6">
-                        <@visualhubBox link />
-                    </div>
-                </#list>
-            </#list>
+        <div class="nhsd-o-card-list">
+            <div class="nhsd-t-grid">
+                <div class="nhsd-t-row nhsd-o-card-list__items nhsd-t-row--centred">
+                    <#list document.primarySections as primarySection>
+                        <#list primarySection.primarySectionsTiles as link>
+                            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
+                                <@visualhubBox link />
+                            </div>
+                        </#list>
+                    </#list>
+                </div> 
+            </div>
         </div>
     </#if>
 
     <#if !hasTabTileLinks>
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12">
-                    <@hst.html hippohtml=document.additionalInformation contentRewriter=brContentRewriter />
+                <@hst.html hippohtml=document.additionalInformation contentRewriter=brContentRewriter />
             </div>
         </div>
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12">
-                    <@lastModified document.lastModified false></@lastModified>
+                <@lastModified document.lastModified false></@lastModified>
             </div>
         </div>
     </#if>
