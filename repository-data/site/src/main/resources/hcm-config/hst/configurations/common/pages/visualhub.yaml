@@ -4,6 +4,10 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/visualhub:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
+        hst:parameternames:
+        - brandRefreshContentRewriter
+        hst:parametervalues:
+        - 'true'
         hst:template: visual-hub
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
