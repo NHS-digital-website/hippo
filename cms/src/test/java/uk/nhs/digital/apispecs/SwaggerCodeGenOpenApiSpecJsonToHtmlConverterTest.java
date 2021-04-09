@@ -44,7 +44,7 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
     }
 
     @Test
-    public void getHtmlForSpec_rendersCompleteOpenApiJsonAsHtml() {
+    public void rendersSpecification_whenCompleteOpenApiJsonAsHtml() {
 
         // given
         final String specificationJson = from("oasV3_complete.json");
@@ -63,7 +63,26 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
     }
 
     @Test
-    public void getHtmlForSpec_throwsException_onCodeGenFailure() {
+    public void rendersSpecification_withoutFailure_whenComponentsPropertyIsAbsent() {
+
+        // given
+        final String incompleteSpecificationJson = from("oasV3_incomplete_no_components-field.json");
+
+        final String expectedSpecHtml = from("oasV3_complete.html");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(incompleteSpecificationJson);
+
+        // then
+        assertThat(
+            "Specification is rendered with no error when the 'components' field is absent from the source JSON",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+        );
+    }
+
+    @Test
+    public void throwsException_onCodeGenFailure() {
 
         // given
         final String invalidSpecificationJson = "invalid specification JSON";
