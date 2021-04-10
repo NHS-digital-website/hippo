@@ -15,9 +15,9 @@
                 <#if matchesFound gt 1>
                     <hr class="nhsd-a-horizontal-rule"/>
                 </#if>
-                <div class="nhsd-t-flex" data-uipath="website.glossary.list">
+                <div  id="${letter?lower_case}" class="nhsd-t-flex" data-uipath="website.glossary.list">
                     <div class="nhsd-!t-margin-right-5">
-                        <span id="${letter?lower_case}" class="nhsd-a-character-block nhsd-a-character-block--large nhsd-t-display-sticky nhsd-t-display-sticky--offset-2">${letter}</span>
+                        <span class="nhsd-a-character-block nhsd-a-character-block--large nhsd-t-display-sticky nhsd-t-display-sticky--offset-2">${letter}</span>
                     </div>
                     <div class="nhsd-t-flex-item--grow" data-filter-results-item>
                         <#list blockGroups[letter] as block>
@@ -42,18 +42,19 @@
                                     <#if block.type?? && block.type?has_content && block.type == "alternativeTask">
                                         <@hst.link hippobean=block.task var="link"/>
                                     <#else>
-                                        <@hst.link hippobean=block var="link"/>
+                                        <@hst.link hippobean=block var="link1"/>
+                                        <#assign link=link1>
                                     </#if>
                                 </#if>
                             </#if>
 
-                            <h3 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-1">
+                            <h2 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-1">
                                 <#if link??>
                                     <a href="${link}" class="nhsd-a-link" data-filterable>${block.title}</a>
                                 <#else>
                                     ${block.title}
                                 </#if>
-                            </h3>
+                            </h2>
 
                             <#if block.shortsummary??>
                                 <p class="nhsd-t-body" data-filterable>${block.shortsummary}</p>
