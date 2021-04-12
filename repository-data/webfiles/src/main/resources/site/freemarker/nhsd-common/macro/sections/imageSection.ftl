@@ -1,26 +1,36 @@
 <#ftl output_format="HTML">
 
 <#macro imageSection section>
-    <div data-uipath="ps.publication.image-section">
-
+    <div class="nhsd-m-image-with-link nhsd-!t-margin-bottom-6" data-uipath="ps.publication.image-section">
         <#assign link = section.link />
         <#if section.link?has_content && ! section.link?starts_with("http") >
           <#assign link = "http://" + section.link />
         </#if>
 
-        <#if link?has_content><a href="${link}" data-uipath="ps.publication.image-section.link"></#if>
-            <figure>
-                <img src="<@hst.link hippobean=section.image/>"
-                     alt="${section.altText}"
-                     data-uipath="ps.publication.image-section.image"
-                     <#if section.size??>style="width:100%;"</#if>
-                />
-                <#if section.caption?has_content>
-                    <figcaption data-uipath="ps.publication.image-section.caption">
-                        ${section.caption}
-                    </figcaption>
-                </#if>
+        <#if link?has_content && !section.caption?has_content>
+            <a href="${link}" data-uipath="ps.publication.image-section.link" >
+        </#if>
+
+            <figure class="nhsd-a-image nhsd-a-image--round-corners nhsd-!t-margin-bottom-2" aria-hidden="true">
+                <picture class="nhsd-a-image__picture ">
+                    <img src="<@hst.link hippobean=section.image/>" alt="${section.altText}" data-uipath="ps.publication.image-section.image">
+                </picture>
             </figure>
-        <#if section.link?has_content></a></#if>
+
+            <#if section.caption?has_content>
+                <#if link?has_content>
+                    <div class="nhsd-t-heading-s">
+                        <a class="nhsd-a-link" href="${link}" data-uipath="ps.publication.image-section.link">${section.caption}</a>
+                    </div>
+                <#else>
+                    <div class="nhsd-t-heading-s">
+                        <span>${section.caption}</span>
+                    </div>
+                </#if>
+            </#if> 
+
+        <#if link?has_content && !section.caption?has_content>
+            </a>
+        </#if>      
     </div>
 </#macro>
