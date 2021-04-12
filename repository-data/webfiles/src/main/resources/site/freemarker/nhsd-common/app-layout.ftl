@@ -17,6 +17,7 @@
 
         <#include "scripts/nhsd-footer-scripts.ftl" />
     </div>
+    <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
 </body>
 </html>
 
