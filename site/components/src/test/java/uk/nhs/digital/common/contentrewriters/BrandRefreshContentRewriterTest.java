@@ -1,6 +1,6 @@
 package uk.nhs.digital.common.contentrewriters;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter.getHtmlCleaner;
@@ -83,5 +83,26 @@ public class BrandRefreshContentRewriterTest {
             assertEquals(expectedLinks[i].getAttributeByName("class"), links[i].getAttributeByName("class")); //nhsd-a-link
             assertEquals(expectedLinks[i].getText().toString(), links[i].getText().toString()); //text
         }
+    }
+
+    @Test
+    public void rewriteTestForImgTag() {
+
+        BrandRefreshContentRewriter rewriter = new BrandRefreshContentRewriter();
+
+        // Sample img tag for rich text (taken from section compound)
+        String html = "<h1>Image</h1><img src=\"https://en.wikipedia.org/wiki/NHS_Digital#/media/File:NHS_Digital_logo.svg\" alt=\"This is the alt txt\" align=\"top\">";
+
+        String result = rewriter.rewrite(html, node, requestContext, targetMount);
+
+        assertTrue(result.contains("img"));
+        assertTrue(result.contains("alt"));
+        assertTrue(result.contains("align"));
+
+        TagNode rootNode = getHtmlCleaner().clean(result);
+        TagNode image = rootNode.findElementByName("img", true);
+
+        assertEquals("This is the alt txt", image.getAttributeByName("alt"));
+        assertEquals("top", image.getAttributeByName("align"));
     }
 }
