@@ -7,9 +7,11 @@
     <@hst.setBundle basename="tableau.lables"/>
 
     <#if section?? && section.url??>
-        <@hst.headContribution>
+
+        <@hst.headContribution category="htmlBodyEnd">
             <script src="${section.tableauBase}javascripts/api/tableau-2.min.js"></script>
         </@hst.headContribution>
+
 
         <#assign divId = "tableau-${index}"/>
 
