@@ -7,7 +7,6 @@
         <#assign articleSectionClass = 'article-section-with-sub-heading navigationMarker-sub' />
     </#if>
 
-    <h4> websiteSection.ftl </h4>
     <#if section.title?has_content>
         <div id="${slugify(section.title)}" class="${articleSectionClass} <#if isPreviousSectionEmphasisBox>article-section--highlighted</#if>">
             <h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)} data-uipath="website.contentblock.section.title">

@@ -79,7 +79,7 @@
     
     <div class="nhsd-t-grid"> 
     <#if document.introduction?has_content>
-            <div class="nhsd-t-row nhsd-!t-margin-6">
+            <div class="nhsd-t-row nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-4">
                 <div class="nhsd-t-col-12">
                     <@hst.html hippohtml=document.introduction contentRewriter=brContentRewriter />
                 </div>
