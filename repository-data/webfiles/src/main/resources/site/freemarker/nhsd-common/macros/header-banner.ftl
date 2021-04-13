@@ -45,28 +45,9 @@
         <div class="nhsd-o-hero ${bgClass} ${textClass} ${textAlignmentClass}">
             <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
                 <div class="nhsd-t-row nhsd-t-row--centred">
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-6 nhsd-!t-no-gutters">
-                        <div class="nhsd-o-hero__content-box">
-                            <div class="nhsd-o-hero__content">
-                                <span class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6" data-uipath="document.title">${banner.title}</span>
-                                <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="document.summary"><@hst.html hippohtml=content contentRewriter=stripTagsContentRewriter/></span>
-
-                                <#if (button1?? && button1.text?has_content && button1.url?has_content) || (button2?? && button2.text?has_content && button2.url?has_content)>
-                                    <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed ${buttonAlignmentClass}">
-                                        <#if button1?? && button1.text?has_content && button1.url?has_content>
-                                            <a class="nhsd-a-button" href="${button1Url}">
-                                                <span class="nhsd-a-button__label">${button1Text}</span>
-                                            </a>
-                                        </#if>
-                                        <#if button2?? && button2.text?has_content && button2.url?has_content>
-                                            <a class="nhsd-a-button nhsd-a-button--invert" href="${button2Url}">
-                                                <span class="nhsd-a-button__label">${button2Text}</span>
-                                            </a>
-                                        </#if>
-                                    </nav>
-                                </#if>
-                            </div>
-                        </div>
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-9 nhsd-!t-text-align-l-left nhsd-!t-no-gutters">
+                            <span class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6 nhsd-!t-margin-top-6" data-uipath="document.title">${banner.title}</span>
+                            <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="document.summary"><@hst.html hippohtml=content contentRewriter=stripTagsContentRewriter/></span>
                     </div>
                 </div>
             </div>
