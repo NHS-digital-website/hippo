@@ -463,6 +463,16 @@ public class SiteSteps extends AbstractSpringSteps {
             sitePage.findCssClass(cssClass));
     }
 
+    @Then("the page should be in wide mode")
+    public void thenPageShouldBeWide() {
+        assertTrue(sitePage.isWideMode());
+    }
+
+    @Then("the page should not be in wide mode")
+    public void thenPageShouldNotBeWide() {
+        assertFalse(sitePage.isWideMode());
+    }
+
     @Then("^If I inspected the HTML, I should not find the \"([^\"]*)\" css class$")
     public void thenIfIInspectedTheHtmlIShouldNotFindThe(String cssClass) throws Throwable {
         assertNull("Cannot find the CSS class " + cssClass,
