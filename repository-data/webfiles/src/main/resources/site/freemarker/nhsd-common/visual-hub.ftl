@@ -92,36 +92,32 @@
         <#-- assign area the param value else, the first section in the list -->
         <#assign area = param???then(param, slugify(document.tileSections[0].tileSectionHeading)) />
 
-        <div class="grid-wrapper">
-            <div class="grid-row">
-                <@tabTileHeadings document.tileSections "service" area />
-            </div>
+        <div class="grid-row">
+            <@tabTileHeadings document.tileSections "service" area />
         </div>
 
-        <div class="grid-wrapper">
-            <#list document.tileSections as tileSection>
-                <#if slugify(tileSection.tileSectionHeading) == area>
-                    <div class="grid-row">
-                        <div class="tile-panel" role="tabpanel">
-                            <#list tileSection.tileSectionLinks as links>
-                                <#if links?is_odd_item || links?is_first>
-                                    <div class="tile-panel-group">
-                                </#if>
-                                <@tabTiles links/>
-                                <#if links?is_even_item || links?is_last>
-                                    </div>
-                                </#if>
-                            </#list>
-                        </div>
+        <#list document.tileSections as tileSection>
+            <#if slugify(tileSection.tileSectionHeading) == area>
+                <div class="grid-row">
+                    <div class="tile-panel" role="tabpanel">
+                        <#list tileSection.tileSectionLinks as links>
+                            <#if links?is_odd_item || links?is_first>
+                                <div class="tile-panel-group">
+                            </#if>
+                            <@tabTiles links/>
+                            <#if links?is_even_item || links?is_last>
+                                </div>
+                            </#if>
+                        </#list>
                     </div>
-                </#if>
-            </#list>
-        </div>
+                </div>
+            </#if>
+        </#list>
     </#if>
 
     <#if hasPrimaryLinks>
         <div class="nhsd-o-card-list">
-            <div class="nhsd-t-grid">
+            <div class="nhsd-t-grid nhsd-!t-no-gutters">
                 <div class="nhsd-t-row nhsd-o-card-list__items nhsd-t-row--centred">
                     <#list document.primarySections as primarySection>
                         <#list primarySection.primarySectionsTiles as link>
