@@ -23,7 +23,7 @@
                         <@typeSpan childPage.linkType />
 
                         <#if childPage.linkType == "external">
-                            <article class="nhsd-!t-margin-bottom-8">
+                            <article class="nhsd-!t-margin-bottom-6">
                                 <a class="nhsd-a-link" href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" target="_blank" rel="external">
                                     ${childPage.title}
                                     <span class="nhsd-t-sr-only">(external link, opens in a new tab)</span>
@@ -36,7 +36,7 @@
 
                     <#-- If internal link -->
                     <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
-                        <article class="nhsd-!t-margin-bottom-8">
+                        <article class="nhsd-!t-margin-bottom-6">
                             <@typeSpan "internal" />
                             <a class="nhsd-a-link" href="<@hst.link hippobean=childPage />">${childPage.title}</a>
                             <#if childPage.shortsummary?? && childPage.shortsummary?has_content>
