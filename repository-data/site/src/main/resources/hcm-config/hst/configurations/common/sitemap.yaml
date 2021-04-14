@@ -361,7 +361,25 @@ definitions:
         hst:relativecontentpath: icon-library
         jcr:primaryType: hst:sitemapitem
       /news:
+        /events:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/event
+            hst:relativecontentpath: /news/events/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/latestevents
+          hst:refId: eventsfeed
+          jcr:primaryType: hst:sitemapitem
+        /feed:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/news
+            hst:relativecontentpath: news/latest-news
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/latestnews
+          hst:refId: newsfeed
+          hst:relativecontentpath: feed
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/news-hub
+        hst:refId: newshomepage
         jcr:primaryType: hst:sitemapitem
       /news-and-events:
         /events:
