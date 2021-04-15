@@ -1,9 +1,13 @@
 package uk.nhs.digital.common.components.apicatalogue.filters;
 
 import static java.util.Collections.emptyList;
+import static java.util.stream.Collectors.toSet;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.commons.lang3.builder.*;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.List;
 import java.util.Set;
@@ -16,6 +20,18 @@ public class Filters implements Walkable {
     private List<Section> sections = emptyList();
 
     private List<Section> allSectionsFlattened;
+    private Set<String> selectedFiltersKeys;
+
+    public Filters initialisedWith(
+        final Set<String> filteredTaxonomyTags,
+        final Set<String> selectedTags
+    ) {
+        final FilterVisitor visitor = new StatusUpdatingFilterVisitor(filteredTaxonomyTags, selectedTags);
+
+        filtersWalker.walkVisitingAfterDescending(this, visitor);
+
+        return this;
+    }
 
     @Override
     public List<Section> children() {
@@ -40,15 +56,27 @@ public class Filters implements Walkable {
         return allSectionsFlattened;
     }
 
-    public Filters initialisedWith(
-        final Set<String> filteredTaxonomyTags,
-        final Set<String> selectedTags
-    ) {
-        final FilterVisitor visitor = new StatusUpdatingFilterVisitor(filteredTaxonomyTags, selectedTags);
+    // Invoked from the template, hence shown by IDE as not used (but still needed).
+    public Set<String> selectedFiltersKeysMinus(final String filterKey) {
+        return selectedFiltersKeys().stream()
+            .filter(key -> !key.equals(filterKey))
+            .collect(toSet());
+    }
 
-        filtersWalker.walkVisitingAfterDescending(this, visitor);
+    // Also invoked from the template.
+    public Set<String> selectedFiltersKeys() {
 
-        return this;
+        if (selectedFiltersKeys == null) {
+
+            selectedFiltersKeys = sectionsInOrderOfDeclaration().stream()
+                .filter(Subsection.class::isInstance)
+                .map(Subsection.class::cast)
+                .filter(Subsection::isSelected)
+                .map(Subsection::getKey)
+                .collect(toSet());
+        }
+
+        return selectedFiltersKeys;
     }
 
     public static Filters emptyInstance() {

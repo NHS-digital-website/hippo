@@ -9,8 +9,8 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.never;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.TestLogger.LogAssertor.*;
 import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.ApiSpecDocMockBuilder.localSpec;
+import static uk.nhs.digital.test.TestLogger.LogAssertor.*;
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
 
 import org.junit.After;
@@ -21,10 +21,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import uk.nhs.digital.TestLoggerRule;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.apispecs.model.OpenApiSpecification;
+import uk.nhs.digital.test.TestLoggerRule;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -325,8 +325,8 @@ public class ApiSpecificationPublicationServiceTest {
 
         // published before but not changed in Apigee - expect to not be updated nor published
         final String publishedNotChanged_id                = "publishedNotChanged";
-        final String publishedNotChangedRemote_modTime     = "2020-05-10T10:30:00.001Z";
-        final String publishedNotChangedOld_checkTime      = "2020-05-10T10:30:00.002Z";
+        final String publishedNotChangedRemote_modTime     =               "2020-05-10T10:30:00.001Z";
+        final String publishedNotChangedOld_checkTime      =               "2020-05-10T10:30:00.002Z";
         final Instant publishedNotChanged_newCheckTime     = Instant.parse("2020-05-10T10:30:00.002Z");
         final ApiSpecificationDocument publishedNotChanged_localSpec = localSpec()
             .withId(publishedNotChanged_id)
