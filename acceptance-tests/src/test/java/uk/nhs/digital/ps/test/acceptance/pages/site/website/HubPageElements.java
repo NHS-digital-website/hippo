@@ -28,7 +28,7 @@ public class HubPageElements implements PageElements {
     }
 
     private static String getDataUiPathXpath(String fieldName) {
-        return "@data-uipath='website.hub." + fieldName + "'";
+        return "@data-uipath='document." + fieldName + "'";
     }
 
     @Override
