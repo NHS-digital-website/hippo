@@ -12,10 +12,10 @@
     <#if childPages?has_content>
     <div class="nhsd-!t-margin-bottom-8" id="further-information">
         <h2 class="nhsd-t-heading-xl"><@fmt.message key="headers.further-information" /></h2>
-        <div class="nhsd-t-grid">
+        <div class="nhsd-t-grid nhsd-!t-no-gutters">
             <#list childPages as childPage>
                 <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-12">
+                    <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
                     <#-- If external link -->
                     <#if childPage.linkType??>
 
@@ -49,13 +49,13 @@
             </#list>
         </div>
 
-        <div class="nhsd-t-grid">
+        <div class="nhsd-t-grid nhsd-!t-no-gutters">
         <#list childPages as childPage>
             <div class="nhsd-t-row">
                 <#if childPage.linkType??>
                     <#-- If asset link -->
                     <#if childPage.linkType == "asset">
-                        <div class="nhsd-t-col-12">
+                        <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
                             <a href="<@hst.link hippobean=childPage.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
                                 <div class="block-link__header">
                                     <@fileIconByMimeType childPage.link.asset.mimeType></@fileIconByMimeType>
