@@ -40,7 +40,7 @@
                 <#if section.isNumberedList>
                     <#assign numberedListCount++ />
                 </#if>
-                <@websiteSection section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox numberedListCount=numberedListCount isLastSection=section?is_last mainHeadingLevel=mainHeadingLevel sectionCounter=section?counter />
+                <@websiteSection section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox numberedListCount=numberedListCount mainHeadingLevel=mainHeadingLevel sectionCounter=section?counter />
                 <#assign isPreviousEmphasisBox = false />
             <#elseif section.sectionType == 'image'>
                 <@imageSection section=section />
