@@ -1,4 +1,4 @@
-package uk.nhs.digital;
+package uk.nhs.digital.test;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
@@ -12,17 +12,17 @@ import java.util.Optional;
  * <p>
  * Example of use:
  * <pre>
- *     import static uk.nhs.digital.TestLogger.LogAssertor.*;
+ *     import static uk.nhs.digital.test.TestLogger.LogAssertor.*;
  *
  *     import org.junit.Rule;
- *     import uk.nhs.digital.TestLoggerRule;
+ *     import uk.nhs.digital.test.TestLoggerRule;
  *
  *     class MyTestClass {
  *
  *         private TestLogger logger;
  *
  *         &#64;Rule
- *         public TestLoggerRule logger = TestLoggerRule.targeting(ApiSpecificationPublicationService.class);
+ *         public TestLoggerRule logger = TestLoggerRule.targeting(MyClassUnderTest.class);
  *
  *         &#64;Test
  *         public void myTestMethod() {
@@ -76,20 +76,41 @@ public class TestLoggerRule implements TestRule {
     @Override public Statement apply(final Statement statement, final Description description) {
         return new Statement() {
 
-            @Override public void evaluate() {
+            @Override public void evaluate() throws Throwable {
 
                 try {
                     logger = TestLogger.initialiseFor(loggingClassUnderTest);
 
                     statement.evaluate();
 
-                } catch (final Throwable throwable) {
+                } finally {
                     Optional.ofNullable(logger).ifPresent(TestLogger::reset);
                 }
             }
         };
     }
 
+    /**
+     * <p>
+     * Asserts that the actual log contains entries corresponding to the expected ones
+     * given by the parameter.
+     * <p>
+     * Use static factory methods to construct expectations:
+     * <pre>
+     *   logger.shouldReceive(
+     *        info("Log message of level INFO"),
+     *        debug("Log message of level DEBUG"),
+     *        warn("Log message of level WARN"),
+     *        trace("Log message of level TRACE"),
+     *        error("Log message of level ERROR")
+     *            .withException("Message of the exception associated with the error log.")
+     *                .withCause("Message of the CAUSE exception associated with the exception logged as ERROR.")
+     *   );
+     * </pre>
+     * @param logEntries Expected log entries built using static factory methods from {@linkplain TestLogger.LogAssertor}.
+     *
+     * @throws AssertionError When the logs did not contain expected entries.
+     */
     public void shouldReceive(final TestLogger.LogAssertor... logEntries) {
         logger.shouldReceive(logEntries);
     }

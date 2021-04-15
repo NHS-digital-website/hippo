@@ -1,39 +1,41 @@
-package uk.nhs.digital;
+package uk.nhs.digital.test;
 
 import static ch.qos.logback.classic.Level.*;
-import static java.util.stream.Collectors.joining;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
-import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.TestLogger.LogAssertor.assertLogs;
 
 import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.core.Appender;
+import org.hamcrest.MatcherAssert;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * <p>
  * Provides convenient DSL and assertion to aid in validating that desired statements have been logged.
  * <p>
- * Can be used directly or via {@linkplain TestLoggerRule} (recommended).
+ * Can be used directly or via {@linkplain TestLoggerRule} (<b>recommended</b>).
  * <p>
- * If using directly, remember to call {@linkplain #reset()} method after each test!
+ * <b>If using directly, remember to call {@linkplain #reset()} method after each test, else you're
+ * risking breaking tests unrelated to your current one, in a way that is hard to debug!</b>
+ * The aforementioned rule takes care of that for you.
  * <p>
  * Example of direct use:
  * <pre>
- *     import static uk.nhs.digital.TestLogger.LogAssertor.*;
+ *     import static uk.nhs.digital.test.TestLogger.LogAssertor.*;
  *
- *     import uk.nhs.digital.TestLogger;
+ *     import uk.nhs.digital.test.TestLogger;
  *
  *     class MyTestClass {
  *
@@ -72,14 +74,14 @@ import java.util.Optional;
  *             // then
  *             // ...assert that expected statements have been logged:
  *             logger.shouldReceive(
-*                  info("Log message of level INFO"),
-*                  debug("Log message of level DEBUG"),
-*                  warn("Log message of level WARN"),
-*                  trace("Log message of level TRACE"),
-*                  error("Log message of level ERROR")
-*                      .withException("Message of the exception associated with the error log.")
-*                          .withCause("Message of the CAUSE exception associated with the exception logged as ERROR.")
-*              );
+ *                 info("Log message of level INFO"),
+ *                 debug("Log message of level DEBUG"),
+ *                 warn("Log message of level WARN"),
+ *                 trace("Log message of level TRACE"),
+ *                 error("Log message of level ERROR")
+ *                     .withException("Message of the exception associated with the error log.")
+ *                         .withCause("Message of the CAUSE exception associated with the exception logged as ERROR.")
+ *             );
  *         }
  *     }
  * </pre>
@@ -97,7 +99,7 @@ public class TestLogger {
     private TestLogger(final Class<?> loggingClassUnderTest) {
         this.loggingClassUnderTest = loggingClassUnderTest;
 
-        initMocks(this);
+        MockitoAnnotations.initMocks(this);
 
         registerMockAppenderFor(loggingClassUnderTest);
     }
@@ -107,21 +109,19 @@ public class TestLogger {
     }
 
     public void reset() {
-        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(loggingClassUnderTest))
-            .detachAppender(appender);
+        loggerFor(loggingClassUnderTest).detachAppender(appender);
     }
 
     public void shouldReceive(final LogAssertor... expectedLogEntries) {
-        assertLogs(appender, loggerArgCaptor, expectedLogEntries);
+        LogAssertor.assertLogs(appender, loggerArgCaptor, expectedLogEntries);
     }
 
     private void registerMockAppenderFor(final Class<?> loggingClassUnderTest) {
-        deregisterMockAppenderFor(loggingClassUnderTest);
+        loggerFor(loggingClassUnderTest).addAppender(appender);
     }
 
-    private void deregisterMockAppenderFor(final Class<?> loggingClassUnderTest) {
-        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(loggingClassUnderTest))
-            .addAppender(appender);
+    private Logger loggerFor(final Class<?> loggingClassUnderTest) {
+        return (Logger) LoggerFactory.getLogger(loggingClassUnderTest);
     }
 
     public static class LogAssertor {
@@ -191,7 +191,7 @@ public class TestLogger {
                     .append(expected.causeMessage()
                         .map(causeMessage -> "\n    CAUSE: " + causeMessage).orElse(""))
                     .toString())
-                .collect(joining("\n"));
+                .collect(Collectors.joining("\n"));
 
             final String actualLog = loggerArgCaptor.getAllValues().stream()
                 .map(actual -> new StringBuilder()
@@ -203,9 +203,9 @@ public class TestLogger {
                     .append(Optional.ofNullable(actual.getThrowableProxy()).map(IThrowableProxy::getCause)
                         .map(IThrowableProxy::getMessage).map(message -> "\n    CAUSE: " + message).orElse(""))
                     .toString())
-                .collect(joining("\n"));
+                .collect(Collectors.joining("\n"));
 
-            assertThat("Key events are logged.", actualLog, is(expectedLog));
+            MatcherAssert.assertThat("Key events are logged.", actualLog, is(expectedLog));
         }
     }
 }

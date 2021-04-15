@@ -13,7 +13,6 @@ import uk.nhs.digital.website.beans.ComponentList;
 import uk.nhs.digital.website.beans.Internallink;
 
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.jcr.RepositoryException;
@@ -23,13 +22,11 @@ public class ApiCatalogueComponent extends BaseGaContentComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
 
-    private static final Predicate<Internallink> INTERNAL_LINKS = link -> link.getLinkType().equals("internal");
-
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        final Set<String> selectedTags = userSelectedTagsFrom(request);
+        final Set<String> selectedTags = userSelectedTaxonomyKeysFrom(request);
 
         final List<?> apiCatalogueLinksAll = apiCatalogueLinksFrom(request);
 
@@ -51,13 +48,12 @@ public class ApiCatalogueComponent extends BaseGaContentComponent {
         }
     }
 
-    private static Set<String> userSelectedTagsFrom(final HstRequest request) {
-        // We only support (and expect) a single value passed as filters.
-        // Support for multiple values is planned to be added later.
-
+    private static Set<String> userSelectedTaxonomyKeysFrom(final HstRequest request) {
         return Optional.ofNullable(request.getParameter("filters"))
-            .map(filter -> new HashSet<>(Collections.singleton(filter)))
-            .orElse(new HashSet<>());
+            .map(commaDelimitedKeys -> commaDelimitedKeys.split(","))
+            .map(Arrays::stream)
+            .map(taxonomyKeys -> taxonomyKeys.collect(Collectors.toSet()))
+            .orElse(Collections.emptySet());
     }
 
     private List<?> apiCatalogueLinksFrom(final HstRequest request) {
@@ -70,44 +66,50 @@ public class ApiCatalogueComponent extends BaseGaContentComponent {
             return links;
         }
 
-        return internalLinksWithSelectedTags(links, selectedTags).collect(toList());
+        return internalLinksWithSelectedTaxonomyKeys(links, selectedTags).collect(toList());
     }
 
     private Filters filtersModel(final List<?> apiCatalogueLinks, final Set<String> selectedTags, final Session session) {
 
-        return getMappingYaml(session)
-            .map(mappingYaml -> {
-                final Set<String> filteredTaxonomyTags = filteredTaxonomyTags(selectedTags, apiCatalogueLinks);
+        try {
+            return getMappingYaml(session)
+                .map(mappingYaml -> {
+                    final Set<String> filteredTaxonomyTags = filteredTaxonomyKeys(selectedTags, apiCatalogueLinks);
 
-                return ApiCatalogueContext
-                    .filtersFactory()
-                    .filtersFromYaml(mappingYaml)
-                    .initialisedWith(filteredTaxonomyTags, selectedTags);
-            })
-            .orElse(Filters.emptyInstance());
+                    return ApiCatalogueContext.filtersFactory().filtersFromYaml(mappingYaml)
+                        .initialisedWith(filteredTaxonomyTags, selectedTags);
+                })
+                .orElse(Filters.emptyInstance());
+        } catch (final Exception e) {
+            // We deliberately not propagate the exception as it would break rendering of the page.
+            // As it is, it's only the Filters section that won't be rendered but the content
+            // will continue being displayed.
+            log.error("Failed to generate Filters model.", e);
+        }
+
+        return Filters.emptyInstance();
     }
 
-    private Set<String> filteredTaxonomyTags(final Set<String> selectedTags, final List<?> links) {
-        return internalLinksWithSelectedTags(links, selectedTags)
-            .flatMap(internallink -> getTagsFromLink(internallink).stream())
+    private Set<String> filteredTaxonomyKeys(final Set<String> selectedTaxonomyKeys, final List<?> links) {
+        return internalLinksWithSelectedTaxonomyKeys(links, selectedTaxonomyKeys)
+            .flatMap(internallink -> allTaxonomyKeysOfDocumentReferencedBy(internallink).stream())
             .collect(Collectors.toSet());
     }
 
-    private Stream<Internallink> internalLinksWithSelectedTags(final List<?> links, final Set<String> selectedTags) {
+    private Stream<Internallink> internalLinksWithSelectedTaxonomyKeys(final List<?> links, final Set<String> selectedTags) {
 
         return links.stream()
             .filter(Internallink.class::isInstance)
             .map(Internallink.class::cast)
-            .filter(INTERNAL_LINKS)
-            .filter(link -> linkHasSelectedTags(link, selectedTags));
+            .filter(link -> linkHasSelectedTaxonomyKeys(link, selectedTags));
     }
 
-    private boolean linkHasSelectedTags(final Internallink link, final Set<String> selectedTags) {
-        final Set<String> taxonomyKeys = getTagsFromLink(link);
-        return selectedTags.isEmpty() || taxonomyKeys.stream().anyMatch(selectedTags::contains);
+    private boolean linkHasSelectedTaxonomyKeys(final Internallink link, final Set<String> selectedTags) {
+        final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfDocumentReferencedBy(link);
+        return selectedTags.isEmpty() || taxonomyKeysOfLinkedDoc.containsAll(selectedTags);
     }
 
-    private static Set<String> getTagsFromLink(final Internallink link) {
+    private static Set<String> allTaxonomyKeysOfDocumentReferencedBy(final Internallink link) {
         return new HashSet<>(Arrays.asList((String[]) link
             .getLink()
             .getProperties()

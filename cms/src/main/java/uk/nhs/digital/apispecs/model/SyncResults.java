@@ -1,15 +1,15 @@
 package uk.nhs.digital.apispecs.model;
 
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.toList;
 
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableList;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SyncResults {
 
-    private final Set<SyncResults.SyncResult> results = new HashSet<>();
+    private final List<SyncResult> results = new ArrayList<>();
 
     static SyncResults.SyncResult from(final SpecificationSyncData specificationSyncData) {
         return new SyncResults.SyncResult(
@@ -32,24 +32,24 @@ public class SyncResults {
         return this;
     }
 
-    public Set<SyncResults.SyncResult> eligible() {
-        return results.stream().filter(SyncResults.SyncResult::eligible).collect(toSet());
+    public List<SyncResult> eligible() {
+        return results.stream().filter(SyncResults.SyncResult::eligible).collect(toList());
     }
 
-    public Set<SyncResults.SyncResult> published() {
-        return results.stream().filter(SyncResults.SyncResult::published).collect(toSet());
+    public List<SyncResult> published() {
+        return results.stream().filter(SyncResults.SyncResult::published).collect(toList());
     }
 
-    public Set<SyncResults.SyncResult> failed() {
-        return results.stream().filter(SyncResults.SyncResult::failed).collect(toSet());
+    public List<SyncResult> failed() {
+        return results.stream().filter(SyncResults.SyncResult::failed).collect(toList());
     }
 
-    private Set<SyncResults.SyncResult> results() {
-        return ImmutableSet.copyOf(results);
+    public List<SyncResult> skipped() {
+        return results.stream().filter(SyncResult::skipped).collect(toList());
     }
 
-    public Set<SyncResult> skipped() {
-        return results.stream().filter(SyncResult::skipped).collect(toSet());
+    private List<SyncResults.SyncResult> results() {
+        return ImmutableList.copyOf(results);
     }
 
     public static class SyncResult {
