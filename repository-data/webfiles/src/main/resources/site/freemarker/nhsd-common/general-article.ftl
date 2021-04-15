@@ -104,6 +104,9 @@
                 </#if>
 
                 <#if hasChildPages>
+                    <#if (hasSectionContent && (document.latestNews?has_content || !document.relatedNews?has_content) ) >
+                        <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-bottom-6" />
+                    </#if>
                     <@furtherInformationSection childPages></@furtherInformationSection>
                 </#if>
 
