@@ -1,83 +1,96 @@
 package uk.nhs.digital.common.contentrewriters;
 
-import org.apache.commons.lang3.*;
 import org.hippoecm.hst.configuration.hosting.*;
-import org.hippoecm.hst.content.beans.*;
-import org.hippoecm.hst.content.beans.manager.*;
-import org.hippoecm.hst.content.beans.standard.*;
-import org.hippoecm.hst.content.rewriter.impl.*;
 import org.hippoecm.hst.core.request.*;
-import org.htmlcleaner.*;
-import org.slf4j.*;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
-import javax.jcr.*;
 import javax.jcr.Node;
 
-public class BrandRefreshContentRewriter extends SimpleContentRewriter {
+public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter {
 
-    private static final Logger log =
-        LoggerFactory.getLogger(BrandRefreshContentRewriter.class);
+    public String rewrite(String html, Node hippoHtmlNode, HstRequestContext requestContext, Mount targetMount) {
 
-    private static boolean htmlCleanerInitialized;
-    private static HtmlCleaner cleaner;
+        html = super.rewrite(html, hippoHtmlNode, requestContext, targetMount);
 
-    private static synchronized void initCleaner() {
-        if (!htmlCleanerInitialized) {
-            cleaner = new HtmlCleaner();
-            CleanerProperties properties = cleaner.getProperties();
-            properties.setOmitComments(true);
-            properties.setRecognizeUnicodeChars(false);
-            htmlCleanerInitialized = true;
+        Document document = Jsoup.parse(html);
+
+        // normal
+        if (document.select("p").first() != null) {
+            document.select("p").attr("class", "nhsd-t-body");
         }
-    }
 
-    protected static HtmlCleaner getHtmlCleaner() {
-        if (!htmlCleanerInitialized) {
-            initCleaner();
+        // heading 2
+        if (document.select("h2").first() != null) {
+            document.select("h2").attr("class", "nhsd-t-heading-xl");
         }
-        return cleaner;
-    }
-    
-    @Override
-    public String rewrite(final String html, final Node node,
-                          final HstRequestContext requestContext,
-                          final Mount targetMount) {
 
-        if (html == null || HTML_TAG_PATTERN.matcher(html).find() 
-            || BODY_TAG_PATTERN.matcher(html).find()) {
-            // content is empty
-            return null;
+        // heading 3
+        if (document.select("h3").first() != null) {
+            document.select("h3").attr("class", "nhsd-t-heading-l");
         }
-        try {
-            TagNode rootNode = getHtmlCleaner().clean(html);
-            //Add styling to <p> tag
-            TagNode[] paragraphs = rootNode.getElementsByName("p", true);
 
-            for (TagNode paragraph : paragraphs) {
-                paragraph.addAttribute("class", "nhsd-t-body");
+        // heading 4
+        if (document.select("h4").first() != null) {
+            document.select("h4").attr("class", "nhsd-t-heading-m");
+        }
+
+        // code
+        if (document.select("code").first() != null) {
+            Elements code = document.select("code");
+            code.tagName("span").attr("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code");
+        }
+
+        // numbered list
+        if (document.select("ol").first() != null) {
+            document.select("ol").attr("class", "nhsd-t-list nhsd-t-list--number");
+        }
+
+        // bullet point list
+        if (document.select("ul").first() != null) {
+            document.select("ul").attr("class", "nhsd-t-list nhsd-t-list--bullet");
+        }
+
+        // external link
+        if (document.select("a").first() != null) {
+            document.select("a").attr("class", "nhsd-a-link");
+        }
+
+        // image
+        if (document.select("img").first() != null) {
+            document.select("img")
+                    .wrap("<figure class=\"nhsd-a-image nhsd-a-image--round-corners\"><picture class=\"nhsd-a-image__picture\"></picture></figure>");
+
+        }
+
+        // table
+        if (document.select("table").first() != null) {
+            document.select("table")
+                    .wrap("<div class=\"nhsd-m-table nhsd-t-body\"></div>")
+                    .attr("data-responsive", "");
+
+            for (Element table : document.select("table")) {
+                if (table.id().equals("cannotsort") && table.select("th").first() != null) {
+                    table.select("th").attr("data-no-sort", "");
+                }
+
+                if (table.child(0).tagName().equals("caption")) {
+                    Element caption = table.child(0);
+                    table.prepend(String.format("<p class=\"nhsd-t-heading-xl nhsd-!t-margin-bottom-6\">%s</p>", caption.text()));
+                    caption.remove();
+                }
             }
-
-            //Add styling to links within the <p> tag
-            TagNode[] links = rootNode.getElementsByName("a", true);
-
-            for (TagNode link : links) {
-                link.addAttribute("class", "nhsd-a-link");
-            }
-
-            // everything is rewritten. Now write the "body" element
-            // as result
-            TagNode [] targetNodes =
-                            rootNode.getElementsByName("body", true);
-            if (targetNodes.length > 0 ) {
-                TagNode bodyNode = targetNodes[0];
-                return getHtmlCleaner().getInnerHtml(bodyNode);
-            } else {
-                log.warn("Cannot rewrite content for '{}' because there is no 'body' element" + node.getPath());
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
 
-        return null;
+        // mathjax
+        if (document.select("span.math-tex").first() != null) {
+            for (Element math : document.select("span.math-tex")) {
+                math.parent().attr("style", "text-align:center");
+            }
+        }
+
+        return String.valueOf(document);
     }
 }
