@@ -3,6 +3,7 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Video" -->
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
@@ -54,8 +55,7 @@
                                     <#elseif isCtaDoc>
                                         ${document.content}
                                     <#elseif isVideoDoc>
-                                        <@hst.html hippohtml=document.introduction var="summaryText" />
-                                        ${summaryText?replace('<[^>]+>','','r')}
+                                        ${document.getShortsummary()}
                                     </#if>
                                 </p>
                             </#if>
