@@ -5,10 +5,12 @@ definitions:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.DocumentChildComponent
         hst:parameternames:
+        - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
         - stripTagsContentRewriter
         - stripTagsWithLinksContentRewriter
         hst:parametervalues:
+        - 'true'
         - 'true'
         - 'true'
         - 'true'
