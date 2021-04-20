@@ -1,7 +1,6 @@
 package uk.nhs.digital.test.util;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
-import org.jetbrains.annotations.NotNull;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -20,35 +19,35 @@ public class AssertionUtils {
     ) {
         FieldUtils.getFieldsListWithAnnotation(targetClass, annotationClass)
             .stream()
-            .filter(fieldsWithname(fieldName))
+            .filter(fieldsWithName(fieldName))
             .findFirst()
             .map(fieldToItsAnnotationOfType(annotationClass))
             .map(annotationToValueOfItsAttributeWith(annotationAttributeName))
             .filter(attributesWithValueMatching(annotationAttributeValue))
             .orElseThrow(() ->
                 //noinspection ThrowableNotThrown
-                new AssertionError(
-                    "No matching field was found on given class.\n"
-                        + "\n              On class '" + targetClass.getName() + "'"
-                        + "\nexpected to find field '" + fieldName + "'"
-                        + "\n       with annotation '" + annotationClass.getName() + "'"
-                        + "\n        with attribute '" + annotationAttributeName + "'"
-                        + "\n                set to '" + annotationAttributeValue + "'"
-                        + "\n"
-                        + "\n...but no field was found to match all of these conditions."
-                )
+                new AssertionError(String.join("\n",
+                    "No matching field was found on given class.",
+                    "              On class '" + targetClass.getName() + "'",
+                    "expected to find field '" + fieldName + "'",
+                    "       with annotation '" + annotationClass.getName() + "'",
+                    "        with attribute '" + annotationAttributeName + "'",
+                    "                set to '" + annotationAttributeValue + "'",
+                    "",
+                    "...but no field was found to match all of these conditions."
+                ))
             );
     }
 
-    @NotNull private static Predicate<Object> attributesWithValueMatching(final Object annotationAttributeValue) {
+    private static Predicate<Object> attributesWithValueMatching(final Object annotationAttributeValue) {
         return obj -> annotationAttributeValue.equals(obj);
     }
 
-    @NotNull private static <A extends Annotation> Function<Field, A> fieldToItsAnnotationOfType(final Class<A> annotationClass) {
+    private static <A extends Annotation> Function<Field, A> fieldToItsAnnotationOfType(final Class<A> annotationClass) {
         return field -> field.getAnnotation(annotationClass);
     }
 
-    @NotNull private static <A extends Annotation> Function<A, Object> annotationToValueOfItsAttributeWith(final String annotationAttributeName) {
+    private static <A extends Annotation> Function<A, Object> annotationToValueOfItsAttributeWith(final String annotationAttributeName) {
         return annotationInstance -> {
             try {
                 final Method method = annotationInstance
@@ -68,7 +67,7 @@ public class AssertionUtils {
         };
     }
 
-    private static Predicate<Field> fieldsWithname(final String fieldName) {
+    private static Predicate<Field> fieldsWithName(final String fieldName) {
         return field -> field.getName().equals(fieldName);
     }
 }

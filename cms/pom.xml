@@ -320,6 +320,13 @@
         </dependency>
 
         <dependency>
+            <groupId>uk.nhs.digital</groupId>
+            <artifactId>test-resources</artifactId>
+            <version>${revision}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.atlassian.commonmark</groupId>
             <artifactId>commonmark-ext-gfm-tables</artifactId>
         </dependency>
