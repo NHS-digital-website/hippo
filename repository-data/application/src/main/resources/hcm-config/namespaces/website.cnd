@@ -462,3 +462,5 @@
 [website:visualinternallink] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:taxonomymapping] > common:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable

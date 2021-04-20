@@ -7,9 +7,9 @@
 <#include "macro/component/lastModified.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
-<#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.Filters" -->
-<#-- @ftlvariable name="section" type="uk.nhs.digital.common.components.apicatalogue.Section" -->
-<#-- @ftlvariable name="filter" type="uk.nhs.digital.common.components.apicatalogue.Subsection" -->
+<#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
+<#-- @ftlvariable name="section" type="uk.nhs.digital.common.components.apicatalogue.filters.Section" -->
+<#-- @ftlvariable name="filter" type="uk.nhs.digital.common.components.apicatalogue.filters.Subsection" -->
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -52,7 +52,7 @@
                 <div class="column column--one-third page-block page-block--sidebar">
                     <@alphabeticalFilterNav alphabetical_hash></@alphabeticalFilterNav>
 
-                    <#if filtersModel??>
+                    <#if filtersModel?? && !filtersModel.isEmpty()>
                         <div class="article-section-nav-wrapper">
                             <div class="article-section-nav">
                                 <h2 class="article-section-nav__title">Filters</h2>

@@ -9,11 +9,11 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.spy;
 import static org.powermock.api.mockito.PowerMockito.*;
-import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
 import static uk.nhs.digital.test.util.JcrTestUtils.*;
 import static uk.nhs.digital.test.util.JcrTestUtils.BloomReachJcrDocumentVariantType.DRAFT;
 import static uk.nhs.digital.test.util.MockJcrRepoProvider.initJcrRepoFromYaml;
 import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
+import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.collect.ImmutableMap;

@@ -83,6 +83,8 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
 
     private void registerService() {
 
+        log.info("Registering S3 connector service.");
+
         final S3Connector s3Connector = new S3SdkConnector(
             getAmazonS3Client(),
             params.getS3Bucket(),
@@ -100,17 +102,23 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
         );
 
         HippoServiceRegistry.register(pooledS3Connector, PooledS3Connector.class);
+
+        log.info("S3 connector service has been registered.");
     }
 
     private void unregisterServiceIfRegistered() {
 
         if (HippoServiceRegistry.getService(PooledS3Connector.class) != null) {
 
+            log.info("Unregistering S3 connector service.");
+
             HippoServiceRegistry.unregister(pooledS3Connector, PooledS3Connector.class);
 
             // null checks protect against failed doInitialize/doConfigure
             Optional.ofNullable(downloadExecutorService).ifPresent(ExecutorService::shutdown);
             Optional.ofNullable(uploadExecutorService).ifPresent(ExecutorService::shutdown);
+
+            log.info("S3 connector service has been unregistered.");
         }
     }
 
