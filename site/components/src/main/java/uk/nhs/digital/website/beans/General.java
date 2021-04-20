@@ -65,4 +65,9 @@ public class General extends CommonFieldsBean {
     public CorporateWebsiteImageset getImage() {
         return getLinkedBean("website:image", CorporateWebsiteImageset.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "website:noindexcontrol")
+    public boolean getNoIndexControl() {
+        return getSingleProperty("website:noindexcontrol");
+    }
 }
