@@ -17,7 +17,7 @@
                 </#if>
                 <div  id="${letter?lower_case}" class="nhsd-t-flex" data-uipath="website.glossary.list">
                     <div class="nhsd-!t-margin-right-5">
-                        <span class="nhsd-a-character-block nhsd-a-character-block--large nhsd-t-display-sticky nhsd-t-display-sticky--offset-2">${letter}</span>
+                        <span class="nhsd-a-character-block nhsd-a-character-block--large nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">${letter}</span>
                     </div>
                     <div class="nhsd-t-flex-item--grow" data-filter-results-item>
                         <#list blockGroups[letter] as block>
