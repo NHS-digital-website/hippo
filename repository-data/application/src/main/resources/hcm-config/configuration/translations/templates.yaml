@@ -792,6 +792,11 @@ definitions:
           jcr:name: Neighbourhood Dashboard
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:taxonomymapping:
+        /en:
+          jcr:name: Taxonomy Mapping
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:team:
         /en:
           jcr:name: Team

@@ -1,22 +1,22 @@
-package uk.nhs.digital.common.components.apicatalogue;
+package uk.nhs.digital.common.components.apicatalogue.filters;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static uk.nhs.digital.common.components.apicatalogue.Section.section;
-import static uk.nhs.digital.common.components.apicatalogue.Subsection.subsection;
+import static uk.nhs.digital.common.components.apicatalogue.filters.FiltersTestUtils.section;
+import static uk.nhs.digital.common.components.apicatalogue.filters.FiltersTestUtils.subsection;
 
+import com.google.common.collect.ImmutableSet;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.function.Consumer;
 
 @RunWith(DataProviderRunner.class)
-public class UpdatingFilterVisitorTest {
+public class StatusUpdatingFilterVisitorTest {
 
     @Test
     public void marksSectionAsDisplayed_whenAnyChildSubsectionTagIsDisplayed() {
@@ -29,7 +29,7 @@ public class UpdatingFilterVisitorTest {
 
         updateSubsection(section, "tag-b", Section::display);
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             irrelevantSelectedTags()
         );
@@ -52,7 +52,7 @@ public class UpdatingFilterVisitorTest {
 
         updateSubsections(section, Section::hide, "tag-a", "tag-b");
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             irrelevantSelectedTags()
         );
@@ -75,7 +75,7 @@ public class UpdatingFilterVisitorTest {
 
         updateSubsection(actualSection, "tag-b", Subsection::select);
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             irrelevantSelectedTags()
         );
@@ -98,7 +98,7 @@ public class UpdatingFilterVisitorTest {
 
         updateSubsection(actualSection, "tag-b", Subsection::expand);
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             irrelevantSelectedTags()
         );
@@ -119,7 +119,7 @@ public class UpdatingFilterVisitorTest {
             subsection("Tag B", "tag-b")
         );
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantSelectedTags(),
             irrelevantSelectedTags()
         );
@@ -142,7 +142,7 @@ public class UpdatingFilterVisitorTest {
 
         updateSubsection(subsection, "tag-b", Subsection::display);
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             irrelevantSelectedTags()
         );
@@ -163,7 +163,7 @@ public class UpdatingFilterVisitorTest {
             subsection("Tag C", "tag-c")
         );
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-a", "tag-d"),
             irrelevantSelectedTags()
         );
@@ -186,7 +186,7 @@ public class UpdatingFilterVisitorTest {
 
         updateSubsection(subsection, "tag-c", Subsection::display);
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             irrelevantSelectedTags()
         );
@@ -207,7 +207,7 @@ public class UpdatingFilterVisitorTest {
             subsection("Tag C", "tag-c")
         );
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             irrelevantSelectedTags()
         );
@@ -228,7 +228,7 @@ public class UpdatingFilterVisitorTest {
             subsection("Tag C", "tag-c")
         );
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-a", "tag-d"),
             irrelevantSelectedTags()
         );
@@ -249,7 +249,7 @@ public class UpdatingFilterVisitorTest {
             subsection("Tag C", "tag-c")
         );
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-c", "tag-d"),
             irrelevantSelectedTags()
         );
@@ -270,7 +270,7 @@ public class UpdatingFilterVisitorTest {
             subsection("Tag C", "tag-c")
         );
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             selectedTags("tag-a", "tag-d")
         );
@@ -291,7 +291,7 @@ public class UpdatingFilterVisitorTest {
             subsection("Tag C", "tag-c")
         );
 
-        final UpdatingFilterVisitor filterVisitor = visitorWith(
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
             selectedTags("tag-c", "tag-d")
         );
@@ -303,26 +303,27 @@ public class UpdatingFilterVisitorTest {
         assertThat("Subsection is marked as not selected.", subsection.isSelected(), is(false));
     }
 
-    private void updateSubsections(
+    public static void updateSubsections(
         final Section section,
         final Consumer<Subsection> mutator,
         final String... keys
     ) {
-        Arrays.stream(keys).forEach(s -> updateSubsection(section, s, mutator));
+        Arrays.stream(keys).forEach(subsection -> updateSubsection(section, subsection, mutator));
     }
 
-    private void updateSubsection(
+    public static void updateSubsection(
         final Section section,
         final String key,
-        final Consumer<Subsection> mutator) {
+        final Consumer<Subsection> mutator
+    ) {
         section.getEntries().stream()
             .filter(subsection -> subsection.getKey().equals(key))
             .findFirst()
             .ifPresent(mutator);
     }
 
-    private UpdatingFilterVisitor visitorWith(final List<String> filteredTags, final List<String> selectedTags) {
-        return new UpdatingFilterVisitor(new HashSet<>(filteredTags), new HashSet<>(selectedTags));
+    private StatusUpdatingFilterVisitor visitorWith(final List<String> filteredTags, final List<String> selectedTags) {
+        return new StatusUpdatingFilterVisitor(ImmutableSet.copyOf(filteredTags), ImmutableSet.copyOf(selectedTags));
     }
 
     private List<String> filteredTags(final String... tags) {

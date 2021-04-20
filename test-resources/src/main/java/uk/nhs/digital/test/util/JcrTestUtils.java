@@ -1,11 +1,13 @@
 package uk.nhs.digital.test.util;
 
-import static uk.nhs.digital.ExceptionUtils.wrapCheckedException;
-import static uk.nhs.digital.JcrNodeUtils.streamOf;
+import static uk.nhs.digital.test.util.ExceptionTestUtils.*;
 
 import java.time.Instant;
 import java.util.Optional;
+import java.util.Spliterator;
+import java.util.Spliterators;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -76,6 +78,15 @@ public class JcrTestUtils {
     public static Optional<Instant> findInstantProperty(final Node node, final String propertyName) {
         return findStringProperty(node, propertyName).map(Instant::parse);
 
+    }
+
+    @SuppressWarnings("unchecked") // it's guaranteed that NodeIterator operates on instances of Node class
+    public static Stream<Node> streamOf(final NodeIterator nodeIterator) {
+
+        return StreamSupport.stream(
+            Spliterators.<Node>spliteratorUnknownSize(nodeIterator, Spliterator.ORDERED),
+            false
+        );
     }
 
     public enum BloomReachJcrDocumentVariantType {

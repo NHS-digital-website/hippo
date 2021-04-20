@@ -3,6 +3,7 @@ package uk.nhs.digital.apispecs.swagger;
 import io.swagger.codegen.v3.CodegenConstants;
 import io.swagger.codegen.v3.CodegenOperation;
 import io.swagger.codegen.v3.DefaultGenerator;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
@@ -12,6 +13,7 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.tags.Tag;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -171,4 +173,11 @@ public class CodegenDefaultGenerator extends DefaultGenerator {
         }
         return authMethods;
     }
+
+    @Override
+    public List<File> generate() {
+        openAPI.setComponents(new Components());
+        return super.generate();
+    }
+
 }
