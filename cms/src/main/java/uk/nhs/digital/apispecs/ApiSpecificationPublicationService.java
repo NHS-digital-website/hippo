@@ -21,13 +21,14 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 
+
 public class ApiSpecificationPublicationService {
 
     private static final Logger log = LoggerFactory.getLogger(ApiSpecificationPublicationService.class);
 
-    private OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter;
-    private OpenApiSpecificationRepository remoteSpecRepository;
-    private ApiSpecificationDocumentRepository localSpecRepository;
+    private final OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter;
+    private final OpenApiSpecificationRepository remoteSpecRepository;
+    private final ApiSpecificationDocumentRepository localSpecRepository;
 
     public ApiSpecificationPublicationService(final OpenApiSpecificationRepository remoteSpecRepository,
                                               final ApiSpecificationDocumentRepository localSpecRepository,

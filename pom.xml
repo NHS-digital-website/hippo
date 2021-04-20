@@ -353,7 +353,6 @@
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.testing.jcr-mock</artifactId>
                 <version>1.4.4</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
@@ -364,6 +363,11 @@
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-xml</artifactId>
                 <version>2.11.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.onehippo.cms7</groupId>
+                <artifactId>hippo-repository-mockutils</artifactId>
+                <version>${bloomreach.version}</version>
             </dependency>
 
             <!-- Although we don't explicitly use these dependencies, there are conflicts
@@ -833,6 +837,7 @@
                 <module>repository</module>
                 <module>site</module>
                 <module>acceptance-tests</module>
+                <module>test-resources</module>
             </modules>
         </profile>
 

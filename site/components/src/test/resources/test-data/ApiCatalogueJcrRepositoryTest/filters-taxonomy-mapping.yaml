@@ -1,0 +1,98 @@
+/content:
+  hippo:name: Content
+  hippostd:foldertype:
+    - new-document
+    - new-folder
+  jcr:mixinTypes:
+    - hippo:named
+    - mix:versionable
+  jcr:primaryType: hippostd:folder
+  /documents:
+    hippo:name: Documents
+    hippostd:foldertype:
+      - new-document
+      - new-folder
+    jcr:mixinTypes:
+      - hippo:named
+      - mix:versionable
+    jcr:primaryType: hippostd:folder
+    /administration:
+      hippo:name: Administration
+      hippostd:foldertype:
+        - new-document
+        - new-folder
+      jcr:mixinTypes:
+        - hippo:named
+        - mix:versionable
+      jcr:primaryType: hippostd:folder
+      /website:
+        hippo:name: Website
+        hippostd:foldertype:
+          - new-document
+          - new-folder
+        jcr:mixinTypes:
+          - hippo:named
+          - mix:versionable
+        jcr:primaryType: hippostd:folder
+        /developer-hub:
+          hippo:name: DeveloperHub
+          hippostd:foldertype:
+            - new-document
+            - new-folder
+          jcr:mixinTypes:
+            - hippo:named
+            - mix:versionable
+          jcr:primaryType: hippostd:folder
+          /taxonomy-filters-mapping:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: cb7449f4-930c-4a51-9bfd-b0a562c8700e
+            hippo:name: Taxonomy Filters Mapping
+            hippo:versionHistory: b890308f-1e24-4b30-89a1-3a5de803291b
+            /taxonomy-filters-mapping[1]:
+              jcr:primaryType: website:taxonomymapping
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 66cbad54-35a6-4f53-b6e1-e39d42129517
+              common:searchable: true
+              website:text: "some: 'yaml'"
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostd:transferable: false
+              hippostdpubwf:createdBy: admin
+              #        hippostdpubwf:creationDate: 2021-03-25T15:41:34.754Z
+              #        hippostdpubwf:lastModificationDate: 2021-03-25T16:07:25.866Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b8405fc5-e254-45b3-8818-eec9848e1167
+              hippotranslation:locale: document-type-locale
+            /taxonomy-filters-mapping[2]:
+              jcr:primaryType: website:taxonomymapping
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 2922fff7-14d8-4e72-b343-b48480a8f6df
+              common:searchable: true
+              website:text: "some: 'yaml'"
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              #        hippostdpubwf:creationDate: 2021-03-25T15:41:34.754Z
+              #        hippostdpubwf:lastModificationDate: 2021-03-25T16:05:52.922Z
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b8405fc5-e254-45b3-8818-eec9848e1167
+              hippotranslation:locale: document-type-locale
+            /taxonomy-filters-mapping[3]:
+              jcr:primaryType: website:taxonomymapping
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 15a05331-509d-4493-82c5-b5d1d48da9ba
+              common:searchable: true
+              website:text: "some: 'yaml'"
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              #        hippostdpubwf:creationDate: 2021-03-25T15:41:34.754Z
+              #        hippostdpubwf:lastModificationDate: 2021-03-25T16:05:52.922Z
+              hippostdpubwf:lastModifiedBy: admin
+              #        hippostdpubwf:publicationDate: 2021-03-25T16:06:39.101Z
+              hippotranslation:id: b8405fc5-e254-45b3-8818-eec9848e1167
+              hippotranslation:locale: document-type-locale

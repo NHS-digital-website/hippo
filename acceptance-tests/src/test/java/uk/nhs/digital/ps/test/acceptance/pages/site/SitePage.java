@@ -143,10 +143,10 @@ public class SitePage extends AbstractSitePage {
         if (cookieConsent != null) {
             cookieConsent.click();
         }
-        WebElement cookieAcceptButton = helper.findOptionalElement(By.id("CybotCookiebotDialogBodyButtonAccept"));
-        if (cookieAcceptButton != null
-            && cookieAcceptButton.isDisplayed()) {
-            cookieAcceptButton.click();
+        WebElement cookieAllowButton = helper.findOptionalElement(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"));
+        if (cookieAllowButton != null
+            && cookieAllowButton.isDisplayed()) {
+            cookieAllowButton.click();
             waitForCookiebotDialogToBeGone();
         }
     }
