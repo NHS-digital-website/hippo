@@ -43,9 +43,14 @@
 
     <#if banner??>
         <div class="nhsd-o-hero ${bgClass} ${textClass} ${textAlignmentClass} nhsd-!t-margin-bottom-6">
-            <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
-                <div class="nhsd-t-row nhsd-t-row--centred">
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-col-l-9 nhsd-!t-text-align-l-left nhsd-!t-no-gutters">
+            <div class="nhsd-t-grid">
+                <div class="nhsd-t-row <#if digiblock1PositionClass?has_content>nhsd-t-row--centred</#if>">
+                    <div class="<#if digiblock1PositionClass?has_content>
+                            nhsd-t-col-xs-9 nhsd-t-col-s-10 nhsd-t-col-m-11 nhsd-t-col-l-8
+                            <#else>
+                            nhsd-t-col-xs-12 nhsd-t-col-s-11 nhsd-t-col-m-12 nhsd-t-col-l-10
+                            </#if> nhsd-!t-text-align-l-left"
+                            >
                             <span class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6 nhsd-!t-margin-top-6" data-uipath="document.title">${banner.title}</span>
                             <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="document.summary"><@hst.html hippohtml=content contentRewriter=stripTagsContentRewriter/></span>
                     </div>
