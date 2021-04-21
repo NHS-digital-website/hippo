@@ -13,7 +13,5 @@
 }/>
 
 <#if banner??>
-    <div class="nhsd-!t-margin-bottom-6">
-        <@headerBanner banner banner1 banner2 color alignment digiblockposition />
-    </div>
+    <@headerBanner banner banner1 banner2 color alignment digiblockposition />
 </#if>
