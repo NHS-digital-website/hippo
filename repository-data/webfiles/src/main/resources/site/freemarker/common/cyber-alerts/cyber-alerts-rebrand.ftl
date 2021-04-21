@@ -9,6 +9,11 @@
 
 <div class="nhsd-o-card-list nhsd-!t-margin-bottom-9">
     <div class="nhsd-t-grid">
+        <div class="nhsd-t-row">
+            <div class="nhsd-t-col-12">
+                <h3 id="nhsd-az-nav-heading" class="nhsd-t-heading-m">${title}</h3>
+            </div>
+        </div>
         <#list cyberAlertList?chunk(3) as row>
             <div class="nhsd-t-row nhsd-o-card-list__items">
                 <#list row as cyberAlert>
