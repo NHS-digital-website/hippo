@@ -11,7 +11,7 @@
     <div class="nhsd-t-grid">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12">
-                <h3 id="nhsd-az-nav-heading" class="nhsd-t-heading-m">${title}</h3>
+                <h2 id="nhsd-az-nav-heading" class="nhsd-t-heading-m">${title}</h2>
             </div>
         </div>
         <#list cyberAlertList?chunk(3) as row>
@@ -30,7 +30,7 @@
                                         </div>
                                         <span class="nhsd-m-card__date">${publishedDate} (updated ${lastModifiedDate})</span>
 
-                                        <h1 class="nhsd-t-heading-s">${cyberAlert.title}</h1>
+                                        <h3 class="nhsd-t-heading-s">${cyberAlert.title}</h3>
                                     </div>
                                     <div class="nhsd-m-card__button-box">
                                         <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
