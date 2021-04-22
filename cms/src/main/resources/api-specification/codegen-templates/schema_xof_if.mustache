@@ -1,6 +1,13 @@
+{{#assign "schemaUUID"}}{{uuid}}{{/assign}}
 {{#if anyOf}}
-    <tr>
-        <td style="padding-left: {{indentation}}em;" colspan="2">anyOf</td>
+    <tr class="expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
+        <td style="padding-left: {{indentation}}em;">
+            <div><code class="anyOf">anyOf</code></div>
+        </td>
+        <td class="button_column">
+            <div><button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button></div>
+        </td>
+        <td class="description_column"></td>
     </tr>
 {{/if}}
 {{#each anyOf}}
@@ -8,8 +15,14 @@
     {{>schema_object}}
 {{/each}}
 {{#if oneOf}}
-    <tr>
-        <td style="padding-left: {{indentation}}em;" colspan="2">oneOf</td>
+    <tr class="expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
+        <td style="padding-left: {{indentation}}em;">
+            <div><code class="oneOf">oneOf</code></div>
+        </td>
+        <td class="button_column">
+            <div><button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button></div>
+        </td>
+        <td class="description_column"></td>
     </tr>
 {{/if}}
 {{#each oneOf}}
@@ -17,8 +30,14 @@
     {{>schema_object}}
 {{/each}}
 {{#if allOf}}
-    <tr>
-        <td style="padding-left: {{indentation}}em;" colspan="2">allOf</td>
+    <tr class="expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
+        <td style="padding-left: {{indentation}}em;">
+            <div><code class="allOf">allOf</code></div>
+        </td>
+        <td class="button_column">
+            <div><button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button></div>
+        </td>
+        <td class="description_column"></td>
     </tr>
 {{/if}}
 {{#each allOf}}

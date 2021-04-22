@@ -37,6 +37,18 @@
                     padding:0.5em;
                 }
 
+                button.expander {
+                    background-image: url(<@hst.webfile path="images/icon/expander-plus-icon.svg"/>);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+
+                button.collapser {
+                    background-image: url(<@hst.webfile path="images/icon/expander-dark-grey-minus-icon.svg"/>);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+
             </style>
 
             <div class="grid-wrapper grid-wrapper--article">
