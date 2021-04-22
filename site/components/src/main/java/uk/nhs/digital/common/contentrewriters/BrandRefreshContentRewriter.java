@@ -1,83 +1,29 @@
 package uk.nhs.digital.common.contentrewriters;
 
-import org.apache.commons.lang3.*;
 import org.hippoecm.hst.configuration.hosting.*;
-import org.hippoecm.hst.content.beans.*;
-import org.hippoecm.hst.content.beans.manager.*;
-import org.hippoecm.hst.content.beans.standard.*;
-import org.hippoecm.hst.content.rewriter.impl.*;
 import org.hippoecm.hst.core.request.*;
-import org.htmlcleaner.*;
-import org.slf4j.*;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
-import javax.jcr.*;
 import javax.jcr.Node;
 
-public class BrandRefreshContentRewriter extends SimpleContentRewriter {
+public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter {
 
-    private static final Logger log =
-        LoggerFactory.getLogger(BrandRefreshContentRewriter.class);
+    public String rewrite(String html, Node hippoHtmlNode, HstRequestContext requestContext, Mount targetMount) {
 
-    private static boolean htmlCleanerInitialized;
-    private static HtmlCleaner cleaner;
+        html = super.rewrite(html, hippoHtmlNode, requestContext, targetMount);
 
-    private static synchronized void initCleaner() {
-        if (!htmlCleanerInitialized) {
-            cleaner = new HtmlCleaner();
-            CleanerProperties properties = cleaner.getProperties();
-            properties.setOmitComments(true);
-            properties.setRecognizeUnicodeChars(false);
-            htmlCleanerInitialized = true;
-        }
-    }
+        Whitelist whitelist = Whitelist.none();
+        whitelist.addTags("p");
+        whitelist.addEnforcedAttribute("p", "class", "nhsd-t-body");
 
-    protected static HtmlCleaner getHtmlCleaner() {
-        if (!htmlCleanerInitialized) {
-            initCleaner();
-        }
-        return cleaner;
-    }
-    
-    @Override
-    public String rewrite(final String html, final Node node,
-                          final HstRequestContext requestContext,
-                          final Mount targetMount) {
+        whitelist.addTags("a");
+        whitelist.addAttributes("a","href");
+        whitelist.addEnforcedAttribute("a", "class", "nhsd-a-link");
 
-        if (html == null || HTML_TAG_PATTERN.matcher(html).find() 
-            || BODY_TAG_PATTERN.matcher(html).find()) {
-            // content is empty
-            return null;
-        }
-        try {
-            TagNode rootNode = getHtmlCleaner().clean(html);
-            //Add styling to <p> tag
-            TagNode[] paragraphs = rootNode.getElementsByName("p", true);
+        whitelist.addTags("img");
+        whitelist.addAttributes("img","src", "alt", "align", "height", "width");
 
-            for (TagNode paragraph : paragraphs) {
-                paragraph.addAttribute("class", "nhsd-t-body");
-            }
-
-            //Add styling to links within the <p> tag
-            TagNode[] links = rootNode.getElementsByName("a", true);
-
-            for (TagNode link : links) {
-                link.addAttribute("class", "nhsd-a-link");
-            }
-
-            // everything is rewritten. Now write the "body" element
-            // as result
-            TagNode [] targetNodes =
-                            rootNode.getElementsByName("body", true);
-            if (targetNodes.length > 0 ) {
-                TagNode bodyNode = targetNodes[0];
-                return getHtmlCleaner().getInnerHtml(bodyNode);
-            } else {
-                log.warn("Cannot rewrite content for '{}' because there is no 'body' element" + node.getPath());
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        return null;
+        return Jsoup.clean(html, whitelist);
     }
 }

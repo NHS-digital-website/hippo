@@ -3,7 +3,7 @@
 <#assign isStickySectionMainHeading="uk.nhs.digital.freemarker.indices.IsStickySectionMainHeading"?new() />
 
 <#macro stickyNavSections links title="Page contents">
-    <div class="nhsd-m-sticky-navigation nhsd-t-display-sticky nhsd-t-display-sticky--offset-2 nhsd-!t-margin-top-6">
+    <div class="nhsd-m-sticky-navigation nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
         <span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">${title}</span>
         <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs nhsd-!t-margin-bottom-2"/>
 
