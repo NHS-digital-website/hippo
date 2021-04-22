@@ -35,7 +35,7 @@
 
         <div class="grid-row">
             <div class="column">
-                <a href="search?sort=date&amp;area=data" class="link">View the latest publications</a>
+                <a href="search?query=&searchTab=data&area=data&sort=data&contentSearch=false" class="link">View the latest publications</a>
             </div>
         </div>
     </div>
