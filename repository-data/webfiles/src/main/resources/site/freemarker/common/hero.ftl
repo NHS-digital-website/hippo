@@ -26,9 +26,9 @@
 <#assign hasColourBar = isTall?then(displayColourBar, false) />
 
 <#if hasDocument>
-    <#assign isCtaDoc = document.class.simpleName == "Calltoaction"/>
-    <#assign isBannerDoc = document.class.simpleName == "Banner"/>
-    <#assign isVideoDoc = document.class.simpleName == "Video"/>
+    <#assign isCtaDoc = document.class.simpleName?starts_with("Calltoaction") />
+    <#assign isBannerDoc = document.class.simpleName?starts_with("Banner") />
+    <#assign isVideoDoc = document.class.simpleName?starts_with("Video") />
 
     <#assign hasTitle = document.title?has_content />
     <#assign hasContent = document.content?has_content || document.introduction?has_content />
