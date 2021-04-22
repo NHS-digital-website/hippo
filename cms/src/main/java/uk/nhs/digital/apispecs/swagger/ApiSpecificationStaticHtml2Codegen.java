@@ -99,6 +99,10 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(HeadingsHyperlinksFromMarkdownHelper.NAME, HeadingsHyperlinksFromMarkdownHelper.INSTANCE)
             .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE)
             .registerHelper(ConditionalHelpers.eq.name(), ConditionalHelpers.eq)
+            .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
+            // below helper is registered as a HelperSource as it takes no parameters.
+            // see https://github.com/jknack/handlebars.java#using-a-helpersource for further info
+            .registerHelpers(UuidHelper.INSTANCE)
         ;
 
         handlebars.with(EscapingStrategy.NOOP);

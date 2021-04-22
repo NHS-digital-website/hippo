@@ -91,6 +91,10 @@
 
     .body__schema__header {
         font-weight: bold;
+
+        .schema__header__buttons {
+            float: right;
+        }
     }
 
     .body__schema {
@@ -124,6 +128,10 @@
             color: $blue-50;
         }
 
+        tr.collapsed {
+            display: none;
+        }
+
         td {
             vertical-align: top;
         }
@@ -133,8 +141,43 @@
         }
     }
 
-    .apispecification table th,
-    .apispecification table td {
+    .schemaButton {
+        -webkit-appearance: none;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        box-shadow: 0 4px 0 #00401e;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 600;
+        margin-top: 0;
+        padding: 6px 8px;
+        position: relative;
+        text-align: center;
+        vertical-align: top;
+        width: auto;
+        &.expandAll {
+            background-color: #005EB8;
+        }
+        &.collapseAll {
+            background-color: #425563;
+        }
+    }
+
+    button.collapser, button.expander {
+        float:left;
+        width: 2em;
+        height: 2em;
+    }
+
+    .body--schema tr.collapsed, .js {
+        display: none;
+        aria-hidden: true;
+    }
+
+    table th,
+    table td.name_column {
         word-break: normal;
     }
 
