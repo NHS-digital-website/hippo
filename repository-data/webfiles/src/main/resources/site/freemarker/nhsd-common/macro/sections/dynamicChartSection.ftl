@@ -9,14 +9,16 @@
     <#local getData="uk.nhs.digital.freemarker.highcharts.RemoteChartDataFromUrl"?new() />
     <#local chartData =  (getData(section.url))! />
 
-    <div id="chart-${section.uniqueId}-block">
-        <figure data-chart="highchart">
-            <div id="chart-${section.uniqueId}"
+    <div class="nhsd-!t-margin-bottom-6" id="chart-${section.uniqueId}-block">
+        <figure class="nhsd-!t-margin-0" data-chart="highchart">
+            <div class="nhsd-!t-margin-bottom-2"
+                 id="chart-${section.uniqueId}"
                  style="width:100%; height:${size}px;">
                 <span class="css-loader"></span>
             </div>
             <span class="attachment">
-                <a data-uipath="ps.publication.chart-section.data-file"
+                <a class="nhsd-a-link"
+                   data-uipath="ps.publication.chart-section.data-file"
                    title="${linkText}"
                    download="${slugify(section.title)}.csv"
                    <#if (chartData.data)??>
