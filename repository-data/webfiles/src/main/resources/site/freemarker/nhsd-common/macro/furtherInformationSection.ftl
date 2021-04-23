@@ -5,6 +5,7 @@
 <#include "fileMetaAppendix.ftl">
 <#include "typeSpan.ftl">
 <#include "fileIconByMimeType.ftl">
+<#include "./component/downloadBlockAsset.ftl">
 
 <#macro furtherInformationSection childPages>
     <@hst.setBundle basename="rb.generic.headers"/>
@@ -56,15 +57,7 @@
                     <#-- If asset link -->
                     <#if childPage.linkType == "asset">
                         <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-                            <a href="<@hst.link hippobean=childPage.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
-                                <div class="block-link__header">
-                                    <@fileIconByMimeType childPage.link.asset.mimeType></@fileIconByMimeType>
-                                </div>
-                                <div class="block-link__body">
-                                    <span class="block-link__title">${childPage.title}</span>
-                                    <@fileMetaAppendix childPage.link.asset.getLength(), childPage.link.asset.mimeType></@fileMetaAppendix>
-                                </div>
-                            </a>
+                            <@downloadBlockAsset document.class.name childPage.link "${childPage.title}" "" childPage.link.asset.mimeType childPage.link.asset.getLength() />
                         </div>
                     </#if>
                 </#if>
