@@ -61,7 +61,7 @@
             <#elseif section.sectionType == 'fullWidthImage'>
                 <@fullWidthImageSection section=section />
             <#elseif section.sectionType == 'iconList'>
-                <@iconList section=section mainHeadingLevel=mainHeadingLevel />
+                <@iconList section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox sectionCounter=section?counter/>
             <#elseif section.sectionType == 'gallerySection'>
                 <@gallerySection section=section mainHeadingLevel=mainHeadingLevel />
             <#elseif section.sectionType == 'code'>
