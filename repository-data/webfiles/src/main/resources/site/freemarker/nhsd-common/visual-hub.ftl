@@ -92,23 +92,21 @@
         <#-- assign area the param value else, the first section in the list -->
         <#assign area = param???then(param, slugify(document.tileSections[0].tileSectionHeading)) />
 
-        <div class="grid-row">
+        <div class="nhsd-t-row">
             <@tabTileHeadings document.tileSections "service" area />
         </div>
 
         <#list document.tileSections as tileSection>
             <#if slugify(tileSection.tileSectionHeading) == area>
-                <div class="grid-row">
-                    <div class="tile-panel" role="tabpanel">
-                        <#list tileSection.tileSectionLinks as links>
-                            <#if links?is_odd_item || links?is_first>
-                                <div class="tile-panel-group">
-                            </#if>
-                            <@tabTiles links/>
-                            <#if links?is_even_item || links?is_last>
+                <div class="nhsd-o-card-list">
+                    <div class="nhsd-t-grid">
+                        <div class="nhsd-t-row nhsd-o-card-list__items" role="tabpanel">
+                            <#list tileSection.tileSectionLinks as links>
+                                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
+                                    <@tabTiles links/>
                                 </div>
-                            </#if>
-                        </#list>
+                            </#list>
+                        </div>
                     </div>
                 </div>
             </#if>
