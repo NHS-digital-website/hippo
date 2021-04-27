@@ -5,7 +5,7 @@
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
 
-<#macro navigationBlockLarge item id colourVariant isDarkMolecule isYellowLink isDarkButton position>
+<#macro navigationBlockLarge item id colourVariant isDarkMolecule isYellowLink isDarkButton position hasHeading>
     <#assign hasTitle = item.title?has_content />
     <#assign hasContent = item.content?has_content />
     <#assign hasImage = item.image?has_content />
@@ -54,7 +54,12 @@
                     </#if>
                 </div>
                 <#if hasTitle>
-                    <h1 class="nhsd-t-heading-xl">${item.title}</h1>
+                    <#if hasHeading>
+                        ${hasHeading}
+                        <h3 class="nhsd-t-heading-s">${item.title}</h3>
+                    <#else>
+                        <h2 class="nhsd-t-heading-s">${item.title}</h2>
+                    </#if>
                 </#if>
                 <#if hasContent>
                     <p class="nhsd-t-body">${item.content}</p>

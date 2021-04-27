@@ -1,5 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<#include "macro/metaTags.ftl">
+
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->
@@ -21,6 +23,13 @@
 <#-- Alignment -->
 <#assign hasTextAlignment = textAlignment?has_content />
 <#assign mirrored = (hasTextAlignment && textAlignment == "right")?then("nhsd-o-hero-feature--mirrored","")/>
+
+<#assign breadcrumb  = hstRequestContext.getAttribute("bread")>
+
+<#if (breadcrumb=="Coronavirus" || breadcrumb=="News") && !hstRequestContext.getAttribute("headerPresent")?if_exists>
+    <#assign overridePageTitle>${breadcrumb}</#assign>
+    <@metaTags></@metaTags>
+</#if>
 
 <#-- Colourbar -->
 <#assign hasColourBar = isTall?then(displayColourBar, false) />
@@ -44,9 +53,12 @@
                     <div class="nhsd-o-hero__content-box">
                         <div class="nhsd-o-hero__content">
                             <#if hasTitle>
-                                <span class="${headingSize}">${document.title}</span>
+                                <#if hstRequestContext.getAttribute("headerPresent")?if_exists>
+                                        <h2 class="${headingSize}">${document.title}</h2>
+                                    <#else>
+                                        <h1 class="${headingSize}">${document.title}</h1>
+                                 </#if>
                             </#if>
-
                             <#if hasContent>
                                 <p class="nhsd-t-body nhsd-!t-margin-bottom-6">
                                     <#if isBannerDoc>

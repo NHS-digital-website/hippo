@@ -14,7 +14,9 @@
 
 <nav aria-labelledby="${wrapperId}">
     <#if hasWrappingDoc>
-        <div id="${wrapperId}" class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-1">${wrappingDocument.title}</div>
+        <div id="${wrapperId}" class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-1">
+            <h2>${wrappingDocument.title}</h2>
+        </div>
     </#if>
     <#if pageable?? && pageable.items?has_content>
         <ul class="nhsd-t-list nhsd-t-list--links">
