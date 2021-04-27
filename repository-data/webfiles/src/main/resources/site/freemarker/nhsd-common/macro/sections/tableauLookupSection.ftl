@@ -75,7 +75,7 @@
            </div>
        </div>
 
-       <div class="nhsd-m-download-card nhsd-!t-display-hide">
+       <div class="nhsd-m-download-card nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-6 nhsd-!t-display-hide">
            <a target="_blank" id="${divId}-downLoadData" class="nhsd-a-box-link" target="_blank" rel="external" aria-live="polite" aria-atomic="true">
                <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                    <div class="nhsd-m-download-card__image-box">
@@ -252,6 +252,7 @@
                 if(el instanceof HTMLElement) {
                     el.innerText = "";
                     el.classList.remove("nhsd-t-form-error");
+                    el.classList.add("nhsd-!t-display-hide");
                     el.parentElement.classList.remove("nhsd-t-form-group--error");
                 }
             }
@@ -260,6 +261,7 @@
                 if(el instanceof HTMLElement) {
                     el.innerText = message;
                     el.classList.add("nhsd-t-form-error");
+                    el.classList.remove("nhsd-!t-display-hide");
                     el.parentElement.classList.add("nhsd-t-form-group--error");
                 }
             }
@@ -267,9 +269,9 @@
                 var linkEl = viz${index}Elements.vizLink();
                 if (linkEl instanceof HTMLElement) {
                     setTimeout(function() {
-                        linkEl.classList.remove("nhsd-!t-display-hide");
+                        linkEl.parentElement.classList.remove("nhsd-!t-display-hide");
                     }, 1000);
-                    linkEl.parentElement.setAttribute("href", link);
+                    linkEl.setAttribute("href", link);
                 }
                 var linkLabel = viz${index}Elements.vizLinkLabel();
                 if (linkLabel instanceof HTMLElement) {
@@ -294,7 +296,7 @@
             function _hideDownloadLink() {
                 var linkDiv = viz${index}Elements.vizLink();
                 if (linkDiv instanceof HTMLElement) {
-                    linkDiv.classList.add("nhsd-!t-display-hide");
+                    linkDiv.parentElement.classList.add("nhsd-!t-display-hide");
                 }
             }
             function _hideLoadingSpinner() {
