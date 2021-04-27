@@ -2,7 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "./iconGenerator.ftl">
 
-<#macro navigationBlockSmall item id colourVariant isDarkMolecule isYellowLink>
+<#macro navigationBlockSmall item id colourVariant isDarkMolecule isYellowLink hasHeading>
     <#assign hasTitle = item.title?has_content />
     <#assign hasContent = item.content?has_content />
     <#assign hasImage = item.image?has_content />
@@ -21,7 +21,12 @@
         <div class="nhsd-a-box nhsd-a-box--bg-${colourVariant}">
             <div class="nhsd-m-card__content-box">
                 <#if hasTitle>
-                    <h1 class="nhsd-t-heading-s">${item.title}</h1>
+                    <#if hasHeading>
+                        ${hasHeading}
+                        <h3 class="nhsd-t-heading-s">${item.title}</h3>
+                    <#else>
+                        <h2 class="nhsd-t-heading-s">${item.title}</h2>
+                    </#if>
                 </#if>
                 <div class="nhsd-a-icon nhsd-a-icon--size-xxl nhsd-m-card__icon">
                     <#if hasImage>
