@@ -50,7 +50,7 @@
 
         <#if alphabetical_hash??>
             <div class="grid-row">
-                <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
+                <div class="column column--one-third page-block page-block--sidebar">
                     <@alphabeticalFilterNav alphabetical_hash></@alphabeticalFilterNav>
 
                     <#if filtersModel?? && !filtersModel.isEmpty()>
