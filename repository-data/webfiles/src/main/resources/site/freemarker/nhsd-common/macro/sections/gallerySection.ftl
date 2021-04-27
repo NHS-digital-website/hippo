@@ -1,97 +1,76 @@
 <#ftl output_format="HTML">
 
 <#include "../fileIconByMimeType.ftl">
+<#include "../component/downloadBlockAsset.ftl">
 
 <#macro gallerySection section mainHeadingLevel=2 >
-    <div id="${slugify(section.heading)}" class="${(section.headingLevel?has_content && section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines')}">
+    <div id="${slugify(section.heading)}">
 
         <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
-            <#assign mainHeadingTag = "h" + mainHeadingLevel />
-            <${mainHeadingTag} data-uipath="website.contentblock.gallerysection.title">${section.title}</${mainHeadingTag}>
+            <h2 data-uipath="website.contentblock.gallerysection.title" class="nhsd-t-heading-xl">${section.title}</h2>
         <#else>
-            <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
-            <#assign subHeadingTag = "h" + subHeadingLevel />
-            <${subHeadingTag} data-uipath="website.contentblock.gallerysection.title">${section.title}</${subHeadingTag}>
+            <h3 data-uipath="website.contentblock.gallerysection.title" class="nhsd-t-heading-l">${section.title}</h3>
         </#if>
 
-        <div data-uipath="website.contentblock.gallerysection.description">
-            <@hst.html hippohtml=section.description contentRewriter=gaContentRewriter />
-        </div>
+      <div data-uipath="website.contentblock.gallerysection.description">
+          <@hst.html hippohtml=section.description contentRewriter=brContentRewriter />
+      </div>
+    </div>
 
-        <div class="grid-row galleryItems">
-            <#assign itemNr = 0 />
-            <#assign hasPrevEvenItemTitle = false />
-            <#list section.galleryItems as galleryItem>
-                <#assign itemNr = itemNr + 1 />
+    <div class="nhsd-o-gallery">
+      <div class="nhsd-t-grid nhsd-!t-no-gutters">
+        <div class="nhsd-t-row nhsd-o-gallery__items">
 
-                <#if itemNr % 2 == 1>
-                  <#if galleryItem.title?has_content>
-                    <#assign hasPrevEvenItemTitle = true />
-                  <#else>
-                    <#assign hasPrevEvenItemTitle = false />
-                  </#if>
-                </#if>
+          <#list section.galleryItems as galleryItem>
+            <div class="nhsd-t-col-xs-12
+              <#if section.galleryItems?size gt 1>
+                nhsd-t-col-s-6
+              </#if>
+              <#if section.galleryItems?size gt 2>
+                nhsd-t-col-l-4
+              </#if>">
+              <div class="nhsd-o-gallery__card-container">
+                <article class="nhsd-m-card">
+                  <div class="nhsd-a-box nhsd-a-box--border-grey">
 
-                <div class="column column--one-half galleryItems__item">
-                    <#if galleryItem.title?has_content>
-                      <h3 class="galleryItems__heading">${galleryItem.title}</h3>
-                      <div class="galleryItems__card">
-                    <#else>
-                      <#if itemNr % 2 == 0 && hasPrevEvenItemTitle>
-                        <div class="galleryItems__card-no-heading-left">
-                      <#else>
-                        <div class="galleryItems__card">
-                      </#if>
-                    </#if>
-                        <#if galleryItem.imageWarning != ''>
-                            <div class="galleryItems__warning">${galleryItem.imageWarning}</div>
-                        </#if>
-
-                        <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
-
-                        <img src="${image}" alt="${galleryItem.imageAlt}" />
-
-                        <#if galleryItem.description.content?has_content>
-                          <div class="galleryItems__description">
-                              <@hst.html hippohtml=galleryItem.description contentRewriter=gaContentRewriter />
-                          </div>
-                        </#if>
-
+                    <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
+                    <div class="nhsd-m-card__image_container">
+                      <figure class="nhsd-a-image nhsd-a-image--round-top-corners nhsd-a-image--contain">
+                        <picture class="nhsd-a-image__picture ">
+                          <img src="${image}" alt="${galleryItem.imageAlt}">
+                        </picture>
+                      </figure>
                     </div>
 
-                    <ol class="list list--reset">
-                        <#list galleryItem.relatedFiles as attachment>
+                    <div class="nhsd-m-card__content_container">
+                      <div class="nhsd-m-card__content-box">
+                        <#if galleryItem.title?has_content>
+                          <h1 class="nhsd-t-heading-s">${galleryItem.title}</h1>
+                        </#if>
+                        <#if galleryItem.description.content?has_content>
+                          <@hst.html hippohtml=galleryItem.description contentRewriter=brContentRewriter />
+                        </#if>
+                      </div>
 
-                            <@hst.link hippobean=attachment.link var="link" />
-                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, link) />
-
-                            <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
-                                <a href="<@hst.link hippobean=attachment.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
-                                    <div class="block-link__header">
-                                        <#if attachment.link.asset?has_content>
-                                          <@fileIconByMimeType attachment.link.asset.mimeType></@fileIconByMimeType>
-                                        <#else>
-                                          <@fileIconByMimeType attachment.link.original.mimeType></@fileIconByMimeType>
-                                        </#if>
-                                    </div>
-                                    <div class="block-link__body">
-                                        <span class="block-link__title">${attachment.title}</span>
-                                        <#if attachment.link.asset?has_content>
-                                          <@fileMetaAppendix attachment.link.asset.getLength(), attachment.link.asset.mimeType></@fileMetaAppendix>
-                                        <#else>
-                                          <@fileMetaAppendix attachment.link.original.getLength(), attachment.link.original.mimeType></@fileMetaAppendix>
-                                        </#if>
-                                    </div>
-                                </a>
-                            </li>
-                        </#list>
-                    </ol>
-
-                </div>
-                <#if galleryItem?is_even_item>
-                    <div class="clearfix"></div>
-                </#if>
-            </#list>
+                      <#if galleryItem.relatedFiles?has_content>
+                          <#list galleryItem.relatedFiles as attachment>
+                            <div class="nhsd-m-card__download-card">
+                              <#if attachment.link.asset?has_content>
+                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.asset.mimeType attachment.link.asset.getLength() true />
+                              <#else>
+                              <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.original.mimeType attachment.link.original.getLength() true />
+                              </#if>
+                            </div>
+                          </#list>
+                      </#if>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </#list>
+          
         </div>
+      </div>
     </div>
 </#macro>

@@ -11,6 +11,8 @@
     <#assign sizeClass = "nhsd-a-document-icon--size-l" />
     <#elseif size == "small">
     <#assign sizeClass = "nhsd-a-document-icon--size-s" />
+    <#elseif size == "extra-small">
+    <#assign sizeClass = "nhsd-a-document-icon--size-xs" />
     </#if>
 
     <#if icontype == "web" >
