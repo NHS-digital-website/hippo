@@ -26,10 +26,7 @@
                     <#list section.navigationTiles as tile>
                         <div class="nhsd-t-col-xs-12 
                             <#if section.navigationTiles?size gt 1>
-                                nhsd-t-col-s-6
-                            </#if>
-                            <#if section.navigationTiles?size gt 2>
-                                nhsd-t-col-l-4
+                                nhsd-t-col-l-6
                             </#if>">
                             <@navigationTile tile tileType imageType />
                         </div>

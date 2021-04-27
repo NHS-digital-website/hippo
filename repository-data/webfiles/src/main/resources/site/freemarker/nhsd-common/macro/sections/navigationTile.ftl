@@ -22,7 +22,7 @@
 
     <div class="nhsd-m-nav-block">
         <a class="nhsd-a-box-link" href="<@linkDestination link />" aria-label="${tile.title} - ${tile.actionDescription}">
-            <div class="nhsd-a-box nhsd-a-box--bg-${blockColour}">
+            <div class="nhsd-a-box nhsd-a-box--bg-${blockColour} nhsd-!t-padding-6">
                 <div class="nhsd-m-nav-block__content-box">
                     <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
                     
@@ -49,7 +49,7 @@
                     </#if>
 
                     <span class="nhsd-a-button">
-                        <span class="nhsd-a-button__label">${tile.actionDescription}</span>
+                        <span class="nhsd-a-button__label nhsd-t-word-break">${tile.actionDescription}</span>
                     </span>
                 </div>
 
