@@ -51,7 +51,7 @@
                             nhsd-t-col-xs-12 nhsd-t-col-s-11 nhsd-t-col-m-12 nhsd-t-col-l-10
                             </#if> nhsd-!t-text-align-l-left"
                             >
-                            <span class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6 nhsd-!t-margin-top-6" data-uipath="document.title">${banner.title}</span>
+                            <h1 class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6 nhsd-!t-margin-top-6" data-uipath="document.title">${banner.title}</h1>
                             <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="document.summary"><@hst.html hippohtml=content contentRewriter=stripTagsContentRewriter/></span>
                     </div>
                 </div>
