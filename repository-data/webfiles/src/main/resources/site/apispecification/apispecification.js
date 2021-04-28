@@ -5,7 +5,7 @@ function tryEndpointNow(endpointPathInSpec) { // method invocation is rendered b
     const endpointAnchorPath = endpointPathInSpec.replace(/_/g, '-').toLowerCase();
 
     // tryEndpointNowBaseUrl is populated in apispecification.ftl
-    const targetWindowUrl = tryEndpointNowBaseUrl + 'api-spec-try-it-now#' + endpointAnchorPath;
+    const targetWindowUrl = tryEndpointNowBaseUrl + '.trythisapi#' + endpointAnchorPath;
 
     const targetWindowName = 'TryItNow';
 

@@ -8,13 +8,6 @@
 
 <#if document?? >
 
-    <#assign isTryItNow = hstRequestContext.servletRequest.parameterMap?keys?seq_contains("tryitnow")>
-    <#if isTryItNow >
-
-        <#include "api-try-it-now.ftl">
-
-    <#else>
-
         <#-- Add meta tags -->
         <#include "../common/macro/metaTags.ftl">
         <@metaTags></@metaTags>
@@ -50,9 +43,9 @@
 
         <script>
             // used in function tryEndpointNow from apispecificaion.js
-            const tryEndpointNowBaseUrl = '<@hst.link siteMapItemRefId='root'/>';
+            <@hst.renderURL var='pageUrl'/>
+            const tryEndpointNowBaseUrl = '${pageUrl}';
         </script>
         <script src="<@hst.webfile path="/apispecification/apispecification.js"/>"> </script>
-    </#if>
 
 </#if>

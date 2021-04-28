@@ -13,7 +13,6 @@ public class ApiSpecificationComponent extends BaseGaContentComponent {
 
         Optional.ofNullable(request.getRequestContext().getContentBean()).ifPresent(document -> {
             request.setAttribute("document", document); // for the main template
-            request.getSession().setAttribute("apiSpecification", document); // for ApiSpecificationTryItNowComponent
         });
     }
 }

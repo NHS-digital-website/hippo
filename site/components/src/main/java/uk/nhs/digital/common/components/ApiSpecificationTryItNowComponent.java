@@ -12,8 +12,8 @@ public class ApiSpecificationTryItNowComponent extends BaseHstComponent {
                                          final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        // Set by ApiSpecificationComponent
-        Optional.ofNullable(request.getSession().getAttribute("apiSpecification"))
-            .ifPresent(document -> request.setAttribute("document", document));
+        Optional.ofNullable(request.getRequestContext().getContentBean()).ifPresent(document -> {
+            request.setAttribute("document", document); // for the main template
+        });
     }
 }

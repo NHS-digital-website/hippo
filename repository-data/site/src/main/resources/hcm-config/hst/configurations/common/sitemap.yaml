@@ -178,7 +178,6 @@ definitions:
         /oauth-redirect:
           hst:componentconfigurationid: hst:pages/apitryitnow-oauth-redirect
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/apitryitnow
         jcr:primaryType: hst:sitemapitem
       /cyber-alerts:
         /_any_:
@@ -318,6 +317,10 @@ definitions:
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         /api-catalogue:
+          /_any_.trythisapi:
+            hst:componentconfigurationid: hst:pages/apitryitnow
+            hst:relativecontentpath: ${parent}/${1}/content
+            jcr:primaryType: hst:sitemapitem
           /_index_:
             hst:componentconfigurationid: hst:pages/api-catalogue
             hst:relativecontentpath: ${parent}/content
