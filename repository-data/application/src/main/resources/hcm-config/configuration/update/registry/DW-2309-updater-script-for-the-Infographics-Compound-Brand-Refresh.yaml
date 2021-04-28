@@ -1,0 +1,32 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-2309-updater script for the Infographics Compound Brand Refresh:
+      hipposys:batchsize: 10
+      hipposys:description: Changes Light Blue to Yellow and White to Grey
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: //content/documents//element(*,website:infographic)
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport javax.jcr.Session\r\
+        \n\r\nclass UpdaterTemplate extends BaseNodeUpdateVisitor {\r\n\r\n  boolean\
+        \ logSkippedNodePaths() {\r\n    return false // don't log skipped node paths\r\
+        \n  }\r\n\r\n  boolean skipCheckoutNodes() {\r\n    return false // return\
+        \ true for readonly visitors and/or updates unrelated to versioned content\r\
+        \n  }\r\n\r\n  Node firstNode(final Session session) throws RepositoryException\
+        \ {\r\n    return null // implement when using custom node selection/navigation\r\
+        \n  }\r\n\r\n  Node nextNode() throws RepositoryException {\r\n    return\
+        \ null // implement when using custom node selection/navigation\r\n  }\r\n\
+        \r\n  boolean doUpdate(Node node) {\r\n    log.debug \"Updating node ${node.path}\"\
+        \r\n    \r\n    if (node.hasProperty(\"website:colour\")) {\r\n        String\
+        \ colour = node.getProperty(\"website:colour\").getString();\r\n        if\
+        \ (colour.equals(\" Light blue\")) {\r\n            node.setProperty(\"website:colour\"\
+        , \" Yellow\");\r\n            return true\r\n        } else if (colour.equals(\"\
+        \ White\")) {\r\n            node.setProperty(\"website:colour\", \" Grey\"\
+        );\r\n            return true\r\n        }\r\n    }\r\n\r\n    \r\n    return\
+        \ false\r\n  }\r\n\r\n  boolean undoUpdate(Node node) {\r\n    throw new UnsupportedOperationException('Updater\
+        \ does not implement undoUpdate method')\r\n  }\r\n\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
