@@ -8,6 +8,8 @@ definitions:
       hipposys:loglevel: DEBUG
       hipposys:parameters: ''
       hipposys:query: //content/documents//element(*,website:infographic)
-      hipposys:script: /configuration/update/DW-2309-updater-script-for-the-Infographics-Compound-Brand-Refresh.groovy
+      hipposys:script:
+        resource: /configuration/update/DW-2309-updater-script-for-the-Infographics-Compound-Brand-Refresh.groovy
+        type: string
       hipposys:throttle: 1000
       jcr:primaryType: hipposys:updaterinfo
