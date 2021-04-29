@@ -40,7 +40,7 @@
                 <#if section.isNumberedList>
                     <#assign numberedListCount++ />
                 </#if>
-                <@websiteSection section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox numberedListCount=numberedListCount isLastSection=section?is_last mainHeadingLevel=mainHeadingLevel sectionCounter=section?counter />
+                <@websiteSection section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox numberedListCount=numberedListCount mainHeadingLevel=mainHeadingLevel sectionCounter=section?counter />
                 <#assign isPreviousEmphasisBox = false />
             <#elseif section.sectionType == 'image'>
                 <@imageSection section=section />
@@ -61,7 +61,7 @@
             <#elseif section.sectionType == 'fullWidthImage'>
                 <@fullWidthImageSection section=section />
             <#elseif section.sectionType == 'iconList'>
-                <@iconList section=section mainHeadingLevel=mainHeadingLevel />
+                <@iconList section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox sectionCounter=section?counter/>
             <#elseif section.sectionType == 'gallerySection'>
                 <@gallerySection section=section mainHeadingLevel=mainHeadingLevel />
             <#elseif section.sectionType == 'code'>
