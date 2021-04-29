@@ -3,51 +3,32 @@
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Code" -->
 
 <#macro codeSection section mainHeadingLevel=2 >
+    <#assign mainHeading = section.headingLevel == 'Main heading' />
 
-    <#if section.firstLineNumber != "">
-        <#assign  lineCounter = section.firstLineNumber?number - 1 />
-    <#else>
-        <#assign  lineCounter = 0 />
-    </#if>
-
-    <#assign  mainHeading = section.headingLevel == 'Main heading' />
-
-    <#assign customid= "">
     <#if section.heading?has_content>
-    <#assign customid = "id=${slugify(section.heading)}" />
+        <#if mainHeading>
+            <#assign headingTag = "h" + mainHeadingLevel />
+        <#else>
+            <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
+            <#assign headingTag = "h" + subHeadingLevel />
+        </#if>
+        <${headingTag} class="nhsd-t-heading-m" data-uipath="website.contentblock.codesection.title">${section.heading}</${headingTag}>
     </#if>
 
-    <div ${customid} class="article-section${(section.heading?has_content && mainHeading)?then(' navigationMarker', '-with-sub-heading')}${section.heading?has_content?then('', '-with-no-heading')}">
-        <#if section.heading?has_content>
-            <#if mainHeading>
-                <#assign mainHeadingTag = "h" + mainHeadingLevel />
-                <${mainHeadingTag} data-uipath="website.contentblock.codesection.title">${section.heading}</${mainHeadingTag}>
-            <#else>
-                <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
-                <#assign subHeadingTag = "h" + subHeadingLevel />
-                <${subHeadingTag} data-uipath="website.contentblock.codesection.title">${section.heading}</${subHeadingTag}>
-            </#if>
-        </#if>
-
-        <div class="code-block">
-
-            <div class="button-bar">
-                <span
-                    role="button"
-                    aria-label="Copy the code block to the clipboard. Javascript must be enabled"
-                    class="button-code-block"
-                ><span class="hidden-text">COPY</span></span>
-            </div>
-
-            <div class="code-content" itemscope itemtype="https://schema.org/SoftwareSourceCode">
-                <meta itemprop="codeSampleType" content="snippet">
-                <div class="scroll-box no-top-margin scrollbar">
-                    <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="white-space: ${section.wrapLines?then('pre-wrap', 'pre')}; counter-reset: linenum ${lineCounter};">${section.codeTextHighlighted?no_esc}</pre>
+    <article class="nhsd-o-code-viewer">
+        <div class="nhsd-o-code-viewer__tab-content">
+            <div class="nhsd-o-code-viewer__code">
+                <div id="${section.language.label}-content" class="nhsd-o-code-viewer__code-content" role="tabpanel" aria-labelledby="tab-${section.language.label}-content">
+                    <div class="code-scroll">
+                        <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="white-space: ${section.wrapLines?then('pre-wrap', 'pre')};">${section.codeTextHighlighted?no_esc}</pre>
+                    </div>
                 </div>
-                <p class="language" itemprop="programmingLanguage">${section.language.label}</p>
-                <meta itemprop="runtimePlatform" content="${section.language.label}">
             </div>
-
         </div>
-    </div>
+        <div class="nhsd-o-code-viewer__footer">
+            <nav class="nhsd-m-tabs" role="tablist">
+                <a class="nhsd-a-tab" href="#${section.language.label}-content" id="tab-${section.language.label}-content" data-tab-content="${section.language.label}-content" aria-controls="${section.language.label}-content" aria-selected="true" role="tab">${section.language.label}</a>
+            </nav>
+        </div>
+    </article>
 </#macro>
