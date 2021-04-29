@@ -62,14 +62,13 @@
     <div class="nhsd-t-grid">
         <#if document.updates?has_content>
             <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-12">
-                        <#assign item = {} />
-                        <#list document.updates as update>
-                            <#assign item += update />
-                            <#assign item += {"calloutType":"update", "index":update?index} />
-                            <@calloutBox item />
-                        </#list>
-                    </div>
+                <div class="nhsd-t-col-12">
+                    <#assign item = {} />
+                    <#list document.updates as update>
+                        <#assign item += update />
+                        <#assign item += {"calloutType":"update", "index":update?index} />
+                        <@calloutBox item />
+                    </#list>
                 </div>
             </div>
         </#if>
