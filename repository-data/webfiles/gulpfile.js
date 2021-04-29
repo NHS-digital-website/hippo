@@ -115,7 +115,7 @@ task('watch', function (done) {
         ]
     });
 
-    watch(`${paths.scss}/**/*.scss`, series('build-css'));
+    watch([`${paths.scss}/**/*.scss`, `./${paths.scss}/rebrand/*.scss`], series('build-css'));
     watch(`${paths.js}/**/*.js`, series('script-watch'));
     done();
 });
