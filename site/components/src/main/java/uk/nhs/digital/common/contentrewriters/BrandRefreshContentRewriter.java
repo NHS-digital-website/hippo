@@ -61,7 +61,7 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         // image
         if (document.select("img").first() != null) {
             document.select("img")
-                    .wrap("<figure class=\"nhsd-a-image nhsd-a-image--round-corners\"><picture class=\"nhsd-a-image__picture\"></picture></figure>");
+                    .wrap("<figure class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--contain\"><picture class=\"nhsd-a-image__picture\"></picture></figure>");
 
         }
 
