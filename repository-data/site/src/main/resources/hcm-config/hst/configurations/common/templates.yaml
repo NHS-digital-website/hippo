@@ -182,6 +182,9 @@ definitions:
       /ie-banner:
         hst:renderpath: webfile:/freemarker/common/ie-banner.ftl
         jcr:primaryType: hst:template
+      /ie-banner-nhsd:
+        hst:renderpath: webfile:/freemarker/nhsd-common/components/ie-banner.ftl
+        jcr:primaryType: hst:template
       /indicator:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
         jcr:primaryType: hst:template
@@ -232,6 +235,9 @@ definitions:
         jcr:primaryType: hst:template
       /nhsd-homepage-layout:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage-layout.ftl
+        jcr:primaryType: hst:template
+      /nhsd-ie-banner:
+        hst:renderpath: webfile:/freemarker/nhsd-common/components/ie-banner.ftl
         jcr:primaryType: hst:template
       /nhsd-list-article:
         hst:renderpath: webfile:/freemarker/nhsd-common/nhsd-list-article.ftl
