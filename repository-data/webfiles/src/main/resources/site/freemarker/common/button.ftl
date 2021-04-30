@@ -3,11 +3,13 @@
 <#include "../include/imports.ftl">
 
 <div class="nhsd-t-grid">
-    <div class="nhsd-t-row">
-        <div class="nhsd-t-col">
-            <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center">${heading}</h2>
+    <#if heading?has_content>
+        <div class="nhsd-t-row">
+            <div class="nhsd-t-col">
+                <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center">${heading}</h2>
+            </div>
         </div>
-    </div>
+    </#if>
     <div class="nhsd-m-button-nav">
         <div class="nhsd-t-col nhsd-!t-text-align-${alignment}">
             <#if button1Title?has_content>
