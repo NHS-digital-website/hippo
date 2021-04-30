@@ -321,7 +321,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/service/service-toptasks.ftl
         jcr:primaryType: hst:template
       /services-and-resources-home:
-        hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/visual-hub.ftl
         jcr:primaryType: hst:template
       /sign-up:
         hst:renderpath: webfile:/freemarker/common/sign-up.ftl
