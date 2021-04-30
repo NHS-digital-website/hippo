@@ -71,7 +71,8 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
                                 id
                                 colourVariant
                                 isDarkMolecule
-                                isYellowLink />
+                                isYellowLink
+                                hasHeading/>
                         <#else>
                             <@navigationBlockLarge
                                 item
@@ -80,7 +81,8 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
                                 isDarkMolecule
                                 isYellowLink
                                 isDarkButton
-                                positions[position] />
+                                positions[position]
+                                hasHeading/>
                         </#if>
                     </div>
                 </#list>

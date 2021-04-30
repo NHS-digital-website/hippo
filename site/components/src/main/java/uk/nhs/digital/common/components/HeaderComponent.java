@@ -38,5 +38,6 @@ public class HeaderComponent extends CommonComponent {
         String button2Url = componentParametersInfo.getButton2Url();
         request.setAttribute("button2Text", button2text);
         request.setAttribute("button2Url", button2Url);
+        request.getRequestContext().setAttribute("headerPresent",true);
     }
 }

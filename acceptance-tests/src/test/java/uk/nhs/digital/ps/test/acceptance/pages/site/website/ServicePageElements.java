@@ -28,7 +28,7 @@ public class ServicePageElements implements PageElements {
     }
 
     private static String getDataUiPathXpath(String fieldName) {
-        return "@data-uipath='website.service." + fieldName + "'";
+        return "@data-uipath='document." + fieldName + "'";
     }
 
     @Override

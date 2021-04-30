@@ -11,4 +11,11 @@ public interface CyberAlertComponentInfo {
         description = "Number of alerts to display"
     )
     int getNumberOfAlertsToDisplay();
+
+    @Parameter(
+        name = "Title",
+        required = true,
+        defaultValue = "Latest cyber alerts"
+    )
+    String getTitle();
 }

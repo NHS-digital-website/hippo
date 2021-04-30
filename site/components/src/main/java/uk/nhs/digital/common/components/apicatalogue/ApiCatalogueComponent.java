@@ -6,7 +6,7 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.common.components.BaseGaContentComponent;
+import uk.nhs.digital.common.components.*;
 import uk.nhs.digital.common.components.apicatalogue.filters.Filters;
 import uk.nhs.digital.common.components.apicatalogue.repository.ApiCatalogueRepository;
 import uk.nhs.digital.website.beans.ComponentList;
@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
-public class ApiCatalogueComponent extends BaseGaContentComponent {
+public class ApiCatalogueComponent extends ContentRewriterComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
 

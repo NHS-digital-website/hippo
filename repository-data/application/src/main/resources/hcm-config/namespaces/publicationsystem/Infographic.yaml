@@ -62,7 +62,7 @@ definitions:
           /colour:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Blue, Light blue, White
+              selectable.options: Blue, Yellow, Grey
             caption: Colour
             field: colour
             jcr:primaryType: frontend:plugin
