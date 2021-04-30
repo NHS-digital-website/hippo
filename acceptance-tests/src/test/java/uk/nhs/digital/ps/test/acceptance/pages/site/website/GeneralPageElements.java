@@ -28,7 +28,7 @@ public class GeneralPageElements implements PageElements {
     }
 
     private static String getDataUiPathXpath(String fieldName) {
-        return "@data-uipath='website.general." + fieldName + "'";
+        return "@data-uipath='document." + fieldName + "'";
     }
 
     @Override

@@ -31,7 +31,7 @@ public class CyberAlertComponent extends CommonComponent {
 
         final CyberAlertComponentInfo componentParametersInfo = getComponentParametersInfo(request);
         final int configuredAlertSize = componentParametersInfo.getNumberOfAlertsToDisplay();
-
+        request.setAttribute("title", componentParametersInfo.getTitle());
         try {
 
             final HippoBean baseContentBean = request.getRequestContext().getSiteContentBaseBean();

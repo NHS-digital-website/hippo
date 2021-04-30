@@ -226,7 +226,7 @@ public class CommonFieldsBean extends BaseDocument {
         List<BaseFilter> filters = new ArrayList<BaseFilter>();
         filters.add(filter);
 
-        int maxElements = 6; //based on DW-1105 acceptance criteria
+        int maxElements = 7; //originally based on DW-1105 acceptance criteria - changed to fit DW-2238
         return getRelatedDocuments(linkPaths, maxElements, null, null, News.class,filters);
     }
 

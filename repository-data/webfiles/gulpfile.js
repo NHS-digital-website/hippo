@@ -54,7 +54,7 @@ if (!isDev) {
 }
 
 task("build-css", function processScss() {
-    return src(`./${paths.scss}/*.scss`, {sourcemaps: isDev})
+    return src([`./${paths.scss}/*.scss`, `./${paths.scss}/rebrand/*.scss`], {sourcemaps: isDev})
         .pipe(sass().on("error", sass.logError))
         .pipe(postcss(postCssPlugins))
         .pipe(dest(`./${paths.dist}`, {sourcemaps: isDev ? '.' : false}))

@@ -6,7 +6,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.onehippo.forge.selection.hst.util.SelectionUtil;
 
-public class RoadmapItemsComponent extends BaseGaContentComponent {
+public class RoadmapItemsComponent extends ContentRewriterComponent {
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
