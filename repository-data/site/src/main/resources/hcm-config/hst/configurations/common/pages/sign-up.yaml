@@ -6,7 +6,7 @@ definitions:
         /form:
           hst:referencecomponent: sign-up/form
           jcr:primaryType: hst:containercomponentreference
-        hst:componentclassname: uk.nhs.digital.common.components.BaseGaContentComponent
+        hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
         hst:template: sign-up
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage

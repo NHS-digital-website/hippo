@@ -49,7 +49,7 @@
                                         </#if>
 
                                         <#if hasTitle>
-                                            <h1 class="nhsd-t-heading-s" id="homepage-news-article-title-${item?index}">${item.title}</h1>
+                                            <h3 class="nhsd-t-heading-s" id="homepage-news-article-title-${item?index}">${item.title}</h3>
                                         </#if>
 
                                         <#if hasSummary>

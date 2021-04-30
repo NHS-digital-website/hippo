@@ -5,7 +5,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 
 import java.util.Arrays;
 
-public class RoadmapLinkedBeansComponent extends BaseGaContentComponent {
+public class RoadmapLinkedBeansComponent extends ContentRewriterComponent {
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {

@@ -180,6 +180,14 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/apitryitnow
         jcr:primaryType: hst:sitemapitem
+      /coronavirus:
+        hst:componentconfigurationid: hst:pages/nhsd-coronavirus
+        hst:relativecontentpath: coronavirus
+        jcr:primaryType: hst:sitemapitem
+      /cyber:
+        hst:componentconfigurationid: hst:pages/nhsd-cyber-hub
+        hst:relativecontentpath: cyber-and-data-security
+        jcr:primaryType: hst:sitemapitem
       /cyber-alerts:
         /_any_:
           hst:componentconfigurationid: hst:pages/cyberalert
@@ -219,6 +227,10 @@ definitions:
         hst:componentconfigurationmappingvalues:
         - hst:pages/cyber-data-security-homepage
         hst:relativecontentpath: cyber-and-data-security/content
+        jcr:primaryType: hst:sitemapitem
+      /data:
+        hst:componentconfigurationid: hst:pages/nhsd-data-hub
+        hst:relativecontentpath: data-and-information
         jcr:primaryType: hst:sitemapitem
       /data-and-information:
         /_index_:
@@ -324,6 +336,7 @@ definitions:
             jcr:primaryType: hst:sitemapitem
           hst:relativecontentpath: developer/api-catalogue
           jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/nhsd-developer-hub
         hst:relativecontentpath: developer
         jcr:primaryType: hst:sitemapitem
       /error:
@@ -361,7 +374,26 @@ definitions:
         hst:relativecontentpath: icon-library
         jcr:primaryType: hst:sitemapitem
       /news:
-        hst:componentconfigurationid: hst:pages/news-hub
+        /events:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/event
+            hst:relativecontentpath: /news/events/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/latestevents
+          hst:refId: eventsfeed
+          jcr:primaryType: hst:sitemapitem
+        /feed:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/news
+            hst:relativecontentpath: news/latest-news
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/latestnews
+          hst:refId: newsfeed
+          hst:relativecontentpath: feed
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/nhsd-news
+        hst:refId: newshomepage
+        hst:relativecontentpath: news
         jcr:primaryType: hst:sitemapitem
       /news-and-events:
         /events:
@@ -396,41 +428,13 @@ definitions:
         - hst:pages/news-events-homepage
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
-      /nhsd-about-us-hub:
-        hst:componentconfigurationid: hst:pages/nhsd-about-us-hub
-        hst:relativecontentpath: about-nhs-digital
-        jcr:primaryType: hst:sitemapitem
-      /nhsd-coronavirus:
-        hst:componentconfigurationid: hst:pages/nhsd-coronavirus
-        hst:relativecontentpath: coronavirus
-        jcr:primaryType: hst:sitemapitem
-      /nhsd-cyber-hub:
-        hst:componentconfigurationid: hst:pages/nhsd-cyber-hub
-        hst:relativecontentpath: cyber-and-data-security
-        jcr:primaryType: hst:sitemapitem
-      /nhsd-data-hub:
-        hst:componentconfigurationid: hst:pages/nhsd-data-hub
-        hst:relativecontentpath: data-and-information
-        jcr:primaryType: hst:sitemapitem
-      /nhsd-developer-hub:
-        hst:componentconfigurationid: hst:pages/nhsd-developer-hub
-        hst:relativecontentpath: developer
-        jcr:primaryType: hst:sitemapitem
-      /nhsd-homepage:
-        hst:componentconfigurationid: hst:pages/nhsd-homepage
-        hst:relativecontentpath: nhsd-homepage
-        jcr:primaryType: hst:sitemapitem
-      /nhsd-news:
-        hst:componentconfigurationid: hst:pages/nhsd-news
-        hst:relativecontentpath: news
-        jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:relativecontentpath: ../administration/robots
         jcr:primaryType: hst:sitemapitem
       /root:
-        hst:componentconfigurationid: hst:pages/homeland
-        hst:refId: root
+        hst:componentconfigurationid: hst:pages/nhsd-homepage
+        hst:relativecontentpath: nhsd-homepage
         jcr:primaryType: hst:sitemapitem
       /search:
         /_any_:
@@ -440,6 +444,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/search
         hst:refId: search
         hst:relativecontentpath: facet
+        jcr:primaryType: hst:sitemapitem
+      /services:
+        hst:componentconfigurationid: hst:pages/nhsd-services-hub
+        hst:relativecontentpath: nhsd-services-hub
         jcr:primaryType: hst:sitemapitem
       /supplementary-info:
         hst:componentconfigurationid: hst:pages/supplementaryinformation

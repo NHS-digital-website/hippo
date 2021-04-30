@@ -82,7 +82,7 @@ public class SiteSteps extends AbstractSpringSteps {
         // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
         sitePage.clickCookieAcceptButton();
     }
-    
+
     @When("^I (?:can )?click on the label for \"([^\"]+)\"$")
     public void whenIClickOnLabel(String labelledElement) throws Throwable {
         String xPathExpression = buildXPathExpressionFromElementAttributes(
@@ -120,6 +120,11 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should see (?:.* )?page titled \"([^\"]+)\"$")
     public void thenIShouldSeePageTitled(String pageTitle) throws Throwable {
         assertThat("I should see page titled.", sitePage.getDocumentTitle(), is(pageTitle));
+    }
+
+    @Then("^I should see (?:.* )?page summary \"([^\"]+)\"$")
+    public void thenIShouldSeePageSummary(String pageSummary) throws Throwable {
+        assertThat("I should see page summary.", sitePage.getDocumentSummary(), getMatcherForText(pageSummary));
     }
 
     @Then("^I should see the content \"([^\"]*)\"$")
@@ -456,6 +461,16 @@ public class SiteSteps extends AbstractSpringSteps {
     public void thenIfIInspectedTheHtmlIShouldFindThe(String cssClass) throws Throwable {
         assertNotNull("Can find the CSS class " + cssClass,
             sitePage.findCssClass(cssClass));
+    }
+
+    @Then("the page should be in wide mode")
+    public void thenPageShouldBeWide() {
+        assertTrue(sitePage.isWideMode());
+    }
+
+    @Then("the page should not be in wide mode")
+    public void thenPageShouldNotBeWide() {
+        assertFalse(sitePage.isWideMode());
     }
 
     @Then("^If I inspected the HTML, I should not find the \"([^\"]*)\" css class$")

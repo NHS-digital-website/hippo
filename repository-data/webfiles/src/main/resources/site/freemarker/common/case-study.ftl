@@ -24,7 +24,7 @@
                         <div class="nhsd-o-case-study__content-box">
                             <div class="nhsd-o-case-study__contents">
                                 <#if hasTitle>
-                                    <h1 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-3">${document.title}</h1>
+                                    <h2 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-3">${document.title}</h2>
                                 </#if>
                                 <figure class="nhsd-a-image">
                                     <picture class="nhsd-a-image__picture">
