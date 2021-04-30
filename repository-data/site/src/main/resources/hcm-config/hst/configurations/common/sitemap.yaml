@@ -85,6 +85,10 @@ definitions:
           - hst:pages/video
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
+        /root:
+          hst:componentconfigurationid: hst:pages/nhsd-homepage
+          hst:refId: root
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
         hst:componentconfigurationmappingnames:
         - website:service
