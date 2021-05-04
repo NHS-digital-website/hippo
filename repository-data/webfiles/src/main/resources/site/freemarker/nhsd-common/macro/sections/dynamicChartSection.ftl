@@ -8,7 +8,15 @@
     <#local linkText>${downloadDataFileHeader} ${section.title}</#local>
     <#local getData="uk.nhs.digital.freemarker.highcharts.RemoteChartDataFromUrl"?new() />
     <#local chartData =  (getData(section.url))! />
-
+    <#assign str = ""/>
+    <#list section.seriesItem as item>
+        <#if item.type == "suppress">
+            <#assign str += item.name+",">
+        </#if>
+    </#list>
+    <#if (chartData.data)??>
+        ${chartData.setSuppressedSeries(str)}
+    </#if>
     <div class="nhsd-!t-margin-bottom-6" id="chart-${section.uniqueId}-block">
         <figure class="nhsd-!t-margin-0" data-chart="highchart">
             <div class="nhsd-!t-margin-bottom-2"
@@ -22,7 +30,7 @@
                    title="${linkText}"
                    download="${slugify(section.title)}.csv"
                    <#if (chartData.data)??>
-                       href="data:text/plain;base64,${chartData.data}"
+                       href="data:text/plain;base64,${chartData.filterData}"
                    <#else>
                        href="${section.url}" target="_blank"
                    </#if>
