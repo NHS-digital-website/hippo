@@ -5,7 +5,7 @@
 <#macro navigationBlockSmall item id colourVariant isDarkMolecule isYellowLink hasHeading>
     <#assign hasTitle = item.title?has_content />
     <#assign hasContent = item.content?has_content />
-    <#assign hasImage = item.image?has_content />
+    <#assign hasImage = item.icon?has_content />
     <#assign hasLink = item.external?has_content || item.internal?has_content />
     <#assign hasLabel = item.label?has_content />
     <#assign label = hasLabel?then(item.label, item.title) />
@@ -32,8 +32,8 @@
                     <#if hasImage>
                         <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
                             <picture class="nhsd-a-image__picture">
-                                <@hst.link hippobean=item.image var="image"/>
-                                <#assign imgDescription = item.image.description />
+                                <@hst.link hippobean=item.icon var="image"/>
+                                <#assign imgDescription = item.icon.description />
                                 <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
 
                                 <#if image?ends_with("svg")>
