@@ -41,18 +41,41 @@
         <#assign content = banner.summary>
     </#if>
 
+    <#assign displayButton1 = false>
+    <#assign displayButton2 = false>
+
+    <#if button1.url?has_content && button1.text?has_content>
+        <#assign displayButton1 = true>
+    </#if>
+    <#if button2.url?has_content && button2.text?has_content>
+        <#assign displayButton2 = true>
+    </#if>
+
     <#if banner??>
         <div class="nhsd-o-hero ${bgClass} ${textClass} ${textAlignmentClass} nhsd-!t-margin-bottom-6">
             <div class="nhsd-t-grid">
                 <div class="nhsd-t-row <#if digiblock1PositionClass?has_content>nhsd-t-row--centred</#if>">
                     <div class="<#if digiblock1PositionClass?has_content>
-                            nhsd-t-col-xs-9 nhsd-t-col-s-10 nhsd-t-col-m-11 nhsd-t-col-l-8
-                            <#else>
-                            nhsd-t-col-xs-12 nhsd-t-col-s-11 nhsd-t-col-m-12 nhsd-t-col-l-10
-                            </#if> nhsd-!t-text-align-l-left"
-                            >
-                            <h1 class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6 nhsd-!t-margin-top-6" data-uipath="document.title">${banner.title}</h1>
-                            <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="document.summary"><@hst.html hippohtml=content contentRewriter=stripTagsContentRewriter/></span>
+                        nhsd-t-col-xs-9 nhsd-t-col-s-10 nhsd-t-col-m-11 nhsd-t-col-l-8
+                        <#else>
+                        nhsd-t-col-xs-12 nhsd-t-col-s-11 nhsd-t-col-m-12 nhsd-t-col-l-10
+                        </#if> nhsd-!t-text-align-l-left"
+                        >
+                        <h1 class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-6 nhsd-!t-margin-top-6" data-uipath="document.title">${banner.title}</h1>
+                        <span class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="document.summary"><@hst.html hippohtml=content contentRewriter=stripTagsContentRewriter/></span>
+
+                        <#if displayButton1 && displayButton2><nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed ${buttonAlignmentClass} nhsd-!t-margin-bottom-6"></#if>
+                            <#if displayButton1>
+                                <a class="nhsd-a-button" href="${button1.url}">
+                                    <span class="nhsd-a-button__label">${button1.text}</span>
+                                </a>
+                            </#if>
+                            <#if displayButton2>
+                                <a class="nhsd-a-button nhsd-a-button--invert" href="${button2.url}">
+                                    <span class="nhsd-a-button__label">${button2.text}</span>
+                                </a>
+                            </#if>
+                        <#if displayButton1 && displayButton2></nav></#if>
                     </div>
                 </div>
             </div>
