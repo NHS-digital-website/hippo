@@ -20,6 +20,10 @@ definitions:
           jcr:primaryType: hst:containercomponentreference
         hst:template: global-footer
         jcr:primaryType: hst:component
+      /ie-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.IeBanner
+        hst:template: nhsd-ie-banner
+        jcr:primaryType: hst:component
       /main-nav:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
         hst:parameternames:
