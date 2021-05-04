@@ -22,6 +22,14 @@
                 </property>
             </bean>
         </property>
-        <property name="baseUri" value="${govdelivery.api.base.url}" />
+        <property name="baseUri" value="${govdelivery.api.base.url}"/>
+    </bean>
+    <bean id="eployApi"
+          parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
+          class="org.onehippo.cms7.crisp.core.resource.jdom.SimpleJdomRestTemplateResourceResolver">
+        <property name="cacheEnabled" value="false"/>
+        <property name="restTemplate">
+            <bean class="org.springframework.web.client.RestTemplate"/>
+        </property>
     </bean>
 </beans>

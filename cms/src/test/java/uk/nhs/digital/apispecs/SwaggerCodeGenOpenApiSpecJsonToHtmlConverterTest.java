@@ -57,8 +57,8 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
         // then
         assertThat(
             "A complete spec has been rendered as HTML using customised Swagger CodeGen v3",
-            ignoringWhiteSpacesIn(actualSpecHtml),
-            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+            ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
         );
     }
 
@@ -76,8 +76,8 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
         // then
         assertThat(
             "Specification is rendered with no error when the 'components' field is absent from the source JSON",
-            ignoringWhiteSpacesIn(actualSpecHtml),
-            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+            ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
         );
     }
 
@@ -214,5 +214,17 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
         return cache.get(fileName, () -> contentOfFileFromClasspath(
             "/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/" + fileName)
         );
+    }
+
+    private String ignoringUuids(final String htmlText) {
+        return htmlText.replaceAll(
+            "data-schema-uuid=\"[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}\"",
+            "data-schema-uuid=\"\""
+        ).replaceAll(
+            "Children\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
+            "Children('')"
+        ).replaceAll(
+            "All\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
+            "All('')");
     }
 }

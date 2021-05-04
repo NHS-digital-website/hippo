@@ -12,6 +12,7 @@
                         <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link siteMapItemRefId='root'/>">NHS Digital</a>
                         <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
                     </li>
+                    ${hstRequestContext.setAttribute("bread",breadcrumb.items[0].title)}
                     <#list breadcrumb.items as item>
                         <li class="nhsd-m-breadcrumbs__item">
                             <#if !item?is_last>

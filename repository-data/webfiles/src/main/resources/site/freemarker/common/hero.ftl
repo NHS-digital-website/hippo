@@ -1,8 +1,11 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<#include "macro/metaTags.ftl">
+
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Video" -->
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
@@ -21,13 +24,20 @@
 <#assign hasTextAlignment = textAlignment?has_content />
 <#assign mirrored = (hasTextAlignment && textAlignment == "right")?then("nhsd-o-hero-feature--mirrored","")/>
 
+<#assign breadcrumb  = hstRequestContext.getAttribute("bread")>
+
+<#if (breadcrumb=="Coronavirus" || breadcrumb=="News") && !hstRequestContext.getAttribute("headerPresent")?if_exists>
+    <#assign overridePageTitle>${breadcrumb}</#assign>
+    <@metaTags></@metaTags>
+</#if>
+
 <#-- Colourbar -->
 <#assign hasColourBar = isTall?then(displayColourBar, false) />
 
 <#if hasDocument>
-    <#assign isCtaDoc = document.class.simpleName == "Calltoaction"/>
-    <#assign isBannerDoc = document.class.simpleName == "Banner"/>
-    <#assign isVideoDoc = document.class.simpleName == "Video"/>
+    <#assign isCtaDoc = document.class.simpleName?starts_with("Calltoaction") />
+    <#assign isBannerDoc = document.class.simpleName?starts_with("Banner") />
+    <#assign isVideoDoc = document.class.simpleName?starts_with("Video") />
 
     <#assign hasTitle = document.title?has_content />
     <#assign hasContent = document.content?has_content || document.introduction?has_content />
@@ -43,9 +53,12 @@
                     <div class="nhsd-o-hero__content-box">
                         <div class="nhsd-o-hero__content">
                             <#if hasTitle>
-                                <span class="${headingSize}">${document.title}</span>
+                                <#if hstRequestContext.getAttribute("headerPresent")?if_exists>
+                                        <h2 class="${headingSize}">${document.title}</h2>
+                                    <#else>
+                                        <h1 class="${headingSize}">${document.title}</h1>
+                                 </#if>
                             </#if>
-
                             <#if hasContent>
                                 <p class="nhsd-t-body nhsd-!t-margin-bottom-6">
                                     <#if isBannerDoc>
@@ -54,8 +67,7 @@
                                     <#elseif isCtaDoc>
                                         ${document.content}
                                     <#elseif isVideoDoc>
-                                        <@hst.html hippohtml=document.introduction var="summaryText" />
-                                        ${summaryText?replace('<[^>]+>','','r')}
+                                        ${document.getShortsummary()}
                                     </#if>
                                 </p>
                             </#if>

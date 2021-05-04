@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-2309-updater script for the Infographics Compound Brand Refresh:
+      hipposys:batchsize: 10
+      hipposys:description: Changes Light Blue to Yellow and White to Grey
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: //content/documents//element(*,website:infographic)
+      hipposys:script:
+        resource: /configuration/update/DW-2309-updater-script-for-the-Infographics-Compound-Brand-Refresh.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

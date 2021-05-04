@@ -1,5 +1,6 @@
 {{! For model's reference see io.swagger.v3.oas.models.media.Schema and extending classes}}
-<tr>
+{{#assign "schemaUUID"}}{{uuid}}{{/assign}}
+<tr class="expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}" colspan="2">
     {{! 'Name' column (values that don't require labels) }}
     <td style="padding-left: {{indentation}}em;" class="name_column">
         {{#block "propertyName"}}{{/block}}
@@ -17,6 +18,16 @@
         {{#readOnly}}<div><code class="readonly">read-only</code></div>{{/readOnly}}
         {{#writeOnly}}<div><code class="writeonly">write-only</code></div>{{/writeOnly}}
         {{#ifRequired}}<div><code class="required">required</code></div>{{/ifRequired}}
+    </td>
+
+    <td class="button_column">
+        {{#or properties anyOf oneOf allOf}}
+            <button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button>
+        {{else}}
+            {{#eq type 'array'}}
+                <button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button>
+            {{/eq}}
+        {{/or}}
     </td>
 
     {{! 'Description' column (actual description + values that do require labels) }}
@@ -63,7 +74,6 @@
         {{else}}
             <div>Example: <code class="codeinline example">{{sanitiseTypeAny example}}</code></div>
         {{/valueOfTypeAny}}
-
     </td>
 </tr>
 

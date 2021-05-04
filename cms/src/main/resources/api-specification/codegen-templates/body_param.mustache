@@ -41,9 +41,14 @@
         {{/examples}}
 
         {{#if schema}}
-            <div class="body__schema__header">Schema</div>
-
-            <div class="body__schema">
+            {{#assign "schemaUUID"}}{{uuid}}{{/assign}}
+            <div class="body__schema__header">Schema
+                <span class="schema__header__buttons">
+                    <button class='schemaButton js collapseAll' onclick="collapseAll('{{variable "schemaUUID"}}')">Collapse all</button>
+                    <button class='schemaButton js expandAll' onclick="expandAll('{{variable "schemaUUID"}}')">Expand all</button>
+                </span>
+            </div>
+            <div class="body__schema" data-schema-uuid="{{variable "schemaUUID"}}">
             {{#vendorExtensions.x-schema}}
                 {{>schema}}
             {{/vendorExtensions.x-schema}}

@@ -94,8 +94,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("All 'simple' fields of Schema Object are rendered in HTML.",
-            ignoringWhiteSpacesIn(actualSchemaHtml),
-            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
+            ignoringUuids(ignoringWhiteSpacesIn(actualSchemaHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSchemaHtml)))
         );
     }
 
@@ -152,26 +152,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("Fields absent from the specifications are not rendered.",
-            ignoringWhiteSpacesIn(actualSchemaHtml),
-            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
-        );
-    }
-
-    @Test
-    public void rendersCompleteHierarchyOfSchemaObjectsWithTheirFieldsAndIndentationsAsHtml_traversingFieldsProperties() {
-
-        // given
-        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-properties.html");
-
-        final Schema<?> schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-properties.json");
-
-        // when
-        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
-
-        // then
-        assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            ignoringWhiteSpacesIn(actualSchemaHtml),
-            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
+            ignoringUuids(ignoringWhiteSpacesIn(actualSchemaHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSchemaHtml)))
         );
     }
 
@@ -192,8 +174,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            ignoringWhiteSpacesIn(actualSchemaHtml),
-            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
+            ignoringUuids(ignoringWhiteSpacesIn(actualSchemaHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSchemaHtml)))
         );
     }
 
@@ -210,8 +192,8 @@ public class SchemaHelperTest {
 
         // then
         assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
-            ignoringWhiteSpacesIn(actualSchemaHtml),
-            is(ignoringWhiteSpacesIn(expectedSchemaHtml))
+            ignoringUuids(ignoringWhiteSpacesIn(actualSchemaHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSchemaHtml)))
         );
     }
 
@@ -721,5 +703,17 @@ public class SchemaHelperTest {
 
     private String readFrom(final String testDataFileName) {
         return cache.get(testDataFileName, () -> contentOfFileFromClasspath(classPathOf(testDataFileName)));
+    }
+
+    private String ignoringUuids(final String htmlText) {
+        return htmlText.replaceAll(
+            "data-schema-uuid=\"[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}\"",
+            "data-schema-uuid=\"\""
+        ).replaceAll(
+            "Children\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
+            "Children('')"
+        ).replaceAll(
+            "All\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
+            "All('')");
     }
 }
