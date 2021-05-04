@@ -330,6 +330,10 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /developer:
         /api-catalogue:
+          /_any_.trythisapi:
+            hst:componentconfigurationid: hst:pages/apitryitnow
+            hst:relativecontentpath: ${parent}/${1}/content
+            jcr:primaryType: hst:sitemapitem
           /_index_:
             hst:componentconfigurationid: hst:pages/api-catalogue
             hst:relativecontentpath: ${parent}/content
