@@ -49,6 +49,6 @@ public class Calltoaction extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:icon")
     public CorporateWebsiteImageset getIcon() {
-        return getLinkedBean("website:image", CorporateWebsiteImageset.class);
+        return getLinkedBean("website:icon", CorporateWebsiteImageset.class);
     }
 }
