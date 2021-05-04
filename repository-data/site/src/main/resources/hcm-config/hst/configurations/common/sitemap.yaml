@@ -172,11 +172,11 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /about:
         /_any_:
-          hst:componentconfigurationid: hst:pages/about
+          hst:componentconfigurationid: hst:pages/nhsd
           hst:relativecontentpath: about/${1}
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/about
-        hst:relativecontentpath: about
+        hst:componentconfigurationid: hst:pages/nhsd-about-us-hub
+        hst:relativecontentpath: about-nhs-digital
         jcr:primaryType: hst:sitemapitem
       /api-spec-try-it-now:
         /oauth-redirect:
@@ -329,10 +329,6 @@ definitions:
         hst:componentconfigurationid: hst:pages/404
         jcr:primaryType: hst:sitemapitem
       /developer:
-        /_index_:
-          hst:componentconfigurationid: hst:pages/visualhub
-          hst:relativecontentpath: ${parent}/content
-          jcr:primaryType: hst:sitemapitem
         /api-catalogue:
           /_index_:
             hst:componentconfigurationid: hst:pages/api-catalogue

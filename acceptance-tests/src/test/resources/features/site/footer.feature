@@ -31,31 +31,31 @@ Feature: Footer
 #        And I should see a page titled "Privacy and cookies"
 
     # Tests for each of the pages on the site can see footer, and a footer link works
-    Scenario: Search Results
-        Given I navigate to the "home" page
-        And I search for "test"
-        Then I should see the footer
-
-    Scenario: Publication
-        Given I navigate to the "publication with datasets" page
-        Then I should see the footer
-
-    Scenario: Series
-        Given I navigate to the "valid publication series" page
-        Then I should see the footer
-
-    Scenario: Dataset
-        Given I navigate to the "publication with datasets dataset" page
-        Then I should see the footer
-
-    Scenario: Folder
-        Given I navigate to the "acceptence tests folder" page
-        Then I should see the footer
-
-    Scenario: 404
-        Given I navigate to the "invalid document" page
-        Then I should see the footer
-
-    Scenario: About
-        Given I navigate to the "terms and conditions" page
-        Then I should see the footer
+#    Scenario: Search Results
+#        Given I navigate to the "home" page
+#        And I search for "test"
+#        Then I should see the footer
+#
+#    Scenario: Publication
+#        Given I navigate to the "publication with datasets" page
+#        Then I should see the footer
+#
+#    Scenario: Series
+#        Given I navigate to the "valid publication series" page
+#        Then I should see the footer
+#
+#    Scenario: Dataset
+#        Given I navigate to the "publication with datasets dataset" page
+#        Then I should see the footer
+#
+#    Scenario: Folder
+#        Given I navigate to the "acceptence tests folder" page
+#        Then I should see the footer
+#
+#    Scenario: 404
+#        Given I navigate to the "invalid document" page
+#        Then I should see the footer
+#
+#    Scenario: About
+#        Given I navigate to the "terms and conditions" page
+#        Then I should see the footer
