@@ -5,6 +5,7 @@ import org.hippoecm.hst.core.request.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
 
 import javax.jcr.Node;
@@ -15,7 +16,7 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
 
         html = super.rewrite(html, hippoHtmlNode, requestContext, targetMount);
 
-        Document document = Jsoup.parse(html);
+        Document document = Jsoup.parse(html, "", Parser.xmlParser());
 
         // normal
         if (document.select("p").first() != null) {
