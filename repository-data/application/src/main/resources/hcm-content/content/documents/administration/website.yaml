@@ -458,7 +458,7 @@
       /selection:listitem[3]:
         jcr:primaryType: selection:listitem
         selection:key: critical
-        selection:label: Critial failure
+        selection:label: Critical failure
       hippo:availability:
       - live
       - preview
