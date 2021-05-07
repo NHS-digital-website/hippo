@@ -69,6 +69,19 @@
             display: block;
         }
 
+        /* Redundant 'Responses' header under 'Execute' button */
+        .responses-wrapper .opblock-section-header {
+            display: none !important;
+        }
+
+        /* Endpoints' Responses (static redundant content, not actual 'live' responses for the sandbox servers) */
+        .responses-table:not(.live-responses-table) {
+            display: none;
+        }
+        .responses-table .headers-wrapper {
+            display: none;
+        }
+
         .responses-table .headers-wrapper {
             display: none;
         }
@@ -100,6 +113,8 @@
         /* Disables shadows around the 'servers selector' */
         .swagger-ui .scheme-container {
             box-shadow: none;
+            display: contents;
+            background: transparent;
         }
 
         /* Fixes the look of table header values */
