@@ -62,7 +62,8 @@
 
         <script>
             // used in function tryEndpointNow from apispecificaion.js
-            const tryEndpointNowBaseUrl = '<@hst.link siteMapItemRefId='root'/>';
+            <@hst.renderURL var="tryItNowUrl"/>
+            const tryEndpointNowBaseUrl = '${tryItNowUrl}';
         </script>
         <script src="<@hst.webfile path="/apispecification/apispecification.js"/>"> </script>
     </#if>

@@ -5,7 +5,7 @@ function tryEndpointNow(endpointPathInSpec) { // method invocation is rendered b
     const endpointAnchorPath = endpointPathInSpec.replace(/_/g, '-').toLowerCase();
 
     // tryEndpointNowBaseUrl is populated in apispecification.ftl
-    const targetWindowUrl = tryEndpointNowBaseUrl + 'api-spec-try-it-now#' + endpointAnchorPath;
+    const targetWindowUrl = tryEndpointNowBaseUrl + '.trythisapi#' + endpointAnchorPath;
 
     const targetWindowName = 'TryItNow';
 
@@ -103,7 +103,8 @@ const keysPressed = {};
 
 document.addEventListener('keydown', (event) => {
    keysPressed[event.key] = true;
-   if(keysPressed['Control'] && keysPressed['f']) {
+
+    if(keysPressed['Control'] && keysPressed['f']) {
          const schemas = document.querySelectorAll(`.body__schema`);
          schemas.forEach(schema => {
             expandAll(schema.getAttribute('data-schema-uuid'));
@@ -117,3 +118,4 @@ document.addEventListener('keyup', (event) => {
 
 // make controls visible
 document.querySelectorAll(`.js`).forEach(element => element.classList.remove('js'));
+
