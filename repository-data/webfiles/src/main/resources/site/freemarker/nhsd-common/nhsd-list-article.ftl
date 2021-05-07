@@ -27,7 +27,16 @@
 <@headerBanner document />
 
 <div class="nhsd-t-grid nhsd-!t-margin-top-6">
-    <div class="nhsd-t-row">
+
+        <div class="nhsd-t-row">
+                <div class="rich-text-content nhsd-t-col-12">
+                    <#if document.body?has_content??>
+                        <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
+                    </#if>
+                </div>
+        </div>
+
+        <div class="nhsd-t-row">
         <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
             <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
                 <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Search A-Z</h2>
