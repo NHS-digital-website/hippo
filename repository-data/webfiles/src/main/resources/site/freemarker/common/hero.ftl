@@ -111,7 +111,7 @@
                              </div>
                         <#elseif document.image?has_content>
                             <picture class="nhsd-a-image__picture">
-                                <@hst.link hippobean=document.image var="image" />
+                                <@hst.link hippobean=document.image.pageHeaderHeroModule var="image" />
                                 <img src="${image}" alt="${altText}">
                             </picture>
                         <#else>
