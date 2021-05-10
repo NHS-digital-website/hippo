@@ -82,10 +82,6 @@
             display: none;
         }
 
-        .responses-table .headers-wrapper {
-            display: none;
-        }
-
         /* Header of the endpoints' Responses (static redundant content, not actual 'live' responses for the sandbox servers) */
         div.responses-inner > div > h4 {
             display: none;
