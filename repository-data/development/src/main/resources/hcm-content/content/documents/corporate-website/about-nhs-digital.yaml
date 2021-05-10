@@ -1,144 +1,2804 @@
 ---
-/content/documents/corporate-website/about-nhs-digital/content:
-  /content[1]:
-    /website:body:
-      hippostd:content: |-
-        <h2>Our mission</h2>
+/content/documents/corporate-website/about-nhs-digital:
+  /content:
+    /content[1]:
+      /website:body:
+        hippostd:content: |-
+          <h2>Our mission</h2>
 
-        <p>Our mission is to harness the power of information and technology to improve health and care.</p>
+          <p>Our mission is to harness the power of information and technology to improve health and care.</p>
 
-        <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
-      jcr:primaryType: hippostd:html
-    /website:component:
-      hippostd:content: ''
-      jcr:primaryType: hippostd:html
-    /website:friendlyurls:
-      jcr:primaryType: website:friendlyurls
-      website:alternativeurls: []
-    /website:seosummary:
-      hippostd:content: We're the national information and technology partner to the
-        health and social care system. We're using digital technology to transform
+          <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:seosummary:
+        hippostd:content: We're the national information and technology partner to
+          the health and social care system. We're using digital technology to transform
+          the NHS and social care.
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>We're the national information and technology partner
+          to the health and social care system. We're using digital technology to
+          transform the NHS and social care</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
+      hippostdpubwf:lastModificationDate: 2018-12-07T11:02:44.191Z
+      hippostdpubwf:lastModifiedBy: mashuk.reza
+      hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: website:hub
+      website:gossid: 7797
+      website:listtitle: ''
+      website:shortsummary: We're the national information and technology partner
+        to the health and social care system. We're using digital technology to transform
         the NHS and social care.
-      jcr:primaryType: hippostd:html
-    /website:summary:
-      hippostd:content: <p>We're the national information and technology partner to
-        the health and social care system. We're using digital technology to transform
-        the NHS and social care</p>
-      jcr:primaryType: hippostd:html
-    common:searchRank: 5
-    common:searchable: true
-    hippo:availability: []
-    hippostd:state: draft
-    hippostdpubwf:createdBy: system
-    hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
-    hippostdpubwf:lastModificationDate: 2018-12-07T11:02:44.191Z
-    hippostdpubwf:lastModifiedBy: mashuk.reza
-    hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
-    hippotranslation:locale: en
-    jcr:mixinTypes:
-    - mix:versionable
-    jcr:primaryType: website:hub
-    website:gossid: 7797
-    website:listtitle: ''
-    website:shortsummary: We're the national information and technology partner to
-      the health and social care system. We're using digital technology to transform
-      the NHS and social care.
-    website:title: About NHS Digital
-  /content[2]:
-    /website:body:
-      hippostd:content: |-
-        <h2>Our mission</h2>
+      website:title: About NHS Digital
+    /content[2]:
+      /website:body:
+        hippostd:content: |-
+          <h2>Our mission</h2>
 
-        <p>Our mission is to harness the power of information and technology to improve health and care.</p>
+          <p>Our mission is to harness the power of information and technology to improve health and care.</p>
 
-        <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
-      jcr:primaryType: hippostd:html
-    /website:component:
-      hippostd:content: ''
-      jcr:primaryType: hippostd:html
-    /website:friendlyurls:
-      jcr:primaryType: website:friendlyurls
-      website:alternativeurls: []
-    /website:seosummary:
-      hippostd:content: We're the national information and technology partner to the
-        health and social care system. We're using digital technology to transform
+          <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:seosummary:
+        hippostd:content: We're the national information and technology partner to
+          the health and social care system. We're using digital technology to transform
+          the NHS and social care.
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>We're the national information and technology partner
+          to the health and social care system. We're using digital technology to
+          transform the NHS and social care</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
+      hippostdpubwf:lastModificationDate: 2019-01-18T21:11:08.386Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: website:hub
+      website:gossid: 7797
+      website:listtitle: ''
+      website:shortsummary: We're the national information and technology partner
+        to the health and social care system. We're using digital technology to transform
         the NHS and social care.
-      jcr:primaryType: hippostd:html
-    /website:summary:
-      hippostd:content: <p>We're the national information and technology partner to
-        the health and social care system. We're using digital technology to transform
-        the NHS and social care</p>
-      jcr:primaryType: hippostd:html
-    common:searchRank: 5
-    common:searchable: true
-    hippo:availability:
-    - preview
-    hippostd:state: unpublished
-    hippostdpubwf:createdBy: system
-    hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
-    hippostdpubwf:lastModificationDate: 2019-01-18T21:11:08.386Z
-    hippostdpubwf:lastModifiedBy: admin
-    hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
-    hippotranslation:locale: en
-    jcr:mixinTypes:
-    - mix:versionable
-    jcr:primaryType: website:hub
-    website:gossid: 7797
-    website:listtitle: ''
-    website:shortsummary: We're the national information and technology partner to
-      the health and social care system. We're using digital technology to transform
-      the NHS and social care.
-    website:title: About NHS Digital
-  /content[3]:
-    /website:body:
-      hippostd:content: |-
-        <h2>Our mission</h2>
+      website:title: About NHS Digital
+    /content[3]:
+      /website:body:
+        hippostd:content: |-
+          <h2>Our mission</h2>
 
-        <p>Our mission is to harness the power of information and technology to improve health and care.</p>
+          <p>Our mission is to harness the power of information and technology to improve health and care.</p>
 
-        <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
-      jcr:primaryType: hippostd:html
-    /website:component:
-      hippostd:content: ''
-      jcr:primaryType: hippostd:html
-    /website:friendlyurls:
-      jcr:primaryType: website:friendlyurls
-      website:alternativeurls: []
-    /website:seosummary:
-      hippostd:content: We're the national information and technology partner to the
-        health and social care system. We're using digital technology to transform
+          <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:seosummary:
+        hippostd:content: We're the national information and technology partner to
+          the health and social care system. We're using digital technology to transform
+          the NHS and social care.
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>We're the national information and technology partner
+          to the health and social care system. We're using digital technology to
+          transform the NHS and social care</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
+      hippostdpubwf:lastModificationDate: 2019-01-18T21:11:08.386Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-01-18T21:11:12.972Z
+      hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:hub
+      website:gossid: 7797
+      website:listtitle: ''
+      website:shortsummary: We're the national information and technology partner
+        to the health and social care system. We're using digital technology to transform
         the NHS and social care.
-      jcr:primaryType: hippostd:html
-    /website:summary:
-      hippostd:content: <p>We're the national information and technology partner to
-        the health and social care system. We're using digital technology to transform
-        the NHS and social care</p>
-      jcr:primaryType: hippostd:html
-    common:searchRank: 5
-    common:searchable: true
-    hippo:availability:
-    - live
-    hippostd:state: published
-    hippostdpubwf:createdBy: system
-    hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
-    hippostdpubwf:lastModificationDate: 2019-01-18T21:11:08.386Z
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2019-01-18T21:11:12.972Z
-    hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
-    hippotranslation:locale: en
+      website:title: About NHS Digital
+    hippo:name: About NHS Digital
+    hippo:versionHistory: 67d9c02f-07c8-4db8-bc3f-9a5aeb9ae67a
     jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
     - mix:referenceable
-    jcr:primaryType: website:hub
-    website:gossid: 7797
-    website:listtitle: ''
-    website:shortsummary: We're the national information and technology partner to
-      the health and social care system. We're using digital technology to transform
-      the NHS and social care.
-    website:title: About NHS Digital
+    jcr:primaryType: hippo:handle
+  /cookies-we-use:
+    /cookies-we-use[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies enable basic functions like page navigation and access to secure areas of the website. Our website cannot function properly without these cookies.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>__cfduid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>cdnjs.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the content network, Cloudflare, to identify trusted web traffic.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>BACKEND&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>content.digital.nhs.uk<br />
+               digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Part of our load balancing system, ensuring you get uninterrupted browsing</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>@@History/@@scroll|#&nbsp;[x4]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               youtube.com<br />
+               youtube-nocookie.com<br />
+               app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by plugins to keep track of your scroll position, zoom level etc and make your experience work</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>CookieConsent</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Remembers your choice on handling of cookies on our domain for one year</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>mjx.latest</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the MathJax library (www.mathjax.org) to allow us to show equations within our publications</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSessionID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves the visitor's session state across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>qos_token</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>openstreetmap.org</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by OpenStreetMap in order to control traffic flow</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Necessary cookies
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies remember information that changes the way our website behaves or looks, like your preferred language or the region that you are in.</p>
+
+            <p>&nbsp;</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSID-35565217</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by LivePerson to enable chat functions</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpTestCookie#&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               lpcdn.lpsnmedia.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to check if the user's browser supports cookies.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVisitorID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Preference cookies
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies let us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_user</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Microsoft Application Insights software to collect statistical usage and telemetry information. The cookie stores a unique identifier to recognize users on returning visits over time.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_ga</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gat</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Google Analytics to throttle request rate</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpLastVisit-#</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to store the timestamp of the user's last visit.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>google-analytics.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to send data to Google Analytics about the visitor's device and behaviour. Tracks the visitor across devices and marketing channels.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>vuid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>vimeo.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Collects data on the user's visits to the website, such as which pages have been read.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+
+            <p>&nbsp;</p>
+
+            <p>Relevance tracking enables personalised content to be displayed based on the characteristics of individual visitors.&nbsp; This can include visitor characteristics such as where they are coming from, what content they have seen, and frequently visited document types.</p>
+
+            <p>Tracking status: <span id="tracking-status" class="codeinline">&nbsp;</span></p>
+
+            <p><a onclick="setVisitorTracking('allowed');" href="#info">Allow tracking</a> (* <a onclick="Cookiebot.renew()" href="#">cookie consent</a> must also be set to "I'm ok wth cookies")</p>
+
+            <p><a onclick="setVisitorTracking('disallowed');" href="#info">Disallow tracking</a></p>
+
+            <p>&nbsp;</p>
+
+            <p><a onclick="showTrackingInfo();" href="#info" title="View my personal data">Show my tracking info</a><sup> [<a onclick="clearTrackingInfo();" href="#info" title="Forget about me">x REMOVE</a>]</sup></p>
+
+            <div class="container-tracking-info">&nbsp;</div>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Analytics cookies
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies are required by third party applications such as Power BI and our social media channels such as YouTube and Twitter.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_session</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves users states across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>WFESessionId</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_S</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_V</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_SS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used widely by Microsoft as a unique user ID. The cookie enables user tracking by synchronising the ID across many Microsoft domains.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUIDB</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHD</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUSR</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>GPS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID on mobile devices to enable tracking based on geographical GPS location.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>VISITOR_INFO1_LIVE</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Tries to estimate the users' bandwidth on pages with integrated YouTube videos.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>YSC</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID to keep statistics of what videos from YouTube the user has seen.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>r/collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>doubleclick.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Pending</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Social media and third party cookies
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">We do not
+            currently use any&nbsp;additional cookies.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Additional cookies
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>You can find out and learn how to manage cookies on popular browsers here:</p>
+
+            <ul>
+             <li><a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=en" target="_blank">Google Chrome</a></li>
+             <li><a href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy" target="_blank">Microsoft Edge</a></li>
+             <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla Firefox</a></li>
+             <li><a href="https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Microsoft Internet Explorer</a></li>
+             <li><a href="https://www.opera.com/help/tutorials/security/privacy/" target="_blank">Opera</a></li>
+             <li><a href="https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Apple Safari</a></li>
+            </ul>
+
+            <p>You can opt out of being tracked by Google Analytics across all websites by installing a plugin in your browser.&nbsp; To find out more and how to do this, visit <a href="http://tools.google.com/dlpage/gaoptout">http://tools.google.com/dlpage/gaoptout</a></p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Managing cookies on popular browsers
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>A list of cookies we use on our website.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: mashuk.reza
+      hippostdpubwf:creationDate: 2018-05-24T15:07:12.868Z
+      hippostdpubwf:lastModificationDate: 2019-07-16T14:34:08.600Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f2400a0d-6534-44ab-b052-37c6c40535f3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: NHS Digital cookie declaration
+      website:shortsummary: Cookie declaration
+      website:title: Cookies we use on our site
+      website:type: ''
+    /cookies-we-use[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies enable basic functions like page navigation and access to secure areas of the website. Our website cannot function properly without these cookies.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>__cfduid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>cdnjs.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the content network, Cloudflare, to identify trusted web traffic.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>BACKEND&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>content.digital.nhs.uk<br />
+               digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Part of our load balancing system, ensuring you get uninterrupted browsing</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>@@History/@@scroll|#&nbsp;[x4]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               youtube.com<br />
+               youtube-nocookie.com<br />
+               app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by plugins to keep track of your scroll position, zoom level etc and make your experience work</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>CookieConsent</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Remembers your choice on handling of cookies on our domain for one year</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>mjx.latest</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the MathJax library (www.mathjax.org) to allow us to show equations within our publications</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSessionID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves the visitor's session state across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>qos_token</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>openstreetmap.org</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by OpenStreetMap in order to control traffic flow</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Necessary cookies
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies remember information that changes the way our website behaves or looks, like your preferred language or the region that you are in.</p>
+
+            <p>&nbsp;</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSID-35565217</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by LivePerson to enable chat functions</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpTestCookie#&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               lpcdn.lpsnmedia.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to check if the user's browser supports cookies.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVisitorID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Preference cookies
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies let us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_user</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Microsoft Application Insights software to collect statistical usage and telemetry information. The cookie stores a unique identifier to recognize users on returning visits over time.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_ga</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gat</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Google Analytics to throttle request rate</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpLastVisit-#</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to store the timestamp of the user's last visit.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>google-analytics.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to send data to Google Analytics about the visitor's device and behaviour. Tracks the visitor across devices and marketing channels.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>vuid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>vimeo.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Collects data on the user's visits to the website, such as which pages have been read.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+
+            <p>&nbsp;</p>
+
+            <p>Relevance tracking enables personalised content to be displayed based on the characteristics of individual visitors.&nbsp; This can include visitor characteristics such as where they are coming from, what content they have seen, and frequently visited document types.</p>
+
+            <p>Tracking status: <span id="tracking-status" class="codeinline">&nbsp;</span></p>
+
+            <p><a onclick="setVisitorTracking('allowed');" href="#info">Allow tracking</a> (* <a onclick="Cookiebot.renew()" href="#">cookie consent</a> must also be set to "I'm ok wth cookies")</p>
+
+            <p><a onclick="setVisitorTracking('disallowed');" href="#info">Disallow tracking</a></p>
+
+            <p>&nbsp;</p>
+
+            <p><a onclick="showTrackingInfo();" href="#info" title="View my personal data">Show my tracking info</a><sup> [<a onclick="clearTrackingInfo();" href="#info" title="Forget about me">x REMOVE</a>]</sup></p>
+
+            <div class="container-tracking-info">&nbsp;</div>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Analytics cookies
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies are required by third party applications such as Power BI and our social media channels such as YouTube and Twitter.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_session</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves users states across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>WFESessionId</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_S</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_V</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_SS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used widely by Microsoft as a unique user ID. The cookie enables user tracking by synchronising the ID across many Microsoft domains.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUIDB</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHD</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUSR</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>GPS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID on mobile devices to enable tracking based on geographical GPS location.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>VISITOR_INFO1_LIVE</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Tries to estimate the users' bandwidth on pages with integrated YouTube videos.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>YSC</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID to keep statistics of what videos from YouTube the user has seen.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>r/collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>doubleclick.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Pending</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Social media and third party cookies
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">We do not
+            currently use any&nbsp;additional cookies.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Additional cookies
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>You can find out and learn how to manage cookies on popular browsers here:</p>
+
+            <ul>
+             <li><a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=en" target="_blank">Google Chrome</a></li>
+             <li><a href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy" target="_blank">Microsoft Edge</a></li>
+             <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla Firefox</a></li>
+             <li><a href="https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Microsoft Internet Explorer</a></li>
+             <li><a href="https://www.opera.com/help/tutorials/security/privacy/" target="_blank">Opera</a></li>
+             <li><a href="https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Apple Safari</a></li>
+            </ul>
+
+            <p>You can opt out of being tracked by Google Analytics across all websites by installing a plugin in your browser.&nbsp; To find out more and how to do this, visit <a href="http://tools.google.com/dlpage/gaoptout">http://tools.google.com/dlpage/gaoptout</a></p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Managing cookies on popular browsers
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>A list of cookies we use on our website.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: mashuk.reza
+      hippostdpubwf:creationDate: 2018-05-24T15:07:12.868Z
+      hippostdpubwf:lastModificationDate: 2019-07-16T14:34:42.058Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f2400a0d-6534-44ab-b052-37c6c40535f3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: NHS Digital cookie declaration
+      website:shortsummary: Cookie declaration
+      website:title: Cookies we use on our site
+      website:type: ''
+    /cookies-we-use[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies enable basic functions like page navigation and access to secure areas of the website. Our website cannot function properly without these cookies.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>__cfduid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>cdnjs.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the content network, Cloudflare, to identify trusted web traffic.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>BACKEND&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>content.digital.nhs.uk<br />
+               digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Part of our load balancing system, ensuring you get uninterrupted browsing</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>@@History/@@scroll|#&nbsp;[x4]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               youtube.com<br />
+               youtube-nocookie.com<br />
+               app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by plugins to keep track of your scroll position, zoom level etc and make your experience work</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>CookieConsent</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Remembers your choice on handling of cookies on our domain for one year</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>mjx.latest</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the MathJax library (www.mathjax.org) to allow us to show equations within our publications</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSessionID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves the visitor's session state across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>qos_token</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>openstreetmap.org</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by OpenStreetMap in order to control traffic flow</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Necessary cookies
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies remember information that changes the way our website behaves or looks, like your preferred language or the region that you are in.</p>
+
+            <p>&nbsp;</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSID-35565217</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by LivePerson to enable chat functions</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpTestCookie#&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               lpcdn.lpsnmedia.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to check if the user's browser supports cookies.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVisitorID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Preference cookies
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies let us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_user</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Microsoft Application Insights software to collect statistical usage and telemetry information. The cookie stores a unique identifier to recognize users on returning visits over time.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_ga</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gat</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Google Analytics to throttle request rate</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpLastVisit-#</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to store the timestamp of the user's last visit.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>google-analytics.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to send data to Google Analytics about the visitor's device and behaviour. Tracks the visitor across devices and marketing channels.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>vuid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>vimeo.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Collects data on the user's visits to the website, such as which pages have been read.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+
+            <p>&nbsp;</p>
+
+            <p>Relevance tracking enables personalised content to be displayed based on the characteristics of individual visitors.&nbsp; This can include visitor characteristics such as where they are coming from, what content they have seen, and frequently visited document types.</p>
+
+            <p>Tracking status: <span id="tracking-status" class="codeinline">&nbsp;</span></p>
+
+            <p><a onclick="setVisitorTracking('allowed');" href="#info">Allow tracking</a> (* <a onclick="Cookiebot.renew()" href="#">cookie consent</a> must also be set to "I'm ok wth cookies")</p>
+
+            <p><a onclick="setVisitorTracking('disallowed');" href="#info">Disallow tracking</a></p>
+
+            <p>&nbsp;</p>
+
+            <p><a onclick="showTrackingInfo();" href="#info" title="View my personal data">Show my tracking info</a><sup> [<a onclick="clearTrackingInfo();" href="#info" title="Forget about me">x REMOVE</a>]</sup></p>
+
+            <div class="container-tracking-info">&nbsp;</div>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Analytics cookies
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies are required by third party applications such as Power BI and our social media channels such as YouTube and Twitter.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_session</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves users states across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>WFESessionId</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_S</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_V</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_SS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used widely by Microsoft as a unique user ID. The cookie enables user tracking by synchronising the ID across many Microsoft domains.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUIDB</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHD</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUSR</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>GPS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID on mobile devices to enable tracking based on geographical GPS location.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>VISITOR_INFO1_LIVE</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Tries to estimate the users' bandwidth on pages with integrated YouTube videos.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>YSC</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID to keep statistics of what videos from YouTube the user has seen.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>r/collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>doubleclick.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Pending</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Social media and third party cookies
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">We do not
+            currently use any&nbsp;additional cookies.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Additional cookies
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>You can find out and learn how to manage cookies on popular browsers here:</p>
+
+            <ul>
+             <li><a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=en" target="_blank">Google Chrome</a></li>
+             <li><a href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy" target="_blank">Microsoft Edge</a></li>
+             <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla Firefox</a></li>
+             <li><a href="https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Microsoft Internet Explorer</a></li>
+             <li><a href="https://www.opera.com/help/tutorials/security/privacy/" target="_blank">Opera</a></li>
+             <li><a href="https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Apple Safari</a></li>
+            </ul>
+
+            <p>You can opt out of being tracked by Google Analytics across all websites by installing a plugin in your browser.&nbsp; To find out more and how to do this, visit <a href="http://tools.google.com/dlpage/gaoptout">http://tools.google.com/dlpage/gaoptout</a></p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Managing cookies on popular browsers
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>A list of cookies we use on our website.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: mashuk.reza
+      hippostdpubwf:creationDate: 2018-05-24T15:07:12.868Z
+      hippostdpubwf:lastModificationDate: 2019-07-16T14:34:42.058Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-07-16T14:34:44.648Z
+      hippotranslation:id: f2400a0d-6534-44ab-b052-37c6c40535f3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: NHS Digital cookie declaration
+      website:shortsummary: Cookie declaration
+      website:title: Cookies we use on our site
+      website:type: ''
+    hippo:name: cookies we use
+    hippo:versionHistory: 8d6a2a07-a4a1-4277-868c-b40488650331
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /terms-and-conditions:
+    /terms-and-conditions[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>1.1&nbsp;&nbsp; &nbsp;Please read these terms and conditions carefully before you start to use this website (being https://digital.nhs.uk/ and all sections and pages). You may access and use this website if you agree to be legally bound by these terms and conditions set out here. If you do not agree to be legally bound by these terms and conditions please do not access and/or use this website.&nbsp;</p>
+
+            <p>1.3&nbsp;&nbsp; &nbsp;References in these terms and conditions to “NHS Digital”, “we”, “our” and “us” are references to the Health and Social Care Information Centre, a non-departmental public body established under primary legislation and known as NHS Digital. The entire contents of this website, and the individual articles, items, media files and assets published are owned by NHS Digital, unless otherwise indicated.&nbsp;</p>
+
+            <p>1.4&nbsp;&nbsp; &nbsp;This website is intended for use only by people who live in the United Kingdom. References to ‘the NHS’ mean ‘the NHS in England’ unless otherwise stated. Services and arrangements may differ elsewhere in the UK.</p>
+
+            <p>1.5&nbsp;&nbsp; &nbsp;If you have any queries in respect of your use of this website please contact us at: enquiries@nhsdigital.nhs.uk or<br />
+            NHS Digital<br />
+            1 Trevelyan Square<br />
+            Boar Lane<br />
+            Leeds<br />
+            West Yorkshire<br />
+            LS1 6AE</p>
+
+            <p>1.6&nbsp;&nbsp; &nbsp;We may make changes to these terms and conditions, the terms and conditions applicable to any specific sub-site, the privacy and cookies policy and any other policies applicable to your use of this website, at any time. Your continuing use of this website constitutes your acceptance of and agreement to any such changed terms and conditions and policies.</p>
+
+            <p>1.7&nbsp;&nbsp; &nbsp;To the extent that we are practically able to do so, we may terminate your access to any part of this website at any time without notice if you breach any of these terms and conditions.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 1. About these terms
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          /accessibility:
+            hippo:docbase: 320dd2af-e7c8-4b0a-b778-0522ca4a7a5f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>2.1&nbsp;&nbsp; &nbsp;NHS Digital aims to make this
+            website and the material provided accessible to as many people as possible.
+            This website is designed to work with the latest versions of Microsoft
+            Edge, Google Chrome and Apple Safari, and uses standards which should
+            work on the majority of browsers in use. &nbsp;We offer no warranty for
+            this website working in any particular browser or configuration. Please
+            note that you may see inconsistencies in the presentation of pages if
+            you are using an older or deprecated version of a browser. <a href="accessibility">Read
+            further information on the accessibility of this website</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 2. Accessibility and browsers
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          /privacy-and-cookies:
+            hippo:docbase: 156b997b-1f4f-4c6f-b1f1-72fbdf092e36
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>3.1&nbsp;&nbsp; &nbsp;NHS Digital processes information
+            about you in accordance with our <a href="privacy-and-cookies">privacy
+            and cookies policy</a>. By using this website, you consent to such processing
+            and you warrant that all data provided by you is accurate.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 3. Information about you and your visits to this website
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          /content_1:
+            hippo:docbase: 26c8fff2-dbce-46a6-aac3-2ac98aa0f3f5
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>4.1&nbsp;&nbsp; &nbsp;The data rights and responsibilities
+            of NHS Digital, its staff and of patients is governed by the Freedom of
+            Information Act 2000 and the Data Protection Act 1998. For policy and
+            other information see <a href="content_1">Freedom of Information</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 4. Freedom of Information
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: |-
+            <p>5.1&nbsp;&nbsp; &nbsp;In order to access certain content, systems or interactive features on this website you may be asked to choose, or be provided with, a password or other log in details to access parts of this website. As a minimum, passwords you set for use with this website must have a level of complexity which ensures they cannot be easily guessed by hackers or malicious software. &nbsp;They should:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;be at least twelve characters long;<br />
+            •&nbsp;&nbsp; &nbsp;not contain your user name, real name, or organisation name;<br />
+            •&nbsp;&nbsp; &nbsp;not appear in the list of top 10,000 passwords;<br />
+            •&nbsp;&nbsp; &nbsp;not use sequential key characters on the keyboard (e.g. qwerty, asdfg, 12345)</p>
+
+            <p>5.2&nbsp;&nbsp; &nbsp;In line with Government best practice, we recommend using the ‘three random words’ approach, which uses three or more randomly chosen words like ‘saloonbadgertree’ or ‘coffeetrainfish’. &nbsp;These words should be random, and not related personally to you (so not involving a favourite thing, holiday, relative). Passwords must not under any circumstances be shared with anyone. &nbsp;&nbsp;</p>
+
+            <p>5.3&nbsp;&nbsp; &nbsp;You may terminate your account registration using the relevant link in your account pages. This will clear any personal information you have saved. Subscriptions to our emails can be terminated using the ‘Unsubscribe’ links provided in the emails. &nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 5. Registering to use this website
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>6.1&nbsp;&nbsp; &nbsp;You may use this website only for lawful purposes. You may not use this website:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;in any way that breaches any applicable local, national or international law or regulation;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;in any way that is unlawful, fraudulent or harmful to other users, or has any unlawful, fraudulent or harmful purpose or effect;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to send, knowingly receive, upload, download, use or re-use any material which does not comply with these terms and conditions;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to transmit, or produce the sending of, any unsolicited or unauthorised advertising or promotional material or any other form of similar solicitation (spam); and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to knowingly transmit any data, send or upload any material that contains viruses, Trojan horses, worms, spyware or any other harmful programs or similar computer code designed to adversely affect the operation of any computer software or hardware.</p>
+
+            <p>6.2&nbsp;&nbsp; &nbsp;You also agree not to access without authority, interfere with, damage or disrupt any part of this website; any equipment or network on which this website is stored; any software used in the provision of this website; or any equipment or network or software owned or used by any third-party.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 6. Prohibited uses of this website
+        website:type: ''
+      /website:sections[7]:
+        /website:html:
+          hippostd:content: |-
+            <p>7.1&nbsp;&nbsp; &nbsp;The material on this website includes information, data, text, images, videos, Information Standards, interactive services, link to products and apps and other works (“NHS Digital Content”). &nbsp;You acknowledge that all rights in copyright, patents, design rights, trade marks and other intellectual property rights (whether registered, capable of registration or otherwise) throughout the world, in this website and all NHS Digital Content are owned by, or licensed to NHS Digital, unless otherwise indicated. Some NHS Digital Content includes identifiable third-party content for which we will have sought permission for its inclusion.&nbsp;</p>
+
+            <p>7.2&nbsp;&nbsp; &nbsp;Except for your use of this website in accordance with these terms and conditions, you are granted no rights in respect of this website or any NHS Digital Content.&nbsp;</p>
+
+            <p>7.3&nbsp;&nbsp; &nbsp;The Information Standards are published by us and apply to organisations in the health and social care sector. &nbsp;They relate to the processing of information such that data can be shared, compared and understood across the sector, and used for planning, monitoring and good patient care. For further details please see https://digital.nhs.uk/information-standards. The Data Co-ordination Board (DCB) assures the quality of information standards.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 7. Material on this website
+        website:type: ''
+      /website:sections[8]:
+        /website:html:
+          hippostd:content: |-
+            <p>8.1&nbsp;&nbsp; &nbsp;Copyright and database rights in the NHS Digital Content are released free-of-charge under the current version of the Open Government Licence (“OGL”), except where specified, either in these terms and conditions, elsewhere on this website or in the OGL terms. &nbsp;This licence does not extend to any other intellectual property rights, including but not limited to patents, design rights and trade marks. If there is any conflict between the OGL terms and these terms and conditions these terms and conditions shall take precedence. &nbsp;</p>
+
+            <p>8.2&nbsp;&nbsp; &nbsp;This means that you can use NHS Digital Content, including copying it, adapting it, and using it for any purpose, including commercially, provided you follow these terms and conditions and the terms of the OGL.</p>
+
+            <p>8.3&nbsp;&nbsp; &nbsp;The OGL terms do not apply to the following categories of NHS Digital Content, and therefore these must not be used without our or the relevant owner’s prior consent:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;any logos, visuals, image rights, trademarks, trade names and design styles (except where these are integral to a document or data set) of NHS Digital, or any predecessor or linked body, as well as of any partner or contributor;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;the Information Standards. &nbsp;NHS Digital permits the copying and re-use of Information Standards, in whole or in part, for commercial and non-commercial purposes but, to protect the integrity of the Information Standards, you are not permitted to adapt, amend or decompile the Information Standards for any purpose without our prior consent;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;software, source code and any technical documentation relating to software or source code except where released on https://developer.nhs.uk/, a public repository on GitHub, or any other platform we may specify from time-to-time;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;information owned by third parties which we are not authorised to licence on to you. &nbsp;This information will be clearly marked. &nbsp;If in doubt, contact us using the details above;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;information gained through any services or sections on this website (or linked websites) which can only be accessed by logged-in users; and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;any information which is marked as being under a different licence, or not for release.</p>
+
+            <p>8.4&nbsp;&nbsp; &nbsp;If you do use any NHS Digital Content you must attribute it with the following statement:<br />
+            “Information from NHS Digital, licenced under the current version of the Open Government Licence”.<br />
+            or in cases where the NHS Digital Content is combined, adapted, or otherwise modified in line with these terms and conditions:&nbsp;<br />
+            “Contains information from NHS Digital, licenced under the current version of the Open Government Licence”.<br />
+            8.5&nbsp;&nbsp; &nbsp;By using any NHS Digital Content you accept and agree to the following terms:&nbsp;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you must not alter, adapt, edit or modify any NHS Digital branding where this is integral to a document or data set;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;if you do alter, adapt, edit or modify any NHS Digital Content in accordance with these terms and conditions, where possible, you should remove the NHS Digital branding;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you may not directly or indirectly suggest any endorsement or approval by NHS Digital of your site or any non-NHS Digital entity, product or content or any views expressed within your site or service;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;NHS Digital has absolute editorial control over all NHS Digital Content and reserves the right to alter, adapt, edit, modify or restrict the availability of NHS Digital Content without prior notice; and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you should refresh cached content every 24 hours to ensure you have the most up-to-date version.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 8. Your use of NHS Digital content
+        website:type: ''
+      /website:sections[9]:
+        /website:html:
+          hippostd:content: |-
+            <p>9.1&nbsp;&nbsp; &nbsp;Whenever you make use of a feature that allows you to upload material to this website, for example when you participate in online discussions, contact other users of this website or submit any apps or products, you must comply with the standards set out in the comments and moderation policy. You warrant that any such contribution does comply with those standards, and you indemnify us for any breach of that warranty.</p>
+
+            <p>9.2&nbsp;&nbsp; &nbsp;Any material you upload to this website will be considered non-confidential and non-proprietary, and NHS Digital has the right to use, copy, distribute and disclose to third-parties any such material for any purpose. Furthermore NHS Digital also has the right to disclose your identity to any third-party who is claiming that any material posted or uploaded by you to this website constitutes a violation of their intellectual property rights, or their right to privacy.&nbsp;</p>
+
+            <p>9.3&nbsp;&nbsp; &nbsp;NHS Digital will not be responsible, or liable to any third-party, for the content or accuracy of any materials posted by your or any other user of this website.&nbsp;</p>
+
+            <p>9.4&nbsp;&nbsp; &nbsp;NHS Digital has the right to remove any material or posting you make on this website if, in our opinion, such material does not comply with the standards set out in these terms and conditions and the comments and moderation policy.</p>
+
+            <p>9.5&nbsp;&nbsp; &nbsp;Comments posted should relate to your personal experience or that of someone close to you. You should not name any individuals (other than yourself) or include information through which someone else could identify an individual about whom you are writing. If you want to comment on someone else’s experience, (e.g. a relative or someone you care for) then you may do so if you ensure that you are not named in the posting and you state how the other person is connected to you (e.g. “my father”). You warrant that all statements of fact in any comment you submit are true, and that any expression of opinion is your honestly held opinion on those facts, or that of the person on whose behalf you are writing.</p>
+
+            <p>9.6&nbsp;&nbsp; &nbsp;If you find any comments offensive or objectionable you may make a complaint to the moderator using the ‘Report’ link provided at the foot of each published comment.</p>
+
+            <p>9.7&nbsp;&nbsp; &nbsp;We have many measures in place to keep your information safe. But it is important that you also play your part – visit the Government's Get Safe Online website for advice on how to do this. &nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 9. Uploading material to this website
+        website:type: ''
+      /website:sections[10]:
+        /website:html:
+          hippostd:content: |-
+            <p>10.1&nbsp;&nbsp; &nbsp;NHS Digital may from time to time provide third party or owned social media and interactive services on this website or linked to this website, currently this includes and is not limited to:&nbsp;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;Youtube – for sharing video content;<br />
+            •&nbsp;&nbsp; &nbsp;Twitter – for sharing news and participating in conversations with users;<br />
+            •&nbsp;&nbsp; &nbsp;Blogs – &nbsp;to share the opinions of NHS Digital’s staff and other key figures;<br />
+            •&nbsp;&nbsp; &nbsp;Discussion Forums – for participation in conversations with users;<br />
+            •&nbsp;&nbsp; &nbsp;RSS feeds – for sharing news;<br />
+            •&nbsp;&nbsp; &nbsp;Social bookmarking – to allow users to share our content more easily on popular social media platforms.</p>
+
+            <p>10.2&nbsp;&nbsp; &nbsp;NHS Digital is under no obligation to oversee, monitor or moderate any interactive services we provide from this website, and we expressly exclude our liability for any loss or damage arising from the use of these interactive services by a user in contravention of these terms and conditions, whether the service is moderated or not.&nbsp;</p>
+
+            <p>10.3&nbsp;&nbsp; &nbsp;Our RSS feeds can be used as part of your website; however, we do require that proper format and attribution are used. The attribution text should read “NHS Digital RSS feeds”. We reserve the right from time to time to restrict the distribution of NHS Digital RSS feed content and do not accept any liability for these feeds.</p>
+
+            <p>10.4&nbsp;&nbsp; &nbsp;Use of our social bookmarking links is subject to these terms and conditions, see ‘Linking from this website’ below.</p>
+
+            <p>10.5&nbsp;&nbsp; &nbsp;Although we do monitor and review discussions, chat, postings, transmissions, bulletin boards and the like on this website and its subsections, we are under no obligation to do so and assume no responsibility or liability arising from the content of any such locations nor for any error, omission, infringement, defamation, obscenity, or inaccuracy contained in any information within such locations on this website.&nbsp;</p>
+
+            <p>10.6&nbsp;&nbsp; &nbsp;The use of any of the interactive features on this website by a minor is subject to the consent of their parent or guardian, and we advise parents to communicate with their children about their safety online, as moderation is not foolproof. Minors who are using any interactive service should be made aware of the potential risks to them. Where we do moderate any of the interactive features on this website, we will normally provide you with a means of contacting the moderator, should a concern or difficulty arise.&nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 10. Social media, bookmarking, and digital engagement
+        website:type: ''
+      /website:sections[11]:
+        /website:html:
+          hippostd:content: |-
+            <p>11.1&nbsp;&nbsp; &nbsp;We do not object to you linking directly to pages on this website. We reserve the right to move or change this website’s URLs at any time. Rather than deep linking we recommend linking to section homepages, which are less likely to move or change.</p>
+
+            <p>11.2&nbsp;&nbsp; &nbsp;However, we don’t give permission to suggest that your website is associated, or endorsed by us.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 11. Linking to this website
+        website:type: ''
+      /website:sections[12]:
+        /website:html:
+          hippostd:content: |-
+            <p>12.1&nbsp;&nbsp; &nbsp;We are not responsible for the content or reliability of the websites we link to and do not necessarily endorse the views expressed within them. We aim to replace broken links to other sites but cannot guarantee that these links will always work as we have no control over the availability of other sites.</p>
+
+            <p>12.2&nbsp;&nbsp; &nbsp;Due to the very nature of the internet we cannot guarantee this website or other websites we link to will always be available to you.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 12. Linking from this website
+        website:type: ''
+      /website:sections[13]:
+        /website:html:
+          hippostd:content: |-
+            <p>13.1&nbsp;&nbsp; &nbsp;This website, all NHS Digital Content and all material relating to Government information, products and services (or to third-party information, products and services), is provided ‘as is’, without any endorsement and without warranty of any kind whether express or implied, including but not limited to the implied warranties of satisfactory quality, fitness for a particular purpose, non-infringement, compatibility, security and accuracy. &nbsp;This means that whilst we do try to ensure that all our information is correct, we are not liable for any errors or omissions, and cannot be responsible for any impact these have on you. &nbsp;</p>
+
+            <p>13.2&nbsp;&nbsp; &nbsp;If the need arises, we reserve the right to amend, delete, suspend or withdraw all or any part of this website without notice. NHS Digital will not be liable if for any reason this website or any parts are unavailable at any time.</p>
+
+            <p>13.3&nbsp;&nbsp; &nbsp;We do not warrant that the functions of this website will be uninterrupted or error free, that defects will be corrected, or that this website or the server that makes it available will be free of viruses or represent the full functionality, accuracy or reliability of the materials. You should use your own virus protection software.</p>
+
+            <p>13.4&nbsp;&nbsp; &nbsp;NHS Digital and any approving bodies are not the owners, managers or suppliers of various products which can be accessed from this website. NHS Digital or the approving body sets standards for reviewing the products, but this does not mean that NHS Digital or the approving body has itself reviewed all aspects of each product, or version of the same product. NHS Digital or the approving body is not responsible or liable for any advice, or any other information, services or products that you obtain using any such products.</p>
+
+            <p>13.5&nbsp;&nbsp; &nbsp;Material on this website is provided for information and educational purposes only and we do not guarantee that information we provide will meet your health or medical requirements. NHS Digital does not give medical advice in relation to any individual case or patient, nor does NHS Digital provide medical or diagnostic services. For less urgent health needs, contact your GP or local pharmacist in the usual way. If you have an urgent medical need you should call 111. If a life is at risk, call 999.</p>
+
+            <p>13.6&nbsp;&nbsp; &nbsp;In no event will we be liable for any loss or damage including, without limitation, indirect or consequential loss or damage, or any loss or damages whatsoever arising from use or loss of use of, data or profits arising out of or in connection with the use of this website. Nothing in these terms and conditions will operate to limit or exclude liability for death or personal injury arising from our negligence, nor our liability for fraudulent misrepresentation, nor any other liability which cannot be excluded or limited under applicable law.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 13. Disclaimer and liabilities
+        website:type: ''
+      /website:sections[14]:
+        /website:html:
+          hippostd:content: |-
+            <p>14.1&nbsp;&nbsp; &nbsp;If any of these terms and conditions are determined to be illegal, invalid or otherwise unenforceable then the remaining terms and conditions shall remain in full force and effect.</p>
+
+            <p>14.2&nbsp;&nbsp; &nbsp;The laws of England shall apply exclusively to these terms and conditions and to all matters relating to use of this website. Any cause of action arising under these terms and conditions or the use of this website shall be subject to the exclusive jurisdiction of the courts of England and Wales.&nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 14. General
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: Terms and conditions for use of the NHS Digital website
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Use of this website is governed by these terms and conditions.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: owain.davies1
+      hippostdpubwf:creationDate: 2018-04-16T14:33:20.840Z
+      hippostdpubwf:lastModificationDate: 2019-12-10T13:07:35.811Z
+      hippostdpubwf:lastModifiedBy: owain.davies1
+      hippotranslation:id: c039b407-4596-4583-bfa3-7f00b37da106
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 235
+      website:navigationcontroller: withNav
+      website:seosummarytext: Terms and conditions for use of the NHS Digital website
+      website:shortsummary: Terms and conditions for use of the website
+      website:title: Terms and conditions
+      website:type: ''
+    /terms-and-conditions[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>1.1&nbsp;&nbsp; &nbsp;Please read these terms and conditions carefully before you start to use this website (being https://digital.nhs.uk/ and all sections and pages). You may access and use this website if you agree to be legally bound by these terms and conditions set out here. If you do not agree to be legally bound by these terms and conditions please do not access and/or use this website.&nbsp;</p>
+
+            <p>1.3&nbsp;&nbsp; &nbsp;References in these terms and conditions to “NHS Digital”, “we”, “our” and “us” are references to the Health and Social Care Information Centre, a non-departmental public body established under primary legislation and known as NHS Digital. The entire contents of this website, and the individual articles, items, media files and assets published are owned by NHS Digital, unless otherwise indicated.&nbsp;</p>
+
+            <p>1.4&nbsp;&nbsp; &nbsp;This website is intended for use only by people who live in the United Kingdom. References to ‘the NHS’ mean ‘the NHS in England’ unless otherwise stated. Services and arrangements may differ elsewhere in the UK.</p>
+
+            <p>1.5&nbsp;&nbsp; &nbsp;If you have any queries in respect of your use of this website please contact us at: enquiries@nhsdigital.nhs.uk or<br />
+            NHS Digital<br />
+            1 Trevelyan Square<br />
+            Boar Lane<br />
+            Leeds<br />
+            West Yorkshire<br />
+            LS1 6AE</p>
+
+            <p>1.6&nbsp;&nbsp; &nbsp;We may make changes to these terms and conditions, the terms and conditions applicable to any specific sub-site, the privacy and cookies policy and any other policies applicable to your use of this website, at any time. Your continuing use of this website constitutes your acceptance of and agreement to any such changed terms and conditions and policies.</p>
+
+            <p>1.7&nbsp;&nbsp; &nbsp;To the extent that we are practically able to do so, we may terminate your access to any part of this website at any time without notice if you breach any of these terms and conditions.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 1. About these terms
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          /accessibility:
+            hippo:docbase: 320dd2af-e7c8-4b0a-b778-0522ca4a7a5f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>2.1&nbsp;&nbsp; &nbsp;NHS Digital aims to make this
+            website and the material provided accessible to as many people as possible.
+            This website is designed to work with the latest versions of Microsoft
+            Edge, Google Chrome and Apple Safari, and uses standards which should
+            work on the majority of browsers in use. &nbsp;We offer no warranty for
+            this website working in any particular browser or configuration. Please
+            note that you may see inconsistencies in the presentation of pages if
+            you are using an older or deprecated version of a browser. <a href="accessibility">Read
+            further information on the accessibility of this website</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 2. Accessibility and browsers
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          /privacy-and-cookies:
+            hippo:docbase: 156b997b-1f4f-4c6f-b1f1-72fbdf092e36
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>3.1&nbsp;&nbsp; &nbsp;NHS Digital processes information
+            about you in accordance with our <a href="privacy-and-cookies">privacy
+            and cookies policy</a>. By using this website, you consent to such processing
+            and you warrant that all data provided by you is accurate.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 3. Information about you and your visits to this website
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          /content_1:
+            hippo:docbase: 26c8fff2-dbce-46a6-aac3-2ac98aa0f3f5
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>4.1&nbsp;&nbsp; &nbsp;The data rights and responsibilities
+            of NHS Digital, its staff and of patients is governed by the Freedom of
+            Information Act 2000 and the Data Protection Act 1998. For policy and
+            other information see <a href="content_1">Freedom of Information</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 4. Freedom of Information
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: |-
+            <p>5.1&nbsp;&nbsp; &nbsp;In order to access certain content, systems or interactive features on this website you may be asked to choose, or be provided with, a password or other log in details to access parts of this website. As a minimum, passwords you set for use with this website must have a level of complexity which ensures they cannot be easily guessed by hackers or malicious software. &nbsp;They should:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;be at least twelve characters long;<br />
+            •&nbsp;&nbsp; &nbsp;not contain your user name, real name, or organisation name;<br />
+            •&nbsp;&nbsp; &nbsp;not appear in the list of top 10,000 passwords;<br />
+            •&nbsp;&nbsp; &nbsp;not use sequential key characters on the keyboard (e.g. qwerty, asdfg, 12345)</p>
+
+            <p>5.2&nbsp;&nbsp; &nbsp;In line with Government best practice, we recommend using the ‘three random words’ approach, which uses three or more randomly chosen words like ‘saloonbadgertree’ or ‘coffeetrainfish’. &nbsp;These words should be random, and not related personally to you (so not involving a favourite thing, holiday, relative). Passwords must not under any circumstances be shared with anyone. &nbsp;&nbsp;</p>
+
+            <p>5.3&nbsp;&nbsp; &nbsp;You may terminate your account registration using the relevant link in your account pages. This will clear any personal information you have saved. Subscriptions to our emails can be terminated using the ‘Unsubscribe’ links provided in the emails. &nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 5. Registering to use this website
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>6.1&nbsp;&nbsp; &nbsp;You may use this website only for lawful purposes. You may not use this website:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;in any way that breaches any applicable local, national or international law or regulation;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;in any way that is unlawful, fraudulent or harmful to other users, or has any unlawful, fraudulent or harmful purpose or effect;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to send, knowingly receive, upload, download, use or re-use any material which does not comply with these terms and conditions;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to transmit, or produce the sending of, any unsolicited or unauthorised advertising or promotional material or any other form of similar solicitation (spam); and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to knowingly transmit any data, send or upload any material that contains viruses, Trojan horses, worms, spyware or any other harmful programs or similar computer code designed to adversely affect the operation of any computer software or hardware.</p>
+
+            <p>6.2&nbsp;&nbsp; &nbsp;You also agree not to access without authority, interfere with, damage or disrupt any part of this website; any equipment or network on which this website is stored; any software used in the provision of this website; or any equipment or network or software owned or used by any third-party.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 6. Prohibited uses of this website
+        website:type: ''
+      /website:sections[7]:
+        /website:html:
+          hippostd:content: |-
+            <p>7.1&nbsp;&nbsp; &nbsp;The material on this website includes information, data, text, images, videos, Information Standards, interactive services, link to products and apps and other works (“NHS Digital Content”). &nbsp;You acknowledge that all rights in copyright, patents, design rights, trade marks and other intellectual property rights (whether registered, capable of registration or otherwise) throughout the world, in this website and all NHS Digital Content are owned by, or licensed to NHS Digital, unless otherwise indicated. Some NHS Digital Content includes identifiable third-party content for which we will have sought permission for its inclusion.&nbsp;</p>
+
+            <p>7.2&nbsp;&nbsp; &nbsp;Except for your use of this website in accordance with these terms and conditions, you are granted no rights in respect of this website or any NHS Digital Content.&nbsp;</p>
+
+            <p>7.3&nbsp;&nbsp; &nbsp;The Information Standards are published by us and apply to organisations in the health and social care sector. &nbsp;They relate to the processing of information such that data can be shared, compared and understood across the sector, and used for planning, monitoring and good patient care. For further details please see https://digital.nhs.uk/information-standards. The Data Co-ordination Board (DCB) assures the quality of information standards.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 7. Material on this website
+        website:type: ''
+      /website:sections[8]:
+        /website:html:
+          hippostd:content: |-
+            <p>8.1&nbsp;&nbsp; &nbsp;Copyright and database rights in the NHS Digital Content are released free-of-charge under the current version of the Open Government Licence (“OGL”), except where specified, either in these terms and conditions, elsewhere on this website or in the OGL terms. &nbsp;This licence does not extend to any other intellectual property rights, including but not limited to patents, design rights and trade marks. If there is any conflict between the OGL terms and these terms and conditions these terms and conditions shall take precedence. &nbsp;</p>
+
+            <p>8.2&nbsp;&nbsp; &nbsp;This means that you can use NHS Digital Content, including copying it, adapting it, and using it for any purpose, including commercially, provided you follow these terms and conditions and the terms of the OGL.</p>
+
+            <p>8.3&nbsp;&nbsp; &nbsp;The OGL terms do not apply to the following categories of NHS Digital Content, and therefore these must not be used without our or the relevant owner’s prior consent:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;any logos, visuals, image rights, trademarks, trade names and design styles (except where these are integral to a document or data set) of NHS Digital, or any predecessor or linked body, as well as of any partner or contributor;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;the Information Standards. &nbsp;NHS Digital permits the copying and re-use of Information Standards, in whole or in part, for commercial and non-commercial purposes but, to protect the integrity of the Information Standards, you are not permitted to adapt, amend or decompile the Information Standards for any purpose without our prior consent;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;software, source code and any technical documentation relating to software or source code except where released on https://developer.nhs.uk/, a public repository on GitHub, or any other platform we may specify from time-to-time;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;information owned by third parties which we are not authorised to licence on to you. &nbsp;This information will be clearly marked. &nbsp;If in doubt, contact us using the details above;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;information gained through any services or sections on this website (or linked websites) which can only be accessed by logged-in users; and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;any information which is marked as being under a different licence, or not for release.</p>
+
+            <p>8.4&nbsp;&nbsp; &nbsp;If you do use any NHS Digital Content you must attribute it with the following statement:<br />
+            “Information from NHS Digital, licenced under the current version of the Open Government Licence”.<br />
+            or in cases where the NHS Digital Content is combined, adapted, or otherwise modified in line with these terms and conditions:&nbsp;<br />
+            “Contains information from NHS Digital, licenced under the current version of the Open Government Licence”.<br />
+            8.5&nbsp;&nbsp; &nbsp;By using any NHS Digital Content you accept and agree to the following terms:&nbsp;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you must not alter, adapt, edit or modify any NHS Digital branding where this is integral to a document or data set;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;if you do alter, adapt, edit or modify any NHS Digital Content in accordance with these terms and conditions, where possible, you should remove the NHS Digital branding;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you may not directly or indirectly suggest any endorsement or approval by NHS Digital of your site or any non-NHS Digital entity, product or content or any views expressed within your site or service;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;NHS Digital has absolute editorial control over all NHS Digital Content and reserves the right to alter, adapt, edit, modify or restrict the availability of NHS Digital Content without prior notice; and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you should refresh cached content every 24 hours to ensure you have the most up-to-date version.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 8. Your use of NHS Digital content
+        website:type: ''
+      /website:sections[9]:
+        /website:html:
+          hippostd:content: |-
+            <p>9.1&nbsp;&nbsp; &nbsp;Whenever you make use of a feature that allows you to upload material to this website, for example when you participate in online discussions, contact other users of this website or submit any apps or products, you must comply with the standards set out in the comments and moderation policy. You warrant that any such contribution does comply with those standards, and you indemnify us for any breach of that warranty.</p>
+
+            <p>9.2&nbsp;&nbsp; &nbsp;Any material you upload to this website will be considered non-confidential and non-proprietary, and NHS Digital has the right to use, copy, distribute and disclose to third-parties any such material for any purpose. Furthermore NHS Digital also has the right to disclose your identity to any third-party who is claiming that any material posted or uploaded by you to this website constitutes a violation of their intellectual property rights, or their right to privacy.&nbsp;</p>
+
+            <p>9.3&nbsp;&nbsp; &nbsp;NHS Digital will not be responsible, or liable to any third-party, for the content or accuracy of any materials posted by your or any other user of this website.&nbsp;</p>
+
+            <p>9.4&nbsp;&nbsp; &nbsp;NHS Digital has the right to remove any material or posting you make on this website if, in our opinion, such material does not comply with the standards set out in these terms and conditions and the comments and moderation policy.</p>
+
+            <p>9.5&nbsp;&nbsp; &nbsp;Comments posted should relate to your personal experience or that of someone close to you. You should not name any individuals (other than yourself) or include information through which someone else could identify an individual about whom you are writing. If you want to comment on someone else’s experience, (e.g. a relative or someone you care for) then you may do so if you ensure that you are not named in the posting and you state how the other person is connected to you (e.g. “my father”). You warrant that all statements of fact in any comment you submit are true, and that any expression of opinion is your honestly held opinion on those facts, or that of the person on whose behalf you are writing.</p>
+
+            <p>9.6&nbsp;&nbsp; &nbsp;If you find any comments offensive or objectionable you may make a complaint to the moderator using the ‘Report’ link provided at the foot of each published comment.</p>
+
+            <p>9.7&nbsp;&nbsp; &nbsp;We have many measures in place to keep your information safe. But it is important that you also play your part – visit the Government's Get Safe Online website for advice on how to do this. &nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 9. Uploading material to this website
+        website:type: ''
+      /website:sections[10]:
+        /website:html:
+          hippostd:content: |-
+            <p>10.1&nbsp;&nbsp; &nbsp;NHS Digital may from time to time provide third party or owned social media and interactive services on this website or linked to this website, currently this includes and is not limited to:&nbsp;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;Youtube – for sharing video content;<br />
+            •&nbsp;&nbsp; &nbsp;Twitter – for sharing news and participating in conversations with users;<br />
+            •&nbsp;&nbsp; &nbsp;Blogs – &nbsp;to share the opinions of NHS Digital’s staff and other key figures;<br />
+            •&nbsp;&nbsp; &nbsp;Discussion Forums – for participation in conversations with users;<br />
+            •&nbsp;&nbsp; &nbsp;RSS feeds – for sharing news;<br />
+            •&nbsp;&nbsp; &nbsp;Social bookmarking – to allow users to share our content more easily on popular social media platforms.</p>
+
+            <p>10.2&nbsp;&nbsp; &nbsp;NHS Digital is under no obligation to oversee, monitor or moderate any interactive services we provide from this website, and we expressly exclude our liability for any loss or damage arising from the use of these interactive services by a user in contravention of these terms and conditions, whether the service is moderated or not.&nbsp;</p>
+
+            <p>10.3&nbsp;&nbsp; &nbsp;Our RSS feeds can be used as part of your website; however, we do require that proper format and attribution are used. The attribution text should read “NHS Digital RSS feeds”. We reserve the right from time to time to restrict the distribution of NHS Digital RSS feed content and do not accept any liability for these feeds.</p>
+
+            <p>10.4&nbsp;&nbsp; &nbsp;Use of our social bookmarking links is subject to these terms and conditions, see ‘Linking from this website’ below.</p>
+
+            <p>10.5&nbsp;&nbsp; &nbsp;Although we do monitor and review discussions, chat, postings, transmissions, bulletin boards and the like on this website and its subsections, we are under no obligation to do so and assume no responsibility or liability arising from the content of any such locations nor for any error, omission, infringement, defamation, obscenity, or inaccuracy contained in any information within such locations on this website.&nbsp;</p>
+
+            <p>10.6&nbsp;&nbsp; &nbsp;The use of any of the interactive features on this website by a minor is subject to the consent of their parent or guardian, and we advise parents to communicate with their children about their safety online, as moderation is not foolproof. Minors who are using any interactive service should be made aware of the potential risks to them. Where we do moderate any of the interactive features on this website, we will normally provide you with a means of contacting the moderator, should a concern or difficulty arise.&nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 10. Social media, bookmarking, and digital engagement
+        website:type: ''
+      /website:sections[11]:
+        /website:html:
+          hippostd:content: |-
+            <p>11.1&nbsp;&nbsp; &nbsp;We do not object to you linking directly to pages on this website. We reserve the right to move or change this website’s URLs at any time. Rather than deep linking we recommend linking to section homepages, which are less likely to move or change.</p>
+
+            <p>11.2&nbsp;&nbsp; &nbsp;However, we don’t give permission to suggest that your website is associated, or endorsed by us.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 11. Linking to this website
+        website:type: ''
+      /website:sections[12]:
+        /website:html:
+          hippostd:content: |-
+            <p>12.1&nbsp;&nbsp; &nbsp;We are not responsible for the content or reliability of the websites we link to and do not necessarily endorse the views expressed within them. We aim to replace broken links to other sites but cannot guarantee that these links will always work as we have no control over the availability of other sites.</p>
+
+            <p>12.2&nbsp;&nbsp; &nbsp;Due to the very nature of the internet we cannot guarantee this website or other websites we link to will always be available to you.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 12. Linking from this website
+        website:type: ''
+      /website:sections[13]:
+        /website:html:
+          hippostd:content: |-
+            <p>13.1&nbsp;&nbsp; &nbsp;This website, all NHS Digital Content and all material relating to Government information, products and services (or to third-party information, products and services), is provided ‘as is’, without any endorsement and without warranty of any kind whether express or implied, including but not limited to the implied warranties of satisfactory quality, fitness for a particular purpose, non-infringement, compatibility, security and accuracy. &nbsp;This means that whilst we do try to ensure that all our information is correct, we are not liable for any errors or omissions, and cannot be responsible for any impact these have on you. &nbsp;</p>
+
+            <p>13.2&nbsp;&nbsp; &nbsp;If the need arises, we reserve the right to amend, delete, suspend or withdraw all or any part of this website without notice. NHS Digital will not be liable if for any reason this website or any parts are unavailable at any time.</p>
+
+            <p>13.3&nbsp;&nbsp; &nbsp;We do not warrant that the functions of this website will be uninterrupted or error free, that defects will be corrected, or that this website or the server that makes it available will be free of viruses or represent the full functionality, accuracy or reliability of the materials. You should use your own virus protection software.</p>
+
+            <p>13.4&nbsp;&nbsp; &nbsp;NHS Digital and any approving bodies are not the owners, managers or suppliers of various products which can be accessed from this website. NHS Digital or the approving body sets standards for reviewing the products, but this does not mean that NHS Digital or the approving body has itself reviewed all aspects of each product, or version of the same product. NHS Digital or the approving body is not responsible or liable for any advice, or any other information, services or products that you obtain using any such products.</p>
+
+            <p>13.5&nbsp;&nbsp; &nbsp;Material on this website is provided for information and educational purposes only and we do not guarantee that information we provide will meet your health or medical requirements. NHS Digital does not give medical advice in relation to any individual case or patient, nor does NHS Digital provide medical or diagnostic services. For less urgent health needs, contact your GP or local pharmacist in the usual way. If you have an urgent medical need you should call 111. If a life is at risk, call 999.</p>
+
+            <p>13.6&nbsp;&nbsp; &nbsp;In no event will we be liable for any loss or damage including, without limitation, indirect or consequential loss or damage, or any loss or damages whatsoever arising from use or loss of use of, data or profits arising out of or in connection with the use of this website. Nothing in these terms and conditions will operate to limit or exclude liability for death or personal injury arising from our negligence, nor our liability for fraudulent misrepresentation, nor any other liability which cannot be excluded or limited under applicable law.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 13. Disclaimer and liabilities
+        website:type: ''
+      /website:sections[14]:
+        /website:html:
+          hippostd:content: |-
+            <p>14.1&nbsp;&nbsp; &nbsp;If any of these terms and conditions are determined to be illegal, invalid or otherwise unenforceable then the remaining terms and conditions shall remain in full force and effect.</p>
+
+            <p>14.2&nbsp;&nbsp; &nbsp;The laws of England shall apply exclusively to these terms and conditions and to all matters relating to use of this website. Any cause of action arising under these terms and conditions or the use of this website shall be subject to the exclusive jurisdiction of the courts of England and Wales.&nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 14. General
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: Terms and conditions for use of the NHS Digital website
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Use of this website is governed by these terms and conditions.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: owain.davies1
+      hippostdpubwf:creationDate: 2018-04-16T14:33:20.840Z
+      hippostdpubwf:lastModificationDate: 2019-12-10T13:08:27.650Z
+      hippostdpubwf:lastModifiedBy: owain.davies1
+      hippotranslation:id: c039b407-4596-4583-bfa3-7f00b37da106
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: website:general
+      website:gossid: 235
+      website:navigationcontroller: withNav
+      website:seosummarytext: Terms and conditions for use of the NHS Digital website
+      website:shortsummary: Terms and conditions for use of the website
+      website:title: Terms and conditions
+      website:type: ''
+    /terms-and-conditions[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>1.1&nbsp;&nbsp; &nbsp;Please read these terms and conditions carefully before you start to use this website (being https://digital.nhs.uk/ and all sections and pages). You may access and use this website if you agree to be legally bound by these terms and conditions set out here. If you do not agree to be legally bound by these terms and conditions please do not access and/or use this website.&nbsp;</p>
+
+            <p>1.3&nbsp;&nbsp; &nbsp;References in these terms and conditions to “NHS Digital”, “we”, “our” and “us” are references to the Health and Social Care Information Centre, a non-departmental public body established under primary legislation and known as NHS Digital. The entire contents of this website, and the individual articles, items, media files and assets published are owned by NHS Digital, unless otherwise indicated.&nbsp;</p>
+
+            <p>1.4&nbsp;&nbsp; &nbsp;This website is intended for use only by people who live in the United Kingdom. References to ‘the NHS’ mean ‘the NHS in England’ unless otherwise stated. Services and arrangements may differ elsewhere in the UK.</p>
+
+            <p>1.5&nbsp;&nbsp; &nbsp;If you have any queries in respect of your use of this website please contact us at: enquiries@nhsdigital.nhs.uk or<br />
+            NHS Digital<br />
+            1 Trevelyan Square<br />
+            Boar Lane<br />
+            Leeds<br />
+            West Yorkshire<br />
+            LS1 6AE</p>
+
+            <p>1.6&nbsp;&nbsp; &nbsp;We may make changes to these terms and conditions, the terms and conditions applicable to any specific sub-site, the privacy and cookies policy and any other policies applicable to your use of this website, at any time. Your continuing use of this website constitutes your acceptance of and agreement to any such changed terms and conditions and policies.</p>
+
+            <p>1.7&nbsp;&nbsp; &nbsp;To the extent that we are practically able to do so, we may terminate your access to any part of this website at any time without notice if you breach any of these terms and conditions.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 1. About these terms
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          /accessibility:
+            hippo:docbase: 320dd2af-e7c8-4b0a-b778-0522ca4a7a5f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>2.1&nbsp;&nbsp; &nbsp;NHS Digital aims to make this
+            website and the material provided accessible to as many people as possible.
+            This website is designed to work with the latest versions of Microsoft
+            Edge, Google Chrome and Apple Safari, and uses standards which should
+            work on the majority of browsers in use. &nbsp;We offer no warranty for
+            this website working in any particular browser or configuration. Please
+            note that you may see inconsistencies in the presentation of pages if
+            you are using an older or deprecated version of a browser. <a href="accessibility">Read
+            further information on the accessibility of this website</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 2. Accessibility and browsers
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          /privacy-and-cookies:
+            hippo:docbase: 156b997b-1f4f-4c6f-b1f1-72fbdf092e36
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>3.1&nbsp;&nbsp; &nbsp;NHS Digital processes information
+            about you in accordance with our <a href="privacy-and-cookies">privacy
+            and cookies policy</a>. By using this website, you consent to such processing
+            and you warrant that all data provided by you is accurate.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 3. Information about you and your visits to this website
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          /content_1:
+            hippo:docbase: 26c8fff2-dbce-46a6-aac3-2ac98aa0f3f5
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: <p>4.1&nbsp;&nbsp; &nbsp;The data rights and responsibilities
+            of NHS Digital, its staff and of patients is governed by the Freedom of
+            Information Act 2000 and the Data Protection Act 1998. For policy and
+            other information see <a href="content_1">Freedom of Information</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 4. Freedom of Information
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: |-
+            <p>5.1&nbsp;&nbsp; &nbsp;In order to access certain content, systems or interactive features on this website you may be asked to choose, or be provided with, a password or other log in details to access parts of this website. As a minimum, passwords you set for use with this website must have a level of complexity which ensures they cannot be easily guessed by hackers or malicious software. &nbsp;They should:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;be at least twelve characters long;<br />
+            •&nbsp;&nbsp; &nbsp;not contain your user name, real name, or organisation name;<br />
+            •&nbsp;&nbsp; &nbsp;not appear in the list of top 10,000 passwords;<br />
+            •&nbsp;&nbsp; &nbsp;not use sequential key characters on the keyboard (e.g. qwerty, asdfg, 12345)</p>
+
+            <p>5.2&nbsp;&nbsp; &nbsp;In line with Government best practice, we recommend using the ‘three random words’ approach, which uses three or more randomly chosen words like ‘saloonbadgertree’ or ‘coffeetrainfish’. &nbsp;These words should be random, and not related personally to you (so not involving a favourite thing, holiday, relative). Passwords must not under any circumstances be shared with anyone. &nbsp;&nbsp;</p>
+
+            <p>5.3&nbsp;&nbsp; &nbsp;You may terminate your account registration using the relevant link in your account pages. This will clear any personal information you have saved. Subscriptions to our emails can be terminated using the ‘Unsubscribe’ links provided in the emails. &nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 5. Registering to use this website
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>6.1&nbsp;&nbsp; &nbsp;You may use this website only for lawful purposes. You may not use this website:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;in any way that breaches any applicable local, national or international law or regulation;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;in any way that is unlawful, fraudulent or harmful to other users, or has any unlawful, fraudulent or harmful purpose or effect;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to send, knowingly receive, upload, download, use or re-use any material which does not comply with these terms and conditions;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to transmit, or produce the sending of, any unsolicited or unauthorised advertising or promotional material or any other form of similar solicitation (spam); and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;to knowingly transmit any data, send or upload any material that contains viruses, Trojan horses, worms, spyware or any other harmful programs or similar computer code designed to adversely affect the operation of any computer software or hardware.</p>
+
+            <p>6.2&nbsp;&nbsp; &nbsp;You also agree not to access without authority, interfere with, damage or disrupt any part of this website; any equipment or network on which this website is stored; any software used in the provision of this website; or any equipment or network or software owned or used by any third-party.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 6. Prohibited uses of this website
+        website:type: ''
+      /website:sections[7]:
+        /website:html:
+          hippostd:content: |-
+            <p>7.1&nbsp;&nbsp; &nbsp;The material on this website includes information, data, text, images, videos, Information Standards, interactive services, link to products and apps and other works (“NHS Digital Content”). &nbsp;You acknowledge that all rights in copyright, patents, design rights, trade marks and other intellectual property rights (whether registered, capable of registration or otherwise) throughout the world, in this website and all NHS Digital Content are owned by, or licensed to NHS Digital, unless otherwise indicated. Some NHS Digital Content includes identifiable third-party content for which we will have sought permission for its inclusion.&nbsp;</p>
+
+            <p>7.2&nbsp;&nbsp; &nbsp;Except for your use of this website in accordance with these terms and conditions, you are granted no rights in respect of this website or any NHS Digital Content.&nbsp;</p>
+
+            <p>7.3&nbsp;&nbsp; &nbsp;The Information Standards are published by us and apply to organisations in the health and social care sector. &nbsp;They relate to the processing of information such that data can be shared, compared and understood across the sector, and used for planning, monitoring and good patient care. For further details please see https://digital.nhs.uk/information-standards. The Data Co-ordination Board (DCB) assures the quality of information standards.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 7. Material on this website
+        website:type: ''
+      /website:sections[8]:
+        /website:html:
+          hippostd:content: |-
+            <p>8.1&nbsp;&nbsp; &nbsp;Copyright and database rights in the NHS Digital Content are released free-of-charge under the current version of the Open Government Licence (“OGL”), except where specified, either in these terms and conditions, elsewhere on this website or in the OGL terms. &nbsp;This licence does not extend to any other intellectual property rights, including but not limited to patents, design rights and trade marks. If there is any conflict between the OGL terms and these terms and conditions these terms and conditions shall take precedence. &nbsp;</p>
+
+            <p>8.2&nbsp;&nbsp; &nbsp;This means that you can use NHS Digital Content, including copying it, adapting it, and using it for any purpose, including commercially, provided you follow these terms and conditions and the terms of the OGL.</p>
+
+            <p>8.3&nbsp;&nbsp; &nbsp;The OGL terms do not apply to the following categories of NHS Digital Content, and therefore these must not be used without our or the relevant owner’s prior consent:</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;any logos, visuals, image rights, trademarks, trade names and design styles (except where these are integral to a document or data set) of NHS Digital, or any predecessor or linked body, as well as of any partner or contributor;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;the Information Standards. &nbsp;NHS Digital permits the copying and re-use of Information Standards, in whole or in part, for commercial and non-commercial purposes but, to protect the integrity of the Information Standards, you are not permitted to adapt, amend or decompile the Information Standards for any purpose without our prior consent;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;software, source code and any technical documentation relating to software or source code except where released on https://developer.nhs.uk/, a public repository on GitHub, or any other platform we may specify from time-to-time;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;information owned by third parties which we are not authorised to licence on to you. &nbsp;This information will be clearly marked. &nbsp;If in doubt, contact us using the details above;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;information gained through any services or sections on this website (or linked websites) which can only be accessed by logged-in users; and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;any information which is marked as being under a different licence, or not for release.</p>
+
+            <p>8.4&nbsp;&nbsp; &nbsp;If you do use any NHS Digital Content you must attribute it with the following statement:<br />
+            “Information from NHS Digital, licenced under the current version of the Open Government Licence”.<br />
+            or in cases where the NHS Digital Content is combined, adapted, or otherwise modified in line with these terms and conditions:&nbsp;<br />
+            “Contains information from NHS Digital, licenced under the current version of the Open Government Licence”.<br />
+            8.5&nbsp;&nbsp; &nbsp;By using any NHS Digital Content you accept and agree to the following terms:&nbsp;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you must not alter, adapt, edit or modify any NHS Digital branding where this is integral to a document or data set;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;if you do alter, adapt, edit or modify any NHS Digital Content in accordance with these terms and conditions, where possible, you should remove the NHS Digital branding;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you may not directly or indirectly suggest any endorsement or approval by NHS Digital of your site or any non-NHS Digital entity, product or content or any views expressed within your site or service;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;NHS Digital has absolute editorial control over all NHS Digital Content and reserves the right to alter, adapt, edit, modify or restrict the availability of NHS Digital Content without prior notice; and</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;you should refresh cached content every 24 hours to ensure you have the most up-to-date version.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 8. Your use of NHS Digital content
+        website:type: ''
+      /website:sections[9]:
+        /website:html:
+          hippostd:content: |-
+            <p>9.1&nbsp;&nbsp; &nbsp;Whenever you make use of a feature that allows you to upload material to this website, for example when you participate in online discussions, contact other users of this website or submit any apps or products, you must comply with the standards set out in the comments and moderation policy. You warrant that any such contribution does comply with those standards, and you indemnify us for any breach of that warranty.</p>
+
+            <p>9.2&nbsp;&nbsp; &nbsp;Any material you upload to this website will be considered non-confidential and non-proprietary, and NHS Digital has the right to use, copy, distribute and disclose to third-parties any such material for any purpose. Furthermore NHS Digital also has the right to disclose your identity to any third-party who is claiming that any material posted or uploaded by you to this website constitutes a violation of their intellectual property rights, or their right to privacy.&nbsp;</p>
+
+            <p>9.3&nbsp;&nbsp; &nbsp;NHS Digital will not be responsible, or liable to any third-party, for the content or accuracy of any materials posted by your or any other user of this website.&nbsp;</p>
+
+            <p>9.4&nbsp;&nbsp; &nbsp;NHS Digital has the right to remove any material or posting you make on this website if, in our opinion, such material does not comply with the standards set out in these terms and conditions and the comments and moderation policy.</p>
+
+            <p>9.5&nbsp;&nbsp; &nbsp;Comments posted should relate to your personal experience or that of someone close to you. You should not name any individuals (other than yourself) or include information through which someone else could identify an individual about whom you are writing. If you want to comment on someone else’s experience, (e.g. a relative or someone you care for) then you may do so if you ensure that you are not named in the posting and you state how the other person is connected to you (e.g. “my father”). You warrant that all statements of fact in any comment you submit are true, and that any expression of opinion is your honestly held opinion on those facts, or that of the person on whose behalf you are writing.</p>
+
+            <p>9.6&nbsp;&nbsp; &nbsp;If you find any comments offensive or objectionable you may make a complaint to the moderator using the ‘Report’ link provided at the foot of each published comment.</p>
+
+            <p>9.7&nbsp;&nbsp; &nbsp;We have many measures in place to keep your information safe. But it is important that you also play your part – visit the Government's Get Safe Online website for advice on how to do this. &nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 9. Uploading material to this website
+        website:type: ''
+      /website:sections[10]:
+        /website:html:
+          hippostd:content: |-
+            <p>10.1&nbsp;&nbsp; &nbsp;NHS Digital may from time to time provide third party or owned social media and interactive services on this website or linked to this website, currently this includes and is not limited to:&nbsp;</p>
+
+            <p>•&nbsp;&nbsp; &nbsp;Youtube – for sharing video content;<br />
+            •&nbsp;&nbsp; &nbsp;Twitter – for sharing news and participating in conversations with users;<br />
+            •&nbsp;&nbsp; &nbsp;Blogs – &nbsp;to share the opinions of NHS Digital’s staff and other key figures;<br />
+            •&nbsp;&nbsp; &nbsp;Discussion Forums – for participation in conversations with users;<br />
+            •&nbsp;&nbsp; &nbsp;RSS feeds – for sharing news;<br />
+            •&nbsp;&nbsp; &nbsp;Social bookmarking – to allow users to share our content more easily on popular social media platforms.</p>
+
+            <p>10.2&nbsp;&nbsp; &nbsp;NHS Digital is under no obligation to oversee, monitor or moderate any interactive services we provide from this website, and we expressly exclude our liability for any loss or damage arising from the use of these interactive services by a user in contravention of these terms and conditions, whether the service is moderated or not.&nbsp;</p>
+
+            <p>10.3&nbsp;&nbsp; &nbsp;Our RSS feeds can be used as part of your website; however, we do require that proper format and attribution are used. The attribution text should read “NHS Digital RSS feeds”. We reserve the right from time to time to restrict the distribution of NHS Digital RSS feed content and do not accept any liability for these feeds.</p>
+
+            <p>10.4&nbsp;&nbsp; &nbsp;Use of our social bookmarking links is subject to these terms and conditions, see ‘Linking from this website’ below.</p>
+
+            <p>10.5&nbsp;&nbsp; &nbsp;Although we do monitor and review discussions, chat, postings, transmissions, bulletin boards and the like on this website and its subsections, we are under no obligation to do so and assume no responsibility or liability arising from the content of any such locations nor for any error, omission, infringement, defamation, obscenity, or inaccuracy contained in any information within such locations on this website.&nbsp;</p>
+
+            <p>10.6&nbsp;&nbsp; &nbsp;The use of any of the interactive features on this website by a minor is subject to the consent of their parent or guardian, and we advise parents to communicate with their children about their safety online, as moderation is not foolproof. Minors who are using any interactive service should be made aware of the potential risks to them. Where we do moderate any of the interactive features on this website, we will normally provide you with a means of contacting the moderator, should a concern or difficulty arise.&nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 10. Social media, bookmarking, and digital engagement
+        website:type: ''
+      /website:sections[11]:
+        /website:html:
+          hippostd:content: |-
+            <p>11.1&nbsp;&nbsp; &nbsp;We do not object to you linking directly to pages on this website. We reserve the right to move or change this website’s URLs at any time. Rather than deep linking we recommend linking to section homepages, which are less likely to move or change.</p>
+
+            <p>11.2&nbsp;&nbsp; &nbsp;However, we don’t give permission to suggest that your website is associated, or endorsed by us.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 11. Linking to this website
+        website:type: ''
+      /website:sections[12]:
+        /website:html:
+          hippostd:content: |-
+            <p>12.1&nbsp;&nbsp; &nbsp;We are not responsible for the content or reliability of the websites we link to and do not necessarily endorse the views expressed within them. We aim to replace broken links to other sites but cannot guarantee that these links will always work as we have no control over the availability of other sites.</p>
+
+            <p>12.2&nbsp;&nbsp; &nbsp;Due to the very nature of the internet we cannot guarantee this website or other websites we link to will always be available to you.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 12. Linking from this website
+        website:type: ''
+      /website:sections[13]:
+        /website:html:
+          hippostd:content: |-
+            <p>13.1&nbsp;&nbsp; &nbsp;This website, all NHS Digital Content and all material relating to Government information, products and services (or to third-party information, products and services), is provided ‘as is’, without any endorsement and without warranty of any kind whether express or implied, including but not limited to the implied warranties of satisfactory quality, fitness for a particular purpose, non-infringement, compatibility, security and accuracy. &nbsp;This means that whilst we do try to ensure that all our information is correct, we are not liable for any errors or omissions, and cannot be responsible for any impact these have on you. &nbsp;</p>
+
+            <p>13.2&nbsp;&nbsp; &nbsp;If the need arises, we reserve the right to amend, delete, suspend or withdraw all or any part of this website without notice. NHS Digital will not be liable if for any reason this website or any parts are unavailable at any time.</p>
+
+            <p>13.3&nbsp;&nbsp; &nbsp;We do not warrant that the functions of this website will be uninterrupted or error free, that defects will be corrected, or that this website or the server that makes it available will be free of viruses or represent the full functionality, accuracy or reliability of the materials. You should use your own virus protection software.</p>
+
+            <p>13.4&nbsp;&nbsp; &nbsp;NHS Digital and any approving bodies are not the owners, managers or suppliers of various products which can be accessed from this website. NHS Digital or the approving body sets standards for reviewing the products, but this does not mean that NHS Digital or the approving body has itself reviewed all aspects of each product, or version of the same product. NHS Digital or the approving body is not responsible or liable for any advice, or any other information, services or products that you obtain using any such products.</p>
+
+            <p>13.5&nbsp;&nbsp; &nbsp;Material on this website is provided for information and educational purposes only and we do not guarantee that information we provide will meet your health or medical requirements. NHS Digital does not give medical advice in relation to any individual case or patient, nor does NHS Digital provide medical or diagnostic services. For less urgent health needs, contact your GP or local pharmacist in the usual way. If you have an urgent medical need you should call 111. If a life is at risk, call 999.</p>
+
+            <p>13.6&nbsp;&nbsp; &nbsp;In no event will we be liable for any loss or damage including, without limitation, indirect or consequential loss or damage, or any loss or damages whatsoever arising from use or loss of use of, data or profits arising out of or in connection with the use of this website. Nothing in these terms and conditions will operate to limit or exclude liability for death or personal injury arising from our negligence, nor our liability for fraudulent misrepresentation, nor any other liability which cannot be excluded or limited under applicable law.<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 13. Disclaimer and liabilities
+        website:type: ''
+      /website:sections[14]:
+        /website:html:
+          hippostd:content: |-
+            <p>14.1&nbsp;&nbsp; &nbsp;If any of these terms and conditions are determined to be illegal, invalid or otherwise unenforceable then the remaining terms and conditions shall remain in full force and effect.</p>
+
+            <p>14.2&nbsp;&nbsp; &nbsp;The laws of England shall apply exclusively to these terms and conditions and to all matters relating to use of this website. Any cause of action arising under these terms and conditions or the use of this website shall be subject to the exclusive jurisdiction of the courts of England and Wales.&nbsp;<br />
+            &nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: 14. General
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: Terms and conditions for use of the NHS Digital website
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Use of this website is governed by these terms and conditions.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: owain.davies1
+      hippostdpubwf:creationDate: 2018-04-16T14:33:20.840Z
+      hippostdpubwf:lastModificationDate: 2019-12-10T13:08:27.650Z
+      hippostdpubwf:lastModifiedBy: owain.davies1
+      hippostdpubwf:publicationDate: 2019-12-10T13:08:31.162Z
+      hippotranslation:id: c039b407-4596-4583-bfa3-7f00b37da106
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 235
+      website:navigationcontroller: withNav
+      website:seosummarytext: Terms and conditions for use of the NHS Digital website
+      website:shortsummary: Terms and conditions for use of the website
+      website:title: Terms and conditions
+      website:type: ''
+    hippo:name: Terms and conditions
+    hippo:versionHistory: c00c5db6-4f6f-46e6-89b2-bf7aeb595b3c
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: About NHS Digital
-  hippo:versionHistory: 67d9c02f-07c8-4db8-bc3f-9a5aeb9ae67a
+  hippostd:foldertype:
+  - new-digital-website-folder
+  - new-digital-website-document
+  hippotranslation:id: ee3b00dc-d3ed-413b-99df-7b2aef2fb7b9
+  hippotranslation:locale: en
   jcr:mixinTypes:
   - hippo:named
-  - hippo:versionInfo
-  - mix:referenceable
-  jcr:primaryType: hippo:handle
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
