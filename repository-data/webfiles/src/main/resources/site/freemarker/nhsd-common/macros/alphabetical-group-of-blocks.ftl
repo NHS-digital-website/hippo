@@ -48,7 +48,7 @@
                                 </#if>
                             </#if>
 
-                            <h2 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-1">
+                            <h2 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-1" id="${block.title?lower_case?replace(" ", "-")}">
                                 <#if link??>
                                     <a href="${link}" class="nhsd-a-link" data-filterable>${block.title}</a>
                                 <#else>
@@ -59,7 +59,9 @@
                             <#if block.shortsummary??>
                                 <p class="nhsd-t-body" data-filterable>${block.shortsummary}</p>
                             <#else>
-                                <span class="nhsd-t-body"><@hst.html hippohtml=block.definition contentRewriter=stripTagsContentRewriter/></span>
+                                <div class="nhsd-t-grid nhsd-!t-no-gutters">
+                                    <@hst.html hippohtml=block.definition contentRewriter=brContentRewriter/>
+                                </div>
                             </#if>
 
                             <#if block?index lt blockGroups[letter]?size - 1>
