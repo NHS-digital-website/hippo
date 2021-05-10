@@ -125,7 +125,7 @@ public class TestContentUrls {
         addSiteUrl("invalid sub document", "/data-and-information/publications/acceptance-tests/invalid");
 
         // about pages
-        addSiteUrl("terms and conditions", "/about/terms-and-conditions");
+        addSiteUrl("terms and conditions", "/about-nhs-digital/terms-and-conditions");
 
         // CI Hub/Landing
         addSiteUrl("SHMI landing", "/data-and-information/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi");

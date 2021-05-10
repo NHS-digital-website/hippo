@@ -325,15 +325,6 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should see the footer$")
     public void thenIShouldSeeTheFooter() throws Throwable {
         assertNotNull("Footer is present", sitePage.findFooter());
-
-        assertNotNull("Can find terms and conditions link",
-            sitePage.findElementWithText("Terms and conditions"));
-
-        assertNotNull("Can find accessibility link",
-            sitePage.findElementWithText("Accessibility"));
-
-        assertNotNull("Can find privacy and cookies link",
-            sitePage.findElementWithText("Privacy and cookies"));
     }
 
     /**

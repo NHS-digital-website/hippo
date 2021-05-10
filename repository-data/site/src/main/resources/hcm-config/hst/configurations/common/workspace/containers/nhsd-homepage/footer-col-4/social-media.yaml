@@ -1,0 +1,39 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/nhsd-homepage/footer-col-4/social-media:
+      .meta:residual-child-node-category: content
+      hst:componentclassname: uk.nhs.digital.common.components.SocialMediaComponent
+      hst:iconpath: images/essentials/catalog-component-icons/social-media.png
+      hst:label: Social Media
+      hst:parameternames:
+      - title
+      - social7
+      - social8
+      - social5
+      - social6
+      - social10
+      - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+      - social9
+      - social3
+      - social4
+      - social1
+      - org.hippoecm.hst.core.component.template
+      - social2
+      hst:parametervalues:
+      - Follow us on social media
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - 'off'
+      - ''
+      - ''
+      - ''
+      - social-media/twitter
+      - webfile:/freemarker/common/social-media/social-media-compact.ftl
+      - ''
+      hst:template: social-media
+      hst:xtype: hst.item
+      jcr:primaryType: hst:containeritemcomponent

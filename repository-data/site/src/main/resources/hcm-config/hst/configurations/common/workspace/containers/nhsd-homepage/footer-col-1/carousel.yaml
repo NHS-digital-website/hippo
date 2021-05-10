@@ -1,0 +1,45 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/nhsd-homepage/footer-col-1/carousel:
+      .meta:residual-child-node-category: content
+      hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
+      hst:iconpath: images/catalog/component-products-30x30.png
+      hst:label: Documents Picker
+      hst:parameternames:
+      - document8
+      - document7
+      - document9
+      - wrappingDocument
+      - document4
+      - document3
+      - document6
+      - document5
+      - pageSize
+      - showPagination
+      - document2
+      - document1
+      - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+      - document10
+      - showIcon
+      - org.hippoecm.hst.core.component.template
+      hst:parametervalues:
+      - ''
+      - ''
+      - ''
+      - about-nhs-digital/content
+      - ''
+      - ''
+      - ''
+      - ''
+      - '10'
+      - 'off'
+      - ''
+      - about-nhs-digital/content
+      - 'off'
+      - ''
+      - 'on'
+      - webfile:/freemarker/common/document-list/global-footer-col.ftl
+      hst:template: document-list
+      hst:xtype: HST.Item
+      jcr:primaryType: hst:containeritemcomponent
