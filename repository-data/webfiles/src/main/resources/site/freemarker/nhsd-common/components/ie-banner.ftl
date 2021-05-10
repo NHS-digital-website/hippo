@@ -4,7 +4,7 @@
 
 <#if showBanner?? && showBanner>
     <!--googleoff: index-->
-    <article id="ieBanner" class="nhsd-!t-bg-accessible-red nhsd-!t-display-hide">
+    <article id="ieBanner" class="nhsd-!t-bg-accessible-red" style="display:none;">
         <div class="nhsd-a-box nhsd-!t-bg-accessible-red nhsd-!t-col-white nhsd-!t-padding-bottom-7" aria-labelledby="ie-banner-title" role="banner" tabindex="-1">
             <h1 id="ie-banner-title"><@fmt.message key="title"/></h1>
             <p><@fmt.message key="message"/></p>
@@ -18,7 +18,9 @@
 
         // test regex against user agent
         if(/(trident|msie|iemobile|ie)/g.test(ua)) {
-            document.getElementById('ieBanner').classList.remove('nhsd-!t-display-hide');
+            document.getElementById('ieBanner').style.removeProperty("display");
+        } else {
+            document.getElementById('ieBanner').remove();
         }
     </script>
     <!--googleon: index-->
