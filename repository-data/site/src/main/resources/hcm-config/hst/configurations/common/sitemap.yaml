@@ -170,14 +170,14 @@ definitions:
         - hst:pages/video
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
-      /about:
-        /_any_:
-          hst:componentconfigurationid: hst:pages/nhsd
-          hst:relativecontentpath: about/${1}
-          jcr:primaryType: hst:sitemapitem
+      /about-nhs-digital:
+        jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-about-us-hub
         hst:relativecontentpath: about-nhs-digital
+      /api-catalogue-preview:
         jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/api-catalogue
+        hst:relativecontentpath: developer/api-catalogue/preview
       /api-spec-try-it-now:
         /oauth-redirect:
           hst:componentconfigurationid: hst:pages/apitryitnow-oauth-redirect
@@ -222,16 +222,13 @@ definitions:
         hst:relativecontentpath: faceted-cyber-alerts
         jcr:primaryType: hst:sitemapitem
       /cyber-and-data-security:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/nhsd-cyber-hub
+        hst:relativecontentpath: cyber-and-data-security
         /services:
+          jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/services-and-resources-home
           hst:relativecontentpath: cyber-and-data-security/services/content
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationmappingnames:
-        - website:dschomepage
-        hst:componentconfigurationmappingvalues:
-        - hst:pages/cyber-data-security-homepage
-        hst:relativecontentpath: cyber-and-data-security/content
-        jcr:primaryType: hst:sitemapitem
       /data:
         hst:componentconfigurationid: hst:pages/nhsd-data-hub
         hst:relativecontentpath: data-and-information
@@ -329,20 +326,16 @@ definitions:
         hst:componentconfigurationid: hst:pages/404
         jcr:primaryType: hst:sitemapitem
       /developer:
-        /api-catalogue:
-          /_any_.trythisapi:
-            hst:componentconfigurationid: hst:pages/apitryitnow
-            hst:relativecontentpath: ${parent}/${1}/content
-            jcr:primaryType: hst:sitemapitem
-          /_index_:
-            hst:componentconfigurationid: hst:pages/api-catalogue
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:relativecontentpath: developer/api-catalogue
-          jcr:primaryType: hst:sitemapitem
+        jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
         hst:relativecontentpath: developer
-        jcr:primaryType: hst:sitemapitem
+        /api-catalogue:
+          jcr:primaryType: hst:sitemapitem
+          hst:relativecontentpath: developer/api-catalogue
+          /_index_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/api-catalogue
+            hst:relativecontentpath: ${parent}/content
       /error:
         /404:
           hst:componentconfigurationid: hst:pages/404
