@@ -100,16 +100,6 @@
         .servers, .servers-title {
             display: none;
         }
-
-        .swagger-ui .scheme-container {
-            display: contents;
-            background: transparent;
-        }
-
-        /*
-        Other overriding styles
-        */
-
         /* Disables shadows around the 'servers selector' */
         .swagger-ui .scheme-container {
             box-shadow: none;
@@ -117,6 +107,9 @@
             background: transparent;
         }
 
+        /*
+        Other overriding styles
+        */
         /* Fixes the look of table header values */
         .swagger-ui table thead tr th {
             padding-left: 6px;
