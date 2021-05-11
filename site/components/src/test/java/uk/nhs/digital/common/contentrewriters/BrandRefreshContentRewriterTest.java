@@ -254,7 +254,7 @@ public class BrandRefreshContentRewriterTest {
         Document document = Jsoup.parse(result);
 
         Element figureTag = document.select("figure").first();
-        assertTrue(figureTag.hasClass("nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--contain"));
+        assertTrue(figureTag.hasClass("nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale"));
 
         Element pictureTag = document.select("picture").first();
         assertEquals("picture", figureTag.child(0).tagName());

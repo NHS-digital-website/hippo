@@ -2,10 +2,10 @@
 <#include "../../include/imports.ftl">
 <#include "./iconGenerator.ftl">
 
-<#macro navigationBlockSmall item id colourVariant isDarkMolecule isYellowLink>
+<#macro navigationBlockSmall item id colourVariant isDarkMolecule isYellowLink hasHeading>
     <#assign hasTitle = item.title?has_content />
     <#assign hasContent = item.content?has_content />
-    <#assign hasImage = item.image?has_content />
+    <#assign hasImage = item.icon?has_content />
     <#assign hasLink = item.external?has_content || item.internal?has_content />
     <#assign hasLabel = item.label?has_content />
     <#assign label = hasLabel?then(item.label, item.title) />
@@ -15,35 +15,43 @@
             <#if item.internal?has_content>
                 <a href="<@hst.link hippobean=item.internal/>" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}">
             <#else>
-                <a href="${item.external}" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}" target="_blank" rel="external">
+                <a href="${item.external}" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}">
             </#if>
         </#if>
         <div class="nhsd-a-box nhsd-a-box--bg-${colourVariant}">
             <div class="nhsd-m-card__content-box">
                 <#if hasTitle>
-                    <h1 class="nhsd-t-heading-s">${item.title}</h1>
+                    <#if hasHeading>
+                        ${hasHeading}
+                        <h3 class="nhsd-t-heading-s">${item.title}</h3>
+                    <#else>
+                        <h2 class="nhsd-t-heading-s">${item.title}</h2>
+                    </#if>
                 </#if>
                 <div class="nhsd-a-icon nhsd-a-icon--size-xxl nhsd-m-card__icon">
                     <#if hasImage>
-                        <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
-                            <picture class="nhsd-a-image__picture">
-                                <@hst.link hippobean=item.image var="image"/>
-                                <#assign imgDescription = item.image.description />
-                                <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
+                            <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+                            <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
+                                <picture class="nhsd-a-image__picture">
+                                    <@hst.link hippobean=item.icon var="image"/>
+                                    <#assign imgDescription = item.icon.description />
+                                    <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
 
-                                <#if image?ends_with("svg")>
-                                    <#assign lightTxt = "FFFFFF" />
-                                    <#assign darkTxt = "231F20" />
-                                    <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
+                                    <#if image?ends_with("svg")>
+                                        <#assign lightTxt = "FFFFFF" />
+                                        <#assign darkTxt = "231F20" />
+                                        <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
 
-                                    <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                                    <#assign imageUrl += "?colour=${colour}" />
-                                    <img src="${imageUrl}" alt="${altText}">
-                                <#else>
-                                    <img src="${image}" alt="${altText}">
-                                </#if>
-                            </picture>
-                        </figure>
+                                        <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
+                                        <#assign imageUrl += "?colour=${colour}" />
+                                        <img src="${imageUrl}" alt="${altText}">
+                                    <#else>
+                                        <img src="${image}" alt="${altText}">
+                                    </#if>
+                                </picture>
+                            </figure>
+                        </svg>
                     <#else>
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
                             <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
