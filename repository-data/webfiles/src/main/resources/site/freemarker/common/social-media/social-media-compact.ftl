@@ -33,7 +33,7 @@
                             </#if>
                         </span>
                     </#if>
-                    <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${socialmediaItem.nhsDigitalUrl}" target="_blank" rel="external">
+                    <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${socialmediaItem.nhsDigitalUrl}" target="_blank" rel="external" onClick="logGoogleAnalyticsEvent('Link click','Social media - ${socialmediaItem.linkName}','${socialmediaItem.nhsDigitalUrl}');">
                         ${socialmediaItem.linkName}
                         <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                     </a>

@@ -16,7 +16,7 @@
         <#assign borderColour = 'blue' />
     </#if>
 
-    <div class="nhsd-m-emphasis-box nhsd-m-emphasis-box--${emphasisType} nhsd-!t-margin-bottom-6" role="complementary" aria-labelledby="callout-box-heading-${calloutBoxId}">
+    <div class="nhsd-m-emphasis-box-wide nhsd-m-emphasis-box--${emphasisType} nhsd-!t-margin-bottom-6" role="complementary" aria-labelledby="callout-box-heading-${calloutBoxId}">
         <div class="nhsd-a-box nhsd-a-box--border-${borderColour}">
             <div class="nhsd-m-emphasis-box__icon-box">
                 <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
