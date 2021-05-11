@@ -2,11 +2,11 @@
 <#include "../include/imports.ftl">
 
 <div>
-    <div class="nhsd-!t-margin-bottom-1">
+    <div>
         <@hst.include ref="banner"/>
     </div>
 
-    <div class="nhsd-!t-margin-bottom-1">
+    <div>
         <@hst.include ref="main"/>
     </div>
 </div>
