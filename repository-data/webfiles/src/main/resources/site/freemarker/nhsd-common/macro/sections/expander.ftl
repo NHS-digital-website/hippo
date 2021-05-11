@@ -3,10 +3,12 @@
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Expander" -->
 
 <#macro expander section heading="" content="">
-    <div class="nhsd-m-expander nhsd-!t-margin-bottom-6">
+    <div class="nhsd-m-expander ${(section.audience == "Most people")?then("nhsd-!t-margin-bottom-6", "nhsd-!t-margin-bottom-0")}" >
         <div class= "nhsd-a-box
             <#if section != "" && section.audience?? && section.audience == "Most people">
                 nhsd-a-box--bg-light-grey
+            <#else>
+            nhsd-!t-padding-top-0
             </#if>"
         >
         
