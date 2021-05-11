@@ -158,6 +158,9 @@ definitions:
       /header-banner:
         hst:renderpath: webfile:/freemarker/common/header-banner.ftl
         jcr:primaryType: hst:template
+      /heading-and-copy:
+        hst:renderpath: webfile:/freemarker/common/heading-and-copy.ftl
+        jcr:primaryType: hst:template
       /hero:
         hst:renderpath: webfile:/freemarker/common/hero.ftl
         jcr:primaryType: hst:template
