@@ -20,10 +20,10 @@
                         <#if section.icon?trim == 'Bullet'>
                         <li>
                         <#else>
-                        <li class="nhsd-m-checklist__icon-list">
+                        <li class="nhsd-m-checklist__icon-list nhsd-!t-margin-bottom-5">
                         </#if>
 
-                            <span class="nhsd-m-checklist__icon" style="vertical-align:middle">
+                            <span class="nhsd-m-checklist__icon" style="vertical-align:text-top;">
                                 <#if section.icon?trim == 'Tick'>
                                     <span class="nhsd-a-icon nhsd-a-icon--size-xs nhsd-a-icon--col-green">
                                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
