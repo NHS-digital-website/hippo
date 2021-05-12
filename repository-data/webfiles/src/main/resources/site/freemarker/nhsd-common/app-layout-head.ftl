@@ -45,8 +45,9 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/stylesheets/nhsd-frontend.css" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-print.css"/>" media="print" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />
 </head>
