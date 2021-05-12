@@ -1,7 +1,6 @@
 package uk.nhs.digital.apispecs.swagger;
 
-import static java.util.Collections.emptyList;
-import static java.util.Collections.emptyMap;
+import static java.util.Collections.*;
 
 import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
@@ -14,7 +13,7 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.headers.Header;
-import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
@@ -26,6 +25,7 @@ import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleHtmlRenderer;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
@@ -105,10 +105,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(ConditionalHelpers.eq.name(), ConditionalHelpers.eq)
             .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
             .registerHelper(StringHelpers.lower.name(), StringHelpers.lower)
-            // below helper is registered as a HelperSource as it takes no parameters.
-            // see https://github.com/jknack/handlebars.java#using-a-helpersource for further info
-            .registerHelpers(UuidHelper.INSTANCE)
-        ;
+            .registerHelper(UuidHelper.NAME, UuidHelper.INSTANCE);
 
         handlebars.with(EscapingStrategy.NOOP);
     }
@@ -147,7 +144,27 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     private void preProcessOperation(final Operation operation) {
+        preProcessRequests(operation.getRequestBody());
         preProcessResponses(operation.getResponses());
+    }
+
+    private void preProcessRequests(RequestBody requestBody) {
+        Content content = Optional.ofNullable(requestBody)
+            .orElse(new RequestBody())
+            .getContent();
+        preProcessRequestContent(content);
+    }
+
+    private void preProcessRequestContent(Content content) {
+        Optional.ofNullable(content)
+            .orElse(new Content())
+            .values()
+            .stream()
+            .forEach(this::preProcessRequestMediaTypes);
+    }
+
+    private void preProcessRequestMediaTypes(MediaType mediaType) {
+        preProcessSchema(mediaType.getSchema());
     }
 
     private void preProcessResponses(final ApiResponses responses) {
@@ -159,6 +176,57 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
     private void preProcessResponse(final ApiResponse apiResponse) {
         preProcessResponseHeaders(apiResponse.getHeaders());
+        preProcessResponseContent(apiResponse.getContent());
+    }
+
+    private void preProcessResponseContent(Content content) {
+        Optional.ofNullable(content)
+            .orElse(new Content())
+            .values()
+            .stream()
+            .forEach(this::preProcessResponseMediaTypes);
+    }
+
+    private void preProcessResponseMediaTypes(MediaType mediaType) {
+        preProcessSchema(mediaType.getSchema());
+    }
+
+    private void preProcessSchema(Schema<?> schema) {
+        setPropertyNames(schema);
+        visitSchemaChildren(schema);
+    }
+
+    private void setPropertyNames(Schema<?> schema) {
+        Map<String, Schema> properties = Optional.ofNullable(schema)
+            .orElse(new Schema<>())
+            .getProperties();
+        Optional.ofNullable(properties)
+            .orElse(emptyMap())
+            .forEach((propertyName, property) -> {
+                property.addExtension("x-property-name", propertyName);
+            });
+    }
+
+    private void visitSchemaChildren(Schema<?> schema) {
+        if (schema instanceof ObjectSchema) {
+            Optional.ofNullable(schema.getProperties())
+                .orElse(emptyMap())
+                .forEach((propertyName, property) -> preProcessSchema(property));
+        } else if (schema instanceof ArraySchema) {
+            Optional.ofNullable(((ArraySchema) schema).getItems())
+                .ifPresent(this::preProcessSchema);
+        } else if (schema instanceof ComposedSchema) {
+            List<Function<ComposedSchema, List<Schema>>> getters = Arrays.asList(
+                ComposedSchema::getAllOf,
+                ComposedSchema::getAnyOf,
+                ComposedSchema::getOneOf
+            );
+            getters.forEach(getter -> {
+                Optional.ofNullable(getter.apply((ComposedSchema) schema))
+                    .orElse(emptyList())
+                    .forEach(this::preProcessSchema);
+            });
+        }
     }
 
     private void preProcessResponseHeaders(final Map<String, Header> apiResponseHeaders) {
@@ -169,7 +237,6 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
     private void preProcessApiResponseHeader(final Header header) {
-
         propagateDescriptionFromHeaderToItsEmbeddedSchema(header);
     }
 
