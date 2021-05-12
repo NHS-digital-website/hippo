@@ -1,11 +1,10 @@
 {{#assign "schemaUUID"}}{{uuid}}{{/assign}}
 {{#with anyOf}}
     <tr class="expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
-        <td style="padding-left: {{indentation}}em;">
+        <td class="name_column" style="padding-left: {{indentation weighting=1.5}}em;">
+            <button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button>
+            {{borders}}
             <div><code class="anyOf">anyOf</code></div>
-        </td>
-        <td class="button_column">
-            <div><button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button></div>
         </td>
         <td class="description_column"></td>
     </tr>
@@ -16,11 +15,10 @@
 {{/with}}
 {{#with oneOf}}
     <tr class="expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
-        <td style="padding-left: {{indentation}}em;">
+        <td class="name_column" style="padding-left: {{indentation weighting=1.5}}em;">
+            <button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button>
+            {{borders}}
             <div><code class="oneOf">oneOf</code></div>
-        </td>
-        <td class="button_column">
-            <div><button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button></div>
         </td>
         <td class="description_column"></td>
     </tr>
@@ -31,11 +29,10 @@
 {{/with}}
 {{#with allOf}}
     <tr class="expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
-        <td style="padding-left: {{indentation}}em;">
+        <td class="name_column" style="padding-left: {{indentation weighting=1.5}}em;">
+            <button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button>
+            {{borders}}
             <div><code class="allOf">allOf</code></div>
-        </td>
-        <td class="button_column">
-            <div><button class="collapser js" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></button></div>
         </td>
         <td class="description_column"></td>
     </tr>
