@@ -22,7 +22,7 @@
             <#list lettersOfTheAlphabet as letter>
                 <#if alphabetical_hash[letter]??>
                     <li>
-                        <a class="nhsd-a-character-block" href="<@hst.link hippobean=navigationDocument/>#${letter?lower_case}">${letter}</a>
+                        <a class="nhsd-a-character-block" href="<@hst.link hippobean=navigationDocument/>#${letter?lower_case}" aria-label="Jump to articles starting with the letter '${letter}'">${letter}</a>
                     </li>
                 <#else>
                     <li>
