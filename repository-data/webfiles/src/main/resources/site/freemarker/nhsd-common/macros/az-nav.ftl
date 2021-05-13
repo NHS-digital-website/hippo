@@ -17,7 +17,7 @@
         <#assign ariaLabel = "aria-labelledby=" + ariaLabel/>
     </#if>
 
-    <nav class="nhsd-m-character-block-list" ${ariaLabel}>
+    <nav class="nhsd-m-character-block-list ${ariaLabel}">
         <ul data-uipath="website.glossary.az-nav">
             <#list lettersOfTheAlphabet as letter>
                 <#if alphabetical_hash[letter]??>

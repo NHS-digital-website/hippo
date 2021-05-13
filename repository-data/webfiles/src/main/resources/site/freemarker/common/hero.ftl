@@ -107,8 +107,7 @@
                     <figure class="nhsd-a-image ${imageSize}" aria-hidden="true">
                         <#if isVideoDoc && document.videoUri???has_content>
                              <div style="padding-bottom: 56.25%; position: relative">
-                                <iframe style="width: 100%; height: 100%; position: absolute" type="text/html" src="${document.videoUri}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-                                <link itemprop="embedUrl" href="${document.videoUri}" />
+                                <iframe style="width: 100%; height: 100%; position: absolute" src="${document.videoUri}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                              </div>
                         <#elseif document.image?has_content>
                             <picture class="nhsd-a-image__picture">
