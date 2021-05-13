@@ -98,19 +98,6 @@ public class FeedListComponent extends EssentialsListComponent {
 
         // Filter for Events
         if (info.getDocumentTypes().equals("website:event")) {
-            if (info.getHidePastEvents()) {
-                final String dateField = info.getDocumentDateField();
-                if (!Strings.isNullOrEmpty(dateField)) {
-                    try {
-                        final Filter filter = query.createFilter();
-                        filter.addGreaterOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.DAY);
-                        filters.add(filter);
-                    } catch (FilterException e) {
-                        log.error("Error while creating query filter to hide past events using date field {}", dateField, e);
-                    }
-                }
-            }
-
             // filter's documents such that the website:display is set to true
             try {
                 Filter filter = query.createFilter();
@@ -187,6 +174,16 @@ public class FeedListComponent extends EssentialsListComponent {
                 List<BaseFilter> filters = new ArrayList<>();
                 //adding the interval date range constraint
                 addIntervalConstraint(filters, hstQuery, dateField, request);
+
+                if (paramInfo.getHidePastEvents()) {
+                    try {
+                        final Filter filter = hstQuery.createFilter();
+                        filter.addGreaterOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.DAY);
+                        filters.add(filter);
+                    } catch (FilterException e) {
+                        log.error("Error while creating query filter to hide past events using date field {}", dateField, e);
+                    }
+                }
 
                 final Filter queryFilter = createQueryFilter(request, hstQuery);
                 if (queryFilter != null) {

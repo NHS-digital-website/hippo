@@ -3,6 +3,7 @@
 <#include '../macro/docGetImage.ftl'>
 <#include '../macro/gridColumnGenerator.ftl'>
 <#include '../macro/iconGenerator.ftl'>
+<#include '../macro/cardItem.ftl'>
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
@@ -21,48 +22,17 @@
             <div class="nhsd-t-row nhsd-o-card-list__items nhsd-t-row--centred">
                 <#list pageable.items as item>
                     <#assign imageData = getImageData(item) />
-                    <#assign imageDataAlt = (imageData[1]?has_content)?then(imageData[1], 'homepage-news-article-img-${item?index}') />
-                    <#assign hasImageData = imageData[0]?has_content />
-                    <#assign hasTitle = item.title?has_content />
-                    <#assign hasSummary = item.shortsummary?has_content />
-                    <#assign hasPublishedDate = item.publisheddatetime?has_content />
-                    <#assign id = titleText?replace(" ", "-")?lower_case />
+                    <@hst.link hippobean=item var="linkDestination"/>
                     <div class="nhsd-t-col-xs-12 ${getGridCol(pageable.items?size)}">
-                        <article class="nhsd-m-card" id="homepage-news-article-${id}-${item?index}">
-
-                            <@hst.link hippobean=item var="linkDestination"/>
-                            <a href="${linkDestination}" class="nhsd-a-box-link" aria-label="${item.title}">
-                                <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                                    <#if hasImageData>
-                                        <@hst.link hippobean=imageData[0].original fullyQualified=true var="leadImage" />
-                                        <figure class="nhsd-a-image">
-                                            <picture class="nhsd-a-image__picture ">
-                                                <img src="${leadImage}" alt="${imageDataAlt}">
-                                            </picture>
-                                        </figure>
-                                    </#if>
-
-                                    <div class="nhsd-m-card__content-box">
-                                        <#if hasPublishedDate>
-                                            <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeString" timeZone="${getTimeZone()}" />
-                                            <span class="nhsd-m-card__date">${publishedDateTimeString}</span>
-                                        </#if>
-
-                                        <#if hasTitle>
-                                            <h3 class="nhsd-t-heading-s" id="homepage-news-article-title-${id}-${item?index}">${item.title}</h3>
-                                        </#if>
-
-                                        <#if hasSummary>
-                                            <p class="nhsd-t-body-s">${item.shortsummary}</p>
-                                        </#if>
-                                    </div>
-
-                                    <div class="nhsd-m-card__button-box">
-                                        <@buildInlineSvg "right" "s" "nhsd-a-arrow"/>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
+                        <#assign itemProps = item />
+                        <#assign itemProps += {
+                            "image": imageData[0],
+                            "altText": imageData[1],
+                            "shortsummary": item.shortsummary,
+                            "link": linkDestination,
+                            "background": "pale-grey"
+                        }/>
+                        <@cardItem itemProps />
                     </div>
                 </#list>
             </div>
