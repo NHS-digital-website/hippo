@@ -25,7 +25,7 @@
 
                         <#if childPage.linkType == "external">
                             <article class="nhsd-!t-margin-bottom-6">
-                                <a class="nhsd-a-link" href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" target="_blank" rel="external">
+                                <a class="nhsd-a-link" href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" rel="external">
                                     ${childPage.title}
                                     <span class="nhsd-t-sr-only">(external link, opens in a new tab)</span>
                                 </a>

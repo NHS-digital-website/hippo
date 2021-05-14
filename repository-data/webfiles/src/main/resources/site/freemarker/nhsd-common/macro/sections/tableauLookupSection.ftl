@@ -76,7 +76,7 @@
        </div>
 
        <div class="nhsd-m-download-card nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-6 nhsd-!t-display-hide">
-           <a target="_blank" id="${divId}-downLoadData" class="nhsd-a-box-link" target="_blank" rel="external" aria-live="polite" aria-atomic="true">
+           <a id="${divId}-downLoadData" class="nhsd-a-box-link" rel="external" aria-live="polite" aria-atomic="true">
                <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                    <div class="nhsd-m-download-card__image-box">
                        <span class="nhsd-a-document-icon">
