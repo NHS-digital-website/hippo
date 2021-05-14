@@ -26,6 +26,8 @@
                     <#assign hasLink = item.external?has_content || item.internal?has_content />
                     <#assign hasLabel = item.label?has_content />
                     <#assign hasTitle = item.title?has_content />
+                    <#assign isCtaDoc = item.class.simpleName?starts_with("Calltoaction") />
+                    <#assign isDecorativeOnly = isCtaDoc && item.isDecorative?if_exists == "true" />
 
                     <div class="nhsd-t-col-xs-12 ${getGridCol(pageable.items?size, "large")}">
                         <div class="nhsd-m-image-with-link">
@@ -33,11 +35,12 @@
                                 <picture class="nhsd-a-image__picture">
                                     <#assign altTextDefault = "image of picture menu ${item?index + 1}" />
                                     <#if hasImage>
-                                        <#assign altText = item.image.description?has_content?then(item.image.description, altTextDefault) />
+                                        <#assign description = isCtaDoc?then(item.altText, item.image.description) />
+                                        <#assign altText = description?has_content?then(description, altTextDefault) />
                                         <@hst.link hippobean=item.image var="image"/>
-                                        <img src="${image}" alt="${altText}">
+                                        <img src="${image}" alt="<#if !isDecorativeOnly>${altText}</#if>">
                                     <#else>
-                                        <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="${altTextDefault}">
+                                        <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="<#if !isDecorativeOnly>${altTextDefault}</#if>">
                                     </#if>
                                 </picture>
                             </figure>
