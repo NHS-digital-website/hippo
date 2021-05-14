@@ -8,7 +8,7 @@ import org.hippoecm.hst.core.parameters.*;
     ),
     @FieldGroup(
     titleKey = "Layout",
-    value = {"alignment", "colour", "digiblockposition"}
+    value = {"alignment", "colour", "digiblockposition", "height"}
     ),
     @FieldGroup(
     titleKey = "Button 1",
@@ -57,6 +57,15 @@ public interface HeaderComponentInfo {
         )
     @DropDownList({"Left & Right", "Right"})
     String getDigiblockPosition();
+
+    @Parameter(
+        name = "height",
+        required = true,
+        defaultValue = "Responsive height",
+        displayName = "Height"
+        )
+    @DropDownList({"Responsive height", "Always tall"})
+    String getHeight();
 
     @Parameter(
         name = "button1text",
