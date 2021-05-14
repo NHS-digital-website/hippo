@@ -19,7 +19,7 @@
         <#-- Below does not work if declared in section above -->
             <a href="<@hst.link hippobean=link.link />" class="nhsd-a-box-link " aria-label="${title}" >
         <#elseif link.linkType == "external">
-            <a href="${link.link}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" target="_blank" >
+            <a href="${link.link}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" >
         <#elseif link.linkType == "asset">
             <a href="<@hst.link hippobean=link.link />" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" >
         </#if>
