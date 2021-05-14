@@ -51,10 +51,12 @@ if (document.querySelector('[data-eforms="setup"]')) {
 if (document.querySelectorAll('[data-line-clamp="setup"]')) {
     import(/* webpackChunkName: "line-clamp-setup" */ './utils/line-clamp-polyfill').then(module => {
         const webkitLineClamp = module.default;
-        if(window.webkitLineClamp.length > 0) {
-            window.webkitLineClamp.forEach(el => {
-                webkitLineClamp(el.element, el.lineCount, el.colour)
-            })
+        if (window.webkitLineClamp !== undefined && window.webkitLineClamp) {
+            if(window.webkitLineClamp.length > 0) {
+                window.webkitLineClamp.forEach(el => {
+                    webkitLineClamp(el.element, el.lineCount, el.colour)
+                })
+            }
         }
     })
 }
