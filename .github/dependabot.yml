@@ -5,7 +5,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
 
@@ -13,24 +13,28 @@ updates:
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
+    ignore:
+      - dependency-name: "spring-*"
 
 
   # Maintain dependencies for the acceptance tests POM
   - package-ecosystem: "maven"
     directory: "/acceptance-tests"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
+    ignore:
+      - dependency-name: "spring-*"
 
   # Maintain dependencies for the cms POM
   - package-ecosystem: "maven"
     directory: "/cms"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
 
@@ -38,7 +42,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/essentials"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
 
@@ -46,7 +50,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/repository"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
 
@@ -54,7 +58,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/repository-data"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
 
@@ -62,7 +66,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/s3connector"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
 
@@ -70,14 +74,16 @@ updates:
   - package-ecosystem: "maven"
     directory: "/site"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
+    ignore:
+      - dependency-name: "spring-*"
 
   # Maintain dependencies for the JS/CSS build and packager
   - package-ecosystem: "npm"
     directory: "/repository-data/webfiles"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
