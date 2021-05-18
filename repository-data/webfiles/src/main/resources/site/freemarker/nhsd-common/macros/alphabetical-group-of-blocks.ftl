@@ -22,6 +22,7 @@
                     <div class="nhsd-t-flex-item--grow" data-filter-results-item>
                         <#list blockGroups[letter] as block>
                             <#-- Glossery list links -->
+                            <#assign link = ""/>
                             <#if block.external??>
                                 <#if block.internal?has_content || block.external?has_content>
                                     <#if block.internal?has_content>
@@ -49,7 +50,7 @@
                             </#if>
 
                             <h2 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-1" id="${block.title?lower_case?replace(" ", "-")}">
-                                <#if link??>
+                                <#if link?has_content>
                                     <a href="${link}" class="nhsd-a-link" data-filterable>${block.title}</a>
                                 <#else>
                                     ${block.title}
