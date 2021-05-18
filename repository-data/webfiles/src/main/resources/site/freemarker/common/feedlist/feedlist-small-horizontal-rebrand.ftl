@@ -26,9 +26,9 @@
                     <#assign hasTitle = item.title?has_content />
                     <#assign hasSummary = item.shortsummary?has_content />
                     <#assign hasPublishedDate = item.publisheddatetime?has_content />
-
+                    <#assign id = titleText?replace(" ", "-")?lower_case />
                     <div class="nhsd-t-col-xs-12 ${getGridCol(pageable.items?size)}">
-                        <article class="nhsd-m-card" id="homepage-news-article-${item?index}">
+                        <article class="nhsd-m-card" id="homepage-news-article-${id}-${item?index}">
 
                             <@hst.link hippobean=item var="linkDestination"/>
                             <a href="${linkDestination}" class="nhsd-a-box-link" aria-label="${item.title}">
@@ -49,7 +49,7 @@
                                         </#if>
 
                                         <#if hasTitle>
-                                            <h3 class="nhsd-t-heading-s" id="homepage-news-article-title-${item?index}">${item.title}</h3>
+                                            <h3 class="nhsd-t-heading-s" id="homepage-news-article-title-${id}-${item?index}">${item.title}</h3>
                                         </#if>
 
                                         <#if hasSummary>

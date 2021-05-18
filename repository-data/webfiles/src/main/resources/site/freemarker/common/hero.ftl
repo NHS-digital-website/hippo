@@ -43,9 +43,10 @@
     <#assign hasContent = document.content?has_content || document.introduction?has_content />
     <#assign hasLink = document.external?has_content || document.internal?has_content || document.link?has_content />
     <#assign hasImage = document.image?has_content />
-    <#assign hasImageDesc = (hasImage && document.image.description?has_content) />
-    <#assign altText = hasImageDesc?then(document.image.description, isTall?then("image of the main hero image", "image of the secondary hero image")) />
-
+    <#assign hasImageDesc = hasImage && isCtaDoc?then(document.altText?has_content, document.image.description?has_content) />
+    <#assign altText = hasImageDesc?then(isCtaDoc?then(document.altText, document.image.description), isTall?then("image of the main hero image", "image of the secondary hero image")) />
+    <#assign isDecorativeOnly = isCtaDoc && document.isDecorative?if_exists == "true" />
+    
     <div class="nhsd-o-hero-feature ${accented} ${mirrored}">
         <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
             <div class="nhsd-t-row nhsd-t-row--centred">
@@ -106,17 +107,16 @@
                     <figure class="nhsd-a-image ${imageSize}" aria-hidden="true">
                         <#if isVideoDoc && document.videoUri???has_content>
                              <div style="padding-bottom: 56.25%; position: relative">
-                                <iframe style="width: 100%; height: 100%; position: absolute" type="text/html" src="${document.videoUri}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-                                <link itemprop="embedUrl" href="${document.videoUri}" />
+                                <iframe style="width: 100%; height: 100%; position: absolute" src="${document.videoUri}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                              </div>
                         <#elseif document.image?has_content>
                             <picture class="nhsd-a-image__picture">
-                                <@hst.link hippobean=document.image.pageHeaderHeroModule var="image" />
-                                <img src="${image}" alt="${altText}">
+                                <@hst.link hippobean=document.image var="image" />
+                                <img src="${image}" alt="<#if !isDecorativeOnly>${altText}</#if>">
                             </picture>
                         <#else>
                             <picture class="nhsd-a-image__picture">
-                                <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="${altText}">
+                                <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="<#if !isDecorativeOnly>${altText}</#if>">
                             </picture>
                         </#if>
                     </figure>
@@ -125,5 +125,3 @@
         </div>
     </div>
 </#if>
-
-

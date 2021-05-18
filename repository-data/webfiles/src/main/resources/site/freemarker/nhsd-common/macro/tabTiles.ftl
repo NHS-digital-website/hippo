@@ -34,18 +34,18 @@
                             <span class="nhsd-a-icon nhsd-a-icon--size-xl nhsd-a-icon--col-black nhsd-m-card__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
                                     <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="42%" height="42%" x="29%" y="29%">
-                                        <@hst.link var="icon" hippobean=options.icon.original fullyQualified=true />
-                                        <#if icon?ends_with("svg")>
-                                            <img src="${icon?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="${title}" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="42%" height="42%" x="29%" y="29%"/>
+                                </svg>
+                                <@hst.link var="icon" hippobean=options.icon.original fullyQualified=true />
+                                <#if icon?ends_with("svg")>
+                                    <img src="${icon?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="${title}" />
                                         <#else>
-                                            <img src="${icon}" alt="${title}" />
-                                        </#if>
-                                    </svg>
-                                </svg> 
+                                    <img src="${icon}" alt="${title}" />
+                                </#if>
+
                             </span>
                             </#if>
-                            <p class="nhsd-t-body-s">${summary}</p> 
+                            <p class="nhsd-t-body-s">${summary}</p>
                         </div>
 
                         <div class="nhsd-m-card__button-box">

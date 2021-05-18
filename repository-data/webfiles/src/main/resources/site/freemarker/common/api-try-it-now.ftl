@@ -170,17 +170,34 @@
 
                         window.onload = function () {
 
+                            const AlwaysEnableTryItOutPlugin = function(system) {
+                                const OperationContainer = system.getComponents("OperationContainer");
+                                return {
+                                    components: {
+                                        TryItOutButton: () => null,
+                                        OperationContainer: class CustomOperationContainer extends OperationContainer {
+                                            constructor(...args) {
+                                                super(...args);
+                                                this.state.tryItOutEnabled = true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
                             const ui = SwaggerUIBundle({
                                 spec: specification,
 
                                 dom_id: '#content',
                                 deepLinking: true,
+
                                 presets: [
                                     SwaggerUIBundle.presets.apis,
                                     SwaggerUIStandalonePreset
                                 ],
                                 plugins: [
-                                    SwaggerUIBundle.plugins.DownloadUrl
+                                    SwaggerUIBundle.plugins.DownloadUrl,
+                                    AlwaysEnableTryItOutPlugin
                                 ],
                                 layout: "StandaloneLayout",
 

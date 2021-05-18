@@ -44,7 +44,7 @@ public class Calltoaction extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:isDecorative")
     public String getIsDecorative() {
-        return getSingleProperty("website:isDecorative");
+        return Boolean.toString(getSingleProperty("website:isDecorative"));
     }
 
     @HippoEssentialsGenerated(internalName = "website:icon")

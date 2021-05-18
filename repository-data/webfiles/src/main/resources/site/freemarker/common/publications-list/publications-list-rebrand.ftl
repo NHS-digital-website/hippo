@@ -17,7 +17,7 @@
                 <#list pageable.items as item>
                     <div class="nhsd-t-col-xs-12 ${getGridCol(pageable.items?size)}">
                         <article class="nhsd-m-card">
-                            <a href="<@hst.link hippobean=item/>" href="#" class="nhsd-a-box-link " aria-label="Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online" >
+                            <a href="<@hst.link hippobean=item/>" class="nhsd-a-box-link " aria-label="Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online" >
                                 <#assign boxModifier = "bg-dark-grey"/>
                                 <#if item?index%2 == 1 && (size lte 2 || size%4 == 0 || size%3 == 0)>
                                     <#assign boxModifier = "bg-blue"/>
