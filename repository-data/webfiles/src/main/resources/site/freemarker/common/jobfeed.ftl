@@ -18,7 +18,7 @@
                     <#list jobList as item>
                         <div class="nhsd-t-col-xs-12 ${getGridCol(jobList?size)}">
                             <article class="nhsd-m-card">
-                                <a href="${item.link}" href="#"
+                                <a href="${item.link}"
                                    class="nhsd-a-box-link "
                                    aria-label="Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online">
                                     <#assign boxModifier = "bg-dark-grey"/>
