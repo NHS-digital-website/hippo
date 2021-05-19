@@ -11,6 +11,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
 import static uk.nhs.digital.test.util.StringTestUtils.Placeholders.placeholders;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringUuids;
 import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
@@ -705,15 +706,4 @@ public class SchemaHelperTest {
         return cache.get(testDataFileName, () -> contentOfFileFromClasspath(classPathOf(testDataFileName)));
     }
 
-    private String ignoringUuids(final String htmlText) {
-        return htmlText.replaceAll(
-            "data-schema-uuid=\"[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}\"",
-            "data-schema-uuid=\"\""
-        ).replaceAll(
-            "Children\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
-            "Children('')"
-        ).replaceAll(
-            "All\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
-            "All('')");
-    }
 }
