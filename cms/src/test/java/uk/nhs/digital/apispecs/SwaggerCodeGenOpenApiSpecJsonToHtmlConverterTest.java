@@ -24,13 +24,15 @@ import uk.nhs.digital.test.util.TestDataCache;
 @RunWith(DataProviderRunner.class)
 public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
 
-    private TestDataCache cache = TestDataCache.create();
+    private final TestDataCache cache = TestDataCache.create();
 
     private final String specificationId = "123456";
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
-    @Mock private ApiSpecificationDocument apiSpecificationDocument;
+    @Mock
+    private ApiSpecificationDocument apiSpecificationDocument;
 
     private SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter swaggerCodeGenApiSpecHtmlProvider;
 
@@ -125,11 +127,11 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
     @DataProvider
     public static Object[][] tryThisApiCustomExtensionPropertyValues() {
         // @formatter:off
-        return new Object[][] {
+        return new Object[][]{
             // thePropertyIs    outcomeDescription propertyJson                                                            expectation
-            {"absent",          "rendered",        "",                                                                     containsString(">Try this API<")},
-            {"false",           "rendered",        "\"x-spec-publication\": {\"try-this-api\": {\"disabled\": false}},",   containsString(">Try this API<")},
-            {"true",            "not rendered",    "\"x-spec-publication\": {\"try-this-api\": {\"disabled\": true}},",    not(containsString(">Try this API<"))}
+            {"absent", "rendered", "", containsString(">Try this API<")},
+            {"false", "rendered", "\"x-spec-publication\": {\"try-this-api\": {\"disabled\": false}},", containsString(">Try this API<")},
+            {"true", "not rendered", "\"x-spec-publication\": {\"try-this-api\": {\"disabled\": true}},", not(containsString(">Try this API<"))}
         };
         // @formatter:on
     }
@@ -155,7 +157,6 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
 
     @Test
     public void rendersEndpointsHeadings_whenOperationsTagged() {
-
         // given
         final String specificationJson = from("oasV3_operationsTagged.json");
 
@@ -207,6 +208,24 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
             "Heading 'Response' is not rendered when response content absent from the specification.",
             ignoringWhiteSpacesIn(actualSpecHtml),
             is(ignoringWhiteSpacesIn(expectedSpecHtml))
+        );
+    }
+
+    @Test
+    public void rendersOperationIds_normalisedToContiguousString() {
+        // given
+        final String specificationJson = from("oasV3_operationIdsInVariousFormats.json");
+
+        final String expectedSpecHtml = from("oasV3_operationIdsInVariousFormats.html");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        assertThat(
+            "OperationID rendered as it is on the specification - Camel case and snake case tested.",
+            ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
         );
     }
 
