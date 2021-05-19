@@ -46,7 +46,7 @@
         "husky": "^4.2.5",
         "lint-staged": "^10.2.4",
         "minimist": "^1.2.5",
-        "prettier": "^2.0.5",
+        "prettier": "^2.3.0",
         "stylelint": "^13.5.0",
         "stylelint-config-recommended-scss": "^4.2.0",
         "stylelint-scss": "^3.19.0",
