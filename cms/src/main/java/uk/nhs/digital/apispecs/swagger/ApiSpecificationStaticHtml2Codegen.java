@@ -7,6 +7,7 @@ import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.AssignHelper;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
+import com.github.jknack.handlebars.helper.StringHelpers;
 import io.swagger.codegen.v3.*;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.Components;
@@ -103,6 +104,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE)
             .registerHelper(ConditionalHelpers.eq.name(), ConditionalHelpers.eq)
             .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
+            .registerHelper(StringHelpers.lower.name(), StringHelpers.lower)
             // below helper is registered as a HelperSource as it takes no parameters.
             // see https://github.com/jknack/handlebars.java#using-a-helpersource for further info
             .registerHelpers(UuidHelper.INSTANCE)
@@ -110,6 +112,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
         handlebars.with(EscapingStrategy.NOOP);
     }
+
 
     /**
      * OAS does not specify '{@code components}' field as required,
@@ -120,6 +123,10 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         if (openApi.getComponents() == null) {
             openApi.setComponents(new Components());
         }
+
+    @Override
+    public String removeNonNameElementToCamelCase(String operationName) {
+        return operationName;
     }
 
     private void preProcessOperations(final OpenAPI openApi) {
