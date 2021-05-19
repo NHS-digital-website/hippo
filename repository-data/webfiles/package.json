@@ -44,7 +44,7 @@
         "gulp-postcss": "^8.0.0",
         "gulp-stylelint": "^13.0.0",
         "husky": "^4.2.5",
-        "lint-staged": "^10.2.4",
+        "lint-staged": "^11.0.0",
         "minimist": "^1.2.5",
         "prettier": "^2.3.0",
         "stylelint": "^13.5.0",
