@@ -44,6 +44,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     public void preprocessOpenAPI(final OpenAPI openApi) {
         this.openAPI = openApi;
 
+        populateComponentsFieldWithEmptyObjectWhenNull(openApi);
+
         preProcessOperations(openApi);
     }
 
