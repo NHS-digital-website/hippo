@@ -28,19 +28,19 @@
                                    title="Endpoints: Patients">Endpoints: Patients</a>
                             </li>
                             <li class="section-numbered">
-                                <a href="#api-Patients-getPatient"
-                                   aria-label="getPatient"
-                                   title="getPatient">Retrieve a patient's resource</a>
+                                <a href="#api-Patients-get-patient"
+                                   aria-label="get-patient"
+                                   title="get-patient">Retrieve a patient's resource</a>
                             </li>
                             <li class="section-numbered">
-                                <a href="#api-Patients-searchPatient"
-                                   aria-label="searchPatient"
-                                   title="searchPatient">Search for patient</a>
+                                <a href="#api-Patients-search-patient"
+                                   aria-label="search-patient"
+                                   title="search-patient">Search for patient</a>
                             </li>
                             <li class="section-numbered">
-                                <a href="#api-Patients-updatePatientPartial"
-                                   aria-label="updatePatientPartial"
-                                   title="updatePatientPartial">Update a patient's resource</a>
+                                <a href="#api-Patients-update-patient-partial"
+                                   aria-label="update-patient-partial"
+                                   title="update-patient-partial">Update a patient's resource</a>
                             </li>
                             <li>
                                 <a href="#api-Polling"
@@ -75,14 +75,14 @@
     <div id="api-Patients" class="article-section">
         <h2>Endpoints: Patients</h2>
     </div>
-    <div id="api-Patients-getPatient" class="article-section-with-sub-heading">
-        <article id="api-Patients-getPatient-0">
+    <div id="api-Patients-get-patient" class="article-section-with-sub-heading">
+        <article id="api-Patients-get-patient-0">
             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
             <h3>Retrieve a patient's resource</h3>
             <div class="endpoint_path">
                 <div class="method">get</div>
                 <div class="pre"><pre>/Patient/{id}</pre></div>
-                <div class="try"><a onclick="tryEndpointNow('/Patients/get_patient')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                <div class="try"><a onclick="tryEndpointNow('/patients/get-patient')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
             </div>
 
             <p><h4 id="overview">Overview</h4>
@@ -214,35 +214,39 @@
 
 
 
+
             <div class="body__schema__header">Schema
                 <span class="schema__header__buttons">
-                <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-                <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-                </span>
+                                                                        <button class='schemaButton js collapseAll' onclick="collapseAll('e3ac4f4e-8dc4-46c5-83f7-e77c7c30c5ad')">Collapse all</button>
+                                                                        <button class='schemaButton js expandAll' onclick="expandAll('e3ac4f4e-8dc4-46c5-83f7-e77c7c30c5ad')">Expand all</button>
+                                                                    </span>
             </div>
-            <div class="body__schema" data-schema-uuid="">
+            <div class="body__schema" data-schema-uuid="e3ac4f4e-8dc4-46c5-83f7-e77c7c30c5ad">
                 <table data-disablesort="true">
                     <thead>
                     <th colspan="2">Name</th>
                     <th>Description</th>
                     </thead>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="76bfa985-8bfa-4865-a4bf-eec4df561a94" data-indentation="0" colspan="2">
                         <td style="padding-left: 0em;" class="name_column">
 
                             <div>
                                 <code class="type">object</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="76bfa985-8bfa-4865-a4bf-eec4df561a94" onclick="collapseChildren('76bfa985-8bfa-4865-a4bf-eec4df561a94')"></button>
                         </td>
 
                         <td class="description_column">
@@ -268,11 +272,11 @@
 
 
 
-
                         </td>
                     </tr>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="7fe5ed5e-a4ff-4be7-8d0f-81902092bfd3" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">resourceType</code></div>
 
@@ -288,6 +292,7 @@
 
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -315,13 +320,14 @@
 
                             <div>Default: <code class="codeinline default">Patient</code></div>
 
-
                         </td>
                     </tr>
 
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+
+                    <tr class="expanded" data-schema-uuid="c4020556-5b89-4553-863b-bc350312412f" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">id</code></div>
 
@@ -337,6 +343,7 @@
 
                             <div><code class="required">required</code></div>
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -364,9 +371,10 @@
 
 
                             <div>Example: <code class="codeinline example">9000000009</code></div>
-
                         </td>
                     </tr>
+
+
 
 
 
@@ -410,20 +418,22 @@
 
 
 
+
             <div class="body__schema__header">Schema
                 <span class="schema__header__buttons">
-                <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-                <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-                </span>
+                                                                        <button class='schemaButton js collapseAll' onclick="collapseAll('2f31b744-9ee7-4ced-8da7-3668eb9e9a8b')">Collapse all</button>
+                                                                        <button class='schemaButton js expandAll' onclick="expandAll('2f31b744-9ee7-4ced-8da7-3668eb9e9a8b')">Expand all</button>
+                                                                    </span>
             </div>
-            <div class="body__schema" data-schema-uuid="">
+            <div class="body__schema" data-schema-uuid="2f31b744-9ee7-4ced-8da7-3668eb9e9a8b">
                 <table data-disablesort="true">
                     <thead>
                     <th colspan="2">Name</th>
                     <th>Description</th>
                     </thead>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="2491ce94-b455-497d-9b87-fd9f4628756e" data-indentation="0" colspan="2">
                         <td style="padding-left: 0em;" class="name_column">
 
                             <div>
@@ -436,9 +446,11 @@
 
 
 
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
+                            <button class="collapser js" data-schema-uuid="2491ce94-b455-497d-9b87-fd9f4628756e" onclick="collapseChildren('2491ce94-b455-497d-9b87-fd9f4628756e')"></button>
                         </td>
 
                         <td class="description_column">
@@ -486,11 +498,11 @@
 
 
 
-
                         </td>
                     </tr>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="f1c4590a-94ae-4ad6-8965-c154df2a2d09" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">resourceType</code></div>
 
@@ -506,6 +518,7 @@
 
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -533,13 +546,14 @@
 
                             <div>Default: <code class="codeinline default">OperationOutcome</code></div>
 
-
                         </td>
                     </tr>
 
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+
+                    <tr class="expanded" data-schema-uuid="ef29849a-029f-47fc-a54f-f020eddf6a00" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">issue</code></div>
 
@@ -547,15 +561,17 @@
                                 <code class="type">array</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="ef29849a-029f-47fc-a54f-f020eddf6a00" onclick="collapseChildren('ef29849a-029f-47fc-a54f-f020eddf6a00')"></button>
                         </td>
 
                         <td class="description_column">
@@ -581,12 +597,12 @@
 
 
 
-
                         </td>
                     </tr>
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="23c57394-ae77-4de9-8ee9-7cdb354153d4" data-indentation="2" colspan="2">
                         <td style="padding-left: 2em;" class="name_column">
 
                             <div>
@@ -601,6 +617,7 @@
 
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -627,9 +644,11 @@
 
 
 
-
                         </td>
                     </tr>
+
+
+
 
 
 
@@ -644,14 +663,14 @@
 
         </article>
     </div>
-    <div id="api-Patients-searchPatient" class="article-section-with-sub-heading">
-        <article id="api-Patients-searchPatient-0">
+    <div id="api-Patients-search-patient" class="article-section-with-sub-heading">
+        <article id="api-Patients-search-patient-0">
             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
             <h3>Search for patient</h3>
             <div class="endpoint_path">
                 <div class="method">get</div>
                 <div class="pre"><pre>/Patient</pre></div>
-                <div class="try"><a onclick="tryEndpointNow('/Patients/search_patient')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                <div class="try"><a onclick="tryEndpointNow('/patients/search-patient')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
             </div>
 
             <p><h4 id="endpoint">Endpoint</h4>
@@ -797,20 +816,22 @@
 
 
 
+
             <div class="body__schema__header">Schema
                 <span class="schema__header__buttons">
-                <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-                <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-                </span>
+                                                                        <button class='schemaButton js collapseAll' onclick="collapseAll('34dc9bcf-a762-4ef3-a3fc-682be6d70411')">Collapse all</button>
+                                                                        <button class='schemaButton js expandAll' onclick="expandAll('34dc9bcf-a762-4ef3-a3fc-682be6d70411')">Expand all</button>
+                                                                    </span>
             </div>
-            <div class="body__schema" data-schema-uuid="">
+            <div class="body__schema" data-schema-uuid="34dc9bcf-a762-4ef3-a3fc-682be6d70411">
                 <table data-disablesort="true">
                     <thead>
                     <th colspan="2">Name</th>
                     <th>Description</th>
                     </thead>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="35e27562-3ff3-40ed-af4a-a784208b1aed" data-indentation="0" colspan="2">
                         <td style="padding-left: 0em;" class="name_column">
 
                             <div>
@@ -822,9 +843,12 @@
 
 
 
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
+                            <button class="collapser js" data-schema-uuid="35e27562-3ff3-40ed-af4a-a784208b1aed" onclick="collapseChildren('35e27562-3ff3-40ed-af4a-a784208b1aed')"></button>
                         </td>
 
                         <td class="description_column">
@@ -850,11 +874,11 @@
 
 
 
-
                         </td>
                     </tr>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="0b8f2c3a-465f-496a-9414-71220f7d6dec" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">resourceType</code></div>
 
@@ -870,6 +894,7 @@
 
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -897,13 +922,14 @@
 
                             <div>Default: <code class="codeinline default">Bundle</code></div>
 
-
                         </td>
                     </tr>
 
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+
+                    <tr class="expanded" data-schema-uuid="9db22b1e-c90d-420b-ab55-49a9699f59f5" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">type</code></div>
 
@@ -919,6 +945,7 @@
 
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -946,9 +973,10 @@
 
                             <div>Default: <code class="codeinline default">searchset</code></div>
 
-
                         </td>
                     </tr>
+
+
 
 
 
@@ -999,20 +1027,22 @@
   } ]
 }</code></pre></div>
 
+
             <div class="body__schema__header">Schema
                 <span class="schema__header__buttons">
-                <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-                <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-                </span>
+                                                                        <button class='schemaButton js collapseAll' onclick="collapseAll('db8c8426-55d8-4d4b-99bd-b91d2df5c4a2')">Collapse all</button>
+                                                                        <button class='schemaButton js expandAll' onclick="expandAll('db8c8426-55d8-4d4b-99bd-b91d2df5c4a2')">Expand all</button>
+                                                                    </span>
             </div>
-            <div class="body__schema" data-schema-uuid="">
+            <div class="body__schema" data-schema-uuid="db8c8426-55d8-4d4b-99bd-b91d2df5c4a2">
                 <table data-disablesort="true">
                     <thead>
                     <th colspan="2">Name</th>
                     <th>Description</th>
                     </thead>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="10539601-bed0-4836-bed4-97dbf4a5767a" data-indentation="0" colspan="2">
                         <td style="padding-left: 0em;" class="name_column">
 
                             <div>
@@ -1027,6 +1057,7 @@
                             <div><code class="writeonly">write-only</code></div>
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -1059,9 +1090,9 @@
 
 
 
-
                         </td>
                     </tr>
+
 
 
 
@@ -1073,14 +1104,14 @@
 
         </article>
     </div>
-    <div id="api-Patients-updatePatientPartial" class="article-section-with-sub-heading">
-        <article id="api-Patients-updatePatientPartial-0">
+    <div id="api-Patients-update-patient-partial" class="article-section-with-sub-heading">
+        <article id="api-Patients-update-patient-partial-0">
             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
             <h3>Update a patient's resource</h3>
             <div class="endpoint_path">
                 <div class="method">patch</div>
                 <div class="pre"><pre>/Patient/{id}</pre></div>
-                <div class="try"><a onclick="tryEndpointNow('/Patients/update_patient_partial')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                <div class="try"><a onclick="tryEndpointNow('/patients/update-patient-partial')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
             </div>
 
             <p><h4 id="overview">Overview</h4>
@@ -1216,20 +1247,22 @@
   } ]
 }</code></pre></div>
 
+
                 <div class="body__schema__header">Schema
                     <span class="schema__header__buttons">
-                    <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-                    <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-                    </span>
+                                                                                <button class='schemaButton js collapseAll' onclick="collapseAll('4100644e-3fa9-4a55-ad87-6ba67f6ae39f')">Collapse all</button>
+                                                                                <button class='schemaButton js expandAll' onclick="expandAll('4100644e-3fa9-4a55-ad87-6ba67f6ae39f')">Expand all</button>
+                                                                            </span>
                 </div>
-                <div class="body__schema" data-schema-uuid="">
+                <div class="body__schema" data-schema-uuid="4100644e-3fa9-4a55-ad87-6ba67f6ae39f">
                     <table data-disablesort="true">
                         <thead>
                         <th colspan="2">Name</th>
                         <th>Description</th>
                         </thead>
 
-                        <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+
+                        <tr class="expanded" data-schema-uuid="cec15ccf-d74b-41f9-83de-701f7b616c5b" data-indentation="0" colspan="2">
                             <td style="padding-left: 0em;" class="name_column">
 
                                 <div>
@@ -1244,6 +1277,7 @@
                                 <div><code class="writeonly">write-only</code></div>
 
                             </td>
+
                             <td class="button_column">
                             </td>
 
@@ -1276,7 +1310,6 @@
 
 
 
-
                             </td>
                         </tr>
 
@@ -1284,8 +1317,10 @@
 
 
 
+
                     </table>
                 </div>
+
 
             </div>
 
@@ -1401,36 +1436,39 @@
   } ]
 }</code></pre></div>
 
+
             <div class="body__schema__header">Schema
                 <span class="schema__header__buttons">
-                <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-                <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-                </span>
+                                                                        <button class='schemaButton js collapseAll' onclick="collapseAll('867acff7-8aed-460e-bb56-33bdae11c2a0')">Collapse all</button>
+                                                                        <button class='schemaButton js expandAll' onclick="expandAll('867acff7-8aed-460e-bb56-33bdae11c2a0')">Expand all</button>
+                                                                    </span>
             </div>
-            <div class="body__schema" data-schema-uuid="">
+            <div class="body__schema" data-schema-uuid="867acff7-8aed-460e-bb56-33bdae11c2a0">
                 <table data-disablesort="true">
                     <thead>
                     <th colspan="2">Name</th>
                     <th>Description</th>
                     </thead>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="9543d562-2b99-47fc-8b18-c271013cc9c7" data-indentation="0" colspan="2">
                         <td style="padding-left: 0em;" class="name_column">
 
                             <div>
                                 <code class="type">object</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="9543d562-2b99-47fc-8b18-c271013cc9c7" onclick="collapseChildren('9543d562-2b99-47fc-8b18-c271013cc9c7')"></button>
                         </td>
 
                         <td class="description_column">
@@ -1478,11 +1516,11 @@
 
 
 
-
                         </td>
                     </tr>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="ebc0c4c4-e9d3-423a-88d9-b32d99838959" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">resourceType</code></div>
 
@@ -1498,6 +1536,7 @@
 
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -1525,13 +1564,14 @@
 
                             <div>Default: <code class="codeinline default">OperationOutcome</code></div>
 
-
                         </td>
                     </tr>
 
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+
+                    <tr class="expanded" data-schema-uuid="b819762f-7c56-4d5c-a96e-e971bd42531d" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">issue</code></div>
 
@@ -1539,15 +1579,17 @@
                                 <code class="type">array</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="b819762f-7c56-4d5c-a96e-e971bd42531d" onclick="collapseChildren('b819762f-7c56-4d5c-a96e-e971bd42531d')"></button>
                         </td>
 
                         <td class="description_column">
@@ -1573,27 +1615,29 @@
 
 
 
-
                         </td>
                     </tr>
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="346ded77-a8c3-446d-b474-01bd10a3cb44" data-indentation="2" colspan="2">
                         <td style="padding-left: 2em;" class="name_column">
 
                             <div>
                                 <code class="type">object</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="346ded77-a8c3-446d-b474-01bd10a3cb44" onclick="collapseChildren('346ded77-a8c3-446d-b474-01bd10a3cb44')"></button>
                         </td>
 
                         <td class="description_column">
@@ -1619,11 +1663,11 @@
 
 
 
-
                         </td>
                     </tr>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="d95b9f0d-aa90-4a90-87ba-426215846a22" data-indentation="3" colspan="2">
                         <td style="padding-left: 3em;" class="name_column">
                             <div><code class="propertyName">severity</code></div>
 
@@ -1639,6 +1683,7 @@
 
                             <div><code class="required">required</code></div>
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -1666,13 +1711,14 @@
 
 
                             <div>Example: <code class="codeinline example">error</code></div>
-
                         </td>
                     </tr>
 
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+
+
+                    <tr class="expanded" data-schema-uuid="a3dba5a7-d738-4020-b755-824887bf6ab5" data-indentation="3" colspan="2">
                         <td style="padding-left: 3em;" class="name_column">
                             <div><code class="propertyName">code</code></div>
 
@@ -1688,6 +1734,7 @@
 
                             <div><code class="required">required</code></div>
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -1715,9 +1762,12 @@
 
 
                             <div>Example: <code class="codeinline example">invalid</code></div>
-
                         </td>
                     </tr>
+
+
+
+
 
 
 
@@ -1745,7 +1795,7 @@
             <div class="endpoint_path">
                 <div class="method">get</div>
                 <div class="pre"><pre>/Polling/{message_id}</pre></div>
-                <div class="try"><a onclick="tryEndpointNow('/Polling/polling')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                <div class="try"><a onclick="tryEndpointNow('/polling/polling')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
             </div>
 
             <p><h4 id="overview">Overview</h4>
@@ -1868,36 +1918,39 @@
 
 
 
+
             <div class="body__schema__header">Schema
                 <span class="schema__header__buttons">
-                <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-                <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-                </span>
+                                                                        <button class='schemaButton js collapseAll' onclick="collapseAll('479e96d6-c32a-432f-9e27-40a9be69d48c')">Collapse all</button>
+                                                                        <button class='schemaButton js expandAll' onclick="expandAll('479e96d6-c32a-432f-9e27-40a9be69d48c')">Expand all</button>
+                                                                    </span>
             </div>
-            <div class="body__schema" data-schema-uuid="">
+            <div class="body__schema" data-schema-uuid="479e96d6-c32a-432f-9e27-40a9be69d48c">
                 <table data-disablesort="true">
                     <thead>
                     <th colspan="2">Name</th>
                     <th>Description</th>
                     </thead>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="6bfc37ab-fd05-4632-b666-2c475440ec9d" data-indentation="0" colspan="2">
                         <td style="padding-left: 0em;" class="name_column">
 
                             <div>
                                 <code class="type">object</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="6bfc37ab-fd05-4632-b666-2c475440ec9d" onclick="collapseChildren('6bfc37ab-fd05-4632-b666-2c475440ec9d')"></button>
                         </td>
 
                         <td class="description_column">
@@ -1923,11 +1976,11 @@
 
 
 
-
                         </td>
                     </tr>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="f937b470-671c-4bb7-92eb-208122cc146e" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">resourceType</code></div>
 
@@ -1943,6 +1996,7 @@
 
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -1970,13 +2024,14 @@
 
                             <div>Default: <code class="codeinline default">Patient</code></div>
 
-
                         </td>
                     </tr>
 
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+
+                    <tr class="expanded" data-schema-uuid="18bba6c2-4824-446f-ab8b-70695e41f077" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">id</code></div>
 
@@ -1992,6 +2047,7 @@
 
                             <div><code class="required">required</code></div>
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -2019,9 +2075,10 @@
 
 
                             <div>Example: <code class="codeinline example">9000000009</code></div>
-
                         </td>
                     </tr>
+
+
 
 
 
@@ -2069,37 +2126,39 @@
   } ]
 }</code></pre></div>
 
+
             <div class="body__schema__header">Schema
                 <span class="schema__header__buttons">
-                <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-                <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-                </span>
+                                                                        <button class='schemaButton js collapseAll' onclick="collapseAll('d3116065-51db-480a-a499-542f922dc47e')">Collapse all</button>
+                                                                        <button class='schemaButton js expandAll' onclick="expandAll('d3116065-51db-480a-a499-542f922dc47e')">Expand all</button>
+                                                                    </span>
             </div>
-            <div class="body__schema" data-schema-uuid="">
+            <div class="body__schema" data-schema-uuid="d3116065-51db-480a-a499-542f922dc47e">
                 <table data-disablesort="true">
                     <thead>
                     <th colspan="2">Name</th>
                     <th>Description</th>
                     </thead>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="430a4ff9-0922-4caa-ade1-0e33e312d2de" data-indentation="0" colspan="2">
                         <td style="padding-left: 0em;" class="name_column">
 
                             <div>
                                 <code class="type">object</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="430a4ff9-0922-4caa-ade1-0e33e312d2de" onclick="collapseChildren('430a4ff9-0922-4caa-ade1-0e33e312d2de')"></button>
                         </td>
 
                         <td class="description_column">
@@ -2147,11 +2206,11 @@
 
 
 
-
                         </td>
                     </tr>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="c757613f-f137-476f-bb07-bed3b119eea7" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">resourceType</code></div>
 
@@ -2167,6 +2226,7 @@
 
 
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -2194,13 +2254,14 @@
 
                             <div>Default: <code class="codeinline default">OperationOutcome</code></div>
 
-
                         </td>
                     </tr>
 
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+
+
+                    <tr class="expanded" data-schema-uuid="af189ae3-b9cf-4bd2-abfa-65903897fc2d" data-indentation="1" colspan="2">
                         <td style="padding-left: 1em;" class="name_column">
                             <div><code class="propertyName">issue</code></div>
 
@@ -2208,15 +2269,17 @@
                                 <code class="type">array</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="af189ae3-b9cf-4bd2-abfa-65903897fc2d" onclick="collapseChildren('af189ae3-b9cf-4bd2-abfa-65903897fc2d')"></button>
                         </td>
 
                         <td class="description_column">
@@ -2242,27 +2305,29 @@
 
 
 
-
                         </td>
                     </tr>
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="c7b52d2c-e758-4ca1-bb78-8e87b84d6274" data-indentation="2" colspan="2">
                         <td style="padding-left: 2em;" class="name_column">
 
                             <div>
                                 <code class="type">object</code>
 
                             </div>
+
+
+
+
+
+
+
                         </td>
+
                         <td class="button_column">
-                            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-
-
-
-
-
-
+                            <button class="collapser js" data-schema-uuid="c7b52d2c-e758-4ca1-bb78-8e87b84d6274" onclick="collapseChildren('c7b52d2c-e758-4ca1-bb78-8e87b84d6274')"></button>
                         </td>
 
                         <td class="description_column">
@@ -2288,11 +2353,11 @@
 
 
 
-
                         </td>
                     </tr>
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+
+                    <tr class="expanded" data-schema-uuid="3fad3e32-0957-4fad-ac79-b2feee71b40e" data-indentation="3" colspan="2">
                         <td style="padding-left: 3em;" class="name_column">
                             <div><code class="propertyName">severity</code></div>
 
@@ -2308,6 +2373,7 @@
 
                             <div><code class="required">required</code></div>
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -2335,13 +2401,14 @@
 
 
                             <div>Example: <code class="codeinline example">error</code></div>
-
                         </td>
                     </tr>
 
 
 
-                    <tr class="expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+
+
+                    <tr class="expanded" data-schema-uuid="06ad35f5-0ee6-4e18-bfd7-09cd61817a88" data-indentation="3" colspan="2">
                         <td style="padding-left: 3em;" class="name_column">
                             <div><code class="propertyName">code</code></div>
 
@@ -2357,6 +2424,7 @@
 
                             <div><code class="required">required</code></div>
                         </td>
+
                         <td class="button_column">
                         </td>
 
@@ -2384,9 +2452,12 @@
 
 
                             <div>Example: <code class="codeinline example">invalid</code></div>
-
                         </td>
                     </tr>
+
+
+
+
 
 
 

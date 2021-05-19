@@ -10,6 +10,7 @@ import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import io.swagger.codegen.v3.*;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.headers.Header;
@@ -111,10 +112,12 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     }
 
 
+
     @Override
     public String removeNonNameElementToCamelCase(String operationName) {
         return operationName;
-	}
+    }
+
     /**
      * OAS does not specify '{@code components}' field as required,
      * and yet CodeGen fails with NullPointerException when the field is missing,
@@ -125,7 +128,6 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             openApi.setComponents(new Components());
         }
     }
-
 
     private void preProcessOperations(final OpenAPI openApi) {
 
