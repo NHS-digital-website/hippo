@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/diagnostics/hippo:moduleconfig:
+      enabled: true
+      thresholdMillisec: 2000
+      unitThresholdMillisec: 5

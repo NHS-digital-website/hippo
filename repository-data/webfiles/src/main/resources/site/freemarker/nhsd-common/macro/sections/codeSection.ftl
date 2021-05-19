@@ -24,8 +24,10 @@
             </div>
         </div>
         <div class="nhsd-o-code-viewer__footer">
-            <nav class="nhsd-m-tabs" role="tablist">
-                <a class="nhsd-a-tab" href="#${section.language.label}-content" id="tab-${section.language.label}-content" data-tab-content="${section.language.label}-content" aria-controls="${section.language.label}-content" aria-selected="true" role="tab">${section.language.label}</a>
+            <nav class="nhsd-m-tabs">
+                <div role="tablist">
+                    <a class="nhsd-a-tab" href="#${section.language.label}-content" id="tab-${section.language.label}-content" data-tab-content="${section.language.label}-content" aria-controls="${section.language.label}-content" aria-selected="true" role="tab">${section.language.label}</a>
+                </div>
             </nav>
         </div>
     </article>
