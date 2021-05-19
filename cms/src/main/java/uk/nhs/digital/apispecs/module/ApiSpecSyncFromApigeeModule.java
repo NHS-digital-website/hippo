@@ -32,7 +32,7 @@ public class ApiSpecSyncFromApigeeModule implements DaemonModule {
     private static final Logger log = LoggerFactory.getLogger(ApiSpecSyncFromApigeeModule.class);
 
     // See JavaDoc of java.time.Duration.parse for format.
-    private static final String SCHEDULING_DELAY_DEFAULT_VALUE = "PT45M";
+    private static final String SCHEDULING_DELAY_DEFAULT_VALUE = "PT10M";
 
     private static final String SCHEDULING_DELAY_PROPERTY_NAME = "devzone.apispec.sync.schedule-delay-duration";
 
