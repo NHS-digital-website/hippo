@@ -1,11 +1,9 @@
 var tryEndpointNowWindow = null;
 
+
 function tryEndpointNow(endpointPathInSpec) { // method invocation is rendered by Codegen's index.mustache template
 
-    const endpointAnchorPath = endpointPathInSpec.replace(/_/g, '-').toLowerCase();
-
-    // tryEndpointNowBaseUrl is populated in apispecification.ftl
-    const targetWindowUrl = tryEndpointNowBaseUrl + '.trythisapi#' + endpointAnchorPath;
+    const targetWindowUrl = tryEndpointNowBaseUrl + '.trythisapi#' + endpointPathInSpec;
 
     const targetWindowName = 'TryItNow';
 
