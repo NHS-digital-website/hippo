@@ -32,7 +32,7 @@
                    <#if (chartData.data)??>
                        href="data:text/plain;base64,${chartData.filterData}"
                    <#else>
-                       href="${section.url}" target="_blank"
+                       href="${section.url}"
                    </#if>
                    onClick="logGoogleAnalyticsEvent(
                            'Download chart data','Publication','${slugify(section.title)}'
