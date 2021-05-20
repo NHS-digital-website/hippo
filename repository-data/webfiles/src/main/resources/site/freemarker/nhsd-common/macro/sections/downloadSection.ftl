@@ -16,9 +16,10 @@
     <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')}">
 
         <#if section.headingLevel == 'Main heading'>
-            <p class="nhsd-t-heading-l" data-uipath="website.contentblock.download.title">${section.heading}</p>
+            <hr class="nhsd-a-horizontal-rule" />
+            <h2 class="nhsd-t-heading-l" data-uipath="website.contentblock.download.title">${section.heading}</h2>
         <#else>
-            <p class="nhsd-t-heading-s" data-uipath="website.contentblock.download.title">${section.heading}</p>
+            <h3 class="nhsd-t-heading-s" data-uipath="website.contentblock.download.title">${section.heading}</h3>
         </#if>
 
         <div data-uipath="website.contentblock.download.description">

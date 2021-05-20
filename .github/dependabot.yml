@@ -1,0 +1,89 @@
+version: 2
+updates:
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+
+  # Maintain dependencies for the root POM
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+    ignore:
+      - dependency-name: "spring-*"
+
+
+  # Maintain dependencies for the acceptance tests POM
+  - package-ecosystem: "maven"
+    directory: "/acceptance-tests"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+    ignore:
+      - dependency-name: "spring-*"
+
+  # Maintain dependencies for the cms POM
+  - package-ecosystem: "maven"
+    directory: "/cms"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+
+  # Maintain dependencies for the essentials POM
+  - package-ecosystem: "maven"
+    directory: "/essentials"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+
+  # Maintain dependencies for the repository POM
+  - package-ecosystem: "maven"
+    directory: "/repository"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+
+  # Maintain dependencies for the repository data POM
+  - package-ecosystem: "maven"
+    directory: "/repository-data"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+
+  # Maintain dependencies for the S3 connector POM
+  - package-ecosystem: "maven"
+    directory: "/s3connector"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+
+  # Maintain dependencies for the site POM
+  - package-ecosystem: "maven"
+    directory: "/site"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+    ignore:
+      - dependency-name: "spring-*"
+
+  # Maintain dependencies for the JS/CSS build and packager
+  - package-ecosystem: "npm"
+    directory: "/repository-data/webfiles"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "

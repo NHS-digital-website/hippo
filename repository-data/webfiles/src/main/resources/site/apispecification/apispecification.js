@@ -103,7 +103,8 @@ const keysPressed = {};
 
 document.addEventListener('keydown', (event) => {
    keysPressed[event.key] = true;
-   if(keysPressed['Control'] && keysPressed['f']) {
+
+    if(keysPressed['Control'] && keysPressed['f']) {
          const schemas = document.querySelectorAll(`.body__schema`);
          schemas.forEach(schema => {
             expandAll(schema.getAttribute('data-schema-uuid'));
@@ -117,3 +118,4 @@ document.addEventListener('keyup', (event) => {
 
 // make controls visible
 document.querySelectorAll(`.js`).forEach(element => element.classList.remove('js'));
+

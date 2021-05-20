@@ -15,6 +15,8 @@
     <#assign hasContent = document.content?has_content />
     <#assign hasImage = document.image?has_content />
     <#assign hasLink = (document.external?has_content || document.internal?has_content) && document.label?has_content />
+    <#assign isCtaDoc = document.class.simpleName?starts_with("Calltoaction") />
+    <#assign isDecorativeOnly = isCtaDoc && document.isDecorative?if_exists == "true" />
 
     <article class="nhsd-o-case-study nhsd-o-case-study--no-label nhsd-!t-margin-bottom-9 ${isRightAlignment}">
         <div class="nhsd-t-grid">
@@ -30,9 +32,10 @@
                                     <picture class="nhsd-a-image__picture">
                                         <#if hasImage>
                                             <@hst.link hippobean=document.image var="image" />
-                                            <img src="${image}" alt="${document.title}">
+                                            <#assign altText = (isCtaDoc && document.altText?has_content)?then(document.altText, document.title) />
+                                            <img src="${image}" alt="<#if !isDecorativeOnly>${altText}</#if>">
                                         <#else>
-                                            <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="${document.title}">
+                                            <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="<#if !isDecorativeOnly>${document.title}</#if>">
                                         </#if>
                                     </picture>
                                 </figure>

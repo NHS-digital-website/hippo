@@ -57,7 +57,6 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
                     <#assign hasLabel = item.label?has_content />
                     <#assign label = hasLabel?then(item.label, item.title) />
 
-
                     <#-- Theme -->
                     <#assign colourVariant = themeColourVariants[item?index] />
                     <#assign isYellowLink = (colourVariant == yellow)?then("nhsd-a-box-link--focus-orange", "") />

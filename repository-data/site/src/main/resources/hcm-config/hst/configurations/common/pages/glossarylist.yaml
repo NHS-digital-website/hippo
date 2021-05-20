@@ -5,10 +5,12 @@ definitions:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
         hst:parameternames:
+        - brandRefreshContentRewriter
         - stripTagsContentRewriter
         hst:parametervalues:
         - 'true'
+        - 'true'
         hst:template: nhsd-list-article
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/nhsd-homepage
+      hst:referencecomponent: hst:abstractpages/nhsd-apppage
       jcr:primaryType: hst:component

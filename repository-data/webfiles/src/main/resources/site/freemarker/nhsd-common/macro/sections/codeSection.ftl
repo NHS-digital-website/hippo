@@ -19,15 +19,15 @@
         <div class="nhsd-o-code-viewer__tab-content">
             <div class="nhsd-o-code-viewer__code">
                 <div id="${section.language.label}-content" class="nhsd-o-code-viewer__code-content" role="tabpanel" aria-labelledby="tab-${section.language.label}-content">
-                    <div class="code-scroll">
-                        <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="white-space: ${section.wrapLines?then('pre-wrap', 'pre')};">${section.codeTextHighlighted?no_esc}</pre>
-                    </div>
+                    <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="white-space: ${section.wrapLines?then('pre-wrap', 'pre')};">${section.codeTextHighlighted?no_esc}</pre>
                 </div>
             </div>
         </div>
         <div class="nhsd-o-code-viewer__footer">
-            <nav class="nhsd-m-tabs" role="tablist">
-                <a class="nhsd-a-tab" href="#${section.language.label}-content" id="tab-${section.language.label}-content" data-tab-content="${section.language.label}-content" aria-controls="${section.language.label}-content" aria-selected="true" role="tab">${section.language.label}</a>
+            <nav class="nhsd-m-tabs">
+                <div role="tablist">
+                    <a class="nhsd-a-tab" href="#${section.language.label}-content" id="tab-${section.language.label}-content" data-tab-content="${section.language.label}-content" aria-controls="${section.language.label}-content" aria-selected="true" role="tab">${section.language.label}</a>
+                </div>
             </nav>
         </div>
     </article>

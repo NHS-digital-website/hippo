@@ -1,7 +1,6 @@
 .nhsd-o-code-viewer__code-content {
-    .pre {
+    pre {
         display: table;
-        overflow-y: auto;
     }
 
     .line-numbers {
@@ -30,12 +29,6 @@
     code {
         display: table-cell;
         padding: 0 10px;
-    }
-
-    .code-scroll {
-        height: 100%;
-        overflow: auto;
-        overflow: overlay;
     }
 
     .syntax-highlighted {

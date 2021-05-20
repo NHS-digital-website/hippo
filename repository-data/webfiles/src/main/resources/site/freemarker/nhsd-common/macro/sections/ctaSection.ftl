@@ -34,7 +34,6 @@
                 id="nhsd-a-button-${slugify(section.title)}" 
                 onClick="${onClickMethodCall}"
                 onKeyUp="return vjsu.onKeyUp(event)"
-                target="_blank" 
                 rel="external">
               <span class="nhsd-a-button__label">${section.title}</span>
               <span class="nhsd-t-sr-only">(external link, opens in a new tab)</span>
