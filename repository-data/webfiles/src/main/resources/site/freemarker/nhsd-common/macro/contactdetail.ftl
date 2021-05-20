@@ -51,7 +51,7 @@
 
 
             <div class="contactdetail-item">Twitter handle: 
-                <a href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click',document.class.name,'${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${twitterhandle}" target="_blank">@${twitterhandle}</a>
+                <a href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click',document.class.name,'${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${twitterhandle}">@${twitterhandle}</a>
             </div>
           </#if>
 
