@@ -128,6 +128,6 @@
         "jquery": "^3.6.0",
         "jquery-ui": "^1.12.1",
         "papaparse": "^5.2.0",
-        "tablesort": "^5.2.0"
+        "tablesort": "^5.2.1"
     }
 }
