@@ -12,7 +12,6 @@ import static org.powermock.api.mockito.PowerMockito.*;
 import static uk.nhs.digital.test.util.JcrTestUtils.*;
 import static uk.nhs.digital.test.util.JcrTestUtils.BloomReachJcrDocumentVariantType.DRAFT;
 import static uk.nhs.digital.test.util.MockJcrRepoProvider.initJcrRepoFromYaml;
-import static uk.nhs.digital.test.util.StringTestUtils.ignoringUuids;
 import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
@@ -339,5 +338,17 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     private String testDataFileLocation(final String fileName) {
         return TEST_DATA_FILES_DIR + fileName;
+    }
+
+    private String ignoringUuids(final String htmlText) {
+        return htmlText.replaceAll(
+            "data-schema-uuid=\"[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}\"",
+            "data-schema-uuid=\"\""
+        ).replaceAll(
+            "Children\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
+            "Children('')"
+        ).replaceAll(
+            "All\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
+            "All('')");
     }
 }
