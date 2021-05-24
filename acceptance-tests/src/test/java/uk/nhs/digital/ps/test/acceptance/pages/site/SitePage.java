@@ -83,13 +83,25 @@ public class SitePage extends AbstractSitePage {
         return helper.findOptionalElement(By.xpath("//*[@title='" + title + "']"));
     }
 
+    public WebElement findOptionalElementWithUiPath(String uiPath) {
+        return helper.findOptionalElement(By.xpath("//*[@data-uipath='" + uiPath + "']"));
+    }
+
     public WebElement findLinkWithinUiPath(String uiPath, String linkName) {
         return helper.findOptionalElement(By.xpath("//*[@data-uipath='" + uiPath + "']"))
             .findElement(By.xpath("//a[text()='" + linkName + "']"));
     }
 
+    public WebElement findLinkWithText(String linkText) {
+        return helper.findElement(By.xpath("//a[text()='" + linkText + "']"));
+    }
+
     public WebElement findElementWithUiPath(String uiPath) {
         return helper.findElement(By.xpath("//*[@data-uipath='" + uiPath + "']"));
+    }
+
+    public List<WebElement> findElementsWithUiPath(String uiPath) {
+        return helper.findElements(By.xpath("//*[@data-uipath='" + uiPath + "']"));
     }
 
     public WebElement findOptionalElementWithText(String text) {
@@ -118,6 +130,16 @@ public class SitePage extends AbstractSitePage {
 
     public String getArticleContentSection() {
         return helper.findElement(By.xpath("//*[@class='grid-wrapper grid-wrapper--article']")).getText();
+    }
+
+    public List<WebElement> findPageElements(String elementName) {
+        for (PageElements pageElements : pagesElements) {
+            if (pageElements.contains(elementName)) {
+                return pageElements.getElementsByName(elementName, helper);
+            }
+        }
+
+        return null;
     }
 
     public WebElement findPageElement(String elementName) {

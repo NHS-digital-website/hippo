@@ -6,12 +6,12 @@
     <#if (pagination)?has_content>
         <#if (pagination.previous)?has_content && (pagination.next)?has_content>
         <div class="nhsd-o-chapter-navigation nhsd-o-chapter-navigation--footer">
-            <div class="nhsd-a-box">
+            <div class="nhsd-a-box nhsd-!t-padding-0">
         </#if>
                 <#if (pagination.previous)?has_content>
                     <div class="<#if (pagination.next)?has_content>nhsd-o-chapter-navigation__previous-chapter</#if>">
-                        <a class="nhsd-m-chapter" 
-                           href="<@hst.link hippobean=pagination.previous.linkedBean />" 
+                        <a class="nhsd-m-chapter"
+                           href="<@hst.link hippobean=pagination.previous.linkedBean />"
                            aria-label="Previous Chapter"
                         >
                             <div class="nhsd-m-chapter__content">
@@ -30,8 +30,8 @@
                 </#if>
                 <#if (pagination.next)?has_content>
                     <div class="<#if (pagination.previous)?has_content>nhsd-o-chapter-navigation__next-chapter</#if>">
-                        <a class="nhsd-m-chapter nhsd-m-chapter--right" 
-                           href="<@hst.link hippobean=pagination.next.linkedBean />" 
+                        <a class="nhsd-m-chapter nhsd-m-chapter--right"
+                           href="<@hst.link hippobean=pagination.next.linkedBean />"
                            aria-label="Next Chapter"
                         >
                             <div class="nhsd-m-chapter__content">

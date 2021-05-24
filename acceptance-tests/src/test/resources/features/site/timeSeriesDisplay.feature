@@ -19,11 +19,11 @@ Feature: Display of publications forming a series
 
     Scenario: Navigate from series to publication and back to series
         Given I navigate to the "valid publication series" series page
-        When I click on link "Lorem Ipsum Dolor 2014"
+        When I click on the link named "Lorem Ipsum Dolor 2014"
         Then I should see publication page titled "Lorem Ipsum Dolor 2014"
-        When I click on link "Time Series Lorem Ipsum Dolor"
+        When I click on the link named "Time Series Lorem Ipsum Dolor"
         Then I should see series page titled "Time Series Lorem Ipsum Dolor"
-        When I click on link "Lorem Ipsum Dolor 2012"
+        When I click on the link named "Lorem Ipsum Dolor 2012"
         Then I should see publication page titled "Lorem Ipsum Dolor 2012"
 
     Scenario: Display multiparagraph summary
