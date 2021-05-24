@@ -32,7 +32,10 @@
                                             <div class="endpoint_path">
                                                 <div class="method">{{httpMethod}}</div>
                                                 <div class="pre"><pre>{{path}}</pre></div>
-                                                {{#ifVariableIsFalse "tryThisApiDisabled"}}<div class="try"><a onclick="tryEndpointNow('/{{lower baseName}}/{{operationId}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>{{/ifVariableIsFalse}}
+                                                {{#ifVariableIsFalse "tryThisApiDisabled"}}
+                                                    {{#eq baseName 'Default'}}{{#assign "sanitizedBaseName"}}{{lower baseName}}{{/assign}}{{else}}{{#assign "sanitizedBaseName"}}{{baseName}}{{/assign}}{{/eq}}
+                                                        <div class="try"><a onclick="tryEndpointNow('/{{sanitizedBaseName}}/{{operationId}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                                {{/ifVariableIsFalse}}
                                             </div>
 
                                             <p>{{{markdown notes levelToNormaliseHeadingsTo=4}}}</p>

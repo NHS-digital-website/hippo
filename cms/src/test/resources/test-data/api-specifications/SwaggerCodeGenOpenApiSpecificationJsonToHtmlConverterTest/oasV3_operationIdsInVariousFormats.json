@@ -1,10 +1,18 @@
 {
     "openapi": "3.0.0",
+    "tags": [
+        {
+            "name": "patients"
+        }
+    ],
     "paths": {
         "/path-a": {
             "get": {
                 "summary": "Get camelCase operation",
-                "operationId": "camelCase"
+                "operationId": "camelCase",
+                "tags": [
+                    "patients"
+                ]
             },
             "post": {
                 "summary": "Post kebab-case operation",
@@ -18,7 +26,10 @@
         "/path-b": {
             "get": {
                 "summary": "Get snake_case operation",
-                "operationId": "snake_case"
+                "operationId": "snake_case",
+                "tags": [
+                    ""
+                ]
             },
             "post": {
                 "summary": "Post ALLCAPS operation",
