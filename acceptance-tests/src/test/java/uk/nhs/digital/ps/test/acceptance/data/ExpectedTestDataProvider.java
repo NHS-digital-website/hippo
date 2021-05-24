@@ -150,7 +150,6 @@ public class ExpectedTestDataProvider {
             new TextSection("Text section heading without body", null),
             new ImageSection("sectioned publication page robots",
                 "Robots",
-                "Image with link and caption",
                 "https://google.com/"),
             new TextSection("Second text section with body below",
                 "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, "
@@ -204,7 +203,7 @@ public class ExpectedTestDataProvider {
             new ImageSection("sectioned publication page robots 2", "Full image"),
             new ImagePairSection(
                 new ImageSection("sectioned publication page business", "Half image"),
-                new ImageSection("sectioned publication page computer", "Half with caption and link", "Google Link", "https://google.com/")
+                new ImageSection("sectioned publication page computer", "Half with caption and link", "https://google.com/")
             ),
             new ImageSection("sectioned publication page arms", "Full image"),
             new ChartSection("Counties"),
@@ -235,11 +234,9 @@ public class ExpectedTestDataProvider {
             .withKeyFactImages(asList(
                 new ImageSection("sectioned publication robots",
                     "Robots",
-                    "Image with link and caption",
                     "https://google.com/"),
                 new ImagePairSection(new ImageSection("sectioned publication snowman",
                     "Snowman",
-                    null,
                     null),
                     null)
             ));

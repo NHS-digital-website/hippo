@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="nhsd-t-row nhsd-o-card-list__items ">
+        <div class="nhsd-t-row nhsd-o-card-list__items">
             <#list blogs as latest>
                 <#if latest?counter <= itemsMaxCount >
                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 ${idsuffix}">

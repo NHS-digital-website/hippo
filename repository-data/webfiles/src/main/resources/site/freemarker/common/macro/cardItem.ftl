@@ -6,7 +6,7 @@
     <#if cardProps.featured?? && cardProps.featured && cardProps.image?has_content>
         <#assign cardClass = "nhsd-m-card--image-position-adjacent"/>
     </#if>
-    <article class="nhsd-m-card ${cardClass} ${cardProps.cardClass?has_content?then(cardProps.cardClass, '')}">
+    <article class="nhsd-m-card nhsd-m-card--full-height ${cardClass} ${cardProps.cardClass?has_content?then(cardProps.cardClass, '')}">
         <a href="${cardProps.link}" class="nhsd-a-box-link">
             <div class="nhsd-a-box ${cardProps.background?has_content?then("nhsd-!t-bg-" + cardProps.background, "")}">
                 <#if cardProps.image?has_content>

@@ -54,17 +54,17 @@
                     <#assign linkDestination = itemLinkDestination />
                 </#if>
 
-                <div class="${getGridCol(cards)} nhsd-!t-margin-bottom-4">
-                    <#assign itemProps = card />
-                    <#assign itemProps += {
-                        "image": imageData[0],
-                        "altText": imageData[1],
-                        "shortsummary": itemShortSummary,
-                        "link": linkDestination,
-                        "background": cardColour
-                    }/>
+                <#assign cardProps = card/>
+                <#assign cardProps += {
+                    "image": imageData[0],
+                    "alttext": imageData[1],
+                    "shortSummary": itemShortSummary,
+                    "linkDestination": linkDestination,
+                    "background": cardColour
+                }/>
 
-                    <@cardItem itemProps />
+                <div class="${getGridCol(cards)} nhsd-!t-margin-bottom-4">
+                    <@cardItem cardProps />
                 </div>
             </#list>
         </div>

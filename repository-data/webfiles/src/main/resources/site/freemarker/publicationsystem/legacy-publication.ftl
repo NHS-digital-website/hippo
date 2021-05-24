@@ -136,7 +136,7 @@
                         <div class="column column--reset">
                             <dl class="detail-list">
                                 <dt class="detail-list__key"><@fmt.message key="headers.publication-date"/></dt>
-                                <dd class="detail-list__value" data-uipath="ps.publication.nominal-publication-date" itemprop="datePublished">
+                                <dd class="detail-list__value" data-uipath="ps.publication.publication-date" itemprop="datePublished">
                                     <@formatRestrictableDate value=legacyPublication.nominalPublicationDate/>
                                 </dd>
                             </dl>
@@ -165,7 +165,7 @@
                             <div class="column column--reset">
                                 <dl class="detail-list">
                                     <dt class="detail-list__key"><@fmt.message key="headers.geographical-granularity"/></dt>
-                                    <dd class="detail-list__value" data-uipath="ps.publication.granularity">
+                                    <dd class="detail-list__value" data-uipath="ps.publication.granularity-coverage">
                                         <#list granularity as granularityItem>${granularityItem}<#sep>, </#list>
                                     </dd>
                                 </dl>

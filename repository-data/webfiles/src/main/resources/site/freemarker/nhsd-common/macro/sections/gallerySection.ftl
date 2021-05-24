@@ -5,15 +5,14 @@
 
 <#macro gallerySection section mainHeadingLevel=2 >
     <div id="${slugify(section.heading)}">
-
-        <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
-            <h2 data-uipath="website.contentblock.gallerysection.title" class="nhsd-t-heading-xl">${section.title}</h2>
-        <#else>
-            <h3 data-uipath="website.contentblock.gallerysection.title" class="nhsd-t-heading-l">${section.title}</h3>
-        </#if>
+      <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
+        <h2 data-uipath="website.contentblock.gallerysection.title" class="nhsd-t-heading-xl">${section.title}</h2>
+      <#else>
+        <h3 data-uipath="website.contentblock.gallerysection.title" class="nhsd-t-heading-l">${section.title}</h3>
+      </#if>
 
       <div data-uipath="website.contentblock.gallerysection.description">
-          <@hst.html hippohtml=section.description contentRewriter=brContentRewriter />
+        <@hst.html hippohtml=section.description contentRewriter=brContentRewriter />
       </div>
     </div>
 
@@ -54,11 +53,11 @@
 
                       <#if galleryItem.relatedFiles?has_content>
                           <#list galleryItem.relatedFiles as attachment>
-                            <div class="nhsd-m-card__download-card">
+                            <div class="nhsd-m-card__download-card nhsd-!t-margin-bottom-6">
                               <#if attachment.link.asset?has_content>
                                 <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.asset.mimeType attachment.link.asset.getLength() false true />
                               <#else>
-                              <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.original.mimeType attachment.link.original.getLength() false true />
+                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.original.mimeType attachment.link.original.getLength() false true />
                               </#if>
                             </div>
                           </#list>

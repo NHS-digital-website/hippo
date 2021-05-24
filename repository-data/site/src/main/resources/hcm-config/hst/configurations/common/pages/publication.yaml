@@ -4,7 +4,17 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/publication:
       /main:
         hst:componentclassname: uk.nhs.digital.ps.components.PublicationComponent
+        hst:parameternames:
+        - googleAnalyticsContentRewriter
+        - brandRefreshContentRewriter
+        - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
+        hst:parametervalues:
+        - 'true'
+        - 'true'
+        - 'true'
+        - 'true'
         hst:template: publication
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/pubs_apppage
+      hst:referencecomponent: hst:abstractpages/nhsd-pubs-apppage
       jcr:primaryType: hst:component
