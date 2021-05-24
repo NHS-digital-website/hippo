@@ -13,6 +13,16 @@
                             </li>
 
                             <li>
+                                <a href="#api-endpoints"
+                                   aria-label="Endpoints"
+                                   title="Endpoints">Endpoints</a>
+                            </li>
+                            <li class="section-numbered">
+                                <a href="#api-Default-path_bPost"
+                                   aria-label="path_bPost"
+                                   title="path_bPost">Post operation B</a>
+                            </li>
+                            <li>
                                 <a href="#api-ResourceA"
                                    aria-label="Endpoints: ResourceA"
                                    title="Endpoints: ResourceA">Endpoints: ResourceA</a>
@@ -37,11 +47,6 @@
                                    aria-label="path_bGet"
                                    title="path_bGet">Get operation B</a>
                             </li>
-                            <li class="section-numbered">
-                                <a href="#api-ResourceB-path_bPost"
-                                   aria-label="path_bPost"
-                                   title="path_bPost">Post operation B</a>
-                            </li>
                         </ol>
                     </nav>
                 </div>
@@ -59,6 +64,31 @@
         A sample swagger server
     </div>
 
+    <div id="api-endpoints" class="article-section">
+        <h2>Endpoints</h2>
+    </div>
+    <div id="api-Default-path_bPost" class="article-section-with-sub-heading">
+        <article id="api-Default-path_bPost-0">
+            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+            <h3>Post operation B</h3>
+            <div class="endpoint_path">
+                <div class="method">post</div>
+                <div class="pre"><pre>/path-b</pre></div>
+
+                <div class="try"><a onclick="tryEndpointNow('/default/path_bPost')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+            </div>
+
+            <p></p>
+
+
+
+
+
+
+
+        </article>
+    </div>
+
     <div id="api-ResourceA" class="article-section">
         <h2>Endpoints: ResourceA</h2>
     </div>
@@ -69,7 +99,8 @@
             <div class="endpoint_path">
                 <div class="method">get</div>
                 <div class="pre"><pre>/path-a</pre></div>
-                <div class="try"><a onclick="tryEndpointNow('/resourcea/path_aGet')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+
+                <div class="try"><a onclick="tryEndpointNow('/ResourceA/path_aGet')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
             </div>
 
             <p></p>
@@ -89,7 +120,8 @@
             <div class="endpoint_path">
                 <div class="method">post</div>
                 <div class="pre"><pre>/path-a</pre></div>
-                <div class="try"><a onclick="tryEndpointNow('/resourcea/path_aPost')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+
+                <div class="try"><a onclick="tryEndpointNow('/ResourceA/path_aPost')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
             </div>
 
             <p></p>
@@ -113,27 +145,8 @@
             <div class="endpoint_path">
                 <div class="method">get</div>
                 <div class="pre"><pre>/path-b</pre></div>
-                <div class="try"><a onclick="tryEndpointNow('/resourceb/path_bGet')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
-            </div>
 
-            <p></p>
-
-
-
-
-
-
-
-        </article>
-    </div>
-    <div id="api-ResourceB-path_bPost" class="article-section-with-sub-heading">
-        <article id="api-ResourceB-path_bPost-0">
-            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-            <h3>Post operation B</h3>
-            <div class="endpoint_path">
-                <div class="method">post</div>
-                <div class="pre"><pre>/path-b</pre></div>
-                <div class="try"><a onclick="tryEndpointNow('/resourceb/path_bPost')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                <div class="try"><a onclick="tryEndpointNow('/ResourceB/path_bGet')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
             </div>
 
             <p></p>

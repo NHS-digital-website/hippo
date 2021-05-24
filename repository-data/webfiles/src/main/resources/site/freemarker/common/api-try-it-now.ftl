@@ -141,11 +141,12 @@
     <#if document?? >
         <@documentHeader document 'general' '' "Try this API: ${document.title}"></@documentHeader>
     </#if>
-
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
+            <div style="padding-left: 20">To try an endpoint expand the section and click the Execute button at the bottom.</div>
 
             <div id="content" aria-label="Document content">
+
                 <#if document?? >
                     <div id="swagger-ui"></div>
 

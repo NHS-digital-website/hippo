@@ -127,17 +127,6 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         return operationName;
     }
 
-    /**
-     * OAS does not specify '{@code components}' field as required,
-     * and yet CodeGen fails with NullPointerException when the field is missing,
-     * happily accepting empty Components object, though.
-     */
-    private void populateComponentsFieldWithEmptyObjectWhenNull(final OpenAPI openApi) {
-        if (openApi.getComponents() == null) {
-            openApi.setComponents(new Components());
-        }
-    }
-
     private void preProcessOperations(final OpenAPI openApi) {
 
         openApi.getPaths().values().stream()
