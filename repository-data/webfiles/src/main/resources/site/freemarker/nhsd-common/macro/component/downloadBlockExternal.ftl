@@ -6,7 +6,7 @@
     <#assign onClickMethodCall = getOnClickMethodCall(classname, title) />
     
     <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
-        <a href="${doc}" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" target="_blank">
+        <a href="${doc}" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-download-card__image-box">
                     <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->

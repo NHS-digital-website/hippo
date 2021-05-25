@@ -19,7 +19,7 @@ jobs:
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
       #
       - name: Validate Origin
-        uses: actions/github-script@v3
+        uses: actions/github-script@v4.0.2
         env:
           AGENT: ${{ github.event.client_payload.integrity.agent }}
           BODY: ${{ github.event.client_payload.integrity.body }}
@@ -56,7 +56,7 @@ jobs:
       # Identify target server
       #
       - name: Identify target
-        uses: actions/github-script@v3
+        uses: actions/github-script@v4.0.2
         id: find-target
         with:
           result-encoding: string
@@ -109,13 +109,14 @@ jobs:
           url: ${{ env.SLACK_WEBHOOK }}
           data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Building the branch (${{ env.BRANCH }})", "color": "#78BE20" }] }'
 
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          distribution: 'adopt'
+          java-version: 8
 
       - name: Get cache key helper values
-        uses: actions/github-script@v3
+        uses: actions/github-script@v4.0.2
         id: cache-key-helper
         with:
           result-encoding: string

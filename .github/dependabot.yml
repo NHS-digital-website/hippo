@@ -1,0 +1,30 @@
+version: 2
+updates:
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+
+  # Maintain dependencies for the root POM
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+    ignore:
+      - dependency-name: "spring-*"
+    open-pull-requests-limit: 25
+
+  # Maintain dependencies for the JS/CSS build and packager
+  - package-ecosystem: "npm"
+    directory: "/repository-data/webfiles"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "[DW-000] "
+    open-pull-requests-limit: 25

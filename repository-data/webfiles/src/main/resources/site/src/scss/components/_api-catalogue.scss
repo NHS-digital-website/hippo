@@ -42,6 +42,7 @@
       display: inline-block;
 
       width: 15.6em;
+      max-width: 100%;
       background-color: $blue-10;
 
       text-decoration: none;
@@ -51,6 +52,7 @@
       display: inline-block;
 
       width: 15.6em;
+      max-width: 100%;
       padding: 0.33em 0.5em;
 
       margin-bottom: 0.5em;
@@ -126,5 +128,18 @@
     border-radius: 0.3em;
     background-color: $grey-4;
     white-space: nowrap;
+  }
+
+  & .scrollable-component {
+      overflow-y: auto;
+      max-height: 85vh;
+
+      @include media($max-width: $min-desktop-width) {
+          max-height: none;
+      }
+
+      @include media(wide) {
+          max-width: 320px;
+      }
   }
 }
