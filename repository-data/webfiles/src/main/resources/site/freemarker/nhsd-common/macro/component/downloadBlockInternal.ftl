@@ -2,7 +2,7 @@
 
 <#include "../documentIcon.ftl">
 
-<#macro downloadBlockInternal classname doc title shortsummary icontype="web" >
+<#macro downloadBlockInternal classname doc title="" shortsummary="" icontype="web" >
     <#assign onClickMethodCall = getOnClickMethodCall(classname, title) />
 
     <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
