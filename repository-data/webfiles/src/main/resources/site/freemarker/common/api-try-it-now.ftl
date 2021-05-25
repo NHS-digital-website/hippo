@@ -142,8 +142,15 @@
         <@documentHeader document 'general' '' "Try this API: ${document.title}"></@documentHeader>
     </#if>
 
+    <div class="ctabtn--nhs-digital-button" style="margin-bottom: 2%">
+        To use any endpoint expand its corresponding section and click the Execute button at the bottom.
+    </div>
+
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
+
+
+
 
             <div id="content" aria-label="Document content">
                 <#if document?? >
