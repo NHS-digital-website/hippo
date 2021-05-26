@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
+<#-- @ftlvariable name="source" type="uk.nhs.digital.website.beans.Calltoaction" -->
+<#-- @ftlvariable name="alignment" type="java.lang.String" -->
+
 <#assign alignmentClass="nhsd-t-text-align-left">
 <#if alignment?? && alignment == "center">
     <#assign alignmentClass="nhsd-t-text-align-center">
