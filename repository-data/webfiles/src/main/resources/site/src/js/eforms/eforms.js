@@ -64,10 +64,12 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
     //         The params object can be posted through ajax for validation.
     //         -->
     function addFormFieldsToParameters(fields, params) {
+        var dd, mm, yyyy = '';
         fields.each(function () {
             var field = $(this);
             var fieldType = field.attr('type');
             var fieldName = field.attr('name');
+            var dateFieldId = field.attr('id');
             var checked = [];
             var checkedSelector = '*:input[name="' + fieldName + '"]:checked';
 
@@ -94,11 +96,48 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                         params[fieldName] = '';
                     }
                 }
+            } else if (dateFieldId.indexOf('__DD') !== -1) {
+                dd = $(this).val() ? $(this).val() : 0;
+            } else if (dateFieldId.indexOf('__MM') !== -1) {
+                mm = $(this).val() ? $(this).val() : 0;
+            } else if (dateFieldId.indexOf('__YYYY') !== -1) {
+                yyyy = $(this).val() ? $(this).val() : 0;
+            } else if (fieldType === 'hidden') {
+                if (dd !== 0 || mm !== 0 || yyyy !== 0) {
+                    params[fieldName] = dd + '-' + mm + '-' + yyyy;
+                }else{
+                    params[fieldName] ="";
+                }
             } else {
                 params[fieldName] = $(this).val();
             }
         });
     }
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+            textbox.addEventListener(event, function() {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                } else {
+                    this.value = "";
+                }
+            });
+        });
+    }
+    setInputFilter(document.getElementById("date__DD"), function(value) {
+        return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 31) && (value === "" || parseInt(value) >= 1);
+    });
+    setInputFilter(document.getElementById("date__MM"), function(value) {
+        return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 12) && (value === "" || parseInt(value) >= 1);
+    });
+    setInputFilter(document.getElementById("date__YYYY"), function(value) {
+        return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 9999) && (value === "" || parseInt(value) >= 1);
+    });
 
     function endsWith(subject, search) {
         var position = subject.length - search.length;
