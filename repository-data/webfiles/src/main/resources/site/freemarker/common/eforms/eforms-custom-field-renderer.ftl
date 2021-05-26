@@ -38,6 +38,57 @@
             <@renderError errorMessage = error />
             <span class="eforms-hint">${field.hint!}</span>
         </div>
+
+    <#elseif field.type == "customdatefield">
+        <div style="white-space: nowrap;" class="${fieldClassName}">
+            <label for="${field.formRelativeUniqueName}"
+                   class="eforms-label">${field.label!}<span
+                        class="eforms-req">${field.requiredMarker!}</span></label>
+
+            <div style="display: flex">
+
+                    <div style="margin-right: 12px">
+                        <label class="nhsd-m-date-input--day-label" for="day">
+                            Day
+                        </label>
+
+                        <input type="text" name="${field.formRelativeUniqueName}"
+                                id="date__DD" class="${field.styleClass!}"
+                                autocomplete="off" value="${field.value!}" size="1"/>
+                    </div>
+
+                    <div style="margin-right: 12px">
+                        <label class="nhsd-m-date-input--month-label" for="month">
+                            Month
+                        </label>
+                         <input type="text" name="${field.formRelativeUniqueName}"
+                                id="date__MM"
+                                class="${field.styleClass!}"
+                                autocomplete="off" value="${field.value!}"
+                                size="1"/>
+                    </div>
+
+                    <div class="nhsd-m-date-input-year">
+                        <label class="nhsd-m-date-input--year-label" for="year">
+                            Year
+                        </label>
+                        <input type="text" name="${field.formRelativeUniqueName}"
+                               id="date__YYYY"
+                               class="${field.styleClass!}"
+                               autocomplete="off" value="${field.value!}" size="3"/>
+                    </div>
+                    <input type="hidden" name="${field.formRelativeUniqueName}" class="visually-hidden"
+                           id="${field.formRelativeUniqueName}"/>
+
+                    <@renderError errorMessage = error />
+
+            </div>
+            <span class="eforms-hint">${field.hint!}</span>
+        </div>
+
+
+
+
     <#elseif field.type == "passwordfield">
         <div class="${fieldClassName}">
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
