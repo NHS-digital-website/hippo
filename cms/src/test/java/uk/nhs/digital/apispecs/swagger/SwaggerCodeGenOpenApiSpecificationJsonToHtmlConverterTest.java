@@ -1,9 +1,10 @@
-package uk.nhs.digital.apispecs;
+package uk.nhs.digital.apispecs.swagger;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringUuids;
 import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
@@ -18,11 +19,10 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
-import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
 import uk.nhs.digital.test.util.TestDataCache;
 
 @RunWith(DataProviderRunner.class)
-public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
+public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
     private TestDataCache cache = TestDataCache.create();
 
@@ -82,6 +82,25 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
     }
 
     @Test
+    public void rendersOperationsWithPathParameters_whenOperationsDoNotDefineTheirOwn() {
+
+        // given
+        final String incompleteSpecificationJson = from("oasV3_operation_with_no_own_parameters.json");
+
+        final String expectedSpecHtml = from("oasV3_operation_with_no_own_parameters.html");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(incompleteSpecificationJson);
+
+        // then
+        assertThat(
+            "Parameters rendered for operations are combination of their own and path's params.",
+            ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
+        );
+    }
+
+    @Test
     public void throwsException_onCodeGenFailure() {
 
         // given
@@ -89,7 +108,7 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
 
         expectedException.expect(RuntimeException.class);
         expectedException.expectMessage("Failed to generate HTML for OpenAPI specification.");
-        expectedException.expectCause(isA(NullPointerException.class));
+        expectedException.expectCause(isA(RuntimeException.class));
 
         // when
         swaggerCodeGenApiSpecHtmlProvider.htmlFrom(invalidSpecificationJson);
@@ -214,17 +233,5 @@ public class SwaggerCodeGenOpenApiSpecJsonToHtmlConverterTest {
         return cache.get(fileName, () -> contentOfFileFromClasspath(
             "/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/" + fileName)
         );
-    }
-
-    private String ignoringUuids(final String htmlText) {
-        return htmlText.replaceAll(
-            "data-schema-uuid=\"[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}\"",
-            "data-schema-uuid=\"\""
-        ).replaceAll(
-            "Children\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
-            "Children('')"
-        ).replaceAll(
-            "All\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
-            "All('')");
     }
 }
