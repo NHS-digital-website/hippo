@@ -9,12 +9,14 @@
     <#assign alignmentClass="nhsd-t-text-align-center">
 </#if>
 <#if source??>
-    <div class="${alignmentClass}">
-        <#if source.title??>
-            <h2>${source.title}</h2>
-        </#if>
-        <#if source.content??>
-            <p>${source.content}</p>
-        </#if>
+    <div class="nhsd-t-grid">
+        <div class="${alignmentClass}">
+            <#if source.title??>
+                <h2>${source.title}</h2>
+            </#if>
+            <#if source.content??>
+                <p>${source.content}</p>
+            </#if>
+        </div>
     </div>
 </#if>
