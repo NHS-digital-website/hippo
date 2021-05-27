@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include '../macro/media-item.ftl'>
-<#include '../macro/feedlist-getimage.ftl'>
+<#include '../macro/docGetImage.ftl'>
 
 <#list pageable.items>
     <section class="feedlist">

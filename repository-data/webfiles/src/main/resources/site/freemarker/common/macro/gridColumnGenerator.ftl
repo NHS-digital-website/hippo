@@ -35,6 +35,9 @@
             <#local col = "nhsd-t-col-s-6" />
         </#if>
 
+    <#elseif items % 5 == 0 && size == "">
+        <#local col = "nhsd-t-col-s-4" />
+
     <#-- Multiple of 4 & default scenario -->
     <#else>
         <#if size == "large">
