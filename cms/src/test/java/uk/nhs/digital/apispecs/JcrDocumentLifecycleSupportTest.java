@@ -64,7 +64,7 @@ public class JcrDocumentLifecycleSupportTest {
     }
 
     @Test
-    public void setStringProperty_updatesPropertyWithGivenValueOnDraftVariant() throws Exception {
+    public void setStringPropertyWithCheckout_updatesPropertyWithGivenValueOnDraftVariant() throws Exception {
 
         // given
         final String expectedPropertyName = "aPropertyName";
@@ -78,7 +78,7 @@ public class JcrDocumentLifecycleSupportTest {
     }
 
     @Test
-    public void setStringProperty_throwsException_onFailure() {
+    public void setStringPropertyWithCheckout_throwsException_onFailure() {
 
         // given
         final String expectedPropertyName = "aPropertyName";
@@ -158,7 +158,7 @@ public class JcrDocumentLifecycleSupportTest {
     }
 
     @Test
-    public void setInstantProperty_updatesPropertyWithGivenValueOnRequestedVariant() throws Exception {
+    public void setInstantPropertyNoCheckout_updatesPropertyWithGivenValueOnRequestedVariant() throws Exception {
 
         // given
         final String expectedPropertyName = "aPropertyName";
@@ -179,7 +179,7 @@ public class JcrDocumentLifecycleSupportTest {
     }
 
     @Test
-    public void setInstantProperty_throwsException_onFailure() {
+    public void setInstantPropertyNoCheckout_throwsException_onFailure() {
 
         // given
         final String expectedPropertyName = "aPropertyName";
@@ -237,6 +237,49 @@ public class JcrDocumentLifecycleSupportTest {
 
         verifyStatic(JcrNodeUtils.class);
         JcrNodeUtils.getInstantPropertyQuietly(documentVariantNode, propertyName);
+    }
+
+    @Test
+    public void setStringPropertyNoCheckout_updatesPropertyWithGivenValueOnRequestedVariant() throws Exception {
+
+        // given
+        final String expectedPropertyName = "aPropertyName";
+        final String expectedPropertyValue = "aPropertyValue";
+
+        final Node documentVariantNode = mock(Node.class);
+        final Optional<Node> documentVariantNodeOptional = Optional.of(documentVariantNode);
+
+        mockStatic(WorkflowUtils.class);
+        given(WorkflowUtils.getDocumentVariantNode(documentHandleNode, DRAFT)).willReturn(documentVariantNodeOptional);
+
+        // when
+        jcrDocumentLifecycleSupport.setStringPropertyNoCheckout(expectedPropertyName, DRAFT, expectedPropertyValue);
+
+        // then
+        then(documentVariantNode).should().setProperty(expectedPropertyName, expectedPropertyValue);
+    }
+
+    @Test
+    public void setStringPropertyNoCheckout_throwsException_onFailure() {
+
+        // given
+        final String expectedPropertyName = "aPropertyName";
+        final String expectedPropertyValue = "aPropertyValue";
+
+        final RuntimeException originalException = new RuntimeException("");
+
+        mockStatic(WorkflowUtils.class);
+        given(WorkflowUtils.getDocumentVariantNode(any(), any())).willThrow(originalException);
+
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage(startsWith("Failed to update property " + expectedPropertyName + " on "));
+        expectedException.expectCause(sameInstance(originalException));
+
+        // when
+        jcrDocumentLifecycleSupport.setStringPropertyNoCheckout(expectedPropertyName, PUBLISHED, expectedPropertyValue);
+
+        // then
+        // expectations set in 'given' are satisfied
     }
 
     @Test
