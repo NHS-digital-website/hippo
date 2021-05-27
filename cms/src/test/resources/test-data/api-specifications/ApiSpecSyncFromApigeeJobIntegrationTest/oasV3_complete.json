@@ -22,10 +22,10 @@
     ],
     "tags": [
         {
-            "name": "patients"
+            "name": "Patients"
         },
         {
-            "name": "polling"
+            "name": "Polling"
         }
     ],
     "paths": {
@@ -63,7 +63,7 @@
                 },
                 "description": "## Endpoint\nUse this endpoint to search for a patient in PDS.",
                 "tags": [
-                    "patients"
+                    "Patients"
                 ],
                 "parameters": [
                     {
@@ -228,7 +228,7 @@
                 "summary": "Retrieve a patient's resource",
                 "operationId": "get-patient",
                 "tags": [
-                    "patients"
+                    "Patients"
                 ],
                 "responses": {
                     "200": {
@@ -344,7 +344,7 @@
                 "summary": "Update a patient's resource",
                 "operationId": "update-patient-partial",
                 "tags": [
-                    "patients"
+                    "Patients"
                 ],
                 "externalDocs": {
                     "description": "IETF RFC 6902, which defines json-patch.",
@@ -585,7 +585,7 @@
                 "summary": "Retrieve the outcome of the accepted update.",
                 "operationId": "polling",
                 "tags": [
-                    "polling"
+                    "Polling"
                 ],
                 "responses": {
                     "200": {

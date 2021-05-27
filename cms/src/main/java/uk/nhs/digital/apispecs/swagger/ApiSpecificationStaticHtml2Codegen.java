@@ -7,8 +7,10 @@ import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.AssignHelper;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
+import com.github.jknack.handlebars.helper.StringHelpers;
 import io.swagger.codegen.v3.*;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.headers.Header;
@@ -41,6 +43,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     @Override
     public void preprocessOpenAPI(final OpenAPI openApi) {
         this.openAPI = openApi;
+
+        populateComponentsFieldWithEmptyObjectWhenNull(openApi);
 
         preProcessOperations(openApi);
     }
@@ -100,12 +104,30 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE)
             .registerHelper(ConditionalHelpers.eq.name(), ConditionalHelpers.eq)
             .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
+            .registerHelper(StringHelpers.lower.name(), StringHelpers.lower)
             // below helper is registered as a HelperSource as it takes no parameters.
             // see https://github.com/jknack/handlebars.java#using-a-helpersource for further info
             .registerHelpers(UuidHelper.INSTANCE)
         ;
 
         handlebars.with(EscapingStrategy.NOOP);
+    }
+
+
+    @Override
+    public String removeNonNameElementToCamelCase(String operationName) {
+        return operationName;
+    }
+
+    /**
+     * OAS does not specify '{@code components}' field as required,
+     * and yet CodeGen fails with NullPointerException when the field is missing,
+     * happily accepting empty Components object, though.
+     */
+    private void populateComponentsFieldWithEmptyObjectWhenNull(final OpenAPI openApi) {
+        if (openApi.getComponents() == null) {
+            openApi.setComponents(new Components());
+        }
     }
 
     private void preProcessOperations(final OpenAPI openApi) {
