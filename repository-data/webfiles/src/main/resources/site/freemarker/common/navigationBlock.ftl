@@ -52,11 +52,11 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
                 <#list documents as item>
                     <#assign hasTitle = item.title?has_content />
                     <#assign hasContent = item.content?has_content />
-                    <#assign hasImage = item.image?has_content />
+                    <#assign hasImage = item.icon?has_content />
                     <#assign hasLink = item.external?has_content || item.internal?has_content />
                     <#assign hasLabel = item.label?has_content />
                     <#assign label = hasLabel?then(item.label, item.title) />
-                    <#assign id = "navigation-block-${item?index + 1}" />
+
 
                     <#-- Theme -->
                     <#assign colourVariant = themeColourVariants[item?index] />
@@ -66,6 +66,7 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
 
                     <div class="nhsd-t-col-xs-12 ${getGridCol(documents?size, "large")}">
                         <#if isSmallBlock>
+                            <#assign id = "navigation-small-block-${item?index + 1}" />
                             <@navigationBlockSmall
                                 item
                                 id
@@ -74,6 +75,7 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
                                 isYellowLink
                                 hasHeading/>
                         <#else>
+                            <#assign id = "navigation-large-block-${item?index + 1}" />
                             <@navigationBlockLarge
                                 item
                                 id

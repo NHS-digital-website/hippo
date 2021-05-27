@@ -111,8 +111,8 @@
                 }
             }
 
-            window.addEventListener('load', function() {
-                _load();
+            window.addEventListener('DOMContentLoaded', function() {
+                setTimeout(_load, 1000);
             });
 
 

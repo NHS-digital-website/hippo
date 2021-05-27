@@ -1,0 +1,49 @@
+{
+    "openapi": "3.0.0",
+    "tags": [
+        {
+            "name": "patients"
+        }
+    ],
+    "paths": {
+        "/path-a": {
+            "get": {
+                "summary": "Get camelCase operation",
+                "operationId": "camelCase",
+                "tags": [
+                    "patients"
+                ]
+            },
+            "post": {
+                "summary": "Post kebab-case operation",
+                "operationId": "kebab-case"
+            },
+            "put": {
+                "summary": "Post with space operation",
+                "operationId": "with space"
+            }
+        },
+        "/path-b": {
+            "get": {
+                "summary": "Get snake_case operation",
+                "operationId": "snake_case",
+                "tags": [
+                    ""
+                ]
+            },
+            "post": {
+                "summary": "Post ALLCAPS operation",
+                "operationId": "ALLCAPS"
+            },
+            "put": {
+                "summary": "Pu numbers operation",
+                "operationId": "12345"
+            },
+            "delete": {
+                "summary": "Delete mixed123withNubmers operation",
+                "operationId": "mixed123withNubmers"
+            }
+        }
+    },
+    "components": {}
+}

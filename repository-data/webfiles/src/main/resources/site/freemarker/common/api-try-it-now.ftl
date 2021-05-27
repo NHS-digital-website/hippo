@@ -69,6 +69,15 @@
             display: block;
         }
 
+        /* Redundant 'Responses' header under 'Execute' button */
+        .responses-wrapper .opblock-section-header {
+            display: none !important;
+        }
+
+        /* Endpoints' Responses (static redundant content, not actual 'live' responses for the sandbox servers) */
+        .responses-table:not(.live-responses-table) {
+            display: none;
+        }
         .responses-table .headers-wrapper {
             display: none;
         }
@@ -87,8 +96,9 @@
         .servers, .servers-title {
             display: none;
         }
-
+        /* Disables shadows around the 'servers selector' */
         .swagger-ui .scheme-container {
+            box-shadow: none;
             display: contents;
             background: transparent;
         }
@@ -96,12 +106,6 @@
         /*
         Other overriding styles
         */
-
-        /* Disables shadows around the 'servers selector' */
-        .swagger-ui .scheme-container {
-            box-shadow: none;
-        }
-
         /* Fixes the look of table header values */
         .swagger-ui table thead tr th {
             padding-left: 6px;
@@ -137,11 +141,12 @@
     <#if document?? >
         <@documentHeader document 'general' '' "Try this API: ${document.title}"></@documentHeader>
     </#if>
-
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
+            <div style="padding-left: 20">To try an endpoint expand the section and click the Execute button at the bottom.</div>
 
             <div id="content" aria-label="Document content">
+
                 <#if document?? >
                     <div id="swagger-ui"></div>
 
@@ -166,17 +171,34 @@
 
                         window.onload = function () {
 
+                            const AlwaysEnableTryItOutPlugin = function(system) {
+                                const OperationContainer = system.getComponents("OperationContainer");
+                                return {
+                                    components: {
+                                        TryItOutButton: () => null,
+                                        OperationContainer: class CustomOperationContainer extends OperationContainer {
+                                            constructor(...args) {
+                                                super(...args);
+                                                this.state.tryItOutEnabled = true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
                             const ui = SwaggerUIBundle({
                                 spec: specification,
 
                                 dom_id: '#content',
                                 deepLinking: true,
+
                                 presets: [
                                     SwaggerUIBundle.presets.apis,
                                     SwaggerUIStandalonePreset
                                 ],
                                 plugins: [
-                                    SwaggerUIBundle.plugins.DownloadUrl
+                                    SwaggerUIBundle.plugins.DownloadUrl,
+                                    AlwaysEnableTryItOutPlugin
                                 ],
                                 layout: "StandaloneLayout",
 

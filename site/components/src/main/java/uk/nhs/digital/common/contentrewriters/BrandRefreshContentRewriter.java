@@ -5,6 +5,7 @@ import org.hippoecm.hst.core.request.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
 
 import javax.jcr.Node;
@@ -15,7 +16,7 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
 
         html = super.rewrite(html, hippoHtmlNode, requestContext, targetMount);
 
-        Document document = Jsoup.parse(html);
+        Document document = Jsoup.parse(html, "", Parser.xmlParser());
 
         // normal
         if (document.select("p").first() != null) {
@@ -61,7 +62,7 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         // image
         if (document.select("img").first() != null) {
             document.select("img")
-                    .wrap("<figure class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--contain\"><picture class=\"nhsd-a-image__picture\"></picture></figure>");
+                    .wrap("<figure class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale\"><picture class=\"nhsd-a-image__picture\"></picture></figure>");
 
         }
 

@@ -43,9 +43,10 @@
     <#assign hasContent = document.content?has_content || document.introduction?has_content />
     <#assign hasLink = document.external?has_content || document.internal?has_content || document.link?has_content />
     <#assign hasImage = document.image?has_content />
-    <#assign hasImageDesc = (hasImage && document.image.description?has_content) />
-    <#assign altText = hasImageDesc?then(document.image.description, isTall?then("image of the main hero image", "image of the secondary hero image")) />
-
+    <#assign hasImageDesc = hasImage && isCtaDoc?then(document.altText?has_content, document.image.description?has_content) />
+    <#assign altText = hasImageDesc?then(isCtaDoc?then(document.altText, document.image.description), isTall?then("image of the main hero image", "image of the secondary hero image")) />
+    <#assign isDecorativeOnly = isCtaDoc && document.isDecorative?if_exists == "true" />
+    
     <div class="nhsd-o-hero-feature ${accented} ${mirrored}">
         <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
             <div class="nhsd-t-row nhsd-t-row--centred">
@@ -105,18 +106,21 @@
                 <div class="nhsd-t-col-s-6 nhsd-!t-no-gutters ${colSize}">
                     <figure class="nhsd-a-image ${imageSize}" aria-hidden="true">
                         <#if isVideoDoc && document.videoUri???has_content>
-                             <div style="padding-bottom: 56.25%; position: relative">
-                                <iframe style="width: 100%; height: 100%; position: absolute" type="text/html" src="${document.videoUri}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-                                <link itemprop="embedUrl" href="${document.videoUri}" />
-                             </div>
+                            <style>.hero-video{padding-bottom:56.25%; position:relative}.hero-video.ended::after{content:"";position:absolute;top:0;left:0;bottom:0;right:0;cursor:pointer;background-color:black;background-repeat:no-repeat;background-position:center;background-size:64px 64px;background-image:url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgNTEwIDUxMCI+PHBhdGggZD0iTTI1NSAxMDJWMEwxMjcuNSAxMjcuNSAyNTUgMjU1VjE1M2M4NC4xNSAwIDE1MyA2OC44NSAxNTMgMTUzcy02OC44NSAxNTMtMTUzIDE1My0xNTMtNjguODUtMTUzLTE1M0g1MWMwIDExMi4yIDkxLjggMjA0IDIwNCAyMDRzMjA0LTkxLjggMjA0LTIwNC05MS44LTIwNC0yMDQtMjA0eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==)}.hero-video.paused::after{content:"";position:absolute;top:70px;left:0;bottom:50px;right:0;cursor:pointer;background-color:black;background-repeat:no-repeat;background-position:center;background-size:40px 40px;background-image:url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNzA2LjY2NyIgaGVpZ2h0PSIxNzA2LjY2NyIgdmlld0JveD0iMCAwIDEyODAgMTI4MCI+PHBhdGggZD0iTTE1Ny42MzUgMi45ODRMMTI2MC45NzkgNjQwIDE1Ny42MzUgMTI3Ny4wMTZ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+)}</style>
+                            <div class="hero-video-outer-wrapper">
+                                <div class="hero-video">
+                                    <iframe style="width:100%; height:100%; position:absolute" src="${document.videoUri}&rel=0&enablejsapi=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <script>"use strict";document.addEventListener('DOMContentLoaded',function(){if(window.hideYTActivated)return;if(typeof YT==='undefined'){let tag=document.createElement('script');tag.src="https://www.youtube.com/iframe_api";let firstScriptTag=document.getElementsByTagName('script')[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);} let onYouTubeIframeAPIReadyCallbacks=[];for(let playerWrap of document.querySelectorAll(".hero-video")){let playerFrame=playerWrap.querySelector("iframe");let onPlayerStateChange=function(event){if(event.data==YT.PlayerState.ENDED){playerWrap.classList.add("ended");}else if(event.data==YT.PlayerState.PAUSED){playerWrap.classList.add("paused");}else if(event.data==YT.PlayerState.PLAYING){playerWrap.classList.remove("ended");playerWrap.classList.remove("paused");}};let player;onYouTubeIframeAPIReadyCallbacks.push(function(){player=new YT.Player(playerFrame,{events:{'onStateChange':onPlayerStateChange}});});playerWrap.addEventListener("click",function(){let playerState=player.getPlayerState();if(playerState==YT.PlayerState.ENDED){player.seekTo(0);}else if(playerState==YT.PlayerState.PAUSED){player.playVideo();}});} window.onYouTubeIframeAPIReady=function(){for(let callback of onYouTubeIframeAPIReadyCallbacks){callback();}};window.hideYTActivated=true;});</script>
                         <#elseif document.image?has_content>
                             <picture class="nhsd-a-image__picture">
                                 <@hst.link hippobean=document.image var="image" />
-                                <img src="${image}" alt="${altText}">
+                                <img src="${image}" alt="<#if !isDecorativeOnly>${altText}</#if>">
                             </picture>
                         <#else>
                             <picture class="nhsd-a-image__picture">
-                                <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="${altText}">
+                                <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="<#if !isDecorativeOnly>${altText}</#if>">
                             </picture>
                         </#if>
                     </figure>
@@ -125,5 +129,3 @@
         </div>
     </div>
 </#if>
-
-

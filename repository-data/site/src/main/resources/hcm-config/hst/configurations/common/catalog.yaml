@@ -31,6 +31,12 @@ definitions:
           hst:template: callToAction
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
+        /cardlist:
+          hst:componentclassname: uk.nhs.digital.common.components.CardListComponent
+          hst:label: Card List
+          hst:template: cardlist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /carousel:
           hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
           hst:iconpath: images/catalog/component-products-30x30.png
