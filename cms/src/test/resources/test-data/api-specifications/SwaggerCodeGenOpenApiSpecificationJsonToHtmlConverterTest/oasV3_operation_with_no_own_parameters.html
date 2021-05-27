@@ -11,35 +11,36 @@
                             <a href="#top" aria-label="Scroll to 'Top of page'"
                                title="Scroll to 'Top of page'">Top of page</a>
                         </li>
+
                                         <li>
                                             <a href="#api-endpoints"
                                                aria-label="Endpoints"
                                                title="Endpoints">Endpoints</a>
                                         </li>
                                         <li class="section-numbered">
-                                            <a href="#api-Default-pathWithNoParamsOperationWithNoParams"
-                                               aria-label="pathWithNoParamsOperationWithNoParams"
-                                               title="pathWithNoParamsOperationWithNoParams">Path with no params: Operation with no parameters.</a>
+                                            <a href="#api-Default-path-with-no-params--operation-with-no-params"
+                                               aria-label="path-with-no-params--operation-with-no-params"
+                                               title="path-with-no-params--operation-with-no-params">Path with no params: Operation with no parameters.</a>
                                         </li>
                                         <li class="section-numbered">
-                                            <a href="#api-Default-pathWithNoParamsOperationWithOwnParamsNoOverlapWithPath"
-                                               aria-label="pathWithNoParamsOperationWithOwnParamsNoOverlapWithPath"
-                                               title="pathWithNoParamsOperationWithOwnParamsNoOverlapWithPath">Path with no params: Operation with parameters.</a>
+                                            <a href="#api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path"
+                                               aria-label="path-with-no-params--operation-with-own-params-no-overlap-with-path"
+                                               title="path-with-no-params--operation-with-own-params-no-overlap-with-path">Path with no params: Operation with parameters.</a>
                                         </li>
                                         <li class="section-numbered">
-                                            <a href="#api-Default-pathWithParamsOperationWithNoParams"
-                                               aria-label="pathWithParamsOperationWithNoParams"
-                                               title="pathWithParamsOperationWithNoParams">Path with params: Operation with no parameters.</a>
+                                            <a href="#api-Default-path-with-params--operation-with-no-params"
+                                               aria-label="path-with-params--operation-with-no-params"
+                                               title="path-with-params--operation-with-no-params">Path with params: Operation with no parameters.</a>
                                         </li>
                                         <li class="section-numbered">
-                                            <a href="#api-Default-pathWithParamsOperationWithOwnParamsNoOverlapWithPath"
-                                               aria-label="pathWithParamsOperationWithOwnParamsNoOverlapWithPath"
-                                               title="pathWithParamsOperationWithOwnParamsNoOverlapWithPath">Path with params: Operation with non-overlapping parameters.</a>
+                                            <a href="#api-Default-path-with-params--operation-with-own-params-no-overlap-with-path"
+                                               aria-label="path-with-params--operation-with-own-params-no-overlap-with-path"
+                                               title="path-with-params--operation-with-own-params-no-overlap-with-path">Path with params: Operation with non-overlapping parameters.</a>
                                         </li>
                                         <li class="section-numbered">
-                                            <a href="#api-Default-pathWithParamsOperationWithOwnParamsSomeOverridingPath"
-                                               aria-label="pathWithParamsOperationWithOwnParamsSomeOverridingPath"
-                                               title="pathWithParamsOperationWithOwnParamsSomeOverridingPath">Path with params: Operation with overlapping parameters.</a>
+                                            <a href="#api-Default-path-with-params--operation-with-own-params-some-overriding-path"
+                                               aria-label="path-with-params--operation-with-own-params-some-overriding-path"
+                                               title="path-with-params--operation-with-own-params-some-overriding-path">Path with params: Operation with overlapping parameters.</a>
                                         </li>
                     </ol>
                 </nav>
@@ -49,38 +50,55 @@
 </div>
 <!-- end sticky-nav -->
 </div>
+
 <div id="content" class="column column--two-thirds page-block page-block--main apispecification" aria-label="Document content">
+
     <!-- API Title: Minimal test specification -->
+
     <div id="api-description" class="article-section">
         Specification where some operations do not define request parameters of their own, and where it's expected that all operations will 'inherit' parameters from their respective Path Objects.
 See https://spec.openapis.org/oas/v3.0.3#parameter-object
     </div>
+
                     <div id="api-endpoints" class="article-section">
                         <h2>Endpoints</h2>
                     </div>
-                                    <div id="api-Default-pathWithNoParamsOperationWithNoParams" class="article-section-with-sub-heading">
-                                        <article id="api-Default-pathWithNoParamsOperationWithNoParams-0">
+                                    <div id="api-Default-path-with-no-params--operation-with-no-params" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-no-params--operation-with-no-params-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h3>Path with no params: Operation with no parameters.</h3>
                                             <div class="endpoint_path">
                                                 <div class="method">get</div>
                                                 <div class="pre"><pre>/path-with-no-params/{PathPathParam}</pre></div>
-                                                <div class="try"><a onclick="tryEndpointNow('/Default/path_with_no_params_operation_with_no_params')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-no-params--operation-with-no-params')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
                                             </div>
+
                                             <p>Operation with no parameters of its own. Expectation: result should contain no parameters.</p>
+
+
+
+
+
+
+
                                         </article>
                                     </div>
-                                    <div id="api-Default-pathWithNoParamsOperationWithOwnParamsNoOverlapWithPath" class="article-section-with-sub-heading">
-                                        <article id="api-Default-pathWithNoParamsOperationWithOwnParamsNoOverlapWithPath-0">
+                                    <div id="api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h3>Path with no params: Operation with parameters.</h3>
                                             <div class="endpoint_path">
                                                 <div class="method">post</div>
                                                 <div class="pre"><pre>/path-with-no-params/{PathPathParam}</pre></div>
-                                                <div class="try"><a onclick="tryEndpointNow('/Default/path_with_no_params_operation_with_own_params_no_overlap_with_path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-no-params--operation-with-own-params-no-overlap-with-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
                                             </div>
+
                                             <p>Operation with some parameters of its own. Expectation: result should contain all operation's parameters.</p>
+
                                                 <h4>Request</h4>
+
                                                 <div class="httpparams">
                                                     <h5>Path parameters</h5>
                                                     <table data-disablesort="true">
@@ -94,7 +112,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter defined as path variable.</div>
+
+
+
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -105,6 +130,7 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
                                                 <div class="httpparams">
                                                     <h5>Query parameters</h5>
                                                     <table data-disablesort="true">
@@ -118,7 +144,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Operation parameter expected as a query parameter.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -126,6 +159,7 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
                                                 <div class="httpparams">
                                                     <h5>Headers</h5>
                                                     <table data-disablesort="true">
@@ -139,7 +173,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Operation parameter expected as a header.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -147,19 +188,26 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
+
+
                                         </article>
                                     </div>
-                                    <div id="api-Default-pathWithParamsOperationWithNoParams" class="article-section-with-sub-heading">
-                                        <article id="api-Default-pathWithParamsOperationWithNoParams-0">
+                                    <div id="api-Default-path-with-params--operation-with-no-params" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-params--operation-with-no-params-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h3>Path with params: Operation with no parameters.</h3>
                                             <div class="endpoint_path">
                                                 <div class="method">get</div>
                                                 <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
-                                                <div class="try"><a onclick="tryEndpointNow('/Default/path_with_params_operation_with_no_params')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-no-params')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
                                             </div>
+
                                             <p>Operation with no parameters of its own. Expectation: result should contain just path's parameters.</p>
+
                                                 <h4>Request</h4>
+
                                                 <div class="httpparams">
                                                     <h5>Path parameters</h5>
                                                     <table data-disablesort="true">
@@ -173,7 +221,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter defined as path variable.</div>
+
+
+
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -184,6 +239,7 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
                                                 <div class="httpparams">
                                                     <h5>Query parameters</h5>
                                                     <table data-disablesort="true">
@@ -197,7 +253,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter expected as a query parameter.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -205,6 +268,7 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
                                                 <div class="httpparams">
                                                     <h5>Headers</h5>
                                                     <table data-disablesort="true">
@@ -218,7 +282,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter expected as a header.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -226,19 +297,26 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
+
+
                                         </article>
                                     </div>
-                                    <div id="api-Default-pathWithParamsOperationWithOwnParamsNoOverlapWithPath" class="article-section-with-sub-heading">
-                                        <article id="api-Default-pathWithParamsOperationWithOwnParamsNoOverlapWithPath-0">
+                                    <div id="api-Default-path-with-params--operation-with-own-params-no-overlap-with-path" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-params--operation-with-own-params-no-overlap-with-path-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h3>Path with params: Operation with non-overlapping parameters.</h3>
                                             <div class="endpoint_path">
                                                 <div class="method">post</div>
                                                 <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
-                                                <div class="try"><a onclick="tryEndpointNow('/Default/path_with_params_operation_with_own_params_no_overlap_with_path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-own-params-no-overlap-with-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
                                             </div>
+
                                             <p>Operation with some parameters of its own, none overlapping with the path one. Expectation: result should contain all path's and operation's parameters.</p>
+
                                                 <h4>Request</h4>
+
                                                 <div class="httpparams">
                                                     <h5>Path parameters</h5>
                                                     <table data-disablesort="true">
@@ -252,7 +330,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter defined as path variable.</div>
+
+
+
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -263,6 +348,7 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
                                                 <div class="httpparams">
                                                     <h5>Query parameters</h5>
                                                     <table data-disablesort="true">
@@ -276,7 +362,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter expected as a query parameter.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -288,7 +381,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Operation parameter expected as a query parameter.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -296,6 +396,7 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
                                                 <div class="httpparams">
                                                     <h5>Headers</h5>
                                                     <table data-disablesort="true">
@@ -309,7 +410,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter expected as a header.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -321,7 +429,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Operation parameter expected as a header.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -329,19 +444,26 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
+
+
                                         </article>
                                     </div>
-                                    <div id="api-Default-pathWithParamsOperationWithOwnParamsSomeOverridingPath" class="article-section-with-sub-heading">
-                                        <article id="api-Default-pathWithParamsOperationWithOwnParamsSomeOverridingPath-0">
+                                    <div id="api-Default-path-with-params--operation-with-own-params-some-overriding-path" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-params--operation-with-own-params-some-overriding-path-0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
                                             <h3>Path with params: Operation with overlapping parameters.</h3>
                                             <div class="endpoint_path">
                                                 <div class="method">put</div>
                                                 <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
-                                                <div class="try"><a onclick="tryEndpointNow('/Default/path_with_params_operation_with_own_params_some_overriding_path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-own-params-some-overriding-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
                                             </div>
+
                                             <p>Operation with some parameters of its own but also with params overriding the path ones. Expectation: result should contain all path's and operation's parameters, with definitions at the operation levels winning over their counterparts at the path level.</p>
+
                                                 <h4>Request</h4>
+
                                                 <div class="httpparams">
                                                     <h5>Path parameters</h5>
                                                     <table data-disablesort="true">
@@ -355,7 +477,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter defined as path variable - re-defined in the operation.</div>
+
+
+
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -366,6 +495,7 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
                                                 <div class="httpparams">
                                                     <h5>Query parameters</h5>
                                                     <table data-disablesort="true">
@@ -379,7 +509,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter expected as a query parameter - re-defined in the operation.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -391,7 +528,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Operation parameter expected as a query parameter.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -399,6 +543,7 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
                                                 <div class="httpparams">
                                                     <h5>Headers</h5>
                                                     <table data-disablesort="true">
@@ -412,7 +557,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Path parameter expected as a header - re-defined in the operation.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -424,7 +576,14 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
+
+
+
                                                                                 <div>Operation parameter expected as a header.</div>
+
+
+
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -432,6 +591,10 @@ See https://spec.openapis.org/oas/v3.0.3#parameter-object
                                                             </tr>
                                                     </table>
                                                 </div>
+
+
+
                                         </article>
                                     </div>
+
     </div>
