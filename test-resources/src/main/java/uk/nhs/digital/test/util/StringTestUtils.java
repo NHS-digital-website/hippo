@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 
 public class StringTestUtils {
 
+    private static final String UUID_REGEX = "[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}";
+
     /**
      * <p>
      * A convenience, wrapper around {@linkplain org.apache.commons.lang3.StringUtils#replaceEach(String, String[], String[])}.
@@ -18,6 +20,10 @@ public class StringTestUtils {
      * Useful in tests where several test cases may want to load a large text content (e.g. JSON),
      * where only one or two small fragments (e.g. JSON properties' values) should differ between the test cases,
      * with the rest of the content remaining the same.
+     * <p>
+     * In most cases a chain of {@linkplain String#replaceAll(String, String)} should suffice but this class
+     * allows to incrementally build configuration of the replacements in one place and then resolve them (lazily) all in one
+     * go by calling {@linkplain #resolveIn(String)} later.
      * <p>
      * <b>Usage example:</b> for JSON content stored in variable {@code jsonTemplate},
      * and with placeholders '{@code propertyPlaceholderA}' and '{@code valuePlaceholderC}':
@@ -128,5 +134,12 @@ public class StringTestUtils {
             .filter(line -> !isBlank(line))
             .map(String::trim)
             .collect(Collectors.joining(LF));
+    }
+
+    public static String ignoringUuids(final String html) {
+        return html
+            .replaceAll("data-schema-uuid=\"" + UUID_REGEX + "\"", "data-schema-uuid=\"\"")
+            .replaceAll("Children\\('" + UUID_REGEX + "'\\)", "Children('')")
+            .replaceAll("All\\('" + UUID_REGEX + "'\\)", "All('')");
     }
 }
