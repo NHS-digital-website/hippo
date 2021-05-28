@@ -148,7 +148,13 @@
                     </#if>
                     <div id="${slugify('Contact details')}">
                         <p class="nhsd-t-heading-xl"><@fmt.message key="headers.contact-details" /></p>
-                        <@hst.html hippohtml=document.contactdetails contentRewriter=brContentRewriter/>
+                        <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
+                            <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
+                                <div class="nhsd-m-contact-us__content">
+                                    <@hst.html hippohtml=document.contactdetails contentRewriter=brContentRewriter/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </#if>
 
@@ -157,7 +163,7 @@
                 </#if>
 
                 <#if hasChildPages>
-                    <#if (hasContactDetailsContent && !document.relatedNews?has_content) || !(hasContactDetailsContent && document.relatedNews?has_content)>
+                    <#if !(hasContactDetailsContent || document.relatedNews?has_content)>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <@furtherInformationSection childPages></@furtherInformationSection>
