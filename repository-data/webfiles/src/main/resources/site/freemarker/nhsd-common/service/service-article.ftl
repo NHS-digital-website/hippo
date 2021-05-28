@@ -13,6 +13,7 @@
 <#include "../macro/component/calloutBox.ftl">
 <#include "../macro/contentPixel.ftl">
 <#include "../macros/header-banner.ftl">
+<#include "../macro/component/header-banner-image.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -45,18 +46,7 @@
 <article>
     <#if hasBannerImage>
         <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
-        <div class="banner-image" aria-label="Document Header"
-             style="background-image: url(${bannerImage});">
-            <div class="grid-wrapper">
-                <div class="grid-row">
-                    <div class="column column--reset banner-image-title">
-                        <div class="banner-image-title-background">
-                            <h1 data-uipath="document.title">${document.title}</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <@headerBannerImage document bannerImage />
     <#else>
         <@headerBanner document />
     </#if>
@@ -97,14 +87,6 @@
             </#if>
 
             <div class="${(navStatus == "withNav" || navStatus == "withoutNav")?then("nhsd-t-col-xs-12 nhsd-t-col-s-8", "nhsd-t-col-12")}">
-                <#if hasBannerImage>
-                    <#if hasSummaryContent>
-                        <div class="nhsd-t-heading-s nhsd-!t-margin-bottom-6"
-                             data-uipath="website.service.summary">
-                            <@hst.html hippohtml=custom_summary contentRewriter=stripTagsContentRewriter/>
-                        </div>
-                    </#if>
-                </#if>
                 <#if document.priorityActions?has_content>
                     <div class="nhsd-o-card-list">
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
