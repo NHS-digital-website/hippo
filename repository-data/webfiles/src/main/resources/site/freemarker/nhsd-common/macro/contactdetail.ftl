@@ -2,44 +2,52 @@
 
 <#include "../../include/imports.ftl">
 
-  <#macro contactdetail contactdetails='' idsuffix='' name='' email='' phone='' title="Contact details" isSchemaOrg=true>
-    <#if contactdetails='' || (contactdetails?has_content && (contactdetails.emailaddress?has_content || contactdetails.phonenumber?has_content)) >
-      <div id="contactdetail-${slugify(idsuffix)}" class="contactdetail--div article-section">
-        <h2>${title}</h2> 
+<#macro contactdetail contactdetails='' idsuffix='' name='' email='' phone='' title="Contact details" isSchemaOrg=true>
+  <#if contactdetails='' || (contactdetails?has_content && (contactdetails.emailaddress?has_content || contactdetails.phonenumber?has_content)) >
+    
+    <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
+      <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
+        <div class="nhsd-m-contact-us__content">
+          <p class="nhsd-t-heading-m">${title}</p>
 
-        <#assign rendername=name /><#if contactdetails != '' && contactdetails.name?has_content><#assign rendername=contactdetails.name /></#if>
-        <#assign renderemail=email /><#if contactdetails != '' && contactdetails.emailaddress?has_content><#assign renderemail=contactdetails.emailaddress /></#if>
-        <#assign renderphone=phone /><#if contactdetails != '' && contactdetails.phonenumber?has_content><#assign renderphone=contactdetails.phonenumber /></#if>
+          <#assign rendername=name /><#if contactdetails != '' && contactdetails.name?has_content><#assign rendername=contactdetails.name /></#if>
+          <#assign renderemail=email /><#if contactdetails != '' && contactdetails.emailaddress?has_content><#assign renderemail=contactdetails.emailaddress /></#if>
+          <#assign renderphone=phone /><#if contactdetails != '' && contactdetails.phonenumber?has_content><#assign renderphone=contactdetails.phonenumber /></#if>
 
-        <div class="contactdetail-box">
           <#if rendername != ''>
-            <div class="contactdetail-item-bold"><span>${rendername}</span></div>
+            <p class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0 nhsd-t-word-break">${rendername}</p>
           </#if>
 
           <#if contactdetails != '' && contactdetails.purpose?has_content>
-            <div class="contactdetail-item">Purpose: ${contactdetails.purpose}</div>
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0 nhsd-t-word-break">Purpose: ${contactdetails.purpose}</p>
           </#if>
+
           <#if contactdetails != '' && contactdetails.description?has_content>
-            <div class="contactdetail-item">Description of contact point: ${contactdetails.description}</div>
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0 nhsd-t-word-break">Description of contact point: ${contactdetails.description}</p>
           </#if>
 
           <#if renderemail != ''>
-            <div class="contactdetail-item">Email: 
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0">Email:
               <#if isSchemaOrg>
-                <a href="mailto:${renderemail}" itemprop="email" class="contactdetail-item">${renderemail}</a>
+              <a class="nhsd-a-link nhsd-t-word-break" href="mailto:${renderemail}" itemprop="email">${renderemail}
               <#else>
-                <a href="mailto:${renderemail}" class="contactdetail-item">${renderemail}</a>
+              <a class="nhsd-a-link nhsd-t-word-break" href="mailto:${renderemail}">${renderemail}
               </#if>
-            </div>
+              <span class="nhsd-t-sr-only"></span>
+              </a>
+            </p>
           </#if>
+
           <#if renderphone != ''>
-            <div class="contactdetail-item">Phone: 
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0">Phone:
               <#if isSchemaOrg>
-                <a href="tel:${renderphone?replace(" ","")?replace("-","")}" itemprop="telephone" class=contactdetail-item>${renderphone}</a>
+              <a href="tel:${renderphone?replace(" ","")?replace("-","")}" itemprop="telephone" class="nhsd-a-link nhsd-t-word-break">${renderphone}
               <#else>
-                <a href="tel:${renderphone?replace(" ","")?replace("-","")}" class=contactdetail-item>${renderphone}</a>
+              <a href="tel:${renderphone?replace(" ","")?replace("-","")}" class="nhsd-a-link nhsd-t-word-break">${renderphone}
               </#if>
-            </div>
+              <span class="nhsd-t-sr-only"></span>
+              </a>
+            </p>
           </#if>
 
           <#if contactdetails != '' && contactdetails.twitterHandle?has_content>
@@ -49,33 +57,39 @@
             </#if>
             <#assign twitterlink = "https://twitter.com/" + twitterhandle />
 
-
-            <div class="contactdetail-item">Twitter handle: 
-                <a href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click',document.class.name,'${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${twitterhandle}">@${twitterhandle}</a>
-            </div>
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0">Twitter handle: 
+              <a class="nhsd-a-link nhsd-t-word-break" href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click',document.class.name,'${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${twitterhandle}">@${twitterhandle}
+                <span class="nhsd-t-sr-only"></span>
+              </a>
+            </p>
           </#if>
 
           <#if contactdetails != '' && contactdetails.webchatDescription?has_content>
-            <div class="contactdetail-item">Webchat description: ${contactdetails.webchatDescription}</div>
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0 nhsd-t-word-break">Webchat description: ${contactdetails.webchatDescription}</p>
           </#if>
 
           <#if contactdetails != '' && contactdetails.webchatLink?has_content>
-            <div class="contactdetail-item">Webchat link: 
-                <a href="${contactdetails.webchatLink}" class=contactdetail-item>${contactdetails.webchatLink}</a>
-            </div>
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0">Webchat link:
+              <a class="nhsd-a-link nhsd-t-word-break" href="${contactdetails.webchatLink}">${contactdetails.webchatLink}
+                <span class="nhsd-t-sr-only"></span>
+              </a>
+            </p>
           </#if>
 
           <#if contactdetails != '' && contactdetails.webformDescription?has_content>
-            <div class="contactdetail-item">Webform description: ${contactdetails.webformDescription}</div>
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0 nhsd-t-word-break">Webform description: ${contactdetails.webformDescription}</p>
           </#if>
 
           <#if contactdetails != '' && contactdetails.webformLink?has_content>
-            <div class="contactdetail-item">Webform link: 
-                <a href="${contactdetails.webformLink}" class=contactdetail-item>${contactdetails.webformLink}</a>
-            </div>
+            <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0">Webform link:
+              <a class="nhsd-a-link nhsd-t-word-break" href="${contactdetails.webformLink}">${contactdetails.webformLink}
+                <span class="nhsd-t-sr-only"></span>
+              </a>
+            </p>
           </#if>
 
         </div>
       </div>
-    </#if>
-  </#macro>
+    </div>
+  </#if>
+</#macro>
