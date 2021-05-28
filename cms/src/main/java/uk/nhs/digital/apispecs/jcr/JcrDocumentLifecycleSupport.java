@@ -80,6 +80,18 @@ public class JcrDocumentLifecycleSupport {
         }
     }
 
+    public void setStringPropertyNoCheckout(final String propertyName,
+                                             final WorkflowUtils.Variant documentVariantType,
+                                             final String text
+    ) {
+        try {
+            WorkflowUtils.getDocumentVariantNode(documentHandleNode, documentVariantType)
+                .ifPresent(node -> JcrNodeUtils.setStringPropertyQuietly(node, propertyName, text));
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to update property " + propertyName + " on " + documentHandleNode, e);
+        }
+    }
+
     /**
      * @return Date of last publication or {@linkplain Optional#empty()} if the document has not been published, yet.
      */
