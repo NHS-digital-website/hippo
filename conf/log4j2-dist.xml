@@ -93,6 +93,10 @@
     <Logger name="com.onehippo.cms7.targeting" level="warn"/>
     <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
+    <!-- content feed debugging-->
+    <Logger name="org.springframework.web.client" level="debug"/>
+    <Logger name="org.springframework.http.client" level="debug"/>
+
     <Root level="warn">
       <AppenderRef ref="site"/>
       <AppenderRef ref="cms"/>
