@@ -57,6 +57,17 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
 
         $('#pagesTab li').hide();
         $('#pagesTab li.conditionally-visible').show();
+        if(document.getElementById("date__DD")){
+            setInputFilter(document.getElementById("date__DD"), function(value) {
+                return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 31) && (value === "" || parseInt(value) >= 1);
+            });
+            setInputFilter(document.getElementById("date__MM"), function(value) {
+                return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 12) && (value === "" || parseInt(value) >= 1);
+            });
+            setInputFilter(document.getElementById("date__YYYY"), function(value) {
+                return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 9999) && (value === "" || parseInt(value) >= 1);
+            });
+        }
     };
 
     // <#--
@@ -129,15 +140,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             });
         });
     }
-    setInputFilter(document.getElementById("date__DD"), function(value) {
-        return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 31) && (value === "" || parseInt(value) >= 1);
-    });
-    setInputFilter(document.getElementById("date__MM"), function(value) {
-        return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 12) && (value === "" || parseInt(value) >= 1);
-    });
-    setInputFilter(document.getElementById("date__YYYY"), function(value) {
-        return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 9999) && (value === "" || parseInt(value) >= 1);
-    });
+
 
     function endsWith(subject, search) {
         var position = subject.length - search.length;

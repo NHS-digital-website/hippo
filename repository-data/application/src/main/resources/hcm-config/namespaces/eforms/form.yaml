@@ -24,3 +24,4 @@ definitions:
     /hippo:namespaces/eforms/form/editor:templates/_default_/root/cluster.options:
       field.include:
       - uk.nhs.digital.customfield.datefield.CustomDateField
+      - uk.nhs.digital.customfield.postcodefield.CustomPostcodeField
