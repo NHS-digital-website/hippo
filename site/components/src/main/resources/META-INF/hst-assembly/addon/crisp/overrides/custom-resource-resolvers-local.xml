@@ -20,4 +20,12 @@
             <bean class="org.springframework.web.client.RestTemplate"/>
         </property>
     </bean>
+    <bean id="postcodeApi"
+          parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
+          class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
+        <property name="restTemplate">
+            <bean class="org.springframework.web.client.RestTemplate"/>
+        </property>
+        <property name="baseUri" value="https://d3167zvwcf7itc.cloudfront.net/postcodes/"/>
+    </bean>
 </beans>
