@@ -330,7 +330,7 @@
             <dependency>
                 <groupId>io.swagger.codegen.v3</groupId>
                 <artifactId>swagger-codegen-generators</artifactId>
-                <version>1.0.25</version>
+                <version>1.0.26</version>
             </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>
@@ -368,7 +368,7 @@
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk</artifactId>
-                <version>1.11.1025</version>
+                <version>1.11.1030</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>

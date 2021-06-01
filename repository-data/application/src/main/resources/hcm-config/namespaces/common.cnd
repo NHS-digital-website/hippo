@@ -16,3 +16,4 @@
   orderable
 
 [website:customdatefield] > eforms:textfield
+[website:custompostcodefield] > eforms:textfield
