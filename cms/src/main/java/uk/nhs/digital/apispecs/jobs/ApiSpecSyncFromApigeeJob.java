@@ -1,5 +1,7 @@
 package uk.nhs.digital.apispecs.jobs;
 
+import static java.lang.System.getProperty;
+
 import org.apache.commons.lang3.Validate;
 import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
@@ -13,12 +15,24 @@ import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Optional;
+import java.util.Properties;
 import javax.jcr.Session;
 
 public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
     private static final Logger log = LoggerFactory.getLogger(ApiSpecSyncFromApigeeJob.class);
+    private static final Properties properties = new Properties();
+
+    {
+        try {
+            properties.load(new FileInputStream(getProperty("secure.properties.location") + "apigee-secrets.properties"));
+        } catch (IOException e) {
+            log.warn("The 'apigee-secrets.properties' file was not found.");
+        }
+    }
 
     // @formatter:off
     private static final String APIGEE_ALL_SPEC_URL    = "devzone.apigee.resources.specs.all.url";
@@ -38,15 +52,15 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
         log.debug("API Specifications sync from Apigee: start.");
 
         // System properties for config - LOGGED ON SYSTEM START
-        final String apigeeAllSpecUrl = System.getProperty(APIGEE_ALL_SPEC_URL);
-        final String apigeeSingleSpecUrl = System.getProperty(APIGEE_SINGLE_SPEC_URL);
-        final String oauthTokenUrl = System.getProperty(OAUTH_TOKEN_URL);
+        final String apigeeAllSpecUrl = getProperty(APIGEE_ALL_SPEC_URL);
+        final String apigeeSingleSpecUrl = getProperty(APIGEE_SINGLE_SPEC_URL);
+        final String oauthTokenUrl = getProperty(OAUTH_TOKEN_URL);
 
         // Environment variables FOR SECRETS - not logged on system start
-        final String username = System.getenv(USERNAME);
-        final String password = System.getenv(PASSWORD);
-        final String basicToken = System.getenv(BASIC_TOKEN);
-        final String otpKey = System.getenv(OTP_KEY);
+        final String username = getSecret(USERNAME);
+        final String password = getSecret(PASSWORD);
+        final String basicToken = getSecret(BASIC_TOKEN);
+        final String otpKey = getSecret(OTP_KEY);
 
         Session session = null;
 
@@ -99,4 +113,13 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
             "ResourceServiceBroker not available. Ignore if this happens only once on app start as, in such a case it's justified as the env. is not fully initialised, yet."
         ));
     }
+
+    private String getSecret(final String key) {
+        String value = properties.getProperty(key, System.getenv(key));
+        if (value == null) {
+            log.warn("The key/value for '" + key + "' should be set as a Java Property or an Environment variable.");
+        }
+        return value;
+    }
+
 }
