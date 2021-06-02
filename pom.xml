@@ -82,6 +82,7 @@
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
         <bloomreach.version>14.5.0</bloomreach.version>
+        <taglibs.version>1.2.5</taglibs.version>
         <h2.database.version>1.4.200</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
@@ -218,14 +219,14 @@
             <dependency>
                 <groupId>org.apache.taglibs</groupId>
                 <artifactId>taglibs-standard-spec</artifactId>
-                <version>1.2.5</version>
+                <version>${taglibs.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.taglibs</groupId>
                 <artifactId>taglibs-standard-impl</artifactId>
-                <version>1.2.5</version>
+                <version>${taglibs.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
@@ -686,9 +687,9 @@
                                         <versionRange>[0.0,)</versionRange>
                                     </pluginExecutionFilter>
                                     <action>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
-                                <ignore/>
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
                     </configuration>
@@ -1234,6 +1235,54 @@
                                 <configuration>
                                     <descriptors>
                                         <descriptor>${project.basedir}/src/main/assembly/on-demand-distribution.xml</descriptor>
+                                    </descriptors>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>dist-od2</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <defaultGoal>validate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>distro-assembly</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>${project.basedir}/src/main/assembly/distribution.xml</descriptor>
                                     </descriptors>
                                 </configuration>
                             </execution>

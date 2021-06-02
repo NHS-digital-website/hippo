@@ -16,10 +16,12 @@
     </context-param>
 
     <listener>
-          <listener-class>org.hippoecm.hst.platform.container.HstCmsContextLoaderListener</listener-class>
+        <listener-class>
+            org.hippoecm.hst.platform.container.HstCmsContextLoaderListener
+        </listener-class>
     </listener>
 
-  <context-param>
+    <context-param>
     <description>The address of the repository</description>
     <param-name>repository-address</param-name>
     <param-value>vm://</param-value>
@@ -39,8 +41,8 @@
   </context-param>
 
     <filter>
-          <filter-name>HstFilter</filter-name>
-          <filter-class>org.hippoecm.hst.container.HstFilter</filter-class>
+        <filter-name>HstFilter</filter-name>
+        <filter-class>org.hippoecm.hst.container.HstFilter</filter-class>
     </filter>
 
     <filter>
@@ -54,8 +56,8 @@
     </filter-mapping>
 
     <filter-mapping>
-          <filter-name>HstFilter</filter-name>
-          <url-pattern>/*</url-pattern>
+        <filter-name>HstFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
 
