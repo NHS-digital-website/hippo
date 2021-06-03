@@ -1054,6 +1054,12 @@ public class SearchComponent extends CommonComponent {
         );
     }
 
+    private void addFeedHubTypes(HstQueryBuilder query) {
+        query.ofTypes(
+            FeedHub.class
+        );
+    }
+
     /**
      * Adding the API document type
      */
@@ -1104,6 +1110,7 @@ public class SearchComponent extends CommonComponent {
         addPerson(query);
         addBusinessUnitRelatedTypes(query);
         addFeatureTypes(query);
+        addFeedHubTypes(query);
     }
 
 }
