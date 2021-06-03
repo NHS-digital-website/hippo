@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
-<@hst.setBundle basename="design-sytem"/>
+<@hst.setBundle basename="design-system"/>
 <@metaTags></@metaTags>
 
 <@fmt.message key="design-system.url" var="designSystemUrl" />
