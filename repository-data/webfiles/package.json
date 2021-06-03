@@ -25,7 +25,7 @@
     "homepage": "https://github.com/NHS-digital-website/hippo#readme",
     "devDependencies": {
         "@babel/core": "^7.14.3",
-        "@babel/preset-env": "^7.14.2",
+        "@babel/preset-env": "^7.14.4",
         "autoprefixer": "^9.8.6",
         "babel-loader": "^8.2.2",
         "browser-sync": "^2.26.14",
@@ -33,7 +33,7 @@
         "del": "^6.0.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-import": "^2.23.2",
+        "eslint-plugin-import": "^2.23.4",
         "eslint-plugin-jquery": "^1.5.1",
         "expose-loader": "^0.7.5",
         "gulp": "^4.0.2",
@@ -127,7 +127,7 @@
         "highcharts": "^9.1.0",
         "jquery": "^3.6.0",
         "jquery-ui": "^1.12.1",
-        "papaparse": "^5.3.0",
+        "papaparse": "^5.3.1",
         "tablesort": "^5.2.0"
     }
 }
