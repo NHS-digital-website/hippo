@@ -26,6 +26,8 @@ import javax.jcr.Session;
  */
 public class HippoBeanHelper {
 
+    public final static String PUBLICATION_TAXONOMY = "publication_taxonomy";
+
     public static boolean isRootFolder(HippoBean folder) {
         HippoBean siteContentBaseBean = RequestContextProvider.get().getSiteContentBaseBean();
 
@@ -63,7 +65,7 @@ public class HippoBeanHelper {
 
         // Lookup Taxonomy Tree
         TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-        Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+        Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(PUBLICATION_TAXONOMY);
 
         return Arrays.stream(fullTaxonomy)
             .map(key -> taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName())
@@ -80,7 +82,7 @@ public class HippoBeanHelper {
         if (keys != null) {
             // Lookup Taxonomy Tree
             TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(PUBLICATION_TAXONOMY);
 
             for (String key : keys) {
                 List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
