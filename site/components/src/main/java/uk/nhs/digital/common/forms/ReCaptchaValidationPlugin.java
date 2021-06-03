@@ -1,5 +1,7 @@
 package uk.nhs.digital.common.forms;
 
+import static java.lang.System.getProperty;
+
 import com.onehippo.cms7.eforms.hst.api.ValidationBehavior;
 import com.onehippo.cms7.eforms.hst.beans.FormBean;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
@@ -15,12 +17,24 @@ import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 public class ReCaptchaValidationPlugin implements ValidationBehavior {
 
     private static Logger log = LoggerFactory.getLogger(ReCaptchaValidationPlugin.class);
+    private static final Properties properties = new Properties();
+
+    {
+        try {
+            properties.load(new FileInputStream(getProperty("secure.properties.location") + "/recaptcha-secrets.properties"));
+        } catch (IOException e) {
+            log.warn("The 'recaptcha-secrets.properties' file was not found.");
+        }
+    }
 
     @Override
     public Map<String, ErrorMessage> validate(HstRequest request, HstResponse response, ComponentConfiguration config, FormBean bean, Form form, FormMap map) {
@@ -74,7 +88,7 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
             final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
 
             final Map<String, Object> pathVars = new HashMap<>();
-            pathVars.put("secret", System.getenv("GOOGLE_CAPTCHA_SECRET"));
+            pathVars.put("secret", getSecret("GOOGLE_CAPTCHA_SECRET"));
             pathVars.put("response", gReCaptchaResponseCode);
 
             // Note: request submitted via CRISP default of GET, since POST is not working as described
@@ -96,6 +110,14 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
         }
 
         return resource;
+    }
+
+    private String getSecret(final String key) {
+        String value = properties.getProperty(key, System.getenv(key));
+        if (value == null) {
+            log.warn("The key/value for '" + key + "' should be set as a Java Property or an Environment variable.");
+        }
+        return value;
     }
 
 }

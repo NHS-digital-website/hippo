@@ -28,7 +28,7 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
     {
         try {
-            properties.load(new FileInputStream(getProperty("secure.properties.location") + "apigee-secrets.properties"));
+            properties.load(new FileInputStream(getProperty("secure.properties.location") + "/apigee-secrets.properties"));
         } catch (IOException e) {
             log.warn("The 'apigee-secrets.properties' file was not found.");
         }
