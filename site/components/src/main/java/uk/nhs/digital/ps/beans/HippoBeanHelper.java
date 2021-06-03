@@ -34,29 +34,6 @@ public class HippoBeanHelper {
         return folder.isSelf(siteContentBaseBean);
     }
 
-    public static String getTaxonomyName() throws HstComponentException {
-        String taxonomyName;
-
-        try {
-            ComponentManager componentManager = HstServices.getComponentManager();
-            Credentials configCred = componentManager.getComponent(Credentials.class.getName() + ".hstconfigreader");
-
-            Repository repository = componentManager
-                .getComponent(Repository.class.getName());
-            Session session = repository.login(configCred);
-
-            taxonomyName = session.getNode(
-                "/hippo:namespaces/publicationsystem/series/editor:templates/_default_/classifiable")
-                .getProperty("essentials-taxonomy-name")
-                .getString();
-        } catch (RepositoryException repositoryException) {
-            throw new HstComponentException(
-                "Exception occurred during fetching taxonomy file name.", repositoryException);
-        }
-
-        return taxonomyName;
-    }
-
     public static List<String> getFullTaxonomyList(HippoBean bean) {
         String[] fullTaxonomy = bean.getMultipleProperty("common:FullTaxonomy");
         if (isEmpty(fullTaxonomy)) {
