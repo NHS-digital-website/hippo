@@ -11,6 +11,9 @@ definitions:
       /api-catalogue:
         hst:renderpath: webfile:/freemarker/common/api-catalogue.ftl
         jcr:primaryType: hst:template
+      /api-catalogue-preview:
+        hst:renderpath: webfile:/freemarker/common/api-catalogue-preview.ftl
+        jcr:primaryType: hst:template
       /apiendpoint-article:
         hst:renderpath: webfile:/freemarker/common/apiendpoint-article.ftl
         jcr:primaryType: hst:template
@@ -160,6 +163,9 @@ definitions:
         jcr:primaryType: hst:template
       /header-banner:
         hst:renderpath: webfile:/freemarker/common/header-banner.ftl
+        jcr:primaryType: hst:template
+      /heading-and-copy:
+        hst:renderpath: webfile:/freemarker/common/heading-and-copy.ftl
         jcr:primaryType: hst:template
       /hero:
         hst:renderpath: webfile:/freemarker/common/hero.ftl
