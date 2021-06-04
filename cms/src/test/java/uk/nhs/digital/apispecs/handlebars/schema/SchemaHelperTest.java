@@ -39,6 +39,7 @@ import uk.nhs.digital.test.util.TestFileUtils;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -353,13 +354,13 @@ public class SchemaHelperTest {
         assertThat("HTML contains '" + propertyName + "' element.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
             stringContainsInOrder(
-                "padding-left: 0em;",           // root
-                "padding-left: 1em;",           //   non-items
-                "padding-left: 2em;",           //     oneOf
+                "padding-left: 0.0em;",           // root
+                "padding-left: 1.5em;",           //   non-items
+                "padding-left: 3.0em;",           //     oneOf
                 ">" + propertyName + "<",       //
-                "padding-left: 3em;",           //       A
+                "padding-left: 4.5em;",           //       A
                 ">" + propertyName + " - A<",   //
-                "padding-left: 3em;",           //       B
+                "padding-left: 4.5em;",           //       B
                 ">" + propertyName + " - B<"
             )
         );
@@ -379,13 +380,13 @@ public class SchemaHelperTest {
         assertThat("HTML contains '" + propertyName + "' element.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
             stringContainsInOrder(
-                "padding-left: 0em;",           // root
-                "padding-left: 1em;",           //   array-schema
-                "padding-left: 2em;",           //     oneOf
+                "padding-left: 0.0em;",           // root
+                "padding-left: 1.5em;",           //   array-schema
+                "padding-left: 3.0em;",           //     oneOf
                 ">" + propertyName + "<",       //
-                "padding-left: 3em;",           //       A
+                "padding-left: 4.5em;",           //       A
                 ">" + propertyName + " - A<",   //
-                "padding-left: 3em;",           //       B
+                "padding-left: 4.5em;",           //       B
                 ">" + propertyName + " - B<"
             )
         );
@@ -627,10 +628,10 @@ public class SchemaHelperTest {
         final ComposedSchema notItemSchemaObject = new ComposedSchema();
         notItemSchemaObject.title("not-items schema object");
 
-        setField(notItemSchemaObject, propertyName, asList(
+        setField(notItemSchemaObject, propertyName, new ArrayList<>(asList(
             new ObjectSchema().title(propertyName + " - A"),
             new ObjectSchema().title(propertyName + " - B")
-        ));
+        )));
 
         return new ObjectSchema()
             .title("root schema object")
@@ -644,10 +645,10 @@ public class SchemaHelperTest {
         final ComposedSchema items = new ComposedSchema();
         items.title("items object");
 
-        setField(items, propertyName, asList(
+        setField(items, propertyName, new ArrayList<>(asList(
             new ObjectSchema().title(propertyName + " - A"),
             new ObjectSchema().title(propertyName + " - B")
-        ));
+        )));
 
         return new ObjectSchema()
             .title("root object")

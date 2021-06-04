@@ -1,7 +1,10 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
+<@hst.setBundle basename="design-system"/>
 <@metaTags></@metaTags>
+
+<@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
     <meta charset="utf-8">
@@ -25,10 +28,10 @@
     <meta name="twitter:site" content="@NHSDigital">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
 
-    <link href="https://dbs1dgg3cdf4v.cloudfront.net/" rel="preconnect" crossorigin>
-    <link type="font/woff2" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
+    <link href="${designSystemUrl}/" rel="preconnect" crossorigin>
+    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
 
     <#-- Preconnect to 3rd parties to improve proformance -->
     <link rel="preconnect" href="https://in.hotjar.com" crossorigin>
@@ -45,7 +48,7 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="${designSystemUrl}/cdn/latest/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" media="screen" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />

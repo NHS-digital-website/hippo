@@ -471,7 +471,7 @@ public class SearchComponent extends CommonComponent {
 
     private String calculateTaxonomyLabel(List<String> taxonomyKeys) {
         TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-        Taxonomy taxonomy = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.getTaxonomyName());
+        Taxonomy taxonomy = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.PUBLICATION_TAXONOMY);
         List<String> pathLabels = new ArrayList<>();
         boolean isValid = true;
         for (int i = 1; i < taxonomyKeys.size(); i++) {
