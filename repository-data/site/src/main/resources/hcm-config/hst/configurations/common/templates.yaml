@@ -11,6 +11,9 @@ definitions:
       /api-catalogue:
         hst:renderpath: webfile:/freemarker/common/api-catalogue.ftl
         jcr:primaryType: hst:template
+      /api-catalogue-preview:
+        hst:renderpath: webfile:/freemarker/common/api-catalogue-preview.ftl
+        jcr:primaryType: hst:template
       /apiendpoint-article:
         hst:renderpath: webfile:/freemarker/common/apiendpoint-article.ftl
         jcr:primaryType: hst:template
@@ -261,7 +264,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
         jcr:primaryType: hst:template
       /orgstructure:
-        hst:renderpath: webfile:/freemarker/common/orgstructure.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/orgstructure.ftl
         jcr:primaryType: hst:template
       /person-article:
         hst:renderpath: webfile:/freemarker/common/person-article.ftl
