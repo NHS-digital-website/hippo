@@ -125,7 +125,7 @@
         <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>
 
         <bloomreach.inference-engine.version>4.0.0</bloomreach.inference-engine.version>
-        <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.version>2.12.2</com.fasterxml.jackson.version>
 
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
 
