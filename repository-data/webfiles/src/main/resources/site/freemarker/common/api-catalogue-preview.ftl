@@ -18,8 +18,11 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<@headerBanner document />
+
 <article class="article article--filtered-list api-catalogue">
+
+    <@headerBanner document />
+
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds column--reset">
