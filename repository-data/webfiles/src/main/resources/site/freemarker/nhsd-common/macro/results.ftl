@@ -30,7 +30,7 @@
                      document.class.name == "uk.nhs.digital.website.beans.VisualHub">
                 <!-- showing title deliberately disabled for these doctypes -->
                 <@genericSearchElement item=document isShowTitle=false elemDate="" />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Gdprtransparency" 
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Gdprtransparency"
                   || document.class.name == "uk.nhs.digital.website.beans.Service"
                   || document.class.name == "uk.nhs.digital.website.beans.Roadmap"
                   || document.class.name == "uk.nhs.digital.website.beans.RoadmapItem"
@@ -47,6 +47,7 @@
                   || document.class.name == "uk.nhs.digital.website.beans.Group"
                   || document.class.name == "uk.nhs.digital.website.beans.OrgStructure"
                   || document.class.name == "uk.nhs.digital.website.beans.Feature"
+                  || document.class.name == "uk.nhs.digital.website.beans.FeedHub"
             >
                 <@genericSearchElement item=document isShowTitle=true elemDate="" />
             </#if>
