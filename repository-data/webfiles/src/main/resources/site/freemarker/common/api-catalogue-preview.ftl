@@ -6,6 +6,7 @@
 <#include "macro/apiCatalogueEntries.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/svgIcons.ftl">
+<#include "../nhsd-common/macros/header-banner.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
@@ -17,16 +18,9 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
+<@headerBanner document />
 <article class="article article--filtered-list api-catalogue">
     <div class="grid-wrapper grid-wrapper--article">
-        <div class="grid-row">
-            <div class="column column--two-thirds column--reset">
-                <div class="article-header article-header--secondary">
-                    <h1 data-uipath="document.title">${document.title}</h1>
-                </div>
-            </div>
-        </div>
-        APi Catalogue - Preview
         <div class="grid-row">
             <div class="column column--two-thirds column--reset">
                 <#-- [FTL-BEGIN] 'Summary and optional Body' sections -->
@@ -34,7 +28,6 @@
                     <div class="grid-row">
                         <div class="column column--reset">
                             <div class="rich-text-content">
-                                <div data-uipath="website.linkslist.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                                 <#if document.body?has_content??>
                                     <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
                                 </#if>
