@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/aboutapi:
+    /hippo:namespaces/website/svg:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -16,79 +16,53 @@ definitions:
           - wicket.id
           - validator.id
           /root:
-            extension.left: ${cluster.id}.left
-            extension.right: ${cluster.id}.right
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
-            wicket.extensions:
-            - extension.left
-            - extension.right
-          /left:
-            item: ${cluster.id}.left.item
+            item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-            wicket.id: ${cluster.id}.left
-          /right:
-            item: ${cluster.id}.right.item
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-            wicket.id: ${cluster.id}.right
-          /title:
+          /altText:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: title
-            hint: ''
+            caption: Alt Text
+            field: altText
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /content:
+            wicket.id: ${cluster.id}.field
+          /link:
             /cluster.options:
+              base.path: /content/assets
+              base.uuid: ''
               jcr:primaryType: frontend:pluginconfig
-            caption: Content
-            field: content
+              last.visited.nodetypes: []
+              nodetypes:
+              - hippogallery:imageset
+            caption: SVG content
+            field: link
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /sections:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Section Builder
-            compoundList: website:section,website:emphasisBox,website:quote,website:expander,website:svg
-            contentPickerType: links
-            field: sections
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            wicket.skin: skin/content-blocks.css
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /content:
+          /altText:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:content
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /sections:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:sections
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:title
+            hipposysedit:path: website:altText
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /link:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:link
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -104,9 +78,11 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          jcr:primaryType: website:aboutapi
-          website:content: ''
-          website:title: ''
+          /website:link:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:svg
+          website:altText: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
