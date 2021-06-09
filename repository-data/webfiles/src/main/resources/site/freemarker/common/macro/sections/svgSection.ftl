@@ -5,10 +5,12 @@
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.SvgSection" -->
 
 <#macro svgSection section>
+    This is test <br/>
+    ${section} <br/>
     <@hst.link var="link" hippobean=section.link/>
-    ${link}
+   Link is -->  ${link}
     <#if link?contains("svg")>
-        <script>
+        <script type="text/javascript">
             $.get('${link}', function (svg) {
                 var newsvg = svg
                 var newsvg1 = null;
@@ -23,7 +25,7 @@
             }, 'text');
         </script>
     <#else>
-        <script>
+        <script type="text/javascript">
             $.get('${link}', function (svg) {
                 document.getElementById("svgid").innerHTML = "<p>Unsupported image</p>";
             }, 'text');
