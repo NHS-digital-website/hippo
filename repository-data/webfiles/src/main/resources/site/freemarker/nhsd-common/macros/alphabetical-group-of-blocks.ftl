@@ -37,7 +37,8 @@
                                     <#if block.linkType == "external">
                                         <#assign link = block.link/>
                                     <#elseif block.linkType == "asset">
-                                        <@hst.link hippobean=block.link var="link"/>
+                                        <@hst.link hippobean=block.link var="assetLink"/>
+                                        <#assign link = assetLink/>
                                     </#if>
                                 <#else>
                                     <#if block.type?? && block.type?has_content && block.type == "alternativeTask">
