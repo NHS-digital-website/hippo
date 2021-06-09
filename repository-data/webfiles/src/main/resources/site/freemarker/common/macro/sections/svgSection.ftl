@@ -6,6 +6,7 @@
 
 <#macro svgSection section>
     <@hst.link var="link" hippobean=section.link/>
+    ${link}
     <#if link?contains("svg")>
         <script>
             $.get('${link}', function (svg) {
@@ -17,6 +18,7 @@
                 } else {
                     newsvg1 = newsvg.replace("</svg>", "<title>${section.altText}</title></svg>");
                 }
+                alert(newsvg1);
                 document.getElementById("svgid").innerHTML = newsvg1;
             }, 'text');
         </script>
