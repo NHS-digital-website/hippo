@@ -1,5 +1,6 @@
 ---
 /content/gallery/website:
+  .meta:order-before: acid.svg
   hippo:name: Website
   hippostd:foldertype:
   - new-website-corporateWebsiteImageset-folder

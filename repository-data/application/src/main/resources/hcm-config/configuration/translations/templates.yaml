@@ -787,6 +787,11 @@ definitions:
           jcr:name: Supplementary information hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:svg:
+        /en:
+          jcr:name: SVG
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:tableau:
         /en:
           jcr:name: Tableau
