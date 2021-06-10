@@ -17,9 +17,9 @@ public class SvgSection extends HippoCompound {
         return getSingleProperty("website:altText");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:svgContent")
-    public String getSvgContent() {
-        return getSingleProperty("website:svgContent");
+    @HippoEssentialsGenerated(internalName = "website:link")
+    public CorporateWebsiteImageset getLink() {
+        return getLinkedBean("website:link", CorporateWebsiteImageset.class);
     }
 
 }

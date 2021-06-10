@@ -6,12 +6,16 @@
 
 <#macro svgSection section>
     This is test <br/>
-    ${section} <br/>
+   Section is  ${section} <br/>
     <@hst.link var="link" hippobean=section.link/>
-   Link is -->  ${link}
-    <#if link?contains("svg")>
+    content -->  ${section.link.original} <br/>
+   Link is -->  ${link}<br/>
+
+    <@hst.link hippobean=section.link.original fullyQualified=true var="imageLink" />
+   Deven--> ${imageLink}
+    <#if imageLink?? && imageLink?has_content && imageLink?contains("svg")>
         <script type="text/javascript">
-            $.get('${link}', function (svg) {
+            $.get('${imageLink}', function (svg) {
                 var newsvg = svg
                 var newsvg1 = null;
                 if (newsvg.includes("</title>")) {
