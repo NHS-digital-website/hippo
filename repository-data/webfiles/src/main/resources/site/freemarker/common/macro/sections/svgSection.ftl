@@ -5,14 +5,7 @@
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.SvgSection" -->
 
 <#macro svgSection section>
-    This is test <br/>
-   Section is  ${section} <br/>
-    <@hst.link var="link" hippobean=section.link/>
-    content -->  ${section.link.original} <br/>
-   Link is -->  ${link}<br/>
-
     <@hst.link hippobean=section.link.original fullyQualified=true var="imageLink" />
-   Deven--> ${imageLink}
     <#if imageLink?? && imageLink?has_content && imageLink?contains("svg")>
         <script type="text/javascript">
             $.get('${imageLink}', function (svg) {
@@ -24,7 +17,6 @@
                 } else {
                     newsvg1 = newsvg.replace("</svg>", "<title>${section.altText}</title></svg>");
                 }
-                alert(newsvg1);
                 document.getElementById("svgid").innerHTML = newsvg1;
             }, 'text');
         </script>
