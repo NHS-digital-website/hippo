@@ -45,7 +45,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
         jcr:primaryType: hst:template
       /blog-article:
-        hst:renderpath: webfile:/freemarker/common/blog-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/blog-article.ftl
         jcr:primaryType: hst:template
       /bloghub-article:
         hst:renderpath: webfile:/freemarker/common/bloghub-article.ftl
