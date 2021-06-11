@@ -3,10 +3,10 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Publishedworkchapter" -->
 
 <#include "../include/imports.ftl">
-<#include "../common/macro/sections/sections.ftl">
-<#include "../common/macro/component/lastModified.ftl">
-<#include "../common/macro/component/pagination.ftl">
-<#include "../common/macro/component/chapter-pagination.ftl">
+<#include "../nhsd-common/macro/sections/sections.ftl">
+<#include "../nhsd-common/macro/component/lastModified.ftl">
+<#include "../nhsd-common/macro/component/pagination.ftl">
+<#include "../nhsd-common/macro/component/chapter-pagination.ftl">
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "../nhsd-common/macro/published-work-banners/text-banner.ftl">
@@ -104,14 +104,15 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<article class="article article--published-work-chapter"
-    aria-label="Document Header">
+<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-display-chapters" aria-label="Document Header">
 
-    <#if publicationStyle == 'bluebanner'>
+    <#--  Commented out until blue banner ticket is unblocked. It will use hero until then  -->
+
+    <#--  <#if publicationStyle == 'bluebanner'>
         <@textBanner document topText/>
-    </#if>
+    </#if>  -->
 
-    <#if publicationStyle == 'heromodule'>
+    <#if publicationStyle == 'heromodule' || publicationStyle == 'bluebanner'>
         <#if imageDocument.bannerImage.pageHeaderHeroModule??>
             <@hst.link hippobean=imageDocument.bannerImage.pageHeaderHeroModule fullyQualified=true var="selectedBannerImage" />
             <#assign bannerImage = selectedBannerImage />
@@ -131,7 +132,7 @@
     </#if>
 
     <#if publicationStyle == 'slimpicture'>
-        <#if document.bannerImage??>
+        <#if imageDocument.bannerImage.pageHeaderSlimBannerSmall2x??>
             <@hst.link hippobean=imageDocument.bannerImage.pageHeaderSlimBannerSmall2x fullyQualified=true var="selectedBannerImage" />
             <#assign bannerImage = selectedBannerImage />
         </#if>
@@ -144,122 +145,89 @@
         } />
         <@slimPicture slimPictureConfig />
     </#if>
+
     <#if hasChapters>
+        <@chapterNav document "Current chapter – " />
+    </#if>
 
-        <div class="nhsd-t-grid nhsd-t-grid--full-width">
-            <div class="chapter-pagination-wrapper">
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-12" id="document-content">
-                        <a href="#document-content"><@fmt.message key="labels.skip-to-content" /></a>
-                    </div>
-                </div>
-
-                <@chapterNav document "Current chapter – " />
+    <div class="nhsd-t-row" id="document-content">
+        <#if renderNav>
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
+                <!-- start sticky-nav -->
+                    <@stickyNavSections getStickySectionNavLinks({ "document": document, "includeSummary": hasSummaryContent })></@stickyNavSections>
+                <!-- end sticky-nav -->
+                <#-- Restore the bundle -->
+                <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>
             </div>
-        </div>
-    </#if>
+        </#if>
 
-    <#assign gridWrapperClasses = ['grid-wrapper', 'grid-wrapper--article'] />
-    <#if renderNav>
-        <#assign gridWrapperClasses = gridWrapperClasses + ['grid-wrapper--has-nav'] />
-    </#if>
-    <div class="nhsd-t-grid">
-        <div class="nhsd-t-row">
-            <#if renderNav>
-                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-                    <!-- start sticky-nav -->
-                    <div id="sticky-nav">
-                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "includeSummary": hasSummaryContent })></@stickyNavSections>
-                    </div>
-                    <!-- end sticky-nav -->
-                    <#-- Restore the bundle -->
-                    <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <#if hasSummaryContent>
+                <div id="${slugify('Summary')}">
+                    <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
+                    <div data-uipath="website.publishedworkchapter.summary"><@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/></div>
                 </div>
             </#if>
 
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <#if hasSectionContent>
                 <#if hasSummaryContent>
-                    <div id="${slugify('Summary')}"
-                         class="article-section article-section--summary article-section--reset-top">
-                        <h2><@fmt.message key="headers.summary" /></h2>
-                        <div data-uipath="website.publishedworkchapter.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
-                    </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
-                <#if hasSectionContent>
-                    <@sections document.sections></@sections>
-                </#if>
+                <@sections document.sections></@sections>
+            </#if>
 
-                <div class="article-section muted">
-                    <@lastModified document.lastModified false></@lastModified>
-                </div>
-
-                <div class="article-section no-border no-top-margin">
-                    <@pagination document />
-                </div>
+            <div class="nhsd-!t-margin-bottom-6">
+                <@lastModified document.lastModified false></@lastModified>
             </div>
+
+            <div class="nhsd-!t-margin-bottom-8">
+                <@pagination document />
+            </div>
+
+            <#if hasChapters>
+                <#assign splitChapters = splitHash(documents) />
+
+                <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1" 
+                    id="chapter-index"
+                >
+                    <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
+                        <#list splitChapters.left as chapter>
+                        <#if chapter.id == document.identifier>
+                            <li class="nhsd-m-publication-chapter-navigation--active">
+                        <#else>
+                            <li class="">
+                        </#if>
+                                <a class="nhsd-a-link"
+                                    href="${chapter.link}"
+                                    title="${chapter.title}"
+                                >
+                                    ${chapter.title}
+                                    <span class="nhsd-t-sr-only"></span>
+                                </a>
+                            </li>
+                        </#list>
+
+                        <#if splitChapters.right?size gte 1>
+                            <#list splitChapters.right as chapter>
+                            <#if chapter.id == document.identifier>
+                                <li class="nhsd-m-publication-chapter-navigation--active">
+                            <#else>
+                                <li class="">
+                            </#if>
+                                    <a class="nhsd-a-link"
+                                        href="${chapter.link}"
+                                        title="${chapter.title}"
+                                    >
+                                        ${chapter.title}
+                                        <span class="nhsd-t-sr-only"></span>
+                                    </a>
+                                </li>
+                            </#list>
+                        </#if>
+                    </ol>
+                </div>
+            </#if>
         </div>
     </div>
-
-    <#if hasChapters>
-        <#assign splitChapters = splitHash(documents) />
-
-        <div class="nhsd-t-grid nhsd-t-grid--full-width"
-             id="chapter-index">
-            <div class="chapter-nav">
-
-                    <div class="nhsd-t-row">
-                        <div class="nhsd-t-col-12">
-                            <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>
-                        </div>
-                    </div>
-
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
-                        <ol class="list list--reset cta-list chapter-index">
-                            <#list splitChapters.left as chapter>
-                                <#if chapter.id == document.identifier>
-                                    <li class="chapter-index__item chapter-index__item--current">
-                                        <p class="chapter-index__current-item">${chapter.title}</p>
-                                    </li>
-                                <#else>
-                                    <li class="chapter-index__item">
-                                        <a class="chapter-index__link"
-                                            href="${chapter.link}"
-                                            title="${chapter.title}">${chapter.title}</a>
-                                    </li>
-                                </#if>
-                            </#list>
-                        </ol>
-                    </div>
-
-                    <#if splitChapters.right?size gte 1>
-                        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
-                            <ol class="list list--reset cta-list chapter-index"
-                                start="${splitChapters.left?size + 1}">
-                                <#list splitChapters.right as chapter>
-                                    <#if chapter.id == document.identifier>
-                                        <li class="chapter-index__item chapter-index__item--current">
-                                            <p class="chapter-index__current-item">${chapter.title}</p>
-                                        </li>
-                                    <#else>
-                                        <li class="chapter-index__item">
-                                            <a class="chapter-index__link"
-                                                href="${chapter.link}"
-                                                title="${chapter.title}">${chapter.title}</a>
-                                        </li>
-                                    </#if>
-                                </#list>
-                            </ol>
-                        </div>
-                    </#if>
-                </div>
-            </div>
-        </div>
-    </#if>
-
-
-    <#-- <#if hasChapters>
-        <a href="<@hst.link var=link hippobean=chapter />" title="${chapter.title}">${chapter.title}</a>
-    </#if> -->
-</article>
+</div>

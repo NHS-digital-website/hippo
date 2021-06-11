@@ -3,10 +3,10 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Publishedwork" -->
 
 <#include "../include/imports.ftl">
-<#include "../common/macro/sections/sections.ftl">
-<#include "../common/macro/component/lastModified.ftl">
-<#include "../common/macro/component/pagination.ftl">
-<#include "../common/macro/component/chapter-pagination.ftl">
+<#include "../nhsd-common/macro/sections/sections.ftl">
+<#include "../nhsd-common/macro/component/lastModified.ftl">
+<#include "../nhsd-common/macro/component/pagination.ftl">
+<#include "../nhsd-common/macro/component/chapter-pagination.ftl">
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
@@ -14,7 +14,9 @@
 <#include "../nhsd-common/macro/published-work-banners/text-banner.ftl">
 <#include "../nhsd-common/macro/published-work-banners/hero-module.ftl">
 <#include "../nhsd-common/macro/published-work-banners/slim-picture.ftl">
+<#include "../nhsd-common/macro/component/downloadBlockAsset.ftl">
 <#include "macro/contentPixel.ftl">
+<#include "macro/documentIcon.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -56,15 +58,17 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<article class="article article--published-work" aria-label="Document Header">
+<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-display-chapters" aria-label="Document Header">
 
     <@hst.headContributions categoryIncludes="testscripts"/>
 
-    <#if publicationStyle == 'bluebanner'>
-        <@textBanner document />
-    </#if>
+    <#--  Commented out until blue banner ticket is unblocked. It will use hero until then  -->
 
-    <#if publicationStyle == 'heromodule'>
+    <#--  <#if publicationStyle == 'bluebanner'>
+        <@textBanner document />
+    </#if>  -->
+
+    <#if publicationStyle == 'heromodule' || publicationStyle == 'bluebanner'>
         <#if document.bannerImage.pageHeaderHeroModule??>
             <@hst.link hippobean=document.bannerImage.pageHeaderHeroModule fullyQualified=true var="selectedBannerImage" />
             <#assign bannerImage = selectedBannerImage />
@@ -110,182 +114,183 @@
             <#assign documents += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
         </#list>
 
+        <@chapterNav document />
+    </#if>
 
-        <div class="nhsd-t-grid nhsd-t-grid--full-width">
-            <div class="chapter-pagination-wrapper">
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-12" id="document-content">
-                        <a href="#document-content"><@fmt.message key="labels.skip-to-content" /></a>
-                    </div>
-                </div>
+    <div class="nhsd-t-row" id="document-content">
+        <#if renderNav>
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
+                <!-- start sticky-nav -->
+                    <@fmt.message key="headers.page-contents" var="pageContentsHeader" />
+                    <#assign links = [] />
+                    <#if hasAboutThisSection>
+                        <#assign links = links + [{"url": "#about-this-publication", "title": aboutThisPublicationHeader}] />
+                    </#if>
+                    <@stickyNavSections getStickySectionNavLinks({ "document": document, "sections": links, "includeSummary": hasSummaryContent}), pageContentsHeader></@stickyNavSections>
 
-                <@chapterNav document />
+                    <#-- Restore the bundle -->
+                    <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
+                <!-- end sticky-nav -->
             </div>
-        </div>
-    </#if>
+        </#if>
 
-    <#assign gridWrapperClasses = ['grid-wrapper', 'grid-wrapper--article'] />
-    <#if renderNav>
-        <#assign gridWrapperClasses = gridWrapperClasses + ['grid-wrapper--has-nav'] />
-    </#if>
-    <div class="nhsd-t-grid nhsd-t-grid--full-width">
-        <div class="nhsd-t-row">
-            <#if renderNav>
-                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-                    <!-- start sticky-nav -->
-                    <div id="sticky-nav">
-                        <@fmt.message key="headers.page-contents" var="pageContentsHeader" />
-                        <#assign links = [] />
-                        <#if hasAboutThisSection>
-                            <#assign links = links + [{"url": "#about-this-publication", "title": aboutThisPublicationHeader}] />
-                        </#if>
-                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "sections": links, "includeSummary": hasSummaryContent}), pageContentsHeader></@stickyNavSections>
-
-                        <#-- Restore the bundle -->
-                        <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
-                    </div>
-                    <!-- end sticky-nav -->
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <#if hasSummaryContent>
+                <div id="${slugify('Summary')}">
+                    <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
+                    <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/></div>
                 </div>
             </#if>
 
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <#if hasHighlightsContent>
                 <#if hasSummaryContent>
-                    <div id="${slugify('Summary')}"
-                         class="article-section article-section--summary article-section--reset-top">
-                        <h2><@fmt.message key="headers.summary" /></h2>
-                        <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
-                    </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
-                <#if hasHighlightsContent>
-                    <div class="article-section article-section--highlighted">
-                        <div class="callout callout--attention">
-                            <h2>${document.highlightsTitle}</h2>
-                            <@hst.html hippohtml=document.highlightsContent contentRewriter=gaContentRewriter/>
-                        </div>
-                    </div>
+                <p class="nhsd-t-heading-xl">${document.highlightsTitle}</p>
+                <@hst.html hippohtml=document.highlightsContent contentRewriter=brContentRewriter/>
+            </#if>
+
+            <#if hasSectionContent>
+                <#if hasHighlightsContent || (hasSummaryContent && !hasHighlightsContent)>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
-                <#if hasSectionContent>
-                    <@sections document.sections></@sections>
+                <@sections document.sections></@sections>
+            </#if>
+
+            <#if hasAboutThisSection>
+                <#if hasSectionContent || (hasHighlightsContent && !hasSectionContent) || (hasSummaryContent && !hasSectionContent && !hasHighlightsContent)>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
-                <#if hasAboutThisSection>
-                    <div id="about-this-publication" class="article-section">
-                        <h2>${aboutThisPublicationHeader}</h2>
+                <div class="nhsd-!t-margin-bottom-6" id="about-this-publication">
+                    <p class="nhsd-t-heading-xl">${aboutThisPublicationHeader}</p>
 
-                        <div class="cta-list">
-                            <#if document.isbn?has_content>
-                                <div class="cta">
-                                    <h3 class="cta-title"><@fmt.message key="labels.isbn" /></h3>
-                                    <p class="cta__text">${document.isbn}</p>
-                                </div>
-                            </#if>
+                    <#if document.isbn?has_content>
+                        <p class="nhsd-t-heading-s"><@fmt.message key="labels.isbn" /></p>
+                        <p class="nhsd-t-body">${document.isbn}</p>
+                    </#if>
 
-                            <#if document.issn?has_content>
-                                <div class="cta">
-                                    <h3 class="cta-title"><@fmt.message key="labels.issn" /></h3>
-                                    <p class="cta__text">${document.issn}</p>
-                                </div>
-                            </#if>
-                        </div>
-                    </div>
-                </#if>
-
-                <#if hasResources>
-                    <div class="article-section" id="resources">
-                        <h2><@fmt.message key="labels.resources"/></h2>
-                        <ul class="list list--reset">
-                            <#list document.resources as attachment>
-                                <li class="attachment" itemprop="hasPart" itemscope
-                                    itemtype="http://schema.org/MediaObject">
-                                    <@externalstorageLink attachment.resource; url>
-                                        <a title="${attachment.text}"
-                                           href="${url}"
-                                           class="block-link"
-                                           onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');"
-                                           onKeyUp="return vjsu.onKeyUp(event)"
-                                           itemprop="contentUrl">
-                                            <div class="block-link__header">
-                                                <@fileIconByMimeType attachment.resource.mimeType></@fileIconByMimeType>
-                                            </div>
-                                            <div class="block-link__body">
-                                                <span class="block-link__title"
-                                                      itemprop="name">${attachment.text}</span>
-                                                <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
-                                            </div>
-                                        </a>
-                                    </@externalstorageLink>
-                                </li>
-                            </#list>
-                        </ul>
-                    </div>
-                </#if>
-                <div class="article-section muted">
-                    <p><@lastModified document.lastModified false></@lastModified></p>
-                </div>
-
-                <div class="article-section no-border no-top-margin">
-                    <@pagination document />
-                </div>
-            </div>
-        </div>
-    </div>
-    <#if hasChildPages>
-        <#assign splitChapters = splitHash(documents) />
-
-        <div class="nhsd-t-grid nhsd-t-grid--full-width"
-             id="chapter-index">
-            <div class="chapter-nav">
-
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-12">
-                        <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>
-                    </div>
-                </div>
-
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
-                        <ol class="list list--reset cta-list chapter-index">
-                            <#list splitChapters.left as chapter>
-                                <#if chapter.id == document.identifier>
-                                    <li class="chapter-index__item chapter-index__item--current">
-                                        <p class="chapter-index__current-item">${chapter.title}</p>
-                                    </li>
-                                <#else>
-                                    <li class="chapter-index__item">
-                                        <a class="chapter-index__link"
-                                            href="${chapter.link}"
-                                            title="${chapter.title}">${chapter.title}</a>
-                                    </li>
-                                </#if>
-                            </#list>
-                        </ol>
-                    </div>
-
-                    <#if splitChapters.right?size gte 1>
-                        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
-                            <ol class="list list--reset cta-list chapter-index"
-                                start="${splitChapters.left?size + 1}">
-                                <#list splitChapters.right as chapter>
-                                    <#if chapter.id == document.identifier>
-                                        <li class="chapter-index__item chapter-index__item--current">
-                                            <p class="chapter-index__current-item">${chapter.title}</p>
-                                        </li>
-                                    <#else>
-                                        <li class="chapter-index__item">
-                                            <a class="chapter-index__link"
-                                                href="${chapter.link}"
-                                                title="${chapter.title}">${chapter.title}</a>
-                                        </li>
-                                    </#if>
-                                </#list>
-                            </ol>
-                        </div>
+                    <#if document.issn?has_content>
+                        <p class="nhsd-t-heading-s"><@fmt.message key="labels.issn" /></p>
+                        <p class="nhsd-t-body">${document.issn}</p>
                     </#if>
                 </div>
-            </div>
-        </div>
-    </#if>
+            </#if>
 
-</article>
+            <#if hasResources>
+                <#if hasAboutThisSection || (hasSectionContent && !hasAboutThisSection) || (hasHighlightsContent && !hasAboutThisSection && !hasSectionContent) || (hasSummaryContent && !hasAboutThisSection && !hasSectionContent && !hasHighlightsContent)>
+                    <hr class="nhsd-a-horizontal-rule" />
+                </#if>
+
+                <div class="nhsd-!t-margin-bottom-6" id="resources">
+                    <p class="nhsd-t-heading-xl"><@fmt.message key="labels.resources"/></p>
+                    <div class="nhsd-t-grid">
+                        <div class="nhsd-t-row">
+                            <div class="nhsd-t-col">
+                                <#list document.resources as attachment>
+                                    <#--  Download macro cannot be used due to different yaml config -->
+                                    <#assign iconTypeFromMime = getFormatByMimeType("${attachment.resource.mimeType?lower_case}") />
+                                    <#assign fileName = attachment.resource.filename />
+                                    <#assign fileSize = sizeToDisplay(attachment.resource.length) />
+                                    <div class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
+                                        <@externalstorageLink attachment.resource; url>
+                                            <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
+                                                <a class="nhsd-a-box-link" 
+                                                   title="${attachment.text}"
+                                                   href = "${url}"
+                                                   onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${fileName}');"
+                                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                                   itemprop="contentUrl"
+                                                >
+                                                    <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
+                                                        <div class="nhsd-m-download-card__image-box">
+                                                            <@documentIcon "${iconTypeFromMime}"/>
+                                                        </div>
+
+                                                        <div class="nhsd-m-download-card__content-box">
+                                                            <#if attachment.text?has_content>
+                                                                <p class="nhsd-t-heading-s" itemprop="name">${attachment.text}</p>
+                                                            </#if>
+
+                                                            <div class="nhsd-m-download-card__meta-tags">
+                                                                <#assign fileFormat = iconTypeFromMime />
+                                                                <#if fileName != "">
+                                                                    <#assign fileFormat = getFileExtension(fileName?lower_case) />
+                                                                </#if>
+                                                                <span class="nhsd-a-tag nhsd-a-tag--meta">${fileFormat}</span>
+                                                                <span class="nhsd-a-tag nhsd-a-tag--meta-light">${fileSize}</span>
+                                                            </div>
+
+                                                            <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-s">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                                    <path d="M15,8.5L8,15L1,8.5L2.5,7L7,11.2L7,1l2,0l0,10.2L13.5,7L15,8.5z"/>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </@externalstorageLink>
+                                    </div>
+                                </#list>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </#if>
+
+            <div class="nhsd-!t-margin-bottom-6">
+                <@lastModified document.lastModified false></@lastModified>
+            </div>
+
+            <div class="nhsd-!t-margin-bottom-8">
+                <@pagination document />
+            </div>
+
+            <#if hasChildPages>
+                <#assign splitChapters = splitHash(documents) />
+                <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1" 
+                    id="chapter-index"
+                >
+                    <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
+                        <#list splitChapters.left as chapter>
+                        <#if chapter.id == document.identifier>
+                            <li class="nhsd-m-publication-chapter-navigation--active">
+                        <#else>
+                            <li class="">
+                        </#if>
+                                <a class="nhsd-a-link"
+                                    href="${chapter.link}"
+                                    title="${chapter.title}"
+                                >
+                                    ${chapter.title}
+                                    <span class="nhsd-t-sr-only"></span>
+                                </a>
+                            </li>
+                        </#list>
+
+                        <#if splitChapters.right?size gte 1>
+                            <#list splitChapters.right as chapter>
+                            <#if chapter.id == document.identifier>
+                                <li class="nhsd-m-publication-chapter-navigation--active">
+                            <#else>
+                                <li class="">
+                            </#if>
+                                    <a class="nhsd-a-link"
+                                        href="${chapter.link}"
+                                        title="${chapter.title}"
+                                    >
+                                        ${chapter.title}
+                                        <span class="nhsd-t-sr-only"></span>
+                                    </a>
+                                </li>
+                            </#list>
+                        </#if>
+                    </ol>
+                </div>
+            </#if>
+        </div>
+    </div>
+</div>
