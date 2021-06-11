@@ -4,7 +4,7 @@
 <#macro chapterNav page currentPageTitlePrefix="">
     <#assign chapterPagination = page.paginate() />
     <#if chapterPagination??>
-        <div class="nhsd-o-chapter-navigation">
+        <div class="nhsd-o-chapter-navigation nhsd-!t-bg-pale-grey-80-tint nhsd-!t-margin-bottom-3">
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
 
                 <div class="nhsd-o-chapter-navigation__previous-chapter">
