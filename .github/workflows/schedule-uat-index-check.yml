@@ -15,7 +15,16 @@ jobs:
 
     steps:
 
-      - name: Deploy request
+      #
+      # Checkout the branch
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0 # Need all the tags for versioning
+
+      - name: Sechedule UAT
         id: pipeline-deploy
         run: |
           make ondemand.index-consistency-check
