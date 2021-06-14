@@ -17,9 +17,7 @@ jobs:
 
       - name: Deploy request
         id: pipeline-deploy
-        run: |
-          make ondemand.pipeline-deploy > pipeline-deploy-output.txt
-          echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
+        run: ondemand.make index-consistency-check
         env:
           ENV: "uat"
           RD_URL: ${{ secrets.RD_API }}
