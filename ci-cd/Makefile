@@ -156,7 +156,7 @@ ondemand.index-consistency-check: vendor/rd
 	source vendor/rd run \
 		--at "$(INDEX_DATE)T$(INDEX_TIME_UTC)Z"\
 		--project nhs \
-		--job "jobs/$(OD_ENV)/Index%20consistency&20check"
+		--job ""jobs/$(OD_ENV)/Index consistency check""
 
 ## Schedule deployment of the "rc" tag for next working day
 # Please make note this does not take into account bank holidays.
