@@ -3,6 +3,9 @@ name: Sechedule UAT Index Check
 on:
   schedule:
     - cron: '5 * * * *'
+  push:
+    branches:
+      - DW-0000-index-check
 
 jobs:
   build:
