@@ -18,7 +18,6 @@ jobs:
       - name: Deploy request
         id: pipeline-deploy
         run: |
-          cd ci-cd/
           make ondemand.index-consistency-check
         env:
           ENV: "uat"
