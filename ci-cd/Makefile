@@ -6,6 +6,8 @@ OD_ENV = $(shell bash ondemand-env-name $(ENV))
 RD_CONF = $(PWD)/rd.conf
 RELEASE_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((++d)); done; date --date +$${d}day +%Y-%m-%d)
 RELEASE_TIME_UTC = 11:05:00
+INDEX_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((++d)); done; date --date +$${d}day +%Y-%m-%d)
+INDEX_TIME_UTC = 00:00:00
 TRAVIS_BUILD_CMD ?= test.site
 TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
@@ -149,6 +151,12 @@ ondemand.pipeline-deploy: vendor/rd
 		-- \
 		-bootstrap true \
 		-distribution "$(VERSION).tar.gz"
+
+ondemand.index-consistency-check: vendor/rd
+	source vendor/rd run \
+		--at "$(INDEX_DATE)T$(INDEX_TIME_UTC)Z"\
+		--project nhs \
+		--job "jobs/$(OD_ENV)/Index consistency check"
 
 ## Schedule deployment of the "rc" tag for next working day
 # Please make note this does not take into account bank holidays.
