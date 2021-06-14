@@ -17,8 +17,9 @@ jobs:
 
       - name: Deploy request
         id: pipeline-deploy
-        run: make ondemand.index-consistency-check
-        working-directory: ci-cd
+        run: |
+          cd ci-cd/
+          make ondemand.index-consistency-check
         env:
           ENV: "uat"
           RD_URL: ${{ secrets.RD_API }}
