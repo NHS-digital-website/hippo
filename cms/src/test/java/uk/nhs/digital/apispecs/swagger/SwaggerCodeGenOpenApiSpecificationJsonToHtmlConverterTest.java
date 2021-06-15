@@ -21,6 +21,7 @@ import org.mockito.Mock;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.test.util.TestDataCache;
 
+
 @RunWith(DataProviderRunner.class)
 public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
