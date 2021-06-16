@@ -11,6 +11,9 @@ definitions:
       /api-catalogue:
         hst:renderpath: webfile:/freemarker/common/api-catalogue.ftl
         jcr:primaryType: hst:template
+      /api-catalogue-preview:
+        hst:renderpath: webfile:/freemarker/common/api-catalogue-preview.ftl
+        jcr:primaryType: hst:template
       /apiendpoint-article:
         hst:renderpath: webfile:/freemarker/common/apiendpoint-article.ftl
         jcr:primaryType: hst:template
@@ -128,6 +131,9 @@ definitions:
       /feature:
         hst:renderpath: webfile:/freemarker/common/feature.ftl
         jcr:primaryType: hst:template
+      /feedhub:
+        hst:renderpath: webfile:/freemarker/common/feedhub.ftl
+        jcr:primaryType: hst:template
       /feedlist:
         hst:renderpath: webfile:/freemarker/common/feedlist.ftl
         jcr:primaryType: hst:template
@@ -160,6 +166,9 @@ definitions:
         jcr:primaryType: hst:template
       /header-banner:
         hst:renderpath: webfile:/freemarker/common/header-banner.ftl
+        jcr:primaryType: hst:template
+      /heading-and-copy:
+        hst:renderpath: webfile:/freemarker/common/heading-and-copy.ftl
         jcr:primaryType: hst:template
       /hero:
         hst:renderpath: webfile:/freemarker/common/hero.ftl
@@ -258,7 +267,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
         jcr:primaryType: hst:template
       /orgstructure:
-        hst:renderpath: webfile:/freemarker/common/orgstructure.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/orgstructure.ftl
         jcr:primaryType: hst:template
       /person-article:
         hst:renderpath: webfile:/freemarker/common/person-article.ftl

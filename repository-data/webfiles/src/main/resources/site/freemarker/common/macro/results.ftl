@@ -47,6 +47,7 @@
                   || document.class.name?contains("uk.nhs.digital.website.beans.Group")
                   || document.class.name?contains("uk.nhs.digital.website.beans.OrgStructure")
                   || document.class.name?contains("uk.nhs.digital.website.beans.Feature")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.FeedHub")
             >
                 <@genericSearchElement item=document isShowTitle=true elemDate="" />
             </#if>
