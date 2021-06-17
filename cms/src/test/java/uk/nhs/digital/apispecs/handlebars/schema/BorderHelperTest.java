@@ -250,7 +250,7 @@ public class BorderHelperTest {
 
     private static String getBorder(SchemaBorder type, int lightnessLevel) {
         return String.format(
-            "<span class=\"%s-schema-border\" style=\"--border-padding: 1.25em; --border-lightness: %s\"></span>",
+            "<span class=\"nhsd-o-schema__border-%s\" style=\"--border-padding: 1.25em; --border-lightness: %s\"></span>",
             type.getString(), lightnessLevels[lightnessLevel]
         );
     }
@@ -260,7 +260,7 @@ public class BorderHelperTest {
             return getBorder(type, lightnessLevel);
         }
         return String.format(
-            "<span class=\"%s-schema-border\" style=\"--border-padding: %sem; --border-lightness: %s\"></span>",
+            "<span class=\"nhsd-o-schema__border-%s\" style=\"--border-padding: %sem; --border-lightness: %s\"></span>",
             type.getString(), 1.25 - (1.5 * paddingLevel), lightnessLevels[lightnessLevel]
         );
     }

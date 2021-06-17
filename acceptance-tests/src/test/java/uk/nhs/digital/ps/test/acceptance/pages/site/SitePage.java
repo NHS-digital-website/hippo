@@ -1,7 +1,6 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.nil.IndicatorPageElements;
@@ -9,17 +8,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.ps.ArchivePageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.DatasetPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.SeriesPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.BlogPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.GdprPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.GeneralPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.GlossaryPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.HubPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.LinksListPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.PublishedWorkPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.RoadmapItemPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.RoadmapPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.website.ServicePageElements;
+import uk.nhs.digital.ps.test.acceptance.pages.site.website.*;
 import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
@@ -126,10 +115,6 @@ public class SitePage extends AbstractSitePage {
 
     public String getDocumentContent() {
         return helper.findElement(By.xpath("//*[@data-uipath='ps.document.content']")).getText();
-    }
-
-    public String getArticleContentSection() {
-        return helper.findElement(By.xpath("//*[@class='grid-wrapper grid-wrapper--article']")).getText();
     }
 
     public List<WebElement> findPageElements(String elementName) {

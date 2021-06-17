@@ -32,6 +32,16 @@ public class CommonmarkMarkdownConverterTest {
 
     private CommonmarkMarkdownConverter commonmarkMarkdownConverter;
 
+
+    private static final String[] headings = new String[]{
+        "nhsd-t-heading-xxl",
+        "nhsd-t-heading-xl",
+        "nhsd-t-heading-l",
+        "nhsd-t-heading-m",
+        "nhsd-t-heading-s",
+        "nhsd-t-heading-xs"
+    };
+
     @Before
     public void setUp() {
         initMocks(this);
@@ -113,6 +123,24 @@ public class CommonmarkMarkdownConverterTest {
     }
 
     @Test
+    public void rendersHeadingIds_addingSuffixes_whenDuplicateHeadingValues() {
+
+        // given
+        final String markdown = from("headings-with-duplicate-values.md");
+        final String expectedHtml = from("headings-with-duplicate-values.html");
+
+        // when
+        final String actualHtml = commonmarkMarkdownConverter.toHtml(markdown, "customPrefix__", CommonmarkMarkdownConverter.NO_CHANGE);
+
+        // then
+        assertThat(
+            "Heading id values are prefixed with provided prefix.",
+            actualHtml,
+            is(expectedHtml)
+        );
+    }
+
+    @Test
     @UseDataProvider("headingsLevels")
     public void rendersHeadings_withHeadingsHierarchyLevelsAdjustedViaParameter(
         final int targetTopHeadingLevel,
@@ -124,7 +152,7 @@ public class CommonmarkMarkdownConverterTest {
 
         final String expectedHtml = htmlWithHeadingsAt(expectedHeadingLevels);
 
-        final String irrelevantHeadingIdPrefix = "";
+        final String irrelevantHeadingIdPrefix = null;
 
         // when
         final String actualHtml = commonmarkMarkdownConverter.toHtml(markdown, irrelevantHeadingIdPrefix, targetTopHeadingLevel);
@@ -213,8 +241,14 @@ public class CommonmarkMarkdownConverterTest {
         // <h3 id="heading">Heading</h3>
 
         return headingsLevels.stream()
-            .map(level -> format("<h{0} id=\"heading\">Heading</h{0}>", level))
+            .map(level -> format("<h{0} class=\"{1}\">Heading</h{0}>", level, cssClassForHeadingLevel(level)))
             .collect(joining("\n"));
+    }
+
+    private String cssClassForHeadingLevel(int level) {
+        return level < 1
+            ? headings[0]
+            : level > 6 ? headings[5] : headings[level - 1];
     }
 
     private String markdownWithHeadingsAt(final Levels headingsLevels) {
@@ -253,7 +287,7 @@ public class CommonmarkMarkdownConverterTest {
         }
 
         @Override public String toString() {
-            return levels.stream().map(Object::toString).collect(joining(", ", "[", "]"));
+            return levels.stream().map(Object::toString).collect(joining(", ", "[", "]\n"));
         }
     }
 }
