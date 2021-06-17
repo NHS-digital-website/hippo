@@ -156,7 +156,7 @@ ondemand.index-consistency-check-uat: vendor/rd
 	source vendor/rd run \
 		--at "$(INDEX_DATE)T$(INDEX_TIME_UTC)Z"\
 		--project nhs \
-		--job "'jobs/ebe9f26c-cf70-4f26-ab09-26523784b510"
+		--job "jobs/$(OD_ENV)/ebe9f26c-cf70-4f26-ab09-26523784b510"
 
 ## Schedule deployment of the "rc" tag for next working day
 # Please make note this does not take into account bank holidays.
