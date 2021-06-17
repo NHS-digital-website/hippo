@@ -4,8 +4,12 @@ definitions:
     /hippo:configuration/hippo:update/hippo:registry/ApiSpecificationRenderer:
       hipposys:batchsize: 10
       hipposys:description: |
-        Renders OpenAPI specification given by specificationJsonFile parameter and saves it in a document ready to be displayed at http://localhost:8080/site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-a
-        Compiles all the code necessary to convert OAS JSON to HTML, and uses the latest *.mustache templates so that any changes to the rendering logic can be tested immediately, without having to rebuild and restart the application.
+        To be used during development of rendering of OpenAPI specifications to shorten feedback cycle - change the rendering logic
+        (Java code, *.mustache templates) and run this updater to quickly see the effect of your changes on the rendered HTML.
+        Renders OpenAPI specification given by specificationJsonFile parameter (which you can override via 'Parameters' field)
+        and saves it in a document ready to be displayed at http://localhost:8080/site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-a
+        Compiles all the code necessary to convert OAS JSON to HTML, and uses the latest *.mustache templates so that any changes
+        to the rendering logic can be tested immediately, without having to rebuild and restart the application.
         TO BE ONLY USED IN DEVELOPMENT ON LOCAL MACHINE!
       hipposys:dryrun: false
       hipposys:loglevel: DEBUG

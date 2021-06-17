@@ -144,7 +144,7 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/model/ExampleObject.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/model/SchemaObject.java",
                 "../../cms/src/main/java/uk/nhs/digital/ExceptionUtils.java",
-                "../../repository-data/development/src/main/resources/hcm-config/configuration/update/ApiSpecificationRenderer/CodegenRunner.java",
+                "../../repository-data/local/src/main/resources/hcm-config/configuration/update/ApiSpecificationRenderer/CodegenRunner.java",
         ].stream().collect(Collectors.joining(" "))
 
         log.info("COMPILATION COMMAND: ${command}")
