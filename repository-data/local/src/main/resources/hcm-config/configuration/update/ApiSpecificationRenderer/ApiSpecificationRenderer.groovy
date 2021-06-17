@@ -29,11 +29,16 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
 
         specificationJsonFileToRender = parametersMap['specificationJsonFile']
 
-        "mkdir ${CLASSES_DIR}".execute()
+        try {
+            createTempDirForCompiledClasses()
 
-        compileClasses()
+            compileClasses()
 
-        html = generateHtml()
+            html = generateHtml()
+
+        } catch (e) {
+            log.error("Failed to render specification.", e)
+        }
 
         log.info("INITIALISING DONE")
     }
@@ -47,7 +52,7 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 return updateNode(node)
             }
         } catch (e) {
-            log.error("Failed to process record ${node}.", e)
+            log.error("Failed to save rendered content for ${node}.", e)
         }
 
         return false
@@ -58,21 +63,11 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
         return false
     }
 
-    boolean updateNode(Node n) {
-        def nodeType = n.getPrimaryNodeType().getName()
+    void createTempDirForCompiledClasses() {
+        def command = "mkdir --parents ${CLASSES_DIR}"
+        def failureMessage = "Failed to create directory $CLASSES_DIR"
 
-        if ("website:apispecification".equals(nodeType)) {
-
-            JcrUtils.ensureIsCheckedOut(n)
-
-            n.setProperty("website:html", html)
-
-            log.info("UPDATED")
-
-            return true
-        }
-
-        return false
+        execute(command, failureMessage)
     }
 
     void compileClasses() {
@@ -84,23 +79,24 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 "javac",
                 "-d", CLASSES_DIR,
                 "-classpath", String.join(":",
-            "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.2/jackson-annotations-2.12.2.jar",
-            "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.2/jackson-core-2.12.2.jar",
-            "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.2/jackson-databind-2.12.2.jar",
-            "${homePath}/.m2/repository/com/github/jknack/handlebars-helpers/4.2.0/handlebars-helpers-4.2.0.jar",
-            "${homePath}/.m2/repository/com/github/jknack/handlebars/4.2.0/handlebars-4.2.0.jar",
-            "${homePath}/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar",
-            "${homePath}/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar",
-            "${homePath}/.m2/repository/io/swagger/codegen/v3/swagger-codegen-generators/1.0.26/swagger-codegen-generators-1.0.26.jar",
-            "${homePath}/.m2/repository/io/swagger/codegen/v3/swagger-codegen/3.0.26/swagger-codegen-3.0.26.jar",
-            "${homePath}/.m2/repository/io/swagger/core/v3/swagger-models/2.1.7/swagger-models-2.1.7.jar",
-            "${homePath}/.m2/repository/io/swagger/parser/v3/swagger-parser-core/2.0.26/swagger-parser-core-2.0.26.jar",
-            "${homePath}/.m2/repository/io/swagger/parser/v3/swagger-parser-v3/2.0.26/swagger-parser-v3-2.0.26.jar",
-            "${homePath}/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar",
-            "${homePath}/.m2/repository/org/commonmark/commonmark-ext-gfm-tables/0.17.0/commonmark-ext-gfm-tables-0.17.0.jar",
-            "${homePath}/.m2/repository/org/commonmark/commonmark/0.17.0/commonmark-0.17.0.jar",
-            "${homePath}/.m2/repository/org/jetbrains/annotations/18.0.0/annotations-18.0.0.jar",
-            "${homePath}/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
+                "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.2/jackson-annotations-2.12.2.jar",
+                "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.2/jackson-core-2.12.2.jar",
+                "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.2/jackson-databind-2.12.2.jar",
+                "${homePath}/.m2/repository/com/github/jknack/handlebars-helpers/4.2.0/handlebars-helpers-4.2.0.jar",
+                "${homePath}/.m2/repository/com/github/jknack/handlebars/4.2.0/handlebars-4.2.0.jar",
+                "${homePath}/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar",
+                "${homePath}/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar",
+                "${homePath}/.m2/repository/io/swagger/codegen/v3/swagger-codegen-generators/1.0.26/swagger-codegen-generators-1.0.26.jar",
+                "${homePath}/.m2/repository/io/swagger/codegen/v3/swagger-codegen/3.0.26/swagger-codegen-3.0.26.jar",
+                "${homePath}/.m2/repository/io/swagger/core/v3/swagger-models/2.1.7/swagger-models-2.1.7.jar",
+                "${homePath}/.m2/repository/io/swagger/parser/v3/swagger-parser-core/2.0.26/swagger-parser-core-2.0.26.jar",
+                "${homePath}/.m2/repository/io/swagger/parser/v3/swagger-parser-v3/2.0.26/swagger-parser-v3-2.0.26.jar",
+                "${homePath}/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar",
+                "${homePath}/.m2/repository/org/commonmark/commonmark-ext-gfm-tables/0.17.0/commonmark-ext-gfm-tables-0.17.0.jar",
+                "${homePath}/.m2/repository/org/commonmark/commonmark/0.17.0/commonmark-0.17.0.jar",
+                "${homePath}/.m2/repository/org/jetbrains/annotations/18.0.0/annotations-18.0.0.jar",
+                "${homePath}/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
+                "${homePath}/.m2/repository/com/google/guava/guava/30.1-jre/guava-30.1-jre.jar"
         ),
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/ApiSpecificationStaticHtml2Codegen.java",
@@ -131,7 +127,6 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/request/examplerenderer/CodegenParamSchema.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/request/examplerenderer/ParamExample.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/CommonmarkMarkdownConverter.java",
-                "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/TableSortOffAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/HeadingAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/CodeAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/MarkdownConversionException.java",
@@ -143,22 +138,15 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/model/MediaTypeObject.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/model/ExampleObject.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/model/SchemaObject.java",
+                "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/TableBlockNodeRenderer.java",
+                "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/FencedCodeBlockNodeRenderer.java",
+                "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/HyperlinkAttributeProvider.java",
+                "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/ListAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/ExceptionUtils.java",
                 "../../repository-data/local/src/main/resources/hcm-config/configuration/update/ApiSpecificationRenderer/CodegenRunner.java",
         ].stream().collect(Collectors.joining(" "))
 
-        log.info("COMPILATION COMMAND: ${command}")
-
-        def stderr = new StringBuilder()
-        def stdout = new StringBuilder()
-
-        def process = command.execute()
-        process.consumeProcessOutputStream(stdout)
-        process.consumeProcessErrorStream(stderr)
-        process.waitFor()
-
-        log.info("COMPILATION STDOUT: $stdout")
-        log.info("COMPILATION STDERR: $stderr")
+        execute(command, "Compilation failed.")
 
         log.info("COMPILATION DONE")
     }
@@ -171,35 +159,42 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 "java",
                 "-classpath", String.join(":",
                 CLASSES_DIR,
-            "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.2/jackson-annotations-2.12.2.jar",
-            "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.2/jackson-core-2.12.2.jar",
-            "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.2/jackson-databind-2.12.2.jar",
-            "${homePath}/.m2/repository/com/github/jknack/handlebars-helpers/4.2.0/handlebars-helpers-4.2.0.jar",
-            "${homePath}/.m2/repository/com/github/jknack/handlebars/4.2.0/handlebars-4.2.0.jar",
-            "${homePath}/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar",
-            "${homePath}/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar",
-            "${homePath}/.m2/repository/io/swagger/codegen/v3/swagger-codegen-generators/1.0.26/swagger-codegen-generators-1.0.26.jar",
-            "${homePath}/.m2/repository/io/swagger/codegen/v3/swagger-codegen/3.0.26/swagger-codegen-3.0.26.jar",
-            "${homePath}/.m2/repository/io/swagger/core/v3/swagger-models/2.1.7/swagger-models-2.1.7.jar",
-            "${homePath}/.m2/repository/io/swagger/parser/v3/swagger-parser-core/2.0.26/swagger-parser-core-2.0.26.jar",
-            "${homePath}/.m2/repository/io/swagger/parser/v3/swagger-parser-v3/2.0.26/swagger-parser-v3-2.0.26.jar",
-            "${homePath}/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar",
-            "${homePath}/.m2/repository/org/commonmark/commonmark-ext-gfm-tables/0.17.0/commonmark-ext-gfm-tables-0.17.0.jar",
-            "${homePath}/.m2/repository/org/commonmark/commonmark/0.17.0/commonmark-0.17.0.jar",
-            "${homePath}/.m2/repository/org/jetbrains/annotations/18.0.0/annotations-18.0.0.jar",
-            "${homePath}/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
-            "${homePath}/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.12.2/jackson-dataformat-yaml-2.12.2.jar",
-            "${homePath}/.m2/repository/org/yaml/snakeyaml/1.28/snakeyaml-1.28.jar",
-            "${homePath}/.m2/repository/io/swagger/core/v3/swagger-core/2.1.4/swagger-core-2.1.4.jar",
-            "${homePath}/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.1/jackson-datatype-jsr310-2.12.1.jar",
-            "../../cms/src/main/resources"
+                "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.2/jackson-annotations-2.12.2.jar",
+                "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.2/jackson-core-2.12.2.jar",
+                "${homePath}/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.2/jackson-databind-2.12.2.jar",
+                "${homePath}/.m2/repository/com/github/jknack/handlebars-helpers/4.2.0/handlebars-helpers-4.2.0.jar",
+                "${homePath}/.m2/repository/com/github/jknack/handlebars/4.2.0/handlebars-4.2.0.jar",
+                "${homePath}/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar",
+                "${homePath}/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar",
+                "${homePath}/.m2/repository/io/swagger/codegen/v3/swagger-codegen-generators/1.0.26/swagger-codegen-generators-1.0.26.jar",
+                "${homePath}/.m2/repository/io/swagger/codegen/v3/swagger-codegen/3.0.26/swagger-codegen-3.0.26.jar",
+                "${homePath}/.m2/repository/io/swagger/core/v3/swagger-models/2.1.7/swagger-models-2.1.7.jar",
+                "${homePath}/.m2/repository/io/swagger/parser/v3/swagger-parser-core/2.0.26/swagger-parser-core-2.0.26.jar",
+                "${homePath}/.m2/repository/io/swagger/parser/v3/swagger-parser-v3/2.0.26/swagger-parser-v3-2.0.26.jar",
+                "${homePath}/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar",
+                "${homePath}/.m2/repository/org/commonmark/commonmark-ext-gfm-tables/0.17.0/commonmark-ext-gfm-tables-0.17.0.jar",
+                "${homePath}/.m2/repository/org/commonmark/commonmark/0.17.0/commonmark-0.17.0.jar",
+                "${homePath}/.m2/repository/org/jetbrains/annotations/18.0.0/annotations-18.0.0.jar",
+                "${homePath}/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
+                "${homePath}/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.12.2/jackson-dataformat-yaml-2.12.2.jar",
+                "${homePath}/.m2/repository/org/yaml/snakeyaml/1.28/snakeyaml-1.28.jar",
+                "${homePath}/.m2/repository/io/swagger/core/v3/swagger-core/2.1.4/swagger-core-2.1.4.jar",
+                "${homePath}/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.1/jackson-datatype-jsr310-2.12.1.jar",
+                "${homePath}/.m2/repository/com/google/guava/guava/30.1-jre/guava-30.1-jre.jar",
+                "../../cms/src/main/resources"
         ),
                 "CodegenRunner",
                 specificationJsonFileToRender,
         ].stream().collect(Collectors.joining(" "))
 
-        log.info("RENDERING COMMAND: ${command}")
+        def html = execute(command, "Rendering failed.")
 
+        log.info("RENDERING DONE")
+
+        return html
+    }
+
+    String execute(String command, String failureMessage) {
         def stderr = new StringBuilder()
         def stdout = new StringBuilder()
 
@@ -208,12 +203,39 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
         process.consumeProcessErrorStream(stderr)
         process.waitFor()
 
-        log.info("RENDERING STDOUT: $stdout")
-        log.info("RENDERING STDERR: $stderr")
+        if (stdout.size() > 0) log.info("STDOUT: $stdout")
+        if (stderr.size() > 0) log.error("STDERR: $stderr")
 
-        log.info("RENDERING DONE")
+        if (process.exitValue()) {
+            throw new RuntimeException(failureMessage)
+        }
 
         return stdout
+    }
+
+    boolean updateNode(Node n) {
+        def nodeType = n.getPrimaryNodeType().getName()
+
+        if (contentHasBeenRendered() && nodePointsToApiSpecDoc(nodeType)) {
+
+            JcrUtils.ensureIsCheckedOut(n)
+
+            n.setProperty("website:html", html)
+
+            log.info("UPDATED")
+
+            return true
+        }
+
+        return false
+    }
+
+    protected boolean contentHasBeenRendered() {
+        html != null
+    }
+
+    protected boolean nodePointsToApiSpecDoc(String nodeType) {
+        "website:apispecification".equals(nodeType)
     }
 
 }

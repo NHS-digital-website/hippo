@@ -157,9 +157,14 @@ public class CommonmarkMarkdownConverter {
     private String renderMarkdownModel(final Node document, final List<Extension> extensions, final String headingIdPrefix) {
 
         final HtmlRenderer renderer = HtmlRenderer.builder()
+            .nodeRendererFactory(context -> new FencedCodeBlockNodeRenderer(context))
+            .nodeRendererFactory(context -> new TableBlockNodeRenderer(context))
             .attributeProviderFactory(context -> new CodeAttributeProvider())
             .attributeProviderFactory(context -> new HeadingAttributeProvider(headingIdPrefix))
-            .attributeProviderFactory(context -> new TableSortOffAttributeProvider())
+            .attributeProviderFactory(context -> new ListAttributeProvider())
+            .attributeProviderFactory(context -> new HyperlinkAttributeProvider())
+            .attributeProviderFactory(context -> new ParagraphAttributeProvider())
+            .attributeProviderFactory(context -> new StrongEmphasisAttributeProvider())
             .extensions(extensions)
             .build();
 
