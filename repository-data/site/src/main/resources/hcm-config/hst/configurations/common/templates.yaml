@@ -222,7 +222,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/nhsd-common/navigationBlock.ftl
         jcr:primaryType: hst:template
       /news-article:
-        hst:renderpath: webfile:/freemarker/common/news-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/news-article.ftl
         jcr:primaryType: hst:template
       /news-events-homepage:
         hst:renderpath: webfile:/freemarker/common/news-events-homepage.ftl
