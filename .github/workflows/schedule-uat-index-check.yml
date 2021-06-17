@@ -26,7 +26,7 @@ jobs:
       - name: Sechedule UAT
         id: pipeline-deploy
         run: |
-          make ondemand.index-consistency-check
+          make ondemand.index-consistency-check-uat
         env:
           ENV: "uat"
           RD_URL: ${{ secrets.RD_API }}
