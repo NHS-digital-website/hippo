@@ -1,8 +1,8 @@
 package uk.nhs.digital.apispecs.swagger;
 
-import static java.util.Collections.*;
+import static java.util.Collections.emptyList;
+import static java.util.Collections.emptyMap;
 
-import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.AssignHelper;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
@@ -13,22 +13,30 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.headers.Header;
+import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 import uk.nhs.digital.apispecs.handlebars.*;
 import uk.nhs.digital.apispecs.handlebars.schema.SchemaHelper;
+import uk.nhs.digital.apispecs.handlebars.schema.TypeAnySanitisingHelper;
 import uk.nhs.digital.apispecs.swagger.model.BodyWithMediaTypesExtractor;
 import uk.nhs.digital.apispecs.swagger.request.examplerenderer.CodegenParameterExampleHtmlRenderer;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
+
+    public static Logger log = LoggerFactory.getLogger(ApiSpecificationStaticHtml2Codegen.class);
 
     private static final String VENDOR_EXT_KEY_BODY = "x-body";
     private static final String VENDOR_EXT_KEY_SCHEMA = "x-schema";
@@ -60,6 +68,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     @Override
     public void postProcessParameter(final CodegenParameter parameter) {
         super.postProcessParameter(parameter);
+
+        fixDefaultValueForDateDataFormat(parameter);
 
         postProcessRequestBody(parameter);
     }
@@ -101,19 +111,63 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(IsAnyTrueHelper.NAME, IsAnyTrueHelper.INSTANCE)
             .registerHelper(AssignHelper.NAME, AssignHelper.INSTANCE)
             .registerHelper(HeadingsHyperlinksFromMarkdownHelper.NAME, HeadingsHyperlinksFromMarkdownHelper.INSTANCE)
+            .registerHelper(TypeAnySanitisingHelper.NAME, TypeAnySanitisingHelper.INSTANCE)
             .registerHelper(StringBooleanVariableHelper.NAME, StringBooleanVariableHelper.INSTANCE)
             .registerHelper(ConditionalHelpers.eq.name(), ConditionalHelpers.eq)
+            .registerHelper(ConditionalHelpers.or.name(), ConditionalHelpers.or)
             .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
             .registerHelper(StringHelpers.lower.name(), StringHelpers.lower)
+            .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
+            .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
             .registerHelper(UuidHelper.NAME, UuidHelper.INSTANCE);
-
-        handlebars.with(EscapingStrategy.NOOP);
     }
 
 
     @Override
-    public String removeNonNameElementToCamelCase(String operationName) {
+    public String removeNonNameElementToCamelCase(final String operationName) {
         return operationName;
+    }
+
+    private void fixDefaultValueForDateDataFormat(final CodegenProperty responseHeader) {
+        sanitiseDefaultDate(responseHeader.defaultValue, responseHeader.dataFormat, responseHeader.toString())
+            .ifPresent(sanitisedDefaultDate -> responseHeader.defaultValue = sanitisedDefaultDate);
+    }
+
+    private void fixDefaultValueForDateDataFormat(final CodegenParameter requestParameter) {
+        sanitiseDefaultDate(requestParameter.getDefaultValue(), requestParameter.getDataFormat(), requestParameter.toString())
+            .ifPresent(sanitisedDefaultDate -> requestParameter.defaultValue = sanitisedDefaultDate);
+    }
+
+    private Optional<String> sanitiseDefaultDate(final String defaultValue, final String dataFormat, final String parameter) {
+        // For parameters with data format of 'date' Codegen's parser emits values of 'default' field as java.util.Date.
+        // This makes us lose access to the raw value of that field as defined in the source JSON.
+        //
+        // A consequence of this is that value returned by parameter.getDefaultValue() is one that Codegen obtains from Date.toString() which
+        // looks like 'Sun Jan 01 00:00:00 GMT 1984' which is not a correct date representation for fields of type 'date'.
+        // To compensate for this, if the data format is 'date' we parse the value into ISO 'full-date' format as per
+        // https://datatracker.ietf.org/doc/html/rfc3339 which is specified as definition of 'date' format in https://spec.openapis.org/oas/v3.0.3#data-types
+        //
+        // Default values of parameters are defined in parameters' schemas. See io.swagger.codegen.v3.generators.DefaultCodegenConfig.fromParameter for how it:
+        // * calls Date.toString() to populate defaultValue,
+        // * calls JSON.pretty(parameter) to populate codegenParameter.jsonSchema - which is why parameter.getJsonSchema() does not help us in obtaining raw
+        //   value defined in OAS file, because is _not_ the original JSON.
+
+        if ("date".equals(dataFormat) && StringUtils.isNotBlank(defaultValue)) {
+            final String pattern = "E MMM dd HH:mm:ss VV uuuu"; // Sun Jan 01 00:00:00 GMT 1984
+
+            final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+
+            try {
+                return Optional.of(LocalDate.parse(defaultValue.trim(), dateTimeFormatter).toString());
+            } catch (final Exception e) {
+                final String apiTitle = Optional.ofNullable(openAPI.getInfo()).map(Info::getTitle).orElse("n/a");
+                log.warn(
+                    "Unable to fix default value of '{}' as ISO-8601 format uuuu-MM-dd despite format being 'date' for parameter '{}' in API specification '{}'.",
+                    defaultValue, parameter, apiTitle
+                );
+            }
+        }
+        return Optional.empty();
     }
 
     /**
@@ -265,6 +319,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     private void postProcessResponseHeader(final CodegenProperty codegenResponseHeader) {
 
         fixCodegenResponseHeaderNullDefaultValue(codegenResponseHeader);
+
+        fixDefaultValueForDateDataFormat(codegenResponseHeader);
 
         renderResponseHeaderExamples(codegenResponseHeader);
     }

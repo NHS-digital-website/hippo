@@ -2,6 +2,7 @@ package uk.nhs.digital.apispecs.handlebars;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -32,11 +33,11 @@ public class BodyRenderingTest {
         // then
         assertThat("Renders example from MediaTypeObject's 'example' field.",
             actualHtml,
-            containsString("simple example specified in MediaTypeObject's definition")
+            containsString("simple example specified in MediaTypeObject&#x27;s definition")
         );
         assertThat("Does not render example from MediaTypeObject's Schema.",
             actualHtml,
-            not(containsString("example specified in MediaTypeObject's schema"))
+            not(containsString("example specified in MediaTypeObject&#x27;s schema"))
         );
     }
 
@@ -53,13 +54,13 @@ public class BodyRenderingTest {
         assertThat("Renders examples from MediaTypeObject's 'examples' field.",
             actualHtml,
             allOf(
-                containsString("first example from request MediaTypeObject's definition"),
-                containsString("second example from request MediaTypeObject's definition")
+                containsString("first example from request MediaTypeObject&#x27;s definition"),
+                containsString("second example from request MediaTypeObject&#x27;s definition")
             )
         );
         assertThat("Does not render example from MediaTypeObject's Schema.",
             actualHtml,
-            not(containsString("example specified in MediaTypeObject's schema"))
+            not(containsString("example specified in MediaTypeObject&#x27;s schema"))
         );
     }
 
@@ -75,7 +76,7 @@ public class BodyRenderingTest {
         // then
         assertThat("Renders example from MediaTypeObject's Schema.",
             actualHtml,
-            containsString("example specified in MediaTypeObject's schema")
+            containsString("example specified in MediaTypeObject&#x27;s schema")
         );
     }
 
@@ -128,8 +129,8 @@ public class BodyRenderingTest {
         // choosing backticks-to-<code> as an indicator that this happens.
         // A separate test, dedicated to the converter itself provides a more complete coverage.
         assertThat("Renders complete body with all components and in the right order.",
-            actualHtml,
-            is(expectedHtml)
+            ignoringWhiteSpacesIn(actualHtml),
+            is(ignoringWhiteSpacesIn(expectedHtml))
         );
     }
 
@@ -152,8 +153,8 @@ public class BodyRenderingTest {
 
         // then
         assertThat("Renders complete body with all components and in the right order.",
-            actualHtml,
-            is(expectedHtml)
+            ignoringWhiteSpacesIn(actualHtml),
+            is(ignoringWhiteSpacesIn(expectedHtml))
         );
     }
 
@@ -169,7 +170,7 @@ public class BodyRenderingTest {
         // then
         assertThat("Does not render example from MediaTypeObject's Schema.",
             actualHtml,
-            (containsString("example specified in MediaTypeObject's schema"))
+            containsString("example specified in MediaTypeObject&#x27;s schema")
         );
 
     }

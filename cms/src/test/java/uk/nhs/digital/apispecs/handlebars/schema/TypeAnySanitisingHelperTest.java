@@ -1,10 +1,9 @@
 package uk.nhs.digital.apispecs.handlebars.schema;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
-import uk.nhs.digital.apispecs.handlebars.schema.TypeAnySanitisingHelper;
 
 import java.time.Instant;
 import java.util.Date;
@@ -51,5 +50,4 @@ public class TypeAnySanitisingHelperTest {
             is(expectedRendering)
         );
     }
-
 }

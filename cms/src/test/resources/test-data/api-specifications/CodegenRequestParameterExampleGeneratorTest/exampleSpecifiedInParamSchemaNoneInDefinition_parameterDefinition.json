@@ -1,5 +1,5 @@
 {
   "schema": {
-    "example": "example specified in parameter's schema"
+    "example": "example specified in parameter's schema with HTML hostile characters < > &"
   }
 }

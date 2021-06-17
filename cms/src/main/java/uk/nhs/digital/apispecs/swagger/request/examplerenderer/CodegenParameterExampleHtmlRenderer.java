@@ -1,5 +1,7 @@
 package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -68,27 +70,33 @@ public class CodegenParameterExampleHtmlRenderer {
     private String htmlFrom(final Collection<ParamExample> complexExamplesFromParamSchema) {
 
         //noinspection OptionalGetWithoutIsPresent
-        return new StringBuilder("<div class=\"httpparams__examples__header\">")
+        return new StringBuilder("<strong class=\"nhsd-!t-font-weight-bold\">")
             .append(complexExamplesFromParamSchema.size() == 1 ? "Example" : "Examples")
-            .append("</div>\n")
+            .append("</strong>\n")
             .append(
                 complexExamplesFromParamSchema.stream()
                     .map(example -> {
 
                         final StringBuilder examplesHtml = new StringBuilder();
 
-                        example.getSummary().ifPresent(summary ->
-                            examplesHtml.append("<div class=\"httpparams__example__summary\">").append(summary).append("</div>\n")
+                        example.getSummary().ifPresent(summary -> examplesHtml
+                            .append("<p class=\"nhsd-t-body\">")
+                            .append(escapeHtml4(summary))
+                            .append("</p>\n")
                         );
 
                         example.getDescription()
                             .map(markdownConverter::toHtml)
-                            .ifPresent(descriptionHtml ->
-                                examplesHtml.append("<div class=\"httpparams__example__description\">").append(descriptionHtml).append("</div>\n")
+                            .ifPresent(descriptionHtml -> examplesHtml
+                                .append("<p class=\"nhsd-t-body\">")
+                                .append(descriptionHtml)
+                                .append("</p>\n")
                             );
 
-                        example.getValue().ifPresent(value ->
-                            examplesHtml.append("<div class=\"httpparams__example__value\"><code class=\"codeinline\">").append(value).append("</code></div>\n")
+                        example.getValue().ifPresent(value -> examplesHtml
+                            .append("<p class=\"nhsd-t-body\"><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">")
+                            .append(escapeHtml4(value))
+                            .append("</span></p>\n")
                         );
 
                         return examplesHtml;
@@ -99,7 +107,10 @@ public class CodegenParameterExampleHtmlRenderer {
     }
 
     private String htmlFrom(final String simpleExampleValue) {
-        return MessageFormat.format("Example: <code class=\"codeinline\">{0}</code>", simpleExampleValue);
+        return MessageFormat.format(
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">{0}</span>",
+            escapeHtml4(simpleExampleValue)
+        );
     }
 
     private CodegenParamDefinition from(final String parameterJsonDefinition) throws JsonProcessingException {

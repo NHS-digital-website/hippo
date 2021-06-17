@@ -1,22 +1,27 @@
 package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import io.swagger.codegen.v3.CodegenParameter;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import uk.nhs.digital.apispecs.commonmark.CommonmarkMarkdownConverter;
 
+@RunWith(MockitoJUnitRunner.class)
 public class CodegenParameterExampleHtmlRendererTest {
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
@@ -27,8 +32,6 @@ public class CodegenParameterExampleHtmlRendererTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
-
         codegenParameterExampleHtmlRenderer = new CodegenParameterExampleHtmlRenderer(markdownConverter);
     }
 
@@ -37,7 +40,8 @@ public class CodegenParameterExampleHtmlRendererTest {
 
         // given
         final String expectedHtmlForExampleValue =
-            "Example: <code class=\"codeinline\">simple example specified in parameter's definition</code>";
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">"
+                + "simple example specified in parameter's definition with HTML hostile characters &lt; &gt; &amp;</span>";
 
         final String parameterJsonDefinition = from("exampleSpecifiedInParamDefinitionAndInSchema_parameterDefinition.json");
         final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
@@ -62,8 +66,8 @@ public class CodegenParameterExampleHtmlRendererTest {
         final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
 
         given(markdownConverter.toHtml(any()))
-            .willReturn("Example A from request parameter's definition - description with <code class=\"codeinline\">Markdown</code>")
-            .willReturn("Example B from request parameter's definition - description with <code class=\"codeinline\">Markdown</code>");
+            .willReturn("Example A from request parameter's definition - description with <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">Markdown</span>")
+            .willReturn("Example B from request parameter's definition - description with <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">Markdown</span>");
 
         // when
         final String actualHtmlForExampleValue =
@@ -83,7 +87,9 @@ public class CodegenParameterExampleHtmlRendererTest {
     public void rendersExampleSpecifiedInParamSchema_whenThereIsNoExampleInParamDefinition() {
 
         // given
-        final String expectedHtmlForExampleValue = "Example: <code class=\"codeinline\">example specified in parameter's schema</code>";
+        final String expectedHtmlForExampleValue =
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">"
+                + "example specified in parameter's schema with HTML hostile characters &lt; &gt; &amp;</span>";
 
         final String parameterJsonDefinition = from("exampleSpecifiedInParamSchemaNoneInDefinition_parameterDefinition.json");
         final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);

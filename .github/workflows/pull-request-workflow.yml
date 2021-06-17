@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - branding-trunk
+      - ADZ-1195_API_specification_branding_release
 
 jobs:
   build-and-test:
