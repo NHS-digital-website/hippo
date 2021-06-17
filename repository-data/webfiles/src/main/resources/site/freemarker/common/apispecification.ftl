@@ -1,8 +1,7 @@
 <#ftl output_format="HTML">
 
 <#include "../include/imports.ftl">
-<#include "macro/documentHeader.ftl">
-
+<#include "../nhsd-common/macros/header-banner.ftl">
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ApiSpecification" -->
 <#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 
@@ -20,8 +19,7 @@
         <@metaTags></@metaTags>
 
         <article class="article article--apispecification" itemscope>
-            <@documentHeader document 'general'></@documentHeader>
-
+            <@headerBanner document />
             <style type="text/css">
                 .ctabtn--nhs-digital-button--try-it-now { float: right; }
 
@@ -51,8 +49,8 @@
 
             </style>
 
-            <div class="grid-wrapper grid-wrapper--article">
-                <div class="grid-row">
+            <div class="nhsd-t-grid">
+                <div class="nhsd-t-row">
 
                     ${document.html?no_esc}
 
