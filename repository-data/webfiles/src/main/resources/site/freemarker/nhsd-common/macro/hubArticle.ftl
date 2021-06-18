@@ -39,7 +39,6 @@
                         <figure class="nhsd-a-image ${imgClass}">
                             <@hst.link hippobean=item.leadImage.newsPostImage fullyQualified=true var="leadImage" />
                             <@hst.link hippobean=item.leadImage.newsPostImage2x fullyQualified=true var="leadImage2x" />
-
                             <picture class="nhsd-a-image__picture">
                                 <img srcset="${leadImage}, ${leadImage2x} 2x" src="${leadImage}" alt="">
                             </picture>
