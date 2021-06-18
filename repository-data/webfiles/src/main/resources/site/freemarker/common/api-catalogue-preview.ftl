@@ -21,7 +21,7 @@
 
 <@headerBanner document />
 
-<div class="nhsd-t-grid nhsd-!t-margin-top-6">
+<div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-api-catalogue">
 
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-12">
@@ -35,12 +35,15 @@
     <#if alphabetical_hash??>
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
-            <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
-                <@scrollableFilterNav alphabetical_hash filtersModel></@scrollableFilterNav>
+            <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2 scrollable-component">
+                <@scrollableFilterNav alphabetical_hash filtersModel false></@scrollableFilterNav>
             </div>
         </div>
 
         <div class="nhsd-t-col-l-9 nhsd-t-col-m-12">
+            <div class="nhsd-!t-display-l-hide">
+                <@scrollableFilterNav alphabetical_hash filtersModel true></@scrollableFilterNav>
+            </div>
             <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
         </div>
     </div>
