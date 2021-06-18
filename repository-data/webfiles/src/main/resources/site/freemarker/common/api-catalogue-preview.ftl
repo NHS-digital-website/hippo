@@ -2,9 +2,8 @@
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/contentPixel.ftl">
-<#include "macro/scrollableFilterNav.ftl">
-<#include "macro/apiCatalogueEntries.ftl">
-<#include "macro/component/lastModified.ftl">
+<#include "macro/scrollableFilterNav-newDesign.ftl">
+<#include "macro/apiCatalogueEntries-newDesign.ftl">
 <#include "macro/svgIcons.ftl">
 <#include "../nhsd-common/macros/header-banner.ftl">
 
@@ -18,46 +17,33 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
+<#assign alphabetical_hash = group_blocks(flat_blocks(apiCatalogueLinks true))/>
 
-<article class="article article--filtered-list api-catalogue">
+<@headerBanner document />
 
-    <@headerBanner document />
+<div class="nhsd-t-grid nhsd-!t-margin-top-6">
 
-    <div class="grid-wrapper grid-wrapper--article">
-        <div class="grid-row">
-            <div class="column column--two-thirds column--reset">
-                <#-- [FTL-BEGIN] 'Summary and optional Body' sections -->
-                <div id="section-summary" class="article-section article-section--summary  no-border">
-                    <div class="grid-row">
-                        <div class="column column--reset">
-                            <div class="rich-text-content">
-                                <#if document.body?has_content??>
-                                    <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
-                                </#if>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <#-- [FTL-END] 'Summary and optional Body' sections -->
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-12">
+            <#if document.body?has_content??>
+                <@hst.html hippohtml=document.body contentRewriter=brContentRewriter/>
+            </#if>
+        </div>
+    </div>
+
+
+    <#if alphabetical_hash??>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
+            <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
+                <@scrollableFilterNav alphabetical_hash filtersModel></@scrollableFilterNav>
             </div>
         </div>
 
-        <#assign alphabetical_hash = group_blocks(flat_blocks(apiCatalogueLinks true))/>
-
-        <#if alphabetical_hash??>
-            <div class="grid-row">
-                <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                    <@scrollableFilterNav alphabetical_hash filtersModel></@scrollableFilterNav>
-                </div>
-
-                <div class="column column--two-thirds page-block page-block--main">
-                    <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
-                    <div class="article-section muted">
-                        <@lastModified document.lastModified false></@lastModified>
-                    </div>
-                </div>
-            </div>
-
-        </#if>
+        <div class="nhsd-t-col-l-9 nhsd-t-col-m-12">
+            <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
+        </div>
     </div>
-</article>
+
+    </#if>
+</div>

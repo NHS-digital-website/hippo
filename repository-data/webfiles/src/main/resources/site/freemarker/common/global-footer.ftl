@@ -21,7 +21,7 @@
     <#if !hstRequest.requestContext.cmsRequest>
         <@ga.accountId/>
         <@hst.link var="googleAnalytics" path="/resources/google-analytics.js"/>
-        <script src="${googleAnalytics}"></script>
+        <script type="text/plain" data-cookieconsent="statistics" src="${googleAnalytics}"></script>
     </#if>
 </footer>
 
