@@ -6,10 +6,13 @@ import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 
 public abstract class RemoteContentService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RemoteContentService.class);
 
     @HystrixCommand(
         fallbackMethod = "getReliableFallBackObject",
@@ -18,8 +21,11 @@ public abstract class RemoteContentService {
         }
     )
     public Object getContentObjectFrom(URL url, String resourceResolver, Class type) {
-        ResourceServiceBroker broker =  CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
+        LOGGER.debug("Inside RemoteContentService ");
+        ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
+        LOGGER.debug("Inside RemoteContentService broker  is " + broker + " URL is " + url);
         Resource r = broker.resolve(resourceResolver, url.toString());
+        LOGGER.debug("Inside RemoteContentService Resource r is " + r);
         return broker.getResourceBeanMapper(resourceResolver).map(r, type);
     }
 
