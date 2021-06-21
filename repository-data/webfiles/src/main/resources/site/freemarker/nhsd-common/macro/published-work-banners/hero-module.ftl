@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../../include/imports.ftl">
+<#include "../../macros/header-banner.ftl">
 
 <#--
 config is a hash with the following properties:
@@ -15,87 +16,81 @@ topTextLink - string: make top text into a link if this is supplied
 -->
 <#macro heroModule config>
     <#local document = config.document />
-    <#local bannerImage = config.bannerImage />
-    <#if config.bannerImageSmall2x??>
-        <#local bannerImageSmall2x = config.bannerImageSmall2x />
-    </#if>
-    <#if config.bannerImageSmall??>
-        <#local bannerImageSmall = config.bannerImageSmall />
-    </#if>
-    <#if config.bannerImage2x??>
-        <#local bannerImage2x = config.bannerImage2x />
-    </#if>
-    <#if config.bannerImage??>
+
+    <#if config.bannerImage == "">
+        <@headerBanner document />
+    <#else>
         <#local bannerImage = config.bannerImage />
-    </#if>
-    <#local bannerImageAltText = config.bannerImageAltText />
-    <#local button = config.button />
-    <#local buttonText = config.buttonText />
-    <#local showTime = config.showTime />
-    <#local topText = config.topText />
-    <#local topTextLink = config.topTextLink />
+        <#local bannerImageAltText = config.bannerImageAltText />
+        <#local button = config.button />
+        <#local buttonText = config.buttonText />
+        <#local showTime = config.showTime />
+        <#if config.topText??>
+            <#local topText = config.topText />
+        <#else>
+            <#local topText = "" />
+        </#if>
+        <#if config.topTextLink??>
+            <#local topTextLink = config.topTextLink />
+        <#else>
+            <#local topTextLink = "" />
+        </#if>
+        <#local hasSummaryContent = document.summary?? && document.summary.content?has_content />
 
-    <#local hasSummaryContent = document.summary?? && document.summary.content?has_content />
+        <div class="nhsd-o-hero nhsd-!t-bg-grad-black nhsd-!t-col-white nhsd-o-hero--image-banner">
+            <div class="nhsd-t-grid nhsd-!t-no-gutters  nhsd-t-grid--full-width">
+                <div class="nhsd-t-row">
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
+                        <div class="nhsd-o-hero__content-box">
+                            <div class="nhsd-o-hero__content">
 
-    <@hst.headContribution>
-        <style type="text/css">
-            .article-header--hero-module {
-                background-image: url(${bannerImage});
-            }
+                                <#if showTime == true>
+                                    <p class="nhsd-t-body"
+                                        datetime="<@fmt.formatDate value=document.publicationDate.time?date type="date" pattern="yyyy-MM-d" timeZone="${getTimeZone()}" />"
+                                    >
+                                        <@fmt.formatDate value=document.publicationDate.time?date type="date" pattern="d MMM yyyy" timeZone="${getTimeZone()}" />
+                                    </p>
+                                    
+                                <#elseif
+                                    topText?is_string && topText?length gt 0 &&
+                                    topTextLink?is_string && topTextLink?length gt 0>
+                                    <p class="hero-module__toptext">
+                                        Part of 
+                                        <a class="nhsd-a-link nhsd-a-link--col-white" href=${topTextLink}>
+                                            ${topText}
+                                        </a>
+                                    </p>
+                                <#elseif topText?is_string && topText?length gt 0>
+                                    <p class="hero-module__toptext">Part of ${topText}</p>
+                                </#if>
 
-            @media screen and (min-device-pixel-ratio: 2) {
-                .article-header--hero-module {
-                    background-image: url(${bannerImage2x});
-                }
-            }
-        </style>
-    </@hst.headContribution>
+                                <span class="nhsd-t-heading-xl nhsd-!t-col-white" data-uipath="document.title">${document.title}</span>
+                                
+                                <#if hasSummaryContent>
+                                    <span data-uipath="website.publishedwork.summary"
+                                    >
+                                    <@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/>
+                                    </span>
+                                </#if>
 
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="hero-module article-header article-header--hero-module">
-            <figure class="hero-module__mobile-image">
-                <#if bannerImage?? && bannerImage2x??>
-                    <img srcset="
-                        ${bannerImageSmall} 375w,
-                        ${bannerImageSmall2x} 750w,
-                        ${bannerImage} 1270w,
-                        ${bannerImage2x} 2540w"
-                        sizes="100vw" src="${bannerImage}" alt="${bannerImageAltText}">
-                <#else>
-                    <img src="${bannerImage}" alt="${bannerImageAltText}">
-                </#if>
-            </figure>
-            <div class="grid-row">
-                <div class="hero-module__inner">
-                    <div class="hero-module__content">
-                        <#if showTime == true>
-                            <time class="hero-module__time"
-                                  datetime="<@fmt.formatDate value=document.publicationDate.time?date type="date" pattern="yyyy-MM-d" timeZone="${getTimeZone()}" />"><@fmt.formatDate value=document.publicationDate.time?date type="date" pattern="d MMM yyyy" timeZone="${getTimeZone()}" /></time>
-                        <#elseif
-                            topText?is_string && topText?length gt 0 &&
-                            topTextLink?is_string && topTextLink?length gt 0>
-                            <p class="hero-module__toptext"><a href=${topTextLink}>${topText}</a></p>
-                        <#elseif topText?is_string && topText?length gt 0>
-                            <p class="hero-module__toptext">${topText}</p>
-                        </#if>
+                                <#if button != "nobutton" && buttonText?is_string && buttonText?length gt 0>
+                                    <a class="nhsd-a-button nhsd-a-button--invert" href="#document-content">
+                                        <span class="nhsd-a-button__label">${buttonText}</span>
+                                    </a>
+                                </#if>
+                            </div>
+                        </div>
+                    </div>
 
-                        <h1 class="hero-module__title"
-                            data-uipath="document.title">${document.title}</h1>
-                        <#if hasSummaryContent>
-                            <div class="hero-module__summary"
-                                 data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
-                        </#if>
-                        <#if button != "nobutton" && buttonText?is_string && buttonText?length gt 0>
-                            <a class="hero-module__button" href="#document-content">
-                                ${buttonText}
-                                <img class="hero-module__button-arrow"
-                                     aria-hidden="true" alt="Down Arrow"
-                                     src="<@hst.webfile path="/images/hero-module/arrow--down.svg"/>"/>
-                            </a>
-                        </#if>
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-no-gutters">
+                        <figure class="nhsd-a-image nhsd-a-image--contain" aria-hidden="true">
+                            <picture class="nhsd-a-image__picture">
+                                <img src="${bannerImage}" alt="${bannerImageAltText}">
+                            </picture>
+                        </figure>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </#if>
 </#macro>

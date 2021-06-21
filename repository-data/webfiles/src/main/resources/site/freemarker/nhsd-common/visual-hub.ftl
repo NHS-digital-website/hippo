@@ -16,6 +16,8 @@
 <@metaTags></@metaTags>
 <@hst.setBundle basename="site.website.labels"/>
 
+<#assign bannerImage = "" />
+
 <#assign hasSummaryContent = document.summary.content?has_content />
 <#assign hasBannerImage = document.image?has_content />
 <#assign hasTopicIcon = document.pageIcon?has_content />
@@ -26,56 +28,17 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<article >
-    <#if hasBannerImage && hasPrimaryLinks>
-        <@hst.link hippobean=document.image.pageHeaderSlimBanner fullyQualified=true var="bannerImage" />
-        <@hst.link hippobean=document.image.pageHeaderSlimBanner2x fullyQualified=true var="bannerImage2x" />
-        <@hst.link hippobean=document.image.pageHeaderSlimBannerSmall fullyQualified=true var="bannerImageSmall" />
-        <@hst.link hippobean=document.image.pageHeaderSlimBannerSmall2x fullyQualified=true var="bannerImageSmall2x" />
-        <#assign slimPictureConfig = {
-            "document": document,
-            "bannerImageSmall": bannerImageSmall,
-            "bannerImageSmall2x": bannerImageSmall2x,
-            "bannerImage": bannerImage,
-            "bannerImage2x": bannerImage2x,
-            "bannerImageAltText": "Document Header"
-        } />
-        <@slimPicture slimPictureConfig />
-        <div class="grid-wrapper banner-image-summary">
-            <div class="article-header__inner">
-                <div class="grid-row">
-                    <div class="column column--reset column--81-25" data-uipath="website.hub.summary">
-                        <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <#elseif hasBannerImage && hasTabTileLinks>
-        <@hst.link hippobean=document.image fullyQualified=true var="bannerImage" />
-        <div class="banner-image banner-image--short banner-image--tint"
-             aria-label="Document Header"
-             style="background-image: linear-gradient(0deg, rgba(0,94,184,0.8), rgba(0,94,184,0.8)), url(${bannerImage});">
-            <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-                <div class="article-header--with-icon">
-                    <div class="grid-wrapper">
-                        <div class="article-header__inner">
-                            <div class="grid-row">
-                                <div class="column column--reset">
-                                    <h1 class="local-header__title"
-                                        data-uipath="document.title">${document.title}</h1>
-                                    <div class="article-header__subtitle">
-                                        <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <#else>
-      <@headerBanner document />
+<article>
+    <#if hasBannerImage>
+        <@hst.link hippobean=document.image.pageHeaderSlimBannerSmall2x fullyQualified=true var="selectedBannerImage" />
+        <#assign bannerImage = selectedBannerImage />
     </#if>
+    <#assign slimPictureConfig = {
+        "document": document,
+        "bannerImage": bannerImage,
+        "bannerImageAltText": "Document Header"
+    } />
+    <@slimPicture slimPictureConfig />
     
     <div class="nhsd-t-grid"> 
     <#if document.introduction?has_content>
