@@ -1,0 +1,331 @@
+<#ftl output_format="HTML">
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.News" -->
+<#include "../include/imports.ftl">
+<#include "macro/metaTags.ftl">
+<#include "macro/relatedarticles.ftl">
+<#include "macro/sections/sections.ftl">
+<#include "macro/editorsnotes.ftl">
+<#include "macro/component/lastModified.ftl">
+<#include "macro/component/downloadBlockInternal.ftl">
+<#include "macro/contactdetail.ftl">
+<#include "macro/headerMetadata.ftl">
+<#include "macro/documentHeader.ftl">
+<#include "macro/contentPixel.ftl">
+<#include "macro/latestblogs.ftl">
+
+<#-- Add meta tags -->
+<@metaTags></@metaTags>
+
+<@hst.setBundle basename="rb.doctype.news"/>
+
+<#assign hasSectionContent = document.sections?has_content />
+<#assign hasEditorsNotes = document.notesforeditors?has_content && document.notesforeditors.htmlnotes?has_content/>
+<#assign hasLeadImage = document.leadimagesection?has_content && document.leadimagesection.leadImage?has_content/>
+<#assign hasLeadImageAltText = hasLeadImage && document.leadimagesection.alttext?has_content/>
+<#assign hasLeadImageCaption = hasLeadImage && document.leadimagesection.imagecaption.content?has_content />
+<#assign hasBackstory = document.backstory?? && document.backstory.content?has_content />
+<#assign hasPeople = document.peoplementioned?? && document.peoplementioned?has_content />
+<#assign hasContactDetails = (document.mediacontact)?? && document.mediacontact?has_content />
+<#assign hasLatestNews = document.latestNews?? && document.latestNews?has_content />
+
+<#assign hasTopics = document.topics?? && document.topics?has_content />
+<#assign hasNewsType = document.type?? && document.type?has_content />
+<#assign hasTwitterHashtag = document.twitterHashtag?? && document.twitterHashtag?has_content />
+<#assign idsuffix = slugify(document.title) />
+
+<#assign metadata = [
+  {
+   "key": "Date",
+   "value": document.publisheddatetime.time,
+   "uipath": "website.news.dateofpublication",
+   "type": "date",
+   "schemaOrgTag": "datePublished"
+  }
+] />
+<#if hasTopics>
+  <#assign metadata += [
+    {
+     "key": "Topics",
+     "value": document.topics,
+     "uipath": "website.news.topics",
+     "type": "list",
+     "schemaOrgTag": "keywords"
+    }
+  ] />
+</#if>
+<#if hasNewsType>
+  <#assign metadata += [
+    {
+     "key": "News type",
+     "value": newstypes[document.type],
+     "uipath": "website.news.type",
+     "type": "span"
+    }
+  ] />
+</#if>
+<#if hasTwitterHashtag>
+  <#assign metadata += [
+    {
+     "key": "Twitter",
+     "value": document.twitterHashtag,
+     "uipath": "website.news.twitter",
+     "type": "twitterHashtag"
+    }
+  ] />
+</#if>
+
+<#-- Content Page Pixel -->
+<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
+
+<article itemscope itemtype="http://schema.org/NewsArticle">
+    <meta itemprop="mainEntityOfPage" content="${document.title}">
+    <meta itemprop="author" content="NHS Digital">
+    <meta itemprop="copyrightHolder" content="NHS Digital">
+    <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
+    <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="NHS Digital">
+        <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />" />
+        </span>
+    </div>
+
+    <@documentHeader document 'news' '' '' document.shortsummary '' true metadata></@documentHeader>
+
+    <div class="nhsd-t-grid">
+        <div class="nhsd-t-row">
+            <div class="nhsd-t-col-12">
+
+                <#if document.creditBanner?has_content>
+                    <div class="nhsd-m-emphasis-box nhsd-!t-margin-bottom-6" role="alert">
+                        <div class="nhsd-a-box nhsd-a-box--border-blue">
+                            <div class="nhsd-m-emphasis-box__content-box">
+                                <p class="nhsd-t-body-s nhsd-t-word-break">${creditbanner[document.creditBanner]}</p>
+                            </div>
+                        </div>
+                    </div>
+                </#if>
+
+                <#if hasLeadImage>
+                    <div class="nhsd-t-col-12">
+                        <div class="nhsd-o-gallery__card-container">
+                            <div class="nhsd-m-card">
+                                <div class="nhsd-a-box nhsd-a-box--border-grey">
+                                    <figure class="nhsd-a-image nhsd-a-image--round-top-corners" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                        <@hst.link hippobean=document.leadimagesection.leadImage.newsPostImage2x fullyQualified=true var="leadImage" />
+                                        <meta itemprop="url" content="${leadImage}" />
+                                        <picture class="nhsd-a-image__picture ">
+                                            <img itemprop="contentUrl" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadimagesection.alttext}</#if>">
+                                        </picture>
+                                    </figure>
+                                    <#if hasLeadImageCaption>
+                                        <div class="nhsd-m-card__content_container">
+                                            <div class="nhsd-m-card__content-box nhsd-!t-margin-bottom-4" data-uipath="website.blog.leadimagecaption">
+                                                <@hst.html hippohtml=document.leadimagesection.imagecaption contentRewriter=brContentRewriter/>
+                                            </div>
+                                            <div class="nhsd-m-card__button-box"></div>
+                                        </div>
+                                    </#if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <#else>
+                    <span itemprop="image" itemscope
+                          itemtype="https://schema.org/ImageObject">
+                        <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />"/>
+                    </span>
+                </#if>
+
+                <#if hasSectionContent>
+                    <div itemprop="articleBody">
+                        <@sections document.sections></@sections>
+                    </div>
+                </#if>
+
+                <#if document.relateddocuments?has_content>
+                    <#if hasSectionContent>
+                        <hr class="nhsd-a-horizontal-rule" />
+                    </#if>
+                    <p class="nhsd-t-heading-xl">Related pages</p>
+                    <div class="nhsd-t-grid">
+                        <div class="nhsd-t-row">
+                            <div class="nhsd-t-col">
+                                <#list document.relateddocuments as child>
+                                    <@downloadBlockInternal child.class.name child child.title child.shortsummary />
+                                </#list>
+                            </div>
+                        </div>
+                    </div>
+                </#if>
+
+                <#if hasEditorsNotes>
+                    <p class="nhsd-t-heading-xl">Notes for editors</p>
+                    <ol class="nhsd-t-list nhsd-t-list--number">
+                        <#list document.notesforeditors.htmlnotes as note>
+                            <#if note.content?has_content>
+                                <li><@hst.html hippohtml=note contentRewriter=brContentRewriter/></li>
+                            </#if>
+                        </#list>
+                    </ol>
+                </#if>
+
+                <#if hasBackstory>
+                    <#if hasEditorsNotes || (hasSectionContent && !hasEditorsNotes && !document.relateddocuments?has_content)>
+                        <hr class="nhsd-a-horizontal-rule" />
+                    </#if>
+                    <div itemprop="backstory">
+                        <p class="nhsd-t-heading-xl">Back story</p>
+                        <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6" data-uipath="website.news.backstory">
+                            <@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter />
+                        </div>
+                    </div>
+                </#if>
+
+                <#--  Social media section  -->
+                <#if (!hasBackstory && hasEditorsNotes) || (hasSectionContent && !hasBackstory !hasEditorsNotes && !document.relateddocuments?has_content)>
+                    <hr class="nhsd-a-horizontal-rule" />
+                </#if>
+                <p class="nhsd-t-heading-xl">Share this page</p>
+                <@hst.link var="link" hippobean=document />
+
+                <#-- Use UTF-8 charset for URL escaping from now: -->
+                <#setting url_escaping_charset="UTF-8">
+
+                <#--  Facebook  -->
+                <div class="nhsd-t-row">
+                    <div class="nhsd-t-col-12">
+                        <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey" 
+                            href="http://www.facebook.com/sharer.php?u=${currentUrl?url}" 
+                            target="_blank" 
+                            rel="external" 
+                            onClick="logGoogleAnalyticsEvent('Link click','Social media - Facebook','http://www.facebook.com/sharer.php?u=${currentUrl?url}');"
+                        >
+                            <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
+                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
+                                    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+                                </svg>
+                                <img src="<@hst.webfile path="/images/icon/rebrand-facebook.svg"/>" alt="Share on Facebook" aria-hidden="true">
+                            </span>
+                            <span class="nhsd-a-icon-link__label">Facebook</span>
+                        </a>
+                    </div>
+                </div>
+                    
+                <#--  Twitter  -->
+                <#assign hashtags ='' />
+                <#if hasTwitterHashtag>
+                    <#list document.twitterHashtag as tag>
+                        <#if tag?starts_with("#")>
+                            <#assign hashtags = hashtags + tag?keep_after('#') + ','>
+                        <#else>
+                            <#assign hashtags = hashtags + tag + ','>
+                        </#if>
+                    </#list>
+                </#if>
+                <div class="nhsd-t-row">
+                    <div class="nhsd-t-col-12">
+                        <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey" 
+                            href="https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}" 
+                            target="_blank" 
+                            rel="external" 
+                            onClick="logGoogleAnalyticsEvent('Link click','Social media - Twitter','https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}');"
+                        >
+                            <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
+                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
+                                    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+                                </svg>
+                                <img src="<@hst.webfile path="/images/icon/rebrand-twitter.svg"/>" alt="Share on Twitter" aria-hidden="true">
+                            </span>
+                            <span class="nhsd-a-icon-link__label">Twitter</span>
+                        </a>
+                    </div>
+                </div>
+
+                <#--  LinkedIn -->
+                <div class="nhsd-t-row nhsd-!t-margin-bottom-6">
+                    <div class="nhsd-t-col-12">
+                        <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey" 
+                            href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}" 
+                            target="_blank" 
+                            rel="external" 
+                            onClick="logGoogleAnalyticsEvent('Link click','Social media - LinkedIn','http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}');"
+                        >
+                            <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
+                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
+                                    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+                                </svg>
+                                <img src="<@hst.webfile path="/images/icon/rebrand-linkedin.svg"/>" alt="Share on LinkedIn" aria-hidden="true">
+                            </span>
+                            <span class="nhsd-a-icon-link__label">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <#if hasPeople>
+                    <div class="nhsd-!t-margin-bottom-6">
+                        <div class="nhsd-t-grid">
+                            <div class="nhsd-t-row nhsd-o-gallery__items">
+                                <#list document.peoplementioned as author>
+                                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4 nhsd-!t-margin-bottom-6">
+                                        <div class="nhsd-o-gallery__card-container">
+                                            <div class="nhsd-m-card">
+                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
+                                                <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange" 
+                                                   href="<@hst.link hippobean=author/>"  
+                                                   onClick="${onClickMethodCall}" 
+                                                   onKeyUp="return vjsu.onKeyUp(event)" 
+                                                   aria-label="${author.title}"
+                                                >
+                                                    <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
+                                                        <div class="nhsd-m-card__image_container">
+                                                            <figure class="nhsd-a-image nhsd-a-image--cover">
+                                                                <picture class="nhsd-a-image__picture">
+                                                                    <#if author.personimages?? && author.personimages?has_content && author.personimages.picture?has_content>
+                                                                        <img src="<@hst.link hippobean=author.personimages.picture.original fullyQualified=true />" alt="${author.title}">
+                                                                    <#else>
+                                                                        <img src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="NHS Digital blog">
+                                                                    </#if>
+                                                                </picture>
+                                                            </figure>
+                                                        </div>
+                                                        <div class="nhsd-m-card__content_container">
+                                                            <div class="nhsd-m-card__content-box">
+                                                                <p class="nhsd-t-heading-s">${author.title}</p>
+                                                                <#if author.shortsummary?? && author.shortsummary?has_content>
+                                                                    <p class="nhsd-t-body-s">${author.shortsummary}</p>
+                                                                </#if>
+                                                            </div>
+                                                            <div class="nhsd-m-card__button-box">
+                                                                <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                                        <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </#list>
+                            </div>
+                        </div>
+                    </div>
+                </#if>
+                
+
+                <#assign rendername="Media enquiries" /><#if hasContactDetails && document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
+                <#assign renderemail="media@nhsdigital.nhs.net" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
+                <#assign renderphone="0300 30 33 888" /><#if hasContactDetails && document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
+                <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
+
+                <#if hasLatestNews>
+                    <@latestblogs document.latestNews 'News' 'events-' + idsuffix 'Latest news' />
+                </#if>
+
+                <@lastModified document.lastModified false></@lastModified>
+            </div>
+        </div>
+    </div>
+</article>
