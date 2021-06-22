@@ -20,42 +20,32 @@ public class EmailMonitoringComponent implements RepositoryJob {
 
     @Override
     public void execute(final RepositoryJobExecutionContext context) throws RepositoryException {
-// see context.xml to connect to nhs mail
-        final String to = "lesley.kelly2@nhs.net";
-        final String from = "lesleykellynhsd@gmail.com";
-        final String host = "send.nhs.net";
-        final String port = "587";
-
-        Properties properties = System.getProperties();
-        properties.setProperty("mail.smtp.host", host);
-        properties.setProperty("mail.smtp.port", port);
-
-        Session session = Session.getDefaultInstance(properties);
+        Context initCtx = new InitialContext();
+        Context envCtx = (Context) initCtx.lookup("java:comp/env");
+        Session session = (Session) envCtx.lookup("mail/NHSMail");
 
         try {
             // Create a default MimeMessage object.
             MimeMessage message = new MimeMessage(session);
 
             // Set From: header field of the header.
-            message.setFrom(new InternetAddress(from));
+            message.setFrom(new InternetAddress(request.getParameter("from")));
 
             // Set To: header field of the header.
+            final String to = "emailmonitoring@nhs.net";
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
             // Set Subject: header field
-            message.setSubject("Email Monitoring Auto Fired Email from BR");
+            message.setSubject("EMAIL MONITOR ONLY");
 
             // Now set the actual message
-            message.setText("Auto Email: forward to AWS for monitoring.");
+            message.setText("AUTOMATED EMAIL - eForms Monitoring. Please do not delete.");
 
             // Send message
             Transport.send(message);
-            System.out.println("EMAIL MONITOR: SUCCESS");
             log.info("EMAIL MONITOR: SUCCESS");
         } catch (MessagingException mex) {
             mex.printStackTrace();
-            System.out.println("EMAIL MONITOR: FAILED");
-            System.out.println(mex.getMessage());
             log.warn("EMAIL MONITOR: FAILED");
             log.warn(mex.getMessage());
         }
