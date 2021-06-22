@@ -6,13 +6,6 @@ definitions:
         hst:componentclassname: uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent
         hst:template: api-catalogue
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/apppage
-      jcr:primaryType: hst:component
-    /hst:hst/hst:configurations/common/hst:pages/api-catalogue-preview:
-      /main:
-        hst:componentclassname: uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent
-        hst:template: api-catalogue-preview
-        jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
       jcr:primaryType: hst:component
     /hst:hst/hst:configurations/common/hst:pages/apispecification:
