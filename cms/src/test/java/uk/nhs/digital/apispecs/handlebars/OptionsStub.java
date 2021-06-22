@@ -35,6 +35,10 @@ public class OptionsStub extends Options {
         return new OptionsStub(null, null, null, null, null, null, null, null, hash, emptyList());
     }
 
+    public static OptionsStub with(final Context context, final Hash hash) {
+        return new OptionsStub(null, null, null, null, context, null, null, null, hash, emptyList());
+    }
+
     public static OptionsStub with(final Buffer buffer, final Hash hash) {
         return new OptionsStub(buffer, null, null, null, null, null, null, null, hash, emptyList());
     }

@@ -68,6 +68,7 @@ public class DocumentTypeCharacteristicPlugin extends CharacteristicPlugin {
         documentTypes.add(createDocumentType("Call to action","website:calltoaction"));
         documentTypes.add(createDocumentType("Event","website:event"));
         documentTypes.add(createDocumentType("Feature","website:feature"));
+        documentTypes.add(createDocumentType("Feed","website:feedhub"));
         documentTypes.add(createDocumentType("GDPR Summary","website:gdprsummary"));
         documentTypes.add(createDocumentType("GDPR Transparency","website:gdprtransparency"));
         documentTypes.add(createDocumentType("General","website:general"));

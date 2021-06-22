@@ -75,7 +75,7 @@ public class ApiSpecificationDocumentTest {
         final String updatedHtmlContent = randomString();
 
         // when
-        apiSpecificationDocument.setHtml(updatedHtmlContent);
+        apiSpecificationDocument.setHtmlForPublishing(updatedHtmlContent);
 
         // then
         then(jcrDocumentLifecycleSupport).should().setStringPropertyWithCheckout("website:html", updatedHtmlContent);
@@ -107,7 +107,7 @@ public class ApiSpecificationDocumentTest {
         final String updatedSpecJsonContent = randomString();
 
         // when
-        apiSpecificationDocument.setJson(updatedSpecJsonContent);
+        apiSpecificationDocument.setJsonForPublishing(updatedSpecJsonContent);
 
         // then
         then(jcrDocumentLifecycleSupport).should().setStringPropertyWithCheckout("website:json", updatedSpecJsonContent);
@@ -149,7 +149,7 @@ public class ApiSpecificationDocumentTest {
         final Instant newInstant = Instant.now();
 
         // when
-        apiSpecificationDocument.setLastChangeCheckInstant(newInstant);
+        apiSpecificationDocument.setLastChangeCheckInstantInPlace(newInstant);
 
         // then
         then(jcrDocumentLifecycleSupport).should().setInstantPropertyNoCheckout("website:lastChangeCheckInstant", PUBLISHED, newInstant);

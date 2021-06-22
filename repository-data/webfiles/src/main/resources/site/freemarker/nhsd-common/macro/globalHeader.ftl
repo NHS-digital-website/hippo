@@ -67,7 +67,7 @@
                                                 <div class="nhsd-t-form-control">
                                                     <input class="nhsd-t-form-input" type="text" id="query" name="query" autocomplete="off" placeholder="What are you looking for today?" aria-label="Keywords">
                                                     <span class="nhsd-t-form-control__button">
-													<button class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent" type="submit" aria-label="Perform search">
+													<button data-uipath="search.button" class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent" type="submit" aria-label="Perform search">
 														<@buildInlineSvg "search" "s"/>
 													</button>
 												</span>

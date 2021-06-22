@@ -70,7 +70,7 @@ definitions:
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
                 disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
-            caption: About this blog
+            caption: About this blog or feature
             field: summary
             hint: A summary of the blog post, used in external search engine search
               results
@@ -97,7 +97,7 @@ definitions:
           /pageicon:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Blog icon
+            caption: Blog or feature icon
             field: pageicon
             hint: An icon representing the blog
             jcr:primaryType: frontend:plugin
@@ -106,7 +106,7 @@ definitions:
           /blogheadingimage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Blog heading
+            caption: Blog or feature heading
             field: blogheadingimage
             hint: A large header image for the blog. Having a header image will overwrite
               any icon
@@ -344,12 +344,36 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:author:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          /website:blogheadingimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           /website:pageicon:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
+          /website:publisher:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:subject:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html

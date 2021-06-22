@@ -167,6 +167,7 @@
 
     button.collapser, button.expander {
         float:left;
+        position: absolute;
         width: 2em;
         height: 2em;
     }
@@ -179,10 +180,80 @@
     table th,
     table td.name_column {
         word-break: normal;
+        position: relative;
+        div {
+            padding-left: 1.75em;
+        }
     }
 
     table td.button_column {
         width: 42px;
+    }
+
+    .vertical-schema-border {
+        position: absolute;
+        content: ' ';
+        height: 110%;
+        background:  hsl(210, 60%, var(--border-lightness));
+        width: 5px;
+        margin-top: -13px !important;
+        margin-left: var(--border-padding);
+    }
+
+    .short-vertical-schema-border {
+        position: absolute;
+        content: ' ';
+        height: 26px;
+        background: hsl(210, 60%, var(--border-lightness));
+        width: 5px;
+        margin-top: -13px !important;
+        margin-left: var(--border-padding);
+        border-bottom-left-radius: 100px;
+    }
+
+    .horizontal-schema-border {
+        position: absolute;
+        content: " ";
+        margin-left: var(--border-padding);
+        width: 2.5em;
+        height: 5px;
+        background: hsl(210, 60%, var(--border-lightness));
+        margin-top: .75em;
+        z-index: -1;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+    }
+
+    .short-horizontal-schema-border {
+        position: absolute;
+        content: " ";
+        margin-left: var(--border-padding);
+        width: 1.85em;
+        height: 5px;
+        background: hsl(210, 60%, var(--border-lightness));
+        margin-top: .75em;
+        z-index: -1;
+        border-bottom-left-radius: 100px;
+    }
+
+    .child-schema-border {
+        position: absolute;
+        content: " ";
+        background: hsl(210, 60%, var(--border-lightness));
+        width: 5px;
+        margin-left: var(--border-padding);
+        height: 100%;
+        top: 3px;
+        z-index: -1;
+        border-bottom-left-radius: 100px;
+    }
+
+    .expander ~ .child-schema-border {
+        display: none;
+    }
+
+    .name_column :not([class*="schema-border"]) {
+        margin-left: .5em;
     }
 
     /*

@@ -16,7 +16,7 @@
             </div>
         </div>
     <#else>
-        <div id="${slugify(section.title)}" class="nhsd-!t-margin-bottom-6">
+        <div class="nhsd-!t-margin-bottom-6">
             <div data-uipath="website.contentblock.section.content">
                 <@hst.html hippohtml=section.html contentRewriter=brContentRewriter/>
             </div>

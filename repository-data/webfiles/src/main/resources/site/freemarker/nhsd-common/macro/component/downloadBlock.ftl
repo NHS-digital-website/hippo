@@ -4,7 +4,7 @@
 <#macro downloadBlock doc itemprop="">
 
     <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, doc.title) />
-    <div class="nhsd-m-download-card">
+    <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
         <a href="<@hst.link hippobean=doc />" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" ${itemprop}>
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-download-card__image-box">
@@ -14,9 +14,12 @@
                 <div class="nhsd-m-download-card__content-box">
                 <span class="nhsd-a-tag nhsd-a-tag--bg-dark-grey">ARTICLE</span>
 
+                <#if doc.title?has_content>
+                    <p class="nhsd-t-heading-s">${doc.title}</p>
+                </#if>
+                
                 <#if doc.shortsummary?has_content>
-                        <p class="nhsd-t-heading-s">${doc.title}</p>
-                        <p class="nhsd-t-body">${doc.shortsummary}</p>
+                    <p class="nhsd-t-body">${doc.shortsummary}</p>
                 </#if>
                     <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-arrow--right nhsd-a-icon--size-s">
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">

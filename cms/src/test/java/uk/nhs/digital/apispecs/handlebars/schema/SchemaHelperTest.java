@@ -11,6 +11,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
 import static uk.nhs.digital.test.util.StringTestUtils.Placeholders.placeholders;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringUuids;
 import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
@@ -26,6 +27,7 @@ import io.swagger.v3.oas.models.media.ComposedSchema;
 import io.swagger.v3.oas.models.media.ObjectSchema;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.parser.OpenAPIV3Parser;
+import io.swagger.v3.parser.core.models.ParseOptions;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -34,11 +36,8 @@ import org.junit.runner.RunWith;
 import uk.nhs.digital.apispecs.handlebars.MarkdownHelper;
 import uk.nhs.digital.test.util.StringTestUtils.Placeholders;
 import uk.nhs.digital.test.util.TestDataCache;
-import uk.nhs.digital.test.util.TestFileUtils;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.util.Optional;
+import java.util.ArrayList;
 import java.util.function.Function;
 
 @RunWith(DataProviderRunner.class)
@@ -116,6 +115,24 @@ public class SchemaHelperTest {
         assertThat("Property '" + propertyName + "' is rendered for falsy value '" + propertyValue + "'.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
             containsString(propertyName + "\">" + propertyValue + "<")
+        );
+    }
+
+    @Test
+    public void rendersCompleteHierarchyOfSchemaObjectsWithTheirFieldsAndIndentationsAsHtml_traversingFieldsProperties() {
+
+        // given
+        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy-properties.html");
+
+        final Schema<?> schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy-properties.json");
+
+        // when
+        final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
+
+        // then
+        assertThat("All Schema Objects in the hierarchy are rendered in HTML.",
+            ignoringUuids(ignoringWhiteSpacesIn(actualSchemaHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSchemaHtml)))
         );
     }
 
@@ -352,13 +369,13 @@ public class SchemaHelperTest {
         assertThat("HTML contains '" + propertyName + "' element.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
             stringContainsInOrder(
-                "padding-left: 0em;",           // root
-                "padding-left: 1em;",           //   non-items
-                "padding-left: 2em;",           //     oneOf
+                "padding-left: 0.0em;",           // root
+                "padding-left: 1.5em;",           //   non-items
+                "padding-left: 3.0em;",           //     oneOf
                 ">" + propertyName + "<",       //
-                "padding-left: 3em;",           //       A
+                "padding-left: 4.5em;",           //       A
                 ">" + propertyName + " - A<",   //
-                "padding-left: 3em;",           //       B
+                "padding-left: 4.5em;",           //       B
                 ">" + propertyName + " - B<"
             )
         );
@@ -378,13 +395,13 @@ public class SchemaHelperTest {
         assertThat("HTML contains '" + propertyName + "' element.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
             stringContainsInOrder(
-                "padding-left: 0em;",           // root
-                "padding-left: 1em;",           //   array-schema
-                "padding-left: 2em;",           //     oneOf
+                "padding-left: 0.0em;",           // root
+                "padding-left: 1.5em;",           //   array-schema
+                "padding-left: 3.0em;",           //     oneOf
                 ">" + propertyName + "<",       //
-                "padding-left: 3em;",           //       A
+                "padding-left: 4.5em;",           //       A
                 ">" + propertyName + " - A<",   //
-                "padding-left: 3em;",           //       B
+                "padding-left: 4.5em;",           //       B
                 ">" + propertyName + " - B<"
             )
         );
@@ -626,10 +643,10 @@ public class SchemaHelperTest {
         final ComposedSchema notItemSchemaObject = new ComposedSchema();
         notItemSchemaObject.title("not-items schema object");
 
-        setField(notItemSchemaObject, propertyName, asList(
+        setField(notItemSchemaObject, propertyName, new ArrayList<>(asList(
             new ObjectSchema().title(propertyName + " - A"),
             new ObjectSchema().title(propertyName + " - B")
-        ));
+        )));
 
         return new ObjectSchema()
             .title("root schema object")
@@ -643,10 +660,10 @@ public class SchemaHelperTest {
         final ComposedSchema items = new ComposedSchema();
         items.title("items object");
 
-        setField(items, propertyName, asList(
+        setField(items, propertyName, new ArrayList<>(asList(
             new ObjectSchema().title(propertyName + " - A"),
             new ObjectSchema().title(propertyName + " - B")
-        ));
+        )));
 
         return new ObjectSchema()
             .title("root object")
@@ -667,29 +684,20 @@ public class SchemaHelperTest {
         final String specJsonTemplateFileName,
         final Placeholders placeholders
     ) {
-        File targetSpecJsonFile = null;
-        try {
-            final String specJsonWithPlaceholders = cache.get(specJsonTemplateFileName,
-                () -> contentOfFileFromClasspath(classPathOf(specJsonTemplateFileName)));
+        final String specJsonWithPlaceholders = cache.get(specJsonTemplateFileName,
+            () -> contentOfFileFromClasspath(classPathOf(specJsonTemplateFileName)));
 
-            final String specJsonWithResolvedPlaceholders = placeholders.resolveIn(specJsonWithPlaceholders);
+        final String specJsonWithResolvedPlaceholders = placeholders.resolveIn(specJsonWithPlaceholders);
 
-            targetSpecJsonFile = Files.createTempFile(specJsonTemplateFileName, ".tmp").toFile();
-
-            org.apache.commons.io.FileUtils.write(targetSpecJsonFile, specJsonWithResolvedPlaceholders, "UTF-8");
-
-            return fromFileWithClasspath(targetSpecJsonFile.getAbsolutePath());
-
-        } catch (final Exception e) {
-            throw new RuntimeException("Failed to read in schema from " + specJsonTemplateFileName, e);
-
-        } finally {
-            Optional.ofNullable(targetSpecJsonFile).ifPresent(TestFileUtils::deleteFileOrEmptyDirIfExists);
-        }
+        return fromJson(specJsonWithResolvedPlaceholders);
     }
 
-    private Schema<?> fromFileWithClasspath(final String testFileClasspathPath) {
-        final OpenAPI openApi = new OpenAPIV3Parser().read(testFileClasspathPath);
+    private Schema<?> fromJson(final String oasJson) {
+
+        final ParseOptions parseOptions = new ParseOptions();
+        parseOptions.setResolve(true);
+
+        final OpenAPI openApi = new OpenAPIV3Parser().readContents(oasJson, null, parseOptions).getOpenAPI();
 
         return openApi
             .getPaths()
@@ -705,15 +713,4 @@ public class SchemaHelperTest {
         return cache.get(testDataFileName, () -> contentOfFileFromClasspath(classPathOf(testDataFileName)));
     }
 
-    private String ignoringUuids(final String htmlText) {
-        return htmlText.replaceAll(
-            "data-schema-uuid=\"[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}\"",
-            "data-schema-uuid=\"\""
-        ).replaceAll(
-            "Children\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
-            "Children('')"
-        ).replaceAll(
-            "All\\('[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}'\\)",
-            "All('')");
-    }
 }

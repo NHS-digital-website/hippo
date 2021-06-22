@@ -163,6 +163,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /headertype:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Cube header,Image header
+            caption: Header type
+            field: headertype
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /leadparagraph:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
@@ -179,7 +189,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau
+            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:svg
             contentPickerType: links
             field: sections
             hint: ''
@@ -339,6 +349,14 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /headertype:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:headertype
+            hipposysedit:primary: false
+            hipposysedit:type: urlrewriter:BroadcastingStaticDropdown
+            jcr:primaryType: hipposysedit:field
           /leadimage:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -491,6 +509,9 @@ definitions:
           /website:leadparagraph:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -513,6 +534,7 @@ definitions:
           website:authororganisation: ''
           website:authorrole: ''
           website:dateofpublication: 0001-01-01T12:00:00Z
+          website:headertype: Cube header
           website:leadimagealttext: ''
           website:shortsummary: ''
           website:title: ''

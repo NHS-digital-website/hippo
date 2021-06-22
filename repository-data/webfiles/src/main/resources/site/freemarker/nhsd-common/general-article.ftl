@@ -13,6 +13,7 @@
 <#include "macro/component/calloutBox.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macros/header-banner.ftl">
+<#include "macro/component/header-banner-image.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -44,18 +45,7 @@
 <article >
     <#if hasBannerImage>
         <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
-        <div class="banner-image" aria-label="Document Header"
-             style="background-image: url(${bannerImage});">
-            <div class="grid-wrapper">
-                <div class="grid-row">
-                    <div class="column column--reset banner-image-title">
-                        <div class="banner-image-title-background">
-                            <h1 data-uipath="document.title">${document.title}</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <@headerBannerImage document bannerImage />
     <#else>
         <@headerBanner document />
     </#if>

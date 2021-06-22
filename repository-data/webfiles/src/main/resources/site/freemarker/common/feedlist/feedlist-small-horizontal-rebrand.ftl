@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include '../macro/feedlist-getimage.ftl'>
+<#include '../macro/docGetImage.ftl'>
 <#include '../macro/gridColumnGenerator.ftl'>
 <#include '../macro/iconGenerator.ftl'>
 

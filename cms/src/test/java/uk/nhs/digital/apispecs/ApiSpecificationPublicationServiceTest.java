@@ -13,10 +13,7 @@ import static uk.nhs.digital.apispecs.ApiSpecificationPublicationServiceTest.Api
 import static uk.nhs.digital.test.TestLogger.LogAssertor.*;
 import static uk.nhs.digital.test.util.TimeProviderTestUtils.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -93,11 +90,11 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpecNeverPublished).should().setLastChangeCheckInstant(newCheckTime);
+        then(localSpecNeverPublished).should().setLastChangeCheckInstantInPlace(newCheckTime);
         then(localSpecNeverPublished).should().save();
 
-        then(localSpecNeverPublished).should().setJson(remoteSpecificationJson);
-        then(localSpecNeverPublished).should().setHtml(newSpecificationHtml);
+        then(localSpecNeverPublished).should().setJsonForPublishing(remoteSpecificationJson);
+        then(localSpecNeverPublished).should().setHtmlForPublishing(newSpecificationHtml);
         then(localSpecNeverPublished).should().saveAndPublish();
 
         logger.shouldReceive(
@@ -142,11 +139,11 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpecPublishedBefore).should().setLastChangeCheckInstant(newCheckTime);
+        then(localSpecPublishedBefore).should().setLastChangeCheckInstantInPlace(newCheckTime);
         then(localSpecPublishedBefore).should().save();
 
-        then(localSpecPublishedBefore).should().setJson(remoteSpecificationJson);
-        then(localSpecPublishedBefore).should().setHtml(newSpecificationHtml);
+        then(localSpecPublishedBefore).should().setJsonForPublishing(remoteSpecificationJson);
+        then(localSpecPublishedBefore).should().setHtmlForPublishing(newSpecificationHtml);
         then(localSpecPublishedBefore).should().saveAndPublish();
 
         logger.shouldReceive(
@@ -188,11 +185,11 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpecPublishedBefore).should().setLastChangeCheckInstant(newCheckTime);
+        then(localSpecPublishedBefore).should().setLastChangeCheckInstantInPlace(newCheckTime);
         then(localSpecPublishedBefore).should().save();
 
-        then(localSpecPublishedBefore).should(never()).setJson(any());
-        then(localSpecPublishedBefore).should(never()).setHtml(any());
+        then(localSpecPublishedBefore).should(never()).setJsonForPublishing(any());
+        then(localSpecPublishedBefore).should(never()).setHtmlForPublishing(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
         logger.shouldReceive(
@@ -227,11 +224,11 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpecPublishedBefore).should().setLastChangeCheckInstant(newCheckTime);
+        then(localSpecPublishedBefore).should().setLastChangeCheckInstantInPlace(newCheckTime);
         then(localSpecPublishedBefore).should().save();
 
-        then(localSpecPublishedBefore).should(never()).setJson(any());
-        then(localSpecPublishedBefore).should(never()).setHtml(any());
+        then(localSpecPublishedBefore).should(never()).setJsonForPublishing(any());
+        then(localSpecPublishedBefore).should(never()).setHtmlForPublishing(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
         logger.shouldReceive(
@@ -265,8 +262,8 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpecPublishedBefore).should(never()).setJson(any());
-        then(localSpecPublishedBefore).should(never()).setHtml(any());
+        then(localSpecPublishedBefore).should(never()).setJsonForPublishing(any());
+        then(localSpecPublishedBefore).should(never()).setHtmlForPublishing(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
         logger.shouldReceive(
@@ -366,34 +363,34 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(neverPublishedEligible_localSpec).should().setLastChangeCheckInstant(neverPublishedEligible_newCheckTime);
+        then(neverPublishedEligible_localSpec).should().setLastChangeCheckInstantInPlace(neverPublishedEligible_newCheckTime);
         then(neverPublishedEligible_localSpec).should().save();
-        then(neverPublishedEligible_localSpec).should().setJson(neverPublishedEligible_newJson);
-        then(neverPublishedEligible_localSpec).should().setHtml(neverPublishedEligible_newHtml);
+        then(neverPublishedEligible_localSpec).should().setJsonForPublishing(neverPublishedEligible_newJson);
+        then(neverPublishedEligible_localSpec).should().setHtmlForPublishing(neverPublishedEligible_newHtml);
         then(neverPublishedEligible_localSpec).should().saveAndPublish();
 
-        then(publishedChanged_localSpec).should().setLastChangeCheckInstant(publishedChanged_newCheckTime);
+        then(publishedChanged_localSpec).should().setLastChangeCheckInstantInPlace(publishedChanged_newCheckTime);
         then(publishedChanged_localSpec).should().save();
-        then(publishedChanged_localSpec).should().setJson(publishedChanged_newJson);
-        then(publishedChanged_localSpec).should().setHtml(publishedChanged_newHtml);
+        then(publishedChanged_localSpec).should().setJsonForPublishing(publishedChanged_newJson);
+        then(publishedChanged_localSpec).should().setHtmlForPublishing(publishedChanged_newHtml);
         then(publishedChanged_localSpec).should().saveAndPublish();
 
-        then(eligibleFailing_localSpec).should(never()).setLastChangeCheckInstant(any());
+        then(eligibleFailing_localSpec).should(never()).setLastChangeCheckInstantInPlace(any());
         then(eligibleFailing_localSpec).should(never()).save();
-        then(eligibleFailing_localSpec).should(never()).setJson(any());
-        then(eligibleFailing_localSpec).should(never()).setHtml(any());
+        then(eligibleFailing_localSpec).should(never()).setJsonForPublishing(any());
+        then(eligibleFailing_localSpec).should(never()).setHtmlForPublishing(any());
         then(eligibleFailing_localSpec).should(never()).saveAndPublish();
 
-        then(publishedNotChanged_localSpec).should().setLastChangeCheckInstant(publishedNotChanged_newCheckTime);
+        then(publishedNotChanged_localSpec).should().setLastChangeCheckInstantInPlace(publishedNotChanged_newCheckTime);
         then(publishedNotChanged_localSpec).should().save();
-        then(publishedNotChanged_localSpec).should(never()).setJson(any());
-        then(publishedNotChanged_localSpec).should(never()).setHtml(any());
+        then(publishedNotChanged_localSpec).should(never()).setJsonForPublishing(any());
+        then(publishedNotChanged_localSpec).should(never()).setHtmlForPublishing(any());
         then(publishedNotChanged_localSpec).should(never()).saveAndPublish();
 
-        then(noCounterpartInApigee_localSpec).should(never()).setLastChangeCheckInstant(any());
+        then(noCounterpartInApigee_localSpec).should(never()).setLastChangeCheckInstantInPlace(any());
         then(noCounterpartInApigee_localSpec).should(never()).save();
-        then(noCounterpartInApigee_localSpec).should(never()).setJson(any());
-        then(noCounterpartInApigee_localSpec).should(never()).setHtml(any());
+        then(noCounterpartInApigee_localSpec).should(never()).setJsonForPublishing(any());
+        then(noCounterpartInApigee_localSpec).should(never()).setHtmlForPublishing(any());
         then(noCounterpartInApigee_localSpec).should(never()).saveAndPublish();
 
         logger.shouldReceive(
@@ -431,11 +428,11 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpec).should(never()).setLastChangeCheckInstant(any());
+        then(localSpec).should(never()).setLastChangeCheckInstantInPlace(any());
         then(localSpec).should(never()).save();
 
-        then(localSpec).should(never()).setJson(any());
-        then(localSpec).should(never()).setHtml(any());
+        then(localSpec).should(never()).setJsonForPublishing(any());
+        then(localSpec).should(never()).setHtmlForPublishing(any());
         then(localSpec).should(never()).saveAndPublish();
 
         logger.shouldReceive(
@@ -475,11 +472,11 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpec).should(never()).setLastChangeCheckInstant(any());
+        then(localSpec).should(never()).setLastChangeCheckInstantInPlace(any());
         then(localSpec).should(never()).save();
 
-        then(localSpec).should(never()).setJson(any());
-        then(localSpec).should(never()).setHtml(any());
+        then(localSpec).should(never()).setJsonForPublishing(any());
+        then(localSpec).should(never()).setHtmlForPublishing(any());
         then(localSpec).should(never()).saveAndPublish();
 
         logger.shouldReceive(
@@ -522,11 +519,11 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpec).should().setLastChangeCheckInstant(newCheckTime);
+        then(localSpec).should().setLastChangeCheckInstantInPlace(newCheckTime);
         then(localSpec).should().save();
 
-        then(localSpec).should(never()).setJson(any());
-        then(localSpec).should(never()).setHtml(any());
+        then(localSpec).should(never()).setJsonForPublishing(any());
+        then(localSpec).should(never()).setHtmlForPublishing(any());
         then(localSpec).should(never()).saveAndPublish();
 
         logger.shouldReceive(
@@ -586,18 +583,18 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(localSpecNeverPublishedA).should(never()).setLastChangeCheckInstant(any());
+        then(localSpecNeverPublishedA).should(never()).setLastChangeCheckInstantInPlace(any());
         then(localSpecNeverPublishedA).should(never()).save();
 
-        then(localSpecNeverPublishedA).should(never()).setJson(any());
-        then(localSpecNeverPublishedA).should(never()).setHtml(any());
+        then(localSpecNeverPublishedA).should(never()).setJsonForPublishing(any());
+        then(localSpecNeverPublishedA).should(never()).setHtmlForPublishing(any());
         then(localSpecNeverPublishedA).should(never()).saveAndPublish();
 
-        then(localSpecNeverPublishedB).should().setLastChangeCheckInstant(newCheckTimeB);
+        then(localSpecNeverPublishedB).should().setLastChangeCheckInstantInPlace(newCheckTimeB);
         then(localSpecNeverPublishedB).should().save();
 
-        then(localSpecNeverPublishedB).should().setJson(remoteSpecificationJsonB);
-        then(localSpecNeverPublishedB).should().setHtml(newSpecificationHtmlB);
+        then(localSpecNeverPublishedB).should().setJsonForPublishing(remoteSpecificationJsonB);
+        then(localSpecNeverPublishedB).should().setHtmlForPublishing(newSpecificationHtmlB);
         then(localSpecNeverPublishedB).should().saveAndPublish();
 
         logger.shouldReceive(
@@ -649,9 +646,10 @@ public class ApiSpecificationPublicationServiceTest {
         // then
         then(localSpecPublishedBefore).should().json();
         then(localSpecPublishedBefore).should().html();
-        then(localSpecPublishedBefore).should().setHtml(newSpecificationHtml);
-        then(localSpecPublishedBefore).should().saveAndPublish();
+        then(localSpecPublishedBefore).should().setHtmlInPlace(newSpecificationHtml);
+        then(localSpecPublishedBefore).should().save();
         then(localSpecPublishedBefore).should().getId(); // this call is made for the sake of logging
+        then(localSpecPublishedBefore).should().path();  // this call is made for the sake of logging
         then(localSpecPublishedBefore).shouldHaveNoMoreInteractions();
     }
 
@@ -674,6 +672,38 @@ public class ApiSpecificationPublicationServiceTest {
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
 
         given(apiSpecHtmlProvider.htmlFrom(localSpecificationJson)).willReturn(localSpecificationHtml);
+
+        // when
+        apiSpecificationPublicationService.rerenderSpecifications();
+
+        // then
+        then(localSpecPublishedBefore).should().json();
+        then(localSpecPublishedBefore).should().html();
+        then(localSpecPublishedBefore).should().getId(); // this call is made for the sake of logging
+        then(localSpecPublishedBefore).shouldHaveNoMoreInteractions();
+    }
+
+    @Test
+    public void rerender_skipsSpecification_whenUnchanged_ignoringUuids() {
+
+        // given
+        // @formatter:off
+        final String specificationId        = "248569";
+
+        final String localSpecificationJson = "{ \"json\": \"payload\" }";
+        final String newSpecificationHtml   = "<html><body><div data-schema-uuid=\"df7a85bf-8dcf-4b7d-9bbb-1d387c638091\">spec html different only in UUID</div></body></html>";
+        final String oldSpecificationHtml   = "<html><body><div data-schema-uuid=\"ea5cd2c0-37eb-4e7c-af44-112f574b5c51\">spec html different only in UUID</div></body></html>";
+        // @formatter:on
+
+        final ApiSpecificationDocument localSpecPublishedBefore = localSpec()
+            .withId(specificationId)
+            .withJson(localSpecificationJson)
+            .withHtml(oldSpecificationHtml)
+            .mock();
+
+        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
+
+        given(apiSpecHtmlProvider.htmlFrom(localSpecificationJson)).willReturn(newSpecificationHtml);
 
         // when
         apiSpecificationPublicationService.rerenderSpecifications();

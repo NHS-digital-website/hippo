@@ -162,6 +162,9 @@
 [website:feature] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:feedhub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:friendlyurls] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -412,6 +415,9 @@
   orderable
 
 [website:supplementaryinformationhub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:svg] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:tableau] > hippo:compound, hippostd:relaxed

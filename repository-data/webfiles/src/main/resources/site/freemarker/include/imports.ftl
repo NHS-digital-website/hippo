@@ -62,14 +62,13 @@
 <#function getOnClickMethodCall className, link>
     <#if className?? && link??>
         <#if className?contains("uk.nhs.digital.website.beans")>
-            <#assign className = doctype?split("$")>
-            <#assign classNameWithoutHash = doctypeSpit[0]>
+            <#assign classNameSplit = className?split("$")>
+            <#assign classNameWithoutHash = classNameSplit[0]>
             <#local docType = getDocTypeName(classNameWithoutHash) />
 
-            <#else>
-                <#local docType = getDocTypeName(className) />
+        <#else>
+            <#local docType = getDocTypeName(className) />
         </#if>
-        <#return docType/>
 
         <#if docType?length gt 0>
             <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />

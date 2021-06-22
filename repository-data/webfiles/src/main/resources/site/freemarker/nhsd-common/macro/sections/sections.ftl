@@ -20,6 +20,7 @@
 <#include "tableauLookupSection.ftl">
 <#include "fullWidthImage.ftl">
 <#include "navigation.ftl">
+<#include "../../../common/macro/sections/svgSection.ftl">
 <#include "../component/infoGraphic.ftl">
 
 
@@ -84,6 +85,8 @@
                 <@statistics section=section/>
             <#elseif section.sectionType == 'tableauLookup'>
                 <@tableauLookup section=section index=section?index/>
+            <#elseif section.sectionType == 'svg'>
+                <@svgSection section=section index=section?index/>
             <#elseif section.sectionType == 'tableau'>
                 <@tableau section=section index=section?index/>
             </#if>

@@ -1,11 +1,11 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include 'macro/media-item.ftl'>
-<#include 'macro/feedlist-getimage.ftl'>
+<#include 'macro/docGetImage.ftl'>
 
 <#list pageable.items>
     <section class="feedlist">
-        <#if (titleText)?has_content >
+        <#if (titleText)?has_content>
             <h2 class="section-title feedlist__title">${titleText}</h2>
         </#if>
         <div class="feedlist__items media-items media-items--${pageable.items?size}up">

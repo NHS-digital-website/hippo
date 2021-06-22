@@ -41,14 +41,14 @@
                                 </#if>
                                 <#if image?has_content>
                                     <@hst.link hippobean=image.original fullyQualified=true var="leadImage" />
-                                        <figure class="nhsd-a-image">
-                                            <picture class="nhsd-a-image__picture ">
-                                                <img src="${leadImage}" alt="${alttext}"  />
-                                            </picture>
-                                        </figure>
+                                    <figure class="nhsd-a-image nhsd-a-image--contain" style="height:max-content">
+                                        <picture class="nhsd-a-image__picture">
+                                            <img src="${leadImage}" alt="${alttext}"  />
+                                        </picture>
+                                    </figure>
                                 <#else>
                                     <figure class="nhsd-a-image">
-                                        <picture class="nhsd-a-image__picture ">
+                                        <picture class="nhsd-a-image__picture">
                                             <img src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="NHS Digital article" />
                                         </picture>
                                     </figure>

@@ -267,14 +267,51 @@ public class BrandRefreshContentRewriterTest {
     }
 
     @Test
+    public void rewriteTestForTableWithoutHeader() {
+
+        BrandRefreshContentRewriter rewriter = new BrandRefreshContentRewriter();
+
+        String html = "<h1>Table</h1><table><caption>Statement of comprehensive net expenditure for the year ended 31 March 2020</caption>"
+                    + "<tbody><tr><td>Staff costs</td><td>3</td><td>179,841</td><td>177,798</td></tr><tr><td>Termination benefits</td><td>3</td><td>8,359</td><td>11,165</td></tr>"
+                    + "<tr><td>Operating expenditure</td><td>5</td><td>223,988</td><td>218,031</td></tr></tbody></table>";
+
+        String result = rewriter.rewrite(html, node, requestContext, targetMount);
+
+        assertTrue(result.contains("div"));
+        assertTrue(result.contains("p"));
+        assertTrue(result.contains("table"));
+        assertFalse(result.contains("cannotsort"));
+        assertFalse(result.contains("caption")); // caption tag removed and text placed in heading
+        assertFalse(result.contains("thead"));
+        assertTrue(result.contains("tr"));
+        assertFalse(result.contains("data-no-sort"));
+        assertTrue(result.contains("tbody"));
+        assertTrue(result.contains("td"));
+
+        Document document = Jsoup.parse(result);
+
+        Element divTag = document.select("div").first();
+        assertTrue(divTag.hasClass("nhsd-m-table nhsd-t-body"));
+
+        Element heading = divTag.child(0);
+        assertEquals("p", heading.tagName());
+        assertTrue(heading.hasClass("nhsd-t-heading-xl nhsd-!t-margin-bottom-6"));
+        assertEquals("Statement of comprehensive net expenditure for the year ended 31 March 2020", heading.text());
+
+        Element table = document.select("table").first();
+        assertEquals("table", divTag.child(1).tagName());
+        assertFalse(table.hasAttr("data-responsive"));
+    }
+
+    @Test
     public void rewriteTestForTable() {
 
         BrandRefreshContentRewriter rewriter = new BrandRefreshContentRewriter();
 
         String html = "<h1>Table</h1><table><caption>Statement of comprehensive net expenditure for the year ended 31 March 2020</caption>"
-                    + "<thead><tr><th>Expenditure</th><th>Note</th><th >2019-20 (£000)</th><th>2018-19 (£000)</th></tr></thead>"
-                    + "<tbody><tr><td>Staff costs</td><td>3</td><td>179,841</td><td>177,798</td></tr><tr><td>Termination benefits</td><td>3</td><td>8,359</td><td>11,165</td></tr>"
-                    + "<tr><td>Operating expenditure</td><td>5</td><td>223,988</td><td>218,031</td></tr></tbody></table>";
+            + "<thead><tr><th>Expenditure</th><th>Note</th><th >2019-20 (£000)</th><th>2018-19 (£000)</th></tr></thead>"
+            + "<tbody><tr><td>Staff costs</td><td>3</td><td>179,841</td><td>177,798</td></tr><tr><td>Termination benefits</td><td>3</td><td>8,359</td><td>11,165</td></tr>"
+            + "<tr><td>Operating expenditure</td><td>5</td><td>223,988</td><td>218,031</td></tr></tbody></table>";
 
         String result = rewriter.rewrite(html, node, requestContext, targetMount);
 

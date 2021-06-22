@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 
+<#include "../../../include/imports.ftl">
 <#include "../documentIcon.ftl">
 
 <#function sizeToDisplay size=0>
@@ -46,7 +47,7 @@
                     <div class="nhsd-m-download-card__meta-tags">
 
                         <#assign fileFormat = iconTypeFromMime />
-                        <#if filename != "" >
+                        <#if filename != "">
                             <#assign fileFormat = getFileExtension(filename?lower_case) />
                         </#if>
 

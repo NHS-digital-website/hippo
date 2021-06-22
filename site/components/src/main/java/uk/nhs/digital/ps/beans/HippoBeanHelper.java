@@ -6,8 +6,6 @@ import static org.apache.commons.lang3.ArrayUtils.isEmpty;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
-import org.hippoecm.hst.core.component.HstComponentException;
-import org.hippoecm.hst.core.container.ComponentManager;
 import org.hippoecm.hst.site.HstServices;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
@@ -16,43 +14,17 @@ import org.onehippo.taxonomy.api.TaxonomyManager;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import javax.jcr.Credentials;
-import javax.jcr.Repository;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-
 /**
  * Static helper for {@linkplain org.hippoecm.hst.content.beans.standard.HippoBean}
  */
 public class HippoBeanHelper {
 
+    public static final String PUBLICATION_TAXONOMY = "publication_taxonomy";
+
     public static boolean isRootFolder(HippoBean folder) {
         HippoBean siteContentBaseBean = RequestContextProvider.get().getSiteContentBaseBean();
 
         return folder.isSelf(siteContentBaseBean);
-    }
-
-    public static String getTaxonomyName() throws HstComponentException {
-        String taxonomyName;
-
-        try {
-            ComponentManager componentManager = HstServices.getComponentManager();
-            Credentials configCred = componentManager.getComponent(Credentials.class.getName() + ".hstconfigreader");
-
-            Repository repository = componentManager
-                .getComponent(Repository.class.getName());
-            Session session = repository.login(configCred);
-
-            taxonomyName = session.getNode(
-                "/hippo:namespaces/publicationsystem/series/editor:templates/_default_/classifiable")
-                .getProperty("essentials-taxonomy-name")
-                .getString();
-        } catch (RepositoryException repositoryException) {
-            throw new HstComponentException(
-                "Exception occurred during fetching taxonomy file name.", repositoryException);
-        }
-
-        return taxonomyName;
     }
 
     public static List<String> getFullTaxonomyList(HippoBean bean) {
@@ -63,7 +35,7 @@ public class HippoBeanHelper {
 
         // Lookup Taxonomy Tree
         TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-        Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+        Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(PUBLICATION_TAXONOMY);
 
         return Arrays.stream(fullTaxonomy)
             .map(key -> taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName())
@@ -80,7 +52,7 @@ public class HippoBeanHelper {
         if (keys != null) {
             // Lookup Taxonomy Tree
             TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(PUBLICATION_TAXONOMY);
 
             for (String key : keys) {
                 List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();

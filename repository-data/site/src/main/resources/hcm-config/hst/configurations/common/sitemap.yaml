@@ -17,6 +17,7 @@ definitions:
           - website:publishedwork
           - website:publishedworkchapter
           - website:feature
+          - website:feedhub
           - website:financial
           - website:generalnonsearch
           - website:roadmap
@@ -56,6 +57,7 @@ definitions:
           - hst:pages/publishedwork
           - hst:pages/publishedworkchapter
           - hst:pages/feature
+          - hst:pages/feedhub
           - hst:pages/financial
           - hst:pages/general
           - hst:pages/roadmap
@@ -102,6 +104,7 @@ definitions:
         - website:publishedwork
         - website:publishedworkchapter
         - website:feature
+        - website:feedhub
         - website:financial
         - website:generalnonsearch
         - website:roadmap
@@ -141,6 +144,7 @@ definitions:
         - hst:pages/publishedwork
         - hst:pages/publishedworkchapter
         - hst:pages/feature
+        - hst:pages/feedhub
         - hst:pages/financial
         - hst:pages/general
         - hst:pages/roadmap
@@ -337,6 +341,10 @@ definitions:
           /_index_:
             hst:componentconfigurationid: hst:pages/api-catalogue
             hst:relativecontentpath: ${parent}/content
+            jcr:primaryType: hst:sitemapitem
+          /preview:
+            hst:componentconfigurationid: hst:pages/api-catalogue-preview
+            hst:relativecontentpath: ${parent}/preview
             jcr:primaryType: hst:sitemapitem
           hst:relativecontentpath: developer/api-catalogue
           jcr:primaryType: hst:sitemapitem

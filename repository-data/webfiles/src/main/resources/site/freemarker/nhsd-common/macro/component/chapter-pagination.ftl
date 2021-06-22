@@ -4,65 +4,63 @@
 <#macro chapterNav page currentPageTitlePrefix="">
     <#assign chapterPagination = page.paginate() />
     <#if chapterPagination??>
-        <nav class="chapter-pagination" aria-label="Chapter Navigation">
-            <ul class="chapter-pagination__list grid-row">
-                <#if chapterPagination.previous??>
-                    <li class="chapter-pagination__list-item chapter-pagination-item--previous">
-                        <p>
-                            <span class="chapter-pagination__direction"
-                                  aria-hidden="true">
-                                Previous chapter
-                            </span>
-                            <a class="chapter-pagination__link"
-                               href="<@hst.link hippobean=chapterPagination.previous.linkedBean />">
-                                <span class="chapter-pagination__link-direction visually-hidden">Previous chapter: </span>
-                                <span class="chapter-pagination__link-arrow"><img
-                                            aria-hidden="true" alt="Left Arrow"
-                                            src="<@hst.webfile path="/images/chapter-navigation/left-arrow.svg"/>"/></span><!--
-   No space between elements --><span class="chapter-pagination__link-page">${chapterPagination.previous.title}</span>
-                            </a>
-                        </p>
-                    </li>
-                <#else>
-                    <li class="chapter-pagination__list-item"></li>
-                </#if>
-                <li class="chapter-pagination__list-item chapter-pagination-item--current column-one-third">
-                    <p>
-                            <span class="chapter-pagination__direction">
-                                ${currentPageTitlePrefix}${page.title}
-                            </span>
-                        <a class="chapter-pagination__link"
-                           href="#chapter-index">
-                            <span class="chapter-pagination__link-direction visually-hidden"></span>
-                            <span class="chapter-pagination__link-arrow"><img
-                                        aria-hidden="true" alt="Down Arrow"
-                                        src="<@hst.webfile path="/images/chapter-navigation/down-arrow.svg"/>"/></span><!--
-No space between elements --><span class="chapter-pagination__link-page">View all chapters</span>
-                        </a>
-                    </p>
+        <div class="nhsd-o-chapter-navigation nhsd-!t-bg-pale-grey-80-tint nhsd-!t-margin-bottom-3">
+            <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
 
-                </li>
-                <#if chapterPagination.next??>
-                    <li class="chapter-pagination__list-item chapter-pagination-item--next column-one-third">
-                        <p>
-                            <span class="chapter-pagination__direction"
-                                  aria-hidden="true">
-                                Next chapter
-                            </span>
-                            <a class="chapter-pagination__link"
-                               href="<@hst.link hippobean=chapterPagination.next.linkedBean />">
-                                <span class="chapter-pagination__link-direction visually-hidden">Next chapter: </span>
-                                <span class="chapter-pagination__link-page">${chapterPagination.next.title}</span><!--
-   No space between elements --><span class="chapter-pagination__link-arrow"><img
-                                            aria-hidden="true" alt="Right Arrow"
-                                            src="<@hst.webfile path="/images/chapter-navigation/right-arrow.svg"/>"/></span>
-                            </a>
-                        </p>
-                    </li>
-                <#else>
-                    <li class="chapter-pagination__list-item"></li>
-                </#if>
-            </ul>
-        </nav>
+                <div class="nhsd-o-chapter-navigation__previous-chapter">
+                    <#if chapterPagination.previous??>
+                    
+                        <a class="nhsd-m-chapter" 
+                           href="<@hst.link hippobean=chapterPagination.previous.linkedBean />" 
+                           aria-label="Previous Chapter"
+                        >
+                            <div class="nhsd-m-chapter__content">
+                                <span class="nhsd-m-chapter__icon">
+                                    <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                            <path d="M7.5,15L1,8l6.5-7L9,2.5L4.8,7H15v2H4.8L9,13.5L7.5,15z"/>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">Previous Chapter</p>
+                            </div>
+                            <p class="nhsd-m-chapter__link nhsd-t-body-s">${chapterPagination.previous.title}</p>
+                        </a>
+                    </#if>
+                </div>
+
+                <div class="nhsd-o-chapter-navigation__current-chapter">
+                    <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">Current Chapter</p>
+                    <p class="nhsd-t-body-s nhsd-!t-margin-bottom-0">${currentPageTitlePrefix}${page.title}</p>
+                    <div class="nhsd-!t-margin-bottom-0 nhsd-t-body-s">
+                        <a class="nhsd-a-link" href="#chapter-index">View all
+                        <span class="nhsd-t-sr-only"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nhsd-o-chapter-navigation__next-chapter">
+                    <#if chapterPagination.next??>
+                        <a class="nhsd-m-chapter nhsd-m-chapter--right" 
+                           href="<@hst.link hippobean=chapterPagination.next.linkedBean />" 
+                           aria-label="Next Chapter"
+                        >
+                            <div class="nhsd-m-chapter__content">
+                                <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">Next Chapter</p>
+                                <span class="nhsd-m-chapter__icon">
+                                    <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </div>
+                            <p class="nhsd-m-chapter__link nhsd-t-body-s">${chapterPagination.next.title}</p>
+                        </a>
+                    </#if>
+                </div>
+            </div>
+            <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xxs" />
+        </div>
     </#if>
 </#macro>

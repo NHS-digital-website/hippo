@@ -20,7 +20,7 @@ public class FacetComponent extends SearchComponent {
             }
         } else {
             TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-            Taxonomy taxonomy = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.getTaxonomyName());
+            Taxonomy taxonomy = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.PUBLICATION_TAXONOMY);
             HippoFacetNavigationBean facetNavigationBean = getFacetNavigationBean(request);
             TaxonomyFacetWrapper taxonomyWrapper = facetNavigationBean == null ? null : new TaxonomyFacetWrapper(taxonomy, facetNavigationBean);
 

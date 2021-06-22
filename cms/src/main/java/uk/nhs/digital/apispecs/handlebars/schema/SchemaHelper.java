@@ -81,9 +81,8 @@ public class SchemaHelper implements Helper<Schema<?>> {
             .registerHelper(TypeAnySanitisingHelper.NAME, TypeAnySanitisingHelper.INSTANCE)
             .registerHelper(AssignHelper.NAME, AssignHelper.INSTANCE)
             .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
-            // below helper is registered as a HelperSource as it takes no parameters.
-            // see https://github.com/jknack/handlebars.java#using-a-helpersource for further info
-            .registerHelpers(UuidHelper.INSTANCE)
+            .registerHelper(BorderHelper.NAME, new BorderHelper(contextStackFactory))
+            .registerHelper(UuidHelper.NAME, UuidHelper.INSTANCE)
             ;
     }
 }
