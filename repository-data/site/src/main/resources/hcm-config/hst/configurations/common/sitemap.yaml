@@ -230,11 +230,8 @@ definitions:
           hst:componentconfigurationid: hst:pages/services-and-resources-home
           hst:relativecontentpath: cyber-and-data-security/services/content
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationmappingnames:
-        - website:dschomepage
-        hst:componentconfigurationmappingvalues:
-        - hst:pages/cyber-data-security-homepage
-        hst:relativecontentpath: cyber-and-data-security/content
+        hst:componentconfigurationid: hst:pages/nhsd-cyber-hub
+        hst:relativecontentpath: cyber-and-data-security
         jcr:primaryType: hst:sitemapitem
       /data:
         hst:componentconfigurationid: hst:pages/nhsd-data-hub
