@@ -9,5 +9,3 @@ definitions:
         value:
         - editor
         - hippo-relevance
-      hipposys:securityprovider: internal
-      jcr:primaryType: hipposys:group

@@ -28,7 +28,7 @@ public class ToPrettyJsonStringDeserializerTest {
 
         // when
         final String actualDeserializedContent = deserializer.deserialize(
-            objectMapper.createParser(jsonObject),
+            objectMapper.getFactory().createParser(jsonObject),
             null // ignored
         );
 

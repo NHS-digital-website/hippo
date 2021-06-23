@@ -4,8 +4,6 @@ definitions:
     /hst:hst/hst:configurations/hst:default/hst:catalog/eforms-catalog:
       /form:
         hst:componentclassname: uk.nhs.digital.common.forms.CustomAutoDetectFormComponent
-        hst:iconpath: resources/addon/eforms/images/icons/form.svg
-        hst:label: Enterprise Form
         hst:parameternames:
         - eforms-from-email
         - eforms-from-name
@@ -16,11 +14,6 @@ definitions:
         - NHS Mail
         - mail/NHSMail
         - 'true'
-        hst:resourcetemplate: eforms.validation.default
-        hst:template: eforms.default
-        hst:xtype: HST.Item
-        jcr:primaryType: hst:containeritemcomponent
-      jcr:primaryType: hst:containeritempackage
     /hst:hst/hst:configurations/hst:default/hst:catalog/essentials-catalog:
       /banner:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsDocumentComponent
