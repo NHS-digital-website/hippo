@@ -1,6 +1,6 @@
 ---
 /content/documents/corporate-website/publication-system:
-  .meta:order-before: news
+  .meta:order-before: supplementary-info
   hippo:name: Publication System
   hippostd:foldertype:
   - new-statistical-publications-and-clinical-indicators-document

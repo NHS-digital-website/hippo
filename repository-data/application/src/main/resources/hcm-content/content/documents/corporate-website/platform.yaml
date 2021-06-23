@@ -1,6 +1,6 @@
 ---
 /content/documents/corporate-website/platform:
-  .meta:order-before: news
+  .meta:order-before: publication-system
   hippo:name: Platform
   hippostd:foldertype:
   - new-platform-folder

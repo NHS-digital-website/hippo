@@ -15,7 +15,6 @@ definitions:
           .meta:residual-child-node-category: content
         /tracking:
           .meta:residual-child-node-category: content
-        jcr:primaryType: targeting:characteristics
       targeting:consentCookieEnabled: true
       targeting:consentCookieName: visitortracking
       targeting:consentCookieOptIn: true
