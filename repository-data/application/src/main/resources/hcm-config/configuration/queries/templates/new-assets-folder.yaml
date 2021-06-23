@@ -2,10 +2,5 @@
 definitions:
   config:
     /hippo:configuration/hippo:queries/hippo:templates/new-file-folder/hippostd:templates/asset gallery:
-      hippostd:foldertype:
-      - new-file-folder
       hippostd:gallerytype:
       - website:customizedAssetSet
-      jcr:mixinTypes:
-      - mix:versionable
-      jcr:primaryType: hippogallery:stdAssetGallery

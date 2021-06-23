@@ -1,5 +1,5 @@
 ---
-/hst:hst/hst:configurations/common/hst:workspace/hst:containers/servicepage/servicepage-other/othercontent:
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/servicepage/servicepage-top/othercontent:
   hst:componentclassname: uk.nhs.digital.common.components.ServiceComponent
   hst:iconpath: images/essentials/catalog-component-icons/news-list.png
   hst:label: Service (other component)

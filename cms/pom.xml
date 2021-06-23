@@ -34,6 +34,12 @@
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-package-cms-dependencies</artifactId>
             <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.onehippo.cms7</groupId>
+                    <artifactId>spring-boot</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
@@ -88,6 +94,18 @@
                 <exclusion>
                     <groupId>com.sun.mail</groupId>
                     <artifactId>mailapi</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-core</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>

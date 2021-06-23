@@ -6,7 +6,6 @@ definitions:
       - '100'
       - '120'
       - /formdata/permanent/
-      hipposched:repositoryJobClass: org.onehippo.cms7.hst.toolkit.addon.formdata.FormDataCleanupJob
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup/hipposched:triggers/bi-hourly:
       hipposched:cronExpression: 0 0/30 * * * ?
       hipposched:enabled: true
