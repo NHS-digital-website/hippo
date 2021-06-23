@@ -177,6 +177,7 @@
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -516,6 +517,7 @@
                                         <groupId>javax.mail</groupId>
                                         <artifactId>mail</artifactId>
                                         <classpath>extra</classpath>
+                                        <scope>provided</scope>
                                     </dependency>
                                     <dependency>
                                         <groupId>org.apache.logging.log4j</groupId>
