@@ -77,12 +77,27 @@
                                             ${document.authorName}<#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if></div>
                                         </div>
                                     </#if>
+
                                     <#if document.dateOfPublication.time?has_content >
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Date: </div>
                                             <div class="nhsd-o-hero__meta-data-item-description"><@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></div>
                                         </div>
+                                    </#if>
+
+                                    <#if hasTopics>
+                                        <div class="nhsd-o-hero__meta-data-item">
+                                            <div class="nhsd-o-hero__meta-data-item-title">Topic<#if document.topics?size gt 1 >s</#if>: </div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.blog.topics"><#list document.topics as tag>${tag}<#sep>, </#list></div>
+                                        </div>
                                     </#if> 
+
+                                    <#if hasBlogCategories>
+                                        <div class="nhsd-o-hero__meta-data-item">
+                                            <div class="nhsd-o-hero__meta-data-item-title">Categories: </div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.blog.categories"><#list document.caseStudyCategories as category>${category}<#sep>, </#list></div>
+                                        </div>
+                                    </#if>
                                 </div>
                             </div>
                         </div>
@@ -132,10 +147,25 @@
                                             <div class="nhsd-o-hero__meta-data-item-description"><a class="nhsd-a-link" href="#">${document.authorName}<span class="nhsd-t-sr-only"></span></a><#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if></div>
                                         </div>
                                     </#if>
+                                    
                                     <#if document.dateOfPublication.time?has_content >
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Date: </div>
                                             <div class="nhsd-o-hero__meta-data-item-description"><@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></div>
+                                        </div>
+                                    </#if>
+
+                                    <#if hasTopics>
+                                        <div class="nhsd-o-hero__meta-data-item">
+                                            <div class="nhsd-o-hero__meta-data-item-title">Topic<#if document.topics?size gt 1 >s</#if>: </div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.blog.topics"><#list document.topics as tag>${tag}<#sep>, </#list></div>
+                                        </div>
+                                    </#if> 
+
+                                    <#if hasBlogCategories>
+                                        <div class="nhsd-o-hero__meta-data-item">
+                                            <div class="nhsd-o-hero__meta-data-item-title">Categories: </div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.blog.categories"><#list document.caseStudyCategories as category>${category}<#sep>, </#list></div>
                                         </div>
                                     </#if>
                                 </div>
