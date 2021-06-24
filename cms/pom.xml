@@ -92,8 +92,12 @@
             <artifactId>swagger-codegen-generators</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>com.sun.mail</groupId>
+                    <groupId>javax.mail</groupId>
                     <artifactId>mailapi</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>mailapi</artifactId>
+                    <groupId>com.sun.mail</groupId>
                 </exclusion>
                 <exclusion>
                     <groupId>org.yaml</groupId>
@@ -111,6 +115,7 @@
                     <groupId>com.fasterxml.jackson.datatype</groupId>
                     <artifactId>jackson-datatype-jsr310</artifactId>
                 </exclusion>
+
             </exclusions>
         </dependency>
         <dependency>
