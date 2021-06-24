@@ -62,14 +62,13 @@
 <#function getOnClickMethodCall className, link>
     <#if className?? && link??>
         <#if className?contains("uk.nhs.digital.website.beans")>
-            <#assign className = doctype?split("$")>
-            <#assign classNameWithoutHash = doctypeSpit[0]>
+            <#assign classNameSplit = className?split("$")>
+            <#assign classNameWithoutHash = classNameSplit[0]>
             <#local docType = getDocTypeName(classNameWithoutHash) />
 
-            <#else>
-                <#local docType = getDocTypeName(className) />
+        <#else>
+            <#local docType = getDocTypeName(className) />
         </#if>
-        <#return docType/>
 
         <#if docType?length gt 0>
             <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />
@@ -190,6 +189,31 @@
         <#assign extension = filepath?keep_after_last(".")?lower_case >
     </#if>
     <#return extension />
+</#function>
+
+<#function getMimeTypeByExtension extension>
+    <#local knownExtensions = {
+        "jpg":"image/jpeg",
+        "png":"image/png",
+        "pdf":"image/pdf",
+        "pdf":"application/pdf",
+        "csv":"text/csv",
+        "txt":"text/plain",
+        "rar":"application/x-rar-compressed",
+        "zip":"application/zip",
+        "jar":"application/java-archive",
+        "json":"application/json",
+        "war":"application/x-war",
+        "ppt":"application/vnd.ms-powerpoint",
+        "pptx":"application/vnd.ms-powerpoint",
+        "xls":"application/vnd.ms-excel",
+        "xlsx":"application/vnd.ms-excel",
+        "doc":"application/msword",
+        "docx":"application/msword",
+        "xml":"text/xml"
+    }/>
+
+    <#return (knownExtensions[extension?lower_case]??)?then(knownExtensions[extension?lower_case], "") />
 </#function>
 
 <#function getFormatByMimeType mimeType>

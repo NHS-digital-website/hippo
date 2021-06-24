@@ -1,9 +1,14 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
+<@hst.setBundle basename="design-system"/>
 <@metaTags></@metaTags>
 
+<@fmt.message key="design-system.url" var="designSystemUrl" />
+
 <head>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" data-blockingmode="auto" async></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -25,10 +30,10 @@
     <meta name="twitter:site" content="@NHSDigital">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
 
-    <link href="https://dbs1dgg3cdf4v.cloudfront.net/" rel="preconnect" crossorigin>
-    <link type="font/woff2" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
+    <link href="${designSystemUrl}/" rel="preconnect" crossorigin>
+    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
 
     <#-- Preconnect to 3rd parties to improve proformance -->
     <link rel="preconnect" href="https://in.hotjar.com" crossorigin>
@@ -45,7 +50,7 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="https://dbs1dgg3cdf4v.cloudfront.net/cdn/latest/stylesheets/nhsd-frontend.css" type="text/css"/>
+    <link rel="stylesheet" href="${designSystemUrl}/cdn/v0.84.0/stylesheets/nhsd-frontend.css" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-print.css"/>" media="print" type="text/css"/>
 
