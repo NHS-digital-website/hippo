@@ -5,17 +5,14 @@
         <nav aria-labelledby="sticky-nav-header">
             <ul>
                 <li class="nhsd-m-sticky-navigation__item" data-nav-content="Top of page">
-                    <a class="nhsd-a-link" href="#top">Top of page
-                        <span class="nhsd-t-sr-only"></span>
+                    <a class="nhsd-a-link" href="#top">
+                        Top of page
                     </a>
                 </li>
                 {{#headingsHyperlinksFromMarkdown appDescription}}
                 <li class="nhsd-m-sticky-navigation__item" data-nav-content="api-description__{{id}}">
-                    <a class="nhsd-a-link"
-                       href="#api-description__{{id}}"
-                       aria-label="Scroll to '{{text}}'"
-                       title="Scroll to '{{text}}'">{{text}}
-                        <span class="nhsd-t-sr-only"></span>
+                    <a class="nhsd-a-link" href="#api-description__{{id}}">
+                        {{text}}
                     </a>
                 </li>
                 {{/headingsHyperlinksFromMarkdown}}
@@ -24,30 +21,21 @@
                         {{#operations}}
                             {{#eq baseName 'Default'}}
                                 <li class="nhsd-m-sticky-navigation__item" data-nav-content="api-endpoints">
-                                    <a class="nhsd-a-link"
-                                        href="#api-endpoints"
-                                        aria-label="Endpoints"
-                                        title="Endpoints">Endpoints
-                                        <span class="nhsd-t-sr-only"></span>
+                                    <a class="nhsd-a-link" href="#api-endpoints">
+                                        Endpoints:
                                     </a>
                                 </li>
                             {{else}}
                                 <li class="nhsd-m-sticky-navigation__item" data-nav-content="api-{{baseName}}">
-                                    <a class="nhsd-a-link"
-                                       href="#api-{{baseName}}"
-                                       aria-label="Endpoints: {{baseName}}"
-                                       title="Endpoints: {{baseName}}">Endpoints: {{baseName}}
-                                       <span class="nhsd-t-sr-only"></span>
+                                    <a class="nhsd-a-link" href="#api-{{baseName}}">
+                                        Endpoints: {{baseName}}
                                     </a>
                                 </li>
                             {{/eq}}
                             {{#operation}}
                                 <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-{{baseName}}-{{nickname}}">
-                                    <a class="nhsd-a-link"
-                                       href="#api-{{baseName}}-{{nickname}}"
-                                       aria-label="{{nickname}}"
-                                       title="{{nickname}}">{{summary}}
-                                        <span class="nhsd-t-sr-only"></span>
+                                    <a class="nhsd-a-link" href="#api-{{baseName}}-{{nickname}}">
+                                        {{summary}}
                                     </a>
                                 </li>
                             {{/operation}}
