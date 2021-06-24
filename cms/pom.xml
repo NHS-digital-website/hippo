@@ -103,6 +103,10 @@
                     <groupId>javax.mail</groupId>
                     <artifactId>mailapi</artifactId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>mailapi</artifactId>
+                    <groupId>com.sun.mail</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
