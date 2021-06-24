@@ -35,7 +35,7 @@
 
                     <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
                     <div class="nhsd-m-card__image_container">
-                      <figure class="nhsd-a-image nhsd-a-image--round-top-corners nhsd-a-image--contain">
+                      <figure class="nhsd-a-image nhsd-a-image--round-top-corners nhsd-a-image--maintain-ratio">
                         <picture class="nhsd-a-image__picture ">
                           <img src="${image}" alt="${galleryItem.imageAlt}">
                         </picture>
