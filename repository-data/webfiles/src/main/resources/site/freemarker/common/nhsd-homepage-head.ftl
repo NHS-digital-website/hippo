@@ -7,6 +7,8 @@
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" data-blockingmode="auto" async></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -48,7 +50,7 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="${designSystemUrl}/cdn/latest/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="${designSystemUrl}/cdn/v0.84.0/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" media="screen" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />

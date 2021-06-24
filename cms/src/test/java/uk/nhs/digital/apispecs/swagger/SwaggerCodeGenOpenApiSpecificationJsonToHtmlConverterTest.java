@@ -21,6 +21,7 @@ import org.mockito.Mock;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.test.util.TestDataCache;
 
+
 @RunWith(DataProviderRunner.class)
 public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
@@ -70,7 +71,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // given
         final String incompleteSpecificationJson = from("oasV3_incomplete_no_components-field.json");
 
-        final String expectedSpecHtml = from("oasV3_complete.html");
+        final String expectedSpecHtml = from("oasV3_incomplete_no_components-field.html");
 
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(incompleteSpecificationJson);
