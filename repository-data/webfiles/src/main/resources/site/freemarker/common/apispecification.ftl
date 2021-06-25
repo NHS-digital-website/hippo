@@ -50,11 +50,7 @@
             </style>
 
             <div class="nhsd-t-grid">
-                <div class="nhsd-t-row">
-
-                    ${document.html?no_esc}
-
-                </div>
+                <div class="nhsd-t-row">${document.html?no_esc}</div>
             </div>
         </article>
 

@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - branding-trunk
+      - API-SPEC-Rebrand-Main_Branch
 
 jobs:
   build-and-test:

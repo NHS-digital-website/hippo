@@ -1,8 +1,8 @@
 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-    <!-- start sticky-nav -->
-    <div class="nhsd-m-sticky-navigation nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2 nhsd-!t-margin-bottom-6">
-        <span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Page content</span>
-        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs nhsd-!t-margin-bottom-2"/>
+<!-- start sticky-nav -->
+<div class="nhsd-m-sticky-navigation nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2 nhsd-!t-margin-bottom-6">
+    <span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Page content</span>
+    <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs nhsd-!t-margin-bottom-2"/>
         <nav aria-labelledby="sticky-nav-header">
             <ul>
                 <li class="nhsd-m-sticky-navigation__item" data-nav-content="Top of page">
@@ -10,586 +10,344 @@
                         Top of page
                     </a>
                 </li>
-                <li class="nhsd-m-sticky-navigation__item" data-nav-content="api-endpoints">
-                    <a class="nhsd-a-link" href="#api-endpoints">
-                        Endpoints:
-                    </a>
-                </li>
-                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-no-params--operation-with-no-params">
-                    <a class="nhsd-a-link" href="#api-Default-path-with-no-params--operation-with-no-params">
-                        Path with no params: Operation with no parameters.
-                    </a>
-                </li>
-                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path">
-                    <a class="nhsd-a-link" href="#api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path">
-                        Path with no params: Operation with parameters.
-                    </a>
-                </li>
-                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-params--operation-with-no-params">
-                    <a class="nhsd-a-link" href="#api-Default-path-with-params--operation-with-no-params">
-                        Path with params: Operation with no parameters.
-                    </a>
-                </li>
-                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-params--operation-with-own-params-no-overlap-with-path">
-                    <a class="nhsd-a-link" href="#api-Default-path-with-params--operation-with-own-params-no-overlap-with-path">
-                        Path with params: Operation with non-overlapping parameters.
-                    </a>
-                </li>
-                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-params--operation-with-own-params-some-overriding-path">
-                    <a class="nhsd-a-link" href="#api-Default-path-with-params--operation-with-own-params-some-overriding-path">
-                        Path with params: Operation with overlapping parameters.
-                    </a>
-                </li>
+                                <li class="nhsd-m-sticky-navigation__item" data-nav-content="api-endpoints">
+                                    <a class="nhsd-a-link" href="#api-endpoints">
+                                        Endpoints:
+                                    </a>
+                                </li>
+                                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-no-params--operation-with-no-params">
+                                    <a class="nhsd-a-link" href="#api-Default-path-with-no-params--operation-with-no-params">
+                                        Path with no params: Operation with no parameters.
+                                    </a>
+                                </li>
+                                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path">
+                                    <a class="nhsd-a-link" href="#api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path">
+                                        Path with no params: Operation with parameters.
+                                    </a>
+                                </li>
+                                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-params--operation-with-no-params">
+                                    <a class="nhsd-a-link" href="#api-Default-path-with-params--operation-with-no-params">
+                                        Path with params: Operation with no parameters.
+                                    </a>
+                                </li>
+                                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-params--operation-with-own-params-no-overlap-with-path">
+                                    <a class="nhsd-a-link" href="#api-Default-path-with-params--operation-with-own-params-no-overlap-with-path">
+                                        Path with params: Operation with non-overlapping parameters.
+                                    </a>
+                                </li>
+                                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-path-with-params--operation-with-own-params-some-overriding-path">
+                                    <a class="nhsd-a-link" href="#api-Default-path-with-params--operation-with-own-params-some-overriding-path">
+                                        Path with params: Operation with overlapping parameters.
+                                    </a>
+                                </li>
             </ul>
         </nav>
-    </div>
-    <!-- end sticky-nav -->
 </div>
-
+<!-- end sticky-nav -->
+</div>
 <div id="content" class="nhsd-t-col-xs-12 nhsd-t-col-s-8" aria-label="Document content">
-
     <!-- API Title: Minimal test specification -->
-
     <div id="api-description" class="article-section">
-        Specification where some operations do not define request parameters of their own, and where it's expected that all operations will 'inherit' parameters from their respective Path Objects.
-        See https://spec.openapis.org/oas/v3.0.3#parameter-object
+        <p class="nhsd-t-body">Specification where some operations do not define request parameters of their own, and where it's expected that all operations will 'inherit' parameters from their respective Path Objects.
+See https://spec.openapis.org/oas/v3.0.3#parameter-object</p>
     </div>
-
-    <div id="api-endpoints" class="article-section">
-        <h2>Endpoints</h2>
-    </div>
-    <div id="api-Default-path-with-no-params--operation-with-no-params" class="article-section-with-sub-heading">
-        <article id="api-Default-path-with-no-params--operation-with-no-params-0">
-            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-            <h3>Path with no params: Operation with no parameters.</h3>
-            <div class="endpoint_path">
-                <div class="method">get</div>
-                <div class="pre"><pre>/path-with-no-params/{PathPathParam}</pre></div>
-
-                <div class="try"><a onclick="tryEndpointNow('/default/path-with-no-params--operation-with-no-params')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
-            </div>
-
-            <p>Operation with no parameters of its own. Expectation: result should contain no parameters.</p>
-
-
-
-
-
-
-
-        </article>
-    </div>
-    <div id="api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path" class="article-section-with-sub-heading">
-        <article id="api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path-0">
-            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-            <h3>Path with no params: Operation with parameters.</h3>
-            <div class="endpoint_path">
-                <div class="method">post</div>
-                <div class="pre"><pre>/path-with-no-params/{PathPathParam}</pre></div>
-
-                <div class="try"><a onclick="tryEndpointNow('/default/path-with-no-params--operation-with-own-params-no-overlap-with-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
-            </div>
-
-            <p>Operation with some parameters of its own. Expectation: result should contain all operation's parameters.</p>
-
-            <h4>Request</h4>
-
-            <div class="httpparams">
-                <h5>Path parameters</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathPathParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter defined as path variable.</div>
-
-
-
-
+                    <div id="api-endpoints" class="article-section">
+                        <h2 class="nhsd-t-heading-xl">Endpoints</h2>
+                    </div>
+                                    <div id="api-Default-path-with-no-params--operation-with-no-params" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-no-params--operation-with-no-params-0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h3 class="nhsd-t-heading-l">Path with no params: Operation with no parameters.</h3>
+                                            <div class="endpoint_path">
+                                                <div class="method">get</div>
+                                                <div class="pre"><pre>/path-with-no-params/{PathPathParam}</pre></div>
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-no-params--operation-with-no-params')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
+                                            <p class="nhsd-t-body">Operation with no parameters of its own. Expectation: result should contain no parameters.</p>
+                                        </article>
                                     </div>
-                                    <div class="httpparams__required">
-                                        Required
+                                    <div id="api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path-0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h3 class="nhsd-t-heading-l">Path with no params: Operation with parameters.</h3>
+                                            <div class="endpoint_path">
+                                                <div class="method">post</div>
+                                                <div class="pre"><pre>/path-with-no-params/{PathPathParam}</pre></div>
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-no-params--operation-with-own-params-no-overlap-with-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
+                                            <p class="nhsd-t-body">Operation with some parameters of its own. Expectation: result should contain all operation's parameters.</p>
+                                                <h4 class="nhsd-t-heading-m">Request</h4>
+                                                <h5 class="nhsd-t-heading-s">Path parameters</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathPathParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter defined as path variable.</p>
+                                                                <div class="nhsd-!t-col-red">Required</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <h5 class="nhsd-t-heading-s">Query parameters</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">OperationQueryParamPost</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Operation parameter expected as a query parameter.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <h5 class="nhsd-t-heading-s">Headers</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">OperationHeaderParamPost</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Operation parameter expected as a header.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        </article>
                                     </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="httpparams">
-                <h5>Query parameters</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">OperationQueryParamPost</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Operation parameter expected as a query parameter.</div>
-
-
-
-
+                                    <div id="api-Default-path-with-params--operation-with-no-params" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-params--operation-with-no-params-0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h3 class="nhsd-t-heading-l">Path with params: Operation with no parameters.</h3>
+                                            <div class="endpoint_path">
+                                                <div class="method">get</div>
+                                                <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-no-params')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
+                                            <p class="nhsd-t-body">Operation with no parameters of its own. Expectation: result should contain just path's parameters.</p>
+                                                <h4 class="nhsd-t-heading-m">Request</h4>
+                                                <h5 class="nhsd-t-heading-s">Path parameters</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathPathParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter defined as path variable.</p>
+                                                                <div class="nhsd-!t-col-red">Required</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <h5 class="nhsd-t-heading-s">Query parameters</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathQueryParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter expected as a query parameter.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <h5 class="nhsd-t-heading-s">Headers</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathHeaderParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter expected as a header.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        </article>
                                     </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="httpparams">
-                <h5>Headers</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">OperationHeaderParamPost</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Operation parameter expected as a header.</div>
-
-
-
-
+                                    <div id="api-Default-path-with-params--operation-with-own-params-no-overlap-with-path" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-params--operation-with-own-params-no-overlap-with-path-0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h3 class="nhsd-t-heading-l">Path with params: Operation with non-overlapping parameters.</h3>
+                                            <div class="endpoint_path">
+                                                <div class="method">post</div>
+                                                <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-own-params-no-overlap-with-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
+                                            <p class="nhsd-t-body">Operation with some parameters of its own, none overlapping with the path one. Expectation: result should contain all path's and operation's parameters.</p>
+                                                <h4 class="nhsd-t-heading-m">Request</h4>
+                                                <h5 class="nhsd-t-heading-s">Path parameters</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathPathParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter defined as path variable.</p>
+                                                                <div class="nhsd-!t-col-red">Required</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <h5 class="nhsd-t-heading-s">Query parameters</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathQueryParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter expected as a query parameter.</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">OperationQueryParamPost</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Operation parameter expected as a query parameter.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <h5 class="nhsd-t-heading-s">Headers</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathHeaderParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter expected as a header.</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">OperationHeaderParamPost</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Operation parameter expected as a header.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        </article>
                                     </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-
-        </article>
-    </div>
-    <div id="api-Default-path-with-params--operation-with-no-params" class="article-section-with-sub-heading">
-        <article id="api-Default-path-with-params--operation-with-no-params-0">
-            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-            <h3>Path with params: Operation with no parameters.</h3>
-            <div class="endpoint_path">
-                <div class="method">get</div>
-                <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
-
-                <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-no-params')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
-            </div>
-
-            <p>Operation with no parameters of its own. Expectation: result should contain just path's parameters.</p>
-
-            <h4>Request</h4>
-
-            <div class="httpparams">
-                <h5>Path parameters</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathPathParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter defined as path variable.</div>
-
-
-
-
+                                    <div id="api-Default-path-with-params--operation-with-own-params-some-overriding-path" class="article-section-with-sub-heading">
+                                        <article id="api-Default-path-with-params--operation-with-own-params-some-overriding-path-0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h3 class="nhsd-t-heading-l">Path with params: Operation with overlapping parameters.</h3>
+                                            <div class="endpoint_path">
+                                                <div class="method">put</div>
+                                                <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
+                                                        <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-own-params-some-overriding-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
+                                            <p class="nhsd-t-body">Operation with some parameters of its own but also with params overriding the path ones. Expectation: result should contain all path's and operation's parameters, with definitions at the operation levels winning over their counterparts at the path level.</p>
+                                                <h4 class="nhsd-t-heading-m">Request</h4>
+                                                <h5 class="nhsd-t-heading-s">Path parameters</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathPathParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter defined as path variable - re-defined in the operation.</p>
+                                                                <div class="nhsd-!t-col-red">Required</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <h5 class="nhsd-t-heading-s">Query parameters</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathQueryParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter expected as a query parameter - re-defined in the operation.</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">OperationQueryParamPut</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Operation parameter expected as a query parameter.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <h5 class="nhsd-t-heading-s">Headers</h5>
+                                                <div class="nhsd-m-table nhsd-t-body">
+                                                    <table data-responsive data-no-sort>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="nhsd-t-width-200">Name</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">PathHeaderParam</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Path parameter expected as a header - re-defined in the operation.</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><code class="nhsd-!t-font-family-mono">OperationHeaderParamPut</code></td>
+                                                            <td>
+                                                                <p class="nhsd-t-body">Operation parameter expected as a header.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        </article>
                                     </div>
-                                    <div class="httpparams__required">
-                                        Required
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="httpparams">
-                <h5>Query parameters</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathQueryParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter expected as a query parameter.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="httpparams">
-                <h5>Headers</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathHeaderParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter expected as a header.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-
-        </article>
-    </div>
-    <div id="api-Default-path-with-params--operation-with-own-params-no-overlap-with-path" class="article-section-with-sub-heading">
-        <article id="api-Default-path-with-params--operation-with-own-params-no-overlap-with-path-0">
-            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-            <h3>Path with params: Operation with non-overlapping parameters.</h3>
-            <div class="endpoint_path">
-                <div class="method">post</div>
-                <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
-
-                <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-own-params-no-overlap-with-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
-            </div>
-
-            <p>Operation with some parameters of its own, none overlapping with the path one. Expectation: result should contain all path's and operation's parameters.</p>
-
-            <h4>Request</h4>
-
-            <div class="httpparams">
-                <h5>Path parameters</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathPathParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter defined as path variable.</div>
-
-
-
-
-                                    </div>
-                                    <div class="httpparams__required">
-                                        Required
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="httpparams">
-                <h5>Query parameters</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathQueryParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter expected as a query parameter.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr><td class="httpparams__name">OperationQueryParamPost</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Operation parameter expected as a query parameter.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="httpparams">
-                <h5>Headers</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathHeaderParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter expected as a header.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr><td class="httpparams__name">OperationHeaderParamPost</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Operation parameter expected as a header.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-
-        </article>
-    </div>
-    <div id="api-Default-path-with-params--operation-with-own-params-some-overriding-path" class="article-section-with-sub-heading">
-        <article id="api-Default-path-with-params--operation-with-own-params-some-overriding-path-0">
-            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-            <h3>Path with params: Operation with overlapping parameters.</h3>
-            <div class="endpoint_path">
-                <div class="method">put</div>
-                <div class="pre"><pre>/path-with-params/{PathPathParam}</pre></div>
-
-                <div class="try"><a onclick="tryEndpointNow('/default/path-with-params--operation-with-own-params-some-overriding-path')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
-            </div>
-
-            <p>Operation with some parameters of its own but also with params overriding the path ones. Expectation: result should contain all path's and operation's parameters, with definitions at the operation levels winning over their counterparts at the path level.</p>
-
-            <h4>Request</h4>
-
-            <div class="httpparams">
-                <h5>Path parameters</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathPathParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter defined as path variable - re-defined in the operation.</div>
-
-
-
-
-                                    </div>
-                                    <div class="httpparams__required">
-                                        Required
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="httpparams">
-                <h5>Query parameters</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathQueryParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter expected as a query parameter - re-defined in the operation.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr><td class="httpparams__name">OperationQueryParamPut</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Operation parameter expected as a query parameter.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="httpparams">
-                <h5>Headers</h5>
-                <table data-disablesort="true">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr><td class="httpparams__name">PathHeaderParam</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Path parameter expected as a header - re-defined in the operation.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr><td class="httpparams__name">OperationHeaderParamPut</td>
-                        <td>
-                            <div>
-                                <div class="httpparams__description">
-                                    <div>
-                                        <span class="httpparams__datatype"></span>
-
-
-
-                                        <div>Operation parameter expected as a header.</div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-
-        </article>
-    </div>
-
 </div>

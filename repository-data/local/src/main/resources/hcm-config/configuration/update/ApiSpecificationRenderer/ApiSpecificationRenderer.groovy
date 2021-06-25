@@ -142,6 +142,8 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/FencedCodeBlockNodeRenderer.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/HyperlinkAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/ListAttributeProvider.java",
+                "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/ParagraphAttributeProvider.java",
+                "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/StrongEmphasisAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/ExceptionUtils.java",
                 "../../repository-data/local/src/main/resources/hcm-config/configuration/update/ApiSpecificationRenderer/CodegenRunner.java",
         ].stream().collect(Collectors.joining(" "))
