@@ -26,7 +26,7 @@ public class EnumHelper implements Helper<Collection<?>> {
         return Optional.ofNullable(args).orElse(emptyList()).stream()
             .map(String::valueOf)
             .map(StringEscapeUtils::escapeHtml)
-            .map(arg -> format("<code class=\"codeinline\">%s</code>", arg))
+            .map(arg -> format("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>", arg))
             .collect(joining(", "));
     }
 }

@@ -429,7 +429,7 @@ public class SchemaHelperTest {
     public void rendersDefault_forSchemas_ofVariousTypes(
         final String testCaseDescription,
         final String schemaType,
-        final String format, // ignored
+        final String format,
         final Object defaultValueJson,
         final String expectedRenderedValue
     ) {
@@ -438,6 +438,7 @@ public class SchemaHelperTest {
             placeholders()
                 .with("typePlaceholder", schemaType)
                 .with("propertyNamePlaceholder", "default")
+                .with("formatPlaceholder", format)
                 .with("valuePlaceholder", defaultValueJson)
         );
 
@@ -470,7 +471,10 @@ public class SchemaHelperTest {
         );
 
         final String expectedRendering = format(
-            "<div>Allowed values: <code class=\"codeinline\">%s</code>, <code class=\"codeinline\">%s</code></div>",
+            "<div>Allowed values:"
+                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>,"
+                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>"
+                + "</div>",
             firstRenderedValue,
             secondRenderedValue
         );

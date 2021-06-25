@@ -47,7 +47,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    public void rendersSpecification_whenCompleteOpenApiJsonAsHtml() {
+    public void rendersSpecification_asHtml_fromCompleteOpenApiJson() {
 
         // given
         final String specificationJson = from("oasV3_complete.json");
@@ -85,7 +85,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    public void rendersOperationsWithPathParameters_whenOperationsDoNotDefineTheirOwn() {
+    public void rendersOperationsWithPathObjectParameters_whenOperationsDoNotDefineTheirOwn() {
 
         // given
         final String incompleteSpecificationJson = from("oasV3_operation_with_no_own_parameters.json");
@@ -98,6 +98,25 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // then
         assertThat(
             "Parameters rendered for operations are combination of their own and path's params.",
+            ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
+            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
+        );
+    }
+
+    @Test
+    public void rendersAllSupportedRequestAndResponseParameters() {
+
+        // given
+        final String specificationJson = from("oasV3_requestResponseParams.json");
+
+        final String expectedSpecHtml = from("oasV3_requestResponseParams.html");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        assertThat(
+            "A spec has been rendered with all supported request parameters.",
             ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
             is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
         );

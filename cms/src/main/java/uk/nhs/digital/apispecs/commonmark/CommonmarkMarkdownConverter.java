@@ -2,8 +2,6 @@ package uk.nhs.digital.apispecs.commonmark;
 
 import static java.lang.Integer.MAX_VALUE;
 import static java.util.Collections.singletonList;
-import static org.apache.commons.lang.StringUtils.removeStart;
-import static org.apache.commons.lang3.StringUtils.removeEnd;
 
 import org.apache.commons.lang3.Validate;
 import org.commonmark.Extension;
@@ -139,7 +137,7 @@ public class CommonmarkMarkdownConverter {
     private String renderMarkdownAsHtml(final String markdown, final String headingIdPrefix, final int topHeadingLevel) {
         return Optional.ofNullable(markdown)
             .map(md -> renderMarkdownText(md, headingIdPrefix, topHeadingLevel))
-            .map(this::trimSurroundingParagraphTags)
+            .map(String::trim)
             .orElse("");
     }
 
@@ -229,17 +227,5 @@ public class CommonmarkMarkdownConverter {
         };
 
         document.accept(headingsLevelsShifter);
-    }
-
-    /**
-     * See comments against {@linkplain io.swagger.codegen.v3.utils.Markdown#unwrapped(String)}
-     * which this method is based on.
-     */
-    private String trimSurroundingParagraphTags(final String html) {
-        return Optional.of(html)
-            .map(String::trim)
-            .map(text -> removeStart(text, "<p>"))
-            .map(text -> removeEnd(text, "</p>"))
-            .orElse("");
     }
 }

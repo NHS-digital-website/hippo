@@ -269,7 +269,7 @@ public class CommonmarkMarkdownConverterTest {
         }
 
         @Override public String toString() {
-            return levels.stream().map(Object::toString).collect(joining(", ", "[", "]"));
+            return levels.stream().map(Object::toString).collect(joining(", ", "[", "]\n"));
         }
     }
 }
