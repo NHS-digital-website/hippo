@@ -89,11 +89,8 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                     // document it sits within to give context
                     gaAction = GA_ACTION_FILE_DOWNLOAD;
                     documentPath = contentBean.getDisplayName() + " => " + documentPath;
-                } else if (isExternal(documentPath)) {
-                    gaAction = GA_ACTION_LINK_CLICK;
                 } else {
-                    // internal link - no tracking required
-                    continue;
+                    gaAction = GA_ACTION_LINK_CLICK;
                 }
 
                 //fetching content bean type

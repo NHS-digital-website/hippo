@@ -16,16 +16,15 @@
 </#function>
 
 <#macro downloadBlockAsset classname resource title shortsummary mimeType size external=false small=false>
-    <#assign onClickMethodCall = getOnClickMethodCall(classname, title) />
     <#if size?has_content>
         <#assign sizeString = sizeToDisplay(size) />
     </#if>
     <#assign iconTypeFromMime = getFormatByMimeType("${mimeType?lower_case}") />
 
-    <@hst.link hippobean=resource var="filename" />
+    <@hst.link hippobean=resource var="filepath" />
 
     <div class="${(small == true)?then('nhsd-m-download-card', 'nhsd-m-download-card nhsd-!t-margin-bottom-6')}">
-        <a href="${(external == true)?then(resource, filename)}" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" >
+        <a href="${(external == true)?then(resource, filepath)}" class="nhsd-a-box-link" onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, filepath), true)}" onKeyUp="return vjsu.onKeyUp(event)">
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="${(small == true)?then('nhsd-m-download-card__image-box small', 'nhsd-m-download-card__image-box')}">
                     <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->
@@ -45,8 +44,8 @@
                     <div class="nhsd-m-download-card__meta-tags">
 
                         <#assign fileFormat = iconTypeFromMime />
-                        <#if external == false && filename != "">
-                            <#assign fileFormat = getFileExtension(filename?lower_case) />
+                        <#if external == false && filepath != "">
+                            <#assign fileFormat = getFileExtension(filepath?lower_case) />
 			            </#if>
                         <#if external == true>
                             <#assign fileFormat = getFileExtension(resource?lower_case) />

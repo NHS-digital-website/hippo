@@ -200,7 +200,7 @@
                                                 <a class="nhsd-a-box-link" 
                                                    title="${attachment.text}"
                                                    href = "${url}"
-                                                   onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${fileName}');"
+                                                   onClick="logGoogleAnalyticsEvent('Download attachment','Published work','${url}');"
                                                    onKeyUp="return vjsu.onKeyUp(event)"
                                                    itemprop="contentUrl"
                                                 >

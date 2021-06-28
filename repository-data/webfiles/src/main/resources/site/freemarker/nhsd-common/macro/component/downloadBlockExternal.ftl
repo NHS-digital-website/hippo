@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 
+<#include "../../../include/imports.ftl">
 <#include "../documentIcon.ftl">
 
 <#macro downloadBlockExternal classname doc title shortsummary>

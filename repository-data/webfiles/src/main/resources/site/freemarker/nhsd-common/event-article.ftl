@@ -181,9 +181,9 @@
                                 <@externalstorageLink attachment.resource; url>
                                     <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
                                         <a class="nhsd-a-box-link"
-                                            href="#" 
+                                            href="${url}" 
                                             title="${attachment.text}"
-                                            onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${fileName}');"
+                                            onClick="logGoogleAnalyticsEvent('Download attachment','Event','${url}');"
                                             onKeyUp="return vjsu.onKeyUp(event)"
                                             itemprop="contentUrl"
                                             aria-label="${attachment.text}"

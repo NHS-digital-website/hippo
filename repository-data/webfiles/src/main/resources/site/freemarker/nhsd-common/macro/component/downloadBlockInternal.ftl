@@ -1,12 +1,14 @@
 <#ftl output_format="HTML">
 
+<#include "../../../include/imports.ftl">
 <#include "../documentIcon.ftl">
 
 <#macro downloadBlockInternal classname doc title="" shortsummary="" icontype="web" >
-    <#assign onClickMethodCall = getOnClickMethodCall(classname, title) />
 
+    <@hst.link hippobean=doc var="link"/>
+    
     <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
-        <a href="<@hst.link hippobean=doc />" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" >
+        <a href="${link}" class="nhsd-a-box-link" onClick="${getOnClickMethodCall(classname, link)}" onKeyUp="return vjsu.onKeyUp(event)">
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-download-card__image-box">
                     <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->

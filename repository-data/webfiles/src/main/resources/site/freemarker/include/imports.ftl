@@ -24,6 +24,9 @@
     <#local docTypes = {
         "Service":                      "uk.nhs.digital.website.beans.Service",
         "General":                      "uk.nhs.digital.website.beans.General",
+        "Publication":                  "uk.nhs.digital.ps.beans.Publication",
+        "Series":                       "uk.nhs.digital.ps.beans.Series",
+        "CyberAlert":                   "uk.nhs.digital.website.beans.CyberAlert",
         "Hub":                          "uk.nhs.digital.website.beans.Hub",
         "HubNewsAndEvents":             "uk.nhs.digital.website.beans.HubNewsAndEvents",
         "Event":                        "uk.nhs.digital.website.beans.Event",
@@ -39,6 +42,7 @@
         "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub",
         "Blog":                         "uk.nhs.digital.website.beans.Blog",
         "JobRole":                      "uk.nhs.digital.website.beans.JobRole",
+        "Feature":                      "uk.nhs.digital.website.beans.Feature",
         "BusinessUnit":                 "uk.nhs.digital.website.beans.BusinessUnit",
         "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure",
         "News":                         "uk.nhs.digital.website.beans.News",
@@ -59,9 +63,10 @@
 </#function>
 
 <#-- onClick attribute helper function -->
-<#function getOnClickMethodCall className, link>
+<#function getOnClickMethodCall className, link, download=false>
     <#if className?? && link??>
-        <#if className?contains("uk.nhs.digital.website.beans")>
+        <#if className?contains("uk.nhs.digital.website.beans") || 
+             className?contains("uk.nhs.digital.ps.beans")>
             <#assign classNameSplit = className?split("$")>
             <#assign classNameWithoutHash = classNameSplit[0]>
             <#local docType = getDocTypeName(classNameWithoutHash) />
@@ -71,7 +76,11 @@
         </#if>
 
         <#if docType?length gt 0>
-            <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />
+            <#if download>
+                <#local onClickAttr="logGoogleAnalyticsEvent('Download attachment', '${docType}', '${link}')" />
+            <#else>
+                <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />
+            </#if>
             <#return onClickAttr?no_esc />
         </#if>
     </#if>
