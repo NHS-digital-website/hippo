@@ -94,7 +94,7 @@
 
     <div class="nhsd-t-grid">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-12">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
 
                 <#if document.creditBanner?has_content>
                     <div class="nhsd-m-emphasis-box nhsd-!t-margin-bottom-6" role="alert">
