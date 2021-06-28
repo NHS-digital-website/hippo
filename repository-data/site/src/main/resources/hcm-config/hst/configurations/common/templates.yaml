@@ -11,6 +11,9 @@ definitions:
       /api-catalogue:
         hst:renderpath: webfile:/freemarker/common/api-catalogue.ftl
         jcr:primaryType: hst:template
+      /api-catalogue-preview:
+        hst:renderpath: webfile:/freemarker/common/api-catalogue-preview.ftl
+        jcr:primaryType: hst:template
       /apiendpoint-article:
         hst:renderpath: webfile:/freemarker/common/apiendpoint-article.ftl
         jcr:primaryType: hst:template
@@ -35,11 +38,14 @@ definitions:
       /archive:
         hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
         jcr:primaryType: hst:template
+      /az-list:
+        hst:renderpath: webfile:/freemarker/nhsd-common/components/az-list.ftl
+        jcr:primaryType: hst:template
       /base-top-menu:
         hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
         jcr:primaryType: hst:template
       /blog-article:
-        hst:renderpath: webfile:/freemarker/common/blog-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/blog-article.ftl
         jcr:primaryType: hst:template
       /bloghub-article:
         hst:renderpath: webfile:/freemarker/common/bloghub-article.ftl
@@ -52,6 +58,9 @@ definitions:
         jcr:primaryType: hst:template
       /callToAction:
         hst:renderpath: webfile:/freemarker/common/callToAction.ftl
+        jcr:primaryType: hst:template
+      /cardlist:
+        hst:renderpath: webfile:/freemarker/common/cardlist.ftl
         jcr:primaryType: hst:template
       /case-study:
         hst:renderpath: webfile:/freemarker/common/case-study.ftl
@@ -120,7 +129,10 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
       /feature:
-        hst:renderpath: webfile:/freemarker/common/feature.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/feature.ftl
+        jcr:primaryType: hst:template
+      /feedhub:
+        hst:renderpath: webfile:/freemarker/common/feedhub.ftl
         jcr:primaryType: hst:template
       /feedlist:
         hst:renderpath: webfile:/freemarker/common/feedlist.ftl
@@ -141,7 +153,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/gdpr-summary-article.ftl
         jcr:primaryType: hst:template
       /general-article:
-        hst:renderpath: webfile:/freemarker/common/general-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/general-article.ftl
         jcr:primaryType: hst:template
       /global-footer:
         hst:renderpath: webfile:/freemarker/common/global-footer.ftl
@@ -154,6 +166,9 @@ definitions:
         jcr:primaryType: hst:template
       /header-banner:
         hst:renderpath: webfile:/freemarker/common/header-banner.ftl
+        jcr:primaryType: hst:template
+      /heading-and-copy:
+        hst:renderpath: webfile:/freemarker/common/heading-and-copy.ftl
         jcr:primaryType: hst:template
       /hero:
         hst:renderpath: webfile:/freemarker/common/hero.ftl
@@ -179,11 +194,17 @@ definitions:
       /ie-banner:
         hst:renderpath: webfile:/freemarker/common/ie-banner.ftl
         jcr:primaryType: hst:template
+      /ie-banner-nhsd:
+        hst:renderpath: webfile:/freemarker/nhsd-common/components/ie-banner.ftl
+        jcr:primaryType: hst:template
       /indicator:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
         jcr:primaryType: hst:template
       /jobrole:
         hst:renderpath: webfile:/freemarker/common/jobrole.ftl
+        jcr:primaryType: hst:template
+      /jobsfeedcomponent:
+        hst:renderpath: webfile:/freemarker/common/jobfeed.ftl
         jcr:primaryType: hst:template
       /legacypublication:
         hst:renderpath: webfile:/freemarker/publicationsystem/legacy-publication.ftl
@@ -198,10 +219,10 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
         jcr:primaryType: hst:template
       /navigationBlock:
-        hst:renderpath: webfile:/freemarker/common/navigationBlock.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/navigationBlock.ftl
         jcr:primaryType: hst:template
       /news-article:
-        hst:renderpath: webfile:/freemarker/common/news-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/news-article.ftl
         jcr:primaryType: hst:template
       /news-events-homepage:
         hst:renderpath: webfile:/freemarker/common/news-events-homepage.ftl
@@ -215,6 +236,9 @@ definitions:
       /newslist-main-newslist:
         hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
         jcr:primaryType: hst:template
+      /nhsd-app-layout:
+        hst:renderpath: webfile:/freemarker/nhsd-common/app-layout.ftl
+        jcr:primaryType: hst:template
       /nhsd-developer-hub:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage.ftl
         jcr:primaryType: hst:template
@@ -223,6 +247,12 @@ definitions:
         jcr:primaryType: hst:template
       /nhsd-homepage-layout:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage-layout.ftl
+        jcr:primaryType: hst:template
+      /nhsd-ie-banner:
+        hst:renderpath: webfile:/freemarker/nhsd-common/components/ie-banner.ftl
+        jcr:primaryType: hst:template
+      /nhsd-list-article:
+        hst:renderpath: webfile:/freemarker/nhsd-common/nhsd-list-article.ftl
         jcr:primaryType: hst:template
       /nhsd-main-nav:
         hst:renderpath: webfile:/freemarker/common/nhsd-main-nav.ftl
@@ -237,7 +267,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
         jcr:primaryType: hst:template
       /orgstructure:
-        hst:renderpath: webfile:/freemarker/common/orgstructure.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/orgstructure.ftl
         jcr:primaryType: hst:template
       /person-article:
         hst:renderpath: webfile:/freemarker/common/person-article.ftl
@@ -258,10 +288,10 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/publications-list.ftl
         jcr:primaryType: hst:template
       /published-work-article:
-        hst:renderpath: webfile:/freemarker/common/published-work-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/published-work-article.ftl
         jcr:primaryType: hst:template
       /published-work-chapter-article:
-        hst:renderpath: webfile:/freemarker/common/published-work-chapter-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/published-work-chapter-article.ftl
         jcr:primaryType: hst:template
       /pubs_app-layout:
         hst:renderpath: webfile:/freemarker/common/pubs_app-layout.ftl
@@ -297,7 +327,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/publicationsystem/series.ftl
         jcr:primaryType: hst:template
       /service-article:
-        hst:renderpath: webfile:/freemarker/common/service/service-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/service/service-article.ftl
         jcr:primaryType: hst:template
       /service-list:
         hst:renderpath: webfile:/freemarker/common/service-list.ftl
@@ -309,7 +339,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/service/service-toptasks.ftl
         jcr:primaryType: hst:template
       /services-and-resources-home:
-        hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/visual-hub.ftl
         jcr:primaryType: hst:template
       /sign-up:
         hst:renderpath: webfile:/freemarker/common/sign-up.ftl
@@ -366,7 +396,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/video-page.ftl
         jcr:primaryType: hst:template
       /visual-hub:
-        hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/visual-hub.ftl
         jcr:primaryType: hst:template
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl

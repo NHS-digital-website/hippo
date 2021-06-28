@@ -34,7 +34,7 @@
 
                         <div class="nhsd-m-emphasis-box__content-box">
                             <#if hasTitle>
-                                <h1 class="nhsd-t-heading-s">${document.title}</h1>
+                                <h2 class="nhsd-t-heading-s">${document.title}</h2>
                             </#if>
 
                             <#if hasContent>

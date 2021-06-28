@@ -4,21 +4,21 @@
         "/path-a": {
             "get": {
                 "summary": "Get operation A",
-                "tags": ["resource-a"]
+                "tags": ["Resource-a"]
             },
             "post": {
                 "summary": "Post operation A",
-                "tags": ["resource-a"]
+                "tags": ["Resource-a"]
             }
         },
         "/path-b": {
             "get": {
                 "summary": "Get operation B",
-                "tags": ["resource-b"]
+                "tags": ["Resource-b"]
             },
             "post": {
                 "summary": "Post operation B",
-                "tags": ["resource-b"]
+                "tags": ["Default"]
             }
         }
     },

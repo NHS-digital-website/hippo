@@ -26,28 +26,32 @@ public class ApiSpecificationDocument {
     }
 
     public String getId() {
-        return jcrDocument().getStringProperty(SPECIFICATION_ID.jcrName(), DRAFT)
-            .orElseThrow(() -> new RuntimeException("Specification id not available"))
+        return jcrDocument().getStringProperty(SPECIFICATION_ID.jcrName, DRAFT)
+            .orElseThrow(() -> new RuntimeException("Specification id not available for " + path()))
             ;
     }
 
     public Optional<String> html() {
-        return jcrDocument().getStringProperty(HTML.jcrName(), PUBLISHED);
+        return jcrDocument().getStringProperty(HTML.jcrName, PUBLISHED);
     }
 
-    public void setHtml(final String html) {
-        jcrDocument().setStringPropertyWithCheckout(HTML.jcrName(), html);
+    public void setHtmlForPublishing(final String html) {
+        jcrDocument().setStringPropertyWithCheckout(HTML.jcrName, html);
+    }
+
+    public void setHtmlInPlace(final String html) {
+        jcrDocument().setStringPropertyNoCheckout(HTML.jcrName, PUBLISHED, html);
     }
 
     public Optional<String> json() {
-        return jcrDocument().getStringProperty(JSON.jcrName(), PUBLISHED);
+        return jcrDocument().getStringProperty(JSON.jcrName, PUBLISHED);
     }
 
-    public void setJson(final String specificationJson) {
-        jcrDocument().setStringPropertyWithCheckout(JSON.jcrName(), specificationJson);
+    public void setJsonForPublishing(final String specificationJson) {
+        jcrDocument().setStringPropertyWithCheckout(JSON.jcrName, specificationJson);
     }
 
-    public void setLastChangeCheckInstant(final Instant instant) {
+    public void setLastChangeCheckInstantInPlace(final Instant instant) {
         jcrDocument().setInstantPropertyNoCheckout(LAST_CHANGE_CHECK_TIME.jcrName, PUBLISHED, instant);
     }
 
@@ -68,7 +72,7 @@ public class ApiSpecificationDocument {
     }
 
     @Override public String toString() {
-        return "ApiSpecification{documentLifecycleSupport=" + jcrDocumentLifecycleSupport + '}';
+        return getClass().getSimpleName() + "@" + path();
     }
 
     private JcrDocumentLifecycleSupport jcrDocument() {
@@ -86,10 +90,6 @@ public class ApiSpecificationDocument {
 
         Properties(final String jcrName) {
             this.jcrName = jcrName;
-        }
-
-        public String jcrName() {
-            return jcrName;
         }
     }
 }

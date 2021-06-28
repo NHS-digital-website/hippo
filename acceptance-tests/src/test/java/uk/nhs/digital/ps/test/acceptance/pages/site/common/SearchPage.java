@@ -60,6 +60,10 @@ public class SearchPage extends AbstractSitePage {
     }
 
     public WebElement searchForTerm(final String queryTerm) {
+        if (helper.isElementPresent(By.id("nhsd-global-header__search-button"))) {
+            clickSearchButton();
+        }
+
         // type, click search
         WebElement searchField = findSearchField();
         searchField.clear();
@@ -68,5 +72,9 @@ public class SearchPage extends AbstractSitePage {
 
         // ensure search results is present on page
         return findSearchResults();
+    }
+
+    private void clickSearchButton() {
+        helper.findElement(By.id("nhsd-global-header__search-button")).click();
     }
 }

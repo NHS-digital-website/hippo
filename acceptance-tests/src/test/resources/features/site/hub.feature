@@ -10,4 +10,4 @@ Feature: Ensure Hub page displays required fields.
         Given I navigate to the "Visual Hub test document" page
         Then I should see hub page titled "VisualHub AcceptanceTestDocument"
         And I should also see:
-            | Hub Summary           | Visual Hub Lorem ipsum dolor sit amet, ... |
+            | Visual Hub Summary           | Visual Hub Lorem ipsum dolor sit amet, ... |

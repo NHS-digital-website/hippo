@@ -1,0 +1,107 @@
+.nhsd-o-code-viewer__code-content {
+    pre {
+        display: table;
+    }
+
+    .line-numbers {
+        span.tr {
+            counter-increment: linenum;
+        }
+
+        span.th {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            width: 38px;
+            border-right: 1px solid #eaeaea;
+            color: #eaeaea;
+            padding: 0 8px 0 4px;
+            display: table-cell;
+
+            &::before {
+                content: counter(linenum);
+                text-align: right;
+                display: block;
+            }
+        }
+    }
+
+    code {
+        display: table-cell;
+        padding: 0 10px;
+    }
+
+    .syntax-highlighted {
+        .tr {
+            display: table-row;
+        }
+
+        .th, code {
+            display: table-cell;
+        }
+
+        /*
+        The following section is based on highlight.js Tomorrow Night Bright style theme by Chris Kempson
+        */
+        .hljs-comment,
+        .hljs-quote {
+            color: #969896
+        }
+
+        .hljs-variable,
+        .hljs-template-variable,
+        .hljs-tag,
+        .hljs-name,
+        .hljs-selector-id,
+        .hljs-selector-class,
+        .hljs-regexp,
+        .hljs-deletion {
+            color: #d54e53
+        }
+
+        .hljs-number,
+        .hljs-built_in,
+        .hljs-builtin-name,
+        .hljs-literal,
+        .hljs-type,
+        .hljs-params,
+        .hljs-meta,
+        .hljs-link {
+            color: #e78c45
+        }
+
+        .hljs-attribute {
+            color: #e7c547
+        }
+
+        .hljs-string,
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-addition {
+            color: #b9ca4a
+        }
+
+        .hljs-title,
+        .hljs-section {
+            color: #7aa6da
+        }
+
+        .hljs-keyword,
+        .hljs-selector-tag {
+            color: #c397d8
+        }
+
+        .hljs {
+            background: #231f20;
+            color: #eaeaea;
+        }
+
+        .hljs-emphasis {
+            font-style: italic
+        }
+
+        .hljs-strong {
+            font-weight: bold
+        }
+    }
+}

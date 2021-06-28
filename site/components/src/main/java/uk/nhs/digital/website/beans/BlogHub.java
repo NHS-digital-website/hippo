@@ -76,4 +76,19 @@ public class BlogHub extends CommonFieldsBean {
 
     }
 
+    public List<Blog> getLatestFeatures() throws QueryException {
+
+        HippoBean folder = getCanonicalBean().getParentBean();
+
+        HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
+            .ofTypes(Feature.class)
+            .where(constraint("jcr:uuid").notEqualTo(this.getIdentifier()))
+            .orderByDescending("website:dateofpublication")
+            .build()
+            .execute()
+            .getHippoBeans();
+
+        return toList(hippoBeans);
+    }
+
 }

@@ -19,12 +19,14 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.regex.Pattern;
 import java.util.stream.Collector;
 
 
 public class ApiSpecificationPublicationService {
 
     private static final Logger log = LoggerFactory.getLogger(ApiSpecificationPublicationService.class);
+    private static Pattern UUID_REGEX = Pattern.compile("[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}");
 
     private final OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter;
     private final OpenApiSpecificationRepository remoteSpecRepository;
@@ -95,7 +97,7 @@ public class ApiSpecificationPublicationService {
 
                     specSyncData.remoteSpec()
                         .getSpecJson()
-                        .map(json -> openApiSpecificationJsonToHtmlConverter.htmlFrom(json))
+                        .map(openApiSpecificationJsonToHtmlConverter::htmlFrom)
                         .ifPresent(specSyncData::setHtml);
 
                 } else {
@@ -116,7 +118,7 @@ public class ApiSpecificationPublicationService {
             }
 
             try {
-                specSyncData.localSpec().setLastChangeCheckInstant(TimeProvider.getNowInstant());
+                specSyncData.localSpec().setLastChangeCheckInstantInPlace(TimeProvider.getNowInstant());
                 specSyncData.localSpec().save();
             } catch (final Exception cause) {
                 specSyncData.setError(
@@ -175,10 +177,15 @@ public class ApiSpecificationPublicationService {
     }
 
     public void rerenderSpecifications() {
-        log.info("Rerendering API Specifications in CMS");
+        log.info("Rerendering API Specifications.");
+
         final List<ApiSpecificationDocument> cmsApiSpecificationDocuments = findCmsApiSpecifications();
-        log.info("API Specifications found in CMS: {}", cmsApiSpecificationDocuments.size());
-        rerender(cmsApiSpecificationDocuments);
+
+        log.debug("API Specifications found: {}", cmsApiSpecificationDocuments.size());
+
+        final long failedSpecificationsCount = rerenderIfRenderingLogicChanged(cmsApiSpecificationDocuments);
+
+        reportRerenderingStats(failedSpecificationsCount, cmsApiSpecificationDocuments.size());
     }
 
     private List<OpenApiSpecification> getRemoteSpecifications() {
@@ -200,9 +207,9 @@ public class ApiSpecificationPublicationService {
             final ApiSpecificationDocument localSpec = specSyncData.localSpec();
 
             specSyncData.remoteSpec().getSpecJson()
-                .ifPresent(localSpec::setJson);
+                .ifPresent(localSpec::setJsonForPublishing);
 
-            localSpec.setHtml(specSyncData.html());
+            localSpec.setHtmlForPublishing(specSyncData.html());
 
             localSpec.saveAndPublish();
 
@@ -213,54 +220,72 @@ public class ApiSpecificationPublicationService {
         }
     }
 
-    private void rerender(final List<ApiSpecificationDocument> specsToPublish) {
+    private long rerenderIfRenderingLogicChanged(final List<ApiSpecificationDocument> specsToPublish) {
 
         final long failedSpecificationsCount = specsToPublish.stream()
-            .map(this::rerender)
+            .map(this::rerenderIfRenderingLogicChanged)
             .filter(PublicationResult::failed)
             .count();
 
-        reportErrorIfAnySpecificationsFailed(failedSpecificationsCount, specsToPublish.size());
+        return failedSpecificationsCount;
     }
 
-    private PublicationResult rerender(final ApiSpecificationDocument apiSpecificationDocument) {
+    private PublicationResult rerenderIfRenderingLogicChanged(final ApiSpecificationDocument apiSpecificationDocument) {
         try {
-            log.info("Rerendering API Specification: {}", apiSpecificationDocument);
-
-            final String specHtml = apiSpecificationDocument.json().map(this::specHtmlFrom).orElse("");
+            log.debug("Rerendering API Specification: {}", apiSpecificationDocument);
 
             final String publishedHtml = apiSpecificationDocument.html().orElse("");
-            final boolean specUnchanged = publishedHtml.equals(specHtml);
+            final String candidateHtml = apiSpecificationDocument.json().map(this::specHtmlFrom).orElse("");
 
-            if (specUnchanged) {
-                log.info("No changes to API Specification, skipped: {}", apiSpecificationDocument.getId());
+            if (renderingNotChangedIgnoringKnownVolatiles(candidateHtml, publishedHtml)) {
+                log.debug("No changes to API Specification, skipped: {}", apiSpecificationDocument.getId());
                 return PASS;
             }
 
-            apiSpecificationDocument.setHtml(specHtml);
+            apiSpecificationDocument.setHtmlInPlace(candidateHtml);
 
-            apiSpecificationDocument.saveAndPublish();
+            apiSpecificationDocument.save();
 
-            log.info("API Specification has been published: {}", apiSpecificationDocument.getId());
+            log.info("API Specification has been rerendered: id: {}, path: {}", apiSpecificationDocument.getId(), apiSpecificationDocument.path());
             return PASS;
 
         } catch (final Exception e) {
-            log.error("Failed to publish API Specification: " + apiSpecificationDocument, e);
+            log.error("Failed to rerender API Specification: " + apiSpecificationDocument, e);
 
             return FAIL;
         }
+    }
+
+    /**
+     * API Specification's rendered HTML contains a number of UUID
+     * values which change with every rendering. If those values
+     * are the only thing that changes across renderings, the rendered
+     * content is deemed unchanged.
+     */
+    private boolean renderingNotChangedIgnoringKnownVolatiles(final String candidateHtml, final String publishedHtml) {
+
+        final String candidateHtmlWithNoVolatiles = UUID_REGEX.matcher(candidateHtml).replaceAll("");
+        final String publishedHtmlWithNoVolatiles = UUID_REGEX.matcher(publishedHtml).replaceAll("");
+
+        return candidateHtmlWithNoVolatiles.equals(publishedHtmlWithNoVolatiles);
     }
 
     private String specHtmlFrom(final String openApiSpecJson) {
         return openApiSpecificationJsonToHtmlConverter.htmlFrom(openApiSpecJson);
     }
 
-    private void reportErrorIfAnySpecificationsFailed(final long failedSpecificationsCount,
-                                                      final long specificationsToPublishCount
+    private void reportRerenderingStats(final long failedSpecificationsCount,
+                                        final long specificationsToPublishCount
     ) {
+        log.info("Finished rerendering {} API specifications; successful: {}, failed: {}",
+            specificationsToPublishCount,
+            specificationsToPublishCount - failedSpecificationsCount,
+            failedSpecificationsCount
+        );
+
         if (failedSpecificationsCount > 0) {
             throw new RuntimeException(
-                format("Failed to publish %d out of %d eligible specifications; see preceding logs for details.",
+                format("Failed to rerender %d out of %d eligible specifications; see preceding logs for details.",
                     failedSpecificationsCount,
                     specificationsToPublishCount
                 ));

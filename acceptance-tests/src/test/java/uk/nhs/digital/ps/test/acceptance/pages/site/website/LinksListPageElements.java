@@ -17,9 +17,6 @@ public class LinksListPageElements implements PageElements {
         {
             put(LINKS_LIST_TITLE,
                 By.xpath("//*[" + getDataUiPathXpath("title") + "]"));
-            put(SUMMARY,
-                By.xpath("//*[" + getDataUiPathXpath("summary") + "]"));
-
         }
     };
 
@@ -54,6 +51,5 @@ public class LinksListPageElements implements PageElements {
     interface FieldKeys {
 
         String LINKS_LIST_TITLE = "Links List Title";
-        String SUMMARY = "Links List Summary";
     }
 }

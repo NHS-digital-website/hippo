@@ -2,9 +2,10 @@
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/contentPixel.ftl">
-<#include "macro/alphabeticalFilterNav.ftl">
+<#include "macro/scrollableFilterNav.ftl">
 <#include "macro/apiCatalogueEntries.ftl">
 <#include "macro/component/lastModified.ftl">
+<#include "macro/svgIcons.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
@@ -49,33 +50,8 @@
 
         <#if alphabetical_hash??>
             <div class="grid-row">
-                <div class="column column--one-third page-block page-block--sidebar">
-                    <@alphabeticalFilterNav alphabetical_hash></@alphabeticalFilterNav>
-
-                    <#if filtersModel?? && !filtersModel.isEmpty()>
-                        <div class="article-section-nav-wrapper">
-                            <div class="article-section-nav">
-                                <h2 class="article-section-nav__title">Filters</h2>
-                                <nav class="filters">
-                                    <ul>
-                                        <#list filtersModel.sections as section>
-                                            <#if section.displayed>
-                                            <li>
-                                                <input id="toggler_${section.key}" type="checkbox" <#if section.expanded>checked</#if>/>
-                                                <label for="toggler_${section.key}" class="section-heading <#if section.expanded>selected</#if>">${section.displayName}</label>
-                                                <ul class="section-content">
-                                                <#list section.entries as filter>
-                                                    <@filterTemplate filter></@filterTemplate>
-                                                </#list>
-                                                </ul>
-                                            </li>
-                                            </#if>
-                                        </#list>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </#if>
+                <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
+                    <@scrollableFilterNav alphabetical_hash filtersModel></@scrollableFilterNav>
                 </div>
 
                 <div class="column column--two-thirds page-block page-block--main">
@@ -89,25 +65,3 @@
         </#if>
     </div>
 </article>
-
-<#macro filterTemplate filter>
-    <#if filter.displayed>
-    <li>
-        <@hst.renderURL var="filterLink">
-            <#if !filter.selected>
-                <@hst.param name="filters" value="${filter.key}" />
-            </#if>
-        </@hst.renderURL>
-        <#if filter.selectable>
-        <a title="Filter by ${filter.displayName}" href="${filterLink}" class="filter-label <#if filter.selected>selected</#if>">${filter.displayName}</a>
-        <#else>
-        <div class="filter-label-unavailable">${filter.displayName}</div>
-        </#if>
-        <ul>
-            <#list filter.entries as filter>
-                <@filterTemplate filter></@filterTemplate>
-            </#list>
-        </ul>
-    </li>
-    </#if>
-</#macro>
