@@ -470,3 +470,6 @@
 
 [website:taxonomymapping] > common:basedocument, hippostd:relaxed, hippotranslation:translated
   orderable
+
+[website:copy] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
