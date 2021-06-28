@@ -27,22 +27,12 @@ public class EmailMonitoringComponent implements RepositoryJob {
             Session session = (Session) envCtx.lookup("mail/NHSMail");
 
             try {
-                // Create a default MimeMessage object.
-                MimeMessage message = new MimeMessage(session);
-
-                // Set From: header field of the header.
-                message.setFrom(new InternetAddress("emailmonitoring@nhs.net"));
-
-                // Set To: header field of the header.
-                message.addRecipient(Message.RecipientType.TO, new InternetAddress("emailmonitoring@nhs.net"));
-
-                // Set Subject: header field
+                Message message = new MimeMessage(session);
+                InternetAddress[] to = new InternetAddress[1];
+                to[0] = new InternetAddress("emailmonitoring@nhs.net");
+                message.setRecipients(Message.RecipientType.TO, to);
                 message.setSubject("EMAIL MONITOR ONLY");
-
-                // Now set the actual message
-                message.setText("AUTOMATED EMAIL - eForms Monitoring. Please do not delete.");
-
-                // Send message
+                message.setContent("AUTOMATED", "text/plain");
                 Transport.send(message);
                 log.info("EMAIL MONITOR: SUCCESS");
             } catch (MessagingException mex) {
