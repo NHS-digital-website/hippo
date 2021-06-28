@@ -180,7 +180,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/document-list/about-intro.ftl
         jcr:primaryType: hst:template
       /hub-article:
-        hst:renderpath: webfile:/freemarker/common/hub-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/hub-article.ftl
         jcr:primaryType: hst:template
       /icon-library:
         hst:renderpath: webfile:/freemarker/common/icon-library.ftl
