@@ -34,10 +34,14 @@
                             <#if block.linkType??>
                                 <#if block.linkType == "internal">
                                     <@downloadBlockInternal document.class.name block.link block.link.title block.link.shortsummary  />
-                                <#elseif block.linkType == "external">
-                                    <@downloadBlockExternal document.class.name block.link "${block.title}" "${block.shortsummary}" />
-                                <#elseif block.linkType == "asset">
-                                    <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength()  />
+                                 <#elseif block.linkType == "external">
+                                    <#if getMimeTypeByExtension(getFileExtension(block.link))?has_content>
+                                        <@downloadBlockAsset document.class.name block.link "${block.title}" "${block.shortsummary}" getMimeTypeByExtension(getFileExtension(block.link)) "" true />
+                                    <#else>
+                                        <@downloadBlockExternal document.class.name block.link "${block.title}" "${block.shortsummary}" />
+                                    </#if>
+                                 <#elseif block.linkType == "asset">
+                                    <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength() />
                                 </#if>
                             </#if>
                         </#list>

@@ -191,6 +191,31 @@
     <#return extension />
 </#function>
 
+<#function getMimeTypeByExtension extension>
+    <#local knownExtensions = {
+        "jpg":"image/jpeg",
+        "png":"image/png",
+        "pdf":"image/pdf",
+        "pdf":"application/pdf",
+        "csv":"text/csv",
+        "txt":"text/plain",
+        "rar":"application/x-rar-compressed",
+        "zip":"application/zip",
+        "jar":"application/java-archive",
+        "json":"application/json",
+        "war":"application/x-war",
+        "ppt":"application/vnd.ms-powerpoint",
+        "pptx":"application/vnd.ms-powerpoint",
+        "xls":"application/vnd.ms-excel",
+        "xlsx":"application/vnd.ms-excel",
+        "doc":"application/msword",
+        "docx":"application/msword",
+        "xml":"text/xml"
+    }/>
+
+    <#return (knownExtensions[extension?lower_case]??)?then(knownExtensions[extension?lower_case], "") />
+</#function>
+
 <#function getFormatByMimeType mimeType>
     <#local mimeTypes = {
     "image/jpeg": "jpg",

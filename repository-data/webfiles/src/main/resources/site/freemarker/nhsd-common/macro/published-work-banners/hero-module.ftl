@@ -4,7 +4,6 @@
 
 <#--
 config is a hash with the following properties:
-
 document - document object
 bannerImage - string: image path
 bannerImageAltText - string: alt text
@@ -12,7 +11,6 @@ button - string: button state
 showTime - boolean: show time from passed document
 topText - string: show this top text if no time is supplied
 topTextLink - string: make top text into a link if this is supplied
-
 -->
 <#macro heroModule config>
     <#local document = config.document />
