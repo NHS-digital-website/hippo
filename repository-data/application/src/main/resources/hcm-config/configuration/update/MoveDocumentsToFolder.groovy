@@ -25,7 +25,7 @@ import javax.jcr.Session
  *         The script does not support a 'Dry run' as it relies on {@linkplain Workflow#move} method
  *         to relocate documents and this results in a session being committed, effectively
  *         invalidating the dry run. If you do want to do a dry run, comment out the call to
- *         {@linkplain Workflow#move}.
+ * {@linkplain Workflow#move}.
  *     </li>
  *     <li>
  *         The script does not implement '{@code undoUpdate}' method (note that clicking 'Undo'
@@ -41,7 +41,7 @@ class MoveDocumentsToFolder extends BaseNodeUpdateVisitor {
 
     WorkflowManager workflowManager
     DocumentManager documentManager
-
+    Session session
     String targetFolderPath
 
     int documentsCount
@@ -55,6 +55,7 @@ class MoveDocumentsToFolder extends BaseNodeUpdateVisitor {
 
         targetFolderPath = parametersMap.get("targetFolderPath")
         log.info("Target folder: ${targetFolderPath}")
+        this.session = session;
     }
 
     boolean doUpdate(final Node node) {
@@ -65,7 +66,7 @@ class MoveDocumentsToFolder extends BaseNodeUpdateVisitor {
 
             final String oldParentFolderPath = node.getParent().getPath()
 
-            final String newDocumentPath = moveDocument(node, targetFolderPath)
+            final String newDocumentPath = moveDocument(oldParentFolderPath, targetFolderPath, node.getName())
 
             newPathsToOldLocations.put(newDocumentPath, oldParentFolderPath)
 
@@ -78,15 +79,14 @@ class MoveDocumentsToFolder extends BaseNodeUpdateVisitor {
         return true
     }
 
-    private String moveDocument(Node documentNode, String targetFolderPath) {
+    private String moveDocument(String oldParentFolderPath, String targetFolderPath, String nodename) {
+        log.info("Source Fodler ----->:   ${oldParentFolderPath}")
+        log.info("Target Folder : ${targetFolderPath}")
 
-        final Workflow workflow = workflowManager.getWorkflow("threepane", documentNode.getParent())
+        session.move(oldParentFolderPath + "/" + nodename, "${targetFolderPath}/${nodename}")
 
-        workflow.move(documentNode.getName(), "${targetFolderPath}/${documentNode.getName()}")
 
-        final String newPath = documentNode.getPath()
-
-        return newPath
+        return null;
     }
 
     boolean undoUpdate(final Node node) {
