@@ -9,10 +9,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/about.ftl
         jcr:primaryType: hst:template
       /api-catalogue:
-        hst:renderpath: webfile:/freemarker/common/api-catalogue.ftl
-        jcr:primaryType: hst:template
-      /api-catalogue-preview:
-        hst:renderpath: webfile:/freemarker/common/api-catalogue-preview.ftl
+        hst:renderpath: webfile:/freemarker/common/apicatalogue/api-catalogue.ftl
         jcr:primaryType: hst:template
       /apiendpoint-article:
         hst:renderpath: webfile:/freemarker/common/apiendpoint-article.ftl
