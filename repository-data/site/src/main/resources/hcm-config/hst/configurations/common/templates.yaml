@@ -114,7 +114,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/eforms/eforms-validation-default.ftl
         jcr:primaryType: hst:template
       /event-article:
-        hst:renderpath: webfile:/freemarker/common/event-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/event-article.ftl
         jcr:primaryType: hst:template
       /event-hub-article:
         hst:renderpath: webfile:/freemarker/common/event-hub-article.ftl
