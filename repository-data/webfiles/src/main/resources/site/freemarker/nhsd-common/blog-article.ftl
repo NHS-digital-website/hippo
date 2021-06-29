@@ -322,7 +322,7 @@
                                                     <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                                                     <#if author.personimages.picture.authorPhotoLarge2x?has_content> 
                                                         <div class="nhsd-m-card__image_container">
-                                                            <figure class="nhsd-a-image nhsd-a-image--contain">
+                                                            <figure class="nhsd-a-image nhsd-a-image--maintain-ratio">
                                                                 <picture class="nhsd-a-image__picture ">
                                                                     <@hst.link hippobean=author.personimages.picture.authorPhotoLarge2x fullyQualified=true var="authorPicture" />
                                                                     <img src="${authorPicture}" alt="${author.title}">

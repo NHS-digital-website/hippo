@@ -41,7 +41,7 @@
                                 </#if>
                                 <#if image?has_content>
                                     <@hst.link hippobean=image.original fullyQualified=true var="leadImage" />
-                                    <figure class="nhsd-a-image nhsd-a-image--contain" style="height:max-content">
+                                    <figure class="nhsd-a-image nhsd-a-image--maintain-ratio" style="height:max-content">
                                         <picture class="nhsd-a-image__picture">
                                             <img src="${leadImage}" alt="${alttext}"  />
                                         </picture>
