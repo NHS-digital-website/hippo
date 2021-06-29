@@ -12,6 +12,7 @@
 <#include "macro/documentHeader.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/latestblogs.ftl">
+<#include "macro/shareThisPage.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -182,85 +183,43 @@
                 </#if>
 
                 <#--  Social media section  -->
-                <#if (!hasBackstory && hasEditorsNotes) || (hasSectionContent && !hasBackstory !hasEditorsNotes && !document.relateddocuments?has_content)>
+                <#if (!hasBackstory && hasEditorsNotes) || (hasSectionContent && !hasBackstory && !hasEditorsNotes && !document.relateddocuments?has_content)>
                     <hr class="nhsd-a-horizontal-rule" />
                 </#if>
-                <p class="nhsd-t-heading-xl">Share this page</p>
-                <@hst.link var="link" hippobean=document />
+               
+                <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
+                    <h2 class="nhsd-t-heading-xl">Share this page</h2>
+                    <#-- Use UTF-8 charset for URL escaping from now: -->
+                    <#setting url_escaping_charset="UTF-8">
 
-                <#-- Use UTF-8 charset for URL escaping from now: -->
-                <#setting url_escaping_charset="UTF-8">
+                    <div class="nhsd-t-grid nhsd-!t-margin-bottom-4 nhsd-!t-no-gutters">
+                        <#--  Facebook  -->
+                        <#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${currentUrl?url}"/>
+                        <#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
+                        <@shareThisPage document "Facebook" facebookUrl facebookIconPath/>
 
-                <#--  Facebook  -->
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-12">
-                        <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey" 
-                            href="http://www.facebook.com/sharer.php?u=${currentUrl?url}" 
-                            target="_blank" 
-                            rel="external" 
-                            onClick="logGoogleAnalyticsEvent('Link click','Social media - Facebook','http://www.facebook.com/sharer.php?u=${currentUrl?url}');"
-                        >
-                            <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
-                                    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                                </svg>
-                                <img src="<@hst.webfile path="/images/icon/rebrand-facebook.svg"/>" alt="Share on Facebook" aria-hidden="true">
-                            </span>
-                            <span class="nhsd-a-icon-link__label">Facebook</span>
-                        </a>
-                    </div>
-                </div>
-                    
-                <#--  Twitter  -->
-                <#assign hashtags ='' />
-                <#if hasTwitterHashtag>
-                    <#list document.twitterHashtag as tag>
-                        <#if tag?starts_with("#")>
-                            <#assign hashtags = hashtags + tag?keep_after('#') + ','>
-                        <#else>
-                            <#assign hashtags = hashtags + tag + ','>
+                        <#--  Twitter  -->
+                        <#assign hashtags ='' />
+                        <#if hasTwitterHashtag>
+                            <#list document.twitterHashtag as tag>
+                                <#if tag?starts_with("#")>
+                                    <#assign hashtags = hashtags + tag?keep_after('#') + ','>
+                                <#else>
+                                    <#assign hashtags = hashtags + tag + ','>
+                                </#if>
+                            </#list>
                         </#if>
-                    </#list>
-                </#if>
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-12">
-                        <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey" 
-                            href="https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}" 
-                            target="_blank" 
-                            rel="external" 
-                            onClick="logGoogleAnalyticsEvent('Link click','Social media - Twitter','https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}');"
-                        >
-                            <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
-                                    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                                </svg>
-                                <img src="<@hst.webfile path="/images/icon/rebrand-twitter.svg"/>" alt="Share on Twitter" aria-hidden="true">
-                            </span>
-                            <span class="nhsd-a-icon-link__label">Twitter</span>
-                        </a>
+                        <#assign twitterUrl = "https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"/>
+                        <#assign twitterIconPath = "/images/icon/rebrand-twitter.svg" />
+                        <@shareThisPage document "Twitter" twitterUrl twitterIconPath/>
+
+                        <#--  LinkedIn  -->
+                        <#assign linkedInUrl = "http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"/>
+                        <#assign linkedInIconPath = "/images/icon/rebrand-linkedin.svg" />
+                        <@shareThisPage document "LinkedIn" linkedInUrl linkedInIconPath/>
                     </div>
                 </div>
-
-                <#--  LinkedIn -->
-                <div class="nhsd-t-row nhsd-!t-margin-bottom-6">
-                    <div class="nhsd-t-col-12">
-                        <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey" 
-                            href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}" 
-                            target="_blank" 
-                            rel="external" 
-                            onClick="logGoogleAnalyticsEvent('Link click','Social media - LinkedIn','http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}');"
-                        >
-                            <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
-                                    <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                                </svg>
-                                <img src="<@hst.webfile path="/images/icon/rebrand-linkedin.svg"/>" alt="Share on LinkedIn" aria-hidden="true">
-                            </span>
-                            <span class="nhsd-a-icon-link__label">LinkedIn</span>
-                        </a>
-                    </div>
-                </div>
-
+                
                 <#if hasPeople>
                     <div class="nhsd-!t-margin-bottom-6">
                         <div class="nhsd-t-grid">
@@ -294,13 +253,13 @@
                                                                 <#if author.shortsummary?? && author.shortsummary?has_content>
                                                                     <p class="nhsd-t-body-s">${author.shortsummary}</p>
                                                                 </#if>
-                                                            </div>
-                                                            <div class="nhsd-m-card__button-box">
-                                                                <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                                                        <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                                                    </svg>
-                                                                </span>
+                                                                <div class="nhsd-m-card__button-box">
+                                                                    <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

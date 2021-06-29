@@ -1,12 +1,11 @@
 <#ftl output_format="HTML">
 
-<#-- @ftlvariable name="blog" type="uk.nhs.digital.website.beans.Blog" -->
+<#-- @ftlvariable name="feature" type="uk.nhs.digital.website.beans.feature" -->
 
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
-<#include "macro/latestblogs.ftl">
 <#include "macro/personitem.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/shareThisPage.ftl">
@@ -18,7 +17,7 @@
 <#assign hasAuthors = document.authors?? && document.authors?has_content />
 <#assign hasAuthorManualEntry = document.authorRole?? || (document.authorDescription?? && document.authorDescription?has_content) ||
                                 document.authorName?? || document.authorJobTitle?? || document.authorOrganisation?? />
-<#assign hasBlogCategories = document.caseStudyCategories?? && document.caseStudyCategories?has_content />
+<#assign hasFeatureCategories = document.caseStudyCategories?? && document.caseStudyCategories?has_content />
 <#assign hasTopics = document.topics?? && document.topics?has_content />
 
 <#assign hasLeadImage = document.leadImage?has_content />
@@ -27,15 +26,15 @@
 <#assign hasLeadParagraph = document.leadParagraph?? && document.leadParagraph.content?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasBackstory = document.backstory?? && document.backstory.content?has_content />
-<#assign hasTwitterHashtag = document.twitterHashtag?? && document.twitterHashtag?has_content />
+
 <#assign hasContactDetails = document.contactDetails?? && document.contactDetails.content?has_content />
 <#assign hasRelatedSubjects = document.relatedSubjects?? && document.relatedSubjects?has_content />
-<#assign hasCubeHeader = document.headertype == "Cube header" >
+<#assign hasCubeHeader = document.headertype == "Cube header" />
+
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
-
     <#if !document.headertype?has_content || document.headertype == "Cube header"  >
         <div class="nhsd-o-hero nhsd-!t-bg-bright-blue-20-tint nhsd-!t-bg-pale-grey nhsd-!t-margin-bottom-6">
             <div class="nhsd-t-grid nhsd-!t-no-gutters ">
@@ -44,21 +43,21 @@
                         <div class="nhsd-o-hero__content-box  nhsd-o-hero__content-box--left-align">
                             <div class="nhsd-o-hero__content">
 
-                                <span class="nhsd-a-tag nhsd-a-tag--phase">Blog</span>
-                                
+                                <span class="nhsd-a-tag nhsd-a-tag--phase">Feature</span>
+
                                 <#if document.title?has_content> 
-                                <span class="nhsd-t-heading-xl nhsd-!t-margin-top-3">${document.title}</span>
+                                <span class="nhsd-t-heading-xl nhsd-!t-margin-top-3" itemprop="headline" data-uipath="document.title">${document.title}</span>
                                 </#if>
 
                                 <#if document.shortsummary?has_content>
-                                <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-6">${document.shortsummary}</p>
+                                <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="website.feature.summary">${document.shortsummary}</p>
                                 </#if> 
 
                                 <div class="nhsd-o-hero__meta-data nhsd-!t-margin-bottom-6">
                                     <#if hasAuthors>
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Author<#if document.authors?size gt 1 >s</#if>: </div>
-                                            
+
                                             <div class="nhsd-t-grid nhsd-!t-no-gutters">
                                                 <#list document.authors as author>
                                                     <div class="nhsd-t-row">
@@ -76,28 +75,28 @@
                                             <div class="nhsd-o-hero__meta-data-item-description">
                                             ${document.authorName}<#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if></div>
                                         </div>
-                                    </#if>
+                                    </#if> 
 
                                     <#if document.dateOfPublication.time?has_content >
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Date: </div>
-                                            <div class="nhsd-o-hero__meta-data-item-description"><@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="datePublished" data-uipath="website.feature.dateofpublication"><@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></div>
                                         </div>
                                     </#if>
 
                                     <#if hasTopics>
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Topic<#if document.topics?size gt 1 >s</#if>: </div>
-                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.blog.topics"><#list document.topics as tag>${tag}<#sep>, </#list></div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.feature.topics"><#list document.topics as tag>${tag}<#sep>, </#list></div>
                                         </div>
                                     </#if> 
 
-                                    <#if hasBlogCategories>
+                                    <#if hasFeatureCategories>
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Categories: </div>
-                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.blog.categories"><#list document.caseStudyCategories as category>${category}<#sep>, </#list></div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.feature.categories"><#list document.caseStudyCategories as category>${category}<#sep>, </#list></div>
                                         </div>
-                                    </#if>
+                                    </#if>   
                                 </div>
                             </div>
                         </div>
@@ -116,14 +115,14 @@
                         <div class="nhsd-o-hero__content-box ">
                             <div class="nhsd-o-hero__content">
 
-                                <span class="nhsd-a-tag nhsd-a-tag--phase">Blog</span>
+                                <span class="nhsd-a-tag nhsd-a-tag--phase">Feature</span>
 
                                 <#if document.title?has_content> 
-                                    <span class="nhsd-t-heading-xl nhsd-!t-margin-up-3">${document.title}</span>
+                                    <span class="nhsd-t-heading-xl nhsd-!t-margin-up-3" itemprop="headline" data-uipath="document.title">${document.title}</span>
                                 </#if>
-                                
+
                                 <#if document.summary?has_content> 
-                                <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-6">${document.shortsummary}</p>
+                                    <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="website.feature.summary">${document.shortsummary}</p>
                                 </#if>
 
                                 <div class="nhsd-o-hero__meta-data nhsd-!t-margin-bottom-6">
@@ -147,27 +146,27 @@
                                             <div class="nhsd-o-hero__meta-data-item-description"><a class="nhsd-a-link" href="#">${document.authorName}<span class="nhsd-t-sr-only"></span></a><#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if></div>
                                         </div>
                                     </#if>
-                                    
+
                                     <#if document.dateOfPublication.time?has_content >
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Date: </div>
-                                            <div class="nhsd-o-hero__meta-data-item-description"><@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="datePublished" data-uipath="website.feature.dateofpublication"><@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></div>
                                         </div>
                                     </#if>
 
                                     <#if hasTopics>
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Topic<#if document.topics?size gt 1 >s</#if>: </div>
-                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.blog.topics"><#list document.topics as tag>${tag}<#sep>, </#list></div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.feature.topics"><#list document.topics as topic>${topic}<#sep>, </#list></div>
                                         </div>
                                     </#if> 
-
-                                    <#if hasBlogCategories>
+                                    
+                                    <#if hasFeatureCategories>
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Categories: </div>
-                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.blog.categories"><#list document.caseStudyCategories as category>${category}<#sep>, </#list></div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" itemprop="keywords" data-uipath="website.feature.categories"><#list document.caseStudyCategories as category>${category}<#sep>, </#list></div>
                                         </div>
-                                    </#if>
+                                    </#if> 
                                 </div>
                             </div>
                         </div>
@@ -183,13 +182,13 @@
                 </figure>
             </div>
         </div>
-    </#if>
-    
+    </#if>  
+
     <div class="nhsd-t-grid " aria-label="document-content">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12">
                 <#if hasLeadParagraph>
-                    <div class="nhsd-t-heading-xs" itemprop="articleBody" data-uipath="website.blog.leadparagraph">
+                    <div class="nhsd-t-heading-xs" itemprop="articleBody" data-uipath="website.feature.leadparagraph">
                         <@hst.html hippohtml=document.leadParagraph contentRewriter=brContentRewriter/>
                     </div>
                 </#if>
@@ -199,16 +198,16 @@
                         <div class="nhsd-a-box nhsd-a-box--border-grey">
                             <div class="nhsd-m-card__image_container">
                                 <figure class="nhsd-a-image nhsd-a-image--round-top-corners">
-                                    <picture class="nhsd-a-image__picture ">
+                                    <meta itemprop="url" content="${leadImage}" />
+                                    <picture class="nhsd-a-image__picture " itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                         <@hst.link hippobean=document.leadImage.newsPostImageLarge2x fullyQualified=true var="leadImageLarge2x" />
-                                        <meta itemprop="url" content="${leadImage}">
                                         <img src="${leadImageLarge2x}" alt="<#if hasLeadImageAltText>${document.leadImageAltText}</#if>" />
                                     </picture>
                                 </figure>
                             </div>
                             <#if hasLeadImageCaption>
                                 <div class="nhsd-m-card__content_container">
-                                    <div class="nhsd-m-card__content-box nhsd-!t-margin-bottom-4" data-uipath="website.blog.leadimagecaption">
+                                    <div class="nhsd-m-card__content-box nhsd-!t-margin-bottom-4" data-uipath="website.feature.leadimagecaption">
                                         <@hst.html hippohtml=document.leadImageCaption contentRewriter=brContentRewriter/>
                                     </div>
                                 </div>
@@ -226,12 +225,12 @@
                     </div>
                 </#if>
 
-                <#if hasBackstory>
+                 <#if hasBackstory>
                     <#if hasSectionContent>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div itemprop="articleBody">
-                        <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6" data-uipath="website.blog.backstory">
+                        <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6" data-uipath="website.feature.backstory">
                             <p class="nhsd-t-heading-m">Back story</p>
                             <@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter />
                         </div>
@@ -244,9 +243,9 @@
                     </#if>
                     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
-                            <div class="nhsd-m-contact-us__content">
+                            <div class="nhsd-m-contact-us__content" itemprop="articleBody">
                                 <p class="nhsd-t-heading-m">Contact Us</p>
-                                <div data-uipath="website.blog.contactus">
+                                <div data-uipath="website.feature.contactus">
                                     <@hst.html hippohtml=document.contactDetails contentRewriter=brContentRewriter/>
                                 </div>
                             </div>
@@ -270,12 +269,12 @@
                         </#list>
                     </div>
                 </#if>
-
+                
                 <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
                     <#if hasRelatedSubjects || hasSectionContent && !hasBackstory && !hasContactDetails && !hasRelatedSubjects>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
-                    <h2 class="nhsd-t-heading-xl">Share this page</h2>
+                    <h2 class="nhsd-t-heading-xl">Share this page</h2>  
                     <#-- Use UTF-8 charset for URL escaping from now: -->
                     <#setting url_escaping_charset="UTF-8">
 
@@ -360,14 +359,10 @@
                     </div>
                 </#if>
 
-                <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
-                    <div class="grid-row">
-                        <@latestblogs document.latestBlogs></@latestblogs>
-                    </div>
-                </div>
-                <div class="nhsd-!t-margin-bottom-6">
+                <div class="nhsd-!t-margin-bottom-6" aria-label="document-content">
                     <@lastModified document.lastModified false></@lastModified>
                 </div>
+                
             </div>
         </div>
     </div>
