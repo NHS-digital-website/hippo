@@ -28,7 +28,7 @@
                 </#if>
                     <article class="nhsd-m-card">
                     <@hst.link hippobean=latest var="link"/>
-                        <a href="${link}" class="nhsd-a-box-link" onClick="logGoogleAnalyticsEvent('Link click','${fromDoctype}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" aria-label="About NHS Digital - More about what we do" >
+                        <a href="${link}" class="nhsd-a-box-link" onClick="logGoogleAnalyticsEvent('Link click','${fromDoctype}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" aria-label="About NHS Digital - More about what we do" title="${latest.title}" >
                             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                                 <#assign image = '' />
                                 <#assign alttext = '' />
@@ -41,7 +41,7 @@
                                 </#if>
                                 <#if image?has_content>
                                     <@hst.link hippobean=image.original fullyQualified=true var="leadImage" />
-                                    <figure class="nhsd-a-image nhsd-a-image--contain" style="height:max-content">
+                                    <figure class="nhsd-a-image nhsd-a-image--maintain-ratio" style="height:max-content">
                                         <picture class="nhsd-a-image__picture">
                                             <img src="${leadImage}" alt="${alttext}"  />
                                         </picture>
@@ -53,7 +53,7 @@
                                         </picture>
                                     </figure>
                                 </#if>
-                        
+
                                 <div class="nhsd-m-card__content-box">
                                     <#if latest.authors?? && latest.authors?has_content>
                                         By <#list latest.authors as author>${author.title}<#sep>, </#list>.
@@ -73,7 +73,7 @@
                                     <h1 class="nhsd-t-heading-s">${latest.title}</h1>
                                     <p class="nhsd-t-body-s">${latest.shortsummary}</p>
                                 </div>
-                                
+
                                 <div class="nhsd-m-card__button-box">
                                     <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
                                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
@@ -91,14 +91,14 @@
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
                     <nav class="nhsd-m-button-nav">
-                    <#if idsuffix?contains("news")> 
+                    <#if idsuffix?contains("news")>
                         <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="newsfeed"/>" >
                         <#else>
                         <a id="btn-view-all" onClick="toggleCards(${itemsMaxCountWithJS}, ${blogs?size}, '${idsuffix?js_string}'); return false;" class="nhsd-a-button" href="#">
                         </#if>
                             <span class="nhsd-a-button__label">View all news</span>
-                    <#elseif idsuffix?contains("event") >         
+                    <#elseif idsuffix?contains("event") >
                         <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="eventsfeed"/>">
                         <#else>
@@ -118,13 +118,13 @@
                 </div>
             </div>
         </#if >
-    </div>               
-  </div> 
+    </div>
+  </div>
   </#if>
 
   <script>
     (function() {
-          function init() { 
+          function init() {
             var cards = document.getElementsByClassName('${idsuffix}');
             for (var i=0; i < cards.length; i++) {
                 if (i >= ${itemsMaxCountWithJS} && i < ${blogs?size}) {
@@ -134,18 +134,18 @@
           }
         init();
     }());
-    
+
     function toggleCards(itemsMaxCountWithJS, numberOfCards, blogType) {
         var cards = document.getElementsByClassName(blogType);
         for (var i=0; i < cards.length; i++) {
-            if (i >= itemsMaxCountWithJS && i < numberOfCards) { 
+            if (i >= itemsMaxCountWithJS && i < numberOfCards) {
                 if (cards.item(i).classList.contains('nhsd-!t-display-hide')) {
                 cards.item(i).classList.remove('nhsd-!t-display-hide');
-                } else { 
+                } else {
                     cards.item(i).classList.add('nhsd-!t-display-hide');
                 }
-            }   
+            }
         }
     }
-  </script> 
+  </script>
 </#macro>

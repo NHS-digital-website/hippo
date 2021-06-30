@@ -45,25 +45,25 @@
                             <div class="nhsd-o-hero__content">
 
                                 <span class="nhsd-a-tag nhsd-a-tag--phase">Blog</span>
-                                
-                                <#if document.title?has_content> 
-                                <span class="nhsd-t-heading-xl nhsd-!t-margin-top-3">${document.title}</span>
+
+                                <#if document.title?has_content>
+                                <span class="nhsd-t-heading-xl nhsd-!t-margin-top-3" data-uipath="document.title">${document.title}</span>
                                 </#if>
 
                                 <#if document.shortsummary?has_content>
-                                <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-6">${document.shortsummary}</p>
-                                </#if> 
+                                <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-6" data-uipath="website.blog.shortsummary">${document.shortsummary}</p>
+                                </#if>
 
                                 <div class="nhsd-o-hero__meta-data nhsd-!t-margin-bottom-6">
                                     <#if hasAuthors>
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Author<#if document.authors?size gt 1 >s</#if>: </div>
-                                            
+
                                             <div class="nhsd-t-grid nhsd-!t-no-gutters">
                                                 <#list document.authors as author>
                                                     <div class="nhsd-t-row">
                                                         <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-                                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) /> 
+                                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
                                                             <div class="nhsd-o-hero__meta-data-item-description"><a class="nhsd-a-link" href="<@hst.link hippobean=author/>" onClick="${onClickMethodCall}">${author.title}<span class="nhsd-t-sr-only"></span></a><#if author.roles??><#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if></#if><#if author.roles??><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if></#if></div>
                                                         </div>
                                                     </div>
@@ -81,7 +81,7 @@
                                     <#if document.dateOfPublication.time?has_content >
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Date: </div>
-                                            <div class="nhsd-o-hero__meta-data-item-description"><@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></div>
+                                            <div class="nhsd-o-hero__meta-data-item-description" data-uipath="website.blog.dateofpublication"><@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></div>
                                         </div>
                                     </#if>
 
@@ -118,11 +118,11 @@
 
                                 <span class="nhsd-a-tag nhsd-a-tag--phase">Blog</span>
 
-                                <#if document.title?has_content> 
+                                <#if document.title?has_content>
                                     <span class="nhsd-t-heading-xl nhsd-!t-margin-up-3">${document.title}</span>
                                 </#if>
-                                
-                                <#if document.summary?has_content> 
+
+                                <#if document.summary?has_content>
                                 <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-6">${document.shortsummary}</p>
                                 </#if>
 
@@ -134,7 +134,7 @@
                                                 <#list document.authors as author>
                                                     <div class="nhsd-t-row">
                                                         <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-                                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) /> 
+                                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
                                                             <div class="nhsd-o-hero__meta-data-item-description"><a class="nhsd-a-link" href="<@hst.link hippobean=author/>" onClick="${onClickMethodCall}">${author.title}<span class="nhsd-t-sr-only"></span></a><#if author.roles??><#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if></#if><#if author.roles??><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if></#if></div>
                                                         </div>
                                                     </div>
@@ -184,7 +184,7 @@
             </div>
         </div>
     </#if>
-    
+
     <div class="nhsd-t-grid " aria-label="document-content">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12">
@@ -231,9 +231,9 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div itemprop="articleBody">
-                        <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6" data-uipath="website.blog.backstory">
+                        <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6"">
                             <p class="nhsd-t-heading-m">Back story</p>
-                            <@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter />
+                            <div data-uipath="website.blog.backstory"><@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter /></div>
                         </div>
                     </div>
                 </#if>
@@ -280,11 +280,13 @@
                     <#setting url_escaping_charset="UTF-8">
 
                     <div class="nhsd-t-grid nhsd-!t-margin-bottom-4 nhsd-!t-no-gutters">
+                       
                         <#--  Facebook  -->
                         <#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${currentUrl?url}"/>
                         <#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
                         <@shareThisPage document "Facebook" facebookUrl facebookIconPath/>
 
+                            
                         <#--  Twitter  -->
                         <#assign hashtags ='' />
                         <#if hasTwitterHashtag>
@@ -317,12 +319,12 @@
                                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4">
                                         <div class="nhsd-o-gallery__card-container">
                                             <div class="nhsd-m-card">
-                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) /> 
+                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
                                                 <a href="<@hst.link hippobean=author/>"  onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link nhsd-a-box-link--focus-orange" aria-label="About NHS Digital" >
                                                     <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                                                    <#if author.personimages.picture.authorPhotoLarge2x?has_content> 
+                                                    <#if author.personimages.picture.authorPhotoLarge2x?has_content>
                                                         <div class="nhsd-m-card__image_container">
-                                                            <figure class="nhsd-a-image nhsd-a-image--contain">
+                                                            <figure class="nhsd-a-image nhsd-a-image--maintain-ratio">
                                                                 <picture class="nhsd-a-image__picture ">
                                                                     <@hst.link hippobean=author.personimages.picture.authorPhotoLarge2x fullyQualified=true var="authorPicture" />
                                                                     <img src="${authorPicture}" alt="${author.title}">

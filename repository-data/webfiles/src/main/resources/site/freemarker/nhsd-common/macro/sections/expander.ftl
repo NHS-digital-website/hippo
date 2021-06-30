@@ -32,13 +32,11 @@
                 </summary>
 
                 <div class="nhsd-m-expander__content-container">
-                    <span class="nhsd-t-body">
-                        <#if content?has_content>
-                            <@hst.html hippohtml=content contentRewriter=brContentRewriter />
-                        <#else>
-                            <@hst.html hippohtml=section.content contentRewriter=brContentRewriter />
-                        </#if>
-                    </span>
+                    <#if content?has_content>
+                        <@hst.html hippohtml=content contentRewriter=brContentRewriter />
+                    <#else>
+                        <@hst.html hippohtml=section.content contentRewriter=brContentRewriter />
+                    </#if>
                 </div>
             </details>
         </div>
