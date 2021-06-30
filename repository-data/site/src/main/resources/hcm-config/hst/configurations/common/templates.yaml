@@ -9,10 +9,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/about.ftl
         jcr:primaryType: hst:template
       /api-catalogue:
-        hst:renderpath: webfile:/freemarker/common/api-catalogue.ftl
-        jcr:primaryType: hst:template
-      /api-catalogue-preview:
-        hst:renderpath: webfile:/freemarker/common/api-catalogue-preview.ftl
+        hst:renderpath: webfile:/freemarker/common/apicatalogue/api-catalogue.ftl
         jcr:primaryType: hst:template
       /apiendpoint-article:
         hst:renderpath: webfile:/freemarker/common/apiendpoint-article.ftl
@@ -81,7 +78,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/cta-list.ftl
         jcr:primaryType: hst:template
       /cyber-alert:
-        hst:renderpath: webfile:/freemarker/common/cyber-alert-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/cyber-alert-article.ftl
         jcr:primaryType: hst:template
       /cyber-alert-hub:
         hst:renderpath: webfile:/freemarker/common/cyber-alert-hub.ftl
@@ -114,7 +111,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/eforms/eforms-validation-default.ftl
         jcr:primaryType: hst:template
       /event-article:
-        hst:renderpath: webfile:/freemarker/common/event-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/event-article.ftl
         jcr:primaryType: hst:template
       /event-hub-article:
         hst:renderpath: webfile:/freemarker/common/event-hub-article.ftl
@@ -129,7 +126,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
       /feature:
-        hst:renderpath: webfile:/freemarker/common/feature.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/feature.ftl
         jcr:primaryType: hst:template
       /feedhub:
         hst:renderpath: webfile:/freemarker/common/feedhub.ftl

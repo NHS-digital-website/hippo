@@ -342,10 +342,6 @@ definitions:
             hst:componentconfigurationid: hst:pages/api-catalogue
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
-          /preview:
-            hst:componentconfigurationid: hst:pages/api-catalogue-preview
-            hst:relativecontentpath: ${parent}/preview
-            jcr:primaryType: hst:sitemapitem
           hst:relativecontentpath: developer/api-catalogue
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub

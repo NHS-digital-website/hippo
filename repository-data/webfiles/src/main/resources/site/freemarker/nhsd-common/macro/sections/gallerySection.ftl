@@ -35,7 +35,7 @@
 
                     <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
                     <div class="nhsd-m-card__image_container">
-                      <figure class="nhsd-a-image nhsd-a-image--round-top-corners nhsd-a-image--contain">
+                      <figure class="nhsd-a-image nhsd-a-image--round-top-corners nhsd-a-image--maintain-ratio">
                         <picture class="nhsd-a-image__picture ">
                           <img src="${image}" alt="${galleryItem.imageAlt}">
                         </picture>
@@ -56,9 +56,9 @@
                           <#list galleryItem.relatedFiles as attachment>
                             <div class="nhsd-m-card__download-card">
                               <#if attachment.link.asset?has_content>
-                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.asset.mimeType attachment.link.asset.getLength() true />
+                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.asset.mimeType attachment.link.asset.getLength() false true />
                               <#else>
-                              <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.original.mimeType attachment.link.original.getLength() true />
+                              <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.original.mimeType attachment.link.original.getLength() false true />
                               </#if>
                             </div>
                           </#list>
@@ -69,7 +69,7 @@
               </div>
             </div>
           </#list>
-          
+
         </div>
       </div>
     </div>
