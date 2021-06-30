@@ -30,7 +30,7 @@
                 nhsd-t-col-l-4
               </#if>">
               <div class="nhsd-o-gallery__card-container">
-                <article class="nhsd-m-card">
+                <div class="nhsd-m-card">
                   <div class="nhsd-a-box nhsd-a-box--border-grey">
 
                     <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
@@ -65,7 +65,7 @@
                       </#if>
                     </div>
                   </div>
-                </article>
+                </div>
               </div>
             </div>
           </#list>

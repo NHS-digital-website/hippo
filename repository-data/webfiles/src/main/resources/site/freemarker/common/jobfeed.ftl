@@ -17,7 +17,7 @@
                 <div class="nhsd-t-row nhsd-t-row--centred nhsd-o-card-list__items">
                     <#list jobList as item>
                         <div class="nhsd-t-col-xs-12 ${getGridCol(jobList?size)}">
-                            <article class="nhsd-m-card">
+                            <div class="nhsd-m-card">
                                 <a href="${item.link}"
                                    class="nhsd-a-box-link "
                                    aria-label="Potential Coronavirus (COVID-19) symptoms reported through NHS Pathways and 111 online">
@@ -46,7 +46,7 @@
                                         </div>
                                     </div>
                                 </a>
-                            </article>
+                            </div>
                         </div>
                     </#list>
                 </div>

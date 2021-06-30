@@ -1,8 +1,8 @@
 <#ftl output_format="HTML">
 
 <#macro iconList section mainHeadingLevel=2 >
-    <div id="${slugify(section.title)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines')}">
-        <#if section.title?has_content>
+    <#if section.title?has_content>
+        <div id="${slugify(section.title)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines')}">
             <#if section.headingLevel == 'Main heading'>
                 <#assign mainHeadingTag = "h" + mainHeadingLevel />
                 <${mainHeadingTag} data-uipath="website.contentblock.iconlist.title">${section.title}</${mainHeadingTag}>
@@ -11,8 +11,10 @@
                 <#assign subHeadingTag = "h" + subHeadingLevel />
                 <${subHeadingTag} data-uipath="website.contentblock.iconlist.title">${section.title}</${subHeadingTag}>
             </#if>
-        </#if>
-
+    <#else>
+        <div class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines')}">
+    </#if>
+    
         <div data-uipath="website.contentblock.iconlist.introduction">
             <@hst.html hippohtml=section.introduction contentRewriter=gaContentRewriter />
         </div>

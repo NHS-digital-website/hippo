@@ -93,7 +93,7 @@
                             <div class="nhsd-t-row nhsd-o-card-list__items ">
                                 <#list document.priorityActions as action>
                                     <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-                                        <article class="nhsd-m-card">
+                                        <div class="nhsd-m-card">
                                             <a href=
                                                 "<#if action.link.linkType == "internal">
                                                     <@hst.link hippobean=action.link.link />
@@ -124,7 +124,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </article>
+                                        </div>
                                     </div>
                                 </#list>
                             </div>

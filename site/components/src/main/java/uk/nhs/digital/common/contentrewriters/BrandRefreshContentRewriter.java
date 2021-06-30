@@ -16,6 +16,8 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
 
         html = super.rewrite(html, hippoHtmlNode, requestContext, targetMount);
 
+        System.out.println("HTML: " + html);
+
         Document document = Jsoup.parse(html, "", Parser.xmlParser());
 
         // normal
@@ -63,7 +65,6 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         if (document.select("img").first() != null) {
             document.select("img")
                     .wrap("<figure class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale\"><picture class=\"nhsd-a-image__picture\"></picture></figure>");
-
         }
 
         // table
@@ -96,6 +97,21 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
             }
         }
 
-        return String.valueOf(document);
+        if (document.select("p > figure").first() != null) {
+            document.select("p > figure").stream().forEach( e -> {
+                e.parent().unwrap();
+            });
+        }
+
+        if (document.select("h3 > figure").first() != null) {
+            document.select("h3 > figure").stream().forEach( e -> {
+                Element figure = e;
+                e.remove();
+                e.parent().after(figure);
+            });
+        }
+        System.out.println("Document: " + document);
+
+        return document.outerHtml();
     }
 }
