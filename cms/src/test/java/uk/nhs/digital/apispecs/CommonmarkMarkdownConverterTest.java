@@ -32,6 +32,16 @@ public class CommonmarkMarkdownConverterTest {
 
     private CommonmarkMarkdownConverter commonmarkMarkdownConverter;
 
+
+    private static final String[] headings = new String[]{
+        "nhsd-t-heading-xxl",
+        "nhsd-t-heading-xl",
+        "nhsd-t-heading-l",
+        "nhsd-t-heading-m",
+        "nhsd-t-heading-s",
+        "nhsd-t-heading-xs"
+    };
+
     @Before
     public void setUp() {
         initMocks(this);
@@ -213,8 +223,14 @@ public class CommonmarkMarkdownConverterTest {
         // <h3 id="heading">Heading</h3>
 
         return headingsLevels.stream()
-            .map(level -> format("<h{0} id=\"heading\">Heading</h{0}>", level))
+            .map(level -> format("<h{0} class=\"{1}\" id=\"heading\">Heading</h{0}>", level, cssClassForHeadingLevel(level)))
             .collect(joining("\n"));
+    }
+
+    private String cssClassForHeadingLevel(int level) {
+        return level < 1
+            ? headings[0]
+            : level > 6 ? headings[5] : headings[level-1];
     }
 
     private String markdownWithHeadingsAt(final Levels headingsLevels) {
