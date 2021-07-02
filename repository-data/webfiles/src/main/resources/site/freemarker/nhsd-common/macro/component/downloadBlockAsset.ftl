@@ -29,9 +29,9 @@
                 <div class="${(small == true)?then('nhsd-m-download-card__image-box small', 'nhsd-m-download-card__image-box')}">
                     <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->
                     <#if small>
-                        <@documentIcon  "${iconTypeFromMime}" "extra-small" />
+                        <@documentIcon "${iconTypeFromMime}" "extra-small" />
                     <#else>
-                        <@documentIcon  "${iconTypeFromMime}"/>
+                        <@documentIcon "${iconTypeFromMime}"/>
                     </#if>
                 </div>
 
@@ -42,13 +42,15 @@
                     </#if>
 
                     <div class="nhsd-m-download-card__meta-tags">
-
-                        <#assign fileFormat = iconTypeFromMime />
-                        <#if external == false && filepath != "">
-                            <#assign fileFormat = getFileExtension(filepath?lower_case) />
-			            </#if>
-                        <#if external == true>
+                        <#assign fileFormat = ""/>
+                        <#if filename != "" >
+                            <#assign fileFormat = getFileExtension(filename?lower_case) />
+                        </#if>
+                        <#if external == true && fileFormat == "">
                             <#assign fileFormat = getFileExtension(resource?lower_case) />
+                        </#if>
+                        <#if fileFormat == "">
+                            <#assign fileFormat = iconTypeFromMime />
                         </#if>
 
                         <span class="nhsd-a-tag nhsd-a-tag--meta">${fileFormat}</span>

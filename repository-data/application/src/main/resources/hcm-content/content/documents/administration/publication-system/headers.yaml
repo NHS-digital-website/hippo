@@ -39,6 +39,8 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -69,6 +71,8 @@
     - headers.metadata
     - headers.responsible-parties
     - headers.frequency
+    - headers.related-news
+    - headers.publication-chapters
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -98,6 +102,8 @@
     - Metadata
     - Responsible parties
     - 'Frequency:'
+    - Related news
+    - Publication chapters
   /headers[2]:
     hippo:availability:
     - preview
@@ -139,6 +145,8 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -169,6 +177,8 @@
     - headers.metadata
     - headers.responsible-parties
     - headers.frequency
+    - headers.related-news
+    - headers.publication-chapters
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -198,6 +208,8 @@
     - Metadata
     - Responsible parties
     - 'Frequency:'
+    - Related news
+    - Publication chapters
   /headers[3]:
     hippo:availability:
     - live
@@ -239,6 +251,8 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -269,6 +283,8 @@
     - headers.metadata
     - headers.responsible-parties
     - headers.frequency
+    - headers.related-news
+    - headers.publication-chapters
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -298,6 +314,8 @@
     - Metadata
     - Responsible parties
     - 'Frequency:'
+    - Related news
+    - Publication chapters
   hippo:name: Headers
   hippo:versionHistory: 7c34c457-2902-42be-b142-f6108d873bbb
   jcr:mixinTypes:

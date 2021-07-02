@@ -79,7 +79,8 @@
             </#if>
         </#if>
         <#if document?? && document != "simulating_doc" && document.relatedNews?? && (!document.latestNews?? || !document.latestNews?has_content) && document.relatedNews?has_content >
-              <#assign links += [{ "url": "#related-articles-related-news-${idsuffix}", "title": 'Related news' }] />
+            <@fmt.message key="headers.related-news" var="relatedNewsHeader" />
+            <#assign links += [{ "url": "#" + slugify(relatedNewsHeader), "title": relatedNewsHeader }] />
         </#if>
         <#if options.childPages?? && options.childPages?has_content>
             <@fmt.message key="headers.further-information" var="furtherInformationHeader" />

@@ -7,7 +7,7 @@
         <div class="column column--reset">
             <#if ciBreadcrumb?? && ciBreadcrumb.items?size gte 1>
             <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb" title="Navigation">
+                <ol class="breadcrumb" title="Navigation" data-uipath="document.breadcrumbs">
                     <li class="breadcrumb__crumb">
                         <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link" title="NHS Digital" data-text="NHS Digital">NHS Digital</a>
                     </li>

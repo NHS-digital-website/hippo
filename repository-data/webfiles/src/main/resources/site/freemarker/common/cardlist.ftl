@@ -36,7 +36,6 @@
             <#list cardList as card>
                 <#assign imageData = getImageData(card) />
 
-                <#assign itemTitle = card.title />
                 <#assign itemShortSummary = "" />
                 <#if card.shortsummary?has_content>
                     <#assign itemShortSummary = card.shortsummary />
@@ -55,15 +54,17 @@
                     <#assign linkDestination = itemLinkDestination />
                 </#if>
 
+                <#assign cardProps = card/>
+                <#assign cardProps += {
+                    "image": imageData[0],
+                    "alttext": imageData[1],
+                    "shortSummary": itemShortSummary,
+                    "linkDestination": linkDestination,
+                    "background": cardColour
+                }/>
+
                 <div class="${getGridCol(cards)} nhsd-!t-margin-bottom-4">
-                    <@cardItem
-                    image=imageData[0]
-                    alttext=imageData[1]
-                    itemTitle=itemTitle
-                    itemShortSummary=itemShortSummary
-                    linkDestination=linkDestination
-                    cardColour=cardColour
-                    />
+                    <@cardItem cardProps />
                 </div>
             </#list>
         </div>

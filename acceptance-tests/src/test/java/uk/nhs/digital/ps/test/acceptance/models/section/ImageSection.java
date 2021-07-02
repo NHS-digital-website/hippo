@@ -13,19 +13,17 @@ public class ImageSection extends BodySection {
 
     private final String imageName;
     private final String altText;
-    private final String caption;
     private final String link;
 
-    public ImageSection(String imageName, String altText, String caption, String link) {
+    public ImageSection(String imageName, String altText, String link) {
         this.imageName = imageName;
         this.altText = altText;
-        this.caption = caption;
         this.link = link;
         testContentUrls = TestContentUrls.instance();
     }
 
     public ImageSection(String imageName, String altText) {
-        this(imageName, altText, null, null);
+        this(imageName, altText, null);
     }
 
     public String getSource() {
@@ -34,10 +32,6 @@ public class ImageSection extends BodySection {
 
     public String getAltText() {
         return altText;
-    }
-
-    public String getCaption() {
-        return caption;
     }
 
     public String getLink() {
@@ -51,7 +45,6 @@ public class ImageSection extends BodySection {
                 ImageSectionWidget widget = (ImageSectionWidget) item;
                 return compare(getSource(), widget.getSource(), desc)
                     && compare(altText, widget.getAltText(), desc)
-                    && compare(caption, widget.getCaption(), desc)
                     && compare(link, widget.getLink(), desc);
             }
 

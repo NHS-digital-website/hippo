@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="nhsd-t-row nhsd-o-card-list__items ">
+        <div class="nhsd-t-row nhsd-o-card-list__items">
             <#list blogs as latest>
                 <#if latest?counter <= itemsMaxCount >
                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 ${idsuffix}">
@@ -41,7 +41,7 @@
                                 </#if>
                                 <#if image?has_content>
                                     <@hst.link hippobean=image.original fullyQualified=true var="leadImage" />
-                                    <figure class="nhsd-a-image nhsd-a-image--contain" style="height:max-content">
+                                    <figure class="nhsd-a-image nhsd-a-image--maintain-ratio" style="height:max-content">
                                         <picture class="nhsd-a-image__picture">
                                             <img src="${leadImage}" alt="${alttext}"  />
                                         </picture>

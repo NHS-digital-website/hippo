@@ -29,6 +29,10 @@ public class IndicatorPageElements implements PageElements {
         return pageElements.containsKey(elementName);
     }
 
+    public List<WebElement> getElementsByName(String elementName, PageHelper helper) {
+        return helper.findOptionalElements(pageElements.get(elementName));
+    }
+
     @Override
     public WebElement getElementByName(String elementName, PageHelper helper) {
         return getElementByName(elementName, 0, helper);
@@ -36,7 +40,7 @@ public class IndicatorPageElements implements PageElements {
 
     @Override
     public WebElement getElementByName(String elementName, int nth, PageHelper helper) {
-        List<WebElement> elements = helper.findElements(pageElements.get(elementName));
+        List<WebElement> elements = getElementsByName(elementName, helper);
 
         if (elements.size() == 0) {
             return null;

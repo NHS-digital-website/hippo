@@ -237,7 +237,7 @@
                                                 >
                                                     <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                                                         <div class="nhsd-m-card__image_container">
-                                                            <figure class="nhsd-a-image nhsd-a-image--cover">
+                                                            <figure class="nhsd-a-image nhsd-a-image--maintain-ratio">
                                                                 <picture class="nhsd-a-image__picture">
                                                                     <#if author.personimages?? && author.personimages?has_content && author.personimages.picture?has_content>
                                                                         <img src="<@hst.link hippobean=author.personimages.picture.original fullyQualified=true />" alt="${author.title}">

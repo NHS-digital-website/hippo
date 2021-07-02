@@ -81,7 +81,7 @@
             "button": document.button,
             "buttonText": "Jump to overview",
             "showTime": true
-            } 
+            }
         />
         <@heroModule heroConfig />
     </#if>
@@ -95,7 +95,7 @@
             "document": document,
             "bannerImage": bannerImage,
             "bannerImageAltText": document.bannerImageAltText
-            } 
+            }
         />
         <@slimPicture slimPictureConfig />
     </#if>
@@ -117,7 +117,7 @@
         <@chapterNav document />
     </#if>
 
-    <div class="nhsd-t-row" id="document-content">
+    <div class="nhsd-t-row nhsd-!t-margin-top-6" id="document-content">
         <#if renderNav>
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
                 <!-- start sticky-nav -->
@@ -197,7 +197,7 @@
                                     <div class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                         <@externalstorageLink attachment.resource; url>
                                             <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
-                                                <a class="nhsd-a-box-link" 
+                                                <a class="nhsd-a-box-link"
                                                    title="${attachment.text}"
                                                    href = "${url}"
                                                    onClick="logGoogleAnalyticsEvent('Download attachment','Published work','${url}');"
@@ -251,7 +251,7 @@
 
             <#if hasChildPages>
                 <#assign splitChapters = splitHash(documents) />
-                <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1" 
+                <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1"
                     id="chapter-index"
                 >
                     <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">

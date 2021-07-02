@@ -274,6 +274,7 @@ public abstract class PublicationBase extends BaseDocument {
     interface PropertyKeys {
         String TAXONOMY = "hippotaxonomy:keys";
         String SUMMARY = "publicationsystem:Summary";
+        String PUBLICATION_TIER = "publicationsystem:publicationtier";
         String SEO_SUMMARY = "publicationsystem:seosummary";
         String KEY_FACTS = "publicationsystem:KeyFacts";
         String KEY_FACTS_HEAD = "publicationsystem:KeyFactsHead";

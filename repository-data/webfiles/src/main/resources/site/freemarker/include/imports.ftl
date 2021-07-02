@@ -194,7 +194,7 @@
 
 <#function getFileExtension filepath>
     <#assign extension = "" >
-    <#if filepath?contains(".")>
+    <#if filepath[filepath?length-5..]?contains(".")>
         <#assign extension = filepath?keep_after_last(".")?lower_case >
     </#if>
     <#return extension />

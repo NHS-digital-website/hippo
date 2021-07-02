@@ -48,7 +48,7 @@ Feature: As a consumer I need to be able to navigate to publication data sets
 
     Scenario: Find data set in publication resources
         Given I navigate to "publication with datasets" publication page
-        When I click on link "publication-with-datasets Dataset"
+        When I click on the link named "publication-with-datasets Dataset"
         Then I should see data set page titled "publication-with-datasets Dataset"
 
     Scenario: Find data set in publication that is part of series
@@ -57,7 +57,7 @@ Feature: As a consumer I need to be able to navigate to publication data sets
         Then I should see publication page titled "series publication with datasets"
         And I should also see:
             | Publication Summary           | Maecenas pharetra, magna ut pulvinar mattis, augue nisi ...       |
-        When I click on link "series-publication-with-datasets Dataset"
+        When I click on the link named "series-publication-with-datasets Dataset"
         Then I should see data set page titled "series-publication-with-datasets Dataset"
         And I should also see:
             | Dataset Summary               | Sed viverra, odio nec eleifend sodales, ligula lectus varius ...  |

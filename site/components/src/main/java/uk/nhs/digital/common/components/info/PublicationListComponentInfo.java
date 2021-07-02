@@ -23,4 +23,10 @@ public interface PublicationListComponentInfo extends EssentialsListComponentInf
         defaultValue = "search/publicationStatus/false?area=data&sort=date"
     )
     String getViewUpcomingUrl();
+
+    @Parameter(
+        name = "Display Tier 3 Publications",
+        defaultValue = "publicationsystem:publicationtier"
+    )
+    Boolean getDisplayTier3();
 }
