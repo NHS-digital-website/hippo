@@ -230,7 +230,7 @@ public class CommonmarkMarkdownConverterTest {
     private String cssClassForHeadingLevel(int level) {
         return level < 1
             ? headings[0]
-            : level > 6 ? headings[5] : headings[level-1];
+            : level > 6 ? headings[5] : headings[level - 1];
     }
 
     private String markdownWithHeadingsAt(final Levels headingsLevels) {
