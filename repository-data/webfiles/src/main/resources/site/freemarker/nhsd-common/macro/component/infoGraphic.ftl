@@ -21,16 +21,14 @@
                 <#if imagePath?ends_with("svg")>
                     <div class="nhsd-m-infographic__icon-box">
                         <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                            <div class="infographic__icon">
-                                <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="Image for infographic ${graphic.headline}" />
-                            </div>
+                            <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="" />
                         </span>
                     </div>
                 <#else>
                     <div class="nhsd-m-infographic__image-box">
                         <figure class="nhsd-a-image nhsd-a-image--cover">
                             <picture class="nhsd-a-image__picture">
-                                <img aria-hidden="true" src="${imagePath}" alt="Image for infographic ${graphic.headline}" />
+                                <img src="${imagePath}" alt="" />
                             </picture>
                         </figure>
                     </div>
