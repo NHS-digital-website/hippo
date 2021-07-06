@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
 <#macro imageSection section>
-    <div class="nhsd-m-image-with-link nhsd-!t-margin-bottom-6" data-uipath="ps.publication.image-section">
+    <div class="${section.link?has_content?then('nhsd-m-image-with-link', '')} nhsd-!t-margin-bottom-6" data-uipath="ps.publication.image-section">
         <#assign link = section.link />
         <#if section.link?has_content && ! section.link?starts_with("http") >
           <#assign link = "http://" + section.link />
@@ -11,7 +11,7 @@
             <a href="${link}" data-uipath="ps.publication.image-section.link" >
         </#if>
 
-            <figure class="nhsd-a-image nhsd-a-image--round-corners nhsd-!t-margin-bottom-2" aria-hidden="true">
+            <figure class="nhsd-a-image nhsd-a-image--no-scale nhsd-a-image--round-corners nhsd-!t-margin-bottom-2" aria-hidden="true">
                 <picture class="nhsd-a-image__picture ">
                     <img src="<@hst.link hippobean=section.image/>" alt="${section.altText}" data-uipath="ps.publication.image-section.image">
                 </picture>
@@ -27,10 +27,10 @@
                         <span>${section.caption}</span>
                     </div>
                 </#if>
-            </#if> 
+            </#if>
 
         <#if link?has_content && !section.caption?has_content>
             </a>
-        </#if>      
+        </#if>
     </div>
 </#macro>
