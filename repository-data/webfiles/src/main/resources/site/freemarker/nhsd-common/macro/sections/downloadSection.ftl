@@ -32,7 +32,6 @@
                     <div class="nhsd-t-col">
                         <#list section.items as block>
                             <#if block.linkType??>
-<<<<<<< HEAD
                                 <#if block.linkType == "internal">
                                     <@downloadBlockInternal document.class.name block.link block.link.title block.link.shortsummary  />
                                  <#elseif block.linkType == "external">
@@ -44,7 +43,6 @@
                                  <#elseif block.linkType == "asset">
                                     <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength() />
                                 </#if>
-=======
                                 <div class="nhsd-!t-margin-bottom-6">
                                     <#if block.linkType == "internal">
                                         <@downloadBlockInternal document.class.name block.link block.link.title block.link.shortsummary  />
@@ -54,7 +52,6 @@
                                         <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength()  />
                                     </#if>
                                 </div>
->>>>>>> [DW-2148] Publication page
                             </#if>
                         </#list>
                     </div>
