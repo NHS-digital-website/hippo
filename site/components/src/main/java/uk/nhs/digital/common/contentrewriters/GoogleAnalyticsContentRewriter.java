@@ -117,10 +117,14 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                 String onClickEvent = link.getAttributeByName(EVENT_ON_CLICK);
                 //preparing new onclick event to fire
                 String gaEvent =
-                    "logGoogleAnalyticsEvent('" + gaAction + "',"
-                        + "'" +
-                        (contentBeanTypeName.contains("$") ? contentBeanTypeName.substring(0, contentBeanTypeName.indexOf("$")) : contentBeanTypeName) + "',"
-                        + "'" + documentPath + "');";
+                    "logGoogleAnalyticsEvent('"
+                        + gaAction
+                        + "','"
+                        +
+                        (contentBeanTypeName.contains("$") ? contentBeanTypeName.substring(0, contentBeanTypeName.indexOf("$")) : contentBeanTypeName)
+                        + "','"
+                        + documentPath
+                        + "');";
                 //check id the onClick attribute exists
                 if (StringUtils.isEmpty(onClickEvent)) {
                     link.addAttribute(EVENT_ON_CLICK, gaEvent);
