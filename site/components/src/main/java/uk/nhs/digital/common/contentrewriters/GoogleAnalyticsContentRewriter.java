@@ -74,7 +74,7 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
         // rewrite of links
         for (TagNode link : links) {
             String documentPath = link.getAttributeByName("href");
-            
+
             if (documentPath != null) {
 
                 // Migrated (legacy) content documentPath is different format to new attachments, so resolve if needed
@@ -112,12 +112,14 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                     //in case of "valid" content bean, fetch its type name
                     contentBeanTypeName = contentBean.getClass().getSimpleName();
                 }
+
                 //add onClick behaviour
                 String onClickEvent = link.getAttributeByName(EVENT_ON_CLICK);
                 //preparing new onclick event to fire
                 String gaEvent =
                     "logGoogleAnalyticsEvent('" + gaAction + "',"
-                        + "'" + contentBeanTypeName.substring(0, contentBeanTypeName.indexOf("$")) + "',"
+                        + "'" +
+                        (contentBeanTypeName.contains("$") ? contentBeanTypeName.substring(0, contentBeanTypeName.indexOf("$")) : contentBeanTypeName) + "',"
                         + "'" + documentPath + "');";
                 //check id the onClick attribute exists
                 if (StringUtils.isEmpty(onClickEvent)) {
