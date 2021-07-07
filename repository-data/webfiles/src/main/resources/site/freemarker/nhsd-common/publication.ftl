@@ -39,6 +39,29 @@
     </#if>
 
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
+
+        <#if publication.changenotice?has_content>
+            <div class="nhsd-t-row">
+                <div class="nhsd-t-col-xs-12 nhsd-!t-margin-bottom-6">
+                    <#list publication.changenotice as changeData>
+                        <@fmt.formatDate value=changeData.date.time type="Date" pattern="d MMMM yyyy HH:mm a" timeZone="${getTimeZone()}" var="changeDateTime" />
+                        <div class="nhsd-m-emphasis-box nhsd-!t-margin-bottom-6">
+                            <div class="nhsd-a-box nhsd-a-box--border-blue">
+                                <div class="nhsd-m-emphasis-box__content-box">
+                                    <p class="nhsd-t-heading-s nhsd-t-word-break">${changeData.title}</p>
+                                    <div class="nhsd-t-body-s nhsd-t-word-break">
+                                        <@hst.html hippohtml=changeData.content />
+                                    </div>
+                                    <p class="nhsd-t-body-s nhsd-t-word-break">${changeDateTime}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </#list>
+                </div>
+            </div>
+        </#if>
+
+
         <div class="nhsd-t-row">
             <#if publication.publiclyAccessible>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
