@@ -64,7 +64,7 @@
                     <div class="nhsd-o-hero__content-box  nhsd-o-hero__content-box--left-align">
                         <div class="nhsd-o-hero__content">
                             <span class="nhsd-t-heading-xl nhsd-!t-col-white" data-uipath="document.title">${document.title}</span>
-                            
+
                             <#if hasSessions>
                                 <#-- [FTL-BEGIN] List of date ranges -->
                                 <#list document.events as event>
@@ -121,7 +121,7 @@
                                             <span>
                                                 <a class="nhsd-a-link nhsd-a-link nhsd-a-link--col-white" href="${document.maplocation}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">View Map</a>
                                             </span>
-                                        </#if> 
+                                        </#if>
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@
                                 <@externalstorageLink attachment.resource; url>
                                     <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
                                         <a class="nhsd-a-box-link"
-                                            href="#" 
+                                            href="${url}"
                                             title="${attachment.text}"
                                             onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${fileName}');"
                                             onKeyUp="return vjsu.onKeyUp(event)"
@@ -195,7 +195,7 @@
 
                                                 <div class="nhsd-m-download-card__content-box">
                                                     <p class="nhsd-t-heading-s nhsd-!t-margin-bottom-2" itemprop="name">${attachment.text}</p>
-                                                    
+
                                                     <div class="nhsd-m-download-card__meta-tags">
                                                         <#assign fileFormat = iconTypeFromMime />
                                                         <#if fileName != "">
@@ -213,7 +213,7 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    </div>                                        
+                                    </div>
                                 </@externalstorageLink>
                             </div>
                         </#list>
