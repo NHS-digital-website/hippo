@@ -2,6 +2,8 @@
 <#include "../include/imports.ftl">
 <#include "./macro/iconGenerator.ftl">
 
+<@hst.setBundle basename="publicationsystem.breadcrumbs"/>
+
 <#if ciBreadcrumb?? && ciBreadcrumb.items?size gte 1>
     <#assign breadcrumb = ciBreadcrumb/>
 </#if>
@@ -19,6 +21,15 @@
                     <#if breadcrumb.clinicalIndicator>
                         <li class="nhsd-m-breadcrumbs__item">
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${cilink}">Data and information</a>
+                            <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
+                        </li>
+                    <#elseif isStatisticalPublication>
+                        <li class="nhsd-m-breadcrumbs__item">
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link siteMapItemRefId='data'/>">Data</a>
+                            <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
+                        </li>
+                        <li class="nhsd-m-breadcrumbs__item">
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@fmt.message key="breadcrumbs.publicationLink"/>">Publications</a>
                             <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
                         </li>
                     </#if>
