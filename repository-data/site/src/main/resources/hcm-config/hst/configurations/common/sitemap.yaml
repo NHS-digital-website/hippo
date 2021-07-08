@@ -238,6 +238,7 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /data:
         hst:componentconfigurationid: hst:pages/nhsd-data-hub
+        hst:refId: data
         hst:relativecontentpath: data-and-information
         jcr:primaryType: hst:sitemapitem
       /data-and-information:
@@ -318,6 +319,7 @@ definitions:
             - hst:pages/series
             - hst:pages/cilanding
             - hst:pages/general
+            hst:refId: publicationpages
             hst:relativecontentpath: publication-system/${1}
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/404

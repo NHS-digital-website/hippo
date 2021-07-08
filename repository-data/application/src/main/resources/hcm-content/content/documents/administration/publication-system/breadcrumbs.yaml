@@ -1,0 +1,64 @@
+---
+/content/documents/administration/publication-system/breadcrumbs:
+  /breadcrumbs[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2021-02-11T12:59:24.928Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: publicationsystem.breadcrumbs
+    resourcebundle:keys:
+    - breadcrumbs.publicationLink
+    resourcebundle:messages:
+    - /search/document-type/publication?xmPrimaryDocType=publication&sort=date
+  /breadcrumbs[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2021-02-11T12:59:38.462Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: publicationsystem.breadcrumbs
+    resourcebundle:keys:
+    - breadcrumbs.publicationLink
+    resourcebundle:messages:
+    - /search/document-type/publication?xmPrimaryDocType=publication&sort=date
+  /breadcrumbs[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2021-02-11T12:59:38.462Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2021-02-11T12:59:40.259Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: publicationsystem.breadcrumbs
+    resourcebundle:keys:
+    - breadcrumbs.publicationLink
+    resourcebundle:messages:
+    - /search/document-type/publication?xmPrimaryDocType=publication&sort=date
+  hippo:name: Breadcrumbs
+  hippo:versionHistory: 7c34c457-2902-42be-b142-f6108d873bbb
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
