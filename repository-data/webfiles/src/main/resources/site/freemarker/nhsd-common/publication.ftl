@@ -27,8 +27,7 @@
 
 <#assign hasChapters = publication.publiclyAccessible && publication.pageIndex?has_content />
 
-<article class="article article--publication ${hasChapters?then('nhsd-!t-display-chapters', '')}" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header"
-         data-related-doc-links="${(relatedDocumentLinks?has_content)?then(relatedDocumentLinks, '')}">
+<article class="article article--publication ${hasChapters?then('nhsd-!t-display-chapters', '')}" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header">
     <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions"/>
 
     <@detailsBanner publication publication.publiclyAccessible showDownload />

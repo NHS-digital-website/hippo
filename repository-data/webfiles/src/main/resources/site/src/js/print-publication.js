@@ -24,13 +24,20 @@ function printPDF() {
 
         const articleRequests = [];
         printArticle.forEach(url => {
+
+            // Create handle in the DOM that matches the order of Array
+            let identity = window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16);
+            let handle = document.createElement('div');
+            handle.setAttribute('id', identity);
+            printPreview.contentWindow.document.body.appendChild(handle);
+
             // Download and append publication to iframe
             const articleRequest = fetch(url)
                 .then(res => res.text())
                 .then(content => {
                     const printableDoc = new DOMParser().parseFromString(content, "text/html");
                     const mainContent = printableDoc.querySelector('.js-publication-body');
-                    printPreview.contentWindow.document.body.appendChild(mainContent);
+                    printPreview.contentWindow.document.getElementById(identity).appendChild(mainContent);
                 });
             articleRequests.push(articleRequest);
         });
