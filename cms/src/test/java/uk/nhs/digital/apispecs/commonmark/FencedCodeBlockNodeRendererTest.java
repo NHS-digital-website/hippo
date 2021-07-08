@@ -58,7 +58,7 @@ public class FencedCodeBlockNodeRendererTest {
 
         //Assert
         InOrder inOrder = Mockito.inOrder(html);
-        inOrder.verify(html).tag("article", Collections.singletonMap("class", "nhsd-o-code-viewer"));
+        inOrder.verify(html).tag("article", Collections.singletonMap("class", "nhsd-o-code-viewer nhsd-!t-padding-bottom-3"));
         inOrder.verify(html).tag("div", ImmutableMap.of(
             "id", "html-content",
             "class", "nhsd-o-code-viewer__tab-content",
@@ -70,8 +70,6 @@ public class FencedCodeBlockNodeRendererTest {
         inOrder.verify(html).text(language.toUpperCase());
         inOrder.verify(html).tag("/p");
         inOrder.verify(html).tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code"));
-        inOrder.verify(html).tag("div", ImmutableMap.of("class", "nhsd-o-code-viewer__copy-code", "aria-live", "polite"));
-        inOrder.verify(html).tag("/div");
         inOrder.verify(html).tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code-content"));
         inOrder.verify(html).tag("pre", Collections.singletonMap("class", "line-numbers"));
         inOrder.verify(html).tag("code", Collections.singletonMap("class", languageClass));

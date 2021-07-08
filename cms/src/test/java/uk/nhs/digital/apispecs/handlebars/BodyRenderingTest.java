@@ -2,6 +2,7 @@ package uk.nhs.digital.apispecs.handlebars;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -128,8 +129,8 @@ public class BodyRenderingTest {
         // choosing backticks-to-<code> as an indicator that this happens.
         // A separate test, dedicated to the converter itself provides a more complete coverage.
         assertThat("Renders complete body with all components and in the right order.",
-            actualHtml,
-            is(expectedHtml)
+            ignoringWhiteSpacesIn(actualHtml),
+            is(ignoringWhiteSpacesIn(expectedHtml))
         );
     }
 
@@ -152,8 +153,8 @@ public class BodyRenderingTest {
 
         // then
         assertThat("Renders complete body with all components and in the right order.",
-            actualHtml,
-            is(expectedHtml)
+            ignoringWhiteSpacesIn(actualHtml),
+            is(ignoringWhiteSpacesIn(expectedHtml))
         );
     }
 
