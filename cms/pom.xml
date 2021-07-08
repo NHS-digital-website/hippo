@@ -53,10 +53,10 @@
             <artifactId>hippo-plugin-selections-addon-repository</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk</artifactId>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+            <version>${aws.java.sdk.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-gallerypicker</artifactId>

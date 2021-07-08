@@ -136,6 +136,13 @@
         <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
         <bloomreach.text-search-replace.version>2.0.0</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>5.0</forge.resetpassword.version>
+
+        <!--***START temporary override of versions*** -->
+        <hippo.addon-content-feed.version>14.7.d6d501e2</hippo.addon-content-feed.version>
+        <!-- ***END temporary override of versions*** -->
+
+        <aws.java.sdk.version>2.16.1</aws.java.sdk.version>
+
     </properties>
 
     <repositories>
@@ -178,6 +185,19 @@
     </repositories>
 
     <dependencies>
+
+        <!--<dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+            <version>${aws.java.sdk.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ssm</artifactId>
+            <version>${aws.java.sdk.version}</version>
+        </dependency>-->
+
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-targeting-shared-api</artifactId>
@@ -190,6 +210,7 @@
             <version>${bloomreach.version}</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
     <dependencyManagement>
@@ -366,11 +387,7 @@
                 <artifactId>org.apache.sling.testing.jcr-mock</artifactId>
                 <version>1.5.2</version>
             </dependency>
-            <dependency>
-                <groupId>com.amazonaws</groupId>
-                <artifactId>aws-java-sdk</artifactId>
-                <version>1.11.1030</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-xml</artifactId>
@@ -660,7 +677,17 @@
                 <artifactId>bloomreach-ipfilter-cms</artifactId>
                 <version>${bloomreach.forge.ipfilter.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>${aws.java.sdk.version}</version>
+                <type>pom</type>
+            </dependency>
+
+
         </dependencies>
+
     </dependencyManagement>
 
     <build>
