@@ -23,18 +23,6 @@
             <style type="text/css">
                 .ctabtn--nhs-digital-button--try-it-now { float: right; }
 
-                pre {
-                    color: #FFF;
-                    background-color: #000;
-                    display:block;
-                    text-align:left;
-                    overflow: auto;
-                    overflow-y: auto;
-                    max-height: 500px;
-                    box-sizing:border-box;
-                    padding:0.5em;
-                }
-
                 button.expander {
                     background-image: url(<@hst.webfile path="images/icon/expander-plus-icon.svg"/>);
                     background-size: contain;

@@ -1,21 +1,20 @@
 
     {{#mediaTypes}}
 
-        <div class="body__contenttype">
-            <span class="body__contenttype__label">Content type: </span>
-            <span class="body__contenttype__value">{{name}}</span>
-        </div>
+        <p class="nhsd-t-body">
+            Content type: <strong class="nhsd-!t-font-weight-bold">{{name}}</strong>
+        </p>
 
         {{#example}}
-            <div class="body__example__header">Example</div>
-            <div><pre><code>{{this}}</code></pre></div>
+            <p class="nhsd-!t-font-weight-bold nhsd-t-body">Example</p>
+            {{>body_example bodyExample=this}}
         {{/example}}
 
         {{^example}}
             {{^examples}}
                 {{#schema.example}}
-                    <div class="body__example__header">Example</div>
-                    <div><pre><code>{{this}}</code></pre></div>
+                    <p class="nhsd-!t-font-weight-bold nhsd-t-body">Example</p>
+                    {{>body_example bodyExample=this}}
                 {{/schema.example}}
             {{/examples}}
         {{/example}}
@@ -23,21 +22,21 @@
         {{#examples}}
             {{#@first}}
                 {{#hasOneItem examples}}
-                    <div class="body__example__header">Example</div>
+                    <p class="nhsd-!t-font-weight-bold nhsd-t-body">Example</p>
                 {{else}}
-                    <div class="body__example__header">Examples</div>
+                    <p class="nhsd-!t-font-weight-bold nhsd-t-body">Examples</p>
                 {{/hasOneItem}}
             {{/@first}}
 
             {{#summary}}
-            <div class="body__example__summary">{{summary}}</div>
+            <p class="nhsd-t-body">{{summary}}</p>
             {{/summary}}
 
             {{#description}}
-            <div class="body__example__description">{{{markdown description levelToNormaliseHeadingsTo=7}}}</div>
+            {{{markdown description levelToNormaliseHeadingsTo=7}}}
             {{/description}}
 
-            <div><pre><code>{{value}}</code></pre></div>
+            {{>body_example bodyExample=value}}
         {{/examples}}
 
         {{#if schema}}

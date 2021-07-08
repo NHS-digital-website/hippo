@@ -30,7 +30,7 @@ public class FencedCodeBlockNodeRenderer implements NodeRenderer {
         final String codeLanguage = codeBlock.getInfo();
         final String literal = codeBlock.getLiteral();
 
-        html.tag("article", Collections.singletonMap("class", "nhsd-o-code-viewer"));
+        html.tag("article", Collections.singletonMap("class", "nhsd-o-code-viewer nhsd-!t-padding-bottom-3"));
         html.tag("div", ImmutableMap.of(
             "id", "html-content",
             "class", "nhsd-o-code-viewer__tab-content",
@@ -44,8 +44,6 @@ public class FencedCodeBlockNodeRenderer implements NodeRenderer {
             html.tag("/p");
         }
         html.tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code"));
-        html.tag("div", ImmutableMap.of("class", "nhsd-o-code-viewer__copy-code", "aria-live", "polite"));
-        html.tag("/div");
         html.tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code-content"));
         html.tag("pre", Collections.singletonMap("class", "line-numbers"));
         if (codeLanguage != null) {
