@@ -227,9 +227,7 @@
                                 <div data-uipath="ps.publication.resources-attachments">
                                     <#list document.attachments as attachment>
                                         <div class="nhsd-!t-margin-top-4" data-uipath="ps.publication.resources-attachment">
-                                            <@externalstorageLink attachment.resource; url>
-                                                <@downloadBlockAsset attachment.text attachment.resource "${attachment.text}" "" attachment.resource.mimeType attachment.resource.length false true />
-                                            </@externalstorageLink>
+                                            <@downloadBlockAsset attachment.text attachment.resource "${attachment.text}" "" attachment.resource.mimeType attachment.resource.length false true />
                                         </div>
                                     </#list>
                                 </div>
@@ -237,7 +235,7 @@
                             <#if document.resourceLinks?has_content>
                                 <#list document.resourceLinks as link>
                                     <div class="nhsd-!t-margin-top-4" data-uipath="ps.publication.resources-link">
-                                        <@downloadBlockExternal document.class.name link "${link.linkText}" "" />
+                                        <@downloadBlockExternal document.class.name link.linkUrl "${link.linkText}" "" />
                                     </div>
                                 </#list>
                             </#if>
