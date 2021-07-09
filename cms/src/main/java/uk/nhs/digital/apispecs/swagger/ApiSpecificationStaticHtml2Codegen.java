@@ -3,7 +3,6 @@ package uk.nhs.digital.apispecs.swagger;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.emptyMap;
 
-import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.AssignHelper;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
@@ -121,17 +120,25 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
             .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
             .registerHelper(UuidHelper.NAME, UuidHelper.INSTANCE);
-
-        handlebars.with(EscapingStrategy.NOOP);
     }
 
 
     @Override
-    public String removeNonNameElementToCamelCase(String operationName) {
+    public String removeNonNameElementToCamelCase(final String operationName) {
         return operationName;
     }
 
-    private void fixDefaultValueForDateDataFormat(final CodegenParameter parameter) {
+    private void fixDefaultValueForDateDataFormat(final CodegenProperty responseHeader) {
+        sanitiseDefaultDate(responseHeader.defaultValue, responseHeader.dataFormat, responseHeader.toString())
+            .ifPresent(sanitisedDefaultDate -> responseHeader.defaultValue = sanitisedDefaultDate);
+    }
+
+    private void fixDefaultValueForDateDataFormat(final CodegenParameter requestParameter) {
+        sanitiseDefaultDate(requestParameter.getDefaultValue(), requestParameter.getDataFormat(), requestParameter.toString())
+            .ifPresent(sanitisedDefaultDate -> requestParameter.defaultValue = sanitisedDefaultDate);
+    }
+
+    private Optional<String> sanitiseDefaultDate(final String defaultValue, final String dataFormat, final String parameter) {
         // For parameters with data format of 'date' Codegen's parser emits values of 'default' field as java.util.Date.
         // This makes us lose access to the raw value of that field as defined in the source JSON.
         //
@@ -145,17 +152,14 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
         // * calls JSON.pretty(parameter) to populate codegenParameter.jsonSchema - which is why parameter.getJsonSchema() does not help us in obtaining raw
         //   value defined in OAS file, because is _not_ the original JSON.
 
-        final String defaultValue = parameter.getDefaultValue();
-
-        if ("date".equals(parameter.getDataFormat()) && StringUtils.isNotBlank(defaultValue)) {
+        if ("date".equals(dataFormat) && StringUtils.isNotBlank(defaultValue)) {
             final String pattern = "E MMM dd HH:mm:ss VV uuuu"; // Sun Jan 01 00:00:00 GMT 1984
 
             final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
 
             try {
-                final LocalDate localDate = LocalDate.parse(defaultValue.trim(), dateTimeFormatter);
-                parameter.defaultValue = localDate.toString();
-            } catch (Exception e) {
+                return Optional.of(LocalDate.parse(defaultValue.trim(), dateTimeFormatter).toString());
+            } catch (final Exception e) {
                 final String apiTitle = Optional.ofNullable(openAPI.getInfo()).map(Info::getTitle).orElse("n/a");
                 log.warn(
                     "Unable to fix default value of '{}' as ISO-8601 format uuuu-MM-dd despite format being 'date' for parameter '{}' in API specification '{}'.",
@@ -163,6 +167,7 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
                 );
             }
         }
+        return Optional.empty();
     }
 
     /**
@@ -314,6 +319,8 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
     private void postProcessResponseHeader(final CodegenProperty codegenResponseHeader) {
 
         fixCodegenResponseHeaderNullDefaultValue(codegenResponseHeader);
+
+        fixDefaultValueForDateDataFormat(codegenResponseHeader);
 
         renderResponseHeaderExamples(codegenResponseHeader);
     }

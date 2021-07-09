@@ -1,51 +1,48 @@
 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-<!-- start sticky-nav -->
-<div class="nhsd-m-sticky-navigation nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2 nhsd-!t-margin-bottom-6">
-<span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Page content</span>
-<hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs nhsd-!t-margin-bottom-2"/>
-<nav aria-labelledby="sticky-nav-header" class="nhsd-m-sticky-navigation__scrollable">
-    <ul>
-        <li class="nhsd-m-sticky-navigation__item" data-nav-content="Top of page">
-        <a class="nhsd-a-link" href="#top">
-            Top of page
-        </a>
-        </li>
-        <li class="nhsd-m-sticky-navigation__item" data-nav-content="api-endpoints">
-            <a class="nhsd-a-link" href="#api-endpoints">
-                Endpoints:
-            </a>
-        </li>
-        <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-an-operation-id">
-        <a class="nhsd-a-link" href="#api-Default-an-operation-id">
-            An operation
-        </a>
-        </li>
-    </ul>
-</nav>
-</div>
-<!-- end sticky-nav -->
+    <!-- start sticky-nav -->
+    <div class="nhsd-m-sticky-navigation nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2 nhsd-!t-margin-bottom-6">
+        <span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Page content</span>
+        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs nhsd-!t-margin-bottom-2"/>
+        <nav aria-labelledby="sticky-nav-header" class="nhsd-m-sticky-navigation__scrollable">
+            <ul>
+                <li class="nhsd-m-sticky-navigation__item" data-nav-content="Top of page">
+                    <a class="nhsd-a-link" href="#top">
+                        Top of page
+                    </a>
+                </li>
+                <li class="nhsd-m-sticky-navigation__item" data-nav-content="api-endpoints">
+                    <a class="nhsd-a-link" href="#api-endpoints">
+                        Endpoints
+                    </a>
+                </li>
+                <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="api-Default-an-operation-id">
+                    <a class="nhsd-a-link" href="#api-Default-an-operation-id">
+                        An operation
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- end sticky-nav -->
 </div>
 <div id="content" class="nhsd-t-col-xs-12 nhsd-t-col-s-8" aria-label="Document content">
-<!-- API Title: Test OAS spec -->
-<div id="api-description" class="article-section">
-    <p class="nhsd-t-body">API description in <code class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Markdown</code></p>
-</div>
-<div id="api-endpoints" class="article-section">
-    <h2 class="nhsd-t-heading-xl">Endpoints</h2>
-</div>
-<div id="api-Default-an-operation-id" class="article-section-with-sub-heading">
-    <article id="api-Default-an-operation-id-0">
-        <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-        <h3 class="nhsd-t-heading-l">An operation</h3>
-        <div class="endpoint_path">
-            <div class="method">get</div>
-            <div class="pre"><pre>/Patient</pre></div>
-            <div class="try"><a onclick="tryEndpointNow('/default/an-operation-id')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
-        </div>
-        <p class="nhsd-t-body">An example operation</p>
-        <h4 class="nhsd-t-heading-m">Request</h4>
-        <h5 class="nhsd-t-heading-s">Query parameters</h5>
-        <div class="nhsd-m-table nhsd-t-body">
+    <!-- API Title: Test OAS spec -->
+    <div id="api-description">
+        <p class="nhsd-t-body">API description in <code class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Markdown</code></p>
+    </div>
+    <hr class="nhsd-a-horizontal-rule">
+    <h2 id="api-endpoints" class="nhsd-t-heading-xl">Endpoints</h2>
+    <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+    <h3 id="api-Default-an-operation-id" class="nhsd-t-heading-l">An operation</h3>
+    <div class="endpoint_path">
+        <div class="method">get</div>
+        <div class="pre"><pre>/Patient</pre></div>
+        <div class="try"><a onclick="tryEndpointNow('/default/an-operation-id')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+    </div>
+    <p class="nhsd-t-body">An example operation</p>
+    <h4 class="nhsd-t-heading-m">Request</h4>
+    <h5 class="nhsd-t-heading-s">Query parameters</h5>
+    <div class="nhsd-m-table nhsd-t-body">
         <table data-responsive data-no-sort>
             <thead>
             <tr>
@@ -63,51 +60,49 @@
                 </td>
             </tr>
         </table>
-</div>
-<h4 class="nhsd-t-heading-m">Response</h4>
-<h5 class="nhsd-t-heading-s">HTTP status: 200</h5>
-<div><p class="nhsd-t-body">A response.</p></div>
-<h6 class="nhsd-t-heading-xs">Body</h6>
-<p class="nhsd-t-body">
-    Content type: <strong class="nhsd-!t-font-weight-bold">application/fhir+json</strong>
-</p>
-<div class="body__schema__header">Schema
-    <span class="schema__header__buttons">
+    </div>
+    <h4 class="nhsd-t-heading-m">Response</h4>
+    <h5 class="nhsd-t-heading-s">HTTP status: 200</h5>
+    <p class="nhsd-t-body">A response.</p>
+    <h6 class="nhsd-t-heading-xs">Body</h6>
+    <p class="nhsd-t-body">
+        Content type: <strong class="nhsd-!t-font-weight-bold">application/fhir+json</strong>
+    </p>
+    <div class="body__schema__header">Schema
+        <span class="schema__header__buttons">
 <button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
 <button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
 </span>
-</div>
-<div class="body__schema" data-schema-uuid="">
-    <table data-disablesort="true">
-        <thead>
-        <th>Name</th>
-        <th>Description</th>
-        </thead>
-        <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-            <td style="padding-left: 0.0em;" class="name_column">
-            <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-            <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
-            <div>
-                <code class="type">object</code>
-            </div>
-            </td>
-            <td class="description_column">
-            </td>
-        </tr>
-        <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-            <td style="padding-left: 1.5em;" class="name_column">
-            <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-            <div><code class="propertyName">irrelevantProperty</code></div>
-            <div>
-                <code class="type">string</code>
-            </div>
-            </td>
-            <td class="description_column">
-                <div class="description"><p class="nhsd-t-body">Property description.</p></div>
-            </td>
-        </tr>
-    </table>
-</div>
-</article>
-</div>
+    </div>
+    <div class="body__schema" data-schema-uuid="">
+        <table data-disablesort="true">
+            <thead>
+            <th>Name</th>
+            <th>Description</th>
+            </thead>
+            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <td style="padding-left: 0.0em;" class="name_column">
+                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
+                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
+                    <div>
+                        <code class="type">object</code>
+                    </div>
+                </td>
+                <td class="description_column">
+                </td>
+            </tr>
+            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <td style="padding-left: 1.5em;" class="name_column">
+                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                    <div><code class="propertyName">irrelevantProperty</code></div>
+                    <div>
+                        <code class="type">string</code>
+                    </div>
+                </td>
+                <td class="description_column">
+                    <div class="description"><p class="nhsd-t-body">Property description.</p></div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

@@ -1,20 +1,18 @@
-
     {{#mediaTypes}}
-
         <p class="nhsd-t-body">
             Content type: <strong class="nhsd-!t-font-weight-bold">{{name}}</strong>
         </p>
 
         {{#example}}
             <p class="nhsd-!t-font-weight-bold nhsd-t-body">Example</p>
-            {{>body_example bodyExample=this}}
+            {{>body_example}}
         {{/example}}
 
         {{^example}}
             {{^examples}}
                 {{#schema.example}}
                     <p class="nhsd-!t-font-weight-bold nhsd-t-body">Example</p>
-                    {{>body_example bodyExample=this}}
+                    {{>body_example}}
                 {{/schema.example}}
             {{/examples}}
         {{/example}}
@@ -36,7 +34,7 @@
             {{{markdown description levelToNormaliseHeadingsTo=7}}}
             {{/description}}
 
-            {{>body_example bodyExample=value}}
+            {{#value}}{{>body_example}}{{/value}}
         {{/examples}}
 
         {{#if schema}}
@@ -55,4 +53,3 @@
         {{/if}}
 
     {{/mediaTypes}}
-

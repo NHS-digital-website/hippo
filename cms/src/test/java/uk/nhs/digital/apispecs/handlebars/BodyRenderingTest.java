@@ -33,11 +33,11 @@ public class BodyRenderingTest {
         // then
         assertThat("Renders example from MediaTypeObject's 'example' field.",
             actualHtml,
-            containsString("simple example specified in MediaTypeObject's definition")
+            containsString("simple example specified in MediaTypeObject&#x27;s definition")
         );
         assertThat("Does not render example from MediaTypeObject's Schema.",
             actualHtml,
-            not(containsString("example specified in MediaTypeObject's schema"))
+            not(containsString("example specified in MediaTypeObject&#x27;s schema"))
         );
     }
 
@@ -54,13 +54,13 @@ public class BodyRenderingTest {
         assertThat("Renders examples from MediaTypeObject's 'examples' field.",
             actualHtml,
             allOf(
-                containsString("first example from request MediaTypeObject's definition"),
-                containsString("second example from request MediaTypeObject's definition")
+                containsString("first example from request MediaTypeObject&#x27;s definition"),
+                containsString("second example from request MediaTypeObject&#x27;s definition")
             )
         );
         assertThat("Does not render example from MediaTypeObject's Schema.",
             actualHtml,
-            not(containsString("example specified in MediaTypeObject's schema"))
+            not(containsString("example specified in MediaTypeObject&#x27;s schema"))
         );
     }
 
@@ -76,7 +76,7 @@ public class BodyRenderingTest {
         // then
         assertThat("Renders example from MediaTypeObject's Schema.",
             actualHtml,
-            containsString("example specified in MediaTypeObject's schema")
+            containsString("example specified in MediaTypeObject&#x27;s schema")
         );
     }
 
@@ -170,7 +170,7 @@ public class BodyRenderingTest {
         // then
         assertThat("Does not render example from MediaTypeObject's Schema.",
             actualHtml,
-            (containsString("example specified in MediaTypeObject's schema"))
+            containsString("example specified in MediaTypeObject&#x27;s schema")
         );
 
     }
