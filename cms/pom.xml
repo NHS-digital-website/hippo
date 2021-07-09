@@ -53,9 +53,8 @@
             <artifactId>hippo-plugin-selections-addon-repository</artifactId>
         </dependency>
         <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>s3</artifactId>
-            <version>${aws.java.sdk.version}</version>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
         </dependency>
         <dependency>
             <groupId>org.onehippo.cms7</groupId>

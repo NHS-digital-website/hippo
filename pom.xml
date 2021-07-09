@@ -678,6 +678,13 @@
                 <version>${bloomreach.forge.ipfilter.version}</version>
             </dependency>
 
+            <!-- V1 for S3 Connector -->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk</artifactId>
+                <version>1.11.1030</version>
+            </dependency>
+            <!-- V2 for secrets -->
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
