@@ -18,24 +18,8 @@
         <#include "../common/macro/metaTags.ftl">
         <@metaTags></@metaTags>
 
-        <article class="article article--apispecification" itemscope>
+        <article itemscope>
             <@headerBanner document />
-            <style type="text/css">
-                .ctabtn--nhs-digital-button--try-it-now { float: right; }
-
-                button.expander {
-                    background-image: url(<@hst.webfile path="images/icon/expander-plus-icon.svg"/>);
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                }
-
-                button.collapser {
-                    background-image: url(<@hst.webfile path="images/icon/expander-dark-grey-minus-icon.svg"/>);
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                }
-
-            </style>
 
             <div class="nhsd-t-grid">
                 <div class="nhsd-t-row">${document.html?no_esc}</div>
