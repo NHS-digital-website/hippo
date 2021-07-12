@@ -1,0 +1,10 @@
+.nhsd-m-sticky-navigation {
+    &__scrollable {
+        @media(min-width: 925px){
+            margin-left: -10px;
+            padding-left: 10px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+    }
+}
