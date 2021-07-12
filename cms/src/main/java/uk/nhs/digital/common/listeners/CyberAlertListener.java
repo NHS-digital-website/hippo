@@ -1,7 +1,6 @@
 package uk.nhs.digital.common.listeners;
 
 import org.hippoecm.repository.api.HippoNode;
-import org.onehippo.cms7.services.eventbus.HippoEventListenerRegistry;
 import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.onehippo.repository.modules.DaemonModule;
@@ -68,7 +67,7 @@ public class CyberAlertListener implements DaemonModule {
                     }
                 }
             }
-            session.save();
+            //session.save();
         } catch (RepositoryException ex) {
             LOGGER.warn("An error occurred while handling the post publish event ", ex);
         }
@@ -78,11 +77,11 @@ public class CyberAlertListener implements DaemonModule {
     @Override
     public void initialize(Session session) {
         this.session = session;
-        HippoEventListenerRegistry.get().register(this);
+        //HippoEventListenerRegistry.get().register(this);
     }
 
     @Override
     public void shutdown() {
-        HippoEventListenerRegistry.get().unregister(this);
+        //HippoEventListenerRegistry.get().unregister(this);
     }
 }
