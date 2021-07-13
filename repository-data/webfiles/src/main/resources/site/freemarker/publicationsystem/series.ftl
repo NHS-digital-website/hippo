@@ -120,7 +120,7 @@
 
                         <#assign publishDate = series.latestPublication.nominalPublicationDate.dayOfMonth + " " +
                         series.latestPublication.nominalPublicationDate.month?capitalize + " " + series.latestPublication.nominalPublicationDate.year?c />
-                        
+
                         <@hst.link hippobean=series.latestPublication var="latestPublicationLink"/>
 
                         <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-grey-latest-publication">
@@ -133,15 +133,13 @@
                                     <div class="callout-box__content callout-box__content--narrow">
                                         <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
                                             <h3 itemprop="name">
-                                                <a href="${latestPublicationLink}" 
+                                                <a href="${latestPublicationLink}"
                                                    class="cta__button"
-                                                   onClick="${getOnClickMethodCall(document.class.name, latestPublicationLink)}" 
+                                                   onClick="${getOnClickMethodCall(document.class.name, latestPublicationLink)}"
                                                    onKeyUp="return vjsu.onKeyUp(event)"
-                                                   itemprop="url" 
+                                                   itemprop="url"
                                                    title="${series.latestPublication.title}"
-                                                >
-                                                    ${series.latestPublication.title}
-                                                </a>
+                                                >${series.latestPublication.title}</a>
                                             </h3>
                                         </div>
 
@@ -229,14 +227,12 @@
                                         <@hst.link hippobean=object.replacementSeries var="replacedSeriesLink"/>
 
                                         <#assign objTitle>
-                                            <a href="replacedSeriesLink" 
+                                            <a href="replacedSeriesLink"
                                                class="cta__button"
-                                               onClick="${getOnClickMethodCall(document.class.name, replacedSeriesLink)}" 
-                                               onKeyUp="return vjsu.onKeyUp(event)" 
+                                               onClick="${getOnClickMethodCall(document.class.name, replacedSeriesLink)}"
+                                               onKeyUp="return vjsu.onKeyUp(event)"
                                                itemprop="url"
-                                            >
-                                               ${object.replacementSeries.title}
-                                            </a>
+                                            >${object.replacementSeries.title}</a>
                                         </#assign>
 
                                         <#assign replacedSeriesData = {
@@ -271,15 +267,13 @@
                                                 <div class="callout-box__content callout-box__content--narrow">
                                                     <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
                                                         <h3 itemprop="name">
-                                                            <a href="${pastPublicationLink}" 
+                                                            <a href="${pastPublicationLink}"
                                                                class="cta__button"
-                                                               onClick="${getOnClickMethodCall(document.class.name, pastPublicationLink)}" 
-                                                               onKeyUp="return vjsu.onKeyUp(event)" 
-                                                               itemprop="url" 
+                                                               onClick="${getOnClickMethodCall(document.class.name, pastPublicationLink)}"
+                                                               onKeyUp="return vjsu.onKeyUp(event)"
+                                                               itemprop="url"
                                                                title="${pubData.title}"
-                                                            >
-                                                                ${pubData.title}
-                                                            </a>
+                                                            >${pubData.title}</a>
                                                         </h3>
                                                     </div>
 
