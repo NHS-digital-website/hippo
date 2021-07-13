@@ -1,9 +1,10 @@
 <#ftl output_format="HTML">
 
+<#include "../../../include/imports.ftl">
 <#include "../documentIcon.ftl">
 
 <#macro downloadBlockExternal classname doc title shortsummary>
-    <#assign onClickMethodCall = getOnClickMethodCall(classname, title) />
+    <#assign onClickMethodCall = getOnClickMethodCall(classname, doc) />
 
     <div class="nhsd-m-download-card">
         <a href="${doc}" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">

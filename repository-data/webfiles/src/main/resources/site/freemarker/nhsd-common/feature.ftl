@@ -62,8 +62,19 @@
                                                 <#list document.authors as author>
                                                     <div class="nhsd-t-row">
                                                         <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-                                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) /> 
-                                                            <div class="nhsd-o-hero__meta-data-item-description"><a class="nhsd-a-link" href="<@hst.link hippobean=author/>" onClick="${onClickMethodCall}">${author.title}<span class="nhsd-t-sr-only"></span></a><#if author.roles??><#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if></#if><#if author.roles??><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if></#if></div>
+                                                            <@hst.link hippobean=author var="authorLink"/> 
+                                                            <div class="nhsd-o-hero__meta-data-item-description">
+                                                                <a class="nhsd-a-link" 
+                                                                   href="${authorLink}" 
+                                                                   onClick="${getOnClickMethodCall(document.class.name, authorLink)}" 
+                                                                   onKeyUp="return vjsu.onKeyUp(event)" 
+                                                                   aria-label="${author.title}"
+                                                                >
+                                                                    ${author.title}
+                                                                    <span class="nhsd-t-sr-only"></span>
+                                                                </a>
+                                                                <#if author.roles??><#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if></#if><#if author.roles??><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if></#if>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </#list>
@@ -133,8 +144,19 @@
                                                 <#list document.authors as author>
                                                     <div class="nhsd-t-row">
                                                         <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-                                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) /> 
-                                                            <div class="nhsd-o-hero__meta-data-item-description"><a class="nhsd-a-link" href="<@hst.link hippobean=author/>" onClick="${onClickMethodCall}">${author.title}<span class="nhsd-t-sr-only"></span></a><#if author.roles??><#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if></#if><#if author.roles??><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if></#if></div>
+                                                            <@hst.link hippobean=author var="authorLink"/>
+                                                            <div class="nhsd-o-hero__meta-data-item-description">
+                                                                <a class="nhsd-a-link" 
+                                                                   href="${authorLink}" 
+                                                                   onClick="${getOnClickMethodCall(document.class.name, authorLink)}" 
+                                                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                                                   aria-label="${author.title}" 
+                                                                >
+                                                                    ${author.title}
+                                                                    <span class="nhsd-t-sr-only"></span>
+                                                                </a>
+                                                                <#if author.roles??><#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if></#if><#if author.roles??><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if></#if>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </#list>
@@ -143,7 +165,9 @@
                                     <#elseif document.authorName?has_content>
                                         <div class="nhsd-o-hero__meta-data-item">
                                             <div class="nhsd-o-hero__meta-data-item-title">Author: </div>
-                                            <div class="nhsd-o-hero__meta-data-item-description"><a class="nhsd-a-link" href="#">${document.authorName}<span class="nhsd-t-sr-only"></span></a><#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if></div>
+                                            <div class="nhsd-o-hero__meta-data-item-description">
+                                                ${document.authorName}<span class="nhsd-t-sr-only"></span></a><#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if>
+                                            </div>
                                         </div>
                                     </#if>
 
@@ -258,10 +282,18 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div class="nhsd-!t-margin-bottom-6">
-                        <h2 class="nhsd-t-heading-xl">Related subjects</h2>
+                        <p class="nhsd-t-heading-xl">Related subjects</p>
                         <#list document.relatedSubjects as item>
+                            <@hst.link hippobean=item var="relatedSubjectLink"/>
                             <div class="nhsd-!t-margin-bottom-1" itemprop="isBasedOn" itemscope itemtype="http://schema.org/Product">
-                                <a itemprop="url" class="nhsd-a-link" href="<@hst.link hippobean=item/>">${item.title}</a>
+                                <a itemprop="url" 
+                                   class="nhsd-a-link"
+                                   href="${relatedSubjectLink}" 
+                                   onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}" 
+                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                >
+                                    ${item.title}
+                                </a>
                             </div>
                             <div class="nhsd-t-body">
                                 ${item.shortsummary}
@@ -274,7 +306,7 @@
                     <#if hasRelatedSubjects || hasSectionContent && !hasBackstory && !hasContactDetails && !hasRelatedSubjects>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
-                    <h2 class="nhsd-t-heading-xl">Share this page</h2>  
+                    <p class="nhsd-t-heading-xl">Share this page</p>  
                     <#-- Use UTF-8 charset for URL escaping from now: -->
                     <#setting url_escaping_charset="UTF-8">
 
@@ -308,7 +340,7 @@
 
                 <#if hasAuthors>
                     <hr class="nhsd-a-horizontal-rule" />
-                    <h2 class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </h2>
+                    <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
                     <div class="nhsd-o-gallery">
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
                             <div class="nhsd-t-row nhsd-o-gallery__items">
@@ -316,8 +348,13 @@
                                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4">
                                         <div class="nhsd-o-gallery__card-container">
                                             <div class="nhsd-m-card">
-                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) /> 
-                                                <a href="<@hst.link hippobean=author/>"  onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link nhsd-a-box-link--focus-orange" aria-label="About NHS Digital" >
+                                                <@hst.link hippobean=author var="authorLink"/>
+                                                <a href="${authorLink}" 
+                                                   onClick="${getOnClickMethodCall(document.class.name, authorLink)}" 
+                                                   onKeyUp="return vjsu.onKeyUp(event)" 
+                                                   class="nhsd-a-box-link nhsd-a-box-link--focus-orange" 
+                                                   aria-label="${author.title}"
+                                                >
                                                     <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                                                     <#if author.personimages.picture.authorPhotoLarge2x?has_content> 
                                                         <div class="nhsd-m-card__image_container">

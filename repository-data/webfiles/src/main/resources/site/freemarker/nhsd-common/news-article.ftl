@@ -228,10 +228,10 @@
                                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4 nhsd-!t-margin-bottom-6">
                                         <div class="nhsd-o-gallery__card-container">
                                             <div class="nhsd-m-card">
-                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
+                                                <@hst.link hippobean=author var="authorLink"/>
                                                 <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange" 
-                                                   href="<@hst.link hippobean=author/>"  
-                                                   onClick="${onClickMethodCall}" 
+                                                   href="${authorLink}"  
+                                                   onClick="${getOnClickMethodCall(document.class.name, authorLink)}" 
                                                    onKeyUp="return vjsu.onKeyUp(event)" 
                                                    aria-label="${author.title}"
                                                 >

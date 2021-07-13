@@ -120,11 +120,23 @@
 
                             <div class="nhsd-m-notification-banner__middle-col">
                                 Report a cyber attack: call
-                                <a class="nhsd-a-link" href="tel:004403003035222" title="Contact us by telephone">0300 303 5222
+                                <a class="nhsd-a-link" 
+                                   href="tel:004403003035222"
+                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','tel:004403003035222');"
+                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                   title="Contact us by telephone"
+                                >
+                                    0300 303 5222
                                     <span class="nhsd-t-sr-only"></span>
                                 </a>
                                 or email
-                                <a class="nhsd-a-link" href="mailto:${emailLabel}" title="${emailTitleLabel}">${emailLabel}
+                                <a class="nhsd-a-link" 
+                                   href="mailto:${emailLabel}"
+                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','mailto:${emailLabel}');" 
+                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                   title="${emailTitleLabel}"
+                                >
+                                    ${emailLabel}
                                     <span class="nhsd-t-sr-only"></span>
                                 </a>
                             </div>
@@ -196,7 +208,9 @@
                                                 <div class="nhsd-m-card">
                                                     <#if item.platformAffected.url??>
                                                     <a class="nhsd-a-box-link"
-                                                       href="${item.platformAffected.url}" 
+                                                       href="${item.platformAffected.url}"
+                                                       onClick="${getOnClickMethodCall(document.class.name, item.platformAffected.url)}"
+                                                       onKeyUp="return vjsu.onKeyUp(event)"
                                                        aria-label="${item.platformAffected.title}"
                                                     >
                                                     </#if>
@@ -454,8 +468,9 @@
                         <p class="nhsd-t-heading-xl">${servicesHeader}</p>
                         <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-t-list--loose">
                             <#list document.services as item>
+                                <@hst.link hippobean=item var="serviceLink"/>
                                 <li>
-                                    <a class="nhsd-a-link" href="<@hst.link hippobean=item/>">
+                                    <a class="nhsd-a-link" href="${serviceLink}" onClick="${getOnClickMethodCall(document.class.name, serviceLink)}" onKeyUp="return vjsu.onKeyUp(event)">
                                         ${item.title}
                                     </a>
                                 </li>
@@ -556,7 +571,9 @@
                                         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
                                             <div class="nhsd-m-card">
                                                 <a class="nhsd-a-box-link"
-                                                   href="${item.linkAddress}" 
+                                                   href="${item.linkAddress}"
+                                                   onClick="${getOnClickMethodCall(document.class.name, item.linkAddress)}"
+                                                   onKeyUp="return vjsu.onKeyUp(event)" 
                                                    aria-label="${item.linkAddress}" 
                                                 >
                                                     <div class="nhsd-a-box nhsd-a-box--bg-<#if item?is_odd_item>dark-grey<#else>blue</#if>">

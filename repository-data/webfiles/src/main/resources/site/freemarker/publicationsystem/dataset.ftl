@@ -154,7 +154,7 @@
                             </#list>
                             <#list dataset.resourceLinks as link>
                                 <li>
-                                    <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Data set','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)">${link.linkText}</a>
+                                    <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)">${link.linkText}</a>
                                 </li>
                             </#list>
                         </ul>

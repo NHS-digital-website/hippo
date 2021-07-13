@@ -13,17 +13,17 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.common.components.*;
 import uk.nhs.digital.ps.beans.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class SeriesComponent extends EssentialsContentComponent {
+public class SeriesComponent extends ContentRewriterComponent {
 
     private static final Logger log = LoggerFactory.getLogger(SeriesComponent.class);
 

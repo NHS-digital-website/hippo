@@ -205,7 +205,7 @@
                     <#list legacyPublication.updates as update>
                         <#assign item += update />
                         <#assign item += {"calloutType":"update", "index":update?index} />
-                        <@calloutBox item />
+                        <@calloutBox item document.class.name />
                     </#list>
                 </div>
             </div>
@@ -326,8 +326,9 @@
                     </li>
                 </#list>
                 <#list legacyPublication.datasets as dataset>
+                    <@hst.link hippobean=dataset.selfLinkBean var="link"/>
                     <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset">
-                        <a itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a>
+                        <a itemprop="url" href="${link}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication', '${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a>
                     </li>
                 </#list>
                 <#if hasDataSets || hasResourceLinks>

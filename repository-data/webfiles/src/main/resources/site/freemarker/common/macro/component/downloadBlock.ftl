@@ -2,10 +2,10 @@
 
 <#macro downloadBlock doc itemprop="">
 
-    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, doc.title) />
-    <a href="<@hst.link hippobean=doc />"
+    <@hst.link hippobean=doc var="link"/>
+    <a href="<${link}"
        class="block-link"
-       onClick="${onClickMethodCall}"
+       onClick="${getOnClickMethodCall(document.class.name, link)}"
        onKeyUp="return vjsu.onKeyUp(event)" ${itemprop}>
         <div class="block-link__header">
             <span class="icon icon--html icon--download" aria-hidden="true"></span>

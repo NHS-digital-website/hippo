@@ -60,7 +60,7 @@
                     <#list document.updates as update>
                         <#assign item += update />
                         <#assign item += {"calloutType":"update", "index":update?index} />
-                        <@calloutBox item />
+                        <@calloutBox item document.class.name />
                     </#list>
                 </div>
             </div>
@@ -94,14 +94,17 @@
                                 <#list document.priorityActions as action>
                                     <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
                                         <article class="nhsd-m-card">
-                                            <a href=
-                                                "<#if action.link.linkType == "internal">
-                                                    <@hst.link hippobean=action.link.link />
-                                                <#else>
-                                                    ${action.link.link}
-                                                </#if>"
-                                                class="nhsd-a-box-link"
-                                                aria-label="${action.action}"
+                                            <@hst.link hippobean=action.link.link var="priorityActionInternalLink"/>
+                                            <a <#if action.link.linkType == "internal">
+                                               href="${priorityActionInternalLink}"
+                                               onClick="${getOnClickMethodCall(document.class.name, priorityActionInternalLink)}"
+                                               <#else>
+                                               href="${action.link.link}"
+                                               onClick="${getOnClickMethodCall(document.class.name, action.link.link)}"
+                                               </#if>
+                                               onKeyUp="return vjsu.onKeyUp(event)"
+                                               class="nhsd-a-box-link"
+                                               aria-label="${action.action}"
                                             >
                                                 <div class="nhsd-a-box nhsd-a-box--bg-dark-green">
                                                     <div class="nhsd-m-card__content_container">

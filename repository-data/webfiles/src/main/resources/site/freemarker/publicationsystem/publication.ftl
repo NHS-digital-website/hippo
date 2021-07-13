@@ -154,7 +154,7 @@
                                     <#assign item += {"index":interactiveToolData?index} />
 
                                     <#assign item += {"narrow":true} />
-                                    <@calloutBox item />
+                                    <@calloutBox item document.class.name />
                                 </#list>
                             </#if>
 
@@ -175,7 +175,7 @@
 
             <#assign item += {"calloutType":"survey", "iconYellow":true, "severity":"important", "index":0} />
             <#assign item += {"narrow":true} />
-            <@calloutBox item />
+            <@calloutBox item document.class.name />
         </div>
     </#if>
 
@@ -194,10 +194,13 @@
                         <h2>${datasetsHeader}</h2>
                         <ul data-uipath="ps.publication.datasets">
                             <#list publication.datasets as dataset>
+                                <@hst.link hippobean=dataset.selfLinkBean var="link"/>
                                 <li itemprop="hasPart" itemscope
                                     itemtype="http://schema.org/Dataset">
                                     <a itemprop="url"
-                                       href="<@hst.link hippobean=dataset.selfLinkBean/>"
+                                       href="${link}"
+                                       onClick="${getOnClickMethodCall(document.class.name, link)}" 
+                                       onKeyUp="return vjsu.onKeyUp(event)"
                                        title="${dataset.title}">
                                         <span
                                             itemprop="name">${dataset.title}</span>
@@ -228,7 +231,7 @@
                                             <a title="${attachment.text}"
                                                href="${url}"
                                                class="block-link"
-                                               onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');"
+                                               onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${url}');"
                                                onKeyUp="return vjsu.onKeyUp(event)"
                                                itemprop="contentUrl">
                                                 <div class="block-link__header">

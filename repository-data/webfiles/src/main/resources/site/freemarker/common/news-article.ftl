@@ -183,7 +183,11 @@
                         <#setting url_escaping_charset="UTF-8">
 
                         <div class="blog-social-icon like-first-child">
-                            <a target="_blank" href="http://www.facebook.com/sharer.php?u=${currentUrl?url}">
+                            <a target="_blank" 
+                               href="http://www.facebook.com/sharer.php?u=${currentUrl?url}" 
+                               onClick="logGoogleAnalyticsEvent('Link click','Social media - Facebook','http://www.facebook.com/sharer.php?u=${currentUrl?url}');"
+                               onKeyUp="return vjsu.onKeyUp(event)"
+                            >
                                 <img src="<@hst.webfile path="/images/icon/Facebook.svg"/>" alt="Share on Facebook" class="blog-social-icon__img" />
                             </a>
                         </div>
@@ -199,13 +203,21 @@
                                     </#if>
                                 </#list>
                             </#if>
-                            <a target="_blank" href="https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}">
+                            <a target="_blank" 
+                               href="https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}" 
+                               onClick="logGoogleAnalyticsEvent('Link click','Social media - Twitter','https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}');"
+                               onKeyUp="return vjsu.onKeyUp(event)"
+                            >
                                 <img src="<@hst.webfile path="/images/icon/Twitter.svg"/>" alt="Share on Twitter" class="blog-social-icon__img" />
                             </a>
                         </div>
 
                         <div class="blog-social-icon like-first-child">
-                            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}">
+                            <a target="_blank" 
+                               href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}" 
+                               onClick="logGoogleAnalyticsEvent('Link click','Social media - LinkedIn','http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}');"
+                               onKeyUp="return vjsu.onKeyUp(event)"
+                            >
                                 <img src="<@hst.webfile path="/images/icon/LinkedIn.svg"/>" alt="Share on LinkedIn" class="blog-social-icon__img" />
                             </a>
                         </div>
@@ -229,8 +241,8 @@
 
                                 <div class="latestBlog__content">
                                     <div class="latestBlog__title">
-                                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
-                                        <a class="cta__title cta__button" href="<@hst.link hippobean=author/>"  onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
+                                        <@hst.link hippobean=author var="authorLink"/>
+                                        <a class="cta__title cta__button" href="${authorLink}" onClick="${getOnClickMethodCall(document.class.name, authorLink)}" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
                                     </div>
                                     <div class="blog-authors__body">
                                         <#if author.shortsummary?? && author.shortsummary?has_content>
@@ -267,8 +279,8 @@
                   <#list document.latestNews as news>
                     <div class="news-latest-news-item">
                       <div class="news-latest-news-item-headline">
-                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, news.title) />
-                        <a href="<@hst.link hippobean=news/>" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${news.title}</a>
+                        <@hst.link hippobean=news var="newsLink"/>
+                        <a href="${newsLink}" onClick="${getOnClickMethodCall(document.class.name, newsLink)}" onKeyUp="return vjsu.onKeyUp(event)">${news.title}</a>
                       </div>
                       <div class="news-latest-news-item-date">
                         <@fmt.formatDate value=news.publisheddatetime.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />

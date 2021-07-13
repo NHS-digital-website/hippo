@@ -121,6 +121,8 @@
                         <#assign publishDate = series.latestPublication.nominalPublicationDate.dayOfMonth + " " +
                         series.latestPublication.nominalPublicationDate.month?capitalize + " " + series.latestPublication.nominalPublicationDate.year?c />
 
+                        <@hst.link hippobean=series.latestPublication var="latestPublicationLink"/>
+
                         <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-grey-latest-publication">
                             <div class="callout-box__icon-wrapper">
                                 <@calloutBoxWebIcon />
@@ -130,7 +132,15 @@
                                 <li>
                                     <div class="callout-box__content callout-box__content--narrow">
                                         <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-latest-publication">
-                                            <h3 itemprop="name"><a href="<@hst.link hippobean=series.latestPublication />" class="cta__button" itemprop="url" title="${series.latestPublication.title}">${series.latestPublication.title}</a></h3>
+                                            <h3 itemprop="name">
+                                                <a href="${latestPublicationLink}"
+                                                   class="cta__button"
+                                                   onClick="${getOnClickMethodCall(document.class.name, latestPublicationLink)}"
+                                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                                   itemprop="url"
+                                                   title="${series.latestPublication.title}"
+                                                >${series.latestPublication.title}</a>
+                                            </h3>
                                         </div>
 
                                         <div class="callout-box__content-description">
@@ -161,16 +171,19 @@
                         <h3><@fmt.message key="headers.responsible-parties"/></h3>
                         <div class="detail-list-grid detail-list-grid--regular">
                             <#if hasResponsibleStatistician>
-                            <dl class="detail-list">
-                                <dt class="detail-list__key"><@fmt.message key="labels.responsible-statistician"/></dt>
-                                <dd class="detail-list__value"><a href="<@hst.link hippobean=series.statistician />">${series.statistician.title}</a></dd>
-                            </dl>
+                                <@hst.link hippobean=series.statistician var="responsibleStatistician"/>
+                                <dl class="detail-list">
+                                    <dt class="detail-list__key"><@fmt.message key="labels.responsible-statistician"/></dt>
+                                    <dd class="detail-list__value"><a href="${responsibleStatistician}" onClick="${getOnClickMethodCall(document.class.name, responsibleStatistician)}" onKeyUp="return vjsu.onKeyUp(event)">${series.statistician.title}</a></dd>
+                                </dl>
                             </#if>
+
                             <#if hasResponsibleTeam>
-                            <dl class="detail-list">
-                                <dt class="detail-list__key"><@fmt.message key="labels.responsible-team"/></dt>
-                                <dd class="detail-list__value"><a href="<@hst.link hippobean=series.team />">${series.team.title}</a></dd>
-                            </dl>
+                                <@hst.link hippobean=series.team var="responsibleTeam"/>
+                                <dl class="detail-list">
+                                    <dt class="detail-list__key"><@fmt.message key="labels.responsible-team"/></dt>
+                                    <dd class="detail-list__value"><a href="${responsibleTeam}" onClick="${getOnClickMethodCall(document.class.name, responsibleTeam)}" onKeyUp="return vjsu.onKeyUp(event)">${series.team.title}</a></dd>
+                                </dl>
                             </#if>
                         </div>
                         </#if>
@@ -211,8 +224,15 @@
                                     <#if pastObject.type == "replacedSeries">
                                         <@fmt.formatDate value=object.changeDate.time?date var="changeDate" type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
 
+                                        <@hst.link hippobean=object.replacementSeries var="replacedSeriesLink"/>
+
                                         <#assign objTitle>
-                                            <a href="<@hst.link hippobean=object.replacementSeries/>" class="cta__button" itemprop="url">${object.replacementSeries.title}</a>
+                                            <a href="replacedSeriesLink"
+                                               class="cta__button"
+                                               onClick="${getOnClickMethodCall(document.class.name, replacedSeriesLink)}"
+                                               onKeyUp="return vjsu.onKeyUp(event)"
+                                               itemprop="url"
+                                            >${object.replacementSeries.title}</a>
                                         </#assign>
 
                                         <#assign replacedSeriesData = {
@@ -225,7 +245,7 @@
                                             "index": "series-replaced"
                                         } />
 
-                                        <@calloutBox replacedSeriesData />
+                                        <@calloutBox replacedSeriesData document.class.name />
 
                                     <#elseif pastObject.type == "publication">
                                         <#assign publishDate = object.nominalPublicationDate.dayOfMonth + " " +
@@ -242,9 +262,19 @@
                                                     <@calloutBoxWebIcon />
                                                 </div>
 
+                                                <@hst.link hippobean=object.selfLinkBean var="pastPublicationLink"/>
+
                                                 <div class="callout-box__content callout-box__content--narrow">
                                                     <div class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-${slugify(pubData.title)}">
-                                                        <h3 itemprop="name"><a href="<@hst.link hippobean=object.selfLinkBean/>" class="cta__button" itemprop="url" title="${pubData.title}">${pubData.title}</a></h3>
+                                                        <h3 itemprop="name">
+                                                            <a href="${pastPublicationLink}"
+                                                               class="cta__button"
+                                                               onClick="${getOnClickMethodCall(document.class.name, pastPublicationLink)}"
+                                                               onKeyUp="return vjsu.onKeyUp(event)"
+                                                               itemprop="url"
+                                                               title="${pubData.title}"
+                                                            >${pubData.title}</a>
+                                                        </h3>
                                                     </div>
 
                                                     <div class="callout-box__content-description">
@@ -276,8 +306,13 @@
                                                                         <@fmt.formatDate var="suppInfoPublishDate" value=suppInfo.publishedDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
                                                                     </#if>
 
+                                                                    <@hst.link hippobean=suppInfo var="suppInfoLink"/>
+
                                                                     <li class="inset-text__block">
-                                                                        <h4 class="inset-text__block-title"><a href="<@hst.link hippobean=suppInfo />">${suppInfo.title}</a> <#if suppInfo.publishedDate??><span>(${suppInfoPublishDate})</span></#if></h4>
+                                                                        <h4 class="inset-text__block-title">
+                                                                            <a href="${suppInfoLink}" onClick="${getOnClickMethodCall(document.class.name, suppInfoLink)}" onKeyUp="return vjsu.onKeyUp(event)">${suppInfo.title}</a>
+                                                                            <#if suppInfo.publishedDate??><span>(${suppInfoPublishDate})</span></#if>
+                                                                        </h4>
                                                                         <div class="inset-text__block-content rich-text-content" itemprop="description">
                                                                             <@truncate text=suppInfo.shortsummary size="250" />
                                                                         </div>
@@ -398,13 +433,24 @@
     <!--Only next 4 upcoming publications-->
     <#local count = (upcomingPublications?size < 4)?then(upcomingPublications?size, 4)/>
     <#list upcomingPublications[0..count-1] as publication>
-    <li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
-        <#-- <@fmt.formatDate value=publication.nominalPublicationDateCalendar?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /> -->
-        <article class="cta">
-            <h3 itemprop="name"><a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url">${publication.title}</a></h3>
-            <p class="cta__text"><@formatRestrictableDate value=publication.nominalPublicationDate/></p>
-        </article>
-    </li>
+        <@hst.link hippobean=publication.selfLinkBean var="upcomingPublicationLink"/>
+        <li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
+            <#-- <@fmt.formatDate value=publication.nominalPublicationDateCalendar?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /> -->
+            <article class="cta">
+                <h3 itemprop="name">
+                    <a class="cta__button"
+                       href="${upcomingPublicationLink}"
+                       onClick="${getOnClickMethodCall(document.class.name, upcomingPublicationLink)}"
+                       onKeyUp="return vjsu.onKeyUp(event)"
+                       title="${publication.title}"
+                       itemprop="url"
+                    >
+                        ${publication.title}
+                    </a>
+                </h3>
+                <p class="cta__text"><@formatRestrictableDate value=publication.nominalPublicationDate/></p>
+            </article>
+        </li>
     </#list>
 </ul>
 </#macro>

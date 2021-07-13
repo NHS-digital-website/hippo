@@ -57,7 +57,7 @@
                     <#list document.updates as update>
                         <#assign item += update />
                         <#assign item += {"calloutType":"update", "index":update?index} />
-                        <@calloutBox item />
+                        <@calloutBox item document.class.name />
                     </#list>
                 </div>
             </div>
