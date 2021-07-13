@@ -27,8 +27,7 @@
 
 <#assign hasChapters = publication.publiclyAccessible && publication.pageIndex?has_content />
 
-<article class="article article--publication ${hasChapters?then('nhsd-!t-display-chapters', '')}" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header"
-         data-related-doc-links="${(relatedDocumentLinks?has_content)?then(relatedDocumentLinks, '')}">
+<article class="article article--publication ${hasChapters?then('nhsd-!t-display-chapters', '')}" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header">
     <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions"/>
 
     <@detailsBanner publication publication.publiclyAccessible showDownload />
@@ -39,6 +38,29 @@
     </#if>
 
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
+
+        <#if publication.changenotice?has_content>
+            <div class="nhsd-t-row">
+                <div class="nhsd-t-col-xs-12 nhsd-!t-margin-bottom-6">
+                    <#list publication.changenotice as changeData>
+                        <@fmt.formatDate value=changeData.date.time type="Date" pattern="d MMMM yyyy HH:mm a" timeZone="${getTimeZone()}" var="changeDateTime" />
+                        <div class="nhsd-m-emphasis-box nhsd-!t-margin-bottom-6">
+                            <div class="nhsd-a-box nhsd-a-box--border-blue">
+                                <div class="nhsd-m-emphasis-box__content-box">
+                                    <p class="nhsd-t-heading-s nhsd-t-word-break">${changeData.title}</p>
+                                    <div class="nhsd-t-body-s nhsd-t-word-break">
+                                        <@hst.html hippohtml=changeData.content />
+                                    </div>
+                                    <p class="nhsd-t-body-s nhsd-t-word-break">${changeDateTime}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </#list>
+                </div>
+            </div>
+        </#if>
+
+
         <div class="nhsd-t-row">
             <#if publication.publiclyAccessible>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
@@ -205,9 +227,7 @@
                                 <div data-uipath="ps.publication.resources-attachments">
                                     <#list document.attachments as attachment>
                                         <div class="nhsd-!t-margin-top-4" data-uipath="ps.publication.resources-attachment">
-                                            <@externalstorageLink attachment.resource; url>
-                                                <@downloadBlockAsset attachment.text attachment.resource "${attachment.text}" "" attachment.resource.mimeType attachment.resource.length false true />
-                                            </@externalstorageLink>
+                                            <@downloadBlockAsset attachment.text attachment.resource "${attachment.text}" "" attachment.resource.mimeType attachment.resource.length false true />
                                         </div>
                                     </#list>
                                 </div>
@@ -215,7 +235,7 @@
                             <#if document.resourceLinks?has_content>
                                 <#list document.resourceLinks as link>
                                     <div class="nhsd-!t-margin-top-4" data-uipath="ps.publication.resources-link">
-                                        <@downloadBlockExternal document.class.name link "${link.linkText}" "" />
+                                        <@downloadBlockExternal document.class.name link.linkUrl "${link.linkText}" "" />
                                     </div>
                                 </#list>
                             </#if>

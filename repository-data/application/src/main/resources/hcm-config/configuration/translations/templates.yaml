@@ -647,6 +647,16 @@ definitions:
           jcr:name: Project update
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:property:
+        /en:
+          jcr:name: Property
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:propertytable:
+        /en:
+          jcr:name: Property table
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:publictransportstation:
         /en:
           jcr:name: Public transport station

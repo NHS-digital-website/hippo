@@ -10,7 +10,6 @@
 <#include "../component/downloadBlockExternal.ftl">
 
 <#macro downloadSection section mainHeadingLevel=2 >
-
     <#assign hasLinks = section.items?? && section.items?size gt 0 />
 
     <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')}">
@@ -27,29 +26,22 @@
         </div>
 
         <#if hasLinks>
-            <div class="nhsd-t-grid">
+            <div class="nhsd-t-grid nhsd-t-grid--nested">
                 <div class="nhsd-t-row">
                     <div class="nhsd-t-col">
                         <#list section.items as block>
                             <#if block.linkType??>
-                                <#if block.linkType == "internal">
-                                    <@downloadBlockInternal document.class.name block.link block.link.title block.link.shortsummary  />
-                                 <#elseif block.linkType == "external">
-                                    <#if getMimeTypeByExtension(getFileExtension(block.link))?has_content>
-                                        <@downloadBlockAsset document.class.name block.link "${block.title}" "${block.shortsummary}" getMimeTypeByExtension(getFileExtension(block.link)) "" true />
-                                    <#else>
-                                        <@downloadBlockExternal document.class.name block.link "${block.title}" "${block.shortsummary}" />
-                                    </#if>
-                                 <#elseif block.linkType == "asset">
-                                    <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength() />
-                                </#if>
                                 <div class="nhsd-!t-margin-bottom-6">
                                     <#if block.linkType == "internal">
                                         <@downloadBlockInternal document.class.name block.link block.link.title block.link.shortsummary  />
                                     <#elseif block.linkType == "external">
-                                        <@downloadBlockExternal document.class.name block.link "${block.title}" "${block.shortsummary}" />
+                                        <#if getMimeTypeByExtension(getFileExtension(block.link))?has_content>
+                                            <@downloadBlockAsset document.class.name block.link "${block.title}" "${block.shortsummary}" getMimeTypeByExtension(getFileExtension(block.link)) "" true />
+                                        <#else>
+                                            <@downloadBlockExternal document.class.name block.link "${block.title}" "${block.shortsummary}" />
+                                        </#if>
                                     <#elseif block.linkType == "asset">
-                                        <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength()  />
+                                        <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength() />
                                     </#if>
                                 </div>
                             </#if>

@@ -3,7 +3,6 @@ package uk.nhs.digital.common.contentsearch;
 import static org.hippoecm.repository.HippoStdNodeType.NT_RELAXED;
 
 import org.hippoecm.repository.api.HippoNode;
-import org.onehippo.cms7.services.eventbus.HippoEventListenerRegistry;
 import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.onehippo.repository.modules.DaemonModule;
@@ -60,7 +59,7 @@ public class ContentSearchListener implements DaemonModule {
                             node.setProperty("website:seosummarytext", node.getNode("website:seosummary").getProperty("hippostd:content").getString());
                         }
 
-                        session.save();
+                        //session.save();
                     }
                 }
             }
@@ -155,11 +154,11 @@ public class ContentSearchListener implements DaemonModule {
     @Override
     public void initialize(Session session) {
         this.session = session;
-        HippoEventListenerRegistry.get().register(this);
+        //HippoEventListenerRegistry.get().register(this);
     }
 
     @Override
     public void shutdown() {
-        HippoEventListenerRegistry.get().unregister(this);
+        //HippoEventListenerRegistry.get().unregister(this);
     }
 }
