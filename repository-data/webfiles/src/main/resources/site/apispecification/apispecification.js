@@ -117,4 +117,5 @@ document.addEventListener('keyup', (event) => {
 // make controls visible
 document.querySelectorAll('.nhsd-o-schema__header-button').forEach(element => element.classList.remove('nhsd-!t-display-hide'));
 document.querySelectorAll('.nhsd-o-schema__button').forEach(element => element.classList.remove('nhsd-!t-display-hide'));
+document.querySelectorAll('.nhsd-t-float-right').forEach(element => element.classList.remove('nhsd-!t-display-hide'));
 

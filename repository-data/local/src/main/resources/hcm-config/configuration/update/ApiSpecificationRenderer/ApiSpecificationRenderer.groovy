@@ -64,7 +64,7 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
     }
 
     void createTempDirForCompiledClasses() {
-        def command = "mkdir --parents ${CLASSES_DIR}"
+        def command = "mkdir -p ${CLASSES_DIR}"
         def failureMessage = "Failed to create directory $CLASSES_DIR"
 
         execute(command, failureMessage)

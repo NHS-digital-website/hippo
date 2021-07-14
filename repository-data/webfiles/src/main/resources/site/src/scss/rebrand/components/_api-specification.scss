@@ -1,6 +1,7 @@
+
 .nhsd-m-sticky-navigation {
     &__scrollable {
-        @media(min-width: 925px){
+        @media(min-width: 925px) {
             margin-left: -10px;
             padding-left: 10px;
             max-height: 85vh;
@@ -8,6 +9,7 @@
         }
     }
 }
+
 
 .nhsd-t-text-align-l-right {
     text-align: right;
@@ -118,4 +120,16 @@
             border-bottom-left-radius: 100px;
         }
     }
+}
+
+.nhsd-t-display-contents { display: contents; }
+.nhsd-t-text-transform-uppercase { text-transform: uppercase; }
+.nhsd-t-float-right { float: right }
+.nhsd-t-overflow-wrap-text { word-break: break-all }
+.nshd-t-wrap-text-pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
