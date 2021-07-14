@@ -10,29 +10,21 @@ import org.onehippo.repository.scheduling.RepositoryJob;
 import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
 import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
+import uk.nhs.digital.secrets.ApplicationSecrets;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Optional;
-import java.util.Properties;
 import javax.jcr.Session;
 
 public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiSpecSyncFromApigeeJob.class);
-    private static final Properties properties = new Properties();
 
-    {
-        try {
-            properties.load(new FileInputStream(getProperty("secure.properties.location") + "/apigee-secrets.properties"));
-        } catch (IOException e) {
-            log.warn("The 'apigee-secrets.properties' file was not found.");
-        }
-    }
+    private ApplicationSecrets secrets;
+    private static final Logger log = LoggerFactory.getLogger(ApiSpecSyncFromApigeeJob.class);
 
     // @formatter:off
     private static final String APIGEE_ALL_SPEC_URL    = "devzone.apigee.resources.specs.all.url";
@@ -45,6 +37,11 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
     private static final String BASIC_TOKEN            = "DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN";
     private static final String OTP_KEY                = "DEVZONE_APIGEE_OAUTH_OTPKEY";
     // @formatter:on
+
+    @Autowired
+    public void setApplicationSecrets(ApplicationSecrets secrets) {
+        this.secrets = secrets;
+    }
 
     @Override
     public void execute(final RepositoryJobExecutionContext context) {
@@ -115,11 +112,7 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
     }
 
     private String getSecret(final String key) {
-        String value = properties.getProperty(key, System.getenv(key));
-        if (value == null) {
-            log.warn("The key/value for '" + key + "' should be set as a Java Property or an Environment variable.");
-        }
-        return value;
+        return this.secrets.getValue(key);
     }
 
 }

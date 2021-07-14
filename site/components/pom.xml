@@ -135,7 +135,7 @@
 
         <dependency>
             <groupId>uk.nhs.digital</groupId>
-            <artifactId>s3-connector</artifactId>
+            <artifactId>toolbox</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -220,14 +220,6 @@
             <version>${revision}</version>
             <scope>test</scope>
         </dependency>
-
-
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>ssm</artifactId>
-            <version>${aws.java.sdk.version}</version>
-        </dependency>
-
     </dependencies>
 
 

@@ -30,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>uk.nhs.digital</groupId>
-            <artifactId>s3-connector</artifactId>
+            <artifactId>toolbox</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>

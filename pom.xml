@@ -186,18 +186,6 @@
 
     <dependencies>
 
-        <!--<dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>s3</artifactId>
-            <version>${aws.java.sdk.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>ssm</artifactId>
-            <version>${aws.java.sdk.version}</version>
-        </dependency>-->
-
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-targeting-shared-api</artifactId>
@@ -685,12 +673,12 @@
                 <version>1.11.1030</version>
             </dependency>
             <!-- V2 for secrets -->
-            <dependency>
+            <!--<dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
                 <version>${aws.java.sdk.version}</version>
                 <type>pom</type>
-            </dependency>
+            </dependency>-->
 
 
         </dependencies>
@@ -881,7 +869,7 @@
                 </property>
             </activation>
             <modules>
-                <module>s3connector</module>
+                <module>toolbox</module>
                 <module>repository-data</module>
                 <module>cms</module>
                 <module>essentials</module>
@@ -953,7 +941,7 @@
                                         <todir>${local-module-deploy-dir}</todir>
                                     </file>
                                     <file>
-                                        <file>${project.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
+                                        <file>${project.basedir}/toolbox/target/toolbox-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
                                     <file>

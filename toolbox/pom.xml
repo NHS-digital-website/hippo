@@ -12,14 +12,31 @@
         <version>${revision}</version>
     </parent>
 
-    <name>S3 Connector</name>
-    <artifactId>s3-connector</artifactId>
+    <name>NHS Digital Website Toolbox</name>
+    <artifactId>toolbox</artifactId>
     <packaging>jar</packaging>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- V2 for secrets -->
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>${aws.java.sdk.version}</version>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ssm</artifactId>
+            <version>${aws.java.sdk.version}</version>
         </dependency>
     </dependencies>
 

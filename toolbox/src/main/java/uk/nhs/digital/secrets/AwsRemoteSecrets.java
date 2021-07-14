@@ -1,31 +1,26 @@
 package uk.nhs.digital.secrets;
 
+import static java.lang.String.format;
+import static org.slf4j.LoggerFactory.getLogger;
+
+import org.slf4j.Logger;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.ssm.SsmClient;
 import software.amazon.awssdk.services.ssm.model.GetParameterRequest;
 import software.amazon.awssdk.services.ssm.model.GetParameterResponse;
 import software.amazon.awssdk.services.ssm.model.ParameterNotFoundException;
 
-import java.util.Map;
+public class AwsRemoteSecrets implements RemoteSecrets {
 
-public class ApplicationSecrets {
-
+    private static final Logger log = getLogger(AwsRemoteSecrets.class);
     private final Region region;
-    private Map<String, String> cache;
 
-    public ApplicationSecrets(Map<String, String> cache, String region) {
-        this.cache = cache;
+    public AwsRemoteSecrets(String region) {
         this.region = Region.of(region);
     }
 
-    public String getValue(String key) {
-        if (!this.cache.containsKey(key)) {
-            this.cache.put(key, getRemoteValue(key));
-        }
-        return this.cache.get(key);
-    }
-
-    private String getRemoteValue(String key) {
+    @Override
+    public String getRemoteValue(String key) {
         try (SsmClient ssmClient = SsmClient.builder()
             .region(this.region)
             .build()) {
@@ -36,9 +31,10 @@ public class ApplicationSecrets {
             GetParameterResponse parameterResponse = ssmClient.getParameter(parameterRequest);
             return parameterResponse.parameter().value();
         } catch (ParameterNotFoundException e) {
-            //log.warn(format("The parameter '%s' was not found", key));
+            log.warn(format("The remote parameter '%s' was not found", key));
             return null;
         }
     }
+
 
 }

@@ -382,7 +382,7 @@
                                         <todir>${local-module-deploy-dir}</todir>
                                     </file>
                                     <file>
-                                        <file>${website.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
+                                        <file>${website.basedir}/toolbox/target/toolbox-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
                                     <file>

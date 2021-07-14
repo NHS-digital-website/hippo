@@ -1,7 +1,5 @@
 package uk.nhs.digital.common.forms;
 
-import static java.lang.System.getProperty;
-
 import com.onehippo.cms7.eforms.hst.api.ValidationBehavior;
 import com.onehippo.cms7.eforms.hst.beans.FormBean;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
@@ -16,25 +14,17 @@ import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.secrets.ApplicationSecrets;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 public class ReCaptchaValidationPlugin implements ValidationBehavior {
 
+    @Autowired
+    private ApplicationSecrets secrets;
     private static Logger log = LoggerFactory.getLogger(ReCaptchaValidationPlugin.class);
-    private static final Properties properties = new Properties();
-
-    {
-        try {
-            properties.load(new FileInputStream(getProperty("secure.properties.location") + "/recaptcha-secrets.properties"));
-        } catch (IOException e) {
-            log.warn("The 'recaptcha-secrets.properties' file was not found.");
-        }
-    }
 
     @Override
     public Map<String, ErrorMessage> validate(HstRequest request, HstResponse response, ComponentConfiguration config, FormBean bean, Form form, FormMap map) {
@@ -113,11 +103,7 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
     }
 
     private String getSecret(final String key) {
-        String value = properties.getProperty(key, System.getenv(key));
-        if (value == null) {
-            log.warn("The key/value for '" + key + "' should be set as a Java Property or an Environment variable.");
-        }
-        return value;
+        return secrets.getValue(key);
     }
 
 }

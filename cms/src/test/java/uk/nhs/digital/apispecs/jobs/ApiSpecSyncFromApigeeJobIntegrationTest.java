@@ -25,6 +25,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.onehippo.cms7.crisp.api.resource.ResourceResolver;
 import org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver;
 import org.onehippo.cms7.crisp.mock.broker.MockResourceServiceBroker;
@@ -39,9 +41,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.mock.env.MockEnvironment;
 import uk.nhs.digital.JcrDocumentUtils;
+import uk.nhs.digital.secrets.ApplicationSecrets;
+import uk.nhs.digital.secrets.RemoteSecrets;
 
 import javax.jcr.Node;
 import javax.jcr.Session;
+import java.util.HashMap;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JcrDocumentUtils.class, ApiSpecSyncFromApigeeJob.class})
@@ -93,6 +98,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     private ApiSpecSyncFromApigeeJob apiSpecSyncFromApigeeJob;
 
+
     @Before
     public void setUp() throws Exception {
 
@@ -103,6 +109,13 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         given(repositoryJobExecutionContext.createSystemSession()).willReturn(session);
 
         apiSpecSyncFromApigeeJob = new ApiSpecSyncFromApigeeJob();
+
+        apiSpecSyncFromApigeeJob.setApplicationSecrets(new ApplicationSecrets(new HashMap<>(), new RemoteSecrets() {
+            @Override
+            public String getRemoteValue(String addressOfRemoteValue) {
+                return null;
+            }
+        }));
     }
 
     @Test
