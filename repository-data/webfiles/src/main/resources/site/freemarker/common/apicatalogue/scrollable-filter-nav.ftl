@@ -5,7 +5,7 @@
 <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
 <#macro scrollableFilterNav blockGroups filtersModel responsive>
-    <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Refine results</h2>
+    <h2 class="nhsd-t-heading-xs">Refine results</h2>
     <#if responsive>
         <div class="nhsd-!t-margin-bottom-4">
             <@azList blockGroups "side-az-nav-heading"/>
@@ -15,8 +15,7 @@
         <@azList blockGroups "side-az-nav-heading"/>
     </#if>
     <#if filtersModel?? && !filtersModel.isEmpty()>
-        <div id="nhsd-filter-menu">
-
+        <div>
             <h2 class="nhsd-t-heading-xs">
                 <span class="filter-head__title">Filters</span>
                 <@hst.renderURL var="resetUrl"/>
@@ -28,7 +27,7 @@
             <nav>
                 <#list filtersModel.sections as section>
                     <#if section.displayed>
-                        <div id="${section.key}-section">
+                        <div>
                             <input id="<#if responsive>responsive_</#if>toggler_${section.key}" class="section-folder" style="display:none;" type="checkbox" aria-hidden="true"/>
                             <label for="<#if responsive>responsive_</#if>toggler_${section.key}">
                         <span class="icon">
