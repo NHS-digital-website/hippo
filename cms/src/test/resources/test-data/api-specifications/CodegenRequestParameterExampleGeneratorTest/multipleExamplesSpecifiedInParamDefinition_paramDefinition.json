@@ -1,17 +1,17 @@
 {
   "examples": {
     "first": {
-      "summary": "Example A from request parameter's definition - summary",
+      "summary": "Example A from request parameter's definition - summary with HTML hostile characters < > &",
       "description": "Example A from request parameter's definition - description with `Markdown`",
-      "value": "Example A from request parameter's definition - value"
+      "value": "Example A from request parameter's definition - value with HTML hostile characters < > &"
     },
     "second": {
-      "summary": "Example B from request parameter's definition - summary",
+      "summary": "Example B from request parameter's definition - summary with HTML hostile characters < > &",
       "description": "Example B from request parameter's definition - description with `Markdown`",
-      "value": "Example B from request parameter's definition - value"
+      "value": "Example B from request parameter's definition - value with HTML hostile characters < > &"
     }
   },
   "schema": {
-    "example": "example specified in parameter's schema"
+    "example": "example specified in parameter's schema with HTML hostile characters < > &"
   }
 }

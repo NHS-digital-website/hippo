@@ -58,9 +58,8 @@ public class FencedCodeBlockNodeRendererTest {
 
         //Assert
         InOrder inOrder = Mockito.inOrder(html);
-        inOrder.verify(html).tag("article", Collections.singletonMap("class", "nhsd-o-code-viewer nhsd-!t-padding-bottom-3"));
+        inOrder.verify(html).tag("article", Collections.singletonMap("class", "nhsd-o-code-viewer nhsd-t-body"));
         inOrder.verify(html).tag("div", ImmutableMap.of(
-            "id", "html-content",
             "class", "nhsd-o-code-viewer__tab-content",
             "role", "tabpanel",
             "aria-hidden", "true",

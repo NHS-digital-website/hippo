@@ -30,9 +30,8 @@ public class FencedCodeBlockNodeRenderer implements NodeRenderer {
         final String codeLanguage = codeBlock.getInfo();
         final String literal = codeBlock.getLiteral();
 
-        html.tag("article", Collections.singletonMap("class", "nhsd-o-code-viewer nhsd-!t-padding-bottom-3"));
+        html.tag("article", Collections.singletonMap("class", "nhsd-o-code-viewer nhsd-t-body"));
         html.tag("div", ImmutableMap.of(
-            "id", "html-content",
             "class", "nhsd-o-code-viewer__tab-content",
             "role", "tabpanel",
             "aria-hidden", "true",

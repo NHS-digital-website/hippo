@@ -174,7 +174,108 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Response description."
+                        "description": "Response description.",
+                        "headers": {
+                            "Param-String": {
+                                "schema": {
+                                    "type": "string",
+                                    "default": "[string-a]&<string-b>",
+                                    "enum": [
+                                        "[string-a]&<string-b>",
+                                        "[string-c]&<string-d>",
+                                        null,
+                                        "",
+                                        "< >",
+                                        "&"
+                                    ],
+                                    "example": "[string-c]&<string-d>"
+                                }
+                            },
+                            "Param-String-Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "date",
+                                    "default": "1984-01-01",
+                                    "example": "2020-02-29"
+                                }
+                            },
+                            "Param-String-Date-Time": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "default": "2020-02-30T23:59:59Z",
+                                    "example": "2020-02-29T23:59:59Z"
+                                }
+                            },
+                            "Param-Integer-32bit-int": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "default": -10,
+                                    "example": -11
+                                }
+                            },
+                            "Param-Integer-64bit-int": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "default": -14,
+                                    "example": -12
+                                }
+                            },
+                            "Param-Number-Float": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "default": -1.41,
+                                    "example": -1.42
+                                }
+                            },
+                            "Param-Number-Double": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "double",
+                                    "enum": [
+                                        -1.40,
+                                        -1.43
+                                    ],
+                                    "default": -1.40,
+                                    "example": -1.43
+                                }
+                            },
+                            "Param-Boolean": {
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "enum": [
+                                        false,
+                                        true
+                                    ],
+                                    "example": true
+                                }
+                            },
+                            "Param-Array-Primitive": {
+                                "schema": {
+                                    "type": "array",
+                                    "default": "[-1.40, 1, \"string-value-a\"]",
+                                    "example": "[-1.42, 0, \"string-value-b\"]"
+                                }
+                            },
+                            "Param-Array-Of-JSON": {
+                                "schema": {
+                                    "type": "array",
+                                    "default": "[{\n  \"a\": \"aa\"\n}, {\n  \"b\": \"bb\"\n}]",
+                                    "example": "[{\n  \"c\": \"cc\"\n}, {\n  \"d\": \"ee\"\n}]"
+                                }
+                            },
+                            "Param-Object": {
+                                "schema": {
+                                    "type": "object",
+                                    "default": "{\n  \"html-hostile-chars\": \"< > &\" \n}",
+                                    "example": "{\n  \"html-sensitive-chars\": \"< > &\" \n}"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -214,7 +315,34 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Response description."
+                        "description": "Response description.",
+                        "headers": {
+                            "param-with-all-fields": {
+                                "required": true,
+                                "description": "Param description in `Markdown`.",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "[string-a]&<string-b>",
+                                    "enum": [
+                                        "Values with various types of characters; detailed cases are exercised in EnumHelperTest.",
+                                        "[string-a]&<string-b>",
+                                        null,
+                                        10.20,
+                                        "",
+                                        "< >",
+                                        "&"
+                                    ],
+                                    "example": "[string-c]&<string-d>",
+                                    "pattern": "^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T\\d{2}:\\d{2}:\\d{2}\\+\\d{2}:\\d{2})$|^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T\\d{2}:\\d{2}:\\d{2})$|^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T\\d{2}:\\d{2}:\\d{2}\\+\\d{2}:\\d{2})$|^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))$",
+                                    "minimum": -10.11,
+                                    "maximum": 10.10,
+                                    "exclusiveMinimum": true,
+                                    "exclusiveMaximum": true,
+                                    "minLength": 0,
+                                    "maxLength": 10
+                                }
+                            }
+                        }
                     }
                 }
             }

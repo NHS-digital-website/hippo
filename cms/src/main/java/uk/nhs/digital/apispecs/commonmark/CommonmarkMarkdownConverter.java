@@ -26,24 +26,6 @@ public class CommonmarkMarkdownConverter {
      * <p>
      * Renders Markdown as HTML.
      * <p>
-     * Headings get '{@code id}' attributes populated with values calculated from
-     * the heading's text by applying 'kebab' notation to it: lowercased,
-     * with spaces replaced by '-' characters.
-     * <p>
-     * This enables the headings to be used as 'in page' targets for hyperlinks.
-     * <p>
-     * For example, heading:
-     * </p>
-     * <pre>
-     *     ## Legal use
-     * </pre>
-     * <p>
-     * ...will be rendered as:
-     * </p>
-     * <pre>
-     *     &lt;h2 id=&quot;legal-use&quot;&gt;Legal use&lt;/h2&gt;
-     * </pre>
-     *
      * @param markdown Markdown to render as HTML.
      * @return Rendered HTML.
      */
@@ -55,9 +37,9 @@ public class CommonmarkMarkdownConverter {
      * <p>
      * Renders Markdown as HTML.
      * <p>
-     * Headings get '{@code id}' attributes populated with values calculated from
-     * the heading's text by applying 'kebab' notation to it: lowercased,
-     * with spaces replaced by '-' characters.
+     * If {@code headingIdPrefix} is not {@code null}, headings get '{@code id}' attributes rendered
+     * and populated with values calculated from the heading's text by applying 'kebab' notation to it
+     * (lowercased and with spaces replaced by '-' characters).
      * <p>
      * This enables the headings to be used as 'in page' targets for hyperlinks.
      * <p>

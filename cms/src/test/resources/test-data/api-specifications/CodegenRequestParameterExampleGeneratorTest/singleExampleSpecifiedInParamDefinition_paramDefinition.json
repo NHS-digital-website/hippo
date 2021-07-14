@@ -1,9 +1,9 @@
 {
   "examples": {
     "first": {
-      "summary": "Example A from request parameter's definition - summary",
+      "summary": "Example A from request parameter's definition - summary with HTML hostile characters < > &",
       "description": "Example A from request parameter's definition - description with `Markdown`",
-      "value": "Example A from request parameter's definition - value"
+      "value": "Example A from request parameter's definition - value with HTML hostile characters < > &"
     }
   }
 }

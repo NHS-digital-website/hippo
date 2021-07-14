@@ -1,5 +1,7 @@
 package uk.nhs.digital.apispecs.swagger.request.examplerenderer;
 
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -78,18 +80,22 @@ public class CodegenParameterExampleHtmlRenderer {
                         final StringBuilder examplesHtml = new StringBuilder();
 
                         example.getSummary().ifPresent(summary -> examplesHtml
-                            .append("<p class=\"nhsd-t-body\">").append(summary).append("</p>\n")
+                            .append("<p class=\"nhsd-t-body\">")
+                            .append(escapeHtml4(summary))
+                            .append("</p>\n")
                         );
 
                         example.getDescription()
                             .map(markdownConverter::toHtml)
                             .ifPresent(descriptionHtml -> examplesHtml
-                                .append("<p class=\"nhsd-t-body\">").append(descriptionHtml).append("</p>\n")
+                                .append("<p class=\"nhsd-t-body\">")
+                                .append(descriptionHtml)
+                                .append("</p>\n")
                             );
 
                         example.getValue().ifPresent(value -> examplesHtml
                             .append("<p class=\"nhsd-t-body\"><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">")
-                            .append(value)
+                            .append(escapeHtml4(value))
                             .append("</span></p>\n")
                         );
 
@@ -101,7 +107,10 @@ public class CodegenParameterExampleHtmlRenderer {
     }
 
     private String htmlFrom(final String simpleExampleValue) {
-        return MessageFormat.format("Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">{0}</span>", simpleExampleValue);
+        return MessageFormat.format(
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">{0}</span>",
+            escapeHtml4(simpleExampleValue)
+        );
     }
 
     private CodegenParamDefinition from(final String parameterJsonDefinition) throws JsonProcessingException {

@@ -47,7 +47,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    public void rendersSpecification_asHtml_fromCompleteOpenApiJson() {
+    public void rendersSpecification_asHtml_fromCompleteOasJson() {
 
         // given
         final String specificationJson = from("oasV3_complete.json");

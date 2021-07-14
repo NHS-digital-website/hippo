@@ -40,7 +40,8 @@ public class CodegenParameterExampleHtmlRendererTest {
 
         // given
         final String expectedHtmlForExampleValue =
-            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">simple example specified in parameter's definition</span>";
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">"
+                + "simple example specified in parameter's definition with HTML hostile characters &lt; &gt; &amp;</span>";
 
         final String parameterJsonDefinition = from("exampleSpecifiedInParamDefinitionAndInSchema_parameterDefinition.json");
         final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
@@ -86,7 +87,9 @@ public class CodegenParameterExampleHtmlRendererTest {
     public void rendersExampleSpecifiedInParamSchema_whenThereIsNoExampleInParamDefinition() {
 
         // given
-        final String expectedHtmlForExampleValue = "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">example specified in parameter's schema</span>";
+        final String expectedHtmlForExampleValue =
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">"
+                + "example specified in parameter's schema with HTML hostile characters &lt; &gt; &amp;</span>";
 
         final String parameterJsonDefinition = from("exampleSpecifiedInParamSchemaNoneInDefinition_parameterDefinition.json");
         final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);

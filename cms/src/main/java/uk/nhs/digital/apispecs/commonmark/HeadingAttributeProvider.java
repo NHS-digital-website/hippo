@@ -1,5 +1,6 @@
 package uk.nhs.digital.apispecs.commonmark;
 
+import com.google.common.collect.ImmutableMap;
 import org.commonmark.node.Heading;
 import org.commonmark.node.Node;
 import org.commonmark.node.Text;
@@ -11,12 +12,16 @@ import java.util.Optional;
 
 /**
  * <p>
- * Populates heading's attribute '{@code id}' with values calculated from
- * the heading's text, prepended with provided prefix. Useful as targets for hyperlinks,
+ * When created with {@code headingIdPrefix} other than {@code null},
+ * renders {@code id} attribute on the heading element.
+ * </p>
+ * <p>
+ * The attribute {@code id} is populated with value calculated from the heading's text,
+ * prepended with provided prefix. Useful as targets for hyperlinks,
  * where the prefix provides additional context and uniqueness to the ids.
  * </p>
  * <p>
- * For example, for '{@code headingIpPrefix}' given as '{@code customPrefix__}' heading:
+ * For example, for '{@code headingIdPrefix}' given as '{@code customPrefix__}' heading:
  * </p>
  * <pre>
  *     ## Legal use
@@ -31,27 +36,27 @@ import java.util.Optional;
 public class HeadingAttributeProvider implements AttributeProvider {
 
     private final String headingIdPrefix;
-    private static final Map<Integer, String> HEADING_CLASSES = headingClasses();
 
-    private static Map<Integer, String> headingClasses() {
-        final Map<Integer, String> headingClasses = new HashMap<>();
-        headingClasses.put(1, "nhsd-t-heading-xxl");
-        headingClasses.put(2, "nhsd-t-heading-xl");
-        headingClasses.put(3, "nhsd-t-heading-l");
-        headingClasses.put(4, "nhsd-t-heading-m");
-        headingClasses.put(5, "nhsd-t-heading-s");
-        headingClasses.put(6, "nhsd-t-heading-xs");
-        return headingClasses;
-    }
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private static final Map<Integer, String> HEADING_CLASSES = new ImmutableMap.Builder()
+        .put(1, "nhsd-t-heading-xxl")
+        .put(2, "nhsd-t-heading-xl")
+        .put(3, "nhsd-t-heading-l")
+        .put(4, "nhsd-t-heading-m")
+        .put(5, "nhsd-t-heading-s")
+        .put(6, "nhsd-t-heading-xs")
+        .build();
+
+    private IdGenerator idGenerator = new IdGenerator();
 
     /**
      * See {@linkplain HeadingAttributeProvider} for details.
      *
-     * @param headingIdPrefix Custom prefix to prepend the auto-generated id with. Can be {@code null},
-     *                        in which case the id value will not be prefixed with anything.
+     * @param headingIdPrefix Custom prefix to prepend the auto-generated id with. If {@code null},
+     *                        {@code id} attribute will not be rendered.
      */
     public HeadingAttributeProvider(final String headingIdPrefix) {
-        this.headingIdPrefix = Optional.ofNullable(headingIdPrefix).orElse("");
+        this.headingIdPrefix = headingIdPrefix;
     }
 
     @Override
@@ -70,13 +75,46 @@ public class HeadingAttributeProvider implements AttributeProvider {
             .map(Text.class::cast)
             .map(Text::getLiteral)
             .map(String::trim)
-            .map(headingText -> headingIdPrefix + idFrom(headingText))
-            .ifPresent(headingId -> {
-                attributes.put("id", headingId);
-            });
+            .flatMap(headingText -> Optional.ofNullable(headingIdPrefix).map(idPrefix -> idPrefix + idFrom(headingText)))
+            .ifPresent(headingId -> attributes.put("id", headingId));
     }
 
     private String idFrom(final String literal) {
-        return literal.toLowerCase().replaceAll("\\s", "-");
+        return idGenerator.idFrom(literal);
+    }
+
+    private static class IdGenerator {
+
+        private final Map<String, Integer> generatedIds = new HashMap<>();
+
+        String idFrom(final String literal) {
+
+            final Integer newOrdinal = nextOrdinalFor(literal);
+
+            final String ordinalSuffix = newOrdinal > 0 ? "-" + newOrdinal : "";
+
+            final String newId = literal.toLowerCase().replaceAll("\\s", "-") + ordinalSuffix;
+
+            generatedIds.put(newId, newOrdinal);
+
+            return newId;
+        }
+
+        private Integer nextOrdinalFor(final String literal) {
+
+            if (!generatedIds.containsKey(literal)) {
+                generatedIds.put(literal, 0);
+
+                return 0;
+            }
+
+            int lastOrdinal = generatedIds.get(literal);
+
+            int nextOrdinal = lastOrdinal + 1;
+
+            generatedIds.put(literal, nextOrdinal);
+
+            return nextOrdinal;
+        }
     }
 }
