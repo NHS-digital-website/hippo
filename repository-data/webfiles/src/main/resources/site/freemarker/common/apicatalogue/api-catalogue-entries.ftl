@@ -69,7 +69,7 @@
                                         </div>
                                     </#if>
                                     <#list get_sorted_tags(block filtersModel) as taxonomyTag>
-                                        <span class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1" id="${slugify("${block.title} ${taxonomyTag} tag")}">${taxonomyTag}</span>
+                                        <span class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag}</span>
                                     </#list>
 
                                     <#if block?index lt blockGroups[letter]?size - 1>
