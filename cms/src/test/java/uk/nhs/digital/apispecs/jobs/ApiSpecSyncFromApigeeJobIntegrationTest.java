@@ -39,13 +39,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.mock.env.MockEnvironment;
 import uk.nhs.digital.JcrDocumentUtils;
+import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
+import uk.nhs.digital.toolbox.secrets.RemoteSecrets;
 
+import java.util.HashMap;
 import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 
+
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({JcrDocumentUtils.class, ApiSpecSyncFromApigeeJob.class})
+@PrepareForTest({JcrDocumentUtils.class, ApiSpecSyncFromApigeeJob.class, ApplicationSecrets.class})
 @PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*"})
 public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
@@ -104,6 +108,13 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         given(repositoryJobExecutionContext.createSystemSession()).willReturn(session);
 
         apiSpecSyncFromApigeeJob = new ApiSpecSyncFromApigeeJob();
+
+        apiSpecSyncFromApigeeJob.setApplicationSecrets(new ApplicationSecrets(new HashMap<>(), new RemoteSecrets() {
+            @Override
+            public String getRemoteValue(String addressOfRemoteValue) {
+                return null;
+            }
+        }));
     }
 
     @Test

@@ -230,6 +230,12 @@
             </dependency>
 
             <dependency>
+                <groupId>uk.nhs.digital</groupId>
+                <artifactId>website-toolbox</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>javax.servlet.jsp</groupId>
                 <artifactId>jsp-api</artifactId>
                 <version>2.2</version>
@@ -887,6 +893,7 @@
                 <module>site</module>
                 <module>acceptance-tests</module>
                 <module>test-resources</module>
+                <module>website-toolbox</module>
             </modules>
         </profile>
 
@@ -959,6 +966,10 @@
                                         <file>${project.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
+                                    <!--<file>
+                                        <file>${project.basedir}/website-toolbox/target/website-toolbox-${project.version}.jar</file>
+                                        <todir>shared/lib</todir>
+                                    </file>-->
                                     <file>
                                         <file>${project.basedir}/repository-data/site-development/target/website-repository-data-site-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
@@ -1272,6 +1283,59 @@
                                 <configuration>
                                     <descriptors>
                                         <descriptor>${project.basedir}/src/main/assembly/on-demand-distribution.xml</descriptor>
+                                    </descriptors>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>dist-od2</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <defaultGoal>validate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>distro-assembly</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>${project.basedir}/src/main/assembly/distribution.xml</descriptor>
                                     </descriptors>
                                 </configuration>
                             </execution>

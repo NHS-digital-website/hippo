@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>uk.nhs.digital</groupId>
+        <artifactId>website</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <name>Website Toolbox</name>
+    <artifactId>website-toolbox</artifactId>
+    <version>${revision}</version>
+
+    <properties>
+        <aws.java.sdk.version>2.16.1</aws.java.sdk.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- V2 for secrets -->
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>${aws.java.sdk.version}</version>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ssm</artifactId>
+            <version>${aws.java.sdk.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

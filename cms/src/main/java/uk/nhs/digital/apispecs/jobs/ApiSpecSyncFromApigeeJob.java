@@ -8,11 +8,13 @@ import org.onehippo.repository.scheduling.RepositoryJob;
 import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
 import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationImportImportMetadataJcrRepository;
 import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
+import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.Optional;
 import javax.jcr.Session;
@@ -33,6 +35,13 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
     private static final String OTP_KEY                = "DEVZONE_APIGEE_OAUTH_OTPKEY";
     // @formatter:on
 
+    private ApplicationSecrets secrets;
+
+    @Autowired
+    public void setApplicationSecrets(ApplicationSecrets secrets) {
+        this.secrets = secrets;
+    }
+
     @Override
     public void execute(final RepositoryJobExecutionContext context) {
 
@@ -44,10 +53,10 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
         final String oauthTokenUrl = System.getProperty(OAUTH_TOKEN_URL);
 
         // Environment variables FOR SECRETS - not logged on system start
-        final String username = System.getenv(USERNAME);
-        final String password = System.getenv(PASSWORD);
-        final String basicToken = System.getenv(BASIC_TOKEN);
-        final String otpKey = System.getenv(OTP_KEY);
+        final String username = this.secrets.getValue(USERNAME);
+        final String password = this.secrets.getValue(PASSWORD);
+        final String basicToken = this.secrets.getValue(BASIC_TOKEN);
+        final String otpKey = this.secrets.getValue(OTP_KEY);
 
         Session session = null;
 
