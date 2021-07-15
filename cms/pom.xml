@@ -389,6 +389,10 @@
             <groupId>org.onehippo.cms7.hst.client-modules</groupId>
             <artifactId>hst-google-analytics-repository</artifactId>
         </dependency>
+        <dependency>
+            <groupId>uk.nhs.digital</groupId>
+            <artifactId>website-toolbox</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>cms</finalName>
