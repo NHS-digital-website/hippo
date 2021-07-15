@@ -1,5 +1,4 @@
 <!doctype html>
-<%@ include file="/WEB-INF/jspf/htmlTags.jspf" %>
 <% response.setStatus(403); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"

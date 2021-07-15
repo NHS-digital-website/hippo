@@ -6,26 +6,26 @@
        xmlns:cotext="http://www.springframework.org/schema/context">
 
     <import resource="applicationContext-core.xml" />
-    <cotext:property-placeholder location="file:#{systemProperties['secure.properties.location']}/microsoft-graph.properties" />
+    <import resource="application-secrets.xml" />
 
     <bean id="applicationId" class="java.lang.String">
-        <constructor-arg value="${application.id}" />
+        <constructor-arg value="#{applicationSecrets.getValue('application.id')}" />
     </bean>
 
     <bean id="clientSecret" class="java.lang.String">
-        <constructor-arg value="${client.secret}" />
+        <constructor-arg value="#{applicationSecrets.getValue('client.secret')}" />
     </bean>
 
     <bean id="graphApiRedirectUri" class="java.lang.String">
-        <constructor-arg value="${graph.api.redirect.url}" />
+        <constructor-arg value="#{applicationSecrets.getValue('graph.api.redirect.url')}" />
     </bean>
 
     <bean id="authenticationResourceRedirectUri" class="java.lang.String">
-        <constructor-arg value="${auth.resource.redirect.url}" />
+        <constructor-arg value="#{applicationSecrets.getValue('auth.resource.redirect.url')}" />
     </bean>
 
     <bean id="graphApiBaseUri" class="java.lang.String">
-        <constructor-arg value="${graph.api.base.url}" />
+        <constructor-arg value="#{applicationSecrets.getValue('graph.api.base.url')}" />
     </bean>
 
     <bean id="authorizationProvider" class="uk.nhs.digital.intranet.provider.impl.MicrosoftGraphAuthorizationProvider">
