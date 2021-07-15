@@ -1,0 +1,92 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-2492_Migrate_GDPR_Rights:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:path: /content/documents/corporate-website/website-acceptance-tests
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.apache.commons.lang.StringUtils\r\nimport org.hippoecm.repository.impl.PropertyDecorator\r\
+        \nimport org.onehippo.forge.content.pojo.model.ContentProperty\r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\
+        \nimport javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport\
+        \ javax.jcr.Session\r\nimport javax.jcr.query.Query\r\n\r\n\r\nclass MigrateRights\
+        \ extends BaseNodeUpdateVisitor {\r\n\r\n    private Session session\r\n\r\
+        \n    void initialize(Session session) throws RepositoryException {\r\n\r\n\
+        \        this.session = session\r\n        log.info \"Initialized script ${this.getClass().getName()}\"\
+        \r\n    }\r\n\r\n    boolean updateNode(Node node) {\r\n\r\n        def nodeType\
+        \ = node.getPrimaryNodeType().getName()\r\n\r\n\r\n        if (nodeType.equals(\"\
+        website:gdprtransparency\")) {\r\n            def beinformed = node.addNode(\"\
+        website:beinformed\", \"website:gdprrights\")\r\n            beinformed.addNode(\"\
+        website:qualification\", \"hippostd:html\").setProperty(\"hippostd:content\"\
+        , \"\");\r\n            beinformed.setProperty(\"website:gdprrightsyesno\"\
+        , \"no\")\r\n\r\n            def computerdecisionorperson = node.addNode(\"\
+        website:computerdecisionorperson\", \"website:gdprrights\")\r\n          \
+        \  computerdecisionorperson.addNode(\"website:qualification\", \"hippostd:html\"\
+        ).setProperty(\"hippostd:content\", \"\");\r\n            computerdecisionorperson.setProperty(\"\
+        website:gdprrightsyesno\", \"no\")\r\n\r\n            def eraseorremove =\
+        \ node.addNode(\"website:eraseorremove\", \"website:gdprrights\")\r\n    \
+        \        eraseorremove.addNode(\"website:qualification\", \"hippostd:html\"\
+        ).setProperty(\"hippostd:content\", \"\");\r\n            eraseorremove.setProperty(\"\
+        website:gdprrightsyesno\", \"no\")\r\n\r\n            def getaccesstoit =\
+        \ node.addNode(\"website:getaccesstoit\", \"website:gdprrights\")\r\n    \
+        \        getaccesstoit.addNode(\"website:qualification\", \"hippostd:html\"\
+        ).setProperty(\"hippostd:content\", \"\");\r\n            getaccesstoit.setProperty(\"\
+        website:gdprrightsyesno\", \"no\")\r\n\r\n            def objecttoit = node.addNode(\"\
+        website:objecttoit\", \"website:gdprrights\")\r\n            objecttoit.addNode(\"\
+        website:qualification\", \"hippostd:html\").setProperty(\"hippostd:content\"\
+        , \"\");\r\n            objecttoit.setProperty(\"website:gdprrightsyesno\"\
+        , \"no\")\r\n\r\n            def movecopytransfer = node.addNode(\"website:movecopytransfer\"\
+        , \"website:gdprrights\")\r\n            movecopytransfer.addNode(\"website:qualification\"\
+        , \"hippostd:html\").setProperty(\"hippostd:content\", \"\");\r\n        \
+        \    movecopytransfer.setProperty(\"website:gdprrightsyesno\", \"no\")\r\n\
+        \r\n            def rectifyorchange = node.addNode(\"website:rectifyorchange\"\
+        , \"website:gdprrights\")\r\n            rectifyorchange.addNode(\"website:qualification\"\
+        , \"hippostd:html\").setProperty(\"hippostd:content\", \"\");\r\n        \
+        \    rectifyorchange.setProperty(\"website:gdprrightsyesno\", \"no\")\r\n\r\
+        \n            def restrictstoppro = node.addNode(\"website:restrictstoppro\"\
+        , \"website:gdprrights\")\r\n            restrictstoppro.addNode(\"website:qualification\"\
+        , \"hippostd:html\").setProperty(\"hippostd:content\", \"\");\r\n        \
+        \    restrictstoppro.setProperty(\"website:gdprrightsyesno\", \"no\")\r\n\r\
+        \n\r\n            if (node.hasProperty(\"website:rights\")) {\r\n        \
+        \        def valuex = node.getProperty(\"website:rights\").getProperties().get(\"\
+        values\")\r\n                for (int i = 0; i < valuex.size(); i++) {\r\n\
+        \                    log.debug \"Value is \" + valuex[i].getAt(\"string\"\
+        )\r\n                    if (\"be-informed\".equalsIgnoreCase(valuex[i].getAt(\"\
+        string\"))) {\r\n                        beinformed.setProperty(\"website:gdprrightsyesno\"\
+        , \"yes\")\r\n                    }\r\n                    if (\"get-access-to-it\"\
+        .equalsIgnoreCase(valuex[i].getAt(\"string\"))) {\r\n                    \
+        \    getaccesstoit.setProperty(\"website:gdprrightsyesno\", \"yes\")\r\n \
+        \                   }\r\n                    if (\"rectify-or-change-it\"\
+        .equalsIgnoreCase(valuex[i].getAt(\"string\"))) {\r\n                    \
+        \    rectifyorchange.setProperty(\"website:gdprrightsyesno\", \"yes\")\r\n\
+        \                    }\r\n                    if (\"erase-or-remove-it\".equalsIgnoreCase(valuex[i].getAt(\"\
+        string\"))) {\r\n                        eraseorremove.setProperty(\"website:gdprrightsyesno\"\
+        , \"yes\")\r\n                    }\r\n                    if (\"restrict-or-stop-processing-it\"\
+        .equalsIgnoreCase(valuex[i].getAt(\"string\"))) {\r\n                    \
+        \    restrictstoppro.setProperty(\"website:gdprrightsyesno\", \"yes\")\r\n\
+        \                    }\r\n                    if (\"move- copy-or-transfer-it\"\
+        .equalsIgnoreCase(valuex[i].getAt(\"string\"))) {\r\n                    \
+        \    movecopytransfer.setProperty(\"website:gdprrightsyesno\", \"yes\")\r\n\
+        \                    }\r\n                    if (\"object-to-it-being-processed-or-used\"\
+        .equalsIgnoreCase(valuex[i].getAt(\"string\"))) {\r\n                    \
+        \    objecttoit.setProperty(\"website:gdprrightsyesno\", \"yes\")\r\n    \
+        \                }\r\n                    if (\"know-if-a-decision-was-made-by-a-computer-rather-than-a-person\"\
+        .equalsIgnoreCase(valuex[i].getAt(\"string\"))) {\r\n                    \
+        \    computerdecisionorperson.setProperty(\"website:gdprrightsyesno\", \"\
+        yes\")\r\n                    }\r\n                }\r\n            }\r\n\
+        \            if (node.hasProperty(\"website:howuseinformation\")) {\r\n  \
+        \              def newNode = node.addNode(\"website:howuseinformation\", \"\
+        hippostd:html\");\r\n                newNode.setProperty(\"hippostd:content\"\
+        , \"<p>\" + node.getProperty(\"website:howuseinformation\").getString() +\
+        \ \"</p>\");\r\n            }\r\n\r\n            return true;\r\n        }\r\
+        \n    }\r\n\r\n    @Override\r\n    boolean doUpdate(Node node) throws RepositoryException\
+        \ {\r\n        try {\r\n\r\n            return updateNode(node)\r\n\r\n  \
+        \      } catch (e) {\r\n            log.error(\"Failed to process record.\"\
+        , e)\r\n        }\r\n\r\n        return false\r\n    }\r\n\r\n    boolean\
+        \ undoUpdate(Node node) throws RepositoryException, UnsupportedOperationException\
+        \ {\r\n        return false\r\n    }\r\n\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

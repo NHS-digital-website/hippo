@@ -177,6 +177,9 @@
 [website:gallerysection] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:gdprrights] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:gdprsummary] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
