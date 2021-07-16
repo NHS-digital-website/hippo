@@ -20,6 +20,17 @@
 
         <article itemscope>
             <@headerBanner document />
+            <style type="text/css">
+
+                .nhsd-o-schema__expander {
+                    background-image: url(<@hst.webfile path="images/icon/expander-plus-icon.svg"/>);
+                }
+
+                .nhsd-o-schema__collapser {
+                    background-image: url(<@hst.webfile path="images/icon/expander-dark-grey-minus-icon.svg"/>);
+                }
+
+            </style>
 
             <div class="nhsd-t-grid">
                 <div class="nhsd-t-row">${document.html?no_esc}</div>

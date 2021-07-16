@@ -39,13 +39,16 @@
 
         {{#if schema}}
             {{#assign "schemaUUID"}}{{uuid}}{{/assign}}
-            <div class="body__schema__header">Schema
-                <span class="schema__header__buttons">
-                    <button class='schemaButton js collapseAll' onclick="collapseAll('{{variable "schemaUUID"}}')">Collapse all</button>
-                    <button class='schemaButton js expandAll' onclick="expandAll('{{variable "schemaUUID"}}')">Expand all</button>
-                </span>
+            <div class="nhsd-t-row">
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+                    <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+                </div>
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+                    <button onclick="collapseAll('{{variable "schemaUUID"}}')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+                    <button onclick="expandAll('{{variable "schemaUUID"}}')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+                </div>
             </div>
-            <div class="body__schema" data-schema-uuid="{{variable "schemaUUID"}}">
+            <div class="nhsd-o-schema" data-schema-uuid="{{variable "schemaUUID"}}">
             {{#vendorExtensions.x-schema}}
                 {{>schema}}
             {{/vendorExtensions.x-schema}}
