@@ -1,4 +1,4 @@
-package nhs.digital.toolbox.secrets;
+package uk.nhs.digital.toolbox.secrets;
 
 import static java.lang.System.getProperty;
 import static org.slf4j.LoggerFactory.getLogger;

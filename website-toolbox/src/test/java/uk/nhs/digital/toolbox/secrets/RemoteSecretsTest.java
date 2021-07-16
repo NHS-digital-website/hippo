@@ -1,8 +1,9 @@
-package nhs.digital.toolbox.secrets;
+package uk.nhs.digital.toolbox.secrets;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import uk.nhs.digital.toolbox.secrets.RemoteSecrets;
 
 public class RemoteSecretsTest {
 

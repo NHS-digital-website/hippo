@@ -4,7 +4,6 @@ import com.onehippo.cms7.eforms.hst.api.ValidationBehavior;
 import com.onehippo.cms7.eforms.hst.beans.FormBean;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
 import com.onehippo.cms7.eforms.hst.model.Form;
-import nhs.digital.toolbox.secrets.ApplicationSecrets;
 import org.hippoecm.hst.component.support.forms.FormMap;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -16,6 +15,7 @@ import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.HashMap;
 import java.util.Map;

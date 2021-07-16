@@ -13,6 +13,7 @@
 
     <name>Website Toolbox</name>
     <artifactId>website-toolbox</artifactId>
+    <version>${revision}</version>
 
     <properties>
         <aws.java.sdk.version>2.16.1</aws.java.sdk.version>

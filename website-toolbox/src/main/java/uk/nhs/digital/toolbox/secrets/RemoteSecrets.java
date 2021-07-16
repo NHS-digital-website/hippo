@@ -1,4 +1,4 @@
-package nhs.digital.toolbox.secrets;
+package uk.nhs.digital.toolbox.secrets;
 
 public interface RemoteSecrets {
 

@@ -371,8 +371,6 @@
         <dependency>
             <groupId>uk.nhs.digital</groupId>
             <artifactId>website-toolbox</artifactId>
-            <version>dev-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>
