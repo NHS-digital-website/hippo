@@ -114,7 +114,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Property '" + propertyName + "' is rendered for falsy value '" + propertyValue + "'.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString(propertyName + "\">" + propertyValue + "<")
+            containsString(propertyName + ": <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">" + propertyValue + "</span>")
         );
     }
 
@@ -141,17 +141,17 @@ public class SchemaHelperTest {
         // @formatter:off
         return new Object[][]{
             // propertyName     propertyValue   propertySetter
-            {"multipleof",      0,              (Function<Schema<?>, Schema<?>>) schema -> schema.multipleOf(ZERO)},
-            {"maximum",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maximum(ZERO)},
-            {"minimum",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minimum(ZERO)},
-            {"maxlength",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxLength(0)},
-            {"minlength",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minLength(0)},
-            {"maxitems",        0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxItems(0)},
-            {"minitems",        0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minItems(0)},
-            {"maxproperties",   0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxProperties(0)},
-            {"minproperties",   0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minProperties(0)},
-            {"example",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.example(0)},
-            {"example",         false,          (Function<Schema<?>, Schema<?>>) schema -> schema.example(false)},
+            {"Multiple of",      0,              (Function<Schema<?>, Schema<?>>) schema -> schema.multipleOf(ZERO)},
+            {"Maximum",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maximum(ZERO)},
+            {"Minimum",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minimum(ZERO)},
+            {"Max length",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxLength(0)},
+            {"Min length",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minLength(0)},
+            {"Max items",        0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxItems(0)},
+            {"Min items",        0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minItems(0)},
+            {"Max properties",   0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxProperties(0)},
+            {"Min properties",   0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minProperties(0)},
+            {"Example",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.example(0)},
+            {"Example",         false,          (Function<Schema<?>, Schema<?>>) schema -> schema.example(false)},
         };
         // @formatter:on
     }
@@ -228,7 +228,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Exclusive maximum is rendered as exclusive.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString("<code class=\"codeinline exclusivemaximum\">(exclusive)</code>")
+            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">(exclusive)</span>")
         );
     }
 
@@ -246,7 +246,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Exclusive maximum is rendered as inclusive.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString("<code class=\"codeinline exclusivemaximum\">(inclusive)</code>")
+            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">(inclusive)</span>")
         );
     }
 
@@ -282,7 +282,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Exclusive minimum is rendered as exclusive.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString("<code class=\"codeinline exclusiveminimum\">(exclusive)</code>")
+            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">(exclusive)</span>")
         );
     }
 
@@ -300,7 +300,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Exclusive minimum is rendered as inclusive.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString("<code class=\"codeinline exclusiveminimum\">(inclusive)</code>")
+            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">(inclusive)</span>")
         );
     }
 
@@ -442,7 +442,7 @@ public class SchemaHelperTest {
                 .with("valuePlaceholder", defaultValueJson)
         );
 
-        final String expectedRendering = "<div>Default: " + expectedRenderedValue.replace("CSS_CLASS", "default") + "</div>";
+        final String expectedRendering = "<div>Default: " + expectedRenderedValue + "</div>";
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -522,7 +522,7 @@ public class SchemaHelperTest {
                 .with("valuePlaceholder", valueJson)
         );
 
-        final String expectedRendering = format("<div>Example: %s</div>", renderedValue.replace("CSS_CLASS", "example"));
+        final String expectedRendering = format("<div>Example: %s</div>", renderedValue);
 
         // when
         final String actualSchemaHtml = schemaHelper.apply(schemaObject, null);
@@ -543,36 +543,36 @@ public class SchemaHelperTest {
 
             // strings
             {"string",                          "string",   null,           "\"[string-a]&<string-b>\"",
-                "<code class=\"codeinline CSS_CLASS\">[string-a]&amp;&lt;string-b&gt;</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">[string-a]&amp;&lt;string-b&gt;</span>"},
 
             // integers
             {"32bit integer",                   "integer",  "int32",        "-11",
-                "<code class=\"codeinline CSS_CLASS\">-11</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">-11</span>"},
 
             {"64bit integer",                   "integer",  "int64",        "-12",
-                "<code class=\"codeinline CSS_CLASS\">-12</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">-12</span>"},
 
             // floats
             {"float number",                    "number",   "float",        "-1.42",
-                "<code class=\"codeinline CSS_CLASS\">-1.42</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">-1.42</span>"},
 
             {"double number",                   "number",   "double",       "-1.43",
-                "<code class=\"codeinline CSS_CLASS\">-1.43</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">-1.43</span>"},
 
             // booleans
             {"boolean",                         "boolean",  null,           "true",
-                "<code class=\"codeinline CSS_CLASS\">true</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">true</span>"},
 
             // dates
             {"date string",                     "string",   "date",         "\"2020-02-29\"",
-                "<code class=\"codeinline CSS_CLASS\">2020-02-29</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">2020-02-29</span>"},
 
             {"date-time string",                "string",   "date-time",    "\"2020-02-29T23:59:59Z\"",
-                "<code class=\"codeinline CSS_CLASS\">2020-02-29T23:59:59Z</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">2020-02-29T23:59:59Z</span>"},
 
             // arrays
             {"array",                           "array",    null,           "[-1.42, 0, \"string-value\"]",
-                "<code class=\"codeinline CSS_CLASS\">[-1.42,0,&quot;string-value&quot;]</code>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">[-1.42,0,&quot;string-value&quot;]</span>"},
 
             {"array of JSON objects",           "array",    null,           "[{\n  \"a\": \"aa\"\n}, {\n  \"b\": \"bb\"\n}]",
                 "<pre><code>[ {\n  &quot;a&quot; : &quot;aa&quot;\n}, {\n  &quot;b&quot; : &quot;bb&quot;\n} ]</code></pre>"},

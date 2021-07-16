@@ -176,60 +176,64 @@
             </div>
         </div>
     </article>
-    <div class="body__schema__header">Schema
-        <span class="schema__header__buttons">
-<button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-<button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-</span>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+            <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+        </div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+        </div>
     </div>
-    <div class="body__schema" data-schema-uuid="">
-        <table data-disablesort="true">
-            <thead>
-            <th>Name</th>
-            <th>Description</th>
-            </thead>
-            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-                <td style="padding-left: 0.0em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">resourceType</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="readonly">read-only</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR resource type.</p></div>
-                    <div>Default: <code class="codeinline default">Patient</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">id</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="required">required</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp" class="nhsd-a-link">valid NHS Number</a>.</p></div>
-                    <div>Pattern: <code class="codeinline pattern">^\d{10}$</code></div>
-                    <div>Example: <code class="codeinline example">9000000009</code></div>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <div class="nhsd-o-schema" data-schema-uuid="">
+        <div class="nhsd-m-table nhsd-t-body">
+            <table data-no-sort="true">
+                <thead class="nhsd-o-schema__header">
+                <th>Name</th>
+                <th>Description</th>
+                </thead>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                    <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>resourceType</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-t-col-grey-mid">read-only</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR resource type.</p></div>
+                        <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Patient</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>id</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-!t-col-red">required</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp" class="nhsd-a-link">valid NHS Number</a>.</p></div>
+                        <div>Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">^\d{10}$</span></div>
+                        <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">9000000009</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>                                                        </div>
     <h5 class="nhsd-t-heading-s">HTTP status: 400</h5>
     <p class="nhsd-t-body">Invalid NHS number supplied.</p>
     <h6 class="nhsd-t-heading-xs">Body</h6>
@@ -260,92 +264,96 @@
             </div>
         </div>
     </article>
-    <div class="body__schema__header">Schema
-        <span class="schema__header__buttons">
-<button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-<button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-</span>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+            <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+        </div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+        </div>
     </div>
-    <div class="body__schema" data-schema-uuid="">
-        <table data-disablesort="true">
-            <thead>
-            <th>Name</th>
-            <th>Description</th>
-            </thead>
-            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-                <td style="padding-left: 0.0em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).</p>
-                        <p class="nhsd-t-body">Search outcomes:</p>
-                        <div class="nhsd-m-table nhsd-t-body"><table data-responsive="" data-no-sort="">
-                            <thead>
-                            <tr>
-                                <th>Code</th>
-                                <th>Response Code</th>
-                                <th>Description</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>INVALID_SEARCH_DATA</td>
-                                <td>400</td>
-                                <td>The search parameters are invalid. A description of what exactly is at fault will be added to the display.</td>
-                            </tr>
-                            <tr>
-                                <td>TOO_MANY_MATCHES</td>
-                                <td>200</td>
-                                <td>Too many matches were found - user should be told to refine their search parameters.</td>
-                            </tr>
-                            </tbody>
-                        </table></div></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">resourceType</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="readonly">read-only</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR Resource Type.</p></div>
-                    <div>Default: <code class="codeinline default">OperationOutcome</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="short-horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">issue</code></div>
-                    <div>
-                        <code class="type">array</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">List of issues that have occurred.</p></div>
-                    <div>Min items: <code class="codeinline minitems">1</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="2" colspan="2">
-                <td style="padding-left: 3.0em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                </td>
-            </tr>
-        </table>
-    </div>
+    <div class="nhsd-o-schema" data-schema-uuid="">
+        <div class="nhsd-m-table nhsd-t-body">
+            <table data-no-sort="true">
+                <thead class="nhsd-o-schema__header">
+                <th>Name</th>
+                <th>Description</th>
+                </thead>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                    <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).</p>
+                            <p class="nhsd-t-body">Search outcomes:</p>
+                            <div class="nhsd-m-table nhsd-t-body"><table data-responsive="" data-no-sort="">
+                                <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Response Code</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>INVALID_SEARCH_DATA</td>
+                                    <td>400</td>
+                                    <td>The search parameters are invalid. A description of what exactly is at fault will be added to the display.</td>
+                                </tr>
+                                <tr>
+                                    <td>TOO_MANY_MATCHES</td>
+                                    <td>200</td>
+                                    <td>Too many matches were found - user should be told to refine their search parameters.</td>
+                                </tr>
+                                </tbody>
+                            </table></div></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>resourceType</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-t-col-grey-mid">read-only</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR Resource Type.</p></div>
+                        <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">OperationOutcome</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>issue</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">array</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">List of issues that have occurred.</p></div>
+                        <div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">1</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+                    <td style="padding-left: 3.0em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                    </td>
+                </tr>
+            </table>
+        </div>                                                        </div>
     <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
     <h3 id="api-Patients-search-patient" class="nhsd-t-heading-l">Search for patient</h3>
     <div class="endpoint_path">
@@ -465,70 +473,74 @@
             </div>
         </div>
     </article>
-    <div class="body__schema__header">Schema
-        <span class="schema__header__buttons">
-<button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-<button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-</span>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+            <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+        </div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+        </div>
     </div>
-    <div class="body__schema" data-schema-uuid="">
-        <table data-disablesort="true">
-            <thead>
-            <th>Name</th>
-            <th>Description</th>
-            </thead>
-            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-                <td style="padding-left: 0.0em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">resourceType</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR Resource Type.</p></div>
-                    <div>Default: <code class="codeinline default">Bundle</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">type</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR Bundle Type.</p></div>
-                    <div>Default: <code class="codeinline default">searchset</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">deathDateTime</code></div>
-                    <div>
-                        <code class="type">string</code>
-                        <code class="format">date-time</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div>Example: <code class="codeinline example">2021-04-22T10:00Z</code></div>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <div class="nhsd-o-schema" data-schema-uuid="">
+        <div class="nhsd-m-table nhsd-t-body">
+            <table data-no-sort="true">
+                <thead class="nhsd-o-schema__header">
+                <th>Name</th>
+                <th>Description</th>
+                </thead>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                    <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>resourceType</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR Resource Type.</p></div>
+                        <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Bundle</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>type</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR Bundle Type.</p></div>
+                        <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">searchset</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>deathDateTime</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                            <span class="nhsd-t-col-blue-light">date-time</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">2021-04-22T10:00Z</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>                                                        </div>
     <h5 class="nhsd-t-heading-s">HTTP status: 400</h5>
     <p class="nhsd-t-body">Invalid search paramaters supplied.</p>
     <h6 class="nhsd-t-heading-xs">Body</h6>
@@ -568,51 +580,55 @@
             </div>
         </div>
     </article>
-    <div class="body__schema__header">Schema
-        <span class="schema__header__buttons">
-<button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-<button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-</span>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+            <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+        </div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+        </div>
     </div>
-    <div class="body__schema" data-schema-uuid="">
-        <table data-disablesort="true">
-            <thead>
-            <th>Name</th>
-            <th>Description</th>
-            </thead>
-            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-                <td style="padding-left: 0.0em;" class="name_column">
-                    <div>
-                        <code class="type">object</code>
-                        <code class="format">int(32)</code>
-                    </div>
-                    <div><code class="deprecated">deprecated</code></div>
-                    <div><code class="uniqueitems">unique items</code></div>
-                    <div><code class="nullable">nullable</code></div>
-                    <div><code class="readonly">read-only</code></div>
-                    <div><code class="writeonly">write-only</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="title">Response Schema with all simple fields.</div>
-                    <div class="description"><p class="nhsd-t-body">Response Test Schema Object description in <code class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Markdown</code>.</p></div>
-                    <div>Pattern: <code class="codeinline pattern">^(?:[0-9]{4}-[0-9]{2}-[0-9]{2})?(?:[ T][0-9]{2}:[0-9]{2}:[0-9]{2})?(?:[.,][0-9]{3})?</code></div>
-                    <div>Multiple of: <code class="codeinline multipleof">1.2</code><div>
-                        <div>Maximum: <code class="codeinline maximum">2.2</code>
-                            <code class="codeinline exclusivemaximum">(exclusive)</code>
+    <div class="nhsd-o-schema" data-schema-uuid="">
+        <div class="nhsd-m-table nhsd-t-body">
+            <table data-no-sort="true">
+                <thead class="nhsd-o-schema__header">
+                <th>Name</th>
+                <th>Description</th>
+                </thead>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                    <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                            <span class="nhsd-t-col-blue-light">int(32)</span>
                         </div>
-                        <div>Minimum: <code class="codeinline minimum">-2.3</code>
-                            <code class="codeinline exclusiveminimum">(exclusive)</code>
-                        </div>
-                        <div>Max length: <code class="codeinline maxlength">22</code></div>
-                        <div>Min length: <code class="codeinline minlength">11</code></div>
-                        <div>Max items: <code class="codeinline maxitems">44</code></div>
-                        <div>Min items: <code class="codeinline minitems">33</code></div>
-                        <div>Max properties: <code class="codeinline maxproperties">5</code></div>
-                        <div>Min properties: <code class="codeinline minproperties">3</code></div>
-                </td>
-            </tr>
-        </table>
-    </div>
+                        <div><span class="nhsd-t-col-grey-mid">deprecated</span></div>
+                        <div><span class="nhsd-t-col-grey-mid">unique items</span></div>
+                        <div><span class="nhsd-t-col-grey-mid">nullable</span></div>
+                        <div><span class="nhsd-t-col-grey-mid">read-only</span></div>
+                        <div><span class="nhsd-t-col-grey-mid">write-only</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__title">Response Schema with all simple fields.</div>
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">Response Test Schema Object description in <code class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Markdown</code>.</p></div>
+                        <div>Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">^(?:[0-9]{4}-[0-9]{2}-[0-9]{2})?(?:[ T][0-9]{2}:[0-9]{2}:[0-9]{2})?(?:[.,][0-9]{3})?</span></div>
+                        <div>Multiple of: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">1.2</span><div>
+                            <div>Maximum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">2.2</span>
+                                <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">(exclusive)</span>
+                            </div>
+                            <div>Minimum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">-2.3</span>
+                                <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">(exclusive)</span>
+                            </div>
+                            <div>Max length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">22</span></div>
+                            <div>Min length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">11</span></div>
+                            <div>Max items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">44</span></div>
+                            <div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">33</span></div>
+                            <div>Max properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">5</span></div>
+                            <div>Min properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">3</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>                                                        </div>
     <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
     <h3 id="api-Patients-update-patient-partial" class="nhsd-t-heading-l">Update a patient&#x27;s resource</h3>
     <div class="endpoint_path">
@@ -728,51 +744,55 @@
             </div>
         </div>
     </article>
-    <div class="body__schema__header">Schema
-        <span class="schema__header__buttons">
-<button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-<button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-</span>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+            <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+        </div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+        </div>
     </div>
-    <div class="body__schema" data-schema-uuid="">
-        <table data-disablesort="true">
-            <thead>
-            <th>Name</th>
-            <th>Description</th>
-            </thead>
-            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-                <td style="padding-left: 0.0em;" class="name_column">
-                    <div>
-                        <code class="type">object</code>
-                        <code class="format">int(32)</code>
-                    </div>
-                    <div><code class="deprecated">deprecated</code></div>
-                    <div><code class="uniqueitems">unique items</code></div>
-                    <div><code class="nullable">nullable</code></div>
-                    <div><code class="readonly">read-only</code></div>
-                    <div><code class="writeonly">write-only</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="title">Request Schema with all simple fields.</div>
-                    <div class="description"><p class="nhsd-t-body">Request Test Schema Object description in <code class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Markdown</code>.</p></div>
-                    <div>Pattern: <code class="codeinline pattern">^(?:[0-9]{4}-[0-9]{2}-[0-9]{2})?(?:[ T][0-9]{2}:[0-9]{2}:[0-9]{2})?(?:[.,][0-9]{3})?</code></div>
-                    <div>Multiple of: <code class="codeinline multipleof">1.2</code><div>
-                        <div>Maximum: <code class="codeinline maximum">2.2</code>
-                            <code class="codeinline exclusivemaximum">(exclusive)</code>
+    <div class="nhsd-o-schema" data-schema-uuid="">
+        <div class="nhsd-m-table nhsd-t-body">
+            <table data-no-sort="true">
+                <thead class="nhsd-o-schema__header">
+                <th>Name</th>
+                <th>Description</th>
+                </thead>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                    <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                            <span class="nhsd-t-col-blue-light">int(32)</span>
                         </div>
-                        <div>Minimum: <code class="codeinline minimum">-2.3</code>
-                            <code class="codeinline exclusiveminimum">(exclusive)</code>
-                        </div>
-                        <div>Max length: <code class="codeinline maxlength">22</code></div>
-                        <div>Min length: <code class="codeinline minlength">11</code></div>
-                        <div>Max items: <code class="codeinline maxitems">44</code></div>
-                        <div>Min items: <code class="codeinline minitems">33</code></div>
-                        <div>Max properties: <code class="codeinline maxproperties">5</code></div>
-                        <div>Min properties: <code class="codeinline minproperties">3</code></div>
-                </td>
-            </tr>
-        </table>
-    </div>
+                        <div><span class="nhsd-t-col-grey-mid">deprecated</span></div>
+                        <div><span class="nhsd-t-col-grey-mid">unique items</span></div>
+                        <div><span class="nhsd-t-col-grey-mid">nullable</span></div>
+                        <div><span class="nhsd-t-col-grey-mid">read-only</span></div>
+                        <div><span class="nhsd-t-col-grey-mid">write-only</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__title">Request Schema with all simple fields.</div>
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">Request Test Schema Object description in <code class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Markdown</code>.</p></div>
+                        <div>Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">^(?:[0-9]{4}-[0-9]{2}-[0-9]{2})?(?:[ T][0-9]{2}:[0-9]{2}:[0-9]{2})?(?:[.,][0-9]{3})?</span></div>
+                        <div>Multiple of: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">1.2</span><div>
+                            <div>Maximum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">2.2</span>
+                                <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">(exclusive)</span>
+                            </div>
+                            <div>Minimum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">-2.3</span>
+                                <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">(exclusive)</span>
+                            </div>
+                            <div>Max length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">22</span></div>
+                            <div>Min length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">11</span></div>
+                            <div>Max items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">44</span></div>
+                            <div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">33</span></div>
+                            <div>Max properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">5</span></div>
+                            <div>Min properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">3</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>                                                            </div>
     <h4 class="nhsd-t-heading-m">Response</h4>
     <h5 class="nhsd-t-heading-s">HTTP status: 202</h5>
     <p class="nhsd-t-body">The patch was syntactically correct and was accepted.</p>
@@ -866,123 +886,127 @@
             </div>
         </div>
     </article>
-    <div class="body__schema__header">Schema
-        <span class="schema__header__buttons">
-<button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-<button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-</span>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+            <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+        </div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+        </div>
     </div>
-    <div class="body__schema" data-schema-uuid="">
-        <table data-disablesort="true">
-            <thead>
-            <th>Name</th>
-            <th>Description</th>
-            </thead>
-            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-                <td style="padding-left: 0.0em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).</p>
-                        <p class="nhsd-t-body">Search outcomes:</p>
-                        <div class="nhsd-m-table nhsd-t-body"><table data-responsive="" data-no-sort="">
-                            <thead>
-                            <tr>
-                                <th>Code</th>
-                                <th>Response Code</th>
-                                <th>Description</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>INVALID_SEARCH_DATA</td>
-                                <td>400</td>
-                                <td>The search parameters are invalid. A description of what exactly is at fault will be added to the display.</td>
-                            </tr>
-                            <tr>
-                                <td>TOO_MANY_MATCHES</td>
-                                <td>200</td>
-                                <td>Too many matches were found - user should be told to refine their search parameters.</td>
-                            </tr>
-                            </tbody>
-                        </table></div></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">resourceType</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="readonly">read-only</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR Resource Type.</p></div>
-                    <div>Default: <code class="codeinline default">OperationOutcome</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="short-horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">issue</code></div>
-                    <div>
-                        <code class="type">array</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">List of issues that have occurred.</p></div>
-                    <div>Min items: <code class="codeinline minitems">1</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="2" colspan="2">
-                <td style="padding-left: 3.0em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 35.4%"></span><span class="short-horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="3" colspan="2">
-                <td style="padding-left: 4.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
-                    <div><code class="propertyName">severity</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="required">required</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">Severity of the error.</p></div>
-                    <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">fatal</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">error</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">warning</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">information</span></div>
-                    <div>Example: <code class="codeinline example">error</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="3" colspan="2">
-                <td style="padding-left: 4.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
-                    <div><code class="propertyName">code</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="required">required</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR error code.</p></div>
-                    <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">incomplete</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">throttled</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">informational</span></div>
-                    <div>Example: <code class="codeinline example">invalid</code></div>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <div class="nhsd-o-schema" data-schema-uuid="">
+        <div class="nhsd-m-table nhsd-t-body">
+            <table data-no-sort="true">
+                <thead class="nhsd-o-schema__header">
+                <th>Name</th>
+                <th>Description</th>
+                </thead>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                    <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).</p>
+                            <p class="nhsd-t-body">Search outcomes:</p>
+                            <div class="nhsd-m-table nhsd-t-body"><table data-responsive="" data-no-sort="">
+                                <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Response Code</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>INVALID_SEARCH_DATA</td>
+                                    <td>400</td>
+                                    <td>The search parameters are invalid. A description of what exactly is at fault will be added to the display.</td>
+                                </tr>
+                                <tr>
+                                    <td>TOO_MANY_MATCHES</td>
+                                    <td>200</td>
+                                    <td>Too many matches were found - user should be told to refine their search parameters.</td>
+                                </tr>
+                                </tbody>
+                            </table></div></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>resourceType</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-t-col-grey-mid">read-only</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR Resource Type.</p></div>
+                        <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">OperationOutcome</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>issue</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">array</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">List of issues that have occurred.</p></div>
+                        <div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">1</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+                    <td style="padding-left: 3.0em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+                    <td style="padding-left: 4.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
+                        <div><strong>severity</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-!t-col-red">required</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">Severity of the error.</p></div>
+                        <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">fatal</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">error</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">warning</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">information</span></div>
+                        <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">error</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+                    <td style="padding-left: 4.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
+                        <div><strong>code</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-!t-col-red">required</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR error code.</p></div>
+                        <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">incomplete</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">throttled</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">informational</span></div>
+                        <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">invalid</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>                                                        </div>
     <hr class="nhsd-a-horizontal-rule">
     <h2 id="api-Polling" class="nhsd-t-heading-xl">Endpoints: Polling</h2>
     <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
@@ -1079,60 +1103,64 @@
     <p class="nhsd-t-body">
         Content type: <strong class="nhsd-!t-font-weight-bold">application/fhir+json</strong>
     </p>
-    <div class="body__schema__header">Schema
-        <span class="schema__header__buttons">
-<button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-<button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-</span>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+            <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+        </div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+        </div>
     </div>
-    <div class="body__schema" data-schema-uuid="">
-        <table data-disablesort="true">
-            <thead>
-            <th>Name</th>
-            <th>Description</th>
-            </thead>
-            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-                <td style="padding-left: 0.0em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">resourceType</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="readonly">read-only</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR resource type.</p></div>
-                    <div>Default: <code class="codeinline default">Patient</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">id</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="required">required</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp" class="nhsd-a-link">valid NHS Number</a>.</p></div>
-                    <div>Pattern: <code class="codeinline pattern">^\d{10}$</code></div>
-                    <div>Example: <code class="codeinline example">9000000009</code></div>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <div class="nhsd-o-schema" data-schema-uuid="">
+        <div class="nhsd-m-table nhsd-t-body">
+            <table data-no-sort="true">
+                <thead class="nhsd-o-schema__header">
+                <th>Name</th>
+                <th>Description</th>
+                </thead>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                    <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>resourceType</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-t-col-grey-mid">read-only</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR resource type.</p></div>
+                        <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Patient</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>id</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-!t-col-red">required</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp" class="nhsd-a-link">valid NHS Number</a>.</p></div>
+                        <div>Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">^\d{10}$</span></div>
+                        <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">9000000009</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>                                                        </div>
     <h5 class="nhsd-t-heading-s">HTTP status: 400</h5>
     <p class="nhsd-t-body">Client error after the patch was accepted and patient was not updated.</p>
     <h6 class="nhsd-t-heading-xs">Body</h6>
@@ -1164,121 +1192,125 @@
             </div>
         </div>
     </article>
-    <div class="body__schema__header">Schema
-        <span class="schema__header__buttons">
-<button class='schemaButton js collapseAll' onclick="collapseAll('')">Collapse all</button>
-<button class='schemaButton js expandAll' onclick="expandAll('')">Expand all</button>
-</span>
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+            <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+        </div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+        </div>
     </div>
-    <div class="body__schema" data-schema-uuid="">
-        <table data-disablesort="true">
-            <thead>
-            <th>Name</th>
-            <th>Description</th>
-            </thead>
-            <tr class="expanded" data-schema-uuid="" data-indentation="0" colspan="2">
-                <td style="padding-left: 0.0em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).</p>
-                        <p class="nhsd-t-body">Search outcomes:</p>
-                        <div class="nhsd-m-table nhsd-t-body"><table data-responsive="" data-no-sort="">
-                            <thead>
-                            <tr>
-                                <th>Code</th>
-                                <th>Response Code</th>
-                                <th>Description</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>INVALID_SEARCH_DATA</td>
-                                <td>400</td>
-                                <td>The search parameters are invalid. A description of what exactly is at fault will be added to the display.</td>
-                            </tr>
-                            <tr>
-                                <td>TOO_MANY_MATCHES</td>
-                                <td>200</td>
-                                <td>Too many matches were found - user should be told to refine their search parameters.</td>
-                            </tr>
-                            </tbody>
-                        </table></div></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">resourceType</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="readonly">read-only</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR Resource Type.</p></div>
-                    <div>Default: <code class="codeinline default">OperationOutcome</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="1" colspan="2">
-                <td style="padding-left: 1.5em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="short-horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
-                    <div><code class="propertyName">issue</code></div>
-                    <div>
-                        <code class="type">array</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">List of issues that have occurred.</p></div>
-                    <div>Min items: <code class="codeinline minitems">1</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="2" colspan="2">
-                <td style="padding-left: 3.0em;" class="name_column">
-                    <button class="collapser js" data-schema-uuid="" onclick="collapseChildren('')"></button>
-                    <span class="child-schema-border" style="--border-padding: 1.25em; --border-lightness: 35.4%"></span><span class="short-horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
-                    <div>
-                        <code class="type">object</code>
-                    </div>
-                </td>
-                <td class="description_column">
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="3" colspan="2">
-                <td style="padding-left: 4.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
-                    <div><code class="propertyName">severity</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="required">required</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">Severity of the error.</p></div>
-                    <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">fatal</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">error</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">warning</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">information</span></div>
-                    <div>Example: <code class="codeinline example">error</code></div>
-                </td>
-            </tr>
-            <tr class="expanded" data-schema-uuid="" data-indentation="3" colspan="2">
-                <td style="padding-left: 4.5em;" class="name_column">
-                    <span class="horizontal-schema-border" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="short-vertical-schema-border" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
-                    <div><code class="propertyName">code</code></div>
-                    <div>
-                        <code class="type">string</code>
-                    </div>
-                    <div><code class="required">required</code></div>
-                </td>
-                <td class="description_column">
-                    <div class="description"><p class="nhsd-t-body">FHIR error code.</p></div>
-                    <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">invalid</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">structure</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">required</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">value</span></div>
-                    <div>Example: <code class="codeinline example">invalid</code></div>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <div class="nhsd-o-schema" data-schema-uuid="">
+        <div class="nhsd-m-table nhsd-t-body">
+            <table data-no-sort="true">
+                <thead class="nhsd-o-schema__header">
+                <th>Name</th>
+                <th>Description</th>
+                </thead>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                    <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).</p>
+                            <p class="nhsd-t-body">Search outcomes:</p>
+                            <div class="nhsd-m-table nhsd-t-body"><table data-responsive="" data-no-sort="">
+                                <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Response Code</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>INVALID_SEARCH_DATA</td>
+                                    <td>400</td>
+                                    <td>The search parameters are invalid. A description of what exactly is at fault will be added to the display.</td>
+                                </tr>
+                                <tr>
+                                    <td>TOO_MANY_MATCHES</td>
+                                    <td>200</td>
+                                    <td>Too many matches were found - user should be told to refine their search parameters.</td>
+                                </tr>
+                                </tbody>
+                            </table></div></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>resourceType</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-t-col-grey-mid">read-only</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR Resource Type.</p></div>
+                        <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">OperationOutcome</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                    <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
+                        <div><strong>issue</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">array</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">List of issues that have occurred.</p></div>
+                        <div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">1</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+                    <td style="padding-left: 3.0em;" class="nhsd-o-schema__name-column">
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">object</span>
+                        </div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+                    <td style="padding-left: 4.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
+                        <div><strong>severity</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-!t-col-red">required</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">Severity of the error.</p></div>
+                        <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">fatal</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">error</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">warning</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">information</span></div>
+                        <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">error</span></div>
+                    </td>
+                </tr>
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+                    <td style="padding-left: 4.5em;" class="nhsd-o-schema__name-column">
+                        <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
+                        <div><strong>code</strong></div>
+                        <div>
+                            <span class="nhsd-t-col-grey-mid">string</span>
+                        </div>
+                        <div><span class="nhsd-!t-col-red">required</span></div>
+                    </td>
+                    <td class="nhsd-o-schema__description-column">
+                        <div class="nhsd-o-schema__description"><p class="nhsd-t-body">FHIR error code.</p></div>
+                        <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">invalid</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">structure</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">required</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">value</span></div>
+                        <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">invalid</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>                                                        </div>
 </div>
