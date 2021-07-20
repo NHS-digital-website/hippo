@@ -1,7 +1,9 @@
 ---
 group: publicationsystem
 module:
-  after: website-repository-data-site
+  after:
+  - website-repository-data-site
+  - bloomreach-forge
   name: website-repository-data-site-development
 project: publicationsystem
 site: publicationsystem
