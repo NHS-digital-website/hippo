@@ -13,7 +13,7 @@
                     <bean class="org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordResourceDetails">
                         <property name="clientAuthenticationScheme" value="form"/>
                         <property name="grantType" value="password"/>
-                        <property name="accessTokenUri" value="${devzone.apigee.oauth.token.url}"/>
+                        <property name="accessTokenUri" value="${applicationSecrets.getValue('devzone.apigee.oauth.token.url')}"/>
                         <property name="username" value="${applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_USERNAME')}"/>
                         <property name="password" value="${applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_PASSWORD')}"/>
                     </bean>
