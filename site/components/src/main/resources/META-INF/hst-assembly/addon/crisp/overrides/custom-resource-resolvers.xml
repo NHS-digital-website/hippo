@@ -13,14 +13,14 @@
                 <property name="interceptors">
                     <list>
                         <bean class="org.springframework.http.client.support.BasicAuthenticationInterceptor">
-                            <constructor-arg value="${applicationSecrets.getValue('govdelivery.api.username')}" />
-                            <constructor-arg value="${applicationSecrets.getValue('govdelivery.api.password')}" />
+                            <constructor-arg value="#{applicationSecrets.getValue('govdelivery.api.username')}" />
+                            <constructor-arg value="#{applicationSecrets.getValue('govdelivery.api.password')}" />
                         </bean>
                     </list>
                 </property>
             </bean>
         </property>
-        <property name="baseUri" value="${applicationSecrets.getValue('govdelivery.api.base.url')}"/>
+        <property name="baseUri" value="#{applicationSecrets.getValue('govdelivery.api.base.url')}"/>
     </bean>
     <bean id="eployApi"
           parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
