@@ -20,7 +20,11 @@
                         <div class="nhsd-o-hero__content-box nhsd-o-hero__content-box--left-align">
                             <div class="nhsd-o-hero__content">
                                 <#if banner.parentDocument??>
-                                    <p class="nhsd-t-body-s"><@fmt.message key="labels.publication"/>, Part of <a class="nhsd-a-link nhsd-a-link--col-white" href="<@hst.link hippobean=banner.parentDocument.selfLinkBean/>" itemprop="url"><span itemprop="name">${banner.parentDocument.title}</span></a></p>
+                                    <@hst.link hippobean=banner.parentDocument.selfLinkBean var="parentLink"/>
+                                    <p class="nhsd-t-body-s"><@fmt.message key="labels.publication"/>, Part of <a class="nhsd-a-link nhsd-a-link--col-white"
+                                                                                                                  href="<@hst.link hippobean=banner.parentDocument.selfLinkBean/>"
+                                                                                                                  onClick="${getOnClickMethodCall(banner.parentDocument.class.name, parentLink)}"
+                                                                                                                  itemprop="url"><span itemprop="name">${banner.parentDocument.title}</span></a></p>
                                 <#else>
                                     <p class="nhsd-t-body-s"><@fmt.message key="labels.publication"/></p>
                                 </#if>

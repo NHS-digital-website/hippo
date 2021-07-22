@@ -109,13 +109,19 @@
                                         <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
                                     </svg>
                                     <div class="priority-action__content">
-                                        <#if action.link.linkType == "internal">
-                                            <a href="<@hst.link hippobean=action.link.link />"
-                                               class="priority-action__link">${action.action}</a>
-                                        <#else>
-                                            <a href="${action.link.link}"
-                                               class="priority-action__link">${action.action}</a>
-                                        </#if>
+                                        <@hst.link hippobean=action.link.link var="priorityActionInternalLink"/>
+                                        <a <#if action.link.linkType == "internal">
+                                            href="${priorityActionInternalLink}"
+                                            onClick="${getOnClickMethodCall(document.class.name, priorityActionInternalLink)}"
+                                            <#else>
+                                            href="${action.link.link}"
+                                            onClick="${getOnClickMethodCall(document.class.name, action.link.link)}"
+                                            </#if>
+                                            class="priority-action__link"
+                                            onKeyUp="return vjsu.onKeyUp(event)"
+                                        >
+                                            ${action.action}
+                                        </a>
                                         <#if action.additionalInformation?has_content>
                                             <p class="priority-action__description">${action.additionalInformation}</p>
                                         </#if>
