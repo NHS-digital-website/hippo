@@ -62,6 +62,7 @@
 <#macro filterTemplate filter filtersModel indentationLevel=0>
     <#if filter.displayed>
         <@hst.renderURL var="filterLink">
+            <@hst.param name="showAll" value="${showAll?c}" />
             <#if filter.selected>
                 <@hst.param name="filters" value="${filtersModel.selectedFiltersKeysMinus(filter.key)?join(',')}" />
             <#else>
@@ -71,7 +72,7 @@
         <span class="nhsd-a-checkbox">
             <label>
             <#if filter.selectable>
-                <a title="Filter by ${filter.displayName}" href="${filterLink}" class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if>">
+                <a title="Filter by ${filter.displayName}" href="${filterLink?no_esc}" class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if>">
                     <input type="checkbox">${filter.displayName}
                 </a>
                 <span class="checkmark <#if filter.selected>selected</#if>"></span>

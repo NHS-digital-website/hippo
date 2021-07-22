@@ -63,6 +63,12 @@ public class Filters implements Walkable {
             .collect(toSet());
     }
 
+    public Set<String> selectedFiltersKeysMinusDeprecatedAndRetiredSpecs(final List<String> filterKey) {
+        return selectedFiltersKeys().stream()
+            .filter(key -> !filterKey.contains(key))
+            .collect(toSet());
+    }
+
     // Also invoked from the template.
     public Set<String> selectedFiltersKeys() {
 

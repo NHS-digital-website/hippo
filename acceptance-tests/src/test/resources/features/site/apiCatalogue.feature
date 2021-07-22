@@ -1,3 +1,4 @@
+
 Feature: API Catalogue in Developer hub
 
     Scenario: API Catalogue renders all results when no filters applied
