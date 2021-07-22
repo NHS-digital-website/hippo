@@ -206,7 +206,9 @@
                             <ul data-uipath="ps.publication.datasets" class="nhsd-t-list nhsd-t-list--bullet">
                                 <#list document.datasets as dataset>
                                     <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset">
-                                        <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>">${dataset.title}</a></span>
+                                        <@hst.link hippobean=dataset.selfLinkBean var="dataSetLink"/>
+                                        <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="${dataSetLink}"
+                                                                 onClick="logGoogleAnalyticsEvent('Link click','Data set',${dataSetLink});">${dataset.title}</a></span>
                                         <#list dataset.summary.elements as element>
                                             <meta itemprop="description" content="${element}"/>
                                         </#list>
