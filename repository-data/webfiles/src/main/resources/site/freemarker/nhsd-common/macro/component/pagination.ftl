@@ -9,9 +9,11 @@
             <div class="nhsd-a-box nhsd-!t-padding-0">
         </#if>
                 <#if (pagination.previous)?has_content>
+                    <@hst.link hippobean=pagination.previous.linkedBean var="relatedSubjectLink"/>
                     <div class="<#if (pagination.next)?has_content>nhsd-o-chapter-navigation__previous-chapter</#if>">
                         <a class="nhsd-m-chapter"
                            href="<@hst.link hippobean=pagination.previous.linkedBean />"
+                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                            aria-label="Previous Chapter"
                         >
                             <div class="nhsd-m-chapter__content">
@@ -29,9 +31,11 @@
                     </div>
                 </#if>
                 <#if (pagination.next)?has_content>
+                    <@hst.link hippobean=pagination.next.linkedBean var="relatedSubjectLinkNext"/>
                     <div class="<#if (pagination.previous)?has_content>nhsd-o-chapter-navigation__next-chapter</#if>">
                         <a class="nhsd-m-chapter nhsd-m-chapter--right"
                            href="<@hst.link hippobean=pagination.next.linkedBean />"
+                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLinkNext)}"
                            aria-label="Next Chapter"
                         >
                             <div class="nhsd-m-chapter__content">

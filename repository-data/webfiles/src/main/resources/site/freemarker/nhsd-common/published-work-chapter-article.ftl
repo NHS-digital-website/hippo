@@ -126,7 +126,7 @@
             "showTime": false,
             "topText": parentText,
             "topTextLink": parentLink
-            } 
+            }
         />
         <@heroModule heroConfig />
     </#if>
@@ -188,7 +188,7 @@
             <#if hasChapters>
                 <#assign splitChapters = splitHash(documents) />
 
-                <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1" 
+                <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1"
                     id="chapter-index"
                 >
                     <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
@@ -200,6 +200,7 @@
                         </#if>
                                 <a class="nhsd-a-link"
                                     href="${chapter.link}"
+                                    onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                     title="${chapter.title}"
                                 >
                                     ${chapter.title}
@@ -217,6 +218,7 @@
                             </#if>
                                     <a class="nhsd-a-link"
                                         href="${chapter.link}"
+                                        onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                         title="${chapter.title}"
                                     >
                                         ${chapter.title}
