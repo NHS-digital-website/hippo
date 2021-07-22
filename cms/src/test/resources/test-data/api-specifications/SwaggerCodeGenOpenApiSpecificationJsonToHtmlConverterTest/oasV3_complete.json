@@ -1,5 +1,10 @@
 {
     "openapi": "3.0.0",
+    "x-spec-publication": {
+        "try-this-api": {
+            "disabled": false
+        }
+    },
     "info": {
         "version": "v1.2.29-beta",
         "title": "Personal Demographics Service (FHIR) API",

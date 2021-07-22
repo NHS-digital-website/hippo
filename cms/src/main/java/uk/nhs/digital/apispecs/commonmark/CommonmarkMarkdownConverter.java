@@ -2,8 +2,6 @@ package uk.nhs.digital.apispecs.commonmark;
 
 import static java.lang.Integer.MAX_VALUE;
 import static java.util.Collections.singletonList;
-import static org.apache.commons.lang.StringUtils.removeStart;
-import static org.apache.commons.lang3.StringUtils.removeEnd;
 
 import org.apache.commons.lang3.Validate;
 import org.commonmark.Extension;
@@ -28,24 +26,6 @@ public class CommonmarkMarkdownConverter {
      * <p>
      * Renders Markdown as HTML.
      * <p>
-     * Headings get '{@code id}' attributes populated with values calculated from
-     * the heading's text by applying 'kebab' notation to it: lowercased,
-     * with spaces replaced by '-' characters.
-     * <p>
-     * This enables the headings to be used as 'in page' targets for hyperlinks.
-     * <p>
-     * For example, heading:
-     * </p>
-     * <pre>
-     *     ## Legal use
-     * </pre>
-     * <p>
-     * ...will be rendered as:
-     * </p>
-     * <pre>
-     *     &lt;h2 id=&quot;legal-use&quot;&gt;Legal use&lt;/h2&gt;
-     * </pre>
-     *
      * @param markdown Markdown to render as HTML.
      * @return Rendered HTML.
      */
@@ -57,9 +37,9 @@ public class CommonmarkMarkdownConverter {
      * <p>
      * Renders Markdown as HTML.
      * <p>
-     * Headings get '{@code id}' attributes populated with values calculated from
-     * the heading's text by applying 'kebab' notation to it: lowercased,
-     * with spaces replaced by '-' characters.
+     * If {@code headingIdPrefix} is not {@code null}, headings get '{@code id}' attributes rendered
+     * and populated with values calculated from the heading's text by applying 'kebab' notation to it
+     * (lowercased and with spaces replaced by '-' characters).
      * <p>
      * This enables the headings to be used as 'in page' targets for hyperlinks.
      * <p>
@@ -139,7 +119,7 @@ public class CommonmarkMarkdownConverter {
     private String renderMarkdownAsHtml(final String markdown, final String headingIdPrefix, final int topHeadingLevel) {
         return Optional.ofNullable(markdown)
             .map(md -> renderMarkdownText(md, headingIdPrefix, topHeadingLevel))
-            .map(this::trimSurroundingParagraphTags)
+            .map(String::trim)
             .orElse("");
     }
 
@@ -157,9 +137,14 @@ public class CommonmarkMarkdownConverter {
     private String renderMarkdownModel(final Node document, final List<Extension> extensions, final String headingIdPrefix) {
 
         final HtmlRenderer renderer = HtmlRenderer.builder()
+            .nodeRendererFactory(context -> new FencedCodeBlockNodeRenderer(context))
+            .nodeRendererFactory(context -> new TableBlockNodeRenderer(context))
             .attributeProviderFactory(context -> new CodeAttributeProvider())
             .attributeProviderFactory(context -> new HeadingAttributeProvider(headingIdPrefix))
-            .attributeProviderFactory(context -> new TableSortOffAttributeProvider())
+            .attributeProviderFactory(context -> new ListAttributeProvider())
+            .attributeProviderFactory(context -> new HyperlinkAttributeProvider())
+            .attributeProviderFactory(context -> new ParagraphAttributeProvider())
+            .attributeProviderFactory(context -> new StrongEmphasisAttributeProvider())
             .extensions(extensions)
             .build();
 
@@ -224,17 +209,5 @@ public class CommonmarkMarkdownConverter {
         };
 
         document.accept(headingsLevelsShifter);
-    }
-
-    /**
-     * See comments against {@linkplain io.swagger.codegen.v3.utils.Markdown#unwrapped(String)}
-     * which this method is based on.
-     */
-    private String trimSurroundingParagraphTags(final String html) {
-        return Optional.of(html)
-            .map(String::trim)
-            .map(text -> removeStart(text, "<p>"))
-            .map(text -> removeEnd(text, "</p>"))
-            .orElse("");
     }
 }
