@@ -6,6 +6,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 import org.slf4j.Logger;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class ApplicationSecrets {
 
@@ -21,13 +22,13 @@ public class ApplicationSecrets {
 
     public String getValue(String key) {
         if (!this.cache.containsKey(key)) {
-            if (getProperty(key) != null) {
+            if (Objects.nonNull(getProperty(key))) {
                 if (remote.isRemoteValue(getProperty(key))) {
                     this.cache.put(key, remote.getRemoteValue(remote.toRemoteAddress(getProperty(key))));
                 } else {
-                    this.cache.put(key, remote.getRemoteValue(getProperty(key)));
+                    this.cache.put(key, getProperty(key));
                 }
-            } else if (System.getenv(key) != null) {
+            } else if (Objects.nonNull(System.getenv(key))) {
                 if (remote.isRemoteValue(System.getenv(key))) {
                     this.cache.put(key, remote.getRemoteValue(remote.toRemoteAddress(System.getenv(key))));
                 } else {
