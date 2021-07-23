@@ -20,7 +20,7 @@
         <cucumber.version>1.2.5</cucumber.version>
         <spring.version>5.1.15.RELEASE</spring.version>
         <selenium.version>3.141.59</selenium.version>
-        <chromedriver.version>90.0.4430.24</chromedriver.version>
+        <chromedriver.version>92.0.4515.43</chromedriver.version>
     </properties>
 
     <dependencies>
