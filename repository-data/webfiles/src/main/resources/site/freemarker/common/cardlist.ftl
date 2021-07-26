@@ -58,8 +58,8 @@
                 <#assign cardProps += {
                     "image": imageData[0],
                     "alttext": imageData[1],
-                    "shortSummary": itemShortSummary,
-                    "linkDestination": linkDestination,
+                    "shortsummary": itemShortSummary,
+                    "link": linkDestination,
                     "background": cardColour
                 }/>
 
