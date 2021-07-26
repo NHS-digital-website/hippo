@@ -5,7 +5,6 @@ import './utils/public-path';
  */
 import {initCookieConsent} from "./relevance/relevance-cookie";
 import "./print-publication";
-import "./nhsd-frontend/nhsd-frontend";
 
 initCookieConsent();
 
