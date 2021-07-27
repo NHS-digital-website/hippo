@@ -1,5 +1,13 @@
 {
     "openapi": "3.0.0",
+    "tags": [
+        {
+            "name": "Resource-b"
+        },
+        {
+            "name": "Resource-a"
+        }
+    ],
     "paths": {
         "/path-a": {
             "get": {

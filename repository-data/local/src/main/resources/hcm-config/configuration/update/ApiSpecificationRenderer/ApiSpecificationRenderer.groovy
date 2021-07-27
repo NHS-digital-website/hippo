@@ -135,6 +135,7 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/MarkdownConversionException.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/request/bodyextractor/ToPrettyJsonStringDeserializer.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/OpenApiSpecificationJsonToHtmlConverter.java",
+                "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/CodegenDefaultGenerator.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/request/examplerenderer/CodegenParamDefinition.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/model/BodyWithMediaTypeObjects.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/model/MediaTypeObjects.java",

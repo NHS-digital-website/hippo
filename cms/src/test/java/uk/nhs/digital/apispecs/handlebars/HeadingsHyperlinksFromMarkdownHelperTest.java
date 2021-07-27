@@ -27,7 +27,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.apispecs.handlebars.HeadingsHyperlinksFromMarkdownHelper.HeadingModel;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.IntStream;
 
