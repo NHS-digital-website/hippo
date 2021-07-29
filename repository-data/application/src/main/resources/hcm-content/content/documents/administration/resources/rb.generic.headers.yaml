@@ -20,6 +20,7 @@
     - ''
     - ''
     - Refine header for the (query input field)
+    - Related news section header
     resourcebundle:id: rb.generic.headers
     resourcebundle:keys:
     - headers.summary
@@ -31,6 +32,7 @@
     - headers.search
     - headers.page-contents
     - headers.refine
+    - headers.related-news
     resourcebundle:messages:
     - Summary
     - Further information
@@ -41,6 +43,7 @@
     - Search
     - Page contents
     - Refine
+    - Related news
   /rb.generic.headers[2]:
     hippo:availability:
     - preview
@@ -63,6 +66,7 @@
     - ''
     - ''
     - Refine header for the (query input field)
+    - Related news section header
     resourcebundle:id: rb.generic.headers
     resourcebundle:keys:
     - headers.summary
@@ -74,6 +78,7 @@
     - headers.search
     - headers.page-contents
     - headers.refine
+    - headers.related-news
     resourcebundle:messages:
     - Summary
     - Further information
@@ -84,6 +89,7 @@
     - Search
     - Page contents
     - Refine
+    - Related news
   /rb.generic.headers[3]:
     hippo:availability:
     - live
@@ -106,6 +112,7 @@
     - ''
     - ''
     - Refine header for the (query input field)
+    - Related news section header
     resourcebundle:id: rb.generic.headers
     resourcebundle:keys:
     - headers.summary
@@ -117,6 +124,7 @@
     - headers.search
     - headers.page-contents
     - headers.refine
+    - headers.related-news
     resourcebundle:messages:
     - Summary
     - Further information
@@ -127,6 +135,7 @@
     - Search
     - Page contents
     - Refine
+    - Related news
   hippo:name: Headers
   hippo:versionHistory: 8a656810-ed34-4aa0-8d27-20a7c13ea2b9
   jcr:mixinTypes:
