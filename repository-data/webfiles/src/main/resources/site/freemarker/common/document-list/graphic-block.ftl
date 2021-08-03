@@ -3,82 +3,97 @@
 <#include "../macro/sections/statistic.ftl">
 <#include "../macro/iconGenerator.ftl">
 <#include "../macro/gridColumnGenerator.ftl">
+<#include "../macro/graphicBlock.ftl">
 
 <@hst.setBundle basename="rb.generic.texts"/>
-<@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
 
 <div class="nhsd-o-graphic-block-list nhsd-!t-margin-bottom-9">
     <div class="nhsd-t-grid nhsd-!t-no-gutters">
         <div class="nhsd-t-row nhsd-t-row--centred nhsd-o-graphic-block-list__items">
             <#if pageable?? && pageable.items?has_content>
                 <#list pageable.items as item>
-                    <#assign hasLinks = item.items?has_content />
                     <#assign hasStats = item.modules?has_content />
-                    <#assign hasImage = item.image?has_content />
-                    <#assign colOffset = pageable.items?size == 4 && item?is_even_item />
 
-                    <div class="nhsd-t-col-xs-12 ${getGridCol(pageable.items?size, "small", colOffset)}">
-                        <div class="nhsd-m-graphic-block">
-                            <#if hasImage>
-                                <#assign altText = item.altText?has_content?then(item.altText, "image for graphic block ${item?index}") />
-                                <@hst.link hippobean=item.image fullyQualified=true var="graphicImage" />
+                    <#assign graphicBlockOptions={}>
 
-                                <div class="nhsd-m-graphic-block__picture">
-                                    <figure class="nhsd-a-image nhsd-a-image--square">
-                                        <picture class="nhsd-a-image__picture">
-                                            <img src="${graphicImage}" alt="${altText}">
-                                        </picture>
-                                    </figure>
-                                </div>
-                            </#if>
+                    <#if item.image?has_content>
+                        <#assign altText = item.altText?has_content?then(item.altText, "image for graphic block ${item?index}") />
+                        <@hst.link hippobean=item.image fullyQualified=true var="graphicImage" />
 
-                            <#if hasStats>
-                                <#assign stats = item.modules[0] />
+                        <#assign graphicBlockOptions += {
+                            "image": graphicImage,
+                            "altText": altText
+                        } />
+                    </#if>
 
-                                <div class="nhsd-m-graphic-block__heading">
-                                    <#assign hasNumber = stats.number?has_content />
-                                    <#if hasNumber>
-                                        <span class="nhsd-t-heading-xl nhsd-!t-margin-bottom-0">${getPrefix(stats.prefix)}${stats.number}${getSuffix(stats.suffix)}
-                                            <#if stats.trend != "none">
-                                                <@buildInlineSvg stats.trend />
-                                            </#if>
-                                        </span>
-                                    </#if>
+                    <#if hasStats>
+                        <#assign stats = item.modules[0] />
 
-                                    <@hst.html hippohtml=stats.headlineDescription var="headlineDesc"/>
-                                    <#assign hasHeadline = headlineDesc?has_content />
-                                    <#if hasHeadline>
-                                        <span class="nhsd-t-heading-xs">${headlineDesc?replace('<[^>]+>','','r')}</span>
-                                    </#if>
-                                </div>
-
-                                <@hst.html hippohtml=stats.furtherQualifyingInformation var="furtherQualInfo"/>
-                                <#assign hasQualInfo = furtherQualInfo?has_content />
-                                <#if hasQualInfo>
-                                    <p class="nhsd-t-body-s">${furtherQualInfo?replace('<[^>]+>','','r')}</p>
-                                </#if>
-
-                                <#if hasLinks>
-                                    <div class="nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3">
-                                        <#assign link = item.items[0] />
-
-                                        <#if link.linkType == "internal">
-                                            <#assign linkLabel = link.link.title />
-                                            <a href="<@hst.link hippobean=link.link/>" class="nhsd-a-link nhsd-t-body-s">
-                                        <#else>
-                                            <#assign linkLabel = link.title />
-                                            <a href="${link.link}" class="nhsd-a-link nhsd-t-body-s">
-                                        </#if>
-                                        <span class="nhsd-a-link__label nhsd-t-body-s">${linkLabel}</span>
-
-                                        <#if link.linkType == "external">
-                                            <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
-                                        </#if>
-                                        </a>
-                                    </div>
+                        <#assign heading>
+                            <#if stats.number?has_content>
+                                ${getPrefix(stats.prefix)}${stats.number}${getSuffix(stats.suffix)}
+                                <#if stats.trend != "none">
+                                    <@buildInlineSvg stats.trend />
                                 </#if>
                             </#if>
-                        </div>
+                        </#assign>
+
+                        <#assign graphicBlockOptions += { "heading": heading } />
+                    </#if>
+
+                    <#if item.title?has_content>
+                        <#assign graphicBlockOptions += { "heading": item.title } />
+                    </#if>
+
+                    <@hst.html hippohtml=stats.headlineDescription var="headlineDesc"/>
+                    <#if headlineDesc?has_content>
+                        <#assign graphicBlockOptions += { "headlineDesc": headlineDesc?replace('<[^>]+>','','r') } />
+                    </#if>
+
+                    <@hst.html hippohtml=stats.furtherQualifyingInformation var="furtherQualInfo"/>
+                    <#if furtherQualInfo?has_content>
+                        <#assign graphicBlockOptions += { "furtherInfo": furtherQualInfo?replace('<[^>]+>','','r') } />
+                    </#if>
+
+                    <#if item.content?has_content>
+                        <#assign graphicBlockOptions += { "furtherInfo": item.content } />
+                    </#if>
+
+                    <#assign external = false />
+                    <#if item.items?has_content>
+                        <#assign itemLink = item.items[0] />
+
+                        <#if itemLink.linkType == "internal">
+                            <@hst.link hippobean=itemLink.link var="linkVar" />
+                            <#assign title = itemLink.link.title />
+                        <#elseif itemLink.linkType == "external">
+                            <#assign linkVar = itemLink.link />
+                            <#assign title = itemLink.title />
+                            <#assign external = true />
+                        </#if>
+                        <#assign link = linkVar />
+                    <#elseif item.internal?has_content>
+                        <#assign title = item.label />
+                        <@hst.link hippobean=item.internal var="linkVar" />
+                        <#assign link = linkVar />
+                    <#elseif item.external?has_content>
+                        <#assign title = item.label />
+                        <#assign link = item.external />
+                        <#assign external = true />
+                    </#if>
+
+                    <#if link?has_content && title?has_content>
+                        <#assign graphicBlockOptions += {
+                            "link": {
+                                "title": title,
+                                "href": link,
+                                "external": external
+                            }
+                        } />
+                    </#if>
+
+                    <div class="nhsd-t-col-xs-12 ${getGridCol(pageable.items?size, "small")}">
+                        <@graphicBlock graphicBlockOptions />
                     </div>
                 </#list>
             </#if>
