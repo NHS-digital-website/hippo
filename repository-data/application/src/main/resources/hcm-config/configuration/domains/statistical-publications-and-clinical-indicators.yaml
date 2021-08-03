@@ -1,17 +1,18 @@
+---
 definitions:
   config:
     /hippo:configuration/hippo:domains/statistical-publications-and-clinical-indicators:
-      jcr:primaryType: hipposys:domain
       /author:
-        hipposys:groups: [statistical-publications-and-clinical-indicators-author]
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-author
         hipposys:role: author
         jcr:primaryType: hipposys:authrole
       /editor:
-        hipposys:groups: [statistical-publications-and-clinical-indicators-editor]
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-editor
         hipposys:role: editor
         jcr:primaryType: hipposys:authrole
       /organisation-structure-documents:
-        jcr:primaryType: hipposys:domainrule
         /path-by-uuid:
           hipposys:equals: true
           hipposys:facet: jcr:path
@@ -19,8 +20,17 @@ definitions:
           hipposys:type: Reference
           hipposys:value: /content/documents/corporate-website/about-nhs-digital/our-organisation/our-organisation-structure
           jcr:primaryType: hipposys:facetrule
-      /publication-system-documents:
         jcr:primaryType: hipposys:domainrule
+      /people-documents:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/people
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /publication-system-documents:
         /not-top-folder:
           hipposys:equals: false
           hipposys:facet: jcr:uuid
@@ -35,13 +45,14 @@ definitions:
           hipposys:type: Reference
           hipposys:value: /content/documents/corporate-website/publication-system
           jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /readwrite:
-        hipposys:groups: [statistical-publications-and-clinical-indicators-author,
-          statistical-publications-and-clinical-indicators-editor]
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-author
+        - statistical-publications-and-clinical-indicators-editor
         hipposys:role: readwrite
         jcr:primaryType: hipposys:authrole
       /supplementary-info-documents:
-        jcr:primaryType: hipposys:domainrule
         /path-by-uuid:
           hipposys:equals: true
           hipposys:facet: jcr:path
@@ -49,21 +60,14 @@ definitions:
           hipposys:type: Reference
           hipposys:value: /content/documents/corporate-website/supplementary-info
           jcr:primaryType: hipposys:facetrule
-      /people-documents:
         jcr:primaryType: hipposys:domainrule
-        /path-by-uuid:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/corporate-website/people
       /supplementary-information-assets:
-        jcr:primaryType: hipposys:domainrule
         /path-by-uuid:
-          jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/assets/website-assets/supplementary-information
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      jcr:primaryType: hipposys:domain
