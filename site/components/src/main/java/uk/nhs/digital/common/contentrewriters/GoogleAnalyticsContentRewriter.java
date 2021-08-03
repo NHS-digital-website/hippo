@@ -89,11 +89,9 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                     // document it sits within to give context
                     gaAction = GA_ACTION_FILE_DOWNLOAD;
                     documentPath = contentBean.getDisplayName() + " => " + documentPath;
-                } else if (isExternal(documentPath)) {
-                    gaAction = GA_ACTION_LINK_CLICK;
                 } else {
-                    // internal link - no tracking required
-                    continue;
+                    documentPath = rewriteDocumentLink(documentPath,node,requestContext,targetMount);
+                    gaAction = GA_ACTION_LINK_CLICK;
                 }
 
                 //fetching content bean type
@@ -114,17 +112,23 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                     //in case of "valid" content bean, fetch its type name
                     contentBeanTypeName = contentBean.getClass().getSimpleName();
                 }
+
                 //add onClick behaviour
                 String onClickEvent = link.getAttributeByName(EVENT_ON_CLICK);
                 //preparing new onclick event to fire
                 String gaEvent =
-                    "logGoogleAnalyticsEvent('" + gaAction + "',"
-                        + "'" + contentBeanTypeName + "',"
-                        + "'" + documentPath + "');";
+                    "logGoogleAnalyticsEvent('"
+                        + gaAction
+                        + "','"
+                        +
+                        (contentBeanTypeName.contains("$") ? contentBeanTypeName.substring(0, contentBeanTypeName.indexOf("$")) : contentBeanTypeName)
+                        + "','"
+                        + documentPath
+                        + "');";
                 //check id the onClick attribute exists
                 if (StringUtils.isEmpty(onClickEvent)) {
                     link.addAttribute(EVENT_ON_CLICK, gaEvent);
-                } else {
+                } else if (!onClickEvent.contains("logGoogleAnalyticsEvent")) {
                     //in case the onClick attribute is already used, append the gaEvent
                     onClickEvent += ";" + gaEvent;
                     link.removeAttribute(EVENT_ON_CLICK);

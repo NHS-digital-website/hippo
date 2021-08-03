@@ -206,7 +206,9 @@
                             <ul data-uipath="ps.publication.datasets" class="nhsd-t-list nhsd-t-list--bullet">
                                 <#list document.datasets as dataset>
                                     <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset">
-                                        <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>">${dataset.title}</a></span>
+                                        <@hst.link hippobean=dataset.selfLinkBean var="dataSetLink"/>
+                                        <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="${dataSetLink}"
+                                                                 onClick="logGoogleAnalyticsEvent('Link click','Data set',${dataSetLink});">${dataset.title}</a></span>
                                         <#list dataset.summary.elements as element>
                                             <meta itemprop="description" content="${element}"/>
                                         </#list>
@@ -227,7 +229,7 @@
                                 <div data-uipath="ps.publication.resources-attachments">
                                     <#list document.attachments as attachment>
                                         <div class="nhsd-!t-margin-top-4" data-uipath="ps.publication.resources-attachment">
-                                            <@downloadBlockAsset attachment.text attachment.resource "${attachment.text}" "" attachment.resource.mimeType attachment.resource.length false true />
+                                            <@downloadBlockAsset document.class.name attachment.resource "${attachment.text}" "" attachment.resource.mimeType attachment.resource.length false true />
                                         </div>
                                     </#list>
                                 </div>
@@ -349,9 +351,12 @@
                     <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split" data-uipath="ps.publication.pages">
                         <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
                             <#list publication.pageIndex as page>
+                                <@hst.link hippobean=page.linkedBean var="relatedSubjectLink"/>
                                 <#assign isActive = document.getCanonicalUUID() == page.linkedBean.getCanonicalUUID()/>
                                 <li ${isActive?then('class=nhsd-m-publication-chapter-navigation--active', '')} itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                    <span itemprop="name"><a itemprop="url" href="<@hst.link hippobean=page.linkedBean/>" ${isActive?then('', 'data-print-article')}>${page.title}</a></span>
+                                    <span itemprop="name"><a itemprop="url" href="<@hst.link hippobean=page.linkedBean/>"
+                                                             onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
+                                                ${isActive?then('', 'data-print-article')}>${page.title}</a></span>
                                 </li>
                             </#list>
                         </ol>

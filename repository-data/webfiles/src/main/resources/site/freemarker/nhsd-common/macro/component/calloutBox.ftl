@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#macro calloutBox callout>
+<#macro calloutBox callout classname="" title="">
     <#assign severity=(callout.severity?has_content?then(callout.severity, "information")) />
     <#assign update=callout.calloutType=="update" />
     <#assign calloutBoxId=callout.calloutType+"-"+callout.severity+"-"+callout.index />

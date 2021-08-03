@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-
+<#include "../../../include/imports.ftl">
 <#-- Note Page must implement uk.nhs.digital.pagination.Paginated -->
 <#macro chapterNav page currentPageTitlePrefix="">
     <#assign chapterPagination = page.paginate() />
@@ -7,9 +7,11 @@
         <div class="nhsd-o-chapter-navigation nhsd-!t-bg-pale-grey-80-tint">
             <div class="nhsd-a-box">
                 <#if chapterPagination.previous??>
+                    <@hst.link hippobean=chapterPagination.previous.linkedBean var="relatedSubjectLink"/>
                     <div class="nhsd-o-chapter-navigation__previous-chapter">
                         <a class="nhsd-m-chapter"
                            href="<@hst.link hippobean=chapterPagination.previous.linkedBean />"
+                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                            aria-label="Previous Chapter"
                         >
                             <div class="nhsd-m-chapter__content">
@@ -38,9 +40,11 @@
                 </div>
 
                 <#if chapterPagination.next??>
+                    <@hst.link hippobean=chapterPagination.next.linkedBean var="relatedSubjectLink"/>
                     <div class="nhsd-o-chapter-navigation__next-chapter">
                         <a class="nhsd-m-chapter nhsd-m-chapter--right"
                            href="<@hst.link hippobean=chapterPagination.next.linkedBean />"
+                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                            aria-label="Next Chapter"
                         >
                             <div class="nhsd-m-chapter__content">
