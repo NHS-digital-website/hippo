@@ -58,7 +58,8 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-display-chapters" aria-label="Document Header">
+<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-display-chapters"
+     aria-label="Document Header">
 
     <@hst.headContributions categoryIncludes="testscripts"/>
 
@@ -75,13 +76,13 @@
         </#if>
 
         <#assign heroConfig = {
-            "document": document,
-            "bannerImage": bannerImage,
-            "bannerImageAltText": document.bannerImageAltText,
-            "button": document.button,
-            "buttonText": "Jump to overview",
-            "showTime": true
-            }
+        "document": document,
+        "bannerImage": bannerImage,
+        "bannerImageAltText": document.bannerImageAltText,
+        "button": document.button,
+        "buttonText": "Jump to overview",
+        "showTime": true
+        }
         />
         <@heroModule heroConfig />
     </#if>
@@ -92,10 +93,10 @@
             <#assign bannerImage = selectedBannerImage />
         </#if>
         <#assign slimPictureConfig = {
-            "document": document,
-            "bannerImage": bannerImage,
-            "bannerImageAltText": document.bannerImageAltText
-            }
+        "document": document,
+        "bannerImage": bannerImage,
+        "bannerImageAltText": document.bannerImageAltText
+        }
         />
         <@slimPicture slimPictureConfig />
     </#if>
@@ -116,11 +117,11 @@
 
         <@chapterNav document />
     </#if>
-
-    <div class="nhsd-t-row nhsd-!t-margin-top-6" id="document-content">
-        <#if renderNav>
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-                <!-- start sticky-nav -->
+    <div class="nhsd-t-grid">
+        <div class="nhsd-t-row">
+            <#if renderNav>
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
+                    <!-- start sticky-nav -->
                     <@fmt.message key="headers.page-contents" var="pageContentsHeader" />
                     <#assign links = [] />
                     <#if hasAboutThisSection>
@@ -130,169 +131,180 @@
 
                     <#-- Restore the bundle -->
                     <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
-                <!-- end sticky-nav -->
-            </div>
-        </#if>
-
-        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
-            <#if hasSummaryContent>
-                <div id="${slugify('Summary')}">
-                    <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
-                    <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/></div>
+                    <!-- end sticky-nav -->
                 </div>
             </#if>
 
-            <#if hasHighlightsContent>
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasSummaryContent>
-                    <hr class="nhsd-a-horizontal-rule" />
+                    <div id="${slugify('Summary')}">
+                        <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
+                        <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/></div>
+                    </div>
                 </#if>
 
-                <p class="nhsd-t-heading-xl">${document.highlightsTitle}</p>
-                <@hst.html hippohtml=document.highlightsContent contentRewriter=brContentRewriter/>
-            </#if>
-
-            <#if hasSectionContent>
-                <#if hasHighlightsContent || (hasSummaryContent && !hasHighlightsContent)>
-                    <hr class="nhsd-a-horizontal-rule" />
-                </#if>
-
-                <@sections document.sections></@sections>
-            </#if>
-
-            <#if hasAboutThisSection>
-                <#if hasSectionContent || (hasHighlightsContent && !hasSectionContent) || (hasSummaryContent && !hasSectionContent && !hasHighlightsContent)>
-                    <hr class="nhsd-a-horizontal-rule" />
-                </#if>
-
-                <div class="nhsd-!t-margin-bottom-6" id="about-this-publication">
-                    <p class="nhsd-t-heading-xl">${aboutThisPublicationHeader}</p>
-
-                    <#if document.isbn?has_content>
-                        <p class="nhsd-t-heading-s"><@fmt.message key="labels.isbn" /></p>
-                        <p class="nhsd-t-body">${document.isbn}</p>
+                <#if hasHighlightsContent>
+                    <#if hasSummaryContent>
+                        <hr class="nhsd-a-horizontal-rule"/>
                     </#if>
 
-                    <#if document.issn?has_content>
-                        <p class="nhsd-t-heading-s"><@fmt.message key="labels.issn" /></p>
-                        <p class="nhsd-t-body">${document.issn}</p>
-                    </#if>
-                </div>
-            </#if>
-
-            <#if hasResources>
-                <#if hasAboutThisSection || (hasSectionContent && !hasAboutThisSection) || (hasHighlightsContent && !hasAboutThisSection && !hasSectionContent) || (hasSummaryContent && !hasAboutThisSection && !hasSectionContent && !hasHighlightsContent)>
-                    <hr class="nhsd-a-horizontal-rule" />
+                    <p class="nhsd-t-heading-xl">${document.highlightsTitle}</p>
+                    <@hst.html hippohtml=document.highlightsContent contentRewriter=brContentRewriter/>
                 </#if>
 
-                <div class="nhsd-!t-margin-bottom-6" id="resources">
-                    <p class="nhsd-t-heading-xl"><@fmt.message key="labels.resources"/></p>
-                    <div class="nhsd-t-grid">
-                        <div class="nhsd-t-row">
-                            <div class="nhsd-t-col">
-                                <#list document.resources as attachment>
+                <#if hasSectionContent>
+                    <#if hasHighlightsContent || (hasSummaryContent && !hasHighlightsContent)>
+                        <hr class="nhsd-a-horizontal-rule"/>
+                    </#if>
+
+                    <@sections document.sections></@sections>
+                </#if>
+
+                <#if hasAboutThisSection>
+                    <#if hasSectionContent || (hasHighlightsContent && !hasSectionContent) || (hasSummaryContent && !hasSectionContent && !hasHighlightsContent)>
+                        <hr class="nhsd-a-horizontal-rule"/>
+                    </#if>
+
+                    <div class="nhsd-!t-margin-bottom-6"
+                         id="about-this-publication">
+                        <p class="nhsd-t-heading-xl">${aboutThisPublicationHeader}</p>
+
+                        <#if document.isbn?has_content>
+                            <p class="nhsd-t-heading-s"><@fmt.message key="labels.isbn" /></p>
+                            <p class="nhsd-t-body">${document.isbn}</p>
+                        </#if>
+
+                        <#if document.issn?has_content>
+                            <p class="nhsd-t-heading-s"><@fmt.message key="labels.issn" /></p>
+                            <p class="nhsd-t-body">${document.issn}</p>
+                        </#if>
+                    </div>
+                </#if>
+
+                <#if hasResources>
+                    <#if hasAboutThisSection || (hasSectionContent && !hasAboutThisSection) || (hasHighlightsContent && !hasAboutThisSection && !hasSectionContent) || (hasSummaryContent && !hasAboutThisSection && !hasSectionContent && !hasHighlightsContent)>
+                        <hr class="nhsd-a-horizontal-rule"/>
+                    </#if>
+
+                    <div class="nhsd-!t-margin-bottom-6" id="resources">
+                        <p class="nhsd-t-heading-xl"><@fmt.message key="labels.resources"/></p>
+                        <div class="nhsd-t-grid">
+                            <div class="nhsd-t-row">
+                                <div class="nhsd-t-col">
+                                    <#list document.resources as attachment>
                                     <#--  Download macro cannot be used due to different yaml config -->
-                                    <#assign iconTypeFromMime = getFormatByMimeType("${attachment.resource.mimeType?lower_case}") />
-                                    <#assign fileName = attachment.resource.filename />
-                                    <#assign fileSize = sizeToDisplay(attachment.resource.length) />
-                                    <div class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
-                                        <@externalstorageLink attachment.resource; url>
-                                            <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
-                                                <a class="nhsd-a-box-link"
-                                                   title="${attachment.text}"
-                                                   href = "${url}"
-                                                   onClick="logGoogleAnalyticsEvent('Download attachment','Published work','${url}');"
-                                                   onKeyUp="return vjsu.onKeyUp(event)"
-                                                   itemprop="contentUrl"
-                                                >
-                                                    <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                                                        <div class="nhsd-m-download-card__image-box">
-                                                            <@documentIcon "${iconTypeFromMime}"/>
-                                                        </div>
-
-                                                        <div class="nhsd-m-download-card__content-box">
-                                                            <#if attachment.text?has_content>
-                                                                <p class="nhsd-t-heading-s" itemprop="name">${attachment.text}</p>
-                                                            </#if>
-
-                                                            <div class="nhsd-m-download-card__meta-tags">
-                                                                <#assign fileFormat = iconTypeFromMime />
-                                                                <#if fileName != "">
-                                                                    <#assign fileFormat = getFileExtension(fileName?lower_case) />
-                                                                </#if>
-                                                                <span class="nhsd-a-tag nhsd-a-tag--meta">${fileFormat}</span>
-                                                                <span class="nhsd-a-tag nhsd-a-tag--meta-light">${fileSize}</span>
+                                        <#assign iconTypeFromMime = getFormatByMimeType("${attachment.resource.mimeType?lower_case}") />
+                                        <#assign fileName = attachment.resource.filename />
+                                        <#assign fileSize = sizeToDisplay(attachment.resource.length) />
+                                        <div class="attachment" itemprop="hasPart"
+                                             itemscope
+                                             itemtype="http://schema.org/MediaObject">
+                                            <@externalstorageLink attachment.resource; url>
+                                                <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
+                                                    <a class="nhsd-a-box-link"
+                                                       title="${attachment.text}"
+                                                       href="${url}"
+                                                       onClick="logGoogleAnalyticsEvent('Download attachment','Published work','${url}');"
+                                                       onKeyUp="return vjsu.onKeyUp(event)"
+                                                       itemprop="contentUrl"
+                                                    >
+                                                        <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
+                                                            <div class="nhsd-m-download-card__image-box">
+                                                                <@documentIcon "${iconTypeFromMime}"/>
                                                             </div>
 
-                                                            <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-s">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                            <div class="nhsd-m-download-card__content-box">
+                                                                <#if attachment.text?has_content>
+                                                                    <p class="nhsd-t-heading-s"
+                                                                       itemprop="name">${attachment.text}</p>
+                                                                </#if>
+
+                                                                <div class="nhsd-m-download-card__meta-tags">
+                                                                    <#assign fileFormat = iconTypeFromMime />
+                                                                    <#if fileName != "">
+                                                                        <#assign fileFormat = getFileExtension(fileName?lower_case) />
+                                                                    </#if>
+                                                                    <span class="nhsd-a-tag nhsd-a-tag--meta">${fileFormat}</span>
+                                                                    <span class="nhsd-a-tag nhsd-a-tag--meta-light">${fileSize}</span>
+                                                                </div>
+
+                                                                <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-s">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                     preserveAspectRatio="xMidYMid meet"
+                                                                     aria-hidden="true"
+                                                                     focusable="false"
+                                                                     viewBox="0 0 16 16"
+                                                                     width="100%"
+                                                                     height="100%">
                                                                     <path d="M15,8.5L8,15L1,8.5L2.5,7L7,11.2L7,1l2,0l0,10.2L13.5,7L15,8.5z"/>
                                                                 </svg>
                                                             </span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </@externalstorageLink>
-                                    </div>
-                                </#list>
+                                                    </a>
+                                                </div>
+                                            </@externalstorageLink>
+                                        </div>
+                                    </#list>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </#if>
+
+                <div class="nhsd-!t-margin-bottom-6">
+                    <@lastModified document.lastModified false></@lastModified>
                 </div>
-            </#if>
 
-            <div class="nhsd-!t-margin-bottom-6">
-                <@lastModified document.lastModified false></@lastModified>
-            </div>
+                <div class="nhsd-!t-margin-bottom-8">
+                    <@pagination document />
+                </div>
 
-            <div class="nhsd-!t-margin-bottom-8">
-                <@pagination document />
-            </div>
-
-            <#if hasChildPages>
-                <#assign splitChapters = splitHash(documents) />
-                <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1"
-                    id="chapter-index"
-                >
-                    <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
-                        <#list splitChapters.left as chapter>
-                        <#if chapter.id == document.identifier>
-                            <li class="nhsd-m-publication-chapter-navigation--active">
-                        <#else>
-                            <li class="">
-                        </#if>
+                <#if hasChildPages>
+                    <#assign splitChapters = splitHash(documents) />
+                    <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1"
+                         id="chapter-index"
+                    >
+                        <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
+                            <#list splitChapters.left as chapter>
+                                <#if chapter.id == document.identifier>
+                                    <li class="nhsd-m-publication-chapter-navigation--active">
+                                <#else>
+                                    <li class="">
+                                </#if>
                                 <a class="nhsd-a-link"
-                                    href="${chapter.link}"
+                                   href="${chapter.link}"
                                    onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
-                                    title="${chapter.title}"
+                                   title="${chapter.title}"
                                 >
                                     ${chapter.title}
                                     <span class="nhsd-t-sr-only"></span>
                                 </a>
-                            </li>
-                        </#list>
+                                </li>
+                            </#list>
 
-                        <#if splitChapters.right?size gte 1>
-                            <#list splitChapters.right as chapter>
-                            <#if chapter.id == document.identifier>
-                                <li class="nhsd-m-publication-chapter-navigation--active">
-                            <#else>
-                                <li class="">
-                            </#if>
+                            <#if splitChapters.right?size gte 1>
+                                <#list splitChapters.right as chapter>
+                                    <#if chapter.id == document.identifier>
+                                        <li class="nhsd-m-publication-chapter-navigation--active">
+                                    <#else>
+                                        <li class="">
+                                    </#if>
                                     <a class="nhsd-a-link"
-                                        href="${chapter.link}"
+                                       href="${chapter.link}"
                                        onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
-                                        title="${chapter.title}"
+                                       title="${chapter.title}"
                                     >
                                         ${chapter.title}
                                         <span class="nhsd-t-sr-only"></span>
                                     </a>
-                                </li>
-                            </#list>
-                        </#if>
-                    </ol>
-                </div>
-            </#if>
+                                    </li>
+                                </#list>
+                            </#if>
+                        </ol>
+                    </div>
+                </#if>
+            </div>
         </div>
     </div>
 </div>
