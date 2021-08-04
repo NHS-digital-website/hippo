@@ -13,6 +13,11 @@
 <#include "../nhsd-common/macro/published-work-banners/hero-module.ftl">
 <#include "../nhsd-common/macro/published-work-banners/slim-picture.ftl">
 <#include "macro/contentPixel.ftl">
+<#import "app-layout-head.ftl" as alh>
+
+<@hst.headContribution category="metadata">
+    <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
+</@hst.headContribution>
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>

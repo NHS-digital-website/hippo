@@ -17,6 +17,11 @@
 <#include "../nhsd-common/macro/component/downloadBlockAsset.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/documentIcon.ftl">
+<#import "app-layout-head.ftl" as alh>
+
+<@hst.headContribution category="metadata">
+    <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
+</@hst.headContribution>
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>

@@ -242,6 +242,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /noindexcontrol:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Disallow indexing by search engines
+            field: noindexcontrol
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /toptasks:
             /cluster.options:
               ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
@@ -356,6 +365,14 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /noindexcontrol:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:noindexcontrol
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
           /pageicon:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -417,6 +434,14 @@ definitions:
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /string:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:noIndexControl
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
@@ -500,6 +525,12 @@ definitions:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           /website:pageicon:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
@@ -556,6 +587,8 @@ definitions:
           website:htmlCode: ''
           website:metadata: []
           website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
           website:rawMetadata:
           - ''
           website:shortsummary: ''
