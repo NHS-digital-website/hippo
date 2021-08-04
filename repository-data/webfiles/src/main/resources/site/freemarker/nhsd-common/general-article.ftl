@@ -14,6 +14,11 @@
 <#include "macro/contentPixel.ftl">
 <#include "macros/header-banner.ftl">
 <#include "macro/component/header-banner-image.ftl">
+<#import "app-layout-head.ftl" as alh>
+
+<@hst.headContribution category="metadata">
+    <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
+</@hst.headContribution>
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>

@@ -113,6 +113,11 @@ public class Publishedwork extends CommonFieldsBean implements Paginated {
         return getChildBeansByName("website:resources", ExtAttachment.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:noindexcontrol")
+    public boolean getNoIndexControl() {
+        return getSingleProperty("website:noindexcontrol");
+    }
+
     @Override
     public Pagination paginate() {
         return new Pagination(null, getLinks().stream().findFirst().map(i -> new IndexPageImpl(i.getDisplayName(), i)).orElse(null));

@@ -59,6 +59,11 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
         return getChildBeansByName("website:sections");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:noindexcontrol")
+    public boolean getNoIndexControl() {
+        return getSingleProperty("website:noindexcontrol");
+    }
+
     public Publishedwork getPublishedWork() {
         final HstRequestContext context = RequestContextProvider.get();
         //  Publishedworkchapter publishedWorkChapter = context.getContentBean(Publishedworkchapter.class);
