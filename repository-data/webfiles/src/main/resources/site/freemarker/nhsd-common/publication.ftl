@@ -64,7 +64,7 @@
         <div class="nhsd-t-row">
             <#if publication.publiclyAccessible>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
-                    <#assign links = [] />
+                    <#assign links = [{ "url": "#top", "title": 'Top of page' }] />
                     <#list index as i>
                         <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
                     </#list>
