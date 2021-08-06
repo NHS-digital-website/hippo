@@ -119,7 +119,6 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
             .registerHelper(StringHelpers.lower.name(), StringHelpers.lower)
             .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
-            .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
             .registerHelper(UuidHelper.NAME, UuidHelper.INSTANCE);
     }
 

@@ -103,6 +103,11 @@
             background: transparent;
         }
 
+        /* Curl - vertical scroll bar */
+        .swagger-ui pre.curl {
+            max-height: 280px;
+        }
+
         /*
         Other overriding styles
         */
@@ -121,18 +126,6 @@
         .local-header__title {
             white-space: nowrap;
         }
-
-        /* Prevents the 'Download' button's label (response payload) from being wrapped */
-        .download-contents {
-            width: auto !important;
-            right: 20px !important;
-        }
-
-        /* Adjusts spacing beween the 'Copy to clipboard' and 'Download' buttons */
-        .copy-to-clipboard {
-            right: 130px !important;
-        }
-
     </style>
 </#if>
 
@@ -156,18 +149,17 @@
                     <script>
                         const specification = ${document.json?no_esc}
 
-                        // URL that has to be configured as 'Callback URL' (a.k.a. 'redirect URL) in the Apigee Developer Portal for each client application
-                        // of given API that has to support OAuth2 authentication. The configured URL has to match the one generated below _exactly_ for the
-                        // authentication to succeed.
-                        //
-                        // Adding '/site' helps testing locally or on non-prod servers without requiring code changes.
-                        // Depending on context, the URL generated is:
-                        // - in local settings: http://localhost:8080/site/api-spec-try-it-now/oauth-redirect
-                        // - in production: https://digital.nhs.uk/api-spec-try-it-now/oauth-redirect
-                        const tryThisApiOauth2RedirectUrl =
-                              window.location.origin
-                            + (window.location.pathname.startsWith('/site/') ? '/site' : '')
-                            + '/api-spec-try-it-now/oauth-redirect'
+                        <#--
+                        URL that has to be configured as 'Callback URL' (a.k.a. 'redirect URL) in the Apigee Developer Portal for each client application
+                        of given API that has to support OAuth2 authentication. The configured URL has to match the one generated below _exactly_ for the
+                        authentication to succeed.
+
+                        Adding '/site' helps testing locally or on non-prod servers without requiring code changes.
+                        Depending on context, the URL generated is:
+                        - in local settings: http://localhost:8080/site/api-spec-try-it-now/oauth-redirect
+                        - in production: https://digital.nhs.uk/api-spec-try-it-now/oauth-redirect
+                        -->
+                        const tryThisApiOauth2RedirectUrl = '<@hst.link fullyQualified=true path='/api-spec-try-it-now/oauth-redirect'/>';
 
                         window.onload = function () {
 
@@ -186,7 +178,7 @@
                                 }
                             }
 
-                            const ui = SwaggerUIBundle({
+                            window.ui = SwaggerUIBundle({
                                 spec: specification,
 
                                 dom_id: '#content',
@@ -204,8 +196,6 @@
 
                                 oauth2RedirectUrl: tryThisApiOauth2RedirectUrl
                             })
-
-                            window.ui = ui
                         }
                     </script>
                 <#else>
