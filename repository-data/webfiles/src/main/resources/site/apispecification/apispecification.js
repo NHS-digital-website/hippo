@@ -95,24 +95,15 @@ document.querySelectorAll('.nhsd-o-schema').forEach(schema => {
     collapseAll(schema.getAttribute('data-schema-uuid'));
 })
 
-// set up listeners for Ctrl + F
-
-const keysPressed = {};
-
+// set up listeners for Ctrl + F / Cmd + F
 document.addEventListener('keydown', (event) => {
-   keysPressed[event.key] = true;
-
-    if(keysPressed['Control'] && keysPressed['f']) {
+    if(event.key === "f" && (event.metaKey || event.ctrlKey)) {
          const schemas = document.querySelectorAll('.nhsd-o-schema');
          schemas.forEach(schema => {
             expandAll(schema.getAttribute('data-schema-uuid'));
-         })
+         });
    }
 });
-
-document.addEventListener('keyup', (event) => {
-    delete keysPressed[event.key];
-})
 
 // make controls visible
 document.querySelectorAll('.nhsd-o-schema__header-button').forEach(element => element.classList.remove('nhsd-!t-display-hide'));
