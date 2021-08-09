@@ -482,3 +482,20 @@
 
 [website:copy] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
+
+[website:pubstylesection] > hippo:compound, hippostd:relaxed
+   orderable
+
+[website:highlightsection] > hippo:compound, hippostd:relaxed
+   orderable
+
+[website:corporatepolicy] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+   orderable
+
+[website:acknowledgementsection] > hippo:compound, hippostd:relaxed
+   orderable
+[website:policypage] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:pubstylepolicypage] > hippo:compound, hippostd:relaxed
+  orderable

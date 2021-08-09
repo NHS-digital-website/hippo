@@ -277,6 +277,11 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:corporateWebsiteImageset:
         jcr:primaryType: hipposys:resourcebundles
+      /website:corporatepolicy:
+        /en:
+          jcr:name: Policy
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
         /en:
           jcr:name: CTA
@@ -625,6 +630,11 @@ definitions:
       /website:platformversion:
         /en:
           jcr:name: Platform version
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:policypage:
+        /en:
+          jcr:name: Policy page
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:postnominal:
