@@ -49,6 +49,11 @@ public class Blog extends CaseStudyAndBlogBase implements IntranetSearchResult {
         return SearchResultType.BLOG.getValue();
     }
 
+    @HippoEssentialsGenerated(internalName = "website:headertype")
+    public String getHeadertype() {
+        return getSingleProperty("website:headertype");
+    }
+
     public String getDocType() {
         return "Blog";
     }

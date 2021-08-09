@@ -4,7 +4,8 @@
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
-<#include "macro/documentHeader.ftl">
+<#include "macro/heroes/hero-options.ftl">
+<#include "macro/heroes/hero.ftl">
 <#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
@@ -89,21 +90,27 @@
     </#if>
 </#function>
 
+<#assign heroOptions = getHeroOptions(document)/>
+<#assign heroOptions += {"colour": "darkBlue"}/>
+
 <#assign metadata = [] />
-<#if document.threatId?has_content><#assign metadata += [ { "key": threatIdLabel, "value": document.threatId } ] /></#if>
-<#if document.category?has_content><#assign metadata += [ { "key": categoryLabel, "value": document.category, "type": "list" } ] /></#if>
-<#if document.severity?has_content><#assign metadata += [ { "key": threatSeverityLabel, "value": document.severity } ] /></#if>
-<#if document.threatvector?has_content><#assign metadata += [ { "key": threatVectorLabel, "value": document.threatvector, "type": "list" } ] /></#if>
-<#if document.publishedDate?has_content><#assign metadata += [ { "key": datePublishedLabel, "value": document.publishedDate.time, "type": "date" } ] /></#if>
+<#if document.threatId?has_content><#assign metadata += [ { "title": threatIdLabel, "value": document.threatId } ] /></#if>
+<#if document.category?has_content><#assign metadata += [ { "title": categoryLabel, "value": document.category } ] /></#if>
+<#if document.severity?has_content><#assign metadata += [ { "title": threatSeverityLabel, "value": document.severity } ] /></#if>
+<#if document.threatvector?has_content><#assign metadata += [ { "title": threatVectorLabel, "value": document.threatvector } ] /></#if>
+<#if document.publishedDate?has_content>
+    <@fmt.formatDate value=document.publishedDate.time type="Date" pattern="d MMMM yyyy h:mm a" timeZone="${getTimeZone()}" var="date" />
+    <#assign metadata += [ { "title": datePublishedLabel, "value": date } ] />
+</#if>
+<#assign heroOptions += {"metaData": metadata}/>
 
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article>
+    <@hero heroOptions/>
 
-    <@documentHeader document 'cyberalert' "" '' document.shortsummary '' false metadata></@documentHeader>
-
-    <div class="nhsd-m-notification-banner nhsd-m-notification-banner--warning nhsd-m-notification-banner--irremovable nhsd-!t-margin-bottom-6">
+    <div class="nhsd-m-notification-banner nhsd-m-notification-banner--warning nhsd-m-notification-banner--irremovable nhsd-!t-margin-bottom-8">
         <div class="nhsd-a-box nhsd-a-box--bg-light-yellow">
             <div class="nhsd-t-grid">
                 <div class="nhsd-t-row">
@@ -565,7 +572,7 @@
                         <p class="nhsd-t-heading-xl">${acknowledgementHeader}</p>
 
                         <div class="nhsd-o-card-list">
-                            <div class="nhsd-t-grid">
+                            <div class="nhsd-t-grid nhsd-t-grid--nested">
                                 <div class="nhsd-t-row nhsd-o-card-list__items nhsd-t-row--centred">
                                     <#list document.cyberAcknowledgements as item>
                                         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">

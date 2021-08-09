@@ -3,7 +3,7 @@
 <#include "../include/imports.ftl">
 <#include "./macro/metaTags.ftl">
 <#include "./macro/component/lastModified.ftl">
-<#include "./macro/details-banner.ftl">
+<#include "./macro/heroes/hero.ftl">
 <#include "./macro/publicationsystem/structured-text.ftl">
 <#include "./macro/contentPixel.ftl">
 <#include "./macro/stickyNavSections.ftl">
@@ -19,6 +19,7 @@
 <#include "./macro/latestblogs.ftl">
 <#include "./macro/component/pagination.ftl">
 <#include "./macro/component/chapter-pagination.ftl">
+<#include "./macro/publicationsystem/publication-meta-data.ftl">
 
 <@hst.setBundle basename="publicationsystem.change,publicationsystem.survey,publicationsystem.interactive,publicationsystem.labels,publicationsystem.headers"/>
 
@@ -28,9 +29,75 @@
 <#assign hasChapters = publication.publiclyAccessible && publication.pageIndex?has_content />
 
 <article class="article article--publication ${hasChapters?then('nhsd-!t-display-chapters', '')}" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header">
-    <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions"/>
+    <#assign metaData = publicationMetaData(publication, publication.publiclyAccessible) />
 
-    <@detailsBanner publication publication.publiclyAccessible showDownload />
+    <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions"/>
+    <#if metaData["metaData"]?size gt 0>
+        <#list metaData["metaData"] as metaData>
+            <meta itemprop="${metaData.key}" content="${metaData.value}"/>
+        </#list>
+    </#if>
+
+    <#assign introText>
+        <#if publication.parentDocument?has_content>
+            <@hst.link hippobean=publication.parentDocument.selfLinkBean var="parentLink"/>
+            <@fmt.message key="labels.publication"/>, Part of <a class="nhsd-a-link nhsd-a-link--col-white"
+                                                                 href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>"
+                                                                 onClick="${getOnClickMethodCall(publication.parentDocument.class.name, parentLink)}"
+                                                                 itemprop="url"><span itemprop="name">${publication.parentDocument.title}</span></a>
+        <#else>
+            <@fmt.message key="labels.publication"/>
+        </#if>
+    </#assign>
+
+    <#if publication.parentDocument?has_content && publication.parentDocument.informationType?has_content>
+        <#assign informationTypes = publication.parentDocument.informationType/>
+    <#elseif publication.informationType?has_content>
+        <#assign informationTypes = publication.informationType/>
+    </#if>
+
+    <#assign heroOptions = {
+        "introText": introText,
+        "title": publication.title,
+        "metaData": metaData["headerMetaData"],
+        "colour": "darkBlue",
+        "uiPath": "ps.publication"
+    }/>
+
+    <#if !showDownload?has_content || showDownload>
+        <@fmt.message key="labels.download-pdf" var="downloadPdf"/>
+        <#assign heroOptions += {
+            "buttons": [{
+                "text": downloadPdf,
+                "src": "#",
+                "type": "invert",
+                "classes": "js-print-pdf-button"
+            }]
+        }/>
+    </#if>
+
+    <#if informationTypes?has_content && informationTypes?seq_contains("National statistics")>
+        <@hst.webfile path="images/national-statistics-logo.svg" var="badgeSrc"/>
+        <#assign heroOptions += {
+            "badge": {
+                "src": badgeSrc,
+                "alt": "National Statistics"
+            }
+        }/>
+    </#if>
+
+    <@hero heroOptions>
+        <#assign informationTypes = publication.informationType/>
+        <#if publication.parentDocument?has_content && publication.parentDocument.informationType?has_content>
+            <#assign informationTypes = publication.parentDocument.informationType/>
+        </#if>
+        <#if informationTypes?has_content>
+            <p class="nhsd-t-body nhsd-!t-margin-0 nhsd-!t-margin-top-4" data-uipath="ps.publication.information-types">
+                <#list informationTypes as type>${type}<#sep>, </#list>
+            </p>
+        </#if>
+    </@hero>
+
     <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
     <#if publication.publiclyAccessible && publication.pageIndex?has_content>
@@ -38,7 +105,6 @@
     </#if>
 
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
-
         <#if publication.changenotice?has_content>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col-xs-12 nhsd-!t-margin-bottom-6">
@@ -59,7 +125,6 @@
                 </div>
             </div>
         </#if>
-
 
         <div class="nhsd-t-row">
             <#if publication.publiclyAccessible>
@@ -96,7 +161,7 @@
                     <#assign hasFactInfoGraphic = (document.keyFactInfographics?? && document.keyFactInfographics?size > 0) />
                     <#assign hasInteractiveTool = (document.interactivetool?? && document.interactivetool?has_content) />
 
-                    <#assign hasOldKeyfacts = document.keyFacts.elements?has_content || keyFactImageSections?has_content />
+                    <#assign hasOldKeyfacts = (document.keyFacts?? && document.keyFacts.elements?has_content) || keyFactImageSections?has_content />
                     <#assign hasNewKeyfacts = hasFactHead || hasFactTail || hasFactInfoGraphic || hasInteractiveTool />
 
                     <#if hasNewKeyfacts || hasOldKeyfacts>

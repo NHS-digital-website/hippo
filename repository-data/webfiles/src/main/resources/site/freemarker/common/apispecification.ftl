@@ -1,7 +1,8 @@
 <#ftl output_format="HTML">
 
 <#include "../include/imports.ftl">
-<#include "../nhsd-common/macros/header-banner.ftl">
+<#include "../nhsd-common/macro/heroes/hero.ftl">
+<#include "../nhsd-common/macro/heroes/hero-options.ftl">
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ApiSpecification" -->
 <#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 
@@ -19,7 +20,7 @@
         <@metaTags></@metaTags>
 
         <article itemscope>
-            <@headerBanner document />
+            <@hero getHeroOptions(document) />
             <style type="text/css">
 
                 .nhsd-o-schema__expander {
