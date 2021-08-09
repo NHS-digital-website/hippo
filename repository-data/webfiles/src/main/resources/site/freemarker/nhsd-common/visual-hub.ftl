@@ -3,14 +3,14 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.VisualHub" -->
 
 <#include "../include/imports.ftl">
-<#include "macros/header-banner.ftl">
+<#include "macro/heroes/hero.ftl">
+<#include "macro/heroes/hero-options.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/visualhubBox.ftl">
 <#include "macro/tabTileHeadings.ftl">
 <#include "macro/tabTiles.ftl">
 <#include "macro/contentPixel.ftl">
-<#include 'macro/published-work-banners/slim-picture.ftl'>
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -29,20 +29,16 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article>
-    <#if hasBannerImage>
-        <@hst.link hippobean=document.image.pageHeaderSlimBannerSmall2x fullyQualified=true var="selectedBannerImage" />
-        <#assign bannerImage = selectedBannerImage />
+    <#assign heroOptions = getHeroOptions(document) />
+    <#if heroOptions.image?has_content>
+        <@hero getHeroOptions(document) "image" />
+    <#else>
+        <@hero getHeroOptions(document) />
     </#if>
-    <#assign slimPictureConfig = {
-        "document": document,
-        "bannerImage": bannerImage,
-        "bannerImageAltText": "Document Header"
-    } />
-    <@slimPicture slimPictureConfig />
-    
-    <div class="nhsd-t-grid"> 
+
+    <div class="nhsd-t-grid">
     <#if document.introduction?has_content>
-            <div class="nhsd-t-row nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-4">
+            <div class="nhsd-t-row nhsd-!t-margin-top-8 nhsd-!t-margin-bottom-4">
                 <div class="nhsd-t-col-12">
                     <@hst.html hippohtml=document.introduction contentRewriter=brContentRewriter />
                 </div>
@@ -87,7 +83,7 @@
                             </div>
                         </#list>
                     </#list>
-                </div> 
+                </div>
             </div>
         </div>
     </#if>

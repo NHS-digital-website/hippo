@@ -3,7 +3,6 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Service" -->
 
 <#include "../../include/imports.ftl">
-<#include "../macro/documentHeader.ftl">
 <#include "../macro/sections/sections.ftl">
 <#include "../macro/stickyNavSections.ftl">
 <#include "../macro/furtherInformationSection.ftl">
@@ -12,9 +11,9 @@
 <#include "../macro/latestblogs.ftl">
 <#include "../macro/component/calloutBox.ftl">
 <#include "../macro/contentPixel.ftl">
-<#include "../macros/header-banner.ftl">
-<#include "../macro/component/header-banner-image.ftl">
 <#import "../app-layout-head.ftl" as alh>
+<#include "../macro/heroes/hero.ftl">
+<#include "../macro/heroes/hero-options.ftl">
 
 <@hst.headContribution category="metadata">
     <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
@@ -49,15 +48,14 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article>
+    <#assign heroType = "default" />
     <#if hasBannerImage>
-        <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
-        <@headerBannerImage document bannerImage />
-    <#else>
-        <@headerBanner document />
+        <#assign heroType = "image" />
     </#if>
 
+    <@hero getHeroOptions(document) heroType />
 
-    <div class="nhsd-t-grid">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <#if document.updates?has_content>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col-12">

@@ -16,7 +16,7 @@
                     <#if data.type?? >
                         <#if data.type == "date" >
                             <#assign datePattern = (doctype=="cyberalert")?then('d MMMM yyyy h:mm a','d MMMM yyyy')/>
-                            <span ${itempropProp}><@fmt.formatDate value=data.value type="Date" pattern="${datePattern}" timeZone="${getTimeZone()}" /></span>
+                            <span ${itempropProp}></span>
                         <#elseif data.type == "list" >
                             <span ${itempropProp}><#list data.value as tag>${tag}<#sep>, </#list></span>
                         <#elseif data.type == "link" >

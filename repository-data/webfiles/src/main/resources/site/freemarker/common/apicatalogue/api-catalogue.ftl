@@ -5,7 +5,8 @@
 <#include "scrollable-filter-nav.ftl">
 <#include "api-catalogue-entries.ftl">
 <#include "../macro/svgIcons.ftl">
-<#include "../../nhsd-common/macros/header-banner.ftl">
+<#include "../../nhsd-common/macro/heroes/hero-options.ftl">
+<#include "../../nhsd-common/macro/heroes/hero.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
@@ -18,7 +19,7 @@
 
 <#assign alphabetical_hash = group_blocks(flat_blocks(apiCatalogueLinks true))/>
 
-<@headerBanner document />
+<@hero getHeroOptions(document) />
 
 <div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-api-catalogue">
 

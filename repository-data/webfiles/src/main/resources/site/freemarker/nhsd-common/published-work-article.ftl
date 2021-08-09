@@ -11,10 +11,9 @@
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
-<#include "../nhsd-common/macro/published-work-banners/text-banner.ftl">
-<#include "../nhsd-common/macro/published-work-banners/hero-module.ftl">
-<#include "../nhsd-common/macro/published-work-banners/slim-picture.ftl">
 <#include "../nhsd-common/macro/component/downloadBlockAsset.ftl">
+<#include "../nhsd-common/macro/heroes/hero-options.ftl">
+<#include "../nhsd-common/macro/heroes/hero.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/documentIcon.ftl">
 <#import "app-layout-head.ftl" as alh>
@@ -68,46 +67,32 @@
 
     <@hst.headContributions categoryIncludes="testscripts"/>
 
-    <#--  Commented out until blue banner ticket is unblocked. It will use hero until then  -->
+    <#assign heroOptions = getHeroOptionsWithMetaData(document)/>
 
-    <#--  <#if publicationStyle == 'bluebanner'>
-        <@textBanner document />
-    </#if>  -->
+    <#if document.button?? && document.button == "jumptocontent">
+        <#assign heroButtons = [{
+            "text": "Jump to overview",
+            "src": "#document-content",
+            "type": "invert"
+        }]/>
 
-    <#if publicationStyle == 'heromodule' || publicationStyle == 'bluebanner'>
-        <#if document.bannerImage.pageHeaderHeroModule??>
-            <@hst.link hippobean=document.bannerImage.pageHeaderHeroModule fullyQualified=true var="selectedBannerImage" />
-            <#assign bannerImage = selectedBannerImage />
-        </#if>
-
-        <#assign heroConfig = {
-        "document": document,
-        "bannerImage": bannerImage,
-        "bannerImageAltText": document.bannerImageAltText,
-        "button": document.button,
-        "buttonText": "Jump to overview",
-        "showTime": true
-        }
-        />
-        <@heroModule heroConfig />
+        <#assign heroOptions += {
+            "buttons": heroButtons
+        }/>
     </#if>
 
-    <#if publicationStyle == 'slimpicture'>
-        <#if document.bannerImage??>
-            <@hst.link hippobean=document.bannerImage.pageHeaderSlimBannerSmall2x fullyQualified=true var="selectedBannerImage" />
-            <#assign bannerImage = selectedBannerImage />
-        </#if>
-        <#assign slimPictureConfig = {
-        "document": document,
-        "bannerImage": bannerImage,
-        "bannerImageAltText": document.bannerImageAltText
-        }
-        />
-        <@slimPicture slimPictureConfig />
+    <#if publicationStyle == 'bluebanner' || !heroOptions.image?has_content>
+        <#assign heroOptions += {
+            "colour": "darkBlue"
+        }/>
+        <@hero heroOptions />
+    <#elseif publicationStyle == 'heromodule'>
+        <@hero heroOptions "image" />
+    <#elseif publicationStyle == 'slimpicture'>
+        <@hero getHeroOptions(document) "image" />
     </#if>
 
     <#if hasChildPages>
-
         <#assign documents = [] />
 
     <#-- Cache the parent document's details -->
@@ -122,7 +107,7 @@
 
         <@chapterNav document />
     </#if>
-    <div class="nhsd-t-grid">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8" id="document-content">
         <div class="nhsd-t-row">
             <#if renderNav>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">

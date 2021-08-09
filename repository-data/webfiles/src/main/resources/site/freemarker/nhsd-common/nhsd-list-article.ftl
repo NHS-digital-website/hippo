@@ -6,7 +6,8 @@
 <#include "../common/macro/metaTags.ftl">
 <#include "../common/macro/contentPixel.ftl">
 <#include "macros/alphabetical-group-of-blocks.ftl">
-<#include "macros/header-banner.ftl">
+<#include "macro/heroes/hero.ftl">
+<#include "macro/heroes/hero-options.ftl">
 <#include "macros/az-nav.ftl">
 
 <#-- Add meta tags -->
@@ -24,7 +25,7 @@
     <#assign alphabetical_hash = group_blocks(document.blocks)/>
 </#if>
 
-<@headerBanner document />
+<@hero getHeroOptions(document) />
 
 <div class="nhsd-t-grid nhsd-!t-margin-top-6">
 

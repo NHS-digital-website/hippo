@@ -8,7 +8,7 @@
         <@formatRestrictableDate value=document.nominalPublicationDate/>
     </#assign>
     <#assign headerMetaData = [{
-        "header": publicationDateHeader,
+        "title": publicationDateHeader,
         "value": publicationDate
     }]/>
     <#assign metaData = []/>
@@ -21,7 +21,7 @@
         </#if>
         <#if fullTaxonomyList?has_content>
             <#assign metaData += [{
-                "header": "keywords",
+                "key": "keywords",
                 "value": fullTaxonomyList?join(",")
             }]/>
         </#if>
@@ -37,7 +37,7 @@
                 <#assign geographicalCoverageVal += geographicCoverageItem + geographicCoverageItem?is_last?then("", ", ")/>
             </#list>
             <#assign headerMetaData += [{
-                "header": geographicalCoverageHeader,
+                "title": geographicalCoverageHeader,
                 "value": geographicalCoverageVal
             }]/>
         </#if>
@@ -54,7 +54,7 @@
                 <#assign geographicalGranularity += granularityItem + granularityItem?is_last?then("", ", ")/>
             </#list>
             <#assign headerMetaData += [{
-                "header": geographicalGranularityHeader,
+                "title": geographicalGranularityHeader,
                 "value": geographicalGranularity
             }]/>
         </#if>
@@ -76,7 +76,7 @@
                 <#assign coverageStart = "(Not specified)"/>
             </#if>
             <#assign headerMetaData += [{
-                "header": coverageStartHeader,
+                "title": coverageStartHeader,
                 "value": coverageStart
             }]/>
         </#if>

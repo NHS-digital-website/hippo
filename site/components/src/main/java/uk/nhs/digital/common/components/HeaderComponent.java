@@ -6,9 +6,11 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import uk.nhs.digital.common.components.info.HeaderComponentInfo;
+import uk.nhs.digital.common.contentrewriters.StripTagsContentRewriter;
 
 @ParametersInfo(type = HeaderComponentInfo.class)
 public class HeaderComponent extends CommonComponent {
+    private static final StripTagsContentRewriter stripTagsContentRewriter = new StripTagsContentRewriter();
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -39,5 +41,7 @@ public class HeaderComponent extends CommonComponent {
         request.setAttribute("button2Text", button2text);
         request.setAttribute("button2Url", button2Url);
         request.getRequestContext().setAttribute("headerPresent",true);
+
+        request.setAttribute("stripTagsContentRewriter", stripTagsContentRewriter);
     }
 }

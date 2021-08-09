@@ -8,7 +8,8 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/contentPixel.ftl">
-<#include "macros/header-banner.ftl">
+<#include "macro/heroes/hero-options.ftl">
+<#include "macro/heroes/hero.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -30,9 +31,9 @@
     <#assign pageIcon = document.bannercontrols.icon />
   </#if>
 
-  <@headerBanner document />
+  <@hero getHeroOptions(document) />
 
-  <div class="nhsd-t-grid">
+  <div class="nhsd-t-grid nhsd-!t-margin-top-8">
     <div class="nhsd-t-row">
       <#if renderNav>
       <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">

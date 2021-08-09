@@ -9,6 +9,7 @@
 <#include "macro/component/downloadBlockAsset.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/relatedarticles.ftl">
+<#include "macro/heroes/hero.ftl">
 
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
@@ -55,88 +56,74 @@
 <#else>
 <article aria-label="Document Header">
 </#if>
+    <@hero {
+        "title": document.title,
+        "colour": "darkBlue"
+    }>
+        <div class="nhsd-!t-margin-top-6">
+            <#if hasSessions>
+                <#-- [FTL-BEGIN] List of date ranges -->
+                <#list document.events as event>
 
-    <#--  Banner  -->
-    <div class="nhsd-o-hero nhsd-!t-bg-blue nhsd-!t-col-white nhsd-!t-margin-bottom-6">
-        <div class="nhsd-t-grid nhsd-!t-no-gutters">
-            <div class="nhsd-t-row ">
-                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-no-gutters">
-                    <div class="nhsd-o-hero__content-box  nhsd-o-hero__content-box--left-align">
-                        <div class="nhsd-o-hero__content">
-                            <span class="nhsd-t-heading-xl nhsd-!t-col-white" data-uipath="document.title">${document.title}</span>
+                    <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
+                    <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
+                    <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
+                    <#if event.enddatetime.time?date gt .now?date>
+                        <#assign hasFutureEvent = true>
+                    </#if>
 
-                            <#if hasSessions>
-                                <#-- [FTL-BEGIN] List of date ranges -->
-                                <#list document.events as event>
+                    <div itemscope itemtype="http://schema.org/Event">
+                        <#if document.events?size gt 1 && validDate>
+                            <p class="nhsd-t-heading-s nhsd-!t-col-white">Session ${event?counter}</p>
+                        </#if>
 
-                                    <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
-                                    <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
-                                    <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
-                                    <#if event.enddatetime.time?date gt .now?date>
-                                        <#assign hasFutureEvent = true>
-                                    </#if>
-
-                                    <div itemscope itemtype="http://schema.org/Event">
-                                        <#if document.events?size gt 1 && validDate>
-                                            <p class="nhsd-t-heading-s nhsd-!t-col-white">Session ${event?counter}</p>
-                                        </#if>
-
-
-                                        <#if validDate>
-                                            <div class="nhsd-o-hero__meta-data nhsd-!t-margin-bottom-6">
-                                                <div class="nhsd-o-hero__meta-data-item">
-                                                    <div class="nhsd-o-hero__meta-data-item-title">Date:</div>
-                                                    <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
-                                                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" />
-                                                        <#if comparableStartDate != comparableEndDate>
-                                                            - <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" />
-                                                        </#if>
-                                                    </div>
-                                                </div>
-
-                                                <div class="nhsd-o-hero__meta-data-item">
-                                                    <div class="nhsd-o-hero__meta-data-item-title">Time:</div>
-                                                    <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
-                                                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /> to <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <@schemaMeta "${document.title}" event.startdatetime.time?date event.enddatetime.time?date_if_unknown />
-                                        </#if>
-                                    </div>
-                                </#list>
-                            <#-- [FTL-END] List of date ranges -->
-                            <#else>
-                                <@schemaMeta "${document.title}" />
-                            </#if>
-
-                            <#-- [FTL-BEGIN] Location -->
-                            <div class="nhsd-o-hero__meta-data">
+                        <#if validDate>
+                            <div class="nhsd-o-hero__meta-data nhsd-!t-margin-bottom-6">
                                 <div class="nhsd-o-hero__meta-data-item">
-                                    <div class="nhsd-o-hero__meta-data-item-title">Location:</div>
+                                    <div class="nhsd-o-hero__meta-data-item-title">Date:</div>
                                     <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
-                                        <span>${document.location}</span>
-                                        <#if document.maplocation?has_content>
-                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.maplocation) />
-                                            <span>
-                                                <a class="nhsd-a-link nhsd-a-link nhsd-a-link--col-white" href="${document.maplocation}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">View Map</a>
-                                            </span>
+                                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                        <#if comparableStartDate != comparableEndDate>
+                                            - <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" />
                                         </#if>
                                     </div>
                                 </div>
+
+                                <div class="nhsd-o-hero__meta-data-item">
+                                    <div class="nhsd-o-hero__meta-data-item-title">Time:</div>
+                                    <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
+                                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /> to <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" />
+                                    </div>
+                                </div>
                             </div>
-                            <#-- [FTL-END] Location -->
-                        </div>
+                            <@schemaMeta "${document.title}" event.startdatetime.time?date event.enddatetime.time?date_if_unknown />
+                        </#if>
+                    </div>
+                </#list>
+            <#-- [FTL-END] List of date ranges -->
+            <#else>
+                <@schemaMeta "${document.title}" />
+            </#if>
+
+            <#-- [FTL-BEGIN] Location -->
+            <div class="nhsd-o-hero__meta-data">
+                <div class="nhsd-o-hero__meta-data-item">
+                    <div class="nhsd-o-hero__meta-data-item-title">Location:</div>
+                    <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
+                        <span>${document.location}</span>
+                        <#if document.maplocation?has_content>
+                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.maplocation) />
+                            <span>
+                                <a class="nhsd-a-link nhsd-a-link nhsd-a-link--col-white" href="${document.maplocation}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">View Map</a>
+                            </span>
+                        </#if>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="nhsd-a-digiblocks nhsd-a-digiblocks--pos-tr nhsd-a-digiblocks--col-light-blue">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 550"><g><g transform="translate(222, 224)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon></g><g transform="translate(328.5, 367.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon></g><g transform="translate(151, 306)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#3C4D57"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#32434C"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#313D45"></polygon></g><g transform="translate(80, 306)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon></g></g><g><g transform="translate(186.5, 203.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon></g><g transform="translate(186.5, 285.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon></g><g transform="translate(222, 306)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon></g><g transform="translate(9, 306)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon></g><g transform="translate(257.5, 449.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#F5D507"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F2CB0C"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EEC000"></polygon></g></g><g><g transform="translate(186.5, 203.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon></g><g transform="translate(399.5, 326.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon></g><g transform="translate(222, 306)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon></g></g><g><g transform="translate(328.5, 162.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#F5D507"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F2CB0C"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EEC000"></polygon></g><g transform="translate(399.5, 244.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon></g><g transform="translate(115.5, 162.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon></g><g transform="translate(186.5, 244.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon></g><g transform="translate(328.5, 326.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon></g><g transform="translate(257.5, 326.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#3C4D57"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#32434C"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#313D45"></polygon></g></g><g><g transform="translate(328.5, 244.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#DADFDF"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#CDD5D6"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#C5CDCF"></polygon></g><g transform="translate(257.5, 285.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon></g><g transform="translate(44.5, 203.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon></g><g transform="translate(151, 265)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon></g></g><g><g transform="translate(435, 142)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon></g></g><g><g transform="translate(328.5, 39.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon></g><g transform="translate(222, 19)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon></g><g transform="translate(257.5, 80.5)"><polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#DADFDF"></polygon><polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#CDD5D6"></polygon><polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#C5CDCF"></polygon></g></g></svg>
-        </div>
-    </div>
+    </@hero>
 
-    <div class="nhsd-t-grid">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
 
