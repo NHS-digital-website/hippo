@@ -74,6 +74,9 @@ definitions:
       /coronavirus-banner:
         hst:renderpath: webfile:/freemarker/common/coronavirus-banner.ftl
         jcr:primaryType: hst:template
+      /corporatepolicy:
+        hst:renderpath: webfile:/freemarker/nhsd-common/corporate-policy.ftl
+        jcr:primaryType: hst:template
       /cta-list:
         hst:renderpath: webfile:/freemarker/common/cta-list.ftl
         jcr:primaryType: hst:template
@@ -268,6 +271,9 @@ definitions:
         jcr:primaryType: hst:template
       /person-article:
         hst:renderpath: webfile:/freemarker/common/person-article.ftl
+        jcr:primaryType: hst:template
+      /policy-page:
+        hst:renderpath: webfile:/freemarker/nhsd-common/policy-page.ftl
         jcr:primaryType: hst:template
       /project-update:
         hst:renderpath: webfile:/freemarker/common/project-update.ftl

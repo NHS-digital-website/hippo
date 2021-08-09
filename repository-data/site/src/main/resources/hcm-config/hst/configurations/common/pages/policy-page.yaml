@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/policy-page:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.PolicyPageLinkedBeansComponent
+        hst:parameternames:
+        - linkPath
+        - googleAnalyticsContentRewriter
+        - brandRefreshContentRewriter
+        hst:parametervalues:
+        - website:childPage/@hippo:docbase
+        - 'true'
+        - 'true'
+        hst:template: policy-page
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/nhsd-apppage
+      jcr:primaryType: hst:component
