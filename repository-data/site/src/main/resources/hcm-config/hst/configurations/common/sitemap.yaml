@@ -45,6 +45,8 @@ definitions:
           - website:projectupdate
           - website:signup
           - website:video
+          - website:policypage
+          - website:corporatepolicy
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -85,6 +87,8 @@ definitions:
           - hst:pages/project-update
           - hst:pages/sign-up
           - hst:pages/video
+          - hst:pages/policy-page
+          - hst:pages/corporatepolicy
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         /root:
@@ -132,6 +136,8 @@ definitions:
         - website:projectupdate
         - website:signup
         - website:video
+        - website:policypage
+        - website:corporatepolicy
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -172,6 +178,8 @@ definitions:
         - hst:pages/project-update
         - hst:pages/sign-up
         - hst:pages/video
+        - hst:pages/policy-page
+        - hst:pages/corporatepolicy
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

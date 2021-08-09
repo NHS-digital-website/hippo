@@ -1,0 +1,357 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/corporatepolicy:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Title
+            field: title
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /summary:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Summary
+            field: summary
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Short Summary
+            field: shortsummary
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /seoSummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: SEO Summary
+            field: seoSummary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /policyStatus:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Draft,Approved,Replaced,Retired
+            caption: Policy Status
+            field: policyStatus
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /owningteam:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes: website:team
+            caption: Owning team
+            field: owningteam
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /contactDetails:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Contact details
+            field: contactDetails
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /policyEffDate:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Policy effective date
+            field: policyEffDate
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /policyWithdrawalDate:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Policy withdrawal or replacement date
+            field: policyWithdrawalDate
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /acknowledgementsection:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Acknowledgement section
+            field: acknowledgementsection
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /highlightsection:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Highlights section
+            field: highlightsection
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /bodySection:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Body section
+            compoundList: website:section,publicationsystem:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:tableau,website:tableauLookup,website:statistics,website:navigation,website:svg,website:propertytable
+            contentPickerType: links
+            field: bodySection
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
+          /childPage:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes: website:policypage
+            caption: Child Page
+            field: childPage
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pubstylesection:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Publication style section
+            field: pubstylesection
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /classifiable:
+            /cluster.options:
+              caption: Taxonomy keys
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            jcr:primaryType: frontend:plugin
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /acknowledgementsection:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:acknowledgementsection
+            hipposysedit:primary: false
+            hipposysedit:type: website:acknowledgementsection
+            jcr:primaryType: hipposysedit:field
+          /bodySection:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:bodySection
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /childPage:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:childPage
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /contactDetails:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:contactDetails
+            hipposysedit:primary: false
+            hipposysedit:type: website:userContact
+            jcr:primaryType: hipposysedit:field
+          /highlightsection:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:highlightsection
+            hipposysedit:primary: false
+            hipposysedit:type: website:highlightsection
+            jcr:primaryType: hipposysedit:field
+          /owningteam:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:owningteam
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /policyEffDate:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:policyEffDate
+            hipposysedit:primary: false
+            hipposysedit:type: Date
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /policyStatus:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:policyStatus
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /policyWithdrawalDate:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:policyWithdrawalDate
+            hipposysedit:primary: false
+            hipposysedit:type: Date
+            jcr:primaryType: hipposysedit:field
+          /pubstylesection:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:pubstylesection
+            hipposysedit:primary: false
+            hipposysedit:type: website:pubstylesection
+            jcr:primaryType: hipposysedit:field
+          /seoSummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seoSummary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
+          /shortsummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /summary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /website:acknowledgementsection:
+            jcr:primaryType: website:acknowledgementsection
+          /website:contactDetails:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactemailquite: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:highlightsection:
+            jcr:primaryType: website:highlightsection
+            website:highlightstitle: ''
+            website:text: ''
+          /website:owningteam:
+            jcr:primaryType: publicationsystem:relatedlink
+          /website:pubstylesection:
+            /website:bannerimage:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            jcr:primaryType: website:pubstylesection
+            website:banneralttext: ''
+          /website:seoSummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2021-08-05T15:26:39.582Z
+          hippostdpubwf:lastModificationDate: 2021-08-05T15:26:39.582Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hippotaxonomy:classifiable
+          jcr:primaryType: website:corporatepolicy
+          website:policyEffDate: 0001-01-01T12:00:00Z
+          website:policyWithdrawalDate: 0001-01-01T12:00:00Z
+          website:shortsummary: ''
+          website:summary: ''
+          website:title: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
