@@ -22,7 +22,7 @@ public class BlogPageElements implements PageElements {
             put(BLOG_SHORT_SUMMARY,
                 By.xpath("//*[" + getDataUiPathXpath("shortsummary") + "]"));
             put(DATE_OF_PUBLICATION,
-                By.xpath("//*[" + getDataUiPathXpath("dateofpublication") + "]"));
+                By.xpath("//*[" + getDataUiPathXpath("date") + "]"));
             put(TAXONOMY_TAGS,
                 By.xpath("//*[" + getDataUiPathXpath("topics") + "]"));
             put(CATEGORIES,

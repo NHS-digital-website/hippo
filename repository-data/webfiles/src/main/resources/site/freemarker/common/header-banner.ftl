@@ -1,22 +1,48 @@
 <#ftl output_format="HTML">
-<#include "../nhsd-common/macros/header-banner.ftl">
+<#include "../nhsd-common/macro/heroes/hero-options.ftl">
+<#include "../nhsd-common/macro/heroes/hero.ftl">
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
 
+<#assign heroOptions = getHeroOptions(banner) />
 
-<#assign banner1 = {
-    "text": button1Text,
-    "url": button1Url
-}/>
+<#assign buttons = [] />
+<#if button1Text?has_content && button1Url?has_content>
+    <#assign buttons += [{
+        "text": button1Text,
+        "url": button1Url
+    }]/>
+</#if>
 
-<#assign banner2 = {
-    "text": button2Text,
-    "url": button2Url
-}/>
+<#if button2Text?has_content && button2Url?has_content>
+    <#assign buttons += [{
+        "text": button2Text,
+        "url": button2Url
+    }]/>
+</#if>
+<#assign heroOptions += {"buttons": buttons} />
+
+<#assign digiblocks = ['tr'] />
+<#if digiblockposition == "Left & Right">
+    <#assign digiblocks += ["bl"]/>
+</#if>
+<#assign heroOptions += {"digiblocks": digiblocks} />
+
+<#if alignment?has_content && alignment == "Centre">
+    <#assign heroOptions += {
+        "alignment": "centre"
+    }/>
+</#if>
+
+<#if colour?has_content>
+    <#assign heroOptions += {
+        "colour": colour
+    }/>
+</#if>
 
 <#if banner??>
     <#assign overridePageTitle>${banner.title}</#assign>
     <@metaTags></@metaTags>
-<#global test="Hello"/>
-    <@headerBanner banner banner1 banner2 color alignment digiblockposition />
+    <#global test="Hello"/>
+    <@hero heroOptions />
 </#if>

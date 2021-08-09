@@ -9,9 +9,8 @@
 <#include "../nhsd-common/macro/component/chapter-pagination.ftl">
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
-<#include "../nhsd-common/macro/published-work-banners/text-banner.ftl">
-<#include "../nhsd-common/macro/published-work-banners/hero-module.ftl">
-<#include "../nhsd-common/macro/published-work-banners/slim-picture.ftl">
+<#include "./macro/heroes/hero.ftl">
+<#include "./macro/heroes/hero-options.ftl">
 <#include "macro/contentPixel.ftl">
 <#import "app-layout-head.ftl" as alh>
 
@@ -26,59 +25,14 @@
 
 <#-- Define variables to prevent null values  -->
 <#assign parentWork = document.publishedWork />
-<#assign bannerImage = "" />
-<#assign bannerImageAltText = "" />
-<#assign button = "" />
 <#assign parentText = "" />
 <#assign parentLink = "" />
-
-<#-- Default to blue banner if nothing else works -->
-<#assign publicationStyle = "bluebanner" />
-
-<#-- Overly Complicated set of nested If Statements -->
-<#-- If parent style is chosen, or no publication style is set, use the parent style -->
-<#if parentWork.publicationStyle?? && (!(document.publicationStyle)?? || document.publicationStyle == 'parent')>
-
-<#-- If an image has been set in this document, use that, else use the parent -->
-    <#if document.bannerImage??>
-        <#assign imageDocument = document />
-    <#else>
-        <#assign imageDocument = parentWork />
-    </#if>
-
-    <#assign publicationStyle = parentWork.publicationStyle />
-
-<#-- If style is set in the current document, use that -->
-<#elseif document.publicationStyle?? && document.publicationStyle?length gt 0>
-    <#assign imageDocument = document />
-    <#assign publicationStyle = document.publicationStyle />
-</#if>
-
-<#--  Use current values, else use parent values, if any  -->
-<#if document.bannerAltText??>
-    <#assign bannerImageAltText = document.bannerAltText />
-<#elseif parentWork.bannerImageAltText??>
-    <#assign bannerImageAltText = parentWork.bannerImageAltText />
-</#if>
-
-<#if document.button??>
-    <#assign button = document.button />
-<#elseif parentWork.button??>
-    <#assign button = parentWork.button />
-</#if>
-
-<#-- Don't use the summary in the content when the hero module is active -->
-<#if publicationStyle = 'heromodule'>
-    <#assign hasSummaryContent = false />
-<#else>
-    <#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
-</#if>
 
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChapters = linkeddocuments?? && linkeddocuments.hippoBeans?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 
-<#assign renderNav = (hasSummaryContent && sectionTitlesFound gte 1) || (sectionTitlesFound gt 1) />
+<#assign renderNav = sectionTitlesFound gt 1 />
 
 <#if hasChapters>
     <#assign documents = [] />
@@ -109,53 +63,69 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-display-chapters"
-     aria-label="Document Header">
+<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-display-chapters" aria-label="Document Header">
+    <#assign heroOptions = getHeroOptionsWithMetaData(document)/>
 
-    <#--  Commented out until blue banner ticket is unblocked. It will use hero until then  -->
-
-    <#--  <#if publicationStyle == 'bluebanner'>
-        <@textBanner document topText/>
-    </#if>  -->
-
-    <#if publicationStyle == 'heromodule' || publicationStyle == 'bluebanner'>
-        <#if imageDocument.bannerImage.pageHeaderHeroModule??>
-            <@hst.link hippobean=imageDocument.bannerImage.pageHeaderHeroModule fullyQualified=true var="selectedBannerImage" />
-            <#assign bannerImage = selectedBannerImage />
-        </#if>
-        <#assign heroConfig = {
-        "document": document,
-        "bannerImage": bannerImage,
-        "bannerImageAltText": bannerImageAltText,
-        "button": button,
-        "buttonText": "Jump to content",
-        "showTime": false,
-        "topText": parentText,
-        "topTextLink": parentLink
-        }
-        />
-        <@heroModule heroConfig />
+    <#assign publicationStyle = document.publicationStyle?has_content?then(document.publicationStyle, 'bluebanner')>
+    <#if document.publicationStyle == 'parent'>
+        <#assign parentHeroOptions = getHeroOptionsWithMetaData(parentWork)/>
+        <#assign publicationStyle = parentWork.publicationStyle/>
+        <#assign heroOptions += {
+          "image": parentHeroOptions.image
+        }/>
     </#if>
 
-    <#if publicationStyle == 'slimpicture'>
-        <#if imageDocument.bannerImage.pageHeaderSlimBannerSmall2x??>
-            <@hst.link hippobean=imageDocument.bannerImage.pageHeaderSlimBannerSmall2x fullyQualified=true var="selectedBannerImage" />
-            <#assign bannerImage = selectedBannerImage />
-        </#if>
-        <#assign slimPictureConfig = {
-        "document": document,
-        "bannerImage": bannerImage,
-        "bannerImageAltText": bannerImageAltText,
-        "topText": parentText,
-        "topTextLink": parentLink
-        } />
-        <@slimPicture slimPictureConfig />
+    <#if parentText?has_content>
+        <#assign introText>
+            Part of ${parentLink?has_content?then("<a class=\"nhsd-a-link nhsd-a-link--col-white\" href=\"" + parentLink + "\">" + parentText + "</a>", parentText)?no_esc}
+        </#assign>
+    </#if>
+
+    <#if document.button??>
+        <#assign button = document.button />
+    <#else>
+        <#assign button = parentWork.button />
+    </#if>
+
+    <#if button?? && button == "jumptocontent">
+        <#assign heroButtons = [{
+            "text": "Jump to overview",
+            "src": "#document-content",
+            "type": "invert"
+        }]/>
+
+        <#assign heroOptions += {
+            "buttons": heroButtons
+        }/>
+    </#if>
+
+    <#if publicationStyle == 'bluebanner' || !heroOptions.image?has_content>
+        <#assign heroOptions += {
+            "colour": "darkBlue",
+            "introText": introText
+        }/>
+        <@hero heroOptions />
+    <#elseif publicationStyle == 'heromodule'>
+        <#assign heroOptions += {
+            "introText": introText
+        }/>
+        <@hero heroOptions "image" />
+    <#elseif publicationStyle == 'slimpicture'>
+        <@hero getHeroOptions(document) "image" />
     </#if>
 
     <#if hasChapters>
         <@chapterNav document "Current chapter – " />
     </#if>
-    <div class="nhsd-t-grid">
+
+    <#-- Don't use the summary in the content when the hero module is active -->
+    <#if publicationStyle = 'heromodule'>
+        <#assign hasSummaryContent = false />
+    <#else>
+        <#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
+    </#if>
+
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row" id="document-content">
             <#if renderNav>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">

@@ -3,8 +3,8 @@ Feature: Ensure Blog page displays required fields.
     Scenario: Check individual content fields (Blog)
         Given I navigate to the "Blog test document 1" page
         Then I should see blog page titled "Blog AcceptanceTestDocument 1"
+        Then I should see blog page summary "Browse our blog page to see what is happening"
         And I should also see:
-            | Blog Short Summary     | Browse our blog page to see what is happening |
             | Date of Publication    | 18 September 2020 |
             | Taxonomy Tags          | Falls, Breaks and fractures |
             | Categories             | Content, How we work |
