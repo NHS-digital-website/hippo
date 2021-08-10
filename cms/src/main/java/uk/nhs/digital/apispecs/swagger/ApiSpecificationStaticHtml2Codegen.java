@@ -32,6 +32,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
@@ -118,7 +119,6 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
             .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
             .registerHelper(StringHelpers.lower.name(), StringHelpers.lower)
             .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
-            .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
             .registerHelper(UuidHelper.NAME, UuidHelper.INSTANCE);
     }
 
@@ -380,12 +380,51 @@ public class ApiSpecificationStaticHtml2Codegen extends StaticHtml2Codegen {
 
         final Map<String, Object> operationsMap =
             (Map<String, Object>) Optional.ofNullable(operationsToPostProcess.get("operations")).orElse(emptyMap());
-
+        final String groupName = Optional.ofNullable(operationsMap.get("pathPrefix"))
+            .map(String.class::cast)
+            .orElse("");
         final List<CodegenOperation> operations =
             (List<CodegenOperation>) Optional.ofNullable(operationsMap.get("operation")).orElse(emptyList());
+        return sortedAccordingToCustomOrder(operations, groupName);
+    }
 
+    private List<CodegenOperation> sortedAccordingToCustomOrder(List<CodegenOperation> operations, String groupName) {
+        final Predicate matchesGroupName = operationOrderEntry ->
+            Optional.ofNullable(
+                ((LinkedHashMap<?, ?>) operationOrderEntry).get("group")
+            ).map(String.class::cast)
+            .map(this::toApiVarName)
+            .orElse("default")
+            .equals(groupName);
+
+        LinkedHashMap<String,Object> operationOrderGroup = (LinkedHashMap<String, Object>) Optional.ofNullable(openAPI.getExtensions())
+            .map(extensions -> extensions.get("x-spec-publication"))
+            .map(LinkedHashMap.class::cast)
+            .map(xSpecPublication -> xSpecPublication.get("operation-order"))
+            .map(List.class::cast)
+            .orElse(emptyList())
+            .stream()
+            .map(LinkedHashMap.class::cast)
+            .filter(matchesGroupName)
+            .findFirst()
+            .orElse(new LinkedHashMap<>());
+
+        if (operationOrderGroup.isEmpty()) {
+            return operations;
+        }
+
+        List<LinkedHashMap> ops = (List<LinkedHashMap>) Optional.ofNullable(operationOrderGroup.get("operations")).orElse(new ArrayList<>());
+        Function<CodegenOperation, Integer> getReferenceIndexOf = op -> {
+            LinkedHashMap<?,?> matchingReference = ops.stream().filter(
+                opReference -> ((String) opReference.get("method")).equalsIgnoreCase(op.getHttpMethod()) && opReference.get("path").equals(op.getPath())
+            ).findFirst().orElse(new LinkedHashMap());
+            return ops.indexOf(matchingReference);
+        };
+
+        operations.sort(Comparator.comparingInt(getReferenceIndexOf::apply));
         return operations;
     }
+
 
     private void postProcessRequestBody(final CodegenParameter parameter) {
 

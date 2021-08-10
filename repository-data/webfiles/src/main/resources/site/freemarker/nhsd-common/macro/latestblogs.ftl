@@ -11,13 +11,15 @@
 
  <#assign hasLatestBlogs = blogs?has_content && blogs?size &gt; 0 />
   <#if hasLatestBlogs>
-  <div class="nhsd-o-card-list nhsd-!t-margin-bottom-8" data-max-count="${itemsMaxCount}" data-state="short">
-    <div class="nhsd-t-grid nhsd-!t-no-gutters">
-        <div class="nhsd-t-row">
-            <div class="nhsd-t-col">
-                <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7 nhsd-!t-margin-top-6">${title}</h2>
+  <div class="nhsd-o-card-list nhsd-!t-margin-bottom-4" data-max-count="${itemsMaxCount}" data-state="short">
+    <div class="nhsd-t-grid nhsd-t-grid--nested">
+        <#if title?has_content>
+            <div class="nhsd-t-row">
+                <div class="nhsd-t-col">
+                    <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7 nhsd-!t-margin-top-6">${title}</h2>
+                </div>
             </div>
-        </div>
+        </#if>
 
         <div class="nhsd-t-row nhsd-o-card-list__items">
             <#list blogs as latest>
