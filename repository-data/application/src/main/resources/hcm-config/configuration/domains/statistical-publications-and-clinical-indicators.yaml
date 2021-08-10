@@ -12,6 +12,24 @@ definitions:
         - statistical-publications-and-clinical-indicators-editor
         hipposys:role: editor
         jcr:primaryType: hipposys:authrole
+      /organisation-structure-documents:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/about-nhs-digital/our-organisation/our-organisation-structure
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /people-documents:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/people
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /publication-system-documents:
         /not-top-folder:
           hipposys:equals: false
@@ -41,6 +59,15 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/corporate-website/supplementary-info
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /supplementary-information-assets:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/assets/website-assets/supplementary-information
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
       jcr:primaryType: hipposys:domain
