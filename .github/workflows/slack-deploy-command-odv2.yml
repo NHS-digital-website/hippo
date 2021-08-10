@@ -3,7 +3,7 @@ name: Slack Deployment Command for ODv2
 on:
   repository_dispatch:
     types:
-      - slack-deploy-command
+      - slack-deploy-command-odv2
 
 jobs:
 
