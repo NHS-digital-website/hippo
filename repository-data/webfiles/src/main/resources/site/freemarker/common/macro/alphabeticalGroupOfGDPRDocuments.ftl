@@ -33,9 +33,12 @@
                     <#assign hasBlocks = gdprDocument.blocks?? && gdprDocument.blocks?size!=0 />
 
                     <article class="cta cta--gdpr-summary">
+                        <@hst.link hippobean=gdprDocument var="relatedSubjectLink"/>
                         <div class="grid-row">
                             <div class="column column--reset">
-                                <h2 class="cta__title"><a href="<@hst.link hippobean=gdprDocument />">${gdprDocument.title}</a></h2>
+                                <h2 class="cta__title">
+                                    <a href="<@hst.link hippobean=gdprDocument />"
+                                                          onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}">${gdprDocument.title}--></a></h2>
                             </div>
                         </div>
 
@@ -72,10 +75,13 @@
                                 <h3 class="cta__subtitle"><@fmt.message key="labels.asset-used-by"/></h3>
                                 <ul class="list cta-list">
                                     <#list gdprDocument.blocks as block>
+                                        <@hst.link hippobean=block.link var="relatedSubjectLink1"/>
                                     <li>
                                         <article class="cta">
                                             <#if block.linkType == "internal">
-                                                <h2 class="cta__meta cta__meta--reset-bottom"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
+                                                <h2 class="cta__meta cta__meta--reset-bottom">
+                                                    <a href="<@hst.link hippobean=block.link />"
+                                                       onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink1)}">${block.link.title}</a></h2>
                                             <#else>
                                                 <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
                                                 <h2 class="cta__meta cta__meta--reset-bottom"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>

@@ -176,12 +176,12 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    public void rendersEndpointsHeading_whenOperationsNotTagged() {
+    public void rendersEndpointsHeading_whenOperationOrderNotSupplied() {
 
         // given
-        final String specificationJson = from("oasV3_operationsNotTagged.json");
+        final String specificationJson = from("oasV3_operationOrderNotSupplied.json");
 
-        final String expectedSpecHtml = from("oasV3_operationsNotTagged.html");
+        final String expectedSpecHtml = from("oasV3_operationOrderNotSupplied.html");
 
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
@@ -195,20 +195,61 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    public void rendersEndpointsHeadings_whenOperationsTagged() {
+    public void rendersEndpointsHeadings_inSpecifiedOrder_whenOrderMetadataSupplied() {
         // given
-        final String specificationJson = from("oasV3_operationsTagged.json");
-
-        final String expectedSpecHtml = from("oasV3_operationsTagged.html");
+        final String specificationJson = from("oasV3_operationOrderSupplied.json");
 
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
 
         // then
-        assertThat(
-            "Headings 'Endpoint:' have been generated for each operation with a tag - in the side nav and in the content area.",
+
+        // Assert that:
+        // - groups ordered by custom order
+        // - endpoints ordered within the groups by custom order
+        // - paths with suffixes handled and rendered according to custom order
+        // - endpoints not defined in the metadata ignored
+
+        // Endpoints
+        //   Post operation B
+        //   Get operation A with suffix 1
+        // Endpoints: Resource B
+        //   Get operation B
+        // Endpoints: Resource C
+        //   Post operation A with suffix 2
+        //   Post operation A with suffix 1
+        // Endpoints: Resource A
+        //   Post operation A
+        //   Get operation A
+
+        assertThat("Headings 'Endpoint:' have been generated for each operation with a tag - in the side nav and in the content area.",
             ignoringWhiteSpacesIn(actualSpecHtml),
-            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+            stringContainsInOrder(
+                // nav menu with custom order
+                "<a class=\"nhsd-a-link\" href=\"#api-endpoints\">\nEndpoints\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-IgnoredTagA-path_bPost\">\nPost operation B\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-IgnoredTagB-path_awith_suffix_1Get\">\nGet operation A with suffix 1\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-Resource B\">\nEndpoints: Resource B\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-IgnoredTagC-path_bGet\">\nGet operation B\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-Resource C\">\nEndpoints: Resource C\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-IgnoredTagB-path_awith_suffix_2Post\">\nPOST operation A with suffix 2\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-IgnoredTagC-path_awith_suffix_1Post\">\nPost operation A with suffix 1\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-Resource A\">\nEndpoints: Resource A\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-IgnoredTagB-path_aPost\">\nPost operation A\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-IgnoredTagA-path_aGet\">\nGet operation A\n</a>",
+                // spec headings in custom order
+                "<h2 id=\"api-endpoints\" class=\"nhsd-t-heading-xl\">Endpoints</h2>\n",
+                "<h3 id=\"api-IgnoredTagA-path_bPost\" class=\"nhsd-t-heading-l\">Post operation B</h3>\n",
+                "<h3 id=\"api-IgnoredTagB-path_awith_suffix_1Get\" class=\"nhsd-t-heading-l\">Get operation A with suffix 1</h3>\n",
+                "<h2 id=\"api-Resource B\" class=\"nhsd-t-heading-xl\">Endpoints: Resource B</h2>\n",
+                "<h3 id=\"api-IgnoredTagC-path_bGet\" class=\"nhsd-t-heading-l\">Get operation B</h3>\n",
+                "<h2 id=\"api-Resource C\" class=\"nhsd-t-heading-xl\">Endpoints: Resource C</h2>\n",
+                "<h3 id=\"api-IgnoredTagB-path_awith_suffix_2Post\" class=\"nhsd-t-heading-l\">POST operation A with suffix 2</h3>\n",
+                "<h3 id=\"api-IgnoredTagC-path_awith_suffix_1Post\" class=\"nhsd-t-heading-l\">Post operation A with suffix 1</h3>\n",
+                "<h2 id=\"api-Resource A\" class=\"nhsd-t-heading-xl\">Endpoints: Resource A</h2>\n",
+                "<h3 id=\"api-IgnoredTagB-path_aPost\" class=\"nhsd-t-heading-l\">Post operation A</h3>\n",
+                "<h3 id=\"api-IgnoredTagA-path_aGet\" class=\"nhsd-t-heading-l\">Get operation A</h3>\n"
+            )
         );
     }
 

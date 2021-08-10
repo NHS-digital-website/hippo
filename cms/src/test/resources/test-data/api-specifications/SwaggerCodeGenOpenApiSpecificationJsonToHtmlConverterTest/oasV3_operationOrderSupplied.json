@@ -1,0 +1,97 @@
+{
+    "openapi": "3.0.0",
+    "x-spec-publication": {
+        "operation-order": [
+            {
+                "group": null,
+                "operations": [
+                    {
+                        "method": "POST",
+                        "path": "/path-b"
+                    },
+                    {
+                        "method": "GET",
+                        "path": "/path-a#with-suffix-1"
+                    }
+                ]
+            },
+            {
+                "group": "Resource B",
+                "operations": [
+                    {
+                        "method": "GET",
+                        "path": "/path-b"
+                    }
+                ]
+            },
+            {
+                "group": "Resource C",
+                "operations": [
+                    {
+                        "method": "POST",
+                        "path": "/path-a#with-suffix-2"
+                    },
+                    {
+                        "method": "POST",
+                        "path": "/path-a#with-suffix-1"
+                    }
+                ]
+            },
+            {
+                "group": "Resource A",
+                "operations": [
+                    {
+                        "method": "POST",
+                        "path": "/path-a"
+                    },
+                    {
+                        "method": "GET",
+                        "path": "/path-a"
+                    }
+                ]
+            }
+        ]
+    },
+    "paths": {
+        "/path-a": {
+            "get": {
+                "summary": "Get operation A",
+                "tags": ["ignored tag a"]
+            },
+            "post": {
+                "summary": "Post operation A",
+                "tags": ["ignored tag b"]
+            }
+        },
+        "/path-b": {
+            "get": {
+                "summary": "Get operation B",
+                "tags": ["ignored tag c"]
+            },
+            "post": {
+                "summary": "Post operation B",
+                "tags": ["ignored tag a"]
+            }
+        },
+        "/path-a#with-suffix-1": {
+            "get": {
+                "summary": "Get operation A with suffix 1",
+                "tags": ["ignored tag b"]
+            },
+            "post": {
+                "summary": "Post operation A with suffix 1",
+                "tags": ["ignored tag c"]
+            }
+        },
+        "/path-a#with-suffix-2": {
+            "get": {
+                "summary": "Get operation A with suffix 2",
+                "tags": ["ignored tag a"]
+            },
+            "post": {
+                "summary": "POST operation A with suffix 2",
+                "tags": ["ignored tag b"]
+            }
+        }
+    }
+}
