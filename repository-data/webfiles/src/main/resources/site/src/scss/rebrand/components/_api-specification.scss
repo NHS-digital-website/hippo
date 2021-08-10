@@ -124,10 +124,22 @@
 .nhsd-t-text-transform-uppercase { text-transform: uppercase; }
 .nhsd-t-float-right { float: right }
 .nhsd-t-overflow-wrap-text { word-break: break-all }
-.nshd-t-wrap-text-pre {
+.nhsd-t-wrap-text-pre {
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.nhsd-o-code-viewer__code {
+    &__slim {
+        max-height: 500px;
+        height: min-content;
+        padding-top: unset;
+        overflow: scroll;
+    }
+    &-content__slim pre {
+        padding-top: .8333333333rem;
+    }
 }
