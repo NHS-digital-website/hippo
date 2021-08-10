@@ -42,8 +42,8 @@ public class FencedCodeBlockNodeRenderer implements NodeRenderer {
             html.text(codeLanguage.toUpperCase());
             html.tag("/p");
         }
-        html.tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code"));
-        html.tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code-content"));
+        html.tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim"));
+        html.tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim"));
         html.tag("pre", Collections.singletonMap("class", "line-numbers"));
         if (codeLanguage != null) {
             html.tag("code", Collections.singletonMap("class", String.format("language-%s", codeLanguage)));
