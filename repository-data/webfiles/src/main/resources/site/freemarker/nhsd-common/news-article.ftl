@@ -94,7 +94,7 @@
 
     <div class="nhsd-t-grid">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-12">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
 
                 <#if document.creditBanner?has_content>
                     <div class="nhsd-m-emphasis-box nhsd-!t-margin-bottom-6" role="alert">
@@ -186,7 +186,7 @@
                 <#if (!hasBackstory && hasEditorsNotes) || (hasSectionContent && !hasBackstory && !hasEditorsNotes && !document.relateddocuments?has_content)>
                     <hr class="nhsd-a-horizontal-rule" />
                 </#if>
-               
+
                 <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
                     <h2 class="nhsd-t-heading-xl">Share this page</h2>
                     <#-- Use UTF-8 charset for URL escaping from now: -->
@@ -219,7 +219,7 @@
                         <@shareThisPage document "LinkedIn" linkedInUrl linkedInIconPath/>
                     </div>
                 </div>
-                
+
                 <#if hasPeople>
                     <div class="nhsd-!t-margin-bottom-6">
                         <div class="nhsd-t-grid">
@@ -228,16 +228,16 @@
                                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4 nhsd-!t-margin-bottom-6">
                                         <div class="nhsd-o-gallery__card-container">
                                             <div class="nhsd-m-card">
-                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
-                                                <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange" 
-                                                   href="<@hst.link hippobean=author/>"  
-                                                   onClick="${onClickMethodCall}" 
-                                                   onKeyUp="return vjsu.onKeyUp(event)" 
+                                                <@hst.link hippobean=author var="authorLink"/>
+                                                <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange"
+                                                   href="${authorLink}"
+                                                   onClick="${getOnClickMethodCall(document.class.name, authorLink)}"
+                                                   onKeyUp="return vjsu.onKeyUp(event)"
                                                    aria-label="${author.title}"
                                                 >
                                                     <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                                                         <div class="nhsd-m-card__image_container">
-                                                            <figure class="nhsd-a-image nhsd-a-image--cover">
+                                                            <figure class="nhsd-a-image nhsd-a-image--maintain-ratio">
                                                                 <picture class="nhsd-a-image__picture">
                                                                     <#if author.personimages?? && author.personimages?has_content && author.personimages.picture?has_content>
                                                                         <img src="<@hst.link hippobean=author.personimages.picture.original fullyQualified=true />" alt="${author.title}">
@@ -272,7 +272,7 @@
                         </div>
                     </div>
                 </#if>
-                
+
 
                 <#assign rendername="Media enquiries" /><#if hasContactDetails && document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
                 <#assign renderemail="media@nhsdigital.nhs.net" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>

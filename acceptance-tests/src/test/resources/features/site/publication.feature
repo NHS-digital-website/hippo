@@ -24,10 +24,10 @@ Feature: Ensure publication page displays required fields.
         And I should also see "Publication Data Sets" with:
             | Etiam Placerat Arcu Dataset       |
             | publication-with-datasets Dataset |
-        And I should also see "Publication Resources Attachments" with:
-            | attachment.pdf\n[pdf, size: 42.2 kB]   |
-        And I should also see "Publication Resources Links" with:
-            | Related resource link             |
+        And I should also see "Publication Resources Attachment" items with:
+            | attachment.pdf\nPDF 42 KB     |
+        And I should also see "Publication Resources Link" items with:
+            | ARTICLE\nRelated resource link             |
 
     Scenario: Display Related Links list
         Given I navigate to "publication with datasets" page
@@ -90,9 +90,9 @@ Feature: Ensure publication page displays required fields.
     Scenario: Show attachments with and without display names
         Given I navigate to "attachment test publication" page
         Then I should see publication page titled "Attachment Test Publication"
-        And I should also see "Publication Resources Attachments" with:
-            | attachment.pdf\n[pdf, size: 7.2 kB]       |
-            | Attachment with text\n[pdf, size: 7.2 kB] |
+        And I should also see element with UI path "ps.publication.resources-attachments" with:
+            | attachment.pdf\nPDF 7 KB       |
+            | Attachment with text\nPDF 7 KB |
         And I can download following files:
             | attachment.pdf       | attachment.pdf      |
             | Attachment with text | attachment-text.pdf |
@@ -109,11 +109,11 @@ Feature: Ensure publication page displays required fields.
         Given I navigate to the "national statistic publication" page
         Then I should also see:
             | Publication Information Types | National statistics           |
-        And I can see "National Statistics" image
+        And I can see image with data-uipath "ps.publication.national-statistics"
         When I navigate to "publication with rich content" page
         Then I should also see:
             | Publication Information Types | Experimental statistics       |
-        And I should not see element with title "National statistics"
+        And I can not see element with data-uipath "ps.publication.national-statistics"
 
     Scenario: Geographic Coverage displays appropriate label based on selections
         Given I navigate to the "Geographic Coverage - Great Britain" page

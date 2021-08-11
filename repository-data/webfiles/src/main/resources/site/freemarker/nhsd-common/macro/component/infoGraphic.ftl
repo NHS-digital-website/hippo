@@ -16,21 +16,24 @@
 
     <div class="nhsd-m-infographic nhsd-!t-margin-bottom-6">
         <div class="nhsd-a-box nhsd-a-box--bg-light-${slugify(selectedColour)}">
-
-            <div class="nhsd-m-infographic__icon-box">
-                <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                    <@hst.link hippobean=graphic.icon var="imagePath" />
-                    <#if (imagePath)??>
-                    <div class="infographic__icon">
-                        <#if imagePath?ends_with("svg")>
-                        <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
-                        <#else>
-                        <img aria-hidden="true" src="${imagePath}" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
-                        </#if>
+            <@hst.link hippobean=graphic.icon var="imagePath" />
+            <#if (imagePath)??>
+                <#if imagePath?ends_with("svg")>
+                    <div class="nhsd-m-infographic__icon-box">
+                        <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
+                            <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="" />
+                        </span>
                     </div>
-                    </#if>
-                </span>
-            </div>
+                <#else>
+                    <div class="nhsd-m-infographic__image-box">
+                        <figure class="nhsd-a-image nhsd-a-image--cover">
+                            <picture class="nhsd-a-image__picture">
+                                <img src="${imagePath}" alt="" />
+                            </picture>
+                        </figure>
+                    </div>
+                </#if>
+            </#if>
 
             <div class="nhsd-m-infographic__headline-box">
                 <p class="nhsd-t-heading-l nhsd-t-word-break">

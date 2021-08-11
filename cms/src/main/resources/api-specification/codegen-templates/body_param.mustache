@@ -1,21 +1,18 @@
-
     {{#mediaTypes}}
-
-        <div class="body__contenttype">
-            <span class="body__contenttype__label">Content type: </span>
-            <span class="body__contenttype__value">{{name}}</span>
-        </div>
+        <p class="nhsd-t-body">
+            Content type: <strong class="nhsd-!t-font-weight-bold">{{name}}</strong>
+        </p>
 
         {{#example}}
-            <div class="body__example__header">Example</div>
-            <div><pre><code>{{this}}</code></pre></div>
+            <p class="nhsd-!t-font-weight-bold nhsd-t-body">Example</p>
+            {{>body_example}}
         {{/example}}
 
         {{^example}}
             {{^examples}}
                 {{#schema.example}}
-                    <div class="body__example__header">Example</div>
-                    <div><pre><code>{{this}}</code></pre></div>
+                    <p class="nhsd-!t-font-weight-bold nhsd-t-body">Example</p>
+                    {{>body_example}}
                 {{/schema.example}}
             {{/examples}}
         {{/example}}
@@ -23,32 +20,35 @@
         {{#examples}}
             {{#@first}}
                 {{#hasOneItem examples}}
-                    <div class="body__example__header">Example</div>
+                    <p class="nhsd-!t-font-weight-bold nhsd-t-body">Example</p>
                 {{else}}
-                    <div class="body__example__header">Examples</div>
+                    <p class="nhsd-!t-font-weight-bold nhsd-t-body">Examples</p>
                 {{/hasOneItem}}
             {{/@first}}
 
             {{#summary}}
-            <div class="body__example__summary">{{summary}}</div>
+            <p class="nhsd-t-body">{{summary}}</p>
             {{/summary}}
 
             {{#description}}
-            <div class="body__example__description">{{{markdown description levelToNormaliseHeadingsTo=7}}}</div>
+            {{{markdown description levelToNormaliseHeadingsTo=7}}}
             {{/description}}
 
-            <div><pre><code>{{value}}</code></pre></div>
+            {{#value}}{{>body_example}}{{/value}}
         {{/examples}}
 
         {{#if schema}}
             {{#assign "schemaUUID"}}{{uuid}}{{/assign}}
-            <div class="body__schema__header">Schema
-                <span class="schema__header__buttons">
-                    <button class='schemaButton js collapseAll' onclick="collapseAll('{{variable "schemaUUID"}}')">Collapse all</button>
-                    <button class='schemaButton js expandAll' onclick="expandAll('{{variable "schemaUUID"}}')">Expand all</button>
-                </span>
+            <div class="nhsd-t-row">
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-padding-0">
+                    <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
+                </div>
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
+                    <button onclick="collapseAll('{{variable "schemaUUID"}}')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+                    <button onclick="expandAll('{{variable "schemaUUID"}}')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+                </div>
             </div>
-            <div class="body__schema" data-schema-uuid="{{variable "schemaUUID"}}">
+            <div class="nhsd-o-schema" data-schema-uuid="{{variable "schemaUUID"}}">
             {{#vendorExtensions.x-schema}}
                 {{>schema}}
             {{/vendorExtensions.x-schema}}
@@ -56,4 +56,3 @@
         {{/if}}
 
     {{/mediaTypes}}
-

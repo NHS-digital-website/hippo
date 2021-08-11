@@ -27,7 +27,7 @@
 <!-- Set up equation support from mathjax -->
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
 
-<#macro sections sections mainHeadingLevel=2 wrap=false>
+<#macro sections sections mainHeadingLevel=2 wrap=false padSections=false>
 
     <#assign numberedListCount=0 />
     <#assign isPreviousEmphasisBox = false />

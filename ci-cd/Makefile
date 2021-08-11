@@ -99,6 +99,10 @@ build:
 	mvn $(MVN_OPTS) -P separate-dist -DskipTests=true
 	mvn $(MVN_OPTS) -P on-demand-dist -DskipTests=true
 
+build-odv2:
+	mvn verify $(MVN_OPTS) -DskipTests=true
+	mvn $(MVN_OPTS) -P dist-od2 -DskipTests=true
+
 ## Set a success status on current commit
 # You would normally run this target after running (and passing) all tests
 # Usage: make github.status.success

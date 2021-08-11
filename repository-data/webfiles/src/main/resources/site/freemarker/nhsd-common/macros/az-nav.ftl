@@ -1,16 +1,25 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
-<#macro azList navigationDocument ariaLabel="">
+<#macro azList documentOrLinks ariaLabel="">
     <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
     <#assign navList = [] />
-    <#if navigationDocument.blocks??>
-        <#assign navList = navigationDocument.blocks />
+    <#if documentOrLinks.blocks??>
+        <#assign navList = documentOrLinks.blocks />
         <#assign alphabetical_hash = group_blocks(flat_blocks(navList true))/>
-    <#elseif navigationDocument.glossaryItems??>
-        <#assign navList = navigationDocument.glossaryItems />
+        <@hst.link hippobean=documentOrLinks var="docUrl"/>
+    <#elseif documentOrLinks.glossaryItems??>
+        <#assign navList = documentOrLinks.glossaryItems />
         <#assign alphabetical_hash = group_blocks(navList)/>
+        <@hst.link hippobean=documentOrLinks var="docUrl"/>
+    <#elseif documentOrLinks?is_sequence>
+        <#assign alphabetical_hash = group_blocks(flat_blocks(documentOrLinks true))/>
+    </#if>
+
+    <#assign navUrl = ""/>
+    <#if docUrl?has_content>
+        <#assign navUrl = docUrl/>
     </#if>
 
     <#if ariaLabel?? && ariaLabel?has_content>
@@ -22,7 +31,7 @@
             <#list lettersOfTheAlphabet as letter>
                 <#if alphabetical_hash[letter]??>
                     <li>
-                        <a class="nhsd-a-character-block" href="<@hst.link hippobean=navigationDocument/>#${letter?lower_case}" aria-label="Jump to articles starting with the letter '${letter}'">${letter}</a>
+                        <a class="nhsd-a-character-block" href="${navUrl}#${letter?lower_case}" aria-label="Jump to articles starting with the letter '${letter}'">${letter}</a>
                     </li>
                 <#else>
                     <li>

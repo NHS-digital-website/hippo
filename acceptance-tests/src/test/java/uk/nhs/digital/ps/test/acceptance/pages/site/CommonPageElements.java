@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CommonPageElements implements PageElements {
@@ -22,6 +23,10 @@ public class CommonPageElements implements PageElements {
     @Override
     public boolean contains(String elementName) {
         return pageElements.containsKey(elementName);
+    }
+
+    public List<WebElement> getElementsByName(String elementName, PageHelper helper) {
+        return helper.findOptionalElements(pageElements.get(elementName));
     }
 
     @Override

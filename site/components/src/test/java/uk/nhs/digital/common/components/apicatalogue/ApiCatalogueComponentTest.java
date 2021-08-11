@@ -91,8 +91,7 @@ public class ApiCatalogueComponentTest {
     }
 
     @Test
-    public void listsAllDocumentsFromApiCatalogue_whenNoTagsSelected() {
-
+    public void listsAllDocumentsFromApiCatalogue_whenNoTagsSelectedAndShowAllisFalse() {
         // given
         final Set<String> filteredTags_allTagsAppliedAcrossAllCatalogueDocs
             = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health");
@@ -110,7 +109,46 @@ public class ApiCatalogueComponentTest {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise all links from the API catalogue document.",
+            "Results shows all links from API catalogue except deprecated-api and retired ones.",
+            actualResults,
+            is(asList(
+                allCatalogueLinksToTaggedDocuments.get(0),
+                allCatalogueLinksToTaggedDocuments.get(1),  // tagged with: fhir, inpatient
+                allCatalogueLinksToTaggedDocuments.get(2),
+                allCatalogueLinksToTaggedDocuments.get(3)
+            ))
+        );
+
+        final Filters actualFilters = (Filters) request.getAttribute(REQUEST_ATTR_FILTERS);
+        assertThat(
+            "Filters are as produced by the filters factory.",
+            actualFilters,
+            sameInstance(expectedFiltersFromFactory)
+        );
+    }
+
+    @Test
+    public void listsAllDocumentsFromApiCatalogue_whenNoTagsSelectedAndShowAllisTrue() {
+        // given
+        final Set<String> filteredTags_allTagsAppliedAcrossAllCatalogueDocs
+            = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health", "deprecated-api");
+
+        final Set<String> noTagsSelectedByTheUser = emptySet();
+
+        given(expectedFiltersFromFactory.initialisedWith(
+            filteredTags_allTagsAppliedAcrossAllCatalogueDocs,
+            noTagsSelectedByTheUser
+        )).willReturn(expectedFiltersFromFactory);
+
+        request.addParameter("showAll", "true");
+
+        // when
+        apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+
+        // then
+        final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
+        assertThat(
+            "Results comprise all links from the API catalogue document. Even the Retired and Deprecated ones.",
             actualResults,
             is(allCatalogueLinksToTaggedDocuments)
         );
@@ -119,6 +157,48 @@ public class ApiCatalogueComponentTest {
         assertThat(
             "Filters are as produced by the filters factory.",
             actualFilters,
+            sameInstance(expectedFiltersFromFactory)
+        );
+    }
+
+    @Test
+    public void listsDocumentsFromApiCatalogue_whenTagsSelectedAndShowAllisTrue() {
+        // given
+        final Set<String> tagsSelectedByTheUser = ImmutableSet.of("fhir", "deprecated-api");
+
+        request.addParameter("filters", String.join(",", tagsSelectedByTheUser));
+
+        // @formatter:off
+        final Set<String> filteredTags_allTagsAppliedToDocsWithTagsSelectedByTheUser = ImmutableSet.of(
+            "fhir",             // selected by the user
+            "deprecated-api"        // selected by the user
+        );
+        // @formatter:on
+
+        given(expectedFiltersFromFactory.initialisedWith(
+            filteredTags_allTagsAppliedToDocsWithTagsSelectedByTheUser,
+            tagsSelectedByTheUser
+        )).willReturn(expectedFiltersFromFactory);
+
+        request.addParameter("showAll", "true");
+
+        // when
+        apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+
+        // then
+        final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
+        assertThat(
+            "Filter results by tag with showAll = true which means all specs were included.",
+            actualResults,
+            is(Collections.singletonList(
+                allCatalogueLinksToTaggedDocuments.get(4)
+            ))
+        );
+
+        final Filters filters = (Filters) request.getAttribute(REQUEST_ATTR_FILTERS);
+        assertThat(
+            "Filters are as produced by the filters factory. Filter contains new taxonomy: deprecated",
+            filters,
             sameInstance(expectedFiltersFromFactory)
         );
     }
@@ -168,7 +248,6 @@ public class ApiCatalogueComponentTest {
 
     @Test
     public void doesNotFail_whenBuildingOfTheFiltersModelFails() {
-
         // given
         given(filtersFactory.filtersFromYaml(any(String.class))).willThrow(new RuntimeException("Invalid YAML."));
 
@@ -180,7 +259,12 @@ public class ApiCatalogueComponentTest {
         assertThat(
             "Results comprise all links from the API catalogue document.",
             actualResults,
-            is(allCatalogueLinksToTaggedDocuments)
+            is(asList(
+                allCatalogueLinksToTaggedDocuments.get(0),
+                allCatalogueLinksToTaggedDocuments.get(1),  // tagged with: fhir, inpatient
+                allCatalogueLinksToTaggedDocuments.get(2),
+                allCatalogueLinksToTaggedDocuments.get(3)
+            ))
         );
 
         final Filters actualFilters = (Filters) request.getAttribute(REQUEST_ATTR_FILTERS);
@@ -204,7 +288,7 @@ public class ApiCatalogueComponentTest {
             linkToDocTaggedWith("fhir",   "inpatient", "mental-health"),
             linkToDocTaggedWith("fhir",   "hospital"),
             linkToDocTaggedWith("fhir",   "inpatient"),
-            linkToDocTaggedWith()
+            linkToDocTaggedWith("fhir",   "deprecated-api")
         );
 
         apiCatalogueDocument = mock(ComponentList.class);

@@ -1,17 +1,17 @@
 <#ftl output_format="HTML">
-
+<#include "../../../include/imports.ftl">
 <#-- Note Page must implement uk.nhs.digital.pagination.Paginated -->
 <#macro chapterNav page currentPageTitlePrefix="">
     <#assign chapterPagination = page.paginate() />
     <#if chapterPagination??>
-        <div class="nhsd-o-chapter-navigation nhsd-!t-bg-pale-grey-80-tint nhsd-!t-margin-bottom-3">
-            <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-
-                <div class="nhsd-o-chapter-navigation__previous-chapter">
-                    <#if chapterPagination.previous??>
-                    
-                        <a class="nhsd-m-chapter" 
-                           href="<@hst.link hippobean=chapterPagination.previous.linkedBean />" 
+        <div class="nhsd-o-chapter-navigation nhsd-!t-bg-pale-grey-80-tint">
+            <div class="nhsd-a-box">
+                <#if chapterPagination.previous??>
+                    <@hst.link hippobean=chapterPagination.previous.linkedBean var="relatedSubjectLink"/>
+                    <div class="nhsd-o-chapter-navigation__previous-chapter">
+                        <a class="nhsd-m-chapter"
+                           href="<@hst.link hippobean=chapterPagination.previous.linkedBean />"
+                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                            aria-label="Previous Chapter"
                         >
                             <div class="nhsd-m-chapter__content">
@@ -26,8 +26,8 @@
                             </div>
                             <p class="nhsd-m-chapter__link nhsd-t-body-s">${chapterPagination.previous.title}</p>
                         </a>
-                    </#if>
-                </div>
+                    </div>
+                </#if>
 
                 <div class="nhsd-o-chapter-navigation__current-chapter">
                     <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">Current Chapter</p>
@@ -39,10 +39,12 @@
                     </div>
                 </div>
 
-                <div class="nhsd-o-chapter-navigation__next-chapter">
-                    <#if chapterPagination.next??>
-                        <a class="nhsd-m-chapter nhsd-m-chapter--right" 
-                           href="<@hst.link hippobean=chapterPagination.next.linkedBean />" 
+                <#if chapterPagination.next??>
+                    <@hst.link hippobean=chapterPagination.next.linkedBean var="relatedSubjectLink"/>
+                    <div class="nhsd-o-chapter-navigation__next-chapter">
+                        <a class="nhsd-m-chapter nhsd-m-chapter--right"
+                           href="<@hst.link hippobean=chapterPagination.next.linkedBean />"
+                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                            aria-label="Next Chapter"
                         >
                             <div class="nhsd-m-chapter__content">
@@ -57,8 +59,8 @@
                             </div>
                             <p class="nhsd-m-chapter__link nhsd-t-body-s">${chapterPagination.next.title}</p>
                         </a>
-                    </#if>
-                </div>
+                    </div>
+                </#if>
             </div>
             <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xxs" />
         </div>

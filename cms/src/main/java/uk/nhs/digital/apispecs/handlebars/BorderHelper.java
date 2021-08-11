@@ -85,7 +85,7 @@ public class BorderHelper implements Helper<Object> {
 
     private String getChildBorder(int indentationLevel) {
         return String.format(
-            "<span class=\"child-schema-border\" style=\"--border-padding: 1.25em; --border-lightness: %.1f%%\"></span>",
+            "<span class=\"nhsd-o-schema__border-child\" style=\"--border-padding: 1.25em; --border-lightness: %.1f%%\"></span>",
             getLightness(indentationLevel + 1)
         );
     }
@@ -93,7 +93,7 @@ public class BorderHelper implements Helper<Object> {
     // horizontal border connects element to first vertical border
     private String getHorizontalBorder(final int indentationLevel, final boolean hasChildren) {
         return String.format(
-            "<span class=\"%shorizontal-schema-border\" style=\"--border-padding: -0.25em; --border-lightness: %.1f%%\"></span>",
+            "<span class=\"nhsd-o-schema__border-%shorizontal\" style=\"--border-padding: -0.25em; --border-lightness: %.1f%%\"></span>",
             hasChildren ? "short-" : "",
             getLightness(indentationLevel)
         );
@@ -107,7 +107,7 @@ public class BorderHelper implements Helper<Object> {
         final StringBuilder htmlWriter = new StringBuilder();
 
         final String firstBorder = String.format(
-            "<span class=\"%svertical-schema-border\" style=\"--border-padding: -0.25em; --border-lightness: %.1f%%\"></span>",
+            "<span class=\"nhsd-o-schema__border-%svertical\" style=\"--border-padding: -0.25em; --border-lightness: %.1f%%\"></span>",
             isLastPropertyOfLevel ? "short-" : "",
             getLightness(indentationLevel)
         );
@@ -119,7 +119,7 @@ public class BorderHelper implements Helper<Object> {
                 continue;
             }
             final String borderHtml = String.format(
-                "<span class=\"vertical-schema-border\" style=\"--border-padding: %sem; --border-lightness: %.1f%%\"></span>",
+                "<span class=\"nhsd-o-schema__border-vertical\" style=\"--border-padding: %sem; --border-lightness: %.1f%%\"></span>",
                 1.25 - (1.5 * i),
                 getLightness(indentationLevel + 1 - i)
             );

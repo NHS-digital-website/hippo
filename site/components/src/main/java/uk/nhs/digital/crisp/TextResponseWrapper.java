@@ -23,9 +23,10 @@ public class TextResponseWrapper implements ClientHttpResponse {
 
     public TextResponseWrapper(ClientHttpResponse originalResponse, Function<String, String> transformer) {
         this.originalResponse = originalResponse;
-
+        LOGGER.debug("Value of originalResponse  " + originalResponse);
         try {
             jsonContent = transformer.apply(CharStreams.toString(new InputStreamReader(originalResponse.getBody(), StandardCharsets.UTF_8))).getBytes();
+            LOGGER.debug("Value of JSON content " + jsonContent);
         } catch (Exception e) {
             throw new RuntimeException("There was a problem reading/decoding the response coming from the service ", e);
         }

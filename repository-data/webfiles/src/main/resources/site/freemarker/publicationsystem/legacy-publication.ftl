@@ -136,7 +136,7 @@
                         <div class="column column--reset">
                             <dl class="detail-list">
                                 <dt class="detail-list__key"><@fmt.message key="headers.publication-date"/></dt>
-                                <dd class="detail-list__value" data-uipath="ps.publication.nominal-publication-date" itemprop="datePublished">
+                                <dd class="detail-list__value" data-uipath="ps.publication.publication-date" itemprop="datePublished">
                                     <@formatRestrictableDate value=legacyPublication.nominalPublicationDate/>
                                 </dd>
                             </dl>
@@ -165,7 +165,7 @@
                             <div class="column column--reset">
                                 <dl class="detail-list">
                                     <dt class="detail-list__key"><@fmt.message key="headers.geographical-granularity"/></dt>
-                                    <dd class="detail-list__value" data-uipath="ps.publication.granularity">
+                                    <dd class="detail-list__value" data-uipath="ps.publication.granularity-coverage">
                                         <#list granularity as granularityItem>${granularityItem}<#sep>, </#list>
                                     </dd>
                                 </dl>
@@ -205,7 +205,7 @@
                     <#list legacyPublication.updates as update>
                         <#assign item += update />
                         <#assign item += {"calloutType":"update", "index":update?index} />
-                        <@calloutBox item />
+                        <@calloutBox item document.class.name />
                     </#list>
                 </div>
             </div>
@@ -326,8 +326,9 @@
                     </li>
                 </#list>
                 <#list legacyPublication.datasets as dataset>
+                    <@hst.link hippobean=dataset.selfLinkBean var="link"/>
                     <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset">
-                        <a itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a>
+                        <a itemprop="url" href="${link}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication', '${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a>
                     </li>
                 </#list>
                 <#if hasDataSets || hasResourceLinks>

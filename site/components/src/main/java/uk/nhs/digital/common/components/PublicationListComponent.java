@@ -30,8 +30,15 @@ public class PublicationListComponent extends EssentialsListComponent {
 
         Filter filter = query.createFilter();
         query.setFilter(filter);
+        query.addOrderByDescending("publicationsystem:NominalDate");
+        query.addOrderByAscending("publicationsystem:publicationtier");
+
         try {
             filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
+            filter.addEqualTo("hippostd:stateSummary", "live");
+            if (!componentParametersInfo.getDisplayTier3()) {
+                filter.addNotEqualTo("publicationsystem:publicationtier", "Tier 3");
+            }
         } catch (FilterException ex) {
             log.error("Errors while adding PubliclyAccessible filter", ex);
         }

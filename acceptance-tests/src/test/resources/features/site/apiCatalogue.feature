@@ -1,10 +1,11 @@
+
 Feature: API Catalogue in Developer hub
 
     Scenario: API Catalogue renders all results when no filters applied
         Given I navigate to "Static API Catalogue" page
         Then I should see page titled "Test API catalogue"
-        And I can see labelled element "website.linkslist.summary" with content "Test API catalogue for smoke tests"
-        And I should see the list with title "Alphabetical navigation" containing:
+        And I can see labelled element "document.title" with content "Test API catalogue"
+        And I should see the "Alphabetical navigation" list containing:
             | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
         And the index is rendered with entries:
             | text | href  | aria-label                                    |
@@ -19,11 +20,11 @@ Feature: API Catalogue in Developer hub
             | External Resource                | https://google.com                                             |
             | No Mapped Taxonomy Tags          | /site/developer/api-catalogue/doc-with-no-mapped-taxonomy-tags |
         And I should see elements with attributes:
-            | text         | id                                               |
-            | Inpatient    | a-doc-with-mapped-taxonomy-tags-inpatient-tag    |
-            | Demographics | a-doc-with-mapped-taxonomy-tags-demographics-tag |
-            | Inpatient    | b-doc-with-mapped-taxonomy-tags-inpatient-tag    |
-            | Outpatient   | b-doc-with-mapped-taxonomy-tags-outpatient-tag   |
+            | text         | class                                                                             |
+            | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
+            | Demographics | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
+            | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
+            | Outpatient   | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
 
     Scenario: API Catalogue renders filtered results when filters applied
         Given I navigate to "Static API Catalogue" page
@@ -38,9 +39,9 @@ Feature: API Catalogue in Developer hub
             | A Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-a  |
             | B Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-b  |
         And I should see elements with attributes:
-            | text         | id                                            |
-            | Inpatient    | a-doc-with-mapped-taxonomy-tags-inpatient-tag |
-            | Inpatient    | b-doc-with-mapped-taxonomy-tags-inpatient-tag |
+            | text         | class                                                                             |
+            | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
+            | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
 
     Scenario: API Catalogue is available through Search
         Given I navigate to the "home" page

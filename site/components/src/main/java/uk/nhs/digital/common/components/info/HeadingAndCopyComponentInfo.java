@@ -8,7 +8,10 @@ public interface HeadingAndCopyComponentInfo {
 
 
     @Parameter(name = "callToActionSource", displayName = "Call to Action")
-    @JcrPath (isRelative = true, pickerSelectableNodeTypes = "website:calltoaction")
+    @JcrPath(
+        isRelative = true,
+        pickerSelectableNodeTypes = {"website:calltoaction", "website:copy"}
+    )
     String getSourceDocument();
 
     @Parameter(name = "alignment", displayName = "Alignment", defaultValue = "left")

@@ -84,8 +84,8 @@ public class PublicationPage extends AbstractSitePage {
             DATE_RANGE,
             KEY_FACTS,
             KEY_FACT_IMAGES,
-            RESOURCES_ATTACHMENTS,
-            RESOURCES_LINKS,
+            RESOURCES_ATTACHMENT,
+            RESOURCES_LINK,
             DATA_SETS,
             ADMINISTRATIVE_SOURCES,
             PAGE_BODY,
@@ -110,7 +110,7 @@ public class PublicationPage extends AbstractSitePage {
     public List<SectionWidget> getPageBodySections() {
         WebElement body = findPageElement(PAGE_BODY);
         return body == null ? Collections.emptyList() :
-            body.findElements(By.xpath("//*[@data-uipath='ps.publication.body']/div[contains (@class, 'article-section')]/div[1]"))
+            body.findElements(By.xpath("//*[@data-uipath='ps.publication.sections']/div/*[@data-uipath]"))
                 .stream()
                 .map(this::createSectionWidget)
                 .collect(toList());

@@ -1,8 +1,7 @@
 <#ftl output_format="HTML">
 
 <#include "../include/imports.ftl">
-<#include "macro/documentHeader.ftl">
-
+<#include "../nhsd-common/macros/header-banner.ftl">
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ApiSpecification" -->
 <#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 
@@ -19,44 +18,22 @@
         <#include "../common/macro/metaTags.ftl">
         <@metaTags></@metaTags>
 
-        <article class="article article--apispecification" itemscope>
-            <@documentHeader document 'general'></@documentHeader>
-
+        <article itemscope>
+            <@headerBanner document />
             <style type="text/css">
-                .ctabtn--nhs-digital-button--try-it-now { float: right; }
 
-                pre {
-                    color: #FFF;
-                    background-color: #000;
-                    display:block;
-                    text-align:left;
-                    overflow: auto;
-                    overflow-y: auto;
-                    max-height: 500px;
-                    box-sizing:border-box;
-                    padding:0.5em;
-                }
-
-                button.expander {
+                .nhsd-o-schema__expander {
                     background-image: url(<@hst.webfile path="images/icon/expander-plus-icon.svg"/>);
-                    background-size: contain;
-                    background-repeat: no-repeat;
                 }
 
-                button.collapser {
+                .nhsd-o-schema__collapser {
                     background-image: url(<@hst.webfile path="images/icon/expander-dark-grey-minus-icon.svg"/>);
-                    background-size: contain;
-                    background-repeat: no-repeat;
                 }
 
             </style>
 
-            <div class="grid-wrapper grid-wrapper--article">
-                <div class="grid-row">
-
-                    ${document.html?no_esc}
-
-                </div>
+            <div class="nhsd-t-grid">
+                <div class="nhsd-t-row">${document.html?no_esc}</div>
             </div>
         </article>
 

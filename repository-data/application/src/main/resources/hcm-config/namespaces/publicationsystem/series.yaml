@@ -189,7 +189,7 @@ definitions:
           /publicationTier:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Tier 1, Tier 2, Tier 3
+              selectable.options: Tier 1,Tier 2,Tier 3
             caption: Publication Tier
             field: staticdropdown
             hint: ''

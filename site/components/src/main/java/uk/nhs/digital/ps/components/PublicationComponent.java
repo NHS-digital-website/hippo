@@ -4,6 +4,7 @@ import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -17,6 +18,7 @@ import uk.nhs.digital.ps.beans.Series;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class PublicationComponent extends ContentRewriterComponent {
 
@@ -55,7 +57,22 @@ public class PublicationComponent extends ContentRewriterComponent {
             index.add(SUMMARY_ID);
         }
 
-        if (!publication.getKeyFacts().isEmpty()) {
+        Boolean hasKeyFactHead = Optional.ofNullable(publication.getKeyFactsHead())
+            .map(HippoHtml::getContent)
+            .filter(content -> !content.isEmpty())
+            .isPresent();
+
+        Boolean hasKeyFactTail = Optional.ofNullable(publication.getKeyFactsTail())
+            .map(HippoHtml::getContent)
+            .filter(content -> !content.isEmpty())
+            .isPresent();
+
+        Boolean hasKeyFactInfographics = Optional.ofNullable(publication.getKeyFactInfographics())
+            .filter(keyFactsInfoGraphic -> !keyFactsInfoGraphic.isEmpty())
+            .isPresent();
+
+        boolean hasNewKeyFacts = hasKeyFactHead || hasKeyFactTail || hasKeyFactInfographics;
+        if (!publication.getKeyFacts().isEmpty() || hasNewKeyFacts) {
             index.add(KEY_FACTS_ID);
         }
 

@@ -270,6 +270,11 @@ definitions:
           jcr:name: Contact details (extended)
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:copy:
+        /en:
+          jcr:name: Copy
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:corporateWebsiteImageset:
         jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
@@ -640,6 +645,16 @@ definitions:
       /website:projectupdate:
         /en:
           jcr:name: Project update
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:property:
+        /en:
+          jcr:name: Property
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:propertytable:
+        /en:
+          jcr:name: Property table
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:publictransportstation:

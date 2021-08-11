@@ -29,7 +29,7 @@
             <div class="column column--reset">
                 <div class="list list--reset cta-list cta-list--sections cta-list--sections-busy">
                     <#list gdprDocumentGroups[letter] as gdprDocument>
-                    
+
                     <#assign hasBlocks = gdprDocument.blocks?? && gdprDocument.blocks?size!=0 />
 
                     <article class="cta cta--gdpr-summary">
@@ -42,17 +42,20 @@
                         <div class="grid-row">
                             <div class="column column--reset column--rights">
                                 <h3 class="cta__subtitle"><@fmt.message key="labels.your-rights"/></h3>
-
+                                <#assign count = 0>
                                 <ul class="checklist checklist--condensed">
                                     <#list rights?keys as key>
                                         <li class="checklist__item">
-                                            <#if gdprDocument.rights?seq_contains(key)>
+                                            <#if gdprDocument.gdrpRights[count].gdprRightRequired?contains("yes")>
                                                 <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" />
                                             <#else>
                                                 <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" />
                                             </#if>
-                                            <span class="checklist__label">${rights[key]}</span>
-                                        </li>                                                
+                                            <span class="checklist__label">${rights[key]}
+                                                <@hst.html hippohtml=gdprDocument.gdrpRights[count].qualification contentRewriter=gaContentRewriter/>
+                                            </span>
+                                        </li>
+                                        <#assign count = count + 1>
                                     </#list>
                                 </ul>
                             </div>

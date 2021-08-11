@@ -20,12 +20,12 @@
                     <#-- If external link -->
                     <#if childPage.linkType??>
 
-                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
                         <@typeSpan childPage.linkType />
 
                         <#if childPage.linkType == "external">
                             <article class="nhsd-!t-margin-bottom-6">
-                                <a class="nhsd-a-link" href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" rel="external">
+                                <a class="nhsd-a-link" href="${childPage.link}"
+                                   onClick="${getOnClickMethodCall(document.class.name, childPage.link)}" onKeyUp="return vjsu.onKeyUp(event)" rel="external">
                                     ${childPage.title}
                                     <span class="nhsd-t-sr-only">(external link, opens in a new tab)</span>
                                 </a>
@@ -37,9 +37,10 @@
 
                     <#-- If internal link -->
                     <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
+                        <@hst.link hippobean=childPage var="relatedSubjectLink"/>
                         <article class="nhsd-!t-margin-bottom-6">
                             <@typeSpan "internal" />
-                            <a class="nhsd-a-link" href="<@hst.link hippobean=childPage />">${childPage.title}</a>
+                            <a class="nhsd-a-link" href="<@hst.link hippobean=childPage />" onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}">${childPage.title}</a>
                             <#if childPage.shortsummary?? && childPage.shortsummary?has_content>
                                 <p class="nhsd-t-body-s nhsd-!t-margin-top-1">${childPage.shortsummary}</p>
                             </#if>
@@ -56,7 +57,7 @@
                 <#if childPage.linkType??>
                     <#-- If asset link -->
                     <#if childPage.linkType == "asset">
-                        <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
+                        <div class="nhsd-t-col-12 nhsd-!t-no-gutters nhsd-!t-margin-bottom-6">
                             <@downloadBlockAsset document.class.name childPage.link "${childPage.title}" "" childPage.link.asset.mimeType childPage.link.asset.getLength() />
                         </div>
                     </#if>

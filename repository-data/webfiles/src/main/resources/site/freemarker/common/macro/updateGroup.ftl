@@ -13,7 +13,7 @@
                         <#list document.updates as update>
                             <#assign item += update />
                             <#assign item += {"calloutType":"update", "index":update?index} />
-                            <@calloutBox item />
+                            <@calloutBox item document.class.name />
                         </#list>
                     </#if>
 
@@ -24,7 +24,7 @@
                             <@fmt.formatDate value=changeData.date.time type="Date" pattern="d MMMM yyyy HH:mm a" timeZone="${getTimeZone()}" var="changeDateTime" />
                             <#assign item += {"date":changeDateTime, "dateLabel":changeDateLabel} />
                             <#assign item += {"calloutType":"change", "severity":"information", "index":changeData?index} />
-                            <@calloutBox item />
+                            <@calloutBox item document.class.name />
                         </#list>
                     </#if>
                 </div>

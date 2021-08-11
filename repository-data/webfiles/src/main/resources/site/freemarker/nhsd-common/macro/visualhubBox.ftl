@@ -16,12 +16,14 @@
 
     <article class="nhsd-m-card nhsd-m-card--with-icon">
         <#if link.linkType == "internal">
+            <@hst.link hippobean=link.link var="internalLink"/>
         <#-- Below does not work if declared in section above -->
-            <a href="<@hst.link hippobean=link.link />" class="nhsd-a-box-link " aria-label="${title}" >
+            <a href="${internalLink}" class="nhsd-a-box-link " aria-label="${title}"  onClick="logGoogleAnalyticsEvent('Link click','Card Link',${internalLink});">
         <#elseif link.linkType == "external">
-            <a href="${link.link}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" >
+            <a href="${link.link}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" onClick="logGoogleAnalyticsEvent('Link click','Card Link',${link.link});">
         <#elseif link.linkType == "asset">
-            <a href="<@hst.link hippobean=link.link />" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" >
+                <@hst.link hippobean=link.link var="assestLink"/>
+                <a href="${assestLink}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" onClick="logGoogleAnalyticsEvent('Link click','Card Link',${assestLink});">
         </#if>
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-card__content_container">

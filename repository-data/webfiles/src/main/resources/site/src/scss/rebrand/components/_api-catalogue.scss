@@ -1,50 +1,61 @@
 .nhsd-api-catalogue {
-  
-  & .scrollable-component {
-      overflow-y: auto;
-      max-height: 85vh;
+
+  &__scrollable-component {
+    overflow-y: auto;
+    max-height: 85vh;
+  }
+
+  &__filter-unavailable {
+    color: #768692 !important;
+    pointer-events: none;
+  }
+
+  &__filter-unavailable:hover {
+    cursor: default;
+  }
+
+  & .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+  }
+
+  & .checkmark::after {
+    content: "";
+  }
+
+  & .checkmark.selected::after {
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 5px;
+    height: 10px;
+    margin: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border: solid #3f525f;
+    border-width: 0 2px 2px 0;
   }
 
   & .nhsd-a-checkbox {
     position: relative;
 
-    & .checkmark {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 25px;
-      height: 25px;
+    & input {
       pointer-events: none;
-    }
-
-    & .checkmark::after {
-      content: "";
-    }
-
-    & .checkmark.selected::after {
-      display: block;
-      position: absolute;
-      top: 8px;
-      left: 10px;
-      width: 5px;
-      height: 10px;
-      margin: 0;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-      border: solid #3f525f;
-      border-top-width: medium;
-      border-right-width: medium;
-      border-bottom-width: medium;
-      border-left-width: medium;
-      border-width: 0 2px 2px 0;
     }
   }
 
-  & input.section-folder:not(:checked) {
+  input.section-folder:not(:checked) {
+
     ~ label .icon svg {
       rotate: -90deg;
     }
+
     ~ .section-entries {
       display: none;
     }
@@ -62,8 +73,7 @@
   & .nhsd-a-button {
     margin-bottom: -.3rem;
     padding: .2555555556rem 1.1111111111rem;
-    margin-left: .75rem;
+    float: right;
   }
-
 }
   
