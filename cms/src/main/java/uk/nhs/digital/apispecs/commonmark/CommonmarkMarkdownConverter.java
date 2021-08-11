@@ -9,11 +9,13 @@ import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.node.AbstractVisitor;
 import org.commonmark.node.Heading;
 import org.commonmark.node.Node;
+import org.commonmark.node.ThematicBreak;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CommonmarkMarkdownConverter {
@@ -131,17 +133,20 @@ public class CommonmarkMarkdownConverter {
 
         normalizeHeadingsLevels(document, topHeadingLevel);
 
+        addBreaksBeforeH2Headings(document);
+
         return renderMarkdownModel(document, extensions, headingIdPrefix);
     }
 
     private String renderMarkdownModel(final Node document, final List<Extension> extensions, final String headingIdPrefix) {
 
         final HtmlRenderer renderer = HtmlRenderer.builder()
-            .nodeRendererFactory(context -> new FencedCodeBlockNodeRenderer(context))
-            .nodeRendererFactory(context -> new TableBlockNodeRenderer(context))
+            .nodeRendererFactory(FencedCodeBlockNodeRenderer::new)
+            .nodeRendererFactory(TableBlockNodeRenderer::new)
             .attributeProviderFactory(context -> new CodeAttributeProvider())
-            .attributeProviderFactory(context -> new HeadingAttributeProvider(headingIdPrefix))
             .attributeProviderFactory(context -> new ListAttributeProvider())
+            .attributeProviderFactory(context -> new ThematicBreakAttributeProvider())
+            .attributeProviderFactory(context -> new HeadingAttributeProvider(headingIdPrefix))
             .attributeProviderFactory(context -> new HyperlinkAttributeProvider())
             .attributeProviderFactory(context -> new ParagraphAttributeProvider())
             .attributeProviderFactory(context -> new StrongEmphasisAttributeProvider())
@@ -209,5 +214,28 @@ public class CommonmarkMarkdownConverter {
         };
 
         document.accept(headingsLevelsShifter);
+    }
+
+    private void addBreaksBeforeH2Headings(final Node document) {
+
+        final AtomicBoolean isSubsequentH2Heading = new AtomicBoolean(false);
+
+        final AbstractVisitor horizontalLineAdder = new AbstractVisitor() {
+
+            @Override public void visit(final Heading heading) {
+
+                if (heading.getLevel() == 2) {
+                    if (isSubsequentH2Heading.get()) {
+                        heading.insertBefore(new ThematicBreak());
+                    } else {
+                        isSubsequentH2Heading.set(true);
+                    }
+                }
+
+                visitChildren(heading);
+            }
+        };
+
+        document.accept(horizontalLineAdder);
     }
 }

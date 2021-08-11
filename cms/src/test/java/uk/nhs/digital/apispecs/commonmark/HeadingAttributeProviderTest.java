@@ -8,7 +8,6 @@ import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.commonmark.node.Heading;
-import org.commonmark.node.Node;
 import org.commonmark.node.Text;
 import org.junit.Before;
 import org.junit.Test;
