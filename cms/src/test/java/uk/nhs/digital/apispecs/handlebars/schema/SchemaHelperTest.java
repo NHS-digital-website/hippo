@@ -96,6 +96,7 @@ public class SchemaHelperTest {
             ignoringUuids(ignoringWhiteSpacesIn(actualSchemaHtml)),
             is(ignoringUuids(ignoringWhiteSpacesIn(expectedSchemaHtml)))
         );
+        // Note that 'Example' field is not rendered when enum (Allowed Values) is defined.
     }
 
     @Test
