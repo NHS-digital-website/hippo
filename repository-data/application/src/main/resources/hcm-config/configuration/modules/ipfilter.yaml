@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/ipfilter/hippo:moduleconfig:
+      forwarded-host-header: [X-Forwarded-Host, X-Original-Forwarded-For, Host]
+      ignored-paths: [/autoreload, /ping/.*, ^/_rp/.*, ^/_cmsinternal/.*, ^/_targeting/.*,
+        ^/webfiles/.*, ^/binaries/.*, ^/images/.*, .*\.css, .*\.js, .*\.ico, .*\.css,
+        .*\.js, .*\.ico]
+      /development:
+        allow-cms-users: false
+        allowed-ip-ranges: [127.0.0.1]
+        cache-enabled: true
+        enabled: false
+        hostnames: ['dev.nhsd.io:8080', cms-dev.nhsd.io, development.nhsdigital.bloomreach.cloud]
+        jcr:primaryType: hipposys:moduleconfig
+        match-all: false
