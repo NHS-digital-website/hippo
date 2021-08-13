@@ -8,7 +8,7 @@
     "servers": [],
     "paths": {
         "/path-with-params/{PathPathParam}": {
-            "summary": "Path Item defining some parameters of its own.",
+            "summary": "Path Item defining some parameters of its own",
             "parameters": [
                 {
                     "in": "path",
@@ -32,13 +32,13 @@
                 }
             ],
             "get": {
-                "summary": "Path with params: Operation with no parameters.",
+                "summary": "Path with params: Operation with no parameters",
                 "description": "Operation with no parameters of its own. Expectation: result should contain just path's parameters.",
                 "operationId": "path-with-params--operation-with-no-params",
                 "responses": {}
             },
             "post": {
-                "summary": "Path with params: Operation with non-overlapping parameters.",
+                "summary": "Path with params: Operation with non-overlapping parameters",
                 "description": "Operation with some parameters of its own, none overlapping with the path one. Expectation: result should contain all path's and operation's parameters.",
                 "operationId": "path-with-params--operation-with-own-params-no-overlap-with-path",
                 "parameters": [
@@ -61,7 +61,7 @@
                 "responses": {}
             },
             "put": {
-                "summary": "Path with params: Operation with overlapping parameters.",
+                "summary": "Path with params: Operation with overlapping parameters",
                 "description": "Operation with some parameters of its own but also with params overriding the path ones. Expectation: result should contain all path's and operation's parameters, with definitions at the operation levels winning over their counterparts at the path level.",
                 "operationId": "path-with-params--operation-with-own-params-some-overriding-path",
                 "parameters": [
@@ -105,15 +105,15 @@
             }
         },
         "/path-with-no-params/{PathPathParam}": {
-            "summary": "Path Item defining no parameters of its own.",
+            "summary": "Path Item defining no parameters of its own",
             "get": {
-                "summary": "Path with no params: Operation with no parameters.",
+                "summary": "Path with no params: Operation with no parameters",
                 "description": "Operation with no parameters of its own. Expectation: result should contain no parameters.",
                 "operationId": "path-with-no-params--operation-with-no-params",
                 "responses": {}
             },
             "post": {
-                "summary": "Path with no params: Operation with parameters.",
+                "summary": "Path with no params: Operation with parameters",
                 "description": "Operation with some parameters of its own. Expectation: result should contain all operation's parameters.",
                 "operationId": "path-with-no-params--operation-with-own-params-no-overlap-with-path",
                 "parameters": [

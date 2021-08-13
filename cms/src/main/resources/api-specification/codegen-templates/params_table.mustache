@@ -76,11 +76,13 @@
                     </p>
                 {{/ifNotNull}}
 
+                {{^_enum}}
                 {{#example}}
                     <p class="nhsd-t-body">
                         {{{this}}}
                     </p>
                 {{/example}}
+                {{/_enum}}
 
                 {{#required}}<div class="nhsd-!t-col-red">Required</div>{{/required}}
             </td>

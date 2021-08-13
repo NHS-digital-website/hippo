@@ -1,0 +1,191 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/path-a": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "header-a",
+                        "description": "Request parameter with example and with enum.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value-a",
+                                "value-b"
+                            ],
+                            "example": "value-a"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "header-b",
+                        "description": "Request parameter with no example but with enum.",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "value-a",
+                                "value-b"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "header-c",
+                        "description": "Request parameter with example and no enum.",
+                        "schema": {
+                            "type": "string",
+                            "example": "value-a"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            },
+                            "header-e": {
+                                "description": "Response header with example and no enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "example": "value-a"
+                                }
+                            },
+                            "header-f": {
+                                "description": "Response header with no example but with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "path-b": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "irrelevant/content-type": {
+                            "schema": {
+                                "type": "string",
+                                "description": "Request body schema with example and with enum.",
+                                "enum": [
+                                    "value-a",
+                                    "value-b"
+                                ],
+                                "example": "value-a"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "path-c": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "irrelevant/content-type": {
+                            "schema": {
+                                "type": "string",
+                                "description": "Request body schema with example and no enum.",
+                                "example": "value-a"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "path-d": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "irrelevant/content-type": {
+                            "schema": {
+                                "type": "string",
+                                "description": "Request body schema with no example but with enum.",
+                                "enum": [
+                                    "value-a",
+                                    "value-b"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "path-e": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "Irrelevant response description.",
+                        "content": {
+                            "irrelevant/content-type": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Response body schema with example and with enum.",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "path-f": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "Irrelevant response description.",
+                        "content": {
+                            "irrelevant/content-type": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Response body schema with example and no enum.",
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "path-g": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "irrelevant/content-type": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Response body schema with no example but with enum.",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

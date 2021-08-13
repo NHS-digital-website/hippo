@@ -4,8 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.test.util.StringTestUtils.ignoringUuids;
-import static uk.nhs.digital.test.util.StringTestUtils.ignoringWhiteSpacesIn;
+import static uk.nhs.digital.test.util.StringTestUtils.*;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -71,16 +70,14 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // given
         final String incompleteSpecificationJson = from("oasV3_incomplete_no_components-field.json");
 
-        final String expectedSpecHtml = from("oasV3_incomplete_no_components-field.html");
-
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(incompleteSpecificationJson);
 
         // then
         assertThat(
-            "Specification is rendered with no error when the 'components' field is absent from the source JSON",
-            ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
-            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
+            "Specification is rendered with no error (i.e. 'at all') when the top-level 'components' field is absent from the source JSON",
+            actualSpecHtml,
+            containsString("Specification that does not define the top-level 'component' field.")
         );
     }
 
@@ -90,8 +87,6 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // given
         final String incompleteSpecificationJson = from("oasV3_operation_with_no_own_parameters.json");
 
-        final String expectedSpecHtml = from("oasV3_operation_with_no_own_parameters.html");
-
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(incompleteSpecificationJson);
 
@@ -99,7 +94,50 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         assertThat(
             "Parameters rendered for operations are combination of their own and path's params.",
             ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
-            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
+            stringContainsInOrder(
+                // "Path with no params: Operation with no parameters",
+                // "Path with no params: Operation with parameters",
+                // "Path with params: Operation with no parameters",
+                // "Path with params: Operation with non-overlapping parameters",
+                // "Path with params: Operation with overlapping parameters",
+
+                ">Path with no params: Operation with no parameters</h3>",
+                // This awkward concatenation of the description of the above operation with the heading of the following one
+                // ensures there are no parameters displayed for the above operation where they none were expected.
+                ">Operation with no parameters of its own. Expectation: result should contain no parameters.</p>\n"
+                + "<h3 id=\"api-Default-path-with-no-params--operation-with-own-params-no-overlap-with-path\" class=\"nhsd-t-heading-l\">"
+
+                + "Path with no params: Operation with parameters</h3>",
+                ">Request<",
+                ">Path parameters<",
+                ">PathPathParam<", ">Path parameter defined as path variable.<",
+                ">Query parameters<",
+                ">PathQueryParam<", ">Path parameter expected as a query parameter.<",
+                ">Headers<",
+                ">PathHeaderParam<", ">Path parameter expected as a header.<",
+
+                ">Path with params: Operation with non-overlapping parameters<",
+                ">Request<",
+                ">Path parameters<",
+                ">PathPathParam<", ">Path parameter defined as path variable.<",
+                ">Query parameters<",
+                ">PathQueryParam<", "Path parameter expected as a query parameter.",
+                ">OperationQueryParamPost<", ">Operation parameter expected as a query parameter.<",
+                ">Headers<",
+                ">PathHeaderParam<", ">Path parameter expected as a header.<",
+                ">OperationHeaderParamPost<", ">Operation parameter expected as a header.<",
+
+                ">Path with params: Operation with overlapping parameters<",
+                ">Request<",
+                ">Path parameters<",
+                ">PathPathParam<", ">Path parameter defined as path variable - re-defined in the operation.<",
+                ">Query parameters<",
+                ">PathQueryParam<", ">Path parameter expected as a query parameter - re-defined in the operation.<",
+                ">OperationQueryParamPut<", ">Operation parameter expected as a query parameter.<",
+                ">Headers<",
+                ">PathHeaderParam<", ">Path parameter expected as a header - re-defined in the operation.<",
+                ">OperationHeaderParamPut<", ">Operation parameter expected as a header.<"
+            )
         );
     }
 
@@ -181,16 +219,27 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // given
         final String specificationJson = from("oasV3_operationOrderNotSupplied.json");
 
-        final String expectedSpecHtml = from("oasV3_operationOrderNotSupplied.html");
-
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
 
         // then
         assertThat(
-            "Heading 'Endpoints' has been generated for operations with no tags - in the side nav and in the content area.",
+            "Heading 'Endpoints' generated for operations not included in the ordering metadata - in the side nav and in the content area.",
             ignoringWhiteSpacesIn(actualSpecHtml),
-            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+            stringContainsInOrder(
+                // side nav
+                "<a class=\"nhsd-a-link\" href=\"#api-endpoints\">\nEndpoints\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-Default-path_aGet\">\nGet operation A\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-Default-path_aPost\">\nPost operation A\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-Default-path_bGet\">\nGet operation B\n</a>",
+                "<a class=\"nhsd-a-link\" href=\"#api-Default-path_bPost\">\nPost operation B\n</a>",
+                // content area
+                "<h2 id=\"api-endpoints\" class=\"nhsd-t-heading-xl\">Endpoints</h2>",
+                "<h3 id=\"api-Default-path_aGet\" class=\"nhsd-t-heading-l\">Get operation A</h3>",
+                "<h3 id=\"api-Default-path_aPost\" class=\"nhsd-t-heading-l\">Post operation A</h3>",
+                "<h3 id=\"api-Default-path_bGet\" class=\"nhsd-t-heading-l\">Get operation B</h3>",
+                "<h3 id=\"api-Default-path_bPost\" class=\"nhsd-t-heading-l\">Post operation B</h3>"
+            )
         );
     }
 
@@ -222,7 +271,8 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         //   Post operation A
         //   Get operation A
 
-        assertThat("Headings 'Endpoint:' have been generated for each operation with a tag - in the side nav and in the content area.",
+        assertThat(
+            "Headings 'Endpoint:' generated for each operation included in the ordering metadata - in the side nav and in the content area.",
             ignoringWhiteSpacesIn(actualSpecHtml),
             stringContainsInOrder(
                 // nav menu with custom order
@@ -251,6 +301,51 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
                 "<h3 id=\"api-IgnoredTagA-path_aGet\" class=\"nhsd-t-heading-l\">Get operation A</h3>\n"
             )
         );
+    }
+
+
+
+    @Test
+    public void rendersExample_forRequestAndResponseParameters_dependingOnWhetherEnumIsDefined() {
+        // given
+        final String specificationJson = from("oasV3_examples_vs_enums.json");
+
+        final String headerAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: <span class=\"nhsd-a-text-highlight "
+            + "nhsd-a-text-highlight--code\">value-a</span>, <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></p></td>";
+
+        final String headerExample = "</p><p class=\"nhsd-t-body\">Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span></p></td>";
+
+        final String schemaAllowedValues = "</p></div><div>Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span>, <span "
+            + "class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></div></td>";
+
+        final String schemaExample = "</p></div><div>Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span></div></td>";
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        // @formatter:off
+        assertThat("Request and response parameter example values are rendered only when no enum (Allowed Values) are defined.",
+            ignoringNewLinesIn(ignoringWhiteSpacesIn(actualSpecHtml)),
+            stringContainsInOrder(
+                "Request parameter with example and with enum."         + headerAllowedValues,
+                "Request parameter with no example but with enum."      + headerAllowedValues,
+                "Request parameter with example and no enum."           + headerExample,
+
+                "Response header with example and with enum."           + headerAllowedValues,
+                "Response header with example and no enum."             + headerExample,
+                "Response header with no example but with enum."        + headerAllowedValues,
+
+                "Request body schema with example and with enum."       + schemaAllowedValues,
+                "Request body schema with example and no enum."         + schemaExample,
+                "Request body schema with no example but with enum."    + schemaAllowedValues,
+
+                "Response body schema with example and with enum."      + schemaAllowedValues,
+                "Response body schema with example and no enum."        + schemaExample,
+                "Response body schema with no example but with enum."   + schemaAllowedValues
+            )
+        );
+        // @formatter:on
     }
 
     @Test
