@@ -245,7 +245,7 @@ public class BrandRefreshContentRewriterTest {
 
         String result = rewriter.rewrite(html, node, requestContext, targetMount);
 
-        assertTrue(result.contains("figure"));
+        assertTrue(result.contains("span"));
         assertTrue(result.contains("picture"));
         assertTrue(result.contains("img"));
         assertTrue(result.contains("alt"));
@@ -253,11 +253,11 @@ public class BrandRefreshContentRewriterTest {
 
         Document document = Jsoup.parse(result);
 
-        Element figureTag = document.select("figure").first();
-        assertTrue(figureTag.hasClass("nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale"));
+        Element spanTag = document.select("span").first();
+        assertTrue(spanTag.hasClass("nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale"));
 
         Element pictureTag = document.select("picture").first();
-        assertEquals("picture", figureTag.child(0).tagName());
+        assertEquals("picture", spanTag.child(0).tagName());
         assertTrue(pictureTag.hasClass("nhsd-a-image__picture"));
 
         Element image = document.select("img").first();
@@ -357,7 +357,7 @@ public class BrandRefreshContentRewriterTest {
         assertTrue(result.contains("div"));
         assertTrue(result.contains("p"));
         assertTrue(result.contains("table"));
-        assertTrue(result.contains("cannotsort"));
+        assertFalse(result.contains("cannotsort"));
         assertFalse(result.contains("caption"));
         assertTrue(result.contains("thead"));
         assertTrue(result.contains("tr"));

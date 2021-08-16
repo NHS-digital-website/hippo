@@ -61,9 +61,15 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
 
         // image
         if (document.select("img").first() != null) {
-            document.select("img")
-                    .wrap("<figure class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale\"><picture class=\"nhsd-a-image__picture\"></picture></figure>");
+            // Add empty alt attribute if no alt text
+            document.select("img").forEach(e -> {
+                if (!e.hasAttr("alt")) {
+                    e.attr("alt", "");
+                }
+            });
 
+            document.select("img")
+                    .wrap("<span class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale\"><picture class=\"nhsd-a-image__picture\"></picture></span>");
         }
 
         // table
@@ -76,6 +82,7 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
                 if (table.select("th").first() != null) {
                     if (table.id().equals("cannotsort")) {
                         table.select("th").attr("data-no-sort", "");
+                        table.removeAttr("id");
                     }
                 } else {
                     table.removeAttr("data-responsive");
