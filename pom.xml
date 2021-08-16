@@ -432,7 +432,7 @@
             <!-- Although we don't explicitly use these dependencies, there are conflicts
             with these libraries in our transitive dependencies so we explicitly declare them -->
             <dependency>
-                <groupId>xml-apis</groupId>
+                <groupId>xml-apis</groupId>master
                 <artifactId>xml-apis</artifactId>
                 <version>2.0.2</version>
             </dependency>
