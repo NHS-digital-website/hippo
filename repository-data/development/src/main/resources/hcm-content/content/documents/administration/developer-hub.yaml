@@ -8,14 +8,13 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-04-07T06:26:52.343Z
+      hippostdpubwf:lastModificationDate: 2021-08-19T11:31:09.417Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:taxonomymapping
-      jcr:uuid: 9a52476f-f7e3-4bee-9c82-66f2d0dcda03
       website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
         \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
         \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
@@ -66,7 +65,9 @@
         \ API Service\r\n      entries:\r\n      - taxonomyKey: central\r\n      \
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
-        \ Standard"
+        \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
+        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
+        \n      displayName: Retired"
     /taxonomy-filters-mapping[2]:
       common:searchable: true
       hippo:availability:
@@ -75,7 +76,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-04-07T06:27:05.483Z
+      hippostdpubwf:lastModificationDate: 2021-08-19T11:31:26.939Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
@@ -83,7 +84,6 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:taxonomymapping
-      jcr:uuid: 5465d77d-8247-477d-a6ca-f138e2bcbffc
       website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
         \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
         \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
@@ -134,7 +134,9 @@
         \ API Service\r\n      entries:\r\n      - taxonomyKey: central\r\n      \
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
-        \ Standard"
+        \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
+        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
+        \n      displayName: Retired"
     /taxonomy-filters-mapping[3]:
       common:searchable: true
       hippo:availability:
@@ -143,15 +145,14 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-04-07T06:27:05.483Z
+      hippostdpubwf:lastModificationDate: 2021-08-19T11:31:26.939Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2021-04-07T06:51:03.252Z
+      hippostdpubwf:publicationDate: 2021-08-19T11:31:30.463Z
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:taxonomymapping
-      jcr:uuid: 254dfe57-1ee2-46a3-88bc-d5d60868f4bd
       website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
         \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
         \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
@@ -202,15 +203,16 @@
         \ API Service\r\n      entries:\r\n      - taxonomyKey: central\r\n      \
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
-        \ Standard"
+        \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
+        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
+        \n      displayName: Retired"
     hippo:name: Taxonomy filters mapping
-    hippo:versionHistory: a07ddcd5-8c0f-4ba8-b007-34e78f5e9668
+    hippo:versionHistory: a21f6ee4-53b6-4afe-9132-13bab150481a
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
-    jcr:uuid: d25cbae4-d000-4b44-bfd0-90f01a088840
   hippo:name: Developer hub
   hippostd:foldertype:
   - new-document
@@ -219,4 +221,3 @@
   - hippo:named
   - mix:versionable
   jcr:primaryType: hippostd:folder
-  jcr:uuid: 1bc0160f-680e-4ad5-85bb-53e3308d2856

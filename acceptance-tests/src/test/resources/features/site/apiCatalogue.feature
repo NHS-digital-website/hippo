@@ -1,4 +1,3 @@
-
 Feature: API Catalogue in Developer hub
 
     Scenario: API Catalogue renders all results when no filters applied
@@ -9,16 +8,16 @@ Feature: API Catalogue in Developer hub
             | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
         And the index is rendered with entries:
             | text | href  | aria-label                                    |
-            | A    | #a    | Jump to articles starting with the letter 'A' |
-            | B    | #b    | Jump to articles starting with the letter 'B' |
             | E    | #e    | Jump to articles starting with the letter 'E' |
-            | N    | #n    | Jump to articles starting with the letter 'N' |
+            | G    | #g    | Jump to articles starting with the letter 'G' |
+            | H    | #h    | Jump to articles starting with the letter 'H' |
+            | P    | #p    | Jump to articles starting with the letter 'P' |
         And I can see the following links:
-            | text                             | href                                                           |
-            | A Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-a  |
-            | B Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-b  |
-            | External Resource                | https://google.com                                             |
-            | No Mapped Taxonomy Tags          | /site/developer/api-catalogue/doc-with-no-mapped-taxonomy-tags |
+            | text                                     | href                                                                   |
+            | External Resource                        | https://google.com                                                     |
+            | General document                         | /site/developer/api-catalogue/general-document-not-api-specification   |
+            | Hello World API                          | /site/developer/api-catalogue/hello-world-api                          |
+            | Personal Demographics Service - FHIR API | /site/developer/api-catalogue/personal-demographics-service---fhir-api |
         And I should see elements with attributes:
             | text         | class                                                                             |
             | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
@@ -32,12 +31,12 @@ Feature: API Catalogue in Developer hub
         And I click on the "Filter by Inpatient" button
         Then the index is rendered with entries:
             | text | href  | aria-label                                    |
-            | A    | #a    | Jump to articles starting with the letter 'A' |
-            | B    | #b    | Jump to articles starting with the letter 'B' |
+            | H    | #h    | Jump to articles starting with the letter 'H' |
+            | P    | #p    | Jump to articles starting with the letter 'P' |
         And I can see the following links:
-            | text                             | href                                                           |
-            | A Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-a  |
-            | B Doc With Mapped Taxonomy Tags  | /site/developer/api-catalogue/doc-with-mapped-taxonomy-tags-b  |
+            | text                                     | href                                                                   |
+            | Hello World API                          | /site/developer/api-catalogue/hello-world-api                          |
+            | Personal Demographics Service - FHIR API | /site/developer/api-catalogue/personal-demographics-service---fhir-api |
         And I should see elements with attributes:
             | text         | class                                                                             |
             | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
