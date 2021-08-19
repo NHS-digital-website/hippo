@@ -47,7 +47,7 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
             errors.put("ReCaptcha Validation", new ErrorMessage("ReCaptcha validation failed", errorList));
         }
 
-        return errors;
+        return  new HashMap<>();
     }
 
     private String getReCaptchaErrors(Resource responseResource) {
