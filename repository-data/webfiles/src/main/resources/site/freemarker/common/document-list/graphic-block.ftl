@@ -29,11 +29,32 @@
                     <#if hasStats>
                         <#assign stats = item.modules[0] />
 
+                        <#if stats.statisticType == "staticStatistic">
+                            <#assign number = stats.number />
+                        <#elseif stats.statisticType == "feedStatistic">
+                            <#assign remoteStat="uk.nhs.digital.freemarker.statistics.RemoteStatisticFromUrl"?new() />
+                            <#assign remote = (remoteStat(stats.urlOfNumber))! />
+
+                            <#if remote??>
+                                <#if (remote.number)??>
+                                    <#assign number = remote.number />
+                                </#if>
+                            </#if>
+                        </#if>
+
                         <#assign heading>
-                            <#if stats.number?has_content>
-                                ${getPrefix(stats.prefix)}${stats.number}${getSuffix(stats.suffix)}
-                                <#if stats.trend != "none">
-                                    <@buildInlineSvg stats.trend />
+                            <#if number?has_content>
+                                ${getPrefix(stats.prefix)}${number}${getSuffix(stats.suffix)}
+                                <#assign trend = stats.trend />
+                                <#if trend == "auto">
+                                    <#if number?number == 0>
+                                        <#assign trend = "none"/>
+                                    <#else>
+                                        <#assign trend = (number?number gt 0)?then("up", "down") />
+                                    </#if>
+                                </#if>
+                                <#if trend != "none">
+                                    <@buildInlineSvg trend />
                                 </#if>
                             </#if>
                         </#assign>
