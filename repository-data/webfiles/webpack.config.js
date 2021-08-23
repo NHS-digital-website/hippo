@@ -27,7 +27,10 @@ const webpackDefaultConfig = {
                 }
             }
         ],
-    }
+    },
+    externals: {
+        nhsd: 'nhsd',
+    },
 }
 
 const webpackDevConfig = {

@@ -47,12 +47,12 @@ public class General extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:pageicon")
-    public CorporateWebsiteImageset getPageIcon()  {
+    public CorporateWebsiteImageset getPageIcon() {
         return getLinkedBean("website:pageicon", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimage")
-    public CorporateWebsiteImageset getLeadImage()  {
+    public CorporateWebsiteImageset getLeadImage() {
         return getLinkedBean("website:leadimage", CorporateWebsiteImageset.class);
     }
 
@@ -69,5 +69,10 @@ public class General extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:noindexcontrol")
     public boolean getNoIndexControl() {
         return getSingleProperty("website:noindexcontrol");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:propmtuserorg")
+    public String[] getPropmtUserOrg() {
+        return getMultipleProperty("website:propmtuserorg");
     }
 }

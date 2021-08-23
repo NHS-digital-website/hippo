@@ -1,20 +1,4 @@
-import $ from "jquery";
-
-function getCookie(cname) {
-    const name = `${cname}=`;
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
+import cookies from '../utils/cookies';
 
 function showTrackingInfo() {
     $.ajax({
@@ -37,13 +21,13 @@ function clearTrackingInfo() {
 }
 
 function getVisitorTrackingStatus() {
-    $('#tracking-status').html(getCookie("visitortracking"));
+    $('#tracking-status').html(cookies.get("visitortracking"));
 }
 
 function setVisitorTracking(status) {
     // function may be called directly
 
-    const cookieConsent = getCookie("CookieConsent");
+    const cookieConsent = cookies.get("CookieConsent");
     if (cookieConsent.indexOf("statistics:false") >= 0) {
         if (status === 'allowed') {
             alert('Only necessary cookies have been allowed. To enable tracking, all cookies must be allowed in Cookie consent');
@@ -64,9 +48,9 @@ function setVisitorTracking(status) {
 
 export function initCookieConsent() {
 
-    const cookieConsent = getCookie("CookieConsent");
+    const cookieConsent = cookies.get("CookieConsent");
     if (cookieConsent !== "") {
-        if (cookieConsent.indexOf("statistics:true") >= 0 && getCookie("visitortracking") === '') {
+        if (cookieConsent.indexOf("statistics:true") >= 0 && cookies.get("visitortracking") === '') {
             setVisitorTracking('allowed');
         }
 
@@ -76,7 +60,7 @@ export function initCookieConsent() {
     }
 
     $(function () {
-        let status = getCookie("visitortracking");
+        let status = cookies.get("visitortracking");
         if (status === '') {
             status = 'disallowed (cookies disabled)'
         }

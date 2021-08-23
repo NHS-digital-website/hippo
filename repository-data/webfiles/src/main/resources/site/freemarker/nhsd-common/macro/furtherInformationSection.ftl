@@ -7,7 +7,7 @@
 <#include "fileIconByMimeType.ftl">
 <#include "./component/downloadBlockAsset.ftl">
 
-<#macro furtherInformationSection childPages>
+<#macro furtherInformationSection childPages orgPrompt=false>
     <@hst.setBundle basename="rb.generic.headers"/>
     <#-- BEGIN optional 'Further information section' -->
     <#if childPages?has_content>
@@ -58,7 +58,7 @@
                     <#-- If asset link -->
                     <#if childPage.linkType == "asset">
                         <div class="nhsd-t-col-12 nhsd-!t-no-gutters nhsd-!t-margin-bottom-6">
-                            <@downloadBlockAsset document.class.name childPage.link "${childPage.title}" "" childPage.link.asset.mimeType childPage.link.asset.getLength() />
+                            <@downloadBlockAsset document.class.name childPage.link "${childPage.title}" "" childPage.link.asset.mimeType childPage.link.asset.getLength() false false orgPrompt/>
                         </div>
                     </#if>
                 </#if>
