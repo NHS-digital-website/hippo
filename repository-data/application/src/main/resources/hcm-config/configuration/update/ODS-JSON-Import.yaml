@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/ODS-JSON-Import:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: true
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website/news/odsjson//*[(@jcr:primaryType='hippo:resource')]
+      hipposys:script:
+        resource: /configuration/update/ODS-JSON-Import.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

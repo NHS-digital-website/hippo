@@ -3,7 +3,7 @@
 <#include "../fileIconByMimeType.ftl">
 <#include "../component/downloadBlockAsset.ftl">
 
-<#macro gallerySection section mainHeadingLevel=2 >
+<#macro gallerySection section mainHeadingLevel=2 orgPrompt=false>
     <div id="${slugify(section.heading)}">
       <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
         <h2 data-uipath="website.contentblock.gallerysection.title" class="nhsd-t-heading-xl">${section.title}</h2>
@@ -55,9 +55,9 @@
                           <#list galleryItem.relatedFiles as attachment>
                             <div class="nhsd-m-card__download-card nhsd-!t-margin-bottom-6">
                               <#if attachment.link.asset?has_content>
-                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.asset.mimeType attachment.link.asset.getLength() false true />
+                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.asset.mimeType attachment.link.asset.getLength() false true orgPrompt=orgPrompt/>
                               <#else>
-                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.original.mimeType attachment.link.original.getLength() false true />
+                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.original.mimeType attachment.link.original.getLength() false true orgPrompt=orgPrompt/>
                               </#if>
                             </div>
                           </#list>
