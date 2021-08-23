@@ -242,6 +242,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /propmtuserorg:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Do not prompt,Prompt on Download,Prompt all users
+            caption: Prompt users for organisation?
+            field: propmtuserorg
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -345,6 +355,14 @@ definitions:
             hipposysedit:path: website:pageicon
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
+            jcr:primaryType: hipposysedit:field
+          /propmtuserorg:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:propmtuserorg
+            hipposysedit:primary: false
+            hipposysedit:type: urlrewriter:BroadcastingStaticDropdown
             jcr:primaryType: hipposysedit:field
           /searchTab:
             hipposysedit:mandatory: false
@@ -541,6 +559,7 @@ definitions:
           website:navigationcontroller: withNav
           website:noIndexControl: ''
           website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
           website:shortsummary: ''
           website:title: ''
           website:type: ''
