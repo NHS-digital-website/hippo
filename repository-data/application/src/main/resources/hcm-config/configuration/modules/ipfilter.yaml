@@ -7,9 +7,9 @@ definitions:
         allowed-ip-ranges:
         - 127.0.0.1
         cache-enabled: true
-        enabled: false
+        enabled: true
         hostnames:
-        - dev.nhsd.io:8080
+        - dev.nhsd.io
         - cms-dev.nhsd.io
         - development.nhsdigital.bloomreach.cloud
         jcr:primaryType: hipposys:moduleconfig
