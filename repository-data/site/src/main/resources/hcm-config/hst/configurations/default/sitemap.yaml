@@ -26,6 +26,12 @@ definitions:
         hst:namedpipeline: S3ConnectorPipeline
         hst:refId: S3CONNECTOR-PIPELINE-ID
         jcr:primaryType: hst:sitemapitem
+      /sitemap-publication.xml:
+        hst:cacheable: true
+        hst:componentconfigurationid: hst:components/forge-sitemapv2-publication-feed
+        hst:hiddeninchannelmanager: true
+        hst:refId: sitemap-publication
+        jcr:primaryType: hst:sitemapitem
       /version:
         hst:containerresource: true
         jcr:primaryType: hst:sitemapitem
