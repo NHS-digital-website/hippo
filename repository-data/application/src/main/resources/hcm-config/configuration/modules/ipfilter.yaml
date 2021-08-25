@@ -6,6 +6,7 @@ definitions:
         allow-cms-users: true
         allowed-ip-ranges:
         - 127.0.0.1
+        - 2a01:113f:402:9500:9087:d2fc:765b:903a
         cache-enabled: true
         enabled: true
         hostnames:
