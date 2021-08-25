@@ -1,6 +1,12 @@
 ---
 definitions:
   config:
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-blog.xml:
+      hst:cacheable: true
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-blog-feed
+      hst:hiddeninchannelmanager: true
+      hst:refId: sitemap-blog
+      jcr:primaryType: hst:sitemapitem
     /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-document-_default_.xml:
       hst:cacheable: true
       hst:componentconfigurationid: hst:components/forge-sitemapv2-document-feed
@@ -23,4 +29,10 @@ definitions:
       hst:componentconfigurationid: hst:components/forge-sitemapv2-page-feed
       hst:hiddeninchannelmanager: true
       hst:refId: sitemap-pages
+      jcr:primaryType: hst:sitemapitem
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-publication.xml:
+      hst:cacheable: true
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-publication-feed
+      hst:hiddeninchannelmanager: true
+      hst:refId: sitemap-publication
       jcr:primaryType: hst:sitemapitem
