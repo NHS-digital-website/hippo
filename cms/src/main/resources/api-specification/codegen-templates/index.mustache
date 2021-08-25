@@ -33,11 +33,11 @@
                                     {{#ifVariableIsFalse "tryThisApiDisabled"}}
                                         {{#eq baseName 'Default'}}{{#assign "sanitizedBaseName"}}{{lower baseName}}{{/assign}}{{else}}{{#assign "sanitizedBaseName"}}{{baseName}}{{/assign}}{{/eq}}
                                         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
-                                            <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button nhsd-!t-display-hide">
+                                            <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button">
                                                 <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3 nhsd-t-width-full" type="button"
-                                                        onclick="tryEndpointNow('/{{sanitizedBaseName}}/{{operationId}}')">
-                                                    <span class="nhsd-a-button__label">Try this API</span>
-                                                    <span class="nhsd-a-icon nhsd-a-icon--size-m">
+                                                        onclick="tryEndpointNow('/{{sanitizedBaseName}}/{{operationId}}')" disabled>
+                                                    <span class="nhsd-a-button__label">Enable Javascript to try this API</span>
+                                                    <span class="nhsd-a-icon nhsd-a-icon--size-m nhsd-!t-display-hide">
                                                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
                                                             <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
                                                         </svg>

@@ -206,9 +206,9 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // @formatter:off
         return new Object[][]{
             // thePropertyIs    outcomeDescription propertyJson                                                            expectation
-            {"absent", "rendered", "", containsString(">Try this API<")},
-            {"false", "rendered", "\"x-spec-publication\": {\"try-this-api\": {\"disabled\": false}},", containsString(">Try this API<")},
-            {"true", "not rendered", "\"x-spec-publication\": {\"try-this-api\": {\"disabled\": true}},", not(containsString(">Try this API<"))}
+            {"absent", "rendered", "", containsString(">Enable Javascript to try this API<")},
+            {"false", "rendered", "\"x-spec-publication\": {\"try-this-api\": {\"disabled\": false}},", containsString(">Enable Javascript to try this API<")},
+            {"true", "not rendered", "\"x-spec-publication\": {\"try-this-api\": {\"disabled\": true}},", not(containsString(">Enable Javascript to try this API<"))}
         };
         // @formatter:on
     }
