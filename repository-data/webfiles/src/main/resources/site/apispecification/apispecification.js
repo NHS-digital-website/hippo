@@ -108,5 +108,9 @@ document.addEventListener('keydown', (event) => {
 // make controls visible
 document.querySelectorAll('.nhsd-o-schema__header-button').forEach(element => element.classList.remove('nhsd-!t-display-hide'));
 document.querySelectorAll('.nhsd-o-schema__button').forEach(element => element.classList.remove('nhsd-!t-display-hide'));
-document.querySelectorAll('.nhsd-api-spec__try-this-api__button').forEach(element => element.classList.remove('nhsd-!t-display-hide'));
+document.querySelectorAll('.nhsd-api-spec__try-this-api__button button').forEach(element => {
+    element.removeAttribute('disabled');
+    element.querySelector('.nhsd-a-button__label').textContent = 'Try this API';
+    element.querySelector('.nhsd-a-icon').classList.remove('nhsd-!t-display-hide');
+});
 
