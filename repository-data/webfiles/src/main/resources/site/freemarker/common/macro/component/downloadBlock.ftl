@@ -3,7 +3,7 @@
 <#macro downloadBlock doc itemprop="">
 
     <@hst.link hippobean=doc var="link"/>
-    <a href="<${link}"
+    <a href="${link}"
        class="block-link"
        onClick="${getOnClickMethodCall(document.class.name, link)}"
        onKeyUp="return vjsu.onKeyUp(event)" ${itemprop}>
