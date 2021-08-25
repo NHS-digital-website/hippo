@@ -3,7 +3,7 @@ definitions:
   config:
     /hippo:configuration/hippo:modules/ipfilter/hippo:moduleconfig:
       /development:
-        allow-cms-users: false
+        allow-cms-users: true
         allowed-ip-ranges:
         - 127.0.0.1
         cache-enabled: true
@@ -15,9 +15,7 @@ definitions:
         jcr:primaryType: hipposys:moduleconfig
         match-all: false
       forwarded-host-header:
-      - X-Forwarded-Host
-      - X-Original-Forwarded-For
-      - Host
+      - CF-Connecting-IP
       ignored-paths:
       - /autoreload
       - /ping/.*
