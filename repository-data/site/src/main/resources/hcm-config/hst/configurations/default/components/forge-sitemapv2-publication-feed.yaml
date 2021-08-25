@@ -1,0 +1,11 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:components/forge-sitemapv2-publication-feed:
+      hst:componentclassname: org.onehippo.forge.sitemapv2.components.DocumentFeed
+      hst:parameternames:
+      - query-primaryTypes
+      hst:parametervalues:
+      - publicationsystem:publication
+      hst:template: forge-sitemapv2-feed.ftl
+      jcr:primaryType: hst:component
