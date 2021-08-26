@@ -3,32 +3,70 @@ definitions:
   config:
     /hippo:configuration/hippo:modules/ipfilter/hippo:moduleconfig:
       /development:
-        allow-cms-users: true
+        allow-cms-users: false
         allowed-ip-ranges:
-        - 127.0.0.1
-        - 2a01:113f:402:9500:9087:d2fc:765b:903a
+          - 2a00:18c8:9619:3::1011 # BR Support
+          - 85.146.244.170 # BR Support
         cache-enabled: true
         enabled: true
+        forwarded-for-header: x-original-forwarded-for
+        forwarded-host-header: x-forwarded-host
         hostnames:
-        - dev.nhsd.io
-        - cms-dev.nhsd.io
-        - development.nhsdigital.bloomreach.cloud
+          - dev.nhsd.io
+          - cms-dev.nhsd.io
+          - development.nhsdigital.bloomreach.cloud
+        jcr:primaryType: hipposys:moduleconfig
+        match-all: false
+      /localhost:
+        allow-cms-users: true
+        allowed-ip-ranges:
+          - 127.0.0.1
+          - 0:0:0:0:0:0:0:1
+          - 80.100.160.250
+          - 81.21.138.121
+          - 2001:4cb8:29d:1::/64
+        cache-enabled: true
+        enabled: true
+        forwarded-for-header: X-Forwarded-For
+        hostnames:
+          - localhost
+          - 127.0.0.1
+          - 0:0:0:0:0:0:0:1
+        ignored-paths:
+          - /autoreload
+          - /ping/.*
+          - ^/_rp/.*
+          - ^/_cmsinternal/.*
+          - ^/_targeting/.*
+          - ^/webfiles/.*
+          - ^/binaries/.*
+          - ^/images/.*
+          - .*\.css
+          - .*\.js
+          - .*\.ico
+          - .*\.css
+          - .*\.js
+          - .*\.ico
         jcr:primaryType: hipposys:moduleconfig
         match-all: false
       forwarded-host-header:
-      - CF-Connecting-IP
+        - x-forwarded-host
       ignored-paths:
-      - /autoreload
-      - /ping/.*
-      - ^/_rp/.*
-      - ^/_cmsinternal/.*
-      - ^/_targeting/.*
-      - ^/webfiles/.*
-      - ^/binaries/.*
-      - ^/images/.*
-      - .*\.css
-      - .*\.js
-      - .*\.ico
-      - .*\.css
-      - .*\.js
-      - .*\.ico
+        - /autoreload
+        - /ping/.*
+        - ^/_rp/.*
+        - ^/_cmsinternal/.*
+        - ^/_targeting/.*
+        - ^/webfiles/.*
+        - ^/binaries/.*
+        - ^/images/.*
+        - .*\.css
+        - .*\.js
+        - .*\.ico
+        - .*\.css
+        - .*\.js
+        - .*\.ico
+      jcr:primaryType: hipposys:moduleconfig
+    hipposys:className: org.onehippo.forge.ipfilter.repository.IpFilterModule
+    hipposys:cmsonly: false
+    jcr:primaryType: hipposys:module
