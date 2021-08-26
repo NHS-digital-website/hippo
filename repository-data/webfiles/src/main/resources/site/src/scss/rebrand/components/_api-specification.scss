@@ -124,10 +124,54 @@
 .nhsd-t-text-transform-uppercase { text-transform: uppercase; }
 .nhsd-t-float-right { float: right }
 .nhsd-t-overflow-wrap-text { word-break: break-all }
-.nshd-t-wrap-text-pre {
+.nhsd-t-wrap-text-pre {
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.nhsd-o-code-viewer__code {
+    &__slim {
+        max-height: 500px;
+        height: min-content;
+        padding-top: unset;
+    }
+
+    &-content__slim {
+        pre {
+            padding-top: .8333333333rem;
+        }
+
+        max-height: 500px;
+        overflow: scroll;
+        scrollbar-color: auto !important;
+        scrollbar-width: auto !important;
+
+
+        &::-webkit-scrollbar {
+            width: .75em;
+            height: .75em;
+        }
+        &::-webkit-scrollbar-track {
+            background: unset;
+        }
+        &::-webkit-scrollbar-corner {
+            background: unset;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #757575;
+            border-radius: 20px;
+            border: 3px solid #2e2e2e;
+            &:hover {
+                background-color: #9e9e9e;
+            }
+            &:active {
+                background-color: #9e9e9e;
+            }
+        }
+
+    }
+
 }

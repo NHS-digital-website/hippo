@@ -136,6 +136,10 @@ public class StringTestUtils {
             .collect(Collectors.joining(LF));
     }
 
+    public static String ignoringNewLinesIn(final String text) {
+        return remove(text, LF);
+    }
+
     public static String ignoringUuids(final String html) {
         return html
             .replaceAll("data-schema-uuid=\"" + UUID_REGEX + "\"", "data-schema-uuid=\"\"")

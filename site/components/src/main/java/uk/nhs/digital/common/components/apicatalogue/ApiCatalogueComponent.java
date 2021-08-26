@@ -28,7 +28,7 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        final boolean isToShowAll = Boolean.parseBoolean(Optional.ofNullable(request.getParameter("showAll")).orElse("false"));
+        final boolean isToShowAll = Optional.ofNullable(request.getParameter("showAll")).map(Boolean::parseBoolean).orElse(false);
 
         final Set<String> selectedTags = userSelectedTaxonomyKeysFrom(request);
 

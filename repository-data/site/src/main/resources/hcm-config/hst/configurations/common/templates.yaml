@@ -129,7 +129,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/nhsd-common/feature.ftl
         jcr:primaryType: hst:template
       /feedhub:
-        hst:renderpath: webfile:/freemarker/common/feedhub.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/feedhub.ftl
         jcr:primaryType: hst:template
       /feedlist:
         hst:renderpath: webfile:/freemarker/common/feedlist.ftl

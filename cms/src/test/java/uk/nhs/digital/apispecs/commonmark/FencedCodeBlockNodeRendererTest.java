@@ -68,8 +68,8 @@ public class FencedCodeBlockNodeRendererTest {
         inOrder.verify(html).tag("p", ImmutableMap.of("class", "nhsd-t-heading-s nhsd-!t-margin-3","data-hide-tab-header", ""));
         inOrder.verify(html).text(language.toUpperCase());
         inOrder.verify(html).tag("/p");
-        inOrder.verify(html).tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code"));
-        inOrder.verify(html).tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code-content"));
+        inOrder.verify(html).tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim"));
+        inOrder.verify(html).tag("div", Collections.singletonMap("class", "nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim"));
         inOrder.verify(html).tag("pre", Collections.singletonMap("class", "line-numbers"));
         inOrder.verify(html).tag("code", Collections.singletonMap("class", languageClass));
         inOrder.verify(html).text(literal);
