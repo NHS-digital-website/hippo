@@ -186,7 +186,16 @@ public class RssModifier extends RSS20Modifier {
             foreignMarkup.add(getElement("author", (emailAddress + " (" + author + ")")));
             StringBuilder content = new StringBuilder();
             for (HippoBean sre : newsBean.getSections()) {
-                String tempContent = ((Section) sre).getHtmlJson();
+                String tempContent = new String();
+                if (sre instanceof Section) {
+                    tempContent = ((Section) sre).getHtmlJson();
+                } else if (sre instanceof EmphasisBox) {
+                    tempContent = ((EmphasisBox) sre).getBodyJson();
+                } else if (sre instanceof Expander) {
+                    tempContent = ((Expander) sre).getContent().getContent();
+                } else if (sre instanceof Quote) {
+                    tempContent = ((Quote) sre).getQuote().getContent();
+                }
                 content.append(tempContent);
             }
             foreignMarkup.add(getElement("description", content.toString()));
