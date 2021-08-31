@@ -5,17 +5,18 @@
 <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
 <#macro scrollableFilterNav blockGroups filtersModel responsive>
+    <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5">
     <#if responsive>
-        <h2 id="side-az-nav-heading-responsive" class="nhsd-t-heading-xs">Refine results</h2>
-        <div class="nhsd-!t-margin-bottom-4">
-            <@azList blockGroups "side-az-nav-heading-responsive"/>
-            <hr class="nhsd-a-horizontal-rule" />
-        </div>
+        <h2 id="side-az-nav-heading-responsive" class="nhsd-t-heading-xs">Search A-Z</h2>
+        <@azList blockGroups "side-az-nav-heading-responsive"/>
     <#else>
         <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Refine results</h2>
         <@azList blockGroups "side-az-nav-heading"/>
     </#if>
+    </div>
     <#if filtersModel?? && !filtersModel.isEmpty()>
+        <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
+        <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
         <div>
                 <div class="nhsd-t-row">
                     <h2 class="nhsd-t-heading-xs">
@@ -59,6 +60,9 @@
                     </#if>
                 </#list>
             </nav>
+        </div>
+        </div>
+        <div class="nhsd-t-body nhsd-!t-display-hide nhsd-!t-display-l-show"><a class="nhsd-a-link" href="#">Back to top</a></div>
         </div>
     </#if>
 </#macro>

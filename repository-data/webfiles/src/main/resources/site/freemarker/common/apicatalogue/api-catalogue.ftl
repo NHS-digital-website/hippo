@@ -36,9 +36,7 @@
     <#if alphabetical_hash??>
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
-                <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2 nhsd-api-catalogue__scrollable-component">
-                    <@scrollableFilterNav alphabetical_hash filtersModel false></@scrollableFilterNav>
-                </div>
+                <@scrollableFilterNav alphabetical_hash filtersModel false></@scrollableFilterNav>
             </div>
 
             <div class="nhsd-t-col-l-9 nhsd-t-col-m-12">
