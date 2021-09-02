@@ -19,8 +19,7 @@
         <div>
             <h2 class="nhsd-t-heading-xs">
                 <span class="filter-head__title">Filters</span>
-                <@hst.renderURL var="resetUrl"/>
-                <a class="nhsd-a-button" href="${resetUrl}" title="Reset">
+                <a class="nhsd-a-button" href="<@hst.link/>" title="Reset">
                     <span class="nhsd-a-button__label">Reset</span>
                 </a>
             </h2>
@@ -61,18 +60,18 @@
 
 <#macro filterTemplate filter filtersModel indentationLevel=0>
     <#if filter.displayed>
-        <@hst.renderURL var="filterLink">
-            <@hst.param name="showAll" value="${showAll?c}" />
-            <#if filter.selected>
-                <@hst.param name="filters" value="${filtersModel.selectedFiltersKeysMinus(filter.key)?join(',')}" />
-            <#else>
-                <@hst.param name="filters" value="${filtersModel.selectedFiltersKeys()?join(',', '', ',')}${filter.key}" />
-            </#if>
-        </@hst.renderURL>
+        <@hst.link var="baseUrl"/>
+        <#if filter.selected>
+            <#assign filtersParam = filtersModel.selectedFiltersKeysMinus(filter.key) />
+        <#else>
+            <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
+        </#if>
         <span class="nhsd-a-checkbox">
             <label>
             <#if filter.selectable>
-                <a title="Filter by ${filter.displayName}" href="${filterLink?no_esc}" class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if>">
+                <a title="Filter by ${filter.displayName}"
+                   href="<@renderUrl baseUrl=baseUrl showDeprecatedAndRetired=showDeprecatedAndRetired filters=filtersParam />"
+                   class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if>">
                     <input type="checkbox">${filter.displayName}
                 </a>
                 <span class="checkmark <#if filter.selected>selected</#if>"></span>
