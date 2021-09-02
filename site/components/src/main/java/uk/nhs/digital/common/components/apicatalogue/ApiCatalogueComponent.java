@@ -5,14 +5,13 @@ import static java.util.stream.Collectors.toList;
 import com.google.common.collect.ImmutableSet;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.container.HstContainerURL;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.common.components.*;
+import uk.nhs.digital.common.components.ContentRewriterComponent;
 import uk.nhs.digital.common.components.apicatalogue.filters.Filters;
-import uk.nhs.digital.common.components.apicatalogue.repository.ApiCatalogueRepository;
 import uk.nhs.digital.website.beans.ComponentList;
-import uk.nhs.digital.website.beans.Externallink;
-import uk.nhs.digital.website.beans.Internallink;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -24,27 +23,43 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
 
+    private static final Set<String> DEPRECATED_RETIRED_API_FILTER_KEYS = ImmutableSet.of("deprecated-api", "retired-api");
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        final boolean isToShowAll = Optional.ofNullable(request.getParameter("showAll")).map(Boolean::parseBoolean).orElse(false);
+        final List<ApiCatalogueLink> allApiCatalogueLinks = apiCatalogueLinksFrom(request);
 
-        final Set<String> selectedTags = userSelectedTaxonomyKeysFrom(request);
+        final boolean showDeprecatedAndRetired = queryStringContainsParameter(request, Param.showDeprecatedAndRetired);
 
-        final List<?> apiCatalogueLinksAll = apiCatalogueLinksFrom(request,isToShowAll);
+        final List<ApiCatalogueLink> apiCatalogueLinksExcludingDeprecatedAndRetiredIfNeeded =
+            eliminateDeprecatedAndRetiredIfNeeded(allApiCatalogueLinks, showDeprecatedAndRetired);
 
-        final List<?> apiCatalogueLinksFiltered =
-            apiCatalogueLinksFilteredBySelectedTags(apiCatalogueLinksAll, selectedTags);
+        final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
-        request.setAttribute("apiCatalogueLinks", apiCatalogueLinksFiltered);
+        final List<ApiCatalogueLink> apiCatalogueLinksFiltered = applyUserSelectedFilters(
+            apiCatalogueLinksExcludingDeprecatedAndRetiredIfNeeded,
+            userSelectedFilterKeys
+        );
 
-        final Filters filtersModel = filtersModel(apiCatalogueLinksAll, selectedTags, sessionFrom(request));
+        request.setAttribute(Param.apiCatalogueLinks.name(), apiCatalogueLinksFiltered.stream().map(ApiCatalogueLink::raw).collect(toList()));
 
-        request.setAttribute("showAll", isToShowAll);
+        final Filters filtersModel = filtersModel(
+            apiCatalogueLinksExcludingDeprecatedAndRetiredIfNeeded,
+            userSelectedFilterKeys,
+            sessionFrom(request)
+        );
 
-        request.setAttribute("filtersModel", filtersModel);
+        request.setAttribute(Param.filtersModel.name(), filtersModel);
 
+        request.setAttribute(Param.showDeprecatedAndRetired.name(), showDeprecatedAndRetired);
+    }
+
+    private boolean queryStringContainsParameter(final HstRequest request, final Param queryStringParameter) {
+        return Optional.ofNullable(request.getQueryString())
+            .filter(queryString -> queryString.contains(queryStringParameter.name()))
+            .isPresent();
     }
 
     private Session sessionFrom(final HstRequest request) {
@@ -55,51 +70,52 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
         }
     }
 
-    private static Set<String> userSelectedTaxonomyKeysFrom(final HstRequest request) {
-        return Optional.ofNullable(request.getParameter("filters"))
-            .map(commaDelimitedKeys -> commaDelimitedKeys.split(","))
+    private List<ApiCatalogueLink> apiCatalogueLinksFrom(final HstRequest request) {
+        return ApiCatalogueLink.linksFrom(((ComponentList) request.getRequestContext().getContentBean()).getBlocks());
+    }
+
+    private List<ApiCatalogueLink> eliminateDeprecatedAndRetiredIfNeeded(
+        final List<ApiCatalogueLink> apiCatalogueLinks,
+        final boolean showDeprecatedAndRetired
+    ) {
+        return apiCatalogueLinks.stream()
+            .filter(link -> showDeprecatedAndRetired || link.notFilterable() || link.notTaggedWithAnyOf(DEPRECATED_RETIRED_API_FILTER_KEYS))
+            .collect(toList());
+    }
+
+    private static Set<String> userSelectedFilterKeysFrom(final HstRequest request) {
+
+        return Optional.ofNullable(request.getRequestContext())
+            .map(HstRequestContext::getBaseURL)
+            .map(HstContainerURL::getParameterMap)
+            .map(parameterMap -> parameterMap.get(Param.filter.name()))
             .map(Arrays::stream)
-            .map(taxonomyKeys -> taxonomyKeys.collect(Collectors.toSet()))
+            .map(filterKeys -> filterKeys.collect(Collectors.toSet()))
             .orElse(Collections.emptySet());
     }
 
-    private List<?> apiCatalogueLinksFrom(final HstRequest request, final boolean showAll) {
-
-        List<Internallink> internallinksList = ((ComponentList) request.getRequestContext().getContentBean()).getBlocks().stream()
-            .filter(Internallink.class::isInstance)
-            .map(Internallink.class::cast)
-            .filter(link -> showAll || linkHasNoneOfSelectedTaxonomyKeys(link, ImmutableSet.of("deprecated-api","retired-api")))
-            .collect(toList());
-
-        List<Externallink> externallinkList = ((ComponentList) request.getRequestContext().getContentBean()).getBlocks().stream()
-            .filter(Externallink.class::isInstance)
-            .map(Externallink.class::cast)
-            .collect(toList());
-
-        return Stream.of(internallinksList, externallinkList).flatMap(Collection::stream).collect(toList());
-    }
-
-    private List<?> apiCatalogueLinksFilteredBySelectedTags(final List<?> links, final Set<String> selectedTags) {
+    private List<ApiCatalogueLink> applyUserSelectedFilters(final List<ApiCatalogueLink> links, final Set<String> selectedTags) {
         if (selectedTags.isEmpty()) {
             return links;
         }
 
-        return internalLinksWithSelectedTaxonomyKeys(links, selectedTags).collect(toList());
+        return linksWithAllUserSelectedFilterKeys(links, selectedTags).collect(toList());
     }
 
-    private Filters filtersModel(final List<?> apiCatalogueLinks, final Set<String> selectedTags, final Session session) {
-
+    private Filters filtersModel(
+        final List<ApiCatalogueLink> apiCatalogueLinks,
+        final Set<String> userSelectedFilterKeys,
+        final Session session
+    ) {
         try {
-            return getMappingYaml(session)
-                .map(mappingYaml -> {
-                    final Set<String> filteredTaxonomyTags = filteredTaxonomyKeys(selectedTags, apiCatalogueLinks);
-
-                    return ApiCatalogueContext.filtersFactory().filtersFromYaml(mappingYaml)
-                        .initialisedWith(filteredTaxonomyTags, selectedTags);
-                })
+            return taxonomyKeysToFiltersMappingYaml(session)
+                .map(mappingYaml -> ApiCatalogueContext.filtersFactory().filtersFromMappingYaml(mappingYaml))
+                .map(rawFilters -> rawFilters.initialisedWith(
+                    allFilterKeysOfAllCatalogueDocsWhereEachDocTaggedWithAllUserSelectedKeys(userSelectedFilterKeys, apiCatalogueLinks), userSelectedFilterKeys)
+                )
                 .orElse(Filters.emptyInstance());
         } catch (final Exception e) {
-            // We deliberately not propagate the exception as it would break rendering of the page.
+            // We deliberately do not propagate the exception as it would break rendering of the page.
             // As it is, it's only the Filters section that won't be rendered but the content
             // will continue being displayed.
             log.error("Failed to generate Filters model.", e);
@@ -108,48 +124,37 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
         return Filters.emptyInstance();
     }
 
-    private Set<String> filteredTaxonomyKeys(final Set<String> selectedTaxonomyKeys, final List<?> links) {
-        return internalLinksWithSelectedTaxonomyKeys(links, selectedTaxonomyKeys)
-            .flatMap(internallink -> allTaxonomyKeysOfDocumentReferencedBy(internallink).stream())
+    private Set<String> allFilterKeysOfAllCatalogueDocsWhereEachDocTaggedWithAllUserSelectedKeys(
+        final Set<String> userSelectedFilterKeys,
+        final List<ApiCatalogueLink> links
+    ) {
+        return linksWithAllUserSelectedFilterKeys(links, userSelectedFilterKeys)
+            .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream())
             .collect(Collectors.toSet());
     }
 
-    private Stream<Internallink> internalLinksWithSelectedTaxonomyKeys(final List<?> links, final Set<String> selectedTags) {
-
+    private Stream<ApiCatalogueLink> linksWithAllUserSelectedFilterKeys(final List<ApiCatalogueLink> links,
+                                                                        final Set<String> userSelectedFilterKeys) {
         return links.stream()
-            .filter(Internallink.class::isInstance)
-            .map(Internallink.class::cast)
-            .filter(link -> selectedTags.isEmpty() || linkHasSelectedTaxonomyKeys(link, selectedTags));
+            .filter(link -> userSelectedFilterKeys.isEmpty() || link.taggedWith(userSelectedFilterKeys));
     }
 
-    private boolean linkHasNoneOfSelectedTaxonomyKeys(final Internallink link, final ImmutableSet<String> selectedTags) {
-        final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfDocumentReferencedBy(link);
-        return taxonomyKeysOfLinkedDoc.stream().noneMatch(selectedTags::contains);
-    }
-
-    private boolean linkHasSelectedTaxonomyKeys(final Internallink link, final Set<String> selectedTags) {
-        final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfDocumentReferencedBy(link);
-        return selectedTags.isEmpty() || taxonomyKeysOfLinkedDoc.containsAll(selectedTags);
-    }
-
-    private static Set<String> allTaxonomyKeysOfDocumentReferencedBy(final Internallink link) {
-        return new HashSet<>(Arrays.asList((String[]) link
-            .getLink()
-            .getProperties()
-            .getOrDefault("hippotaxonomy:keys", new String[0])));
-    }
-
-    private static Optional<String> getMappingYaml(final Session session) {
+    private static Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session) {
 
         try {
-            final ApiCatalogueRepository apiCatalogueRepository = ApiCatalogueContext.repository(session);
-
-            return apiCatalogueRepository.taxonomyFiltersMapping();
+            return ApiCatalogueContext.apiCatalogueRepository(session).taxonomyFiltersMapping();
 
         } catch (final Exception e) {
             log.error("Failed to retrieve Taxonomy-Filters mapping YAML.", e);
         }
 
         return Optional.empty();
+    }
+
+    enum Param {
+        showDeprecatedAndRetired,
+        apiCatalogueLinks,
+        filtersModel,
+        filter
     }
 }

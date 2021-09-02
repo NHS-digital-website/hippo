@@ -37,7 +37,7 @@ public class ApiCatalogueContextTest {
         final Session expectedSession = mock(Session.class);
 
         // when
-        final ApiCatalogueRepository actualRepository = ApiCatalogueContext.repository(expectedSession);
+        final ApiCatalogueRepository actualRepository = ApiCatalogueContext.apiCatalogueRepository(expectedSession);
 
         // then
         assertThat("Repository is of expected type.",

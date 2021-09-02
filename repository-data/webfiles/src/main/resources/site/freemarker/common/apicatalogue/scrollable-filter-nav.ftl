@@ -22,9 +22,8 @@
                     <h2 class="nhsd-t-heading-xs">
                             <span class="filter-head__title">Filters</span>
                     </h2>
-                    <@hst.renderURL var="resetUrl"/>
                     <span class="nhsd-t-body nhsd-!t-padding-left-6 nhsd-!t-margin-right-0">
-                        <a class="nhsd-a-link nhsd-!t-padding-0" href="${resetUrl}" title="Reset filters">
+                        <a class="nhsd-a-link nhsd-!t-padding-0" href="<@hst.link/>" title="Reset filters">
                             Reset filters
                         </a>
                     </span>
@@ -69,18 +68,18 @@
 
 <#macro filterTemplate filter filtersModel indentationLevel=0>
     <#if filter.displayed>
-        <@hst.renderURL var="filterLink">
-            <@hst.param name="showAll" value="${showAll?c}" />
-            <#if filter.selected>
-                <@hst.param name="filters" value="${filtersModel.selectedFiltersKeysMinus(filter.key)?join(',')}" />
-            <#else>
-                <@hst.param name="filters" value="${filtersModel.selectedFiltersKeys()?join(',', '', ',')}${filter.key}" />
-            </#if>
-        </@hst.renderURL>
+        <@hst.link var="baseUrl"/>
+        <#if filter.selected>
+            <#assign filtersParam = filtersModel.selectedFiltersKeysMinus(filter.key) />
+        <#else>
+            <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
+        </#if>
         <span class="nhsd-a-checkbox">
             <label>
             <#if filter.selectable>
-                <a title="Filter by ${filter.displayName}" href="${filterLink?no_esc}" class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if>">
+                <a title="Filter by ${filter.displayName}"
+                   href="<@renderUrl baseUrl=baseUrl showDeprecatedAndRetired=showDeprecatedAndRetired filters=filtersParam />"
+                   class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if>">
                     <input type="checkbox">${filter.displayName}
                 </a>
                 <span class="checkmark <#if filter.selected>selected</#if>"></span>
