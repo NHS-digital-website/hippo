@@ -79,13 +79,15 @@
                                     <div>
                                         <p>
                                             <strong>
-                                              Icons no longer available from 1 July 2021
+                                              These icons are no longer part of the NHS Digital brand
                                             </strong>
                                         </p>
                                         <br />
                                         <p>
-                                        From 1 July 2021, these icons will no longer be available via this website. We are, however, happy to share the icons in our current icon library with NHS and social care organisations.
-                                          </p> <br /><p>Contact <a href="mailto:brandteam@nhs.net">brandteam@nhs.net</a> to receive the full set of icons.</p>
+                                            If you are a member of the staff at NHS Digital, we now have a new set of icons that you can find in your PowerPoint app or on the
+                                          <a href="https://hscic365.sharepoint.com/MarketingComms/Pages/Templates-and-Branding-Guidelines.aspx"> communications pages of our intranet.</a></p>
+                                        <br />
+                                        <p>If you work for a different NHS organisation, the icon library remains available for you to use.</p>
                                     </div>
                                 </div>
                             </div>
