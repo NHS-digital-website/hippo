@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class JacksonFiltersFactory implements FiltersFactory {
 
-    @Override public Filters filtersFromYaml(final String yaml) {
+    @Override public Filters filtersFromMappingYaml(final String yaml) {
         try {
             Objects.requireNonNull(yaml, "YAML content is required but none was provided.");
 

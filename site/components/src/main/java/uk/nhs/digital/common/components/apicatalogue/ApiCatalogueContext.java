@@ -16,7 +16,7 @@ public class ApiCatalogueContext {
 
     private static Supplier<FiltersFactory> filtersFactorySupplier = JacksonFiltersFactory::new;
 
-    public static ApiCatalogueRepository repository(final Session session) {
+    public static ApiCatalogueRepository apiCatalogueRepository(final Session session) {
         return apiCatalogueRepositorySupplier.apply(session);
     }
 

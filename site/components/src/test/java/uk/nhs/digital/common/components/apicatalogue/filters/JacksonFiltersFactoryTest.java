@@ -65,7 +65,7 @@ public class JacksonFiltersFactoryTest {
         );
 
         // when
-        final Filters actualFilters = filtersFactory.filtersFromYaml(validFiltersYaml);
+        final Filters actualFilters = filtersFactory.filtersFromMappingYaml(validFiltersYaml);
 
         // then
         assertThat("Produced filters match given YAML.",
@@ -84,7 +84,7 @@ public class JacksonFiltersFactoryTest {
         final RuntimeException actualException = assertThrows(
             "Exception thrown on null YAML.",
             RuntimeException.class,
-            () -> filtersFactory.filtersFromYaml(nullYaml)
+            () -> filtersFactory.filtersFromMappingYaml(nullYaml)
         );
 
         // then
@@ -115,7 +115,7 @@ public class JacksonFiltersFactoryTest {
         final RuntimeException actualException = assertThrows(
             "Exception thrown on invalid YAML.",
             RuntimeException.class,
-            () -> filtersFactory.filtersFromYaml(invalidYaml)
+            () -> filtersFactory.filtersFromMappingYaml(invalidYaml)
         );
 
         // then

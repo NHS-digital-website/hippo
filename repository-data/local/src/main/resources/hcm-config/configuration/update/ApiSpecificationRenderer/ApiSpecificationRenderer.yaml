@@ -13,9 +13,9 @@ definitions:
         TO BE ONLY USED IN DEVELOPMENT ON LOCAL MACHINE!
       hipposys:dryrun: false
       hipposys:loglevel: DEBUG
-      hipposys:parameters: '{ "specificationJsonFile": "../../../hippo/cms/src/test/resources/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/oasV3_complete.json"
+      hipposys:parameters: '{ "specificationJsonFile": "../../cms/src/test/resources/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/oasV3_complete.json"
         }'
-      hipposys:query: /jcr:root/content/documents/corporate-website/developer/api-catalogue/personal-demographics-service---fhir-api
+      hipposys:query: /jcr:root/content/documents/corporate-website/developer/api-catalogue/personal-demographics-service---fhir-api/content/content
       hipposys:script:
         resource: /configuration/update/ApiSpecificationRenderer/ApiSpecificationRenderer.groovy
         type: string

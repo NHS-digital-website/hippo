@@ -30,6 +30,9 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
         specificationJsonFileToRender = parametersMap['specificationJsonFile']
 
         try {
+            log.info("Current directory:")
+            execute("pwd", "Couldn't determine current dir.")
+
             createTempDirForCompiledClasses()
 
             compileClasses()
@@ -133,6 +136,7 @@ class ApiSpecificationRenderer extends BaseNodeUpdateVisitor {
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/ParagraphAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/StrongEmphasisAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/MarkdownConversionException.java",
+                "../../cms/src/main/java/uk/nhs/digital/apispecs/commonmark/ThematicBreakAttributeProvider.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/request/bodyextractor/ToPrettyJsonStringDeserializer.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/OpenApiSpecificationJsonToHtmlConverter.java",
                 "../../cms/src/main/java/uk/nhs/digital/apispecs/swagger/CodegenDefaultGenerator.java",

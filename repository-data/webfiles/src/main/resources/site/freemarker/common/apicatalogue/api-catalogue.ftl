@@ -9,6 +9,7 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
+<#assign renderUrl = "uk.nhs.digital.common.components.apicatalogue.UrlGeneratorDirective"?new() />
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -20,18 +21,14 @@
 <@headerBanner document />
 
 <div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-api-catalogue">
+
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-12">
             <#if document.body?has_content??>
-                <@hst.renderURL var="showAlllink">
-                    <@hst.param name="showAll" value="${showAll?string('false', 'true')}" />
-                    <@hst.param name="filters" value="${filtersModel.selectedFiltersKeysMinusDeprecatedAndRetiredSpecs(['deprecated-api', 'retired-api'])?join(',')}" />
-                </@hst.renderURL>
                 <@hst.html hippohtml=document.body contentRewriter=brContentRewriter/>
             </#if>
         </div>
     </div>
-
 
     <#if alphabetical_hash??>
         <div class="nhsd-t-row">
@@ -55,11 +52,14 @@
                         </div>
                     </div>
                     <div class="nhsd-t-col-1 nhsd-t-col-l-1">
-                        <label class="nhsd-a-selector-toggle nhsd-a-selector-toggle--cancel" aria-label="This is a toggle">
-                            <a href="${showAlllink?no_esc}" class="nhsd-a-checkbox__label nhsd-t-body-s">
-                                <input type="checkbox"  <#if showAll>checked</#if> />
+                        <label class="nhsd-a-selector-toggle nhsd-a-selector-toggle--cancel" aria-label="Include deprecated and retired APIs">
+                            <@hst.link var="baseUrl"/>
+                            <a href="<@renderUrl baseUrl=baseUrl showDeprecatedAndRetired=!showDeprecatedAndRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api", "deprecated-api"]) />"
+                               class="nhsd-a-checkbox__label nhsd-t-body-s">
+                                <input type="checkbox"  <#if showDeprecatedAndRetired>checked</#if> />
                                 <span class="slider"></span>
                             </a>
+
                         </label>
                     </div>
                     <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs"/>
@@ -68,6 +68,6 @@
                 <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
             </div>
         </div>
-
     </#if>
+
 </div>
