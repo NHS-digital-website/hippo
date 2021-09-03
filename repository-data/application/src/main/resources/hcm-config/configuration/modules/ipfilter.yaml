@@ -8,7 +8,8 @@ definitions:
           - 2a00:18c8:9619:3::1011 # BR Support
           - 85.146.244.170 # BR Support
           - 100.96.3.1 # BR Cloud
-          - 127.0.0.1 # BR Cloud
+          - 100.96.4.1 # BR Cloud
+          - 127.0.0.1
         cache-enabled: true
         enabled: true
         forwarded-for-header: x-original-forwarded-for
