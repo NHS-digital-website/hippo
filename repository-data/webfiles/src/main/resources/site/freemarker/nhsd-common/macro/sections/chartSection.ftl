@@ -30,6 +30,11 @@
                 </a>
                 </@externalstorageLink>
             </span>
+            <span>
+        <#if section.htmlCode?has_content>
+            ${section.htmlCode?no_esc}
+        </#if>
+    </span>
         </#if>
     </div>
 
