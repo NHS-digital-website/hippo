@@ -165,7 +165,7 @@ jobs:
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "The pipeline failed to loacate the built artifact",  "color": "#DA291C" }] }'
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "The pipeline failed to locate the built artifact",  "color": "#DA291C" }] }'
 
       #
       # Todo: success slack message that gives a link to the GitHub action for downloading the build for debugging.
@@ -210,10 +210,6 @@ jobs:
               C026PH4GQSH: {
                 "name": "development",
                 "id": "c033120b-291a-463c-8ba7-363fb50ea072",
-                "properties": {
-                  "aws": "8813e0d3-ed9d-4580-9018-bda4526b8858",
-                  "jvm": "bce66142-e4ae-4f46-8cbe-f6cba58d340e"
-                }
               }
             }
             if(environments[`${process.env.CHANNEL_ID}`] === undefined) {
@@ -295,6 +291,17 @@ jobs:
           echo "::set-output name=id::$id"
         working-directory: ${{steps.download.outputs.download-path}}
 
+      - name: Check Response has ID from Upload Build to BR Cloud
+        if: ${{ steps.distribution.outputs.id.length == 36 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Upload Build to BR Cloud failed!')
+        env:
+          # For debugging
+          ID: ${{ steps.distribution.outputs.id }}
+          ID-LENGTH: ${{ steps.distribution.outputs.id.length }}
+
 
       - name: Slack message (failed to upload )
         if: ${{ failure() }}
@@ -302,6 +309,40 @@ jobs:
         with:
           url: ${{ env.SLACK_WEBHOOK }}
           data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Failed to upload the build",  "color": "#DA291C" }] }'
+
+
+      #
+      # Prepare App Config Deployment Details
+      #
+      - name: Get Configuration Files Details
+        id: files
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
+          echo "::set-output name=details::${response}"
+
+      - name: Get Lastest System Properties for Envrinment
+        id: system-properties
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-system-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "::set-output name=id::${id}"
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
+
+      - name: Get Lastest AWS Keys for Envrinment
+        id: aws-keys
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-aws-credentials-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "::set-output name=id::${id}"
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
+
+      - name: Get Lastest IP Configuration File ID
+        id: latest-ip-whitelist
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "hippo-ipfilter-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "::set-output name=id::${id}"
 
 
       #
@@ -313,25 +354,31 @@ jobs:
           url: ${{ env.SLACK_WEBHOOK }}
           data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Requesting a deployment on BR ODv2 going to ${{steps.find-target.outputs.result.name}}", "color": "#78BE20" }] }'
 
-      - name: Request Deployment
+      - name: Request Deployment from BR Cloud
+        id: deployment
         run: |
           curl -i \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ secrets.HOST }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": "${{ env.AWS }}", "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": "${{ env.JVM }}", "role": "systemproperty" } ] }'
+          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" } ] }'
         env:
           DISTRIBUTION: ${{ steps.distribution.outputs.id }}
           ENVIRONMENT: ${{ fromJson(steps.find-target.outputs.result).id }}
-          AWS: ${{ fromJson(steps.find-target.outputs.result).properties.aws }}
-          JVM: ${{ fromJson(steps.find-target.outputs.result).properties.jvm }}
+
+      - name: Check Response Code from Request Deployment from BR Cloud
+        if: ${{ steps.deployment.outputs.code >= 200 && steps.deployment.outputs.code < 300 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Request Deployment from BR Cloud failed!')
 
       - name: Slack message (failed to deploy)
         if: ${{ failure() }}
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "BR ODv2 failed to start a deployment",  "color": "#DA291C" }] }'
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "BR ODv2 failed to request a deployment",  "color": "#DA291C" }] }'
 
 
       # Clean-up steps below.
