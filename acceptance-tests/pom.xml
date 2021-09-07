@@ -363,17 +363,17 @@
                             <configuration>
                                 <configfiles>
                                     <configfile>
-                                        <file>${website.basedir}/conf/context.xml</file>
+                                        <file>${project.basedir}/conf/context.xml</file>
                                         <todir>conf/</todir>
                                         <tofile>context.xml</tofile>
                                     </configfile>
                                     <configfile>
-                                        <file>${website.basedir}/conf/catalina-logging.properties</file>
+                                        <file>${project.basedir}/conf/catalina-logging.properties</file>
                                         <todir>conf/</todir>
                                         <tofile>logging.properties</tofile>
                                     </configfile>
                                     <configfile>
-                                        <file>${website.basedir}/conf/query/lucene/indexing_configuration.xml</file>
+                                        <file>${project.basedir}/conf/query/lucene/indexing_configuration.xml</file>
                                         <todir>conf/query/lucene</todir>
                                         <tofile>indexing_configuration.xml</tofile>
                                     </configfile>
@@ -385,19 +385,19 @@
                                 </configfiles>
                                 <files>
                                     <file>
-                                        <file>${website.basedir}/repository-data/development/target/website-repository-data-development-${project.version}.jar</file>
+                                        <file>${project.basedir}/repository-data/development/target/website-repository-data-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
                                     <file>
-                                        <file>${website.basedir}/repository-data/local/target/website-repository-data-local-${project.version}.jar</file>
+                                        <file>${project.basedir}/repository-data/local/target/website-repository-data-local-${project.version}.jar</file>
                                         <todir>${local-module-deploy-dir}</todir>
                                     </file>
                                     <file>
-                                        <file>${website.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
+                                        <file>${project.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
                                     <file>
-                                        <file>${website.basedir}/repository-data/site-development/target/website-repository-data-site-development-${project.version}.jar</file>
+                                        <file>${project.basedir}/repository-data/site-development/target/website-repository-data-site-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
                                 </files>
@@ -419,14 +419,14 @@
                                     <properties>
                                         <context>/cms</context>
                                     </properties>
-                                    <location>${website.basedir}/cms/target/cms.war</location>
+                                    <location>${project.basedir}/cms/target/cms.war</location>
                                 </deployable>
                                 <deployable>
                                     <type>war</type>
                                     <properties>
                                         <context>/site</context>
                                     </properties>
-                                    <location>${website.basedir}/site/webapp/target/site.war</location>
+                                    <location>${project.basedir}/site/webapp/target/site.war</location>
                                 </deployable>
                             </deployables>
                             <container>
@@ -435,12 +435,12 @@
                                     <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>
                                 <systemProperties>
-                                    <log4j.configurationFile>file://${website.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
+                                    <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                                     <!-- enables auto export and web files watch: -->
-                                    <project.basedir>${website.basedir}/</project.basedir>
+                                    <project.basedir>${project.basedir}/</project.basedir>
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
                                     <repo.autoexport.allowed>false</repo.autoexport.allowed>
-                                    <repo.config>file://${website.basedir}/conf/repository.xml</repo.config>
+                                    <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>
 
                                     <!-- Splunk forwarder config -->
                                     <splunk.hec.name>${splunk.hec.name}</splunk.hec.name>
