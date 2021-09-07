@@ -17,13 +17,17 @@
     </#if>
     <#if filtersModel?? && !filtersModel.isEmpty()>
         <div>
-            <h2 class="nhsd-t-heading-xs">
-                <span class="filter-head__title">Filters</span>
-                <@hst.renderURL var="resetUrl"/>
-                <a class="nhsd-a-button" href="${resetUrl}" title="Reset">
-                    <span class="nhsd-a-button__label">Reset</span>
-                </a>
-            </h2>
+                <div class="nhsd-t-row">
+                    <h2 class="nhsd-t-heading-xs">
+                            <span class="filter-head__title">Filters</span>
+                    </h2>
+                    <@hst.renderURL var="resetUrl"/>
+                    <span class="nhsd-t-body nhsd-!t-padding-left-6 nhsd-!t-margin-right-0">
+                        <a class="nhsd-a-link nhsd-!t-padding-0" href="${resetUrl}" title="Reset filters">
+                            Reset filters
+                        </a>
+                    </span>
+                </div>
 
             <nav>
                 <#list filtersModel.sections as section>
