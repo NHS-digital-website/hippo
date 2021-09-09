@@ -152,7 +152,6 @@
           <AppenderRef ref="splunk-site"/>
           <AppenderRef ref="splunk-audit"/>
       </Root>
-
   </Loggers>
 
 </Configuration>
