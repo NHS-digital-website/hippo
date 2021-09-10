@@ -50,18 +50,20 @@
     }
   }
 
-  input.section-folder:not(:checked) {
+  input.section-folder {
 
-    ~ label .icon svg {
-      rotate: -90deg;
+    &:checked {
+      ~ .nhsd-m-filter-menu-section__menu-button svg {
+        rotate: 180deg;
+      }
     }
 
-    ~ .section-entries {
-      display: none;
-    }
+    &:not(:checked) {
 
-    ~ hr:first-of-type {
-      display: none;
+      ~ .section-entries,
+      ~ hr:first-of-type {
+        display: none;
+      }
     }
   }
 
@@ -70,10 +72,8 @@
     color: #231f20;
   }
 
-  & .nhsd-a-button {
-    margin-bottom: -.3rem;
-    padding: .2555555556rem 1.1111111111rem;
-    float: right;
+  & .nhsd-m-filter-menu-section__menu-button {
+    padding: 0;
   }
 }
 
