@@ -458,6 +458,14 @@ definitions:
         - hst:pages/news-events-homepage
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
+      /ods:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/search
+          hst:relativecontentpath: facet/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/ods-details
+        hst:relativecontentpath: ods
+        jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:relativecontentpath: ../administration/robots
