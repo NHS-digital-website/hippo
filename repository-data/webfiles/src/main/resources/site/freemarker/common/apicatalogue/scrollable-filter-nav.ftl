@@ -32,20 +32,26 @@
             <nav>
                 <#list filtersModel.sections as section>
                     <#if section.displayed>
-                        <div>
-                            <input id="<#if responsive>responsive_</#if>toggler_${section.key}" class="section-folder" style="display:none;" type="checkbox" aria-hidden="true"/>
-                            <label for="<#if responsive>responsive_</#if>toggler_${section.key}">
-                        <span class="icon">
-                            <span class="nhsd-a-icon nhsd-a-icon--size-xxs">
-                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
-                                    <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"></path>
-                                </svg>
-                            </span>
-                        </span>
-                                <span class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s nhsd-!t-margin-bottom-0 nhsd-!t-padding-0 <#if section.expanded>selected</#if>">
-                            ${section.displayName}
-                        </span>
-                            </label>
+                        <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
+                            <input id="<#if responsive>responsive_</#if>toggler_${section.key}"
+                                   class="section-folder"
+                                   style="display:none;"
+                                   type="checkbox"
+                                   aria-hidden="true"
+                                   <#if section.expanded>checked</#if>/>
+                            <div class="nhsd-m-filter-menu-section__menu-button">
+                                <label for="<#if responsive>responsive_</#if>toggler_${section.key}"
+                                       class="nhsd-m-filter-menu-section__heading-text">
+                                        <span class="nhsd-a-icon nhsd-a-icon--size-xxs">
+                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
+                                                <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"></path>
+                                            </svg>
+                                        </span>
+                                        <span class="nhsd-t-body-s nhsd-!t-margin-bottom-0 nhsd-!t-padding-0 <#if section.expanded>selected</#if>">
+                                            ${section.displayName}
+                                        </span>
+                                </label>
+                            </div>
                             <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
                             <div class="section-entries">
                                 <#list section.entries as filter>
