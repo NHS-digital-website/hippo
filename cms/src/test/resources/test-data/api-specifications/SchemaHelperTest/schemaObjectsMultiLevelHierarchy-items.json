@@ -48,13 +48,13 @@
                                                         "readOnly": true,
                                                         "writeOnly": true,
                                                         "enum": ["enum-a", "enum-b"],
-                                                        "default"  : {"property": "default value"},
-                                                        "example": {"property": "example value"}
+                                                        "default"  : {"property": "default value"}
                                                     }
                                                 },
                                                 "item-1.1.1.1.1.2": {
                                                     "type": "object",
-                                                    "title": "object 1.1.1.1.1.2 - item"
+                                                    "title": "object 1.1.1.1.1.2 - item",
+                                                    "example": {"property": "example value"}
                                                 }
                                             }
                                         }

@@ -12,8 +12,7 @@ public class CodeAttributeProvider implements AttributeProvider {
     public void setAttributes(final Node node, final String tagName, final Map<String, String> attributes) {
 
         if (node instanceof Code) {
-
-            attributes.put("class", "codeinline");
+            attributes.put("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code");
         }
     }
 }

@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-1284 - Migration from publication to series:
+      hipposys:batchsize: 10
+      hipposys:description: Sets the values of new fields in Series. Those values
+        come from a json file specified in the inputFile parameter. Most of those
+        fields have been moved from publication to series
+      hipposys:dryrun: false
+      hipposys:loglevel: TRACE
+      hipposys:parameters: "{\r\n    \"inputFile\" :  \"/content/assets/assetsmiguel/seriesinfoexport2.json/seriesinfoexport2.json/hippogallery:asset\"\
+        \ \r\n}"
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:series')]
+      hipposys:script:
+        resource: /configuration/update/DW-1284---Migration-from-publication-to-series.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

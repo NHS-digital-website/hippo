@@ -1,0 +1,146 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/propertytable:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /heading:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Heading
+            field: heading
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /headingType:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Main heading,Sub heading
+            caption: Heading Type
+            field: headingType
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /introduction:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Introduction
+            field: introduction
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /tableFormat:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Small left,Small right,Equal columns
+            caption: Table format
+            field: tableFormat
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /property:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Property
+            field: property
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype[1]:
+          /heading:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:heading
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /headingType:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:headingType
+            hipposysedit:primary: false
+            hipposysedit:type: urlrewriter:BroadcastingStaticDropdown
+            jcr:primaryType: hipposysedit:field
+          /introduction:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:introduction
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /property:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:property
+            hipposysedit:primary: false
+            hipposysedit:type: website:property
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /tableFormat:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:tableFormat
+            hipposysedit:primary: false
+            hipposysedit:type: urlrewriter:BroadcastingStaticDropdown
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype[1]:
+          /website:introduction:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:property:
+            /website:Value:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:property
+            website:title: ''
+          jcr:primaryType: website:propertytable
+          website:heading: ''
+          website:headingType: Main heading
+          website:tableFormat: Small left
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

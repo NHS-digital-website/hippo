@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.sameInstance;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.powermock.api.mockito.PowerMockito.mock;
+import static uk.nhs.digital.apispecs.handlebars.OptionsStub.Hash;
 
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Options;
@@ -19,19 +20,20 @@ import uk.nhs.digital.apispecs.handlebars.TemplateRenderingException;
 public class IndentationHelperTest {
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
-    
+
     private IndentationHelper indentationHelper = new IndentationHelper(new ContextModelsStack.Factory(new UniqueModelStackExtractor()));
 
     @Test
     public void returnsIndentationLevel_equalToNumberOfAllUniqueModelsFromTheContextStack() {
 
         // given
-        final int expectedIndentationLevel = RandomUtils.nextInt();
+        final int ancestorCount = RandomUtils.nextInt();
+        final String expectedIndentationLevel = String.valueOf(ancestorCount);
 
         final Context context = Context.newContext(new Object());
 
         final ContextModelsStack contextModelsStack = mock(ContextModelsStack.class);
-        given(contextModelsStack.ancestorModelsCount()).willReturn(expectedIndentationLevel);
+        given(contextModelsStack.ancestorModelsCount()).willReturn(ancestorCount);
 
         final ContextModelsStack.Factory contextStackFactory = mock(ContextModelsStack.Factory.class);
         given(contextStackFactory.from(context)).willReturn(contextModelsStack);
@@ -41,7 +43,38 @@ public class IndentationHelperTest {
         final Options options = OptionsStub.with(context);
 
         // when
-        final Integer actualIndentationLevel = indentationHelper.apply(null, options);
+        final String actualIndentationLevel = indentationHelper.apply(null, options);
+
+        // then
+        assertThat("Total number of ancestor Contexts is returned.",
+            actualIndentationLevel,
+            is(expectedIndentationLevel)
+        );
+    }
+
+    @Test
+    public void returnsWeightedIndentationLevel_whenWeightingSet() {
+
+        // given
+        final int ancestorCount = RandomUtils.nextInt();
+        final double weighting = 1.5;
+        final String expectedIndentationLevel = String.format("%.1f",ancestorCount * weighting);
+
+        final Context context = Context.newContext(new Object());
+
+        final ContextModelsStack contextModelsStack = mock(ContextModelsStack.class);
+        given(contextModelsStack.ancestorModelsCount()).willReturn(ancestorCount);
+
+        final ContextModelsStack.Factory contextStackFactory = mock(ContextModelsStack.Factory.class);
+        given(contextStackFactory.from(context)).willReturn(contextModelsStack);
+
+        final IndentationHelper indentationHelper = IndentationHelper.with(contextStackFactory);
+
+        final Hash hash = Hash.of("weighting", weighting);
+        final Options options = OptionsStub.with(context, hash);
+
+        // when
+        final String actualIndentationLevel = indentationHelper.apply(null, options);
 
         // then
         assertThat("Total number of ancestor Contexts is returned.",

@@ -77,9 +77,17 @@
                             <div class="emphasis-box emphasis-box-important" aria-label="Important Information">
                                 <div class="emphasis-box__content">
                                     <div>
-                                        <p>Do not try to create your own icons or amend existing ones. Any requirement for new icons should be directed to the communications team at:
-                                            <br />
-                                            <a href="mailto:brandteam@nhs.net">brandteam@nhs.net</a></p>
+                                        <p>
+                                            <strong>
+                                              These icons are no longer part of the NHS Digital brand
+                                            </strong>
+                                        </p>
+                                        <br />
+                                        <p>
+                                            If you are a member of the staff at NHS Digital, we now have a new set of icons that you can find in your PowerPoint app or on the
+                                          <a href="https://hscic365.sharepoint.com/MarketingComms/Pages/Templates-and-Branding-Guidelines.aspx"> communications pages of our intranet.</a></p>
+                                        <br />
+                                        <p>If you work for a different NHS organisation, the icon library remains available for you to use.</p>
                                     </div>
                                 </div>
                             </div>

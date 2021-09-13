@@ -58,7 +58,7 @@ public class CiBreadcrumbProvider  {
             // If Publication or dataset, find parent links for breadcrumb trail
             // (note: not required for series since series documents are
             // already top level breadcrumb)
-            if (currentDocumentBean instanceof Publication) {
+            if (currentDocumentBean instanceof Publication || currentDocumentBean instanceof PublicationPage) {
                 addPublicationBreadcrumbItem(ciBreadcrumbItems);
             } else if (currentDocumentBean instanceof Dataset) {
                 addDatasetBreadcrumbItem(ciBreadcrumbItems);
@@ -121,13 +121,23 @@ public class CiBreadcrumbProvider  {
     }
 
     private void addPublicationBreadcrumbItem(List<BreadcrumbItem> ciBreadcrumbItems) {
-        // Is publication part of archive/series?
-        HippoBean publicationParent =  ((Publication) currentDocumentBean).getParentDocument();
-        if (publicationParent != null) {
+        Publication publication;
+        if (currentDocumentBean instanceof PublicationPage) {
+            publication = ((PublicationPage) currentDocumentBean).getPublication();
+        } else {
+            publication = (Publication) currentDocumentBean;
+        }
 
+        // Is publication part of archive/series?
+        HippoBean publicationParent =  publication.getParentDocument();
+        if (publicationParent != null) {
             // Create Archive/Series navigation
             BaseDocument seriesOrArchiveDocument = (BaseDocument) publicationParent;
             ciBreadcrumbItems.add(createBreadcrumbItem(ctx, seriesOrArchiveDocument));
+        }
+
+        if (currentDocumentBean instanceof PublicationPage) {
+            ciBreadcrumbItems.add(createBreadcrumbItem(ctx, publication));
         }
     }
 

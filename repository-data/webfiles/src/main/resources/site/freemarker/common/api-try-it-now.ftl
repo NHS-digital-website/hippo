@@ -69,6 +69,15 @@
             display: block;
         }
 
+        /* Redundant 'Responses' header under 'Execute' button */
+        .responses-wrapper .opblock-section-header {
+            display: none !important;
+        }
+
+        /* Endpoints' Responses (static redundant content, not actual 'live' responses for the sandbox servers) */
+        .responses-table:not(.live-responses-table) {
+            display: none;
+        }
         .responses-table .headers-wrapper {
             display: none;
         }
@@ -87,21 +96,21 @@
         .servers, .servers-title {
             display: none;
         }
-
+        /* Disables shadows around the 'servers selector' */
         .swagger-ui .scheme-container {
+            box-shadow: none;
             display: contents;
             background: transparent;
+        }
+
+        /* Curl - vertical scroll bar */
+        .swagger-ui pre.curl {
+            max-height: 280px;
         }
 
         /*
         Other overriding styles
         */
-
-        /* Disables shadows around the 'servers selector' */
-        .swagger-ui .scheme-container {
-            box-shadow: none;
-        }
-
         /* Fixes the look of table header values */
         .swagger-ui table thead tr th {
             padding-left: 6px;
@@ -117,18 +126,6 @@
         .local-header__title {
             white-space: nowrap;
         }
-
-        /* Prevents the 'Download' button's label (response payload) from being wrapped */
-        .download-contents {
-            width: auto !important;
-            right: 20px !important;
-        }
-
-        /* Adjusts spacing beween the 'Copy to clipboard' and 'Download' buttons */
-        .copy-to-clipboard {
-            right: 130px !important;
-        }
-
     </style>
 </#if>
 
@@ -137,11 +134,12 @@
     <#if document?? >
         <@documentHeader document 'general' '' "Try this API: ${document.title}"></@documentHeader>
     </#if>
-
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
+            <div style="padding-left: 20">To try an endpoint expand the section and click the Execute button at the bottom.</div>
 
             <div id="content" aria-label="Document content">
+
                 <#if document?? >
                     <div id="swagger-ui"></div>
 
@@ -151,49 +149,59 @@
                     <script>
                         const specification = ${document.json?no_esc}
 
-                        // URL that has to be configured as 'Callback URL' (a.k.a. 'redirect URL) in the Apigee Developer Portal for each client application
-                        // of given API that has to support OAuth2 authentication. The configured URL has to match the one generated below _exactly_ for the
-                        // authentication to succeed.
-                        //
-                        // Adding '/site' helps testing locally or on non-prod servers without requiring code changes.
-                        // Depending on context, the URL generated is:
-                        // - in local settings: http://localhost:8080/site/api-spec-try-it-now/oauth-redirect
-                        // - in production: https://digital.nhs.uk/api-spec-try-it-now/oauth-redirect
-                        const tryThisApiOauth2RedirectUrl =
-                              window.location.origin
-                            + (window.location.pathname.startsWith('/site/') ? '/site' : '')
-                            + '/api-spec-try-it-now/oauth-redirect'
+                        <#--
+                        URL that has to be configured as 'Callback URL' (a.k.a. 'redirect URL) in the Apigee Developer Portal for each client application
+                        of given API that has to support OAuth2 authentication. The configured URL has to match the one generated below _exactly_ for the
+                        authentication to succeed.
+
+                        Adding '/site' helps testing locally or on non-prod servers without requiring code changes.
+                        Depending on context, the URL generated is:
+                        - in local settings: http://localhost:8080/site/api-spec-try-it-now/oauth-redirect
+                        - in production: https://digital.nhs.uk/api-spec-try-it-now/oauth-redirect
+                        -->
+                        const tryThisApiOauth2RedirectUrl = '<@hst.link fullyQualified=true path='/api-spec-try-it-now/oauth-redirect'/>';
 
                         window.onload = function () {
 
-                            const ui = SwaggerUIBundle({
+                            const AlwaysEnableTryItOutPlugin = function(system) {
+                                const OperationContainer = system.getComponents("OperationContainer");
+                                return {
+                                    components: {
+                                        TryItOutButton: () => null,
+                                        OperationContainer: class CustomOperationContainer extends OperationContainer {
+                                            constructor(...args) {
+                                                super(...args);
+                                                this.state.tryItOutEnabled = true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            window.ui = SwaggerUIBundle({
                                 spec: specification,
 
                                 dom_id: '#content',
                                 deepLinking: true,
+
                                 presets: [
                                     SwaggerUIBundle.presets.apis,
                                     SwaggerUIStandalonePreset
                                 ],
                                 plugins: [
-                                    SwaggerUIBundle.plugins.DownloadUrl
+                                    SwaggerUIBundle.plugins.DownloadUrl,
+                                    AlwaysEnableTryItOutPlugin
                                 ],
                                 layout: "StandaloneLayout",
 
                                 oauth2RedirectUrl: tryThisApiOauth2RedirectUrl
                             })
-
-                            window.ui = ui
                         }
                     </script>
                 <#else>
-                    <#assign section = {
-                        "emphasisType": "Important",
-                        "heading": "Open from the API Specification page",
-                        "bodyCustom":
-                        "Please open this feature via 'Try this API' button in the page of the API Specification. If you did just that and still see this message, please refresh the specification page and try opening this popup again."
-                    } />
-                    <@emphasisBox section=section />
+                    <script>
+                        window.location.href = '<@hst.link siteMapItemRefId='pagenotfound'/>';
+                    </script>
                 </#if>
             </div>
         </div>

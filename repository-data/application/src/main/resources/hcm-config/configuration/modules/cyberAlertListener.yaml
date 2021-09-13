@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/CyberAlertListener:
+      hipposys:className: uk.nhs.digital.common.listeners.CyberAlertListener
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module

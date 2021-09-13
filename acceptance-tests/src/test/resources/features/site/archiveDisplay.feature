@@ -20,7 +20,7 @@ Feature: Display of publications forming a archive
         Given I navigate to the "valid publication archive" archive page
         When I click on link "Lorem Ipsum Dolor 2004"
         Then I should see publication page titled "Lorem Ipsum Dolor 2004"
-        When I click on link "Time Archive Lorem Ipsum Dolor"
+        When I click on the link named "Time Archive Lorem Ipsum Dolor"
         Then I should see archive page titled "Time Archive Lorem Ipsum Dolor"
 
     Scenario: Display multiparagraph summary

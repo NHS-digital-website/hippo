@@ -5,7 +5,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 
 import java.util.Optional;
 
-public class ApiSpecificationComponent extends BaseGaContentComponent {
+public class ApiSpecificationComponent extends ContentRewriterComponent {
 
     @Override public void doBeforeRender(final HstRequest request,
                                          final HstResponse response) {
@@ -13,7 +13,6 @@ public class ApiSpecificationComponent extends BaseGaContentComponent {
 
         Optional.ofNullable(request.getRequestContext().getContentBean()).ifPresent(document -> {
             request.setAttribute("document", document); // for the main template
-            request.getSession().setAttribute("apiSpecification", document); // for ApiSpecificationTryItNowComponent
         });
     }
 }

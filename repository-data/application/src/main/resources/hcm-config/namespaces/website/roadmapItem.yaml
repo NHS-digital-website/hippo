@@ -114,7 +114,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:download,website:iconlist,website:gallerysection,website:code,website:expander,website:ctabutton,website:quote,website:checklist,website:statistics,website:navigation,website:tableau
+            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:download,website:iconlist,website:gallerysection,website:code,website:expander,website:ctabutton,website:quote,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
             contentPickerType: links
             field: sections
             hint: ''
@@ -178,6 +178,14 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
             hipposysedit:ordered: true
@@ -193,6 +201,14 @@ definitions:
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
+          /seosummarytext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummarytext
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: false

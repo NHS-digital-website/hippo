@@ -1,27 +1,43 @@
+{{#assign "schemaUUID"}}{{uuid}}{{/assign}}
 {{#with anyOf}}
-    <tr>
-        <td style="padding-left: {{indentation}}em;" colspan="2">anyOf</td>
+    <tr class="nhsd-o-schema__expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
+        <td class="nhsd-o-schema__name-column" style="padding-left: {{indentation weighting=1.5}}em;">
+            <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></a>
+            {{borders}}
+            <div><span class="nhsd-t-col-grey-mid">anyOf</span></div>
+        </td>
+        <td class="nhsd-o-schema__description-column"></td>
     </tr>
-{{#each}}
-    {{#partial "propertyName"}}{{/partial}}
-    {{>schema_object}}
-{{/each}}
+    {{#each}}
+        {{#partial "propertyName"}}{{/partial}}
+        {{>schema_object}}
+    {{/each}}
 {{/with}}
 {{#with oneOf}}
-    <tr>
-        <td style="padding-left: {{indentation}}em;" colspan="2">oneOf</td>
+    <tr class="nhsd-o-schema__expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
+        <td class="nhsd-o-schema__name-column" style="padding-left: {{indentation weighting=1.5}}em;">
+            <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></a>
+            {{borders}}
+            <div><span class="nhsd-t-col-grey-mid">oneOf</span></div>
+        </td>
+        <td class="nhsd-o-schema__description-column"></td>
     </tr>
-{{#each}}
-    {{#partial "propertyName"}}{{/partial}}
-    {{>schema_object}}
-{{/each}}
+    {{#each}}
+        {{#partial "propertyName"}}{{/partial}}
+        {{>schema_object}}
+    {{/each}}
 {{/with}}
 {{#with allOf}}
-    <tr>
-        <td style="padding-left: {{indentation}}em;" colspan="2">allOf</td>
+    <tr class="nhsd-o-schema__expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
+        <td class="nhsd-o-schema__name-column" style="padding-left: {{indentation weighting=1.5}}em;">
+            <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="{{variable "schemaUUID"}}" onclick="collapseChildren('{{variable "schemaUUID"}}')"></a>
+            {{borders}}
+            <div><span class="nhsd-t-col-grey-mid">allOf</span></div>
+        </td>
+        <td class="nhsd-o-schema__description-column"></td>
     </tr>
-{{#each}}
-    {{#partial "propertyName"}}{{/partial}}
-    {{>schema_object}}
-{{/each}}
+    {{#each}}
+        {{#partial "propertyName"}}{{/partial}}
+        {{>schema_object}}
+    {{/each}}
 {{/with}}

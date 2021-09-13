@@ -1,0 +1,38 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-2427-Update_Publication_Tier:
+      hipposys:batchsize: 10
+      hipposys:description: Update publication tier
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:path: /content/documents/corporate-website/publication-system
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport javax.jcr.Session\r\
+        \nimport javax.jcr.query.Query\r\n\r\n\r\nclass UpdatePublicationTier extends\
+        \ BaseNodeUpdateVisitor {\r\n\r\n    private Session session\r\n\r\n    void\
+        \ initialize(Session session) throws RepositoryException {\r\n\r\n       \
+        \ this.session = session\r\n        log.info \"Initialized script ${this.getClass().getName()}\"\
+        \r\n    }\r\n\r\n    boolean updateNode(Node node) {\r\n\r\n        def nodeType\
+        \ = node.getPrimaryNodeType().getName()\r\n\r\n        if (nodeType.equals(\"\
+        publicationsystem:publication\")) {\r\n            log.debug \"Pub Node Type\
+        \ is  -->\" + node.getPath()\r\n            def pubTier = session\r\n    \
+        \            .getWorkspace()\r\n                .getQueryManager()\r\n   \
+        \             .createQuery(\"/jcr:root\"\r\n                    + node.getParent().getParent().getParent().getPath()\r\
+        \n                    + \"//*[(@jcr:primaryType='publicationsystem:series')]\"\
+        , Query.XPATH)\r\n                .execute()\r\n                .getNodes()\r\
+        \n                .nextNode()\r\n                .getProperty(\"publicationsystem:publicationtier\"\
+        )\r\n                .getValue()\r\n                .getString()\r\n     \
+        \           .trim();\r\n            node.setProperty(\"publicationsystem:publicationtier\"\
+        , pubTier);\r\n\r\n            log.debug \"Pub Node Type is  pubTier  -->\"\
+        \ + pubTier\r\n            return true;\r\n        }\r\n        return false;\r\
+        \n    }\r\n\r\n    @Override\r\n    boolean doUpdate(Node node) throws RepositoryException\
+        \ {\r\n        try {\r\n\r\n            return updateNode(node)\r\n\r\n  \
+        \      } catch (e) {\r\n            log.error(\"Failed to process record.\"\
+        , e)\r\n        }\r\n\r\n        return false\r\n    }\r\n\r\n    boolean\
+        \ undoUpdate(Node node) throws RepositoryException, UnsupportedOperationException\
+        \ {\r\n        return false\r\n    }\r\n\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

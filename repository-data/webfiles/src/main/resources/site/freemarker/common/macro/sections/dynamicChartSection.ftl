@@ -9,7 +9,16 @@
     <#local getData="uk.nhs.digital.freemarker.highcharts.RemoteChartDataFromUrl"?new() />
     <#local chartData =  (getData(section.url))! />
 
+    <#assign str = ""/>
     <div id="chart-${section.uniqueId}-block">
+        <#list section.seriesItem as item>
+            <#if item.type == "suppress">
+                <#assign str += item.name+",">
+            </#if>
+        </#list>
+        <#if (chartData.data)??>
+            ${chartData.setSuppressedSeries(str)}
+        </#if>
         <figure data-chart="highchart">
             <div id="chart-${section.uniqueId}"
                  style="width:100%; height:${size}px;">
@@ -20,7 +29,7 @@
                    title="${linkText}"
                    download="${slugify(section.title)}.csv"
                    <#if (chartData.data)??>
-                       href="data:text/plain;base64,${chartData.data}"
+                       href="data:text/plain;base64,${chartData.filterData}"
                    <#else>
                        href="${section.url}" target="_blank"
                    </#if>

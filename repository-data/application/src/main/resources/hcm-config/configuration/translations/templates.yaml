@@ -270,6 +270,11 @@ definitions:
           jcr:name: Contact details (extended)
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:copy:
+        /en:
+          jcr:name: Copy
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:corporateWebsiteImageset:
         jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
@@ -375,6 +380,11 @@ definitions:
       /website:feature:
         /en:
           jcr:name: Feature
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:feedhub:
+        /en:
+          jcr:name: Feed
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:financial:
@@ -637,6 +647,16 @@ definitions:
           jcr:name: Project update
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:property:
+        /en:
+          jcr:name: Property
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:propertytable:
+        /en:
+          jcr:name: Property table
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:publictransportstation:
         /en:
           jcr:name: Public transport station
@@ -782,6 +802,11 @@ definitions:
           jcr:name: Supplementary information hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:svg:
+        /en:
+          jcr:name: SVG
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:tableau:
         /en:
           jcr:name: Tableau
@@ -790,6 +815,11 @@ definitions:
       /website:tableauLookup:
         /en:
           jcr:name: Neighbourhood Dashboard
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:taxonomymapping:
+        /en:
+          jcr:name: Taxonomy Mapping
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:team:

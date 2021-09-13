@@ -7,7 +7,7 @@ import org.slf4j.*;
 import uk.nhs.digital.common.components.*;
 import uk.nhs.digital.ps.beans.*;
 
-public class LegacyPublicationComponent extends BaseGaContentComponent {
+public class LegacyPublicationComponent extends ContentRewriterComponent {
 
     private static final Logger log = LoggerFactory.getLogger(LegacyPublicationComponent.class);
 

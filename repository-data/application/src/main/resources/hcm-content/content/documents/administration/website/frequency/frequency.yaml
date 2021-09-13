@@ -1,0 +1,58 @@
+---
+/content/documents/administration/website/frequency:
+  /frequency:
+    /frequency:
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: daily
+        selection:label: Daily
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: weekly
+        selection:label: Weekly
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: monthly
+        selection:label: Monthly
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: quarterly
+        selection:label: Quarterly
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: twiceyear
+        selection:label: Twice a year
+      /selection:listitem[6]:
+        jcr:primaryType: selection:listitem
+        selection:key: yearly
+        selection:label: Yearly
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: snapshot
+        selection:label: Snapshot
+      /selection:listitem[8]:
+        jcr:primaryType: selection:listitem
+        selection:key: adhoc
+        selection:label: Ad hoc
+      hippo:availability:
+      - live
+      - preview
+      hippotranslation:id: aa11153a-d56d-4678-8f5f-55d4262a125c
+      hippotranslation:locale: inherited - from query
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: selection:valuelist
+    hippo:name: Frequency
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Frequency
+  hippostd:foldertype:
+  - new-document
+  - new-folder
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

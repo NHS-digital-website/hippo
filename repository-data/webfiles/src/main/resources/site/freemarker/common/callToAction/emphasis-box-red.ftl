@@ -34,7 +34,7 @@
 
                         <div class="nhsd-m-emphasis-box__content-box">
                             <#if hasTitle>
-                                <h1 class="nhsd-t-heading-s">${document.title}</h1>
+                                <h2 class="nhsd-t-heading-s">${document.title}</h2>
                             </#if>
 
                             <#if hasContent>
@@ -51,11 +51,7 @@
                                     <#assign link = document.external/>
                                 </#if>
 
-                                <#if document.external?has_content>
-                                    <a class="nhsd-a-button nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0" href="${link}" target="_blank" rel="external">
-                                <#else>
-                                    <a class="nhsd-a-button nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0" href="${link}">
-                                </#if>
+                                <a class="nhsd-a-button nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0" href="${link}">
 
                                 <span class="nhsd-a-button__label">${linkLabel}</span>
 

@@ -2,7 +2,7 @@ package uk.nhs.digital.apispecs.swagger.model;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static uk.nhs.digital.test.util.FileUtils.contentOfFileFromClasspath;
+import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
