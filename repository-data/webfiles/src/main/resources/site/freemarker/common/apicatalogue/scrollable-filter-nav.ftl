@@ -10,7 +10,7 @@
         <h2 id="side-az-nav-heading-responsive" class="nhsd-t-heading-xs">Search A-Z</h2>
         <@azList blockGroups "side-az-nav-heading-responsive"/>
     <#else>
-        <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Refine results</h2>
+        <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Search A-Z</h2>
         <@azList blockGroups "side-az-nav-heading"/>
     </#if>
     </div>
@@ -80,6 +80,7 @@
         <#else>
             <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
         </#if>
+        <div><#-- This div is needed to add vertical spacing between checkboxes -->
         <span class="nhsd-a-checkbox">
             <label>
             <#if filter.selectable>
@@ -98,6 +99,7 @@
                 <p class="nhsd-a-checkbox__hint"></p>
             </label>
         </span>
+        </div>
         <#local nextLevel = indentationLevel + 1>
         <#list filter.entries as filter>
             <div style="margin-left:${nextLevel}em;">
