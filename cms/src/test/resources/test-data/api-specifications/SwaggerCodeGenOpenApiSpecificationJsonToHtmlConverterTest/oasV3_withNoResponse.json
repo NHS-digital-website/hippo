@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "version": "v1.2.29-beta",
+        "version": "v1.2.3-irrelevant",
         "title": "Personal Demographics Service (FHIR) API",
         "description": "",
         "contact": {

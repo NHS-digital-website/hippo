@@ -82,7 +82,7 @@
     <#elseif status="Rejected">
         <#return "light-red">
     <#elseif status="Reserved">
-        <#return "light-blue"> 
+        <#return "light-blue">
     <#--  Fallback in case new status added  -->
     <#else>
         <#return "light-grey">
@@ -120,15 +120,27 @@
 
                             <div class="nhsd-m-notification-banner__middle-col">
                                 Report a cyber attack: call
-                                <a class="nhsd-a-link" href="tel:004403003035222" title="Contact us by telephone">0300 303 5222
+                                <a class="nhsd-a-link"
+                                   href="tel:004403003035222"
+                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','tel:004403003035222');"
+                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                   title="Contact us by telephone"
+                                >
+                                    0300 303 5222
                                     <span class="nhsd-t-sr-only"></span>
                                 </a>
                                 or email
-                                <a class="nhsd-a-link" href="mailto:${emailLabel}" title="${emailTitleLabel}">${emailLabel}
+                                <a class="nhsd-a-link"
+                                   href="mailto:${emailLabel}"
+                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','mailto:${emailLabel}');"
+                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                   title="${emailTitleLabel}"
+                                >
+                                    ${emailLabel}
                                     <span class="nhsd-t-sr-only"></span>
                                 </a>
                             </div>
-                            
+
                             <div class="nhsd-m-notification-banner__right-col">
                                 <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white">
                                     <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
@@ -145,7 +157,7 @@
 
     <div class="nhsd-t-grid" id="document-content">
         <div class="grid-row">
-            <div class="nhsd-t-col-12"> 
+            <div class="nhsd-t-col-12">
                 <#if document.archiveContent?? && document.archiveContent>
                     <#assign section = { "emphasisType": "Important", "heading": archiveContentHeading, "bodyCustom": archiveContentBody  } />
                     <@emphasisBox section=section />
@@ -159,7 +171,7 @@
                 <@stickyNavSections getStickySectionNavLinks({"sections": links, "includeSummary": true })></@stickyNavSections>
             </div>
 
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">   
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasSummaryContent>
                     <div id="${slugify(summaryHeader)}">
                         <p class="nhsd-t-heading-xl">${summaryHeader}</p>
@@ -196,7 +208,9 @@
                                                 <div class="nhsd-m-card">
                                                     <#if item.platformAffected.url??>
                                                     <a class="nhsd-a-box-link"
-                                                       href="${item.platformAffected.url}" 
+                                                       href="${item.platformAffected.url}"
+                                                       onClick="${getOnClickMethodCall(document.class.name, item.platformAffected.url)}"
+                                                       onKeyUp="return vjsu.onKeyUp(event)"
                                                        aria-label="${item.platformAffected.title}"
                                                     >
                                                     </#if>
@@ -212,7 +226,7 @@
                                                                             </#list>
                                                                         </#if>
                                                                     </span>
-                                                                
+
                                                                     <p class="nhsd-t-heading-s">
                                                                         ${item.platformAffected.title}
                                                                     </p>
@@ -220,7 +234,7 @@
                                                                     <@hst.html hippohtml=item.platformText contentRewriter=brContentRewriter/>
                                                                 </div>
 
-                                                                <#if item.platformAffected.url??>   
+                                                                <#if item.platformAffected.url??>
                                                                     <div class="nhsd-m-card__button-box">
                                                                         <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
@@ -269,7 +283,7 @@
                     <#if !hasThreatAffects || (hasSummaryContent && !hasThreatAffects)>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
-    
+
                     <div id="${slugify(threatDetailsHeader)}">
                         <p class="nhsd-t-heading-xl">${threatDetailsHeader}</p>
                         <@sections document.sections></@sections>
@@ -277,13 +291,13 @@
                 </#if>
 
                 <#if hasThreatUpdates>
-                    <#if hasSectionContent || 
-                        (hasThreatAffects && !hasSectionContent) || 
+                    <#if hasSectionContent ||
+                        (hasThreatAffects && !hasSectionContent) ||
                         (hasSummaryContent && !hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
-                
+
                     <div id="${slugify(threatUpdatesHeader)}">
                         <p class="nhsd-t-heading-xl">${threatUpdatesHeader}</p>
 
@@ -314,9 +328,9 @@
 
 
                 <#if hasRemediationIntro>
-                    <#if hasThreatUpdates || 
-                        (hasSectionContent && !hasThreatUpdates) || 
-                        (hasThreatAffects && !hasThreatUpdates && !hasSectionContent) || 
+                    <#if hasThreatUpdates ||
+                        (hasSectionContent && !hasThreatUpdates) ||
+                        (hasThreatAffects && !hasThreatUpdates && !hasSectionContent) ||
                         (hasSummaryContent && !hasThreatUpdates && hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
@@ -330,10 +344,10 @@
 
 
                 <#if hasRemediationSteps>
-                    <#if hasRemediationIntro || 
-                        (hasThreatUpdates && !hasRemediationIntro) || 
-                        (hasSectionContent && !hasRemediationIntro && !hasThreatUpdates) || 
-                        (hasThreatAffects && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) || 
+                    <#if hasRemediationIntro ||
+                        (hasThreatUpdates && !hasRemediationIntro) ||
+                        (hasSectionContent && !hasRemediationIntro && !hasThreatUpdates) ||
+                        (hasThreatAffects && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) ||
                         (hasSummaryContent && !hasRemediationIntro && !hasThreatUpdates && hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
@@ -366,10 +380,10 @@
 
                 <#if hasIndicatorsOfCompromise>
                     <#if hasRemediationSteps ||
-                        (hasRemediationIntro && !hasRemediationSteps)|| 
-                        (hasThreatUpdates && !hasRemediationSteps && !hasRemediationIntro) || 
-                        (hasSectionContent && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) || 
-                        (hasThreatAffects && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) || 
+                        (hasRemediationIntro && !hasRemediationSteps)||
+                        (hasThreatUpdates && !hasRemediationSteps && !hasRemediationIntro) ||
+                        (hasSectionContent && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) ||
+                        (hasThreatAffects && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) ||
                         (hasSummaryContent && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
@@ -384,10 +398,10 @@
                 <#if hasNcscLink>
                     <#if hasIndicatorsOfCompromise ||
                         (hasRemediationSteps && !hasIndicatorsOfCompromise) ||
-                        (hasRemediationIntro && !hasIndicatorsOfCompromise && !hasRemediationSteps)|| 
-                        (hasThreatUpdates && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) || 
-                        (hasSectionContent && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) || 
-                        (hasThreatAffects && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) || 
+                        (hasRemediationIntro && !hasIndicatorsOfCompromise && !hasRemediationSteps)||
+                        (hasThreatUpdates && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) ||
+                        (hasSectionContent && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) ||
+                        (hasThreatAffects && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) ||
                         (hasSummaryContent && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
@@ -395,9 +409,9 @@
 
                     <div id="${slugify(ncscLinkHeader)}">
                         <p class="nhsd-t-heading-xl">${ncscLinkHeader}</p>
-                        <a class="nhsd-a-link" 
-                           href="${document.ncscLink}" 
-                           onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${document.ncscLink}');" 
+                        <a class="nhsd-a-link"
+                           href="${document.ncscLink}"
+                           onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${document.ncscLink}');"
                            onKeyUp="return vjsu.onKeyUp(event)"
                         >
                             ${document.ncscLink}
@@ -409,10 +423,10 @@
                     <#if hasNcscLink ||
                         (hasIndicatorsOfCompromise && !hasNcscLink) ||
                         (hasRemediationSteps && !hasNcscLink && !hasIndicatorsOfCompromise) ||
-                        (hasRemediationIntro && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps)|| 
-                        (hasThreatUpdates && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) || 
-                        (hasSectionContent && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) || 
-                        (hasThreatAffects && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) || 
+                        (hasRemediationIntro && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps)||
+                        (hasThreatUpdates && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) ||
+                        (hasSectionContent && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) ||
+                        (hasThreatAffects && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) ||
                         (hasSummaryContent && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
@@ -424,8 +438,8 @@
                             <#list document.sourceOfThreatUpdates as item>
                                 <li>
                                     <a class="nhsd-a-link"
-                                       href="${item}" 
-                                       onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item}');" 
+                                       href="${item}"
+                                       onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item}');"
                                        onKeyUp="return vjsu.onKeyUp(event)"
                                     >
                                         ${item}
@@ -441,10 +455,10 @@
                         (hasNcscLink && !hasSourceOfUpdate) ||
                         (hasIndicatorsOfCompromise && !hasSourceOfUpdate && !hasNcscLink) ||
                         (hasRemediationSteps && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise) ||
-                        (hasRemediationIntro && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps)|| 
-                        (hasThreatUpdates && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) || 
-                        (hasSectionContent && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) || 
-                        (hasThreatAffects && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) || 
+                        (hasRemediationIntro && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps)||
+                        (hasThreatUpdates && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) ||
+                        (hasSectionContent && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) ||
+                        (hasThreatAffects && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) ||
                         (hasSummaryContent && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
@@ -454,8 +468,9 @@
                         <p class="nhsd-t-heading-xl">${servicesHeader}</p>
                         <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-t-list--loose">
                             <#list document.services as item>
+                                <@hst.link hippobean=item var="serviceLink"/>
                                 <li>
-                                    <a class="nhsd-a-link" href="<@hst.link hippobean=item/>">
+                                    <a class="nhsd-a-link" href="${serviceLink}" onClick="${getOnClickMethodCall(document.class.name, serviceLink)}" onKeyUp="return vjsu.onKeyUp(event)">
                                         ${item.title}
                                     </a>
                                 </li>
@@ -471,10 +486,10 @@
                         (hasNcscLink && !hasServices && !hasSourceOfUpdate) ||
                         (hasIndicatorsOfCompromise && !hasServices && !hasSourceOfUpdate && !hasNcscLink) ||
                         (hasRemediationSteps && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise) ||
-                        (hasRemediationIntro && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps)|| 
-                        (hasThreatUpdates && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) || 
-                        (hasSectionContent && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) || 
-                        (hasThreatAffects && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) || 
+                        (hasRemediationIntro && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps)||
+                        (hasThreatUpdates && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) ||
+                        (hasSectionContent && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) ||
+                        (hasThreatAffects && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) ||
                         (hasSummaryContent && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
@@ -491,7 +506,7 @@
                                             <div class="nhsd-m-card">
                                                 <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange"
                                                    href="${cveUrl + item.cveIdentifier}"
-                                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${cveUrl + item.cveIdentifier}');" 
+                                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${cveUrl + item.cveIdentifier}');"
                                                    onKeyUp="return vjsu.onKeyUp(event"
                                                    aria-label="${item.cveIdentifier}"
                                                 >
@@ -509,7 +524,7 @@
                                                                 <p class="nhsd-t-heading-s">${item.cveIdentifier}</p>
                                                                 <@hst.html hippohtml=item.cveText contentRewriter=brContentRewriter/>
                                                             </div>
-                                                            
+
                                                             <div class="nhsd-m-card__button-box">
                                                                 <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
@@ -526,7 +541,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                           
+                    </div>
                 </#if>
 
 
@@ -537,10 +552,10 @@
                         (hasNcscLink && !hasCVE && !hasServices && !hasSourceOfUpdate) ||
                         (hasIndicatorsOfCompromise && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink) ||
                         (hasRemediationSteps && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise) ||
-                        (hasRemediationIntro && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps)|| 
-                        (hasThreatUpdates && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) || 
-                        (hasSectionContent && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) || 
-                        (hasThreatAffects && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) || 
+                        (hasRemediationIntro && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps)||
+                        (hasThreatUpdates && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro) ||
+                        (hasSectionContent && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates) ||
+                        (hasThreatAffects && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && !hasSectionContent) ||
                         (hasSummaryContent && !hasCVE && !hasServices && !hasSourceOfUpdate && !hasNcscLink && !hasIndicatorsOfCompromise && !hasRemediationSteps && !hasRemediationIntro && !hasThreatUpdates && hasSectionContent && !hasThreatAffects)
                     >
                         <hr class="nhsd-a-horizontal-rule" />
@@ -556,8 +571,10 @@
                                         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
                                             <div class="nhsd-m-card">
                                                 <a class="nhsd-a-box-link"
-                                                   href="${item.linkAddress}" 
-                                                   aria-label="${item.linkAddress}" 
+                                                   href="${item.linkAddress}"
+                                                   onClick="${getOnClickMethodCall(document.class.name, item.linkAddress)}"
+                                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                                   aria-label="${item.linkAddress}"
                                                 >
                                                     <div class="nhsd-a-box nhsd-a-box--bg-<#if item?is_odd_item>dark-grey<#else>blue</#if>">
                                                         <div class="nhsd-m-card__content_container">
@@ -584,7 +601,7 @@
                         </div>
                     </div>
                 </#if>
-                
+
                 <div class="nhsd-!t-margin-top-6">
                     <@lastModified document.lastModified false></@lastModified>
                 </div>

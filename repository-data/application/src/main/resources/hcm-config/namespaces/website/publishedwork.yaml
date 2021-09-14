@@ -290,6 +290,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /noindexcontrol:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Disallow indexing by search engines
+            field: noindexcontrol
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -419,6 +428,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field
+          /noindexcontrol:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:noindexcontrol
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
           /publicationStyle:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -475,6 +492,14 @@ definitions:
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /string:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:noIndexControl
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
@@ -609,6 +634,8 @@ definitions:
           website:highlightsTitle: Highlights
           website:isbn: ''
           website:issn: ''
+          website:noIndexControl: ''
+          website:noindexcontrol: false
           website:publicationDate: 0001-01-01T12:00:00Z
           website:publicationStyle: bluebanner
           website:seosummary: ''

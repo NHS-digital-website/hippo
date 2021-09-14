@@ -1,12 +1,24 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<#include "macro/sections/sections.ftl">
 <#include "macro/linkGrid.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/contentPixel.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
-
+<style type="text/css">
+    .table-emphasised td strong{
+        font-weight: bold;
+    }
+    .table-emphasised td h2{
+        font-weight: 600;
+    }
+    .table-emphasised td h3{
+        font-weight: 700;
+    }
+</style>
+<#assign hasSectionContent = document.sections?has_content />
 <@hst.setBundle basename="website.gdpr,rb.doctype.gdpr-transparency,rb.generic.headers"/>
 
 <#-- Content Page Pixel -->
@@ -49,7 +61,7 @@
 
                                 <tr>
                                     <td><@fmt.message key="labels.how-info-is-used"/></td>
-                                    <td>${document.howuseinformation}</td>
+                                    <td><@hst.html hippohtml=document.howuseinformation contentRewriter=gaContentRewriter/></td>
                                 </tr>
 
                                 <tr>
@@ -88,12 +100,13 @@
                                 <tr>
                                     <td><@fmt.message key="labels.your-rights"/></td>
                                     <td>
+                                        <#assign count = 0>
                                         <ul class="checklist checklist--condensed">
                                             <#list rights?keys as key>
                                                 <@fmt.message key="urls.${key}" var="url"/>
 
                                                 <li class="checklist__item">
-                                                    <#if document.rights?seq_contains(key)>
+                                                    <#if document.gdrpRights[count].gdprRightRequired?contains("yes")>
                                                         <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" />
                                                     <#else>
                                                         <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Cross" class="checklist__icon checklist__icon--small" />
@@ -102,9 +115,12 @@
                                                     <#if url?has_content>
                                                         <a href="${url}" title="${rights[key]}"><span class="checklist__label">${rights[key]}</span></a>
                                                     <#else>
-                                                        <span class="checklist__label">${rights[key]}</span>
+                                                        <span class="checklist__label">${rights[key]}
+                                                            <@hst.html hippohtml=document.gdrpRights[count].qualification contentRewriter=gaContentRewriter/>
+                                                        </span></br>
                                                     </#if>
                                                 </li>
+                                                <#assign count = count + 1>
                                             </#list>
                                         </ul>
                                     </td>
@@ -163,6 +179,9 @@
                         </div>
                     </div>
                 </div>
+                </#if>
+                <#if hasSectionContent>
+                    <@sections document.sections></@sections>
                 </#if>
                 <#-- [FTL-END] 'Links' section -->
             </div>

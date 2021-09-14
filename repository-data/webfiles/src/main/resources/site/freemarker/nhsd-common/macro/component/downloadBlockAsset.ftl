@@ -16,7 +16,6 @@
 </#function>
 
 <#macro downloadBlockAsset classname resource title shortsummary mimeType size external=false small=false>
-    <#assign onClickMethodCall = getOnClickMethodCall(classname, title) />
     <#if size?has_content>
         <#assign sizeString = sizeToDisplay(size) />
     </#if>
@@ -24,7 +23,7 @@
 
     <@externalstorageLink resource; url>
         <div class="${(small == true)?then('nhsd-m-download-card', 'nhsd-m-download-card nhsd-!t-margin-bottom-6')}">
-            <a href="${(external == true)?then(resource, url)}" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" >
+        <a href="${(external == true)?then(resource, url)}" class="nhsd-a-box-link" onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, url), true)}" onKeyUp="return vjsu.onKeyUp(event)">
                 <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                     <div class="${(small == true)?then('nhsd-m-download-card__image-box small', 'nhsd-m-download-card__image-box')}">
                         <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->

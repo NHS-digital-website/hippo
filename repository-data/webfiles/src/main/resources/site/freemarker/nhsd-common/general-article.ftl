@@ -14,6 +14,11 @@
 <#include "macro/contentPixel.ftl">
 <#include "macros/header-banner.ftl">
 <#include "macro/component/header-banner-image.ftl">
+<#import "app-layout-head.ftl" as alh>
+
+<@hst.headContribution category="metadata">
+    <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
+</@hst.headContribution>
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -57,30 +62,30 @@
                     <#list document.updates as update>
                         <#assign item += update />
                         <#assign item += {"calloutType":"update", "index":update?index} />
-                        <@calloutBox item />
+                        <@calloutBox item document.class.name />
                     </#list>
                 </div>
             </div>
         </#if>
         <div class="nhsd-t-row">
             <#if navStatus == "withNav" && renderNav>
-                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-                        <#assign links = [{ "url": "#top", "title": "Top of page" }] />
-                        <#if document.latestNews?has_content >
-                            <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
-                        </#if>
-                        <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
-                        <#if document.relatedEvents?has_content >
-                            <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
-                        </#if>
-                        <@stickyNavSections links></@stickyNavSections>
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
+                    <#assign links = [{ "url": "#top", "title": "Top of page" }] />
+                    <#if document.latestNews?has_content >
+                        <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
+                    </#if>
+                    <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
+                    <#if document.relatedEvents?has_content >
+                        <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
+                    </#if>
+                    <@stickyNavSections links></@stickyNavSections>
                     <!-- end sticky-nav -->
                     <#-- Restore the bundle -->
                     <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
                 </div>
             </#if>
 
-            <div class="${(navStatus == "withNav" || navStatus == "withoutNav")?then("nhsd-t-col-xs-12 nhsd-t-col-s-8", "nhsd-t-col-12")}">
+            <div class="${(navStatus == "withNav" || navStatus == "withoutNav")?then("nhsd-t-col-xs-12 nhsd-t-off-s-1 nhsd-t-col-s-8", "nhsd-t-col-12")}">
 
                 <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' />
 
@@ -88,8 +93,13 @@
                     <@sections document.sections></@sections>
                 </#if>
 
-                <#if !document.latestNews?has_content && document.relatedNews?has_content >
-                    <@latestblogs document.relatedNews 'General' 'related-news-' + idsuffix 'Related news' />
+                <#if !document.latestNews?has_content && document.relatedNews?has_content>
+                    <@fmt.message key="headers.related-news" var="relatedNewsHeader" />
+                    <div id="${slugify(relatedNewsHeader)}">
+                        <hr class="nhsd-a-horizontal-rule">
+                        <h2 class="nhsd-t-heading-xl" data-uipath="website.contentblock.section.title">${relatedNewsHeader}</h2>
+                        <@latestblogs document.relatedNews 'General' 'related-news-' + idsuffix "" />
+                    </div>
                 </#if>
 
                 <#if hasChildPages>

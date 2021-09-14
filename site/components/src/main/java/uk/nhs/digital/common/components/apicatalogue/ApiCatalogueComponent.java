@@ -2,6 +2,7 @@ package uk.nhs.digital.common.components.apicatalogue;
 
 import static java.util.stream.Collectors.toList;
 
+import com.google.common.collect.ImmutableSet;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import uk.nhs.digital.common.components.*;
 import uk.nhs.digital.common.components.apicatalogue.filters.Filters;
 import uk.nhs.digital.common.components.apicatalogue.repository.ApiCatalogueRepository;
 import uk.nhs.digital.website.beans.ComponentList;
+import uk.nhs.digital.website.beans.Externallink;
 import uk.nhs.digital.website.beans.Internallink;
 
 import java.util.*;
@@ -26,9 +28,11 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
+        final boolean isToShowAll = Optional.ofNullable(request.getParameter("showAll")).map(Boolean::parseBoolean).orElse(false);
+
         final Set<String> selectedTags = userSelectedTaxonomyKeysFrom(request);
 
-        final List<?> apiCatalogueLinksAll = apiCatalogueLinksFrom(request);
+        final List<?> apiCatalogueLinksAll = apiCatalogueLinksFrom(request,isToShowAll);
 
         final List<?> apiCatalogueLinksFiltered =
             apiCatalogueLinksFilteredBySelectedTags(apiCatalogueLinksAll, selectedTags);
@@ -37,7 +41,10 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
 
         final Filters filtersModel = filtersModel(apiCatalogueLinksAll, selectedTags, sessionFrom(request));
 
+        request.setAttribute("showAll", isToShowAll);
+
         request.setAttribute("filtersModel", filtersModel);
+
     }
 
     private Session sessionFrom(final HstRequest request) {
@@ -56,12 +63,23 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
             .orElse(Collections.emptySet());
     }
 
-    private List<?> apiCatalogueLinksFrom(final HstRequest request) {
-        return ((ComponentList) request.getRequestContext().getContentBean()).getBlocks();
+    private List<?> apiCatalogueLinksFrom(final HstRequest request, final boolean showAll) {
+
+        List<Internallink> internallinksList = ((ComponentList) request.getRequestContext().getContentBean()).getBlocks().stream()
+            .filter(Internallink.class::isInstance)
+            .map(Internallink.class::cast)
+            .filter(link -> showAll || linkHasNoneOfSelectedTaxonomyKeys(link, ImmutableSet.of("deprecated-api","retired-api")))
+            .collect(toList());
+
+        List<Externallink> externallinkList = ((ComponentList) request.getRequestContext().getContentBean()).getBlocks().stream()
+            .filter(Externallink.class::isInstance)
+            .map(Externallink.class::cast)
+            .collect(toList());
+
+        return Stream.of(internallinksList, externallinkList).flatMap(Collection::stream).collect(toList());
     }
 
     private List<?> apiCatalogueLinksFilteredBySelectedTags(final List<?> links, final Set<String> selectedTags) {
-
         if (selectedTags.isEmpty()) {
             return links;
         }
@@ -101,7 +119,12 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
         return links.stream()
             .filter(Internallink.class::isInstance)
             .map(Internallink.class::cast)
-            .filter(link -> linkHasSelectedTaxonomyKeys(link, selectedTags));
+            .filter(link -> selectedTags.isEmpty() || linkHasSelectedTaxonomyKeys(link, selectedTags));
+    }
+
+    private boolean linkHasNoneOfSelectedTaxonomyKeys(final Internallink link, final ImmutableSet<String> selectedTags) {
+        final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfDocumentReferencedBy(link);
+        return taxonomyKeysOfLinkedDoc.stream().noneMatch(selectedTags::contains);
     }
 
     private boolean linkHasSelectedTaxonomyKeys(final Internallink link, final Set<String> selectedTags) {

@@ -1,0 +1,24 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/channel-group:
+      hipposys:members:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - admin1
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.channel.user
+        - xm.cms.user
+        - xm.targeting.editor
+        - xm.channel.webmaster
+        - xm.channel.admin
+        - xm.content.editor
+        - xm.channel.viewer
+      jcr:primaryType: hipposys:group

@@ -84,8 +84,8 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
             .opts(new ClientOpts())
             .config(codegenConfig)
             .setOpenAPI(openApiModel);
-
-        return new DefaultGenerator().opts(clientOptInput);
+        CodegenOperationSorter codegenOperationSorter = new CodegenOperationSorter(openApiModel);
+        return new CodegenDefaultGenerator(codegenOperationSorter).opts(clientOptInput);
     }
 
     private String filesystemPathFromClassPathResource(final String resourceClassPath) {

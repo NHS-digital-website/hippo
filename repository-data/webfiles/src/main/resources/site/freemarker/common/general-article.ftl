@@ -13,6 +13,11 @@
 <#include "macro/component/calloutBox.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/updateGroup.ftl">
+<#import "app-layout-head.ftl" as alh>
+
+<@hst.headContribution category="metadata">
+    <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
+</@hst.headContribution>
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>

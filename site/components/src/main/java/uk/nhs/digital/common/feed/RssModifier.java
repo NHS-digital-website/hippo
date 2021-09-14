@@ -75,6 +75,7 @@ public class RssModifier extends RSS20Modifier {
         String scope = "";
         String requestPath = null;
         SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
+        SimpleDateFormat lastUpdatedDateFormat = new SimpleDateFormat("dd MMM yyyy");
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         if (bean instanceof Blog) {
@@ -185,7 +186,16 @@ public class RssModifier extends RSS20Modifier {
             foreignMarkup.add(getElement("author", (emailAddress + " (" + author + ")")));
             StringBuilder content = new StringBuilder();
             for (HippoBean sre : newsBean.getSections()) {
-                String tempContent = ((Section) sre).getHtmlJson();
+                String tempContent = new String();
+                if (sre instanceof Section) {
+                    tempContent = ((Section) sre).getHtmlJson();
+                } else if (sre instanceof EmphasisBox) {
+                    tempContent = ((EmphasisBox) sre).getBodyJson();
+                } else if (sre instanceof Expander) {
+                    tempContent = ((Expander) sre).getContent().getContent();
+                } else if (sre instanceof Quote) {
+                    tempContent = ((Quote) sre).getQuote().getContent();
+                }
                 content.append(tempContent);
             }
             foreignMarkup.add(getElement("description", content.toString()));
@@ -256,6 +266,29 @@ public class RssModifier extends RSS20Modifier {
                 foreignMarkup.add(source);
 
             }
+        } else if (bean instanceof CyberAlert) {
+            List<Element> foreignMarkup = entry.getForeignMarkup();
+            final CyberAlert cyberAlertBean = (CyberAlert) bean;
+            foreignMarkup.add(getElement("title", cyberAlertBean.getThreatId() + " - " + cyberAlertBean.getTitle()));
+            foreignMarkup.add(getElement("category", cyberAlertBean.getSeverity()));
+            foreignMarkup.add(getElement("author", "enquiries@nhsdigital.nhs.uk (NHS Digital)"));
+
+            foreignMarkup.add(getElement("description",
+                "<p>Severity: " + cyberAlertBean.getSeverity() + "</p>"
+                    + " " + cyberAlertBean.getSummary().getContent()
+                    + "<p> " + cyberAlertBean.getShortsummary()
+                    + "</p><p> Updated: " + lastUpdatedDateFormat.format(cyberAlertBean.getLastModified()) + "</p>"));
+
+            Element guid = getElement("guid", cyberAlertBean.getCanonicalUUID());
+            guid.setAttribute("isPermaLink", "false");
+            foreignMarkup.add(guid);
+
+            String pubDate = dateFormat.format(cyberAlertBean.getPublishedDate().getTime());
+            foreignMarkup.add(getElement("pubDate", pubDate));
+
+            HstLink hstLink = context.getHstLinkCreator().create(bean, context);
+            String url = hstLink.toUrlForm(context, true);
+            foreignMarkup.add(getElement("link", url));
         }
 
     }

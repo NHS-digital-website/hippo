@@ -75,12 +75,19 @@ definitions:
             wicket.id: ${cluster.id}.field
           /howuseinformation:
             /cluster.options:
+              ckeditor.config.appended.json: '{  toolbar: [    { name: ''styles'',
+                items: [ ''Styles'' ] },    { name: ''basicstyles'', items: [ ''Bold'',
+                ''Italic'', ''Underline'',''BulletedList'',''NumberedList'', ''RemoveFormat''
+                ] },    { name: ''clipboard'', items: [ ''Undo'', ''Redo'' ] },    {
+                name: ''links'', items: [ ''Link'',''PickInternalLink'',''Source'']}  ]}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: How we use information
             field: howuseinformation
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /lawfulbasis:
             /cluster.options:
@@ -119,19 +126,71 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /rights:
+          /beinformed:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/rights
-            caption: Rights
-            field: rights
+            caption: Be informed
+            field: gdprrights
+            hint: ''
             jcr:primaryType: frontend:plugin
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /getaccesstoit:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Get access to it
+            field: getaccesstoit
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /rectifyorchange:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Rectify or change it
+            field: rectifyorchange
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /eraseorremove:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Erase or remove it
+            field: eraseorremove
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /restrictstoppro:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Restrict or stop processing it
+            field: restrictstoppro
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /movecopytransfer:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Move, copy or transfer it
+            field: movecopytransfer
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /objecttoit:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Object to it being processed or used
+            field: objecttoit
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /computerdecisionorperson:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Know if a decision was made by a computer rather than a person
+            field: compuerdecision
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /withdrawconsent:
             /cluster.options:
@@ -189,6 +248,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /sections:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Sections
+            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:svg
+            contentPickerType: links
+            field: sections
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
           /friendlyurls:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -210,6 +280,14 @@ definitions:
             hipposysedit:type: String
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /compuerdecision:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:computerdecisionorperson
+            hipposysedit:primary: false
+            hipposysedit:type: website:gdprrights
             jcr:primaryType: hipposysedit:field
           /computerdecision:
             hipposysedit:mandatory: false
@@ -237,6 +315,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          /eraseorremove:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:eraseorremove
+            hipposysedit:primary: false
+            hipposysedit:type: website:gdprrights
+            jcr:primaryType: hipposysedit:field
           /friendlyurls:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -245,13 +331,29 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: website:friendlyurls
             jcr:primaryType: hipposysedit:field
+          /gdprrights:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:beinformed
+            hipposysedit:primary: false
+            hipposysedit:type: website:gdprrights
+            jcr:primaryType: hipposysedit:field
+          /getaccesstoit:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:getaccesstoit
+            hipposysedit:primary: false
+            hipposysedit:type: website:gdprrights
+            jcr:primaryType: hipposysedit:field
           /howuseinformation:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:howuseinformation
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: hippostd:html
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
@@ -279,6 +381,22 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
+          /movecopytransfer:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:movecopytransfer
+            hipposysedit:primary: false
+            hipposysedit:type: website:gdprrights
+            jcr:primaryType: hipposysedit:field
+          /objecttoit:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:objecttoit
+            hipposysedit:primary: false
+            hipposysedit:type: website:gdprrights
+            jcr:primaryType: hipposysedit:field
           /outsideuk:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -289,13 +407,21 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /rights:
+          /rectifyorchange:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
+            hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:rights
+            hipposysedit:path: website:rectifyorchange
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: website:gdprrights
+            jcr:primaryType: hipposysedit:field
+          /restrictstoppro:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:restrictstoppro
+            hipposysedit:primary: false
+            hipposysedit:type: website:gdprrights
             jcr:primaryType: hipposysedit:field
           /searchTab:
             hipposysedit:mandatory: false
@@ -304,6 +430,14 @@ definitions:
             hipposysedit:path: website:searchTab
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /sections:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:sections
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /sensitivity:
             hipposysedit:mandatory: false
@@ -346,6 +480,8 @@ definitions:
             hipposysedit:path: website:summary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /timeretained:
             hipposysedit:mandatory: false
@@ -396,11 +532,65 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:beinformed:
+            /website:qualification:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:gdprrights
+            website:gdprrightsyesno: 'no'
+          /website:computerdecisionorperson:
+            /website:qualification:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:gdprrights
+            website:gdprrightsyesno: 'no'
+          /website:eraseorremove:
+            /website:qualification:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:gdprrights
+            website:gdprrightsyesno: 'no'
           /website:friendlyurls:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          /website:getaccesstoit:
+            /website:qualification:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:gdprrights
+            website:gdprrightsyesno: 'no'
+          /website:howuseinformation:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:legallywhy:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:movecopytransfer:
+            /website:qualification:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:gdprrights
+            website:gdprrightsyesno: 'no'
+          /website:objecttoit:
+            /website:qualification:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:gdprrights
+            website:gdprrightsyesno: 'no'
+          /website:rectifyorchange:
+            /website:qualification:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:gdprrights
+            website:gdprrightsyesno: 'no'
+          /website:restrictstoppro:
+            /website:qualification:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:gdprrights
+            website:gdprrightsyesno: 'no'
+          /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           /website:summary:
@@ -432,10 +622,8 @@ definitions:
           website:computerdecision: ''
           website:datacontroller: NHS Digital
           website:datasource: ''
-          website:howuseinformation: ''
           website:lawfulbasis: ''
           website:outsideuk: This data is not transferred out of the UK
-          website:rights: []
           website:sensitivity: false
           website:seosummary: ''
           website:shortsummary: ''
