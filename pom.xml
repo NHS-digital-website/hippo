@@ -19,7 +19,6 @@
     <artifactId>website</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
-
     <!--
         The below project elements are emptied/overridden as otherwise their metadata would be
         inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
