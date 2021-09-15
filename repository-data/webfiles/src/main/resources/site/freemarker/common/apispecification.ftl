@@ -33,7 +33,7 @@
 
             </style>
 
-            <div class="nhsd-t-grid">
+            <div class="nhsd-t-grid nhsd-!t-margin-top-6">
                 <div class="nhsd-t-row">${document.html?no_esc}</div>
             </div>
         </article>

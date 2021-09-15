@@ -15,9 +15,11 @@
                         <div class="nhsd-o-global-header__content-box">
                             <div class="nhsd-o-global-header__background"></div>
                             <#-- Logo -->
-                            <a class="nhsd-m-logo-link nhsd-o-global-header__logo" id="nhsd-global-header__logo" href="<@hst.link siteMapItemRefId='root'/>" aria-label="NHS Digital home">
-                                <@nhsdLogo></@nhsdLogo>
-                            </a>
+                            <div class="nhsd-o-global-header__logo-container">
+                                <a class="nhsd-m-logo-link nhsd-o-global-header__logo" id="nhsd-global-header__logo" href="<@hst.link siteMapItemRefId='root'/>" aria-label="NHS Digital home">
+                                    <@nhsdLogo></@nhsdLogo>
+                                </a>
+                            </div>
                             <div class="nhsd-o-global-header__menu" id="nhsd-global-header__menu">
                                 <div class="nhsd-o-global-header__menu-background"></div>
                                 <div class="nhsd-o-global-header__menu-content-box">

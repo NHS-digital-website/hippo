@@ -50,7 +50,7 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="${designSystemUrl}/cdn/v0.110.0/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="${designSystemUrl}/cdn/v0.112.0/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" media="screen" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />
