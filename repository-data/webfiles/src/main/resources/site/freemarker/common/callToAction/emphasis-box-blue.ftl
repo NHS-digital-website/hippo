@@ -16,50 +16,52 @@
 
     <div class="nhsd-t-grid">
         <div class="nhsd-t-row nhsd-t-row--centred">
-            <div class="nhsd-t-col-xs-12">
-                <div class="nhsd-m-emphasis-box nhsd-m-emphasis-box--centred">
-                    <div class="nhsd-a-box nhsd-a-box--border-blue">
-                        <#if hasImage>
-                            <div class="nhsd-m-emphasis-box__icon-box">
-                                <div class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                                    <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
-                                        <picture class="nhsd-a-image__picture">
-                                            <@hst.link hippobean=document.image var="image"/>
-                                            <img src="${image}" alt="${document.title}">
-                                        </picture>
-                                    </figure>
+            <div class="nhsd-t-col-12">
+                <div class="nhsd-t-flex nhsd-t-flex--justify-content-centre">
+                    <div class="nhsd-m-emphasis-box nhsd-m-emphasis-box--centred">
+                        <div class="nhsd-a-box nhsd-a-box--border-blue">
+                            <#if hasImage>
+                                <div class="nhsd-m-emphasis-box__icon-box">
+                                    <div class="nhsd-a-icon nhsd-a-icon--size-xxl">
+                                        <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
+                                            <picture class="nhsd-a-image__picture">
+                                                <@hst.link hippobean=document.image var="image"/>
+                                                <img src="${image}" alt="${document.title}">
+                                            </picture>
+                                        </figure>
+                                    </div>
                                 </div>
+                            </#if>
+
+                            <div class="nhsd-m-emphasis-box__content-box">
+                                <#if hasTitle>
+                                    <h2 class="nhsd-t-heading-s">${document.title}</h2>
+                                </#if>
+
+                                <#if hasContent>
+                                    <p class="nhsd-t-body-s">${document.content}</p>
+                                </#if>
+
+
+                                <#if hasLink>
+                                    <#assign linkLabel = document.label />
+
+                                    <#if document.internal?has_content>
+                                        <@hst.link hippobean=document.internal var="link"/>
+                                    <#elseif document.external?has_content>
+                                        <#assign link = document.external/>
+                                    </#if>
+
+                                    <a class="nhsd-a-button nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0" href="${link}">
+
+                                    <span class="nhsd-a-button__label">${linkLabel}</span>
+
+                                    <#if document.external?has_content>
+                                        <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
+                                    </#if>
+                                    </a>
+                                </#if>
                             </div>
-                        </#if>
-
-                        <div class="nhsd-m-emphasis-box__content-box">
-                            <#if hasTitle>
-                                <h2 class="nhsd-t-heading-s">${document.title}</h2>
-                            </#if>
-
-                            <#if hasContent>
-                                <p class="nhsd-t-body-s">${document.content}</p>
-                            </#if>
-
-
-                            <#if hasLink>
-                                <#assign linkLabel = document.label />
-
-                                <#if document.internal?has_content>
-                                    <@hst.link hippobean=document.internal var="link"/>
-                                <#elseif document.external?has_content>
-                                    <#assign link = document.external/>
-                                </#if>
-
-                                <a class="nhsd-a-button nhsd-!t-margin-top-4 nhsd-!t-margin-bottom-0" href="${link}">
-
-                                <span class="nhsd-a-button__label">${linkLabel}</span>
-
-                                <#if document.external?has_content>
-                                    <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
-                                </#if>
-                                </a>
-                            </#if>
                         </div>
                     </div>
                 </div>
