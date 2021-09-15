@@ -73,6 +73,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /htmlCode:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Raw HTML - web team only
+            field: htmlCode
+            hint: This should only be used or edited by the web team.  Misuse of this
+              field could break the website, and could lead to disciplinary action.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -83,6 +93,14 @@ definitions:
             hipposysedit:path: website:highchartseries
             hipposysedit:primary: false
             hipposysedit:type: website:highchartseries
+            jcr:primaryType: hipposysedit:field
+          /htmlCode:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:htmlCode
+            hipposysedit:primary: false
+            hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -146,8 +164,10 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           jcr:primaryType: website:dynamicchartsection
+          website:htmlCode: <img src="" id="chartPrintFriendly" style="display:none">
           website:title: ''
           website:url: ''
+          website:xTitle: ''
           website:yTitle: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
