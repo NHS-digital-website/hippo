@@ -10,14 +10,14 @@
 <#if button1Text?has_content && button1Url?has_content>
     <#assign buttons += [{
         "text": button1Text,
-        "url": button1Url
+        "src": button1Url
     }]/>
 </#if>
 
 <#if button2Text?has_content && button2Url?has_content>
     <#assign buttons += [{
         "text": button2Text,
-        "url": button2Url
+        "src": button2Url
     }]/>
 </#if>
 <#assign heroOptions += {"buttons": buttons} />

@@ -17,7 +17,7 @@
                 <#if options.buttons?has_content && options.buttons?size gt 0>
                     <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed nhsd-!t-text-align-left nhsd-!t-margin-top-6">
                         <#list options.buttons as button>
-                            <a class="nhsd-a-button" href="${button.url}">
+                            <a class="nhsd-a-button" href="${button.src}">
                                 <span class="nhsd-a-button__label">${button.text}</span>
                                 <#if button.srText?has_content>
                                     <span class="nhsd-t-sr-only">${button.srText}</span>
