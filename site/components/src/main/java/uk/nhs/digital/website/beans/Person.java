@@ -32,6 +32,12 @@ public class Person extends CommonFieldsBean {
         return personalInfo.getFirstname() + " " + personalInfo.getLastname();
     }
 
+    @HippoEssentialsGenerated(internalName = "website:initials")
+    public String getInitials()  {
+        PersonalInfo personalInfo = getPersonalinfos();
+        return "" + personalInfo.getFirstname().charAt(0) + personalInfo.getLastname().charAt(0);
+    }
+
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:knowsabout")
     public String[] getKnowsabout() {
         return getMultipleProperty("hippotaxonomy:knowsabout");
