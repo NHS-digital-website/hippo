@@ -4,11 +4,10 @@
 
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
-<#include "macro/documentHeader.ftl">
 <#include "macro/component/showAll.ftl">
 <#include "macro/contentPixel.ftl">
-<#include "macros/header-banner.ftl">
-<#include "macro/component/header-banner-image.ftl">
+<#include "macro/heroes/hero-options.ftl">
+<#include "macro/heroes/hero.ftl">
 <#include "macro/hubArticle.ftl">
 
 <#-- Add meta tags -->
@@ -27,7 +26,7 @@
     <#if document.publisher?has_content>
         <div class="nhsd-!t-display-hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">${document.publisher.title}</span></div>
     </#if>
-    <#if document.seosummary?has_content><div class="nhsd-!t-display-hide itemprop="description">${document.seosummary.content?replace('<[^>]+>','','r')}</div></#if>
+    <#if document.seosummary?has_content><div class="nhsd-!t-display-hide" itemprop="description">${document.seosummary.content?replace('<[^>]+>','','r')}</div></#if>
     <#if document.taxonomyTags?has_content><span class="nhsd-!t-display-hide" itemprop="keywords" ><#list document.taxonomyTags as tag>${tag} <#sep>, </#list></span></#if>
 
     <#if document.leadImage?has_content>
@@ -38,16 +37,13 @@
         </div>
     </#if>
 
-    <#if document.subject?has_content><span class="nhsd-!t-display-hide" itemprop="about" >${document.subject.title}</span></#if>
+    <#if document.subject?has_content><span class="nhsd-!t-display-hide" itemprop="about">${document.subject.title}</span></#if>
 
-    <#if document.image?has_content>
-        <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
-        <@headerBannerImage document bannerImage />
-    <#else>
-        <@headerBanner document />
-    </#if>
+    <#assign heroOptions = getHeroOptions(document) />
+    <#assign heroType = heroOptions.image?has_content?then("image", "default")>
+    <@hero heroOptions heroType />
 
-    <div class="nhsd-t-grid">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <#if hasLatestFeatures>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
