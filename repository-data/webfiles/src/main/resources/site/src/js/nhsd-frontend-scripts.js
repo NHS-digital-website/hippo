@@ -8,6 +8,7 @@ import {initCookieConsent} from "./relevance/relevance-cookie";
 import {printingEvents} from "./events/printingEvents";
 import "./print-publication";
 import "./feed-page";
+import "./show-hide-articles";
 
 initCookieConsent();
 printingEvents();
