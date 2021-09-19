@@ -15,6 +15,13 @@
 <#include "macro/heroes/hero.ftl">
 <#include "macro/heroes/hero-options.ftl">
 
+<@hst.setBundle basename="rb.modal.download"/>
+<@fmt.message key="modal.download.header" var="modalHeader" />
+<@fmt.message key="modal.download.intro" var="modalIntro" />
+<@fmt.message key="modal.download.confirm.button" var="confirmButton" />
+<@fmt.message key="modal.download.decline.text" var="declineText" />
+<@fmt.message key="modal.download.org.not.listed.text" var="orgNotListed" />
+
 <@hst.headContribution category="metadata">
     <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
 </@hst.headContribution>
@@ -42,11 +49,11 @@
 <#assign navStatus = document.navigationController />
 <#assign hasBannerImage = document.image?has_content />
 <#assign custom_summary = document.summary />
-
+<#assign promptValue =document.propmtUserOrg[0] />
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<article >
+<article>
     <#assign heroType = "default" />
     <#if hasBannerImage>
         <#assign heroType = "image" />
@@ -89,23 +96,32 @@
                 <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' />
 
                 <#if hasSectionContent>
-                    <@sections document.sections></@sections>
+                    <#if promptValue == 'Prompt on Download' || promptValue == 'Prompt all users'>
+                        <@sections sections=document.sections prompt=true></@sections>
+                    <#else >
+                        <@sections document.sections></@sections>
+                    </#if>
                 </#if>
 
                 <#if !document.latestNews?has_content && document.relatedNews?has_content>
                     <@fmt.message key="headers.related-news" var="relatedNewsHeader" />
                     <div id="${slugify(relatedNewsHeader)}">
                         <hr class="nhsd-a-horizontal-rule">
-                        <h2 class="nhsd-t-heading-xl" data-uipath="website.contentblock.section.title">${relatedNewsHeader}</h2>
+                        <h2 class="nhsd-t-heading-xl"
+                            data-uipath="website.contentblock.section.title">${relatedNewsHeader}</h2>
                         <@latestblogs document.relatedNews 'General' 'related-news-' + idsuffix "" />
                     </div>
                 </#if>
 
                 <#if hasChildPages>
                     <#if (hasSectionContent && (document.latestNews?has_content || !document.relatedNews?has_content) ) >
-                        <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-bottom-6" />
+                        <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-bottom-6"/>
                     </#if>
-                    <@furtherInformationSection childPages></@furtherInformationSection>
+                    <#if promptValue == 'Prompt all users'>
+                        <@furtherInformationSection childPages true></@furtherInformationSection>
+                    <#else >
+                        <@furtherInformationSection childPages></@furtherInformationSection>
+                    </#if>
                 </#if>
 
                 <@latestblogs document.relatedEvents 'General' 'events-' + idsuffix 'Forthcoming events' />
@@ -116,8 +132,34 @@
             </div>
         </div>
     </div>
-</article>
 
+</article>
+<script>
+    $("#data1").bind("keyup", function (e) {
+        //on letter number
+        if (e.which <= 90 && e.which >= 48) {
+            var matchvalue = $(this).val(); // this.value
+            // if (matchvalue.length >= 1 || matchvalue.length < 3) {
+            //     alert('Empty the selection');
+            //     $('#data').empty()
+            // }
+            if (matchvalue.length === 3) {
+                $.ajax({
+                    url: '<@hst.link path= "/" mount="restapi"/>' + '/orgname?orgName=' + matchvalue,
+                    type: 'get'
+                }).done(function (responseData) {
+                    $('#data').empty()
+                    for (let i = 0; i < responseData.length; i++) {
+                        $('#data').append($('<option value="' + responseData[i].orgName + '">' + responseData[i].orgName + '(' + responseData[i].code + ')</option>'));
+                    }
+                    console.log('Done: ', responseData.length);
+                }).fail(function () {
+                    console.log('Failed');
+                });
+            }
+        }
+    });
+</script>
 <#if hasHtmlCode>
     ${document.htmlCode?no_esc}
 </#if>

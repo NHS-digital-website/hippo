@@ -9,7 +9,7 @@
 <#include "../component/downloadBlockAsset.ftl">
 <#include "../component/downloadBlockExternal.ftl">
 
-<#macro downloadSection section mainHeadingLevel=2 >
+<#macro downloadSection section mainHeadingLevel=2 prompt=false>
     <#assign hasLinks = section.items?? && section.items?size gt 0 />
 
     <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')}">
@@ -41,7 +41,7 @@
                                             <@downloadBlockExternal document.class.name block.link "${block.title}" "${block.shortsummary}" />
                                         </#if>
                                     <#elseif block.linkType == "asset">
-                                        <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength() />
+                                        <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength() false false prompt/>
                                     </#if>
                                 </div>
                             </#if>

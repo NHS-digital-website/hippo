@@ -15,7 +15,8 @@
   <#return sizeString>
 </#function>
 
-<#macro downloadBlockAsset classname resource title shortsummary mimeType size external=false small=false>
+<#macro downloadBlockAsset classname resource title shortsummary mimeType size external=false small=false prompt=false>
+    </br>Cehck this downloadBlockAsset --> ${prompt?c}
     <#if size?has_content>
         <#assign sizeString = sizeToDisplay(size) />
     </#if>
@@ -23,7 +24,18 @@
 
     <@externalstorageLink resource; url>
         <div class="${(small == true)?then('nhsd-m-download-card', 'nhsd-m-download-card nhsd-!t-margin-bottom-6')}">
-        <a href="${(external == true)?then(resource, url)}" class="nhsd-a-box-link" onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, url), true)}" onKeyUp="return vjsu.onKeyUp(event)">
+            <#if prompt>
+            </br>  This prompt --> ${prompt?c}
+            <a href="${(external == true)?then(resource, url)}"
+               class="nhsd-a-box-link"
+               onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, url), true)}"
+               onKeyUp="return vjsu.onKeyUp(event)" data-modal-open="ods-modal">
+                <#else >
+                <a href="${(external == true)?then(resource, url)}"
+                   class="nhsd-a-box-link"
+                   onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, url), true)}"
+                   onKeyUp="return vjsu.onKeyUp(event)">
+                    </#if>
                 <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                     <div class="${(small == true)?then('nhsd-m-download-card__image-box small', 'nhsd-m-download-card__image-box')}">
                         <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->
@@ -86,4 +98,28 @@
             </a>
         </div>
     </@externalstorageLink>
+    <div class="nhsd-m-modal nhsd-m-modal--close" id="ods-modal">
+        <div role="dialog" class="nhsd-m-modal__container"
+             aria-labelledby="default_dialog_label" aria-modal="true">
+            <div class="nhsd-a-box nhsd-!t-padding-3">
+                <h1 id="default_dialog_label" class="nhsd-t-heading-xs">
+                    ${modalHeader}
+                </h1>
+                <p class="nhsd-t-body-s">${modalIntro}.</p>
+                <p class="nhsd-t-body-s">
+                    <input id="data1" list="data">
+                    <datalist id="data">
+                    </datalist>
+                </p>
+                <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed">
+                    <button class="nhsd-a-button nhsd-!t-margin-bottom-0"
+                            type="button" data-modal-close onclick="${(external == true)?then(resource, url)}">
+                        <span class="nhsd-a-button__label">${confirmButton}</span>
+                    </button>
+                </nav>
+                <a>${declineText}</a></br>
+                <a>${orgNotListed}</a>
+            </div>
+        </div>
+    </div>
 </#macro>

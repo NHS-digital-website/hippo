@@ -266,9 +266,6 @@ definitions:
       /nilanding:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
         jcr:primaryType: hst:template
-      /ods-detail:
-        hst:renderpath: webfile:/freemarker/nhsd-common/ods-search.ftl
-        jcr:primaryType: hst:template
       /orgstructure:
         hst:renderpath: webfile:/freemarker/nhsd-common/orgstructure.ftl
         jcr:primaryType: hst:template
