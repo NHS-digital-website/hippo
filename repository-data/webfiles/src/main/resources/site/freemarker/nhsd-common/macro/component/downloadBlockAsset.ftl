@@ -16,7 +16,6 @@
 </#function>
 
 <#macro downloadBlockAsset classname resource title shortsummary mimeType size external=false small=false prompt=false>
-    </br>Cehck this downloadBlockAsset --> ${prompt?c}
     <#if size?has_content>
         <#assign sizeString = sizeToDisplay(size) />
     </#if>
@@ -25,7 +24,6 @@
     <@externalstorageLink resource; url>
         <div class="${(small == true)?then('nhsd-m-download-card', 'nhsd-m-download-card nhsd-!t-margin-bottom-6')}">
             <#if prompt>
-            </br>  This prompt --> ${prompt?c}
             <a href="${(external == true)?then(resource, url)}"
                class="nhsd-a-box-link"
                onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, url), true)}"
