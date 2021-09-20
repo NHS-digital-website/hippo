@@ -15,6 +15,7 @@ public class Section implements Walkable {
 
     private final String displayName;
     private final List<Subsection> entries;
+    private final String description;
 
     private boolean expanded;
     private boolean displayed;
@@ -22,9 +23,11 @@ public class Section implements Walkable {
     @JsonCreator
     protected Section(
         @JsonProperty("displayName") final String displayName,
+        @JsonProperty("description") final String description,
         @JsonProperty("entries") final Subsection... entries
     ) {
         this.displayName = displayName;
+        this.description = description;
         this.entries = Optional.ofNullable(entries).map(Arrays::asList).orElse(emptyList());
     }
 
@@ -68,6 +71,10 @@ public class Section implements Walkable {
         this.displayed = false;
     }
 
+    public String description() {
+        return description;
+    }
+
     @Override public List<Section> children() {
         return getEntries().stream().map(Section.class::cast).collect(Collectors.toList());
     }
@@ -88,6 +95,7 @@ public class Section implements Walkable {
             .append(displayed, section.displayed)
             .append(displayName, section.displayName)
             .append(entries, section.entries)
+            .append(description, section.description)
             .isEquals();
     }
 

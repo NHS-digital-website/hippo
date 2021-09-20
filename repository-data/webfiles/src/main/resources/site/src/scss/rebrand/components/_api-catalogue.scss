@@ -68,6 +68,7 @@
   }
 
   input.section-folder {
+    display:none;
 
     &:checked {
       ~ .nhsd-m-filter-menu-section__menu-button svg {
@@ -91,6 +92,61 @@
 
   & .nhsd-m-filter-menu-section__menu-button {
     padding: 0;
+  }
+
+  & .filter-description {
+    display: none;
+
+    // Negative top margin creates overlap with preceding filter label
+    // to eliminate the gap between the two, so that the 'hover' status
+    // is not lost when moving cursor between these elements.
+    margin: -1px 0 0 0;
+
+    padding: 8px 0 0 0;
+    font-size: 0.888rem;
+    line-height: 1.35em;
+    cursor: text;
+
+    p:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  & .filter-category-label__described:hover ~ .filter-description,
+  & .filter-label__described:hover ~ .filter-description,
+  .filter-description:hover {
+    display: block;
+  }
+
+  & .filter-category-label,
+  & .filter-label {
+
+    &__described {
+      // Required to better support on hover events
+      // when the line wraps.
+      display: inline-block;
+
+      // The above 'display: inline-block;' increases the size of the highlighted
+      // box; this property restores it.
+      line-height: 22.4px;
+
+
+      .filter-category-label__text,
+      .filter-label__text {
+        border-bottom: dashed #005bbb 2px;
+        padding-bottom: 2px;
+      }
+    }
+  }
+
+  & .nhsd-m-filter-menu-section__menu-button:hover .filter-category-label__text {
+    // In Chrome, in certain zoom factors the dashed underline doesn't always
+    // align with the black underline of the highlight, so we simply disable it.
+    border-bottom-style: none;
+  }
+
+  & .filter-category-label {
+    cursor: pointer;
   }
 }
 

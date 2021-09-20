@@ -1,6 +1,7 @@
 package uk.nhs.digital.common.components.apicatalogue.filters;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 
 import com.google.common.collect.ImmutableSet;
 import uk.nhs.digital.test.util.ReflectionTestUtils;
@@ -22,19 +23,27 @@ public class FiltersTestUtils {
     }
 
     public static Section section(final String displayName, final Subsection... subsections) {
-        return new Section(displayName, subsections);
+        return new Section(displayName, null, subsections);
+    }
+
+    public static Section section(final String displayName, final String description, final Subsection... subsections) {
+        return new Section(displayName, description, subsections);
     }
 
     public static Subsection subsection(final String displayName, final Subsection... subsections) {
-        return new Subsection(displayName, null, subsections);
+        return new Subsection(displayName, null, null, subsections);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey) {
-        return new Subsection(displayName, taxonomyKey);
+        return new Subsection(displayName, taxonomyKey, null);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, subsections);
+        return new Subsection(displayName, taxonomyKey, null, subsections);
+    }
+
+    public static Subsection subsection(final String displayName, final String taxonomyKey, final String description) {
+        return new Subsection(displayName, taxonomyKey, description);
     }
 
     public static void updateFilters(

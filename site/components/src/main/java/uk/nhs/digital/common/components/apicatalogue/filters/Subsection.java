@@ -15,9 +15,10 @@ public class Subsection extends Section {
     protected Subsection(
         @JsonProperty("displayName") final String displayName,
         @JsonProperty("taxonomyKey") final String taxonomyKey,
+        @JsonProperty("description") final String description,
         @JsonProperty("entries") final Subsection... subsections
     ) {
-        super(displayName, subsections);
+        super(displayName, description, subsections);
         this.taxonomyKey = taxonomyKey;
     }
 

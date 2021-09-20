@@ -35,6 +35,9 @@ public class JacksonFiltersFactoryTest {
             "          - displayName: Subsection U",
             "            taxonomyKey: key-u",
             "  - displayName: Section 2",
+            "    description: section multiline description",
+            "      with <a href=\"https://digital.nhs.uk/developer\" class=\"nhsd-a-link\" target=\"_blank\">hyperlink</a>",
+            "      more text",
             "    entries:",
             "      - displayName: Subsection 3",
             "        taxonomyKey: key-3",
@@ -43,6 +46,9 @@ public class JacksonFiltersFactoryTest {
             "        entries:",
             "          - displayName: Subsection T",
             "            taxonomyKey: key-t",
+            "            description: subsection multiline description",
+            "              with <a href=\"https://digital.nhs.uk/developer\" class=\"nhsd-a-link\" target=\"_blank\">hyperlink</a>",
+            "              more text",
             "          - displayName: Subsection E",
             "            taxonomyKey: key-e"
         );
@@ -56,9 +62,15 @@ public class JacksonFiltersFactoryTest {
                 )
             ),
             section("Section 2",
+                "section multiline description"
+                    + " with <a href=\"https://digital.nhs.uk/developer\" class=\"nhsd-a-link\" target=\"_blank\">hyperlink</a>"
+                    + " more text",
                 subsection("Subsection 3", "key-3"),
                 subsection("Subsection I", "key-i",
-                    subsection("Subsection T", "key-t"),
+                    subsection("Subsection T", "key-t",
+                        "subsection multiline description"
+                            + " with <a href=\"https://digital.nhs.uk/developer\" class=\"nhsd-a-link\" target=\"_blank\">hyperlink</a>"
+                            + " more text"),
                     subsection("Subsection E", "key-e")
                 )
             )
