@@ -2,6 +2,7 @@ package uk.nhs.digital.apispecs.swagger.model;
 
 import static org.apache.commons.lang3.builder.ToStringStyle.MULTI_LINE_STYLE;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -15,19 +16,26 @@ public class SchemaObject {
     @JsonDeserialize(using = ToPrettyJsonStringDeserializer.class)
     private String example;
 
+    @JsonAlias("default")
+    private String defaultValue;
+
     public String getExample() {
         return example;
+    }
+
+    public String getDefault() {
+        return defaultValue;
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this, MULTI_LINE_STYLE)
             .append("example", example)
+            .append("default", defaultValue)
             .toString();
     }
 
-    @Override
-    public boolean equals(final Object o) {
+    @Override public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
@@ -36,17 +44,12 @@ public class SchemaObject {
             return false;
         }
 
-        final SchemaObject schema = (SchemaObject) o;
+        final SchemaObject that = (SchemaObject) o;
 
-        return new EqualsBuilder()
-            .append(example, schema.example)
-            .isEquals();
+        return new EqualsBuilder().append(example, that.example).append(defaultValue, that.defaultValue).isEquals();
     }
 
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-            .append(example)
-            .toHashCode();
+    @Override public int hashCode() {
+        return new HashCodeBuilder(17, 37).append(example).append(defaultValue).toHashCode();
     }
 }

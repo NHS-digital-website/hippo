@@ -39,4 +39,20 @@ public interface FeedListComponentInfo extends LatestNewsComponentInfo {
         displayName = "Button Destination"
     )
     String getButtonDestination();
+
+    @Parameter(
+        name = "secondaryButtonText",
+        required = false,
+        defaultValue = "",
+        displayName = "Secondary Button Text"
+    )
+    String getSecondaryButtonText();
+
+    @Parameter(
+        name = "secondaryButtonDestination",
+        required = false,
+        defaultValue = "",
+        displayName = "Secondary Button Destination"
+    )
+    String getSecondaryButtonDestination();
 }

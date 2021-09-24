@@ -51,6 +51,7 @@
 <#assign hasTopics = document.keys?? && document.keys?has_content />
 <#assign hasCVE = document.cveIdentifiers?? && document.cveIdentifiers?has_content />
 <#assign hasAcknowledgement = document.cyberAcknowledgements?? && document.cyberAcknowledgements?has_content />
+<#assign cveUrl = "https://cve.mitre.org/cgi-bin/cvename.cgi?name=" />
 
 
 <#assign links = [] />
@@ -92,8 +93,22 @@
     <div class="cyber-alert-minus-margin grid-wrapper grid-wrapper--full-width grid-wrapper--wide grid-wrapper--emphasis-yellow">
         <div class="grid-wrapper">
             <div class="article-header__inner">
-                Report a cyber attack: call <a href="tel:004403003035222" title="Contact us by telephone">0300 303 5222</a>
-                or email <a href="mailto:${emailLabel}" title="${emailTitleLabel}">${emailLabel}</a>
+                Report a cyber attack: call
+                <a href="tel:004403003035222"
+                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','tel:004403003035222');"
+                   onKeyUp="return vjsu.onKeyUp(event)"
+                   title="Contact us by telephone"
+                >
+                    0300 303 5222
+                </a>
+                or email
+                <a href="mailto:${emailLabel}"
+                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','mailto:${emailLabel}');"
+                   onKeyUp="return vjsu.onKeyUp(event)"
+                   title="${emailTitleLabel}"
+                >
+                    ${emailLabel}
+                </a>
             </div>
         </div>
     </div>
@@ -137,7 +152,10 @@
                                 <li>
                                     <#if item.platformAffected??>
                                         <#if item.platformAffected.url??>
-                                            <a href="${item.platformAffected.url}">
+                                            <a href="${item.platformAffected.url}"
+                                               onClick="${getOnClickMethodCall(document.class.name, item.platformAffected.url)}"
+                                               onKeyUp="return vjsu.onKeyUp(event)"
+                                            >
                                         </#if>
                                         ${item.platformAffected.title}
                                         <#if item.platformAffected.url??>
@@ -259,8 +277,9 @@
                         <h2>${servicesHeader}</h2>
                         <ul>
                             <#list document.services as item>
+                                <@hst.link hippobean=item var="serviceLink"/>
                                 <li>
-                                    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>">
+                                    <a class="cta__title cta__button" href="${serviceLink}" onClick="${getOnClickMethodCall(document.class.name, serviceLink)}" onKeyUp="return vjsu.onKeyUp(event)">
                                         ${item.title}
                                     </a>
                                 </li>
@@ -276,8 +295,8 @@
                         <ul>
                             <#list document.cveIdentifiers as item>
                                 <li>
-                                    <div>${item.cveIdentifier}</div>
-                                    <div><#if item.cveStatus??>Status: ${item.cveStatus}</#if></div>
+                                    <div><a href="${cveUrl + item.cveIdentifier}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${cveUrl + item.cveIdentifier}');" onKeyUp="return vjsu.onKeyUp(event)">${item.cveIdentifier}</a></div>
+                                    <div><#if item.cveStatus?? && item.cveStatus != "Not Known">Status: ${item.cveStatus}</#if></div>
                                     <div><@hst.html hippohtml=item.cveText contentRewriter=gaContentRewriter/></div>
                                 </li>
                             </#list>
@@ -293,7 +312,12 @@
                             <div class="emphasis-box emphasis-box-emphasis" aria-label="Emphasis">
 
                                 <div class="emphasis-box__content">
-                                    <a href="${item.linkAddress}">${item.linkAddress}</a>
+                                    <a href="${item.linkAddress}"
+                                       onClick="${getOnClickMethodCall(document.class.name, item.linkAddress)}"
+                                       onKeyUp="return vjsu.onKeyUp(event)"
+                                    >
+                                        ${item.linkAddress}
+                                    </a>
 
 
                                     <div data-uipath="website.contentblock.emphasis.content">

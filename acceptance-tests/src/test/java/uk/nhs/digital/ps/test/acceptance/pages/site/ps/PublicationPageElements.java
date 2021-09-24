@@ -18,7 +18,7 @@ public class PublicationPageElements implements PageElements {
             put(PUBLICATION_TITLE,
                 By.xpath("//*[" + getDataUiPathXpath("title") + "]"));
             put(NOMINAL_PUBLICATION_DATE,
-                By.xpath("//*[" + getDataUiPathXpath("nominal-publication-date") + "]"));
+                By.xpath("//*[" + getDataUiPathXpath("publication-date") + "]"));
             put(UPCOMING_DISCLAIMER,
                 By.xpath("//*[" + getDataUiPathXpath("upcoming-disclaimer") + "]"));
             put(SUMMARY,
@@ -26,7 +26,7 @@ public class PublicationPageElements implements PageElements {
             put(GEOGRAPHIC_COVERAGE,
                 By.xpath("//*[" + getDataUiPathXpath("geographic-coverage") + "]"));
             put(GRANULARITY,
-                By.xpath("//*[" + getDataUiPathXpath("granularity") + "]"));
+                By.xpath("//*[" + getDataUiPathXpath("geographical-granularity") + "]"));
             put(DATE_RANGE,
                 By.xpath("//*[" + getDataUiPathXpath("date-range") + "]"));
             put(INFORMATION_TYPES,
@@ -35,10 +35,10 @@ public class PublicationPageElements implements PageElements {
                 By.xpath("//*[" + getDataUiPathXpath("key-facts") + "]"));
             put(KEY_FACT_IMAGES,
                 By.xpath("//*[" + getDataUiPathXpath("key-fact-images") + "]"));
-            put(RESOURCES_ATTACHMENTS,
-                By.xpath("//*[" + getDataUiPathXpath("resources-attachments") + "]"));
-            put(RESOURCES_LINKS,
-                By.xpath("//*[" + getDataUiPathXpath("resources-links") + "]"));
+            put(RESOURCES_ATTACHMENT,
+                By.xpath("//*[" + getDataUiPathXpath("resources-attachment") + "]"));
+            put(RESOURCES_LINK,
+                By.xpath("//*[" + getDataUiPathXpath("resources-link") + "]"));
             put(DATA_SETS,
                 By.xpath("//*[" + getDataUiPathXpath("datasets") + "]"));
             put(RELATED_LINKS,
@@ -67,13 +67,17 @@ public class PublicationPageElements implements PageElements {
         return pageElements.containsKey(elementName);
     }
 
+    public List<WebElement> getElementsByName(String elementName, PageHelper helper) {
+        return helper.findOptionalElements(pageElements.get(elementName));
+    }
+
     @Override
     public WebElement getElementByName(String elementName, PageHelper helper) {
         return getElementByName(elementName, 0, helper);
     }
 
     public WebElement getElementByName(String elementName, int nth, PageHelper helper) {
-        List<WebElement> elements = helper.findOptionalElements(pageElements.get(elementName));
+        List<WebElement> elements = getElementsByName(elementName, helper);
 
         if (elements.size() == 0) {
             return null;
@@ -94,8 +98,8 @@ public class PublicationPageElements implements PageElements {
         String INFORMATION_TYPES = "Publication Information Types";
         String KEY_FACTS = "Publication Key Facts";
         String KEY_FACT_IMAGES = "Publication Key Fact Images";
-        String RESOURCES_ATTACHMENTS = "Publication Resources Attachments";
-        String RESOURCES_LINKS = "Publication Resources Links";
+        String RESOURCES_ATTACHMENT = "Publication Resources Attachment";
+        String RESOURCES_LINK = "Publication Resources Link";
         String DATA_SETS = "Publication Data Sets";
         String RELATED_LINKS = "Publication Related Links";
         String ADMINISTRATIVE_SOURCES = "Publication Administrative Sources";

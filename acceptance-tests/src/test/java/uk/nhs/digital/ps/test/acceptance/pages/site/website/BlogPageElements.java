@@ -22,7 +22,7 @@ public class BlogPageElements implements PageElements {
             put(BLOG_SHORT_SUMMARY,
                 By.xpath("//*[" + getDataUiPathXpath("shortsummary") + "]"));
             put(DATE_OF_PUBLICATION,
-                By.xpath("//*[" + getDataUiPathXpath("dateofpublication") + "]"));
+                By.xpath("//*[" + getDataUiPathXpath("date") + "]"));
             put(TAXONOMY_TAGS,
                 By.xpath("//*[" + getDataUiPathXpath("topics") + "]"));
             put(CATEGORIES,
@@ -52,13 +52,17 @@ public class BlogPageElements implements PageElements {
         return pageElements.containsKey(elementName);
     }
 
+    public List<WebElement> getElementsByName(String elementName, PageHelper helper) {
+        return helper.findOptionalElements(pageElements.get(elementName));
+    }
+
     @Override
     public WebElement getElementByName(String elementName, PageHelper helper) {
         return getElementByName(elementName, 0, helper);
     }
 
     public WebElement getElementByName(String elementName, int nth, PageHelper helper) {
-        List<WebElement> elements = helper.findOptionalElements(pageElements.get(elementName));
+        List<WebElement> elements = getElementsByName(elementName, helper);
 
         if (elements.size() == 0) {
             return null;

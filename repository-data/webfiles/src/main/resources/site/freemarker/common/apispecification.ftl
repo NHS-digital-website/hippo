@@ -1,8 +1,8 @@
 <#ftl output_format="HTML">
 
 <#include "../include/imports.ftl">
-<#include "macro/documentHeader.ftl">
-
+<#include "../nhsd-common/macro/heroes/hero.ftl">
+<#include "../nhsd-common/macro/heroes/hero-options.ftl">
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ApiSpecification" -->
 <#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 
@@ -19,38 +19,29 @@
         <#include "../common/macro/metaTags.ftl">
         <@metaTags></@metaTags>
 
-        <article class="article article--apispecification" itemscope>
-            <@documentHeader document 'general'></@documentHeader>
-
+        <article itemscope>
+            <@hero getHeroOptions(document) />
             <style type="text/css">
-                .ctabtn--nhs-digital-button--try-it-now { float: right; }
 
-                pre {
-                    color: #FFF;
-                    background-color: #000;
-                    display:block;
-                    text-align:left;
-                    overflow: auto;
-                    overflow-y: auto;
-                    max-height: 500px;
-                    box-sizing:border-box;
-                    padding:0.5em;
+                .nhsd-o-schema__expander {
+                    background-image: url(<@hst.webfile path="images/icon/expander-plus-icon.svg"/>);
+                }
+
+                .nhsd-o-schema__collapser {
+                    background-image: url(<@hst.webfile path="images/icon/expander-dark-grey-minus-icon.svg"/>);
                 }
 
             </style>
 
-            <div class="grid-wrapper grid-wrapper--article">
-                <div class="grid-row">
-
-                    ${document.html?no_esc}
-
-                </div>
+            <div class="nhsd-t-grid nhsd-!t-margin-top-6">
+                <div class="nhsd-t-row">${document.html?no_esc}</div>
             </div>
         </article>
 
         <script>
             // used in function tryEndpointNow from apispecificaion.js
-            const tryEndpointNowBaseUrl = '<@hst.link siteMapItemRefId='root'/>';
+            <@hst.renderURL var="tryItNowUrl"/>
+            const tryEndpointNowBaseUrl = '${tryItNowUrl}';
         </script>
         <script src="<@hst.webfile path="/apispecification/apispecification.js"/>"> </script>
     </#if>

@@ -30,6 +30,7 @@ function suppress(breadcrumbs, crumb, upperBound, canTryShortingMore) {
             } else {
                 breadcrumbs.find(`li:nth-child(${crumb + 1})`).hide();
             }
+            crumb += 1;
             suppress(breadcrumbs, crumb, upperBound, canTryShortingMore);
         } else if (canTryShortingMore) {
             reset(breadcrumbs)

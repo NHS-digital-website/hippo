@@ -54,7 +54,7 @@ definitions:
           /cvestatus:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Master,Root,Reserved
+              selectable.options: Published,Rejected,Reserved,Not Known
             caption: CVE status
             field: cvestatus
             jcr:primaryType: frontend:plugin
@@ -88,8 +88,6 @@ definitions:
             hipposysedit:path: website:cvetext
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.startsWith;
@@ -35,6 +36,8 @@ import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -80,6 +83,36 @@ public class SiteSteps extends AbstractSpringSteps {
         sitePage.clickCookieAcceptButton();
     }
 
+    @When("^I click on the (?:link|button) named \"([^\"]+)\"$")
+    public void whenIClickOnTheLinkNamed(String linkName) throws Throwable {
+        WebElement element = sitePage.findLinkWithText(linkName);
+
+        assertThat("I can find link with name: " + linkName,
+            element, is(notNullValue()));
+
+        sitePage.clickOnElement(element);
+
+        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
+        sitePage.clickCookieAcceptButton();
+    }
+
+    @When("^I (?:can )?click on the label for \"([^\"]+)\"$")
+    public void whenIClickOnLabel(String labelledElement) throws Throwable {
+        String xPathExpression = buildXPathExpressionFromElementAttributes(
+            Collections.singletonList("for"),
+            Collections.singletonList(labelledElement)
+        );
+        WebElement element = sitePage.findElementWithXPath(xPathExpression);
+
+        assertThat("I can find element with title: " + labelledElement,
+            element, is(notNullValue()));
+
+        sitePage.clickOnElement(element);
+
+        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
+        sitePage.clickCookieAcceptButton();
+    }
+
     @Then("^I (?:can )?see \"([^\"]+)\" (?:link|button|image)$")
     public void thenISeeLink(String linkTitle) throws Throwable {
         assertNotNull("Can see element", sitePage.findElementWithTitle(linkTitle));
@@ -91,9 +124,14 @@ public class SiteSteps extends AbstractSpringSteps {
         assertThat(sitePage.findElementWithUiPath(uiPath).getText(), containsString(content));
     }
 
-    @Then("^I (?:can )?see element with data-uipath \"([^\"]+)\"$")
+    @Then("^I (?:can )?see (?:.* )?with data-uipath \"([^\"]+)\"$")
     public void thenISeeElementWithUiPath(String uiPath) throws Throwable {
         assertNotNull("Can see element with data-uipath: " + uiPath, sitePage.findElementWithUiPath(uiPath));
+    }
+
+    @Then("^I can not see (?:.* )?with data-uipath \"([^\"]+)\"$")
+    public void thenICanNotSeeElementWithUiPath(String uiPath) throws Throwable {
+        assertNull("Can not see element with data-uipath: " + uiPath, sitePage.findOptionalElementWithUiPath(uiPath));
     }
 
     @Then("^I should see (?:.* )?page titled \"([^\"]+)\"$")
@@ -101,14 +139,19 @@ public class SiteSteps extends AbstractSpringSteps {
         assertThat("I should see page titled.", sitePage.getDocumentTitle(), is(pageTitle));
     }
 
+    @Then("^I should see (?:.* )?page summary \"([^\"]+)\"$")
+    public void thenIShouldSeePageSummary(String pageSummary) throws Throwable {
+        assertThat("I should see page summary.", sitePage.getDocumentSummary(), getMatcherForText(pageSummary));
+    }
+
     @Then("^I should see the content \"([^\"]*)\"$")
     public void thenIShouldSeeTheContent(String content) throws Throwable {
         assertThat("Document content is as expected", sitePage.getDocumentContent(), getMatcherForText(content));
     }
 
-    @Then("^I should see article content with \"([^\"]*)\"$")
+    @Then("^I should see page with text  \"([^\"]*)\"$")
     public void thenIShouldSeeArticleContent(String content) throws Throwable {
-        assertThat("Document content is as expected", sitePage.getArticleContentSection(), getMatcherForText(content));
+        assertThat("Page contains text '" + content + "'", sitePage.findElementWithText(content), is(notNullValue()));
     }
 
     @Then("^I should see the page not found error page$")
@@ -117,6 +160,22 @@ public class SiteSteps extends AbstractSpringSteps {
         // currently possible to do this with the Selinium Web Driver.
         // See https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/141
         thenIShouldSeePageTitled("We can't seem to find the page you're looking for");
+    }
+
+    @Then("^I should (?:also )?see elements with ui path:?$")
+    public void thenIShouldAlsoSeeWithUiPath(final DataTable pageSections) throws Throwable {
+        String uiPath = null;
+        for (List<String> contentData : pageSections.raw()) {
+            uiPath = contentData.get(0);
+            WebElement pageElement = sitePage.findElementWithUiPath(uiPath);
+
+            assertThat("I should find page element with UI path: " + uiPath,
+                pageElement, is(notNullValue()));
+
+            assertThat("Page element " + uiPath + " should contain ...",
+                getElementText(pageElement),
+                getMatcherForText(contentData.get(1)));
+        }
     }
 
     @Then("^I should (?:also )?see:?$")
@@ -144,6 +203,24 @@ public class SiteSteps extends AbstractSpringSteps {
 
             assertThat("I should not have found the page element: " + elementName,
                 pageElement, is(nullValue()));
+        }
+    }
+
+    @Then("^I should(?: also)? see \"([^\"]+)\" items with:")
+    public void thenIShouldSeeItemsWith(String itemName, final DataTable elementItems) throws Throwable  {
+        List<WebElement> pageElements = sitePage.findPageElements(itemName);
+
+        List<String> elementsText = pageElements.stream()
+            .map(WebElement::getText)
+            .filter(StringUtils::isNotBlank)
+            .collect(toList());
+
+        for (List<String> elementItem : elementItems.raw()) {
+            String expectedItemText = elementItem.get(0);
+
+            assertThat("Page contains " + itemName + " item with text: " + expectedItemText,
+                elementsText,
+                hasItem(getMatcherForText(expectedItemText)));
         }
     }
 
@@ -197,6 +274,47 @@ public class SiteSteps extends AbstractSpringSteps {
         for (String header : headers) {
             assertNotNull("The Text should be displayed: " + header, sitePage.findElementWithText(header));
         }
+    }
+
+    @Then("^the index is rendered with entries:")
+    public void thenIndexIsRendered(final DataTable elementAttributes) throws Throwable {
+        thenIShouldSeeMultipleElementsWithAttributes(elementAttributes);
+    }
+
+    @Then("^I can see the following links:")
+    public void thenICanSeeLinks(final DataTable elementAttributes) throws Throwable {
+        thenIShouldSeeMultipleElementsWithAttributes(elementAttributes);
+    }
+
+    @Then("^I (?:can|should) see elements with attributes:")
+    public void thenIShouldSeeMultipleElementsWithAttributes(final DataTable elementAttributes) throws Throwable {
+        final List<List<String>> rawElementItems = elementAttributes.raw();
+        List<String> keys = rawElementItems.get(0);
+        for (int i = 1; i < rawElementItems.size(); i++) {
+            List<String> elementItem = rawElementItems.get(i);
+
+            String xPathExpression = buildXPathExpressionFromElementAttributes(keys, elementItem);
+
+            assertNotNull(
+                "I should find element with xpath expression " + xPathExpression,
+                sitePage.findElementWithXPath(xPathExpression)
+            );
+        }
+    }
+
+    private String buildXPathExpressionFromElementAttributes(List<String> keys, List<String> elementItem) {
+        List<String> clauses = new ArrayList<>();
+        for (String key: keys) {
+            String value = elementItem.get(keys.indexOf(key));
+            if (key.equals("text")) {
+                String clause = String.format( "text()=\"%s\"", value);
+                clauses.add(clause);
+                continue;
+            }
+            String clause = String.format("@%s=\"%s\"", key, value);
+            clauses.add(clause);
+        }
+        return String.format("//*[%s]", String.join(" and ", clauses));
     }
 
     @Then("^I should(?: also)? see multiple \"([^\"]+)\" with:")
@@ -320,6 +438,12 @@ public class SiteSteps extends AbstractSpringSteps {
         listMatchesItems(qualifier, items, sitePage.findElementWithTitle(title));
     }
 
+    @Then("^I should see the list with UI path \"([^\"]*)\" (containing|(?:not )?including):$")
+    public void thenIShouldSeeTheListWithUiPath(String path, String qualifier, DataTable listItems) throws Throwable {
+        List<String> items = listItems.asList(String.class);
+        listMatchesItems(qualifier, items, sitePage.findElementWithUiPath(path));
+    }
+
     private void listMatchesItems(String qualifier, List<String> items, WebElement listElement) {
         assertNotNull("I should find page element", listElement);
 
@@ -394,6 +518,16 @@ public class SiteSteps extends AbstractSpringSteps {
     public void thenIfIInspectedTheHtmlIShouldFindThe(String cssClass) throws Throwable {
         assertNotNull("Can find the CSS class " + cssClass,
             sitePage.findCssClass(cssClass));
+    }
+
+    @Then("the page should be in wide mode")
+    public void thenPageShouldBeWide() {
+        assertTrue(sitePage.isWideMode());
+    }
+
+    @Then("the page should not be in wide mode")
+    public void thenPageShouldNotBeWide() {
+        assertFalse(sitePage.isWideMode());
     }
 
     @Then("^If I inspected the HTML, I should not find the \"([^\"]*)\" css class$")

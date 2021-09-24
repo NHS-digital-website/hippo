@@ -25,6 +25,8 @@ definitions:
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
+              contentSearchEnabled: 'false'
+              hst:cacheable: false
               hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/common
               hst:responseheaders:
@@ -39,5 +41,6 @@ definitions:
               jcr:primaryType: hst:mount
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
+        hst:cdnhost: //nhs-acct.global.ssl.fastly.net
         jcr:primaryType: hst:virtualhost
       jcr:primaryType: hst:virtualhostgroup

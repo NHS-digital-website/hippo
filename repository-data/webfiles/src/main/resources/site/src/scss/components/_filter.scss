@@ -98,7 +98,7 @@
         padding-left: 10px;
 
         &.is-hidden {
-           display: none;
+            display: none;
         }
     }
 
@@ -111,7 +111,7 @@
         }
 
         &.is-hidden {
-           display: none;
+            display: none;
         }
     }
 
@@ -140,8 +140,9 @@
             text-decoration: none;
             color: $link-hover-colour-nhs;
         }
+
         &:active {
-            color: $link-active-colour-nhs; 
+            color: $link-active-colour-nhs;
         }
 
         &.is-hidden {
@@ -214,6 +215,10 @@ a.filter-link {
         }
     }
 
+    &.filter-link--root {
+        background-image: none;
+    }
+
     &.filter-link--active {
         padding: 5px 25px 5px 20px;
         box-shadow: 0 0 0 1px rgba($col-quinary, 0.2);
@@ -226,14 +231,14 @@ a.filter-link {
 }
 
 .filter-list__item--no-children {
-    a.filter-link  {
+    a.filter-link {
         background-image: none;
         padding-left: 8px;
         padding-right: 8px;
 
         &.filter-link--selected,
         &.filter-link--active {
-        background-image: none;
+            background-image: none;
             background-color: $col-22;
             padding-right: 22px;
         }

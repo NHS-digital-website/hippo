@@ -1,0 +1,9 @@
+.api-catalogue.preformatted .hippo-editor-field-textarea span {
+    font-family: monospace;
+    white-space: pre;
+    height: 50em;
+}
+
+.api-catalogue.preformatted .hippo-editor-field-textarea span br {
+    display: none;
+}

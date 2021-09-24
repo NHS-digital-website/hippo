@@ -30,7 +30,8 @@ public class EnumHelperTest {
     ) {
         // given
         final String expectedRendering = format(
-            "<code class=\"codeinline\">%s</code>, <code class=\"codeinline\">%s</code>",
+            "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>,"
+                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>",
             firstRenderedValue,
             secondRenderedValue
         );
@@ -49,13 +50,13 @@ public class EnumHelperTest {
     public static Object[][] enumValuesOfVariousTypes() {
         // @formatter:off
         return new Object[][]{
-            // testCaseDescription  enumValues  firstRenderedValue              secondRenderedValue
-            {"strings",                         asList("string-a", "string-b"), "string-a",         "string-b"},
-            {"booleans",                        asList(true, false),            "true",             "false"},
-            {"numbers",                         asList(-1.42, 0),               "-1.42",            "0"},
-            {"nulls",                           asList("string-a", null),       "string-a",         "null"},
-            {"empty strings",                   asList("string-a", ""),         "string-a",         ""},
-            {"strings with HTML-hostile chars", asList("< >", "&"),             "&lt; &gt;",        "&amp;"},
+            // testCaseDescription              enumValues                       firstRenderedValue  secondRenderedValue
+            {"strings",                         asList("string-a", "string-b"),  "string-a",         "string-b"},
+            {"booleans",                        asList(true, false),             "true",             "false"},
+            {"numbers",                         asList(-1.42, 0),                "-1.42",            "0"},
+            {"nulls",                           asList("string-a", null),        "string-a",         "null"},
+            {"empty strings",                   asList("string-a", ""),          "string-a",         ""},
+            {"strings with HTML-hostile chars", asList("< >", "&"),              "&lt; &gt;",        "&amp;"},
         };
         // @formatter:on
     }

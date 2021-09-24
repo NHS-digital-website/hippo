@@ -148,6 +148,20 @@ public abstract class PublicationBase extends BaseDocument {
         return nominalPublicationDate;
     }
 
+    public Date getNominalPublicationDateCalendar() {
+
+        Calendar cal = Calendar.getInstance();
+        if (nominalPublicationDate == null) {
+            nominalPublicationDate = Optional.ofNullable(getSingleProperty(PropertyKeys.NOMINAL_DATE))
+                .map(object -> (Calendar)object)
+                .map(this::nominalPublicationDateCalendarToRestrictedDate)
+                .orElse(null);
+        }
+
+        cal.set(nominalPublicationDate.getYear(), nominalPublicationDate.getMonth().getValue() - 1, nominalPublicationDate.getDayOfMonth(), 0, 0);
+        return cal.getTime();
+    }
+
     @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_START)
     public Calendar getCoverageStart() {
         return getPropertyIfPermittedSingle(PropertyKeys.COVERAGE_START);
@@ -260,6 +274,7 @@ public abstract class PublicationBase extends BaseDocument {
     interface PropertyKeys {
         String TAXONOMY = "hippotaxonomy:keys";
         String SUMMARY = "publicationsystem:Summary";
+        String PUBLICATION_TIER = "publicationsystem:publicationtier";
         String SEO_SUMMARY = "publicationsystem:seosummary";
         String KEY_FACTS = "publicationsystem:KeyFacts";
         String KEY_FACTS_HEAD = "publicationsystem:KeyFactsHead";
@@ -284,4 +299,5 @@ public abstract class PublicationBase extends BaseDocument {
         String DATASETS = "DATASETS";
         String PAGES = "PAGES";
     }
+
 }

@@ -28,12 +28,16 @@ public class GeneralPageElements implements PageElements {
     }
 
     private static String getDataUiPathXpath(String fieldName) {
-        return "@data-uipath='website.general." + fieldName + "'";
+        return "@data-uipath='document." + fieldName + "'";
     }
 
     @Override
     public boolean contains(String elementName) {
         return pageElements.containsKey(elementName);
+    }
+
+    public List<WebElement> getElementsByName(String elementName, PageHelper helper) {
+        return helper.findOptionalElements(pageElements.get(elementName));
     }
 
     @Override
@@ -42,7 +46,7 @@ public class GeneralPageElements implements PageElements {
     }
 
     public WebElement getElementByName(String elementName, int nth, PageHelper helper) {
-        List<WebElement> elements = helper.findOptionalElements(pageElements.get(elementName));
+        List<WebElement> elements = getElementsByName(elementName, helper);
 
         if (elements.size() == 0) {
             return null;

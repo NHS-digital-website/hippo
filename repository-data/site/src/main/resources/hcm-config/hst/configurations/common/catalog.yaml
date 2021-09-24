@@ -5,11 +5,24 @@ definitions:
       /publicationsystem-catalog:
         jcr:primaryType: hst:containeritempackage
       /website-catalog:
+        /az-list:
+          hst:componentclassname: uk.nhs.digital.common.components.AzListComponent
+          hst:iconpath: images/essentials/catalog-component-icons/az-nav.png
+          hst:label: A-Z List
+          hst:template: az-list
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /bloglist:
           hst:componentclassname: uk.nhs.digital.common.components.LatestBlogComponent
           hst:iconpath: images/essentials/catalog-component-icons/news-list.png
           hst:label: Blog List
           hst:template: homeland-bloglist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        /button:
+          hst:componentclassname: uk.nhs.digital.common.components.ButtonComponent
+          hst:label: Button
+          hst:template: button
           hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
         /callToAction:
@@ -18,12 +31,24 @@ definitions:
           hst:template: callToAction
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
+        /cardlist:
+          hst:componentclassname: uk.nhs.digital.common.components.CardListComponent
+          hst:label: Card List
+          hst:template: cardlist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /carousel:
           hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
           hst:iconpath: images/catalog/component-products-30x30.png
           hst:label: Documents Picker
           hst:template: document-list
           hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /caseStudy:
+          hst:componentclassname: uk.nhs.digital.common.components.CaseStudyComponent
+          hst:label: Case study
+          hst:template: case-study
+          hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
         /cyberAlert:
           hst:componentclassname: uk.nhs.digital.common.components.CyberAlertComponent
@@ -45,11 +70,30 @@ definitions:
           hst:template: feedlist
           hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
+        /header-banner:
+          hst:componentclassname: uk.nhs.digital.common.components.HeaderComponent
+          hst:iconpath: images/essentials/catalog-component-icons/banner.png
+          hst:label: Header
+          hst:template: header-banner
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        /heading-and-copy:
+          hst:componentclassname: uk.nhs.digital.common.components.HeadingAndCopyComponent
+          hst:label: Heading and Copy
+          hst:template: heading-and-copy
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /hero:
           hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
           hst:label: Hero
           hst:template: hero
           hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        /jobsfeedcomponent:
+          hst:componentclassname: uk.nhs.digital.common.components.JobsFeedComponent
+          hst:label: Jobs Feed Component
+          hst:template: jobsfeedcomponent
+          hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
         /list:
           hst:componentclassname: uk.nhs.digital.common.components.PublicationListComponent
@@ -64,6 +108,12 @@ definitions:
           hst:label: Menu
           hst:template: menu
           hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /navigationBlock:
+          hst:componentclassname: uk.nhs.digital.common.components.NavigationBlockComponent
+          hst:label: Navigation Block
+          hst:template: navigationBlock
+          hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
         /newslist:
           hst:componentclassname: uk.nhs.digital.common.components.LatestNewsComponent
@@ -85,6 +135,20 @@ definitions:
           hst:label: Service List
           hst:template: service-list
           hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /social-media:
+          hst:componentclassname: uk.nhs.digital.common.components.SocialMediaComponent
+          hst:iconpath: images/essentials/catalog-component-icons/social-media.png
+          hst:label: Social Media
+          hst:template: social-media
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        /white-space-component:
+          hst:componentclassname: uk.nhs.digital.common.components.WhiteSpaceComponent
+          hst:iconpath: images/essentials/catalog-component-icons/spacer.png
+          hst:label: Whitespace
+          hst:template: white-space
+          hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
         jcr:primaryType: hst:containeritempackage
       jcr:primaryType: hst:catalog

@@ -35,6 +35,10 @@ public class OptionsStub extends Options {
         return new OptionsStub(null, null, null, null, null, null, null, null, hash, emptyList());
     }
 
+    public static OptionsStub with(final Context context, final Hash hash) {
+        return new OptionsStub(null, null, null, null, context, null, null, null, hash, emptyList());
+    }
+
     public static OptionsStub with(final Buffer buffer, final Hash hash) {
         return new OptionsStub(buffer, null, null, null, null, null, null, null, hash, emptyList());
     }
@@ -68,6 +72,10 @@ public class OptionsStub extends Options {
 
     public static OptionsStub with(final Object[] params, final Buffer buffer) {
         return new OptionsStub(buffer, null, null, null, null, null, null, params, Hash.empty(), emptyList());
+    }
+
+    public static OptionsStub with(final Object[] params) {
+        return new OptionsStub(null, null, null, null, null, null, null, params, Hash.empty(), emptyList());
     }
 
     @Override public CharSequence fn(final Object context) {

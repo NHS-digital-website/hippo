@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-2166-correction-of-configuration-for-move-of-sitemap-items.groovy:
+      hipposys:batchsize: 10
+      hipposys:description: Correct sitemap configuration
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: //hst:hst/hst:configurations/common/hst:sitemap
+      hipposys:script:
+        resource: /configuration/update/DW-2166-correction-of-configuration-for-move-of-sitemap-items.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

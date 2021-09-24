@@ -1,0 +1,25 @@
+---
+/content/documents/administration/website/gdpr-rights-flag:
+  /gdpr-rights-flag:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: 'no'
+      selection:label: 'No'
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: 'yes'
+      selection:label: 'Yes'
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 59df4f5e-f422-448b-b800-2888e7567317
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: GDPR Rights Flag
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

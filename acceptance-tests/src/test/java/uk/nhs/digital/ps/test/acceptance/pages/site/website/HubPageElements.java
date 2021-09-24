@@ -16,10 +16,13 @@ public class HubPageElements implements PageElements {
     private static final Map<String, By> pageElements = new HashMap<String, By>() {
         {
             put(HUB_TITLE,
-                By.xpath("//*[" + getDataUiPathXpath("title") + "]"));
+                By.xpath("//*[" + getHubDataUiPathXpath("title") + "]"));
             put(SUMMARY,
-                By.xpath("//*[" + getDataUiPathXpath("summary") + "]"));
-
+                By.xpath("//*[" + getHubDataUiPathXpath("summary") + "]"));
+            put(VISUAL_HUB_TITLE,
+                By.xpath("//*[" + getVisualHubDataUiPathXpath("title") + "]"));
+            put(VISUAL_HUB_SUMMARY,
+                By.xpath("//*[" + getVisualHubDataUiPathXpath("summary") + "]"));
         }
     };
 
@@ -27,13 +30,21 @@ public class HubPageElements implements PageElements {
         return pageElements.get(fieldSelectorKey);
     }
 
-    private static String getDataUiPathXpath(String fieldName) {
+    private static String getHubDataUiPathXpath(String fieldName) {
         return "@data-uipath='website.hub." + fieldName + "'";
+    }
+
+    private static String getVisualHubDataUiPathXpath(String fieldName) {
+        return "@data-uipath='document." + fieldName + "'";
     }
 
     @Override
     public boolean contains(String elementName) {
         return pageElements.containsKey(elementName);
+    }
+
+    public List<WebElement> getElementsByName(String elementName, PageHelper helper) {
+        return helper.findOptionalElements(pageElements.get(elementName));
     }
 
     @Override
@@ -42,7 +53,7 @@ public class HubPageElements implements PageElements {
     }
 
     public WebElement getElementByName(String elementName, int nth, PageHelper helper) {
-        List<WebElement> elements = helper.findOptionalElements(pageElements.get(elementName));
+        List<WebElement> elements = getElementsByName(elementName, helper);
 
         if (elements.size() == 0) {
             return null;
@@ -55,5 +66,7 @@ public class HubPageElements implements PageElements {
 
         String HUB_TITLE = "Hub Title";
         String SUMMARY = "Hub Summary";
+        String VISUAL_HUB_SUMMARY = "Visual Hub Summary";
+        String VISUAL_HUB_TITLE = "Visual Hub Title";
     }
 }

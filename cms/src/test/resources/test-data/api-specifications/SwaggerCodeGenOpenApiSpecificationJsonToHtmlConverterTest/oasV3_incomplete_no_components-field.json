@@ -1,0 +1,45 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v1.2.3-irrelevant",
+        "title": "Test OAS spec",
+        "description": "Specification that does not define the top-level 'component' field."
+    },
+    "paths": {
+        "/Patient": {
+            "get": {
+                "summary": "An operation",
+                "operationId": "an-operation-id",
+                "description": "An example operation",
+                "parameters": [
+                    {
+                        "name": "a-parameter",
+                        "description": "Parameter description.",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A response.",
+                        "content": {
+                            "application/fhir+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "irrelevantProperty": {
+                                            "type": "string",
+                                            "description": "Property description."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

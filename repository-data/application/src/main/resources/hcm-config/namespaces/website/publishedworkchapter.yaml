@@ -127,7 +127,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:fullWidthImage,website:statistics,website:navigation,website:tableau
+            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:fullWidthImage,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
             contentPickerType: links
             field: sections
             hint: ''
@@ -144,6 +144,17 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
+          /taxonomyClassificationField:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            caption: Taxonomy - Used for Search (Do Not Edit)
+            field: taxonomyClassificationField
+            hint: ''
+            hipposys:userrole: xm.default-user.webmaster
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /friendlyurls:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -152,6 +163,15 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /noindexcontrol:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Disallow indexing by search engines
+            field: nonindexcontrol
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
@@ -182,6 +202,14 @@ definitions:
             hipposysedit:validators:
             - optional
             jcr:primaryType: hipposysedit:field
+          /nonindexcontrol:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:noindexcontrol
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
           /publicationStyle:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -191,6 +219,14 @@ definitions:
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
@@ -209,6 +245,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:seoSummary
             jcr:primaryType: hipposysedit:field
+          /seosummarytext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummarytext
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -225,6 +269,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
+          /string:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:noIndexControl
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -232,6 +284,11 @@ definitions:
             hipposysedit:path: website:summary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /taxonomyClassificationField:
+            hipposysedit:multiple: true
+            hipposysedit:path: website:taxonomyClassificationField
+            hipposysedit:type: TaxonomyClassification
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -299,6 +356,17 @@ definitions:
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
           common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder
@@ -314,6 +382,8 @@ definitions:
           jcr:primaryType: website:publishedworkchapter
           website:bannerAltText: ''
           website:button: jumptocontent
+          website:noIndexControl: ''
+          website:noindexcontrol: false
           website:publicationStyle: parent
           website:shortsummary: ''
           website:title: ''

@@ -18,9 +18,13 @@
 
     <properties>
         <cucumber.version>1.2.5</cucumber.version>
-        <spring.version>5.1.14.RELEASE</spring.version>
+        <spring.version>5.1.15.RELEASE</spring.version>
         <selenium.version>3.141.59</selenium.version>
-        <chromedriver.version>87.0.4280.20</chromedriver.version>
+        <!--
+        Consult https://chromedriver.chromium.org/downloads
+        to find the right ChromeDriver version to use with the current browser version,
+        -->
+        <chromedriver.version>93.0.4577.63</chromedriver.version>
     </properties>
 
     <dependencies>
@@ -92,8 +96,6 @@
         <dependency>
             <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
-            <version>3.1.6</version>
-            <scope>test</scope>
         </dependency>
 
         <!--
@@ -189,7 +191,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>2.22.2</version>
                 <configuration>
                     <skipTests>true</skipTests>
                 </configuration>
@@ -209,7 +211,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.22.1</version>
+                        <version>2.22.2</version>
                         <configuration>
                             <includes>
                                 <include>**/AcceptanceTest.java</include>
@@ -242,7 +244,7 @@
                          -->
                         <groupId>com.github.webdriverextensions</groupId>
                         <artifactId>webdriverextensions-maven-plugin</artifactId>
-                        <version>3.1.3</version>
+                        <version>3.2.0</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -359,36 +361,36 @@
                             <configuration>
                                 <configfiles>
                                     <configfile>
-                                        <file>${website.basedir}/conf/context.xml</file>
+                                        <file>${maven.multiModuleProjectDirectory}/conf/context.xml</file>
                                         <todir>conf/</todir>
                                         <tofile>context.xml</tofile>
                                     </configfile>
                                     <configfile>
-                                        <file>${website.basedir}/conf/catalina-logging.properties</file>
+                                        <file>${maven.multiModuleProjectDirectory}/conf/catalina-logging.properties</file>
                                         <todir>conf/</todir>
                                         <tofile>logging.properties</tofile>
                                     </configfile>
                                     <configfile>
-                                        <file>${website.basedir}/conf/query/lucene/indexing_configuration.xml</file>
+                                        <file>${maven.multiModuleProjectDirectory}/conf/query/lucene/indexing_configuration.xml</file>
                                         <todir>conf/query/lucene</todir>
                                         <tofile>indexing_configuration.xml</tofile>
                                     </configfile>
                                 </configfiles>
                                 <files>
                                     <file>
-                                        <file>${website.basedir}/repository-data/development/target/website-repository-data-development-${project.version}.jar</file>
+                                        <file>${maven.multiModuleProjectDirectory}/repository-data/development/target/website-repository-data-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
                                     <file>
-                                        <file>${website.basedir}/repository-data/local/target/website-repository-data-local-${project.version}.jar</file>
+                                        <file>${maven.multiModuleProjectDirectory}/repository-data/local/target/website-repository-data-local-${project.version}.jar</file>
                                         <todir>${local-module-deploy-dir}</todir>
                                     </file>
                                     <file>
-                                        <file>${website.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
+                                        <file>${maven.multiModuleProjectDirectory}/s3connector/target/s3-connector-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
                                     <file>
-                                        <file>${website.basedir}/repository-data/site-development/target/website-repository-data-site-development-${project.version}.jar</file>
+                                        <file>${maven.multiModuleProjectDirectory}/repository-data/site-development/target/website-repository-data-site-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
                                 </files>
@@ -399,14 +401,14 @@
                                     <properties>
                                         <context>/cms</context>
                                     </properties>
-                                    <location>${website.basedir}/cms/target/cms.war</location>
+                                    <location>${maven.multiModuleProjectDirectory}/cms/target/cms.war</location>
                                 </deployable>
                                 <deployable>
                                     <type>war</type>
                                     <properties>
                                         <context>/site</context>
                                     </properties>
-                                    <location>${website.basedir}/site/webapp/target/site.war</location>
+                                    <location>${maven.multiModuleProjectDirectory}/site/webapp/target/site.war</location>
                                 </deployable>
                             </deployables>
                             <container>
@@ -415,12 +417,12 @@
                                     <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>
                                 <systemProperties>
-                                    <log4j.configurationFile>file://${website.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
+                                    <log4j.configurationFile>file://${maven.multiModuleProjectDirectory}/conf/log4j2-dev.xml</log4j.configurationFile>
                                     <!-- enables auto export and web files watch: -->
-                                    <project.basedir>${website.basedir}/</project.basedir>
+                                    <project.basedir>${maven.multiModuleProjectDirectory}/</project.basedir>
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
                                     <repo.autoexport.allowed>false</repo.autoexport.allowed>
-                                    <repo.config>file://${website.basedir}/conf/repository.xml</repo.config>
+                                    <repo.config>file://${maven.multiModuleProjectDirectory}/conf/repository.xml</repo.config>
 
                                     <!-- Splunk forwarder config -->
                                     <splunk.hec.name>${splunk.hec.name}</splunk.hec.name>
@@ -432,7 +434,7 @@
                                     <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
-                                    <dynamic.bean.generation>false</dynamic.bean.generation>
+                                    <dynamic.bean.generation>true</dynamic.bean.generation>
                                     <spring.profiles.active>local</spring.profiles.active>
 
                                     <!-- Apigee access config -->
@@ -440,8 +442,9 @@
                                     <devzone.apigee.resources.specs.all.url>${devzone.apigee.resources.specs.all.url}</devzone.apigee.resources.specs.all.url>
                                     <devzone.apigee.resources.specs.individual.url>${devzone.apigee.resources.specs.individual.url}</devzone.apigee.resources.specs.individual.url>
                                     <!-- Apigee API specifications sync schedule properties -->
-                                    <devzone.apispec.sync.enabled>${devzone.apispec.sync.enabled}</devzone.apispec.sync.enabled>
-                                    <devzone.apispec.sync.cron-expression>${devzone.apispec.sync.cron-expression}</devzone.apispec.sync.cron-expression>
+                                    <devzone.apispec.sync.schedule-delay-duration>${devzone.apispec.sync.schedule-delay-duration}</devzone.apispec.sync.schedule-delay-duration>
+                                    <devzone.apispec.sync.daily-cron-expression>${devzone.apispec.sync.daily-cron-expression}</devzone.apispec.sync.daily-cron-expression>
+                                    <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
 
                                 </systemProperties>
 

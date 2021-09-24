@@ -295,8 +295,10 @@ public class TestContentUrls {
             "/website-acceptance-tests/person-test-document-3");
 
         // API specifications
+        addSiteUrl("Static API Catalogue",
+            "/developer/api-catalogue");
         addSiteUrl("Static API Specification",
-            "/website-acceptance-tests/api-specifications/static-api-specification");
+            "/developer/api-catalogue/retired-api");
     }
 
     private void setupCmsUrls() {

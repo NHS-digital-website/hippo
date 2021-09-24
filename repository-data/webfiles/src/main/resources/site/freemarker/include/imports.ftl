@@ -24,6 +24,9 @@
     <#local docTypes = {
         "Service":                      "uk.nhs.digital.website.beans.Service",
         "General":                      "uk.nhs.digital.website.beans.General",
+        "Publication":                  "uk.nhs.digital.ps.beans.Publication",
+        "Series":                       "uk.nhs.digital.ps.beans.Series",
+        "CyberAlert":                   "uk.nhs.digital.website.beans.CyberAlert",
         "Hub":                          "uk.nhs.digital.website.beans.Hub",
         "HubNewsAndEvents":             "uk.nhs.digital.website.beans.HubNewsAndEvents",
         "Event":                        "uk.nhs.digital.website.beans.Event",
@@ -39,13 +42,18 @@
         "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub",
         "Blog":                         "uk.nhs.digital.website.beans.Blog",
         "JobRole":                      "uk.nhs.digital.website.beans.JobRole",
+        "Feature":                      "uk.nhs.digital.website.beans.Feature",
         "BusinessUnit":                 "uk.nhs.digital.website.beans.BusinessUnit",
         "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure",
         "News":                         "uk.nhs.digital.website.beans.News",
         "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes",
         "SupplementaryInformation":     "uk.nhs.digital.website.beans.SupplementaryInformation",
         "Team":                         "uk.nhs.digital.website.beans.Team",
-        "Task":                         "uk.nhs.digital.intranet.beans.Task"
+        "Task":                         "uk.nhs.digital.intranet.beans.Task",
+        "Published Work Chapter":       "uk.nhs.digital.website.beans.Publishedworkchapter",
+        "Published Work":               "uk.nhs.digital.website.beans.Publishedwork",
+        "Publication Page":               "uk.nhs.digital.ps.beans.PublicationPage"
+
     }/>
 
     <#list docTypes?keys as key>
@@ -59,12 +67,23 @@
 </#function>
 
 <#-- onClick attribute helper function -->
-<#function getOnClickMethodCall className, link>
+<#function getOnClickMethodCall className, link, download=false>
     <#if className?? && link??>
-        <#local docType = getDocTypeName(className) />
+        <#if className?contains("uk.nhs.digital.website.beans") ||
+             className?contains("uk.nhs.digital.ps.beans")>
+            <#assign classNameSplit = className?split("$")>
+            <#assign classNameWithoutHash = classNameSplit[0]>
+            <#local docType = getDocTypeName(classNameWithoutHash) />
 
+        <#else>
+            <#local docType = getDocTypeName(className) />
+        </#if>
         <#if docType?length gt 0>
-            <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />
+            <#if download>
+                <#local onClickAttr="logGoogleAnalyticsEvent('Download attachment', '${docType}', '${link}')" />
+            <#else>
+                <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />
+            </#if>
             <#return onClickAttr?no_esc />
         </#if>
     </#if>
@@ -81,8 +100,6 @@
 
     <#return pageTitle/>
 </#function>
-
-
 
 <#function flat_blocks blocks order inital_blocks = []>
     <#local flattened_blocks = inital_blocks />
@@ -136,14 +153,14 @@
     <#local dateRangeData = { "minStartTimeStamp": 0, "maxEndTimeStamp": 0 } />
 
     <#if events??>
-        <#-- Gather the earliest start date and the latest end date for each event -->
+    <#-- Gather the earliest start date and the latest end date for each event -->
         <#list events as event>
-            <#-- Store the earliest start date values -->
+        <#-- Store the earliest start date values -->
             <#local startTimeStamp = event.startdatetime.time?long/>
             <#if dateRangeData.minStartTimeStamp == 0 || startTimeStamp lt dateRangeData.minStartTimeStamp>
                 <#local dateRangeData = dateRangeData + { "minStartTime": event.startdatetime.time, "minStartTimeStamp": startTimeStamp } />
             </#if>
-            <#-- Store the latest end date values -->
+        <#-- Store the latest end date values -->
             <#local endTimeStamp = event.enddatetime.time?long/>
             <#if dateRangeData.maxEndTimeStamp == 0 || endTimeStamp gt dateRangeData.maxEndTimeStamp>
                 <#local dateRangeData = dateRangeData + { "maxEndTime": event.enddatetime.time, "maxEndTimeStamp": endTimeStamp } />
@@ -179,56 +196,81 @@
 </#function>
 
 <#function getFileExtension filepath>
-  <#assign extension = "" >
-  <#if filepath?contains(".")>
-      <#assign extension = filepath?keep_after_last(".")?lower_case >
-  </#if>
-  <#return extension />
+    <#assign extension = "" >
+    <#if filepath[filepath?length-5..]?contains(".")>
+        <#assign extension = filepath?keep_after_last(".")?lower_case >
+    </#if>
+    <#return extension />
+</#function>
+
+<#function getMimeTypeByExtension extension>
+    <#local knownExtensions = {
+        "jpg":"image/jpeg",
+        "png":"image/png",
+        "pdf":"image/pdf",
+        "pdf":"application/pdf",
+        "csv":"text/csv",
+        "txt":"text/plain",
+        "rar":"application/x-rar-compressed",
+        "zip":"application/zip",
+        "jar":"application/java-archive",
+        "json":"application/json",
+        "war":"application/x-war",
+        "ppt":"application/vnd.ms-powerpoint",
+        "pptx":"application/vnd.ms-powerpoint",
+        "xls":"application/vnd.ms-excel",
+        "xlsx":"application/vnd.ms-excel",
+        "doc":"application/msword",
+        "docx":"application/msword",
+        "xml":"text/xml"
+    }/>
+
+    <#return (knownExtensions[extension?lower_case]??)?then(knownExtensions[extension?lower_case], "") />
 </#function>
 
 <#function getFormatByMimeType mimeType>
     <#local mimeTypes = {
-        "image/jpeg": "jpg",
-        "image/png": "png",
-        "image/pdf": "pdf",
-        "application/pdf": "pdf",
-        "text/csv": "csv",
-        "text/plain": "txt",
-        "application/x-rar-compressed": "rar",
-        "application/zip": "zip",
-        "application/java-archive": "jar",
-        "application/json": "json",
+    "image/jpeg": "jpg",
+    "image/png": "png",
+    "image/pdf": "pdf",
+    "application/pdf": "pdf",
+    "text/csv": "csv",
+    "text/plain": "txt",
+    "application/x-rar-compressed": "rar",
+    "application/zip": "zip",
+    "application/java-archive": "jar",
+    "application/json": "json",
 
-        "application/x-war": "war",
-        "application/x-webarchive": "war",
-        "application/x-tika-java-web-archive": "war",
+    "application/x-war": "war",
+    "application/x-webarchive": "war",
+    "application/x-tika-java-web-archive": "war",
 
-        "application/vnd.ms-powerpoint": "ppt",
-        "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
-        "application/vnd.ms-powerpoint.addin.macroenabled.12": "ppt",
-        "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
-        "application/vnd.ms-powerpoint.template.macroenabled.12": "ppt",
-        "application/vnd.ms-powerpoint.slideshow.macroenabled.12": "ppt",
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation": "ppt",
-        "application/vnd.openxmlformats-officedocument.presentationml.template": "ppt",
-        "application/vnd.openxmlformats-officedocument.presentationml.slideshow": "ppt",
+    "application/vnd.ms-powerpoint": "ppt",
+    "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
+    "application/vnd.ms-powerpoint.addin.macroenabled.12": "ppt",
+    "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
+    "application/vnd.ms-powerpoint.template.macroenabled.12": "ppt",
+    "application/vnd.ms-powerpoint.slideshow.macroenabled.12": "ppt",
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation": "ppt",
+    "application/vnd.openxmlformats-officedocument.presentationml.template": "ppt",
+    "application/vnd.openxmlformats-officedocument.presentationml.slideshow": "ppt",
 
-        "application/vnd.ms-excel": "xls",
-        "application/x-tika-msoffice": "xls",
-        "application/vnd.ms-excel.sheet.macroenabled.12": "xls",
-        "application/vnd.ms-excel.addin.macroenabled.12": "xls",
-        "application/vnd.ms-excel.template.macroenabled.12": "xls",
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xls",
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.template": "xls",
+    "application/vnd.ms-excel": "xls",
+    "application/x-tika-msoffice": "xls",
+    "application/vnd.ms-excel.sheet.macroenabled.12": "xls",
+    "application/vnd.ms-excel.addin.macroenabled.12": "xls",
+    "application/vnd.ms-excel.template.macroenabled.12": "xls",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xls",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.template": "xls",
 
-        "application/msword": "doc",
-        "application/vnd.ms-word.document.macroenabled.12": "doc",
-        "application/vnd.ms-word.template.macroenabled.12": "doc",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "doc",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.template": "doc",
+    "application/msword": "doc",
+    "application/vnd.ms-word.document.macroenabled.12": "doc",
+    "application/vnd.ms-word.template.macroenabled.12": "doc",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "doc",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.template": "doc",
 
-        "text/xml": "xml",
-        "application/xml": "xml"
+    "text/xml": "xml",
+    "application/xml": "xml"
     }/>
 
     <#return (mimeTypes[mimeType?lower_case]??)?then(mimeTypes[mimeType], "") />

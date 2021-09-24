@@ -34,6 +34,11 @@ public class DynamicChartSection extends HippoCompound {
         return getSingleProperty("website:xTitle");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:htmlCode")
+    public String getHtmlCode() {
+        return getSingleProperty("website:htmlCode");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:highchartseries")
     public List<HighchartSeries> getSeriesItem() {
         return getChildBeansByName("website:highchartseries",

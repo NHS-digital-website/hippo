@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/PublicationPostListener:
+      hipposys:className: uk.nhs.digital.common.listeners.PublicationPostListener
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module

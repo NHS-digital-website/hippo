@@ -5,7 +5,7 @@ ENV ?= tst
 OD_ENV = $(shell bash ondemand-env-name $(ENV))
 RD_CONF = $(PWD)/rd.conf
 RELEASE_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((++d)); done; date --date +$${d}day +%Y-%m-%d)
-RELEASE_TIME_UTC = 12:05:00
+RELEASE_TIME_UTC = 11:05:00
 TRAVIS_BUILD_CMD ?= test.site
 TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
@@ -99,6 +99,10 @@ build:
 	mvn $(MVN_OPTS) -P separate-dist -DskipTests=true
 	mvn $(MVN_OPTS) -P on-demand-dist -DskipTests=true
 
+build-odv2:
+	mvn verify $(MVN_OPTS) -DskipTests=true
+	mvn $(MVN_OPTS) -P dist-od2 -DskipTests=true
+
 ## Set a success status on current commit
 # You would normally run this target after running (and passing) all tests
 # Usage: make github.status.success
@@ -139,7 +143,15 @@ ondemand.deploy: vendor/rd
 		--project nhs \
 		--job "jobs/$(OD_ENV)/Deploy" \
 		-- \
-		-bootstrap full \
+		-bootstrap true \
+		-distribution "$(VERSION).tar.gz"
+
+ondemand.pipeline-deploy: vendor/rd
+	source vendor/rd run \
+		--project nhs \
+		--job "jobs/$(OD_ENV)/Deploy" \
+		-- \
+		-bootstrap true \
 		-distribution "$(VERSION).tar.gz"
 
 ## Schedule deployment of the "rc" tag for next working day
@@ -156,7 +168,7 @@ ondemand.schedule-deploy: vendor/rd
 		--project nhs \
 		--job "jobs/$(OD_ENV)/Deploy" \
 		-- \
-		-bootstrap full \
+		-bootstrap true \
 		-distribution "$$(git describe --tags --match $(VERSION_BASE)* rc).tar.gz"
 
 ondemand.restart: vendor/rd

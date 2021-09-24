@@ -1,6 +1,6 @@
 Feature: Ensure content block sections display required fields.
 
-    Scenario: Check 'Section' and 'Emphasis box' content blocks
+    Scenario: Check 'Section', 'Emphasis box' and 'Download' content blocks
         Given I navigate to the "General test document" page
         Then I should see:
             | Section Title                 | Section One                           |

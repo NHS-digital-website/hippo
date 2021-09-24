@@ -85,6 +85,16 @@ public class Publication extends PublicationBase implements Paginated {
         return getHippoCompound("publicationsystem:survey", Survey.class);
     }
 
+    public String[] getTaxonomyClassificationField() {
+        return getMultipleProperty("publicationsystem:taxonomyClassificationField");
+    }
+
+    @HippoEssentialsGenerated(internalName = PropertyKeys.PUBLICATION_TIER)
+    public String getPublicationTier() {
+        assertPropertyPermitted(PublicationBase.PropertyKeys.PUBLICATION_TIER);
+        return getSingleProperty(PropertyKeys.PUBLICATION_TIER);
+    }
+
     @Override
     public Pagination paginate() {
         return new Pagination(null, getPageIndex().stream().skip(1).findFirst().orElse(null));

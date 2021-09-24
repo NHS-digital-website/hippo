@@ -4,6 +4,7 @@ import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.helper.AssignHelper;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import io.swagger.v3.oas.models.media.Schema;
@@ -72,11 +73,16 @@ public class SchemaHelper implements Helper<Schema<?>> {
             .registerHelper(IndentationHelper.NAME, new IndentationHelper(contextStackFactory))
             .registerHelper(IfNotNullHelper.NAME, IfNotNullHelper.INSTANCE)
             .registerHelper(IfRequiredHelper.NAME, new IfRequiredHelper(contextStackFactory))
+            .registerHelper(ConditionalHelpers.eq.name(), ConditionalHelpers.eq)
             .registerHelper(ConditionalHelpers.or.name(), ConditionalHelpers.or)
             .registerHelper(EnumHelper.NAME, EnumHelper.INSTANCE)
             .registerHelper(TypeAnyHelper.NAME, TypeAnyHelper.INSTANCE)
             .registerHelper(JacksonPrettyJsonHelper.NAME, JacksonPrettyJsonHelper.INSTANCE)
             .registerHelper(TypeAnySanitisingHelper.NAME, TypeAnySanitisingHelper.INSTANCE)
+            .registerHelper(AssignHelper.NAME, AssignHelper.INSTANCE)
+            .registerHelper(VariableValueHelper.NAME, VariableValueHelper.INSTANCE)
+            .registerHelper(BorderHelper.NAME, new BorderHelper(contextStackFactory))
+            .registerHelper(UuidHelper.NAME, UuidHelper.INSTANCE)
             ;
     }
 }

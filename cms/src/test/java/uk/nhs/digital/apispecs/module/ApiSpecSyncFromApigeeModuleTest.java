@@ -1,5 +1,7 @@
 package uk.nhs.digital.apispecs.module;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.awaitility.Awaitility.with;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -7,41 +9,46 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.onehippo.cms7.services.HippoServiceRegistry;
-import org.onehippo.repository.mock.MockNode;
 import org.onehippo.repository.scheduling.RepositoryJobCronTrigger;
 import org.onehippo.repository.scheduling.RepositoryJobInfo;
 import org.onehippo.repository.scheduling.RepositoryJobTrigger;
 import org.onehippo.repository.scheduling.RepositoryScheduler;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import uk.nhs.digital.apispecs.jobs.ApiSpecRerenderJob;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob;
 
-import javax.jcr.Node;
+import java.util.List;
 import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({HippoServiceRegistry.class, ApiSpecSyncFromApigeeModule.class})
+@PrepareForTest({HippoServiceRegistry.class})
+@PowerMockIgnore({"org.awaitility.*", "java.util.concurrent.*"})
 public class ApiSpecSyncFromApigeeModuleTest {
 
-    public static final String JOB_NAME = "apiSpecSyncFromApigee";
+    public static final String DAILY_JOB_NAME = "apiSpecSyncFromApigee";
+    public static final String NIGHTLY_JOB_NAME = "apiSpecRerender";
     public static final String JOB_GROUP_NAME = "devzone";
     private static final String TRIGGER_NAME = "cronTrigger";
 
     @Mock private RepositoryScheduler scheduler;
+    @Mock private Session session;
 
     private ArgumentCaptor<RepositoryJobInfo> jobInfoArgCaptor = ArgumentCaptor.forClass(RepositoryJobInfo.class);
     private ArgumentCaptor<RepositoryJobTrigger> jobTriggerArgCaptor = ArgumentCaptor.forClass(RepositoryJobTrigger.class);
-
-    private Node moduleConfigNode;
 
     private final ApiSpecSyncFromApigeeModule apiSpecSyncFromApigeeModule = new ApiSpecSyncFromApigeeModule();
 
@@ -49,190 +56,144 @@ public class ApiSpecSyncFromApigeeModuleTest {
     public void setUp() {
         initMocks(this);
 
-        moduleConfigNode = new MockNode("api-specification-sync", "hippo:moduleconfig");
-
         mockStatic(HippoServiceRegistry.class);
         given(HippoServiceRegistry.getService(RepositoryScheduler.class)).willReturn(scheduler);
+
+    }
+
+    @After
+    public void tearDown() {
+        unsetSystemProperties();
     }
 
     @Test
-    public void doConfigure_schedulesNewJob_whenConfiguredAsEnabledAndWithCronExpression() throws RepositoryException {
+    public void initialize_schedulesNewJobs_whenConfiguredWithCronExpression() throws RepositoryException {
 
         // given
-        final String expectedCronExpression = "0 0/5 * ? * *";
+        final String expectedDailyCronExpression = "0 0/10 * ? * *";
+        final String expectedNightlyCronExpression = "0 10/10 * ? * *";
 
-        moduleConfigNode.setProperty("enabled", true);
-        moduleConfigNode.setProperty("cronExpression", expectedCronExpression);
+        System.setProperty("devzone.apispec.sync.daily-cron-expression", expectedDailyCronExpression);
+        System.setProperty("devzone.apispec.sync.nightly-cron-expression", expectedNightlyCronExpression);
+        System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT0.5S");
 
         // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
+        apiSpecSyncFromApigeeModule.initialize(session);
 
         // then
-        then(scheduler).should().scheduleJob(
+        with()
+            .pollDelay(1, SECONDS)
+            .await()
+            .atMost(5, SECONDS)
+            .untilAsserted(() ->
+                then(scheduler).should(times(2)).scheduleJob(any(), any())
+            );
+
+        then(scheduler).should(times(2)).scheduleJob(
             jobInfoArgCaptor.capture(),
             jobTriggerArgCaptor.capture()
         );
 
-        final RepositoryJobInfo actualJobInfo = jobInfoArgCaptor.getValue();
-        assertThat("Job is scheduled with correct group.", actualJobInfo.getGroup(), is(JOB_GROUP_NAME));
-        assertThat("Job is scheduled with correct name.", actualJobInfo.getName(), is(JOB_NAME));
-        assertThat("Job is scheduled with correct class.", actualJobInfo.getJobClass(), is(ApiSpecSyncFromApigeeJob.class));
+        final List<RepositoryJobInfo> actualJobInfos = jobInfoArgCaptor.getAllValues();
 
-        final RepositoryJobTrigger actualJobTrigger = jobTriggerArgCaptor.getValue();
-        assertThat("Job is scheduled as a cron job.", actualJobTrigger, instanceOf(RepositoryJobCronTrigger.class));
-        assertThat("Job is scheduled with correct trigger name", actualJobTrigger.getName(), is(TRIGGER_NAME));
-        assertThat("Job is scheduled with correct cron expression", ((RepositoryJobCronTrigger)actualJobTrigger).getCronExpression(), is(expectedCronExpression));
+        final RepositoryJobInfo dailyJobInfo = actualJobInfos.get(0);
+        final RepositoryJobInfo nightlyJobInfo = actualJobInfos.get(1);
+        assertThat("Daily job is scheduled with correct group.", dailyJobInfo.getGroup(), is(JOB_GROUP_NAME));
+        assertThat("Daily job is scheduled with correct name.", dailyJobInfo.getName(), is(DAILY_JOB_NAME));
+        assertThat("Daily job is scheduled with correct class.", dailyJobInfo.getJobClass(), is(ApiSpecSyncFromApigeeJob.class));
+
+        assertThat("Nightly job is scheduled with correct group.", nightlyJobInfo.getGroup(), is(JOB_GROUP_NAME));
+        assertThat("Nightly job is scheduled with correct name.", nightlyJobInfo.getName(), is(NIGHTLY_JOB_NAME));
+        assertThat("Nightly job is scheduled with correct class.", nightlyJobInfo.getJobClass(), is(ApiSpecRerenderJob.class));
+
+        final List<RepositoryJobTrigger> actualJobTriggers = jobTriggerArgCaptor.getAllValues();
+
+        final RepositoryJobTrigger dailyJobTrigger = actualJobTriggers.get(0);
+        assertThat("Daily job is scheduled as a cron job.", dailyJobTrigger, instanceOf(RepositoryJobCronTrigger.class));
+        assertThat("Daily job is scheduled with correct trigger name", dailyJobTrigger.getName(), is(TRIGGER_NAME));
+        assertThat("Daily job is scheduled with correct cron expression", ((RepositoryJobCronTrigger)dailyJobTrigger).getCronExpression(), is(expectedDailyCronExpression));
+
+        final RepositoryJobTrigger nightlyJobTrigger = actualJobTriggers.get(1);
+        assertThat("Nightly job is scheduled as a cron job.", nightlyJobTrigger, instanceOf(RepositoryJobCronTrigger.class));
+        assertThat("Nightly job is scheduled with correct trigger name", nightlyJobTrigger.getName(), is(TRIGGER_NAME));
+        assertThat("Nightly job is scheduled with correct cron expression", ((RepositoryJobCronTrigger)nightlyJobTrigger).getCronExpression(), is(expectedNightlyCronExpression));
     }
 
     @Test
-    public void doConfigure_deactivatesOldJob_whenPreviousJobInstanceExists() throws RepositoryException {
+    public void initialize_deactivatesOldJobs_whenPreviousJobInstancesExist() throws RepositoryException {
+
+        // given
+        given(scheduler.checkExists(any(), any())).willReturn(true);
+
+        System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT1S");
+
+        // when
+        apiSpecSyncFromApigeeModule.initialize(session);
+
+        // then
+        with()
+            .pollDelay(1, SECONDS)
+            .await()
+            .atMost(5, SECONDS)
+            .untilAsserted(() -> {
+                then(scheduler).should().checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME);
+                then(scheduler).should().deleteJob(DAILY_JOB_NAME, JOB_GROUP_NAME);
+                then(scheduler).should().checkExists(NIGHTLY_JOB_NAME, JOB_GROUP_NAME);
+                then(scheduler).should().deleteJob(NIGHTLY_JOB_NAME, JOB_GROUP_NAME);
+            });
+    }
+
+    @Test
+    public void initialize_doesNotScheduleAnyJob_whenNoCronExpressionIsSet() throws RepositoryException {
+
+        // given
+        System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT0.5S");
+
+        // when
+        apiSpecSyncFromApigeeModule.initialize(session);
+
+        // then
+        with()
+            .pollDelay(1, SECONDS)
+            .await()
+            .atMost(2, SECONDS)
+            .untilAsserted(() ->
+                then(scheduler).should(never()).scheduleJob(any(), any())
+            );
+    }
+
+    @Test
+    public void shutdown_deletesScheduledJobs_whenMatchingJobsPreviouslyScheduled() throws RepositoryException {
 
         // given
         given(scheduler.checkExists(any(), any())).willReturn(true);
 
         // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
+        apiSpecSyncFromApigeeModule.shutdown();
 
         // then
-        then(scheduler).should().checkExists(JOB_NAME, JOB_GROUP_NAME);
-        then(scheduler).should().deleteJob(JOB_NAME, JOB_GROUP_NAME);
+        then(scheduler).should().checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME);
+        then(scheduler).should().deleteJob(DAILY_JOB_NAME, JOB_GROUP_NAME);
+        then(scheduler).should().checkExists(NIGHTLY_JOB_NAME, JOB_GROUP_NAME);
+        then(scheduler).should().deleteJob(NIGHTLY_JOB_NAME, JOB_GROUP_NAME);
     }
 
     @Test
-    public void doConfigure_doesNotScheduleNewJob_whenNotConfiguredAsEnabled() throws RepositoryException {
+    public void shutdown_doesNothing_whenNoMatchingJobsPreviouslyScheduled() throws RepositoryException {
 
         // given
-        // 'enabled' status not configured at all (neither in JCR nor via system property)
+        given(scheduler.checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME)).willReturn(false);
 
         // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
-
-        // then
-        then(scheduler).should(never()).scheduleJob(any(), any());
-    }
-
-    @Test
-    public void doConfigure_usesEnabledStatusFromJcrOverSystemProperty_whenBothSet() throws RepositoryException {
-
-        // given
-        mockStatic(System.class);
-        given(System.getProperty("devzone.apispec.sync.enabled")).willReturn("true");
-
-        moduleConfigNode.setProperty("enabled", false);
-
-        moduleConfigNode.setProperty("cronExpression", "0 0/5 * ? * *");
-
-        // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
-
-        // then
-        then(scheduler).should(never()).scheduleJob(any(), any());
-    }
-
-    @Test
-    public void doConfigure_usesEnabledStatusFromSystemPropertyIfAbsentInJcr() throws RepositoryException {
-
-        // given
-        mockStatic(System.class);
-        given(System.getProperty("devzone.apispec.sync.enabled")).willReturn("true");
-
-        // 'enabled' status not configured in JCR
-
-        moduleConfigNode.setProperty("cronExpression", "0 0/5 * ? * *");
-
-        // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
-
-        // then
-        then(scheduler).should().scheduleJob(any(), any());
-    }
-
-    @Test
-    public void doConfigure_usesCronExpressionStatusFromJcrOverSystemProperty_whenBothSet() throws RepositoryException {
-
-        // given
-        final String cronExpressionFromSystemProperty = "0 0/1 * ? * *";
-        final String cronExpressionFromJcr = "0 0/5 * ? * *";
-
-        mockStatic(System.class);
-        given(System.getProperty("devzone.apispec.sync.cron-expression")).willReturn(cronExpressionFromSystemProperty);
-
-        moduleConfigNode.setProperty("cronExpression", cronExpressionFromJcr);
-
-        moduleConfigNode.setProperty("enabled", true);
-
-        // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
-
-        // then
-        then(scheduler).should().scheduleJob(
-            any(),
-            jobTriggerArgCaptor.capture()
-        );
-
-        final String actualCronExpression = ((RepositoryJobCronTrigger) jobTriggerArgCaptor.getValue()).getCronExpression();
-
-        assertThat(
-            "Job is scheduled with cron expression from JCR",
-            actualCronExpression,
-            is(cronExpressionFromJcr)
-        );
-    }
-
-    @Test
-    public void doConfigure_usesCronExpressionFromSystemPropertyIfAbsentInJcr() throws RepositoryException {
-
-        // given
-        final String cronExpressionFromSystemProperty = "0 0/1 * ? * *";
-
-        mockStatic(System.class);
-        given(System.getProperty("devzone.apispec.sync.cron-expression")).willReturn(cronExpressionFromSystemProperty);
-        // no cron expression property present in JCR
-
-        moduleConfigNode.setProperty("enabled", true);
-
-        // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
-
-        // then
-        then(scheduler).should().scheduleJob(
-            any(),
-            jobTriggerArgCaptor.capture()
-        );
-
-        final String actualCronExpression = ((RepositoryJobCronTrigger) jobTriggerArgCaptor.getValue()).getCronExpression();
-
-        assertThat(
-            "Job is scheduled with cron expression from system property",
-            actualCronExpression,
-            is(cronExpressionFromSystemProperty)
-        );
-    }
-
-    @Test
-    public void doShutdown_deletesScheduledJob_whenAMatchingJobPreviouslyScheduled() throws RepositoryException {
-
-        // given
-        given(scheduler.checkExists(any(), any())).willReturn(true);
-
-        // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
-
-        // then
-        then(scheduler).should().checkExists(JOB_NAME, JOB_GROUP_NAME);
-        then(scheduler).should().deleteJob(JOB_NAME, JOB_GROUP_NAME);
-    }
-
-    @Test
-    public void doShutdown_doesNothing_whenNoMatchingJobPreviouslyScheduled() throws RepositoryException {
-
-        // given
-        given(scheduler.checkExists(JOB_NAME, JOB_GROUP_NAME)).willReturn(false);
-
-        // when
-        apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
+        apiSpecSyncFromApigeeModule.shutdown();
 
         // then
         then(scheduler).should(never()).deleteJob(any(), any());
+    }
+
+    private void unsetSystemProperties() {
+        System.getProperties().remove("devzone.apispec.sync.daily-cron-expression");
+        System.getProperties().remove("devzone.apispec.sync.nightly-cron-expression");
+        System.getProperties().remove("devzone.apispec.sync.schedule-delay-duration");
     }
 }

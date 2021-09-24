@@ -29,30 +29,34 @@
             <div class="column column--reset">
                 <div class="list list--reset cta-list cta-list--sections cta-list--sections-busy">
                     <#list gdprDocumentGroups[letter] as gdprDocument>
-                    
+
                     <#assign hasBlocks = gdprDocument.blocks?? && gdprDocument.blocks?size!=0 />
 
                     <article class="cta cta--gdpr-summary">
+                        <@hst.link hippobean=gdprDocument var="relatedSubjectLink"/>
                         <div class="grid-row">
                             <div class="column column--reset">
-                                <h2 class="cta__title"><a href="<@hst.link hippobean=gdprDocument />">${gdprDocument.title}</a></h2>
+                                <h2 class="cta__title">
+                                    <a href="<@hst.link hippobean=gdprDocument />"
+                                                          onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}">${gdprDocument.title}--></a></h2>
                             </div>
                         </div>
 
                         <div class="grid-row">
                             <div class="column column--reset column--rights">
                                 <h3 class="cta__subtitle"><@fmt.message key="labels.your-rights"/></h3>
-
+                                <#assign count = 0>
                                 <ul class="checklist checklist--condensed">
                                     <#list rights?keys as key>
                                         <li class="checklist__item">
-                                            <#if gdprDocument.rights?seq_contains(key)>
+                                            <#if gdprDocument.gdrpRights[count].gdprRightRequired?contains("yes")>
                                                 <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" />
                                             <#else>
                                                 <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" />
                                             </#if>
                                             <span class="checklist__label">${rights[key]}</span>
-                                        </li>                                                
+                                        </li>
+                                        <#assign count = count + 1>
                                     </#list>
                                 </ul>
                             </div>
@@ -71,10 +75,13 @@
                                 <h3 class="cta__subtitle"><@fmt.message key="labels.asset-used-by"/></h3>
                                 <ul class="list cta-list">
                                     <#list gdprDocument.blocks as block>
+                                        <@hst.link hippobean=block.link var="relatedSubjectLink1"/>
                                     <li>
                                         <article class="cta">
                                             <#if block.linkType == "internal">
-                                                <h2 class="cta__meta cta__meta--reset-bottom"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
+                                                <h2 class="cta__meta cta__meta--reset-bottom">
+                                                    <a href="<@hst.link hippobean=block.link />"
+                                                       onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink1)}">${block.link.title}</a></h2>
                                             <#else>
                                                 <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
                                                 <h2 class="cta__meta cta__meta--reset-bottom"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>

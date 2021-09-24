@@ -55,6 +55,7 @@
             ,classpath*:org/onehippo/**/*.class
             ,classpath*:com/onehippo/**/*.class
             ,classpath*:org/onehippo/forge/**/*.class
+            ,classpath*:org/bloomreach/forge/**/*.class
         </param-value>
     </context-param>
 
@@ -94,6 +95,7 @@
         <filter-class>org.onehippo.forge.ipfilter.hst.IpFilter</filter-class>
         <async-supported>true</async-supported>
     </filter>
+
 
     <filter>
         <filter-name>PingFilter</filter-name>
