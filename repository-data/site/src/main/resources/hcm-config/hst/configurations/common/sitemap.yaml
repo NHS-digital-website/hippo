@@ -355,6 +355,10 @@ definitions:
           hst:refId: pagenotfound
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /events:
+        hst:componentconfigurationid: hst:pages/latestevents
+        hst:relativecontentpath: events
+        jcr:primaryType: hst:sitemapitem
       /forms:
         /_any_:
           hst:componentconfigurationid: hst:pages/form-mail
@@ -421,20 +425,20 @@ definitions:
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/latestevents
           jcr:primaryType: hst:sitemapitem
-        /news:
+        /feed:
           /_any_:
             hst:componentconfigurationid: hst:pages/news
-            hst:relativecontentpath: news-and-events/latest-news
+            hst:relativecontentpath: news/latest-news
             jcr:primaryType: hst:sitemapitem
           /year:
             /_any_:
               hst:componentconfigurationid: hst:pages/latestnews
-              hst:relativecontentpath: faceted-news/year/${1}
+              hst:relativecontentpath: feed/year/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/404
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/latestnews
-          hst:relativecontentpath: faceted-news
+          hst:relativecontentpath: feed
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingnames:
         - website:hub

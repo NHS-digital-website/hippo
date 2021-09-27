@@ -1,0 +1,983 @@
+---
+/content/urlrewriter/rules/news-and-events-redirect:
+  /events-redirect:
+    /events-redirect[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:16:33.169Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:01:09.276Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Events redirect
+      urlrewriter:rulefrom: /news-and-events/events/*
+      urlrewriter:ruleto: /news/events/$1
+      urlrewriter:ruletype: permanent-redirect
+    /events-redirect[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:16:33.169Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:01:14.313Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Events redirect
+      urlrewriter:rulefrom: /news-and-events/events/*
+      urlrewriter:ruleto: /news/events/$1
+      urlrewriter:ruletype: permanent-redirect
+    /events-redirect[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:16:33.169Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:01:14.313Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-03T14:01:16.478Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Events redirect
+      urlrewriter:rulefrom: /news-and-events/events/*
+      urlrewriter:ruleto: /news/events/$1
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Events redirect
+    hippo:versionHistory: 4bc9c924-f131-415f-bc7b-219941d826e3
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--feed-year-to--feed:
+    /redirect-from--feed-year-to--feed[1]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:39:45.269Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /feed/year/  to /news/feed
+      urlrewriter:rulefrom: /feed/year
+      urlrewriter:ruleto: /news/feed
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--feed-year-to--feed[2]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:39:41.598Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /feed/year/  to /news/feed
+      urlrewriter:rulefrom: /feed/year
+      urlrewriter:ruleto: /news/feed
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--feed-year-to--feed[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:39:45.269Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-29T15:39:48.655Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /feed/year/  to /news/feed
+      urlrewriter:rulefrom: /feed/year
+      urlrewriter:ruleto: /news/feed
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /feed/year to /feed/
+    hippo:versionHistory: 04d182e5-e418-4ef3-b581-ba4dd776bf7b
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news--to--news-content:
+    /redirect-from--news--to--news-content[1]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-23T16:26:07.581Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/ to /news/content
+      urlrewriter:rulefrom: /news
+      urlrewriter:ruleto: /news/content/
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news--to--news-content[2]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-23T16:25:58.434Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/ to /news/content
+      urlrewriter:rulefrom: /news
+      urlrewriter:ruleto: /news/content/
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news--to--news-content[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-23T16:26:07.581Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-23T16:26:09.542Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/ to /news/content
+      urlrewriter:rulefrom: /news
+      urlrewriter:ruleto: /news/content/
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news/ to /news/content
+    hippo:versionHistory: bb9b904c-360e-441f-95f5-90ef1a283fce
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-2017-to--news-feed-year-2017:
+    /redirect-from--news-2017-to--news-feed-year-2017[1]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:37:20.354Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2017  to /news/feed/year/2017
+      urlrewriter:rulefrom: /news/2017
+      urlrewriter:ruleto: /news/feed/year/2017
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-2017-to--news-feed-year-2017[2]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:37:08.109Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2017  to /news/feed/year/2017
+      urlrewriter:rulefrom: /news/2017
+      urlrewriter:ruleto: /news/feed/year/2017
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-2017-to--news-feed-year-2017[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:37:20.354Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-29T15:37:22.984Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2017  to /news/feed/year/2017
+      urlrewriter:rulefrom: /news/2017
+      urlrewriter:ruleto: /news/feed/year/2017
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news/2017 to /news/feed/year/2017
+    hippo:versionHistory: a0c7ea82-ebe6-44bf-9205-0701cbe8f5dd
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-2018-to--news-feed-year-2018:
+    /redirect-from--news-2018-to--news-feed-year-2018[1]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:35:58.291Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2018  to /news/feed/year/2018
+      urlrewriter:rulefrom: /news/2018
+      urlrewriter:ruleto: /news/feed/year/2018
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-2018-to--news-feed-year-2018[2]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:35:44.887Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2018  to /news/feed/year/2018
+      urlrewriter:rulefrom: /news/2018
+      urlrewriter:ruleto: /news/feed/year/2018
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-2018-to--news-feed-year-2018[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:35:58.291Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-29T15:36:00.437Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2018  to /news/feed/year/2018
+      urlrewriter:rulefrom: /news/2018
+      urlrewriter:ruleto: /news/feed/year/2018
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news/2018 to /news/feed/year/2018
+    hippo:versionHistory: 8cc97664-7dcd-491d-ae31-531bccc3ed1f
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-2020-to--news-feed-year-2020:
+    /redirect-from--news-2020-to--news-feed-year-2020[1]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T11:12:31.020Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2020  to /news/feed/year/2020
+      urlrewriter:rulefrom: /news/2020
+      urlrewriter:ruleto: /news/feed/year/2020
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-2020-to--news-feed-year-2020[2]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T11:12:17.833Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2020  to /news/feed/year/2020
+      urlrewriter:rulefrom: /news/2020
+      urlrewriter:ruleto: /news/feed/year/2020
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-2020-to--news-feed-year-2020[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T11:12:31.020Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-29T11:12:33.746Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2020  to /news/feed/year/2020
+      urlrewriter:rulefrom: /news/2020
+      urlrewriter:ruleto: /news/feed/year/2020
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news/2020 to /news/feed/year/2020
+    hippo:versionHistory: 1c94e3ed-e992-4bc0-a46e-6d386c0f0e12
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-2021-to--news-feed-year-2021:
+    /redirect-from--news-2021-to--news-feed-year-2021[1]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T11:11:55.488Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2021 to /news/feed/year/2021
+      urlrewriter:rulefrom: /news/2021
+      urlrewriter:ruleto: /news/feed/year/2021
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-2021-to--news-feed-year-2021[2]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T11:11:47.217Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2021 to /news/feed/year/2021
+      urlrewriter:rulefrom: /news/2021
+      urlrewriter:ruleto: /news/feed/year/2021
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-2021-to--news-feed-year-2021[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T11:11:55.488Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-29T11:11:57.503Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/2021 to /news/feed/year/2021
+      urlrewriter:rulefrom: /news/2021
+      urlrewriter:ruleto: /news/feed/year/2021
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news/2021 to /news/feed/year/2021
+    hippo:versionHistory: 29353dd8-d8aa-496a-809e-337096bf9dd9
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-and-events--to--news:
+    /redirect-from--news-and-events--to--news[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:34:23Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/ to /news
+      urlrewriter:rulefrom: /news-and-events
+      urlrewriter:ruleto: /news/content
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events--to--news[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:34:28.553Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/ to /news
+      urlrewriter:rulefrom: /news-and-events
+      urlrewriter:ruleto: /news/content
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events--to--news[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-29T15:34:28.553Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-29T15:34:31.520Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/ to /news
+      urlrewriter:rulefrom: /news-and-events
+      urlrewriter:ruleto: /news/content
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news-and-events/ to /news
+    hippo:versionHistory: 12128e9c-4f99-412d-bab3-7983c1c0b871
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-and-events-latest-news-to-news-latest-news:
+    /redirect-from--news-and-events-latest-news-to-news-latest-news[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:27:16.916Z
+      hippostdpubwf:lastModificationDate: 2021-03-04T17:37:38.615Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/latest-news to news/latest-news
+      urlrewriter:rulefrom: /news-and-events/latest-news/**
+      urlrewriter:ruleto: /news/latest-news/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-latest-news-to-news-latest-news[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:27:16.916Z
+      hippostdpubwf:lastModificationDate: 2021-03-04T17:37:44.658Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/latest-news to news/latest-news
+      urlrewriter:rulefrom: /news-and-events/latest-news/**
+      urlrewriter:ruleto: /news/latest-news/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-latest-news-to-news-latest-news[3]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:27:16.916Z
+      hippostdpubwf:lastModificationDate: 2021-03-04T17:37:44.658Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-04T17:37:47.008Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/latest-news to news/latest-news
+      urlrewriter:rulefrom: /news-and-events/latest-news/**
+      urlrewriter:ruleto: /news/latest-news/$1
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news-and-events/latest-news to news/latest-news
+    hippo:versionHistory: 69ea9a88-1c14-4740-a0f2-9d7df2e5f8d1
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-and-events-news-archive-to-news-news-archive:
+    /redirect-from--news-and-events-news-archive-to-news-news-archive[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:17:23.944Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:01:22.244Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/news-archive to
+        news/news-archive
+      urlrewriter:rulefrom: /news-and-events/news-archive/*
+      urlrewriter:ruleto: /news/news-archive/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-news-archive-to-news-news-archive[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:17:23.944Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:01:29.769Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/news-archive to
+        news/news-archive
+      urlrewriter:rulefrom: /news-and-events/news-archive/*
+      urlrewriter:ruleto: /news/news-archive/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-news-archive-to-news-news-archive[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:17:23.944Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:01:29.769Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-03T14:01:35.115Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/news-archive to
+        news/news-archive
+      urlrewriter:rulefrom: /news-and-events/news-archive/*
+      urlrewriter:ruleto: /news/news-archive/$1
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news-and-events/news-archive to news/news-archive
+    hippo:versionHistory: 4df4c958-2571-481d-99f5-6858f2bb654a
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-and-events-news-to--news:
+    /redirect-from--news-and-events-news-to--news[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:07:00.640Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:00:49.376Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/news to /news
+      urlrewriter:rulefrom: /news-and-events/news/*
+      urlrewriter:ruleto: /news/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-news-to--news[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:07:00.640Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:00:54.546Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/news to /news
+      urlrewriter:rulefrom: /news-and-events/news/*
+      urlrewriter:ruleto: /news/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-news-to--news[3]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:07:00.640Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T14:00:54.546Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-03T14:00:56.929Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/news to /news
+      urlrewriter:rulefrom: /news-and-events/news/*
+      urlrewriter:ruleto: /news/$1
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news-and-events/news to /news
+    hippo:versionHistory: c2c9015a-b1ef-4080-8c86-8c82448c8010
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-and-events-press-office--to--press-office:
+    /redirect-from--news-and-events-press-office--to--press-office[1]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:08:58.124Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T13:58:02.746Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/press-office to
+        /press-office
+      urlrewriter:rulefrom: /news-and-events/press-office
+      urlrewriter:ruleto: /news/press-office
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-press-office--to--press-office[2]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:08:58.124Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T13:58:02.860Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/press-office to
+        /press-office
+      urlrewriter:rulefrom: /news-and-events/press-office
+      urlrewriter:ruleto: /news/press-office
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-press-office--to--press-office[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:08:58.124Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T13:58:02.746Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-24T15:39:08.767Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/press-office to
+        /press-office
+      urlrewriter:rulefrom: /news-and-events/press-office
+      urlrewriter:ruleto: /news/press-office
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news-and-events/press-office/ to /press-office
+    hippo:versionHistory: c4505671-5074-448e-8fb5-457f92052df6
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-and-events-press-office-to--press-office:
+    /redirect-from--news-and-events-press-office-to--press-office[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:08:58.124Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T13:58:26.263Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/press-office/ to
+        /press-office
+      urlrewriter:rulefrom: /news-and-events/press-office/*
+      urlrewriter:ruleto: /news/press-office/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-press-office-to--press-office[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:08:58.124Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T13:58:30.728Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/press-office/ to
+        /press-office
+      urlrewriter:rulefrom: /news-and-events/press-office/*
+      urlrewriter:ruleto: /news/press-office/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-press-office-to--press-office[3]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:08:58.124Z
+      hippostdpubwf:lastModificationDate: 2021-03-03T13:58:30.728Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-03T13:58:34.040Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events/press-office/ to
+        /press-office
+      urlrewriter:rulefrom: /news-and-events/press-office/*
+      urlrewriter:ruleto: /news/press-office/$1
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news-and-events/press-office to /press-office
+    hippo:versionHistory: 683655a7-8151-4583-bc0e-3ebb69b14fb6
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-and-events-to--news:
+    /redirect-from--news-and-events-to--news[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:38:15.318Z
+      hippostdpubwf:lastModificationDate: 2021-03-19T16:10:13.768Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events to /news
+      urlrewriter:rulefrom: /news-and-events
+      urlrewriter:ruleto: /news/
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-to--news[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:38:15.318Z
+      hippostdpubwf:lastModificationDate: 2021-03-19T16:10:22.823Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events to /news
+      urlrewriter:rulefrom: /news-and-events
+      urlrewriter:ruleto: /news/
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-and-events-to--news[3]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:38:15.318Z
+      hippostdpubwf:lastModificationDate: 2021-03-19T16:10:22.823Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-19T16:10:25.100Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news-and-events to /news
+      urlrewriter:rulefrom: /news-and-events
+      urlrewriter:ruleto: /news/
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news-and-events to /news
+    hippo:versionHistory: 50879d62-a9fa-4114-94cf-b7301cc2dc8e
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--news-news-to--news-feed:
+    /redirect-from--news-news-to--news-feed[1]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-24T14:34:58.776Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/news to /news/feed
+      urlrewriter:rulefrom: /news/news
+      urlrewriter:ruleto: /news/feed
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-news-to--news-feed[2]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-24T14:35:03.586Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/news to /news/feed
+      urlrewriter:rulefrom: /news/news
+      urlrewriter:ruleto: /news/feed
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--news-news-to--news-feed[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: deven.rawat
+      hippostdpubwf:creationDate: 2021-03-04T17:23:18.172Z
+      hippostdpubwf:lastModificationDate: 2021-03-24T14:34:58.776Z
+      hippostdpubwf:lastModifiedBy: deven.rawat
+      hippostdpubwf:publicationDate: 2021-03-24T14:35:07.169Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /news/news to /news/feed
+      urlrewriter:rulefrom: /news/news
+      urlrewriter:ruleto: /news/feed
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /news/news to /news/feed
+    hippo:versionHistory: 0781de2f-83f4-4b51-86de-a5f280110ae4
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /redirect-from--publications-to--data-and-information-publications:
+    /redirect-from--publications-to--data-and-information-publications[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:13:42.859Z
+      hippostdpubwf:lastModificationDate: 2021-03-02T20:13:42.859Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /publications to /data-and-information/publications
+      urlrewriter:rulefrom: /publications/**
+      urlrewriter:ruleto: /site/data-and-information/publications/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--publications-to--data-and-information-publications[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:13:42.859Z
+      hippostdpubwf:lastModificationDate: 2021-03-02T20:14:09.697Z
+      hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /publications to /data-and-information/publications
+      urlrewriter:rulefrom: /publications/**
+      urlrewriter:ruleto: /site/data-and-information/publications/$1
+      urlrewriter:ruletype: permanent-redirect
+    /redirect-from--publications-to--data-and-information-publications[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:13:42.859Z
+      hippostdpubwf:lastModificationDate: 2021-03-02T20:14:09.697Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-03-02T20:14:12.255Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: Redirect from /publications to /data-and-information/publications
+      urlrewriter:rulefrom: /publications/**
+      urlrewriter:ruleto: /site/data-and-information/publications/$1
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: Redirect from /publications to /data-and-information/publications
+    hippo:versionHistory: 953735c1-5784-442c-9ea9-344ff206cc07
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /shmi-redirect:
+    /shmi-redirect[1]:
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:19:12.498Z
+      hippostdpubwf:lastModificationDate: 2021-03-02T20:19:12.498Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: SHMI Redirect
+      urlrewriter:rulefrom: /shmi
+      urlrewriter:ruleto: /site/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
+      urlrewriter:ruletype: permanent-redirect
+    /shmi-redirect[2]:
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:19:12.498Z
+      hippostdpubwf:lastModificationDate: 2021-03-02T20:19:35.201Z
+      hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: SHMI Redirect
+      urlrewriter:rulefrom: /shmi
+      urlrewriter:ruleto: /site/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
+      urlrewriter:ruletype: permanent-redirect
+    /shmi-redirect[3]:
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-03-02T20:19:12.498Z
+      hippostdpubwf:lastModificationDate: 2021-03-02T20:19:35.201Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-03-02T20:19:36.994Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: urlrewriter:rule
+      urlrewriter:ruledescription: SHMI Redirect
+      urlrewriter:rulefrom: /shmi
+      urlrewriter:ruleto: /site/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
+      urlrewriter:ruletype: permanent-redirect
+    hippo:name: SHMI Redirect
+    hippo:versionHistory: b20a22bf-4329-41f3-8ece-d3789fe65874
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippostd:foldertype:
+  - new-urlrewriter-folder
+  - new-urlrewriter-document
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: urlrewriter:ruleset
