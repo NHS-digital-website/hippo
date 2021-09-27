@@ -11,27 +11,32 @@
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
-    - We're preparing your download
-    - Please tell us which organisation you work for
-    - Organisation name
-    - Confirm
-    - I don't want to give my organisation
-    - My organisation is not listed
+    - On download modal header
+    - All users modal header
+    - Modal intro text
+    - Organisation Dropdown Placeholder text
+    - Confirm button text
+    - Decline button text
+    - Not listed button text
+    - Organisation not selected error text
     resourcebundle:id: rb.modal.download
     resourcebundle:keys:
-    - modal.download.header
+    - modal.download.download.header
+    - modal.download.all.users.header
     - modal.download.intro
-    - modal.download.org.name
+    - modal.download.placeholder.text
     - modal.download.confirm.button
     - modal.download.decline.text
-    - modal.download.org.not.listed.text
+    - modal.download.org.not.selected.error
     resourcebundle:messages:
     - We're preparing your download
+    - Please tell us your organisation
     - Please tell us which organisation you work for
     - Organisation name
     - Confirm
     - I don't want to give my organisation
     - My organisation is not listed
+    - Organisation not selected
   /rb.modal.download[2]:
     hippo:availability:
     - preview
@@ -44,27 +49,33 @@
     - mix:versionable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
-    - We're preparing your download
-    - Please tell us which organisation you work for
-    - Organisation name
-    - Confirm
-    - I don't want to give my organisation
-    - My organisation is not listed
+    - On download modal header
+    - All users modal header
+    - Modal intro text
+    - Organisation Dropdown Placeholder text
+    - Confirm button text
+    - Decline button text
+    - Not listed button text
+    - Organisation not selected error text
     resourcebundle:id: rb.modal.download
     resourcebundle:keys:
-    - modal.download.header
+    - modal.download.download.header
+    - modal.download.all.users.header
     - modal.download.intro
-    - modal.download.org.name
+    - modal.download.placeholder.text
     - modal.download.confirm.button
     - modal.download.decline.text
     - modal.download.org.not.listed.text
+    - modal.download.org.not.selected.error
     resourcebundle:messages:
     - We're preparing your download
+    - Please tell us your organisation
     - Please tell us which organisation you work for
     - Organisation name
     - Confirm
     - I don't want to give my organisation
     - My organisation is not listed
+    - Organisation not selected
   /rb.modal.download[3]:
     hippo:availability:
     - live
@@ -78,27 +89,33 @@
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
-    - We're preparing your download
-    - Please tell us which organisation you work for
-    - Organisation name
-    - Confirm
-    - I don't want to give my organisation
-    - My organisation is not listed
+    - On download modal header
+    - All users modal header
+    - Modal intro text
+    - Organisation Dropdown Placeholder text
+    - Confirm button text
+    - Decline button text
+    - Not listed button text
+    - Organisation not selected error text
     resourcebundle:id: rb.modal.download
     resourcebundle:keys:
-    - modal.download.header
+    - modal.download.download.header
+    - modal.download.all.users.header
     - modal.download.intro
-    - modal.download.org.name
+    - modal.download.placeholder.text
     - modal.download.confirm.button
     - modal.download.decline.text
     - modal.download.org.not.listed.text
+    - modal.download.org.not.selected.error
     resourcebundle:messages:
     - We're preparing your download
+    - Please tell us your organisation
     - Please tell us which organisation you work for
     - Organisation name
     - Confirm
     - I don't want to give my organisation
     - My organisation is not listed
+    - Organisation not selected
   hippo:name: Download Modal Resource Bundle
   jcr:mixinTypes:
   - hippo:named

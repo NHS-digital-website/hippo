@@ -63,7 +63,7 @@ public class OrganisationDataResource extends BaseRestResource {
         }
         List<OdsOrganisation> filterOrg =
             odsResults.stream()
-                .filter(b -> b.getOrgName().toUpperCase().startsWith(orgName.toUpperCase()))
+                .filter(b -> (b.getOrgName() + " " + b.getCode()).toUpperCase().contains(orgName.toUpperCase()))
                 .collect(Collectors.toList());
         return filterOrg;
     }

@@ -6,15 +6,15 @@ definitions:
         /_default_:
           jcr:primaryType: frontend:plugincluster
           frontend:properties:
-            - mode
+          - mode
           frontend:references:
-            - wicket.model
-            - model.compareTo
-            - engine
-            - validator.id
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
           frontend:services:
-            - wicket.id
-            - validator.id
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
@@ -262,7 +262,7 @@ definitions:
             hipposysedit:path: website:bannercontrols
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
-              - contentblocks-validator
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /component:
             hipposysedit:mandatory: false
@@ -296,7 +296,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             hipposysedit:validators:
-              - optional
+            - optional
             jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
@@ -312,7 +312,7 @@ definitions:
             hipposysedit:path: website:items
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
-              - contentblocks-validator
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /leadimage:
             hipposysedit:mandatory: false
@@ -338,7 +338,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators:
-              - required
+            - required
             jcr:primaryType: hipposysedit:field
           /noindexcontrol:
             hipposysedit:mandatory: false
@@ -348,14 +348,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
-          /propmtuserorg:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:propmtuserorg
-            hipposysedit:primary: false
-            hipposysedit:type: urlrewriter:BroadcastingStaticDropdown
-            jcr:primaryType: hipposysedit:field
           /pageicon:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -363,6 +355,14 @@ definitions:
             hipposysedit:path: website:pageicon
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
+            jcr:primaryType: hipposysedit:field
+          /propmtuserorg:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:propmtuserorg
+            hipposysedit:primary: false
+            hipposysedit:type: urlrewriter:BroadcastingStaticDropdown
             jcr:primaryType: hipposysedit:field
           /searchTab:
             hipposysedit:mandatory: false
@@ -378,7 +378,7 @@ definitions:
             hipposysedit:path: website:sections
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
-              - contentblocks-validator
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -433,7 +433,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-              - required
+            - required
             jcr:primaryType: hipposysedit:field
           /type:
             hipposysedit:mandatory: false
@@ -469,17 +469,17 @@ definitions:
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-            - website:basedocument
-            - hippostd:relaxed
-            - hippotranslation:translated
-            - hippotaxonomy:classifiable
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
-            - mix:referenceable
-            - hipposysedit:remodel
+          - mix:referenceable
+          - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
-          - mix:referenceable
+        - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
@@ -539,7 +539,7 @@ definitions:
             website:portfolioCode: ''
             website:responsibleTeam: ''
             website:userNeedismet:
-              - ''
+            - ''
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
@@ -551,8 +551,8 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
-            - mix:referenceable
-            - hippotaxonomy:classifiable
+          - mix:referenceable
+          - hippotaxonomy:classifiable
           jcr:primaryType: website:general
           website:gossid: 0
           website:metadata: []
@@ -565,6 +565,6 @@ definitions:
           website:type: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
-        - editor:editable
-        - mix:referenceable
+      - editor:editable
+      - mix:referenceable
       jcr:primaryType: hipposysedit:templatetype

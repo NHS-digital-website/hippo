@@ -3,11 +3,11 @@
 <#include "../../../include/imports.ftl">
 <#include "../documentIcon.ftl">
 
-<#macro downloadBlockExternal classname doc title shortsummary>
+<#macro downloadBlockExternal classname doc title shortsummary orgPrompt=false>
     <#assign onClickMethodCall = getOnClickMethodCall(classname, doc) />
 
     <div class="nhsd-m-download-card">
-        <a href="${doc}" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
+        <a href="${doc}" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" ${orgPrompt?then('data-org-prompt', '')}>
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-download-card__image-box">
                     <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->
