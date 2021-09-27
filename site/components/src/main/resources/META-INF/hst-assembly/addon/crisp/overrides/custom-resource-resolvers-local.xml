@@ -47,6 +47,24 @@
             </bean>
         </property>
     </bean>
+    <bean id="svgResourceResolver"
+          parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
+          class="uk.nhs.digital.crisp.SvgSimpleJacksonRestTemplateResourceResolver">
+        <property name="cacheEnabled" value="true"/>
+        <property name="baseUri" value=""/>
+        <property name="restTemplate">
+            <bean class="org.springframework.web.client.RestTemplate">
+                <property name="requestFactory"
+                          ref="org.springframework.http.client.ClientHttpRequestFactory"/>
+                <property name="interceptors">
+                    <list>
+                        <bean
+                            class="uk.nhs.digital.freemarker.highcharts.ChartDataResponseInterceptor"/>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
     <bean id="statisticsRestResourceResolver" parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
           class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
         <property name="cacheEnabled" value="true" />
