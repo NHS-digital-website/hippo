@@ -17,6 +17,9 @@
     <#if (chartData.data)??>
         ${chartData.setSuppressedSeries(str)}
     </#if>
+    <#if section.htmlCode?has_content>
+        ${section.htmlCode?no_esc}
+    </#if>
     <div class="nhsd-!t-margin-bottom-6" id="chart-${section.uniqueId}-block">
         <figure class="nhsd-!t-margin-0" data-chart="highchart">
             <div class="nhsd-!t-margin-bottom-2"

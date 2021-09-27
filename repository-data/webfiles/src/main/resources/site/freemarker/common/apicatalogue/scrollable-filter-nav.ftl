@@ -86,12 +86,12 @@
             <#if filter.selectable>
                 <a title="Filter by ${filter.displayName}"
                    href="<@renderUrl baseUrl=baseUrl showDeprecatedAndRetired=showDeprecatedAndRetired filters=filtersParam />"
-                   class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if>">
+                   class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                     <input type="checkbox">${filter.displayName}
                 </a>
                 <span class="checkmark <#if filter.selected>selected</#if>"></span>
             <#else>
-                <a href="" class="nhsd-a-checkbox__label nhsd-t-body-s nhsd-api-catalogue__filter-unavailable">
+                <a href="" class="nhsd-a-checkbox__label nhsd-t-body-s nhsd-api-catalogue__filter-unavailable <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                     <input type="checkbox" disabled>${filter.displayName}
                 </a>
                 <span class="checkmark <#if filter.selected>selected</#if>"></span>
