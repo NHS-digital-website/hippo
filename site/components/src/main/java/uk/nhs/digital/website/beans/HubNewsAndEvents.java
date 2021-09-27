@@ -75,7 +75,7 @@ public class HubNewsAndEvents extends CommonFieldsBean {
     public List<HippoBean> getLatestNewsArticles() throws QueryException {
 
         HstRequestContext requestContext = RequestContextProvider.get();
-        HippoBean scope = requestContext.getSiteContentBaseBean().getBean("news-and-events/latest-news");
+        HippoBean scope = requestContext.getSiteContentBaseBean().getBean("news/latest-news");
 
         HstQuery hstNewsQuery = HstQueryBuilder.create(scope).ofTypes(News.class).orderByDescending("website:publisheddatetime")
             .build();
