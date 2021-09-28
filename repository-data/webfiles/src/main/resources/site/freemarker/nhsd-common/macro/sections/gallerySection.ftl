@@ -32,11 +32,11 @@
                 <article class="nhsd-m-card">
                   <div class="nhsd-a-box nhsd-a-box--border-grey">
 
-                    <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
+                    <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="newimage" />
                     <div class="nhsd-m-card__image_container">
                       <figure class="nhsd-a-image nhsd-a-image--round-top-corners nhsd-a-image--maintain-ratio">
                         <picture class="nhsd-a-image__picture ">
-                          <img src="${image}" alt="${galleryItem.imageAlt}">
+                          <img src="${newimage}" alt="${galleryItem.imageAlt}">
                         </picture>
                       </figure>
                     </div>
