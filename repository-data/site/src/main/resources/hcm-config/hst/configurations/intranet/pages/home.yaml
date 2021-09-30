@@ -3,11 +3,20 @@ definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:pages/home:
       /main:
-        /left:
-          hst:referencecomponent: homepage/left
+        /homepagecontainer1:
+          hst:referencecomponent: homepage/homepagecontainer1
           jcr:primaryType: hst:containercomponentreference
-        /right:
-          hst:referencecomponent: homepage/right
+        /homepagecontainer2:
+          hst:referencecomponent: homepage/homepagecontainer2
+          jcr:primaryType: hst:containercomponentreference
+        /homepagecontainer3:
+          hst:referencecomponent: homepage/homepagecontainer3
+          jcr:primaryType: hst:containercomponentreference
+        /homepagecontainer4:
+          hst:referencecomponent: homepage/homepagecontainer4
+          jcr:primaryType: hst:containercomponentreference
+        /homepagecontainer5:
+          hst:referencecomponent: homepage/homepagecontainer5
           jcr:primaryType: hst:containercomponentreference
         hst:componentclassname: uk.nhs.digital.intranet.components.HomePageComponent
         hst:template: home
