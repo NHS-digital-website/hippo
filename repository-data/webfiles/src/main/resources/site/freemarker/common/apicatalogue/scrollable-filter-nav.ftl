@@ -101,10 +101,13 @@
         </span>
         </div>
         <#local nextLevel = indentationLevel + 1>
-        <#list filter.entries as filter>
-            <div style="margin-left:${nextLevel}em;">
+        <#if filter.entries?has_content>
+            <div style="margin-left:${nextLevel}em;position:relative">
+            <span class="filter-entries-edge"></span>
+            <#list filter.entries as filter>
                 <@filterTemplate filter filtersModel nextLevel></@filterTemplate>
+            </#list>
             </div>
-        </#list>
+        </#if>
     </#if>
 </#macro>
