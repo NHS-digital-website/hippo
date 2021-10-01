@@ -1,6 +1,12 @@
 const printPreviewSelector = 'js-print-preview';
 
 function printPDF() {
+
+    // Log the event
+    if (typeof logGoogleAnalyticsEvent === "function") {
+        logGoogleAnalyticsEvent('Button click','Download as PDF', window.location.href);
+    }
+
     // Create iframe to build printable document
     let printPreview = document.querySelector(`.${printPreviewSelector}`);
     if (printPreview) printPreview.remove();
