@@ -91,7 +91,7 @@
                 </a>
                 <span class="checkmark <#if filter.selected>selected</#if>"></span>
             <#else>
-                <a href="" class="nhsd-a-checkbox__label nhsd-t-body-s nhsd-api-catalogue__filter-unavailable <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
+                <a class="nhsd-a-checkbox__label nhsd-t-body-s nhsd-api-catalogue__filter-unavailable <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                     <input type="checkbox" disabled>${filter.displayName}
                 </a>
                 <span class="checkmark <#if filter.selected>selected</#if>"></span>
@@ -102,7 +102,7 @@
         </div>
         <#local nextLevel = indentationLevel + 1>
         <#if filter.entries?has_content>
-            <div style="margin-left:${nextLevel}em;position:relative">
+            <div class="filter-child-container">
             <span class="filter-entries-edge"></span>
             <#list filter.entries as filter>
                 <@filterTemplate filter filtersModel nextLevel></@filterTemplate>
