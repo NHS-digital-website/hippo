@@ -34,6 +34,12 @@
     & .nhsd-a-checkbox__label {
         position: relative;
         z-index: 0;
+
+        &:not(.nhsd-api-catalogue__filter-unavailable) {
+            & input[type="checkbox"] {
+                cursor: pointer;
+            }
+        }
     }
 
     & .nhsd-api-catalogue__filter-unavailable {
@@ -50,11 +56,6 @@
         }
     }
 
-    & .nhsd-a-checkbox__label {
-        position: relative;
-        z-index: 0;
-    }
-
     & input[type="checkbox"] {
         &:hover::before {
             top: -60%;
@@ -62,6 +63,8 @@
             width: 2.175rem;
             height: 2.175rem;
         }
+
+        pointer-events: none;
     }
   }
 
@@ -127,4 +130,9 @@
     &::after {
         bottom: -2.5px;
     }
+}
+
+.filter-child-container {
+    margin-left: 1em;
+    position: relative;
 }
