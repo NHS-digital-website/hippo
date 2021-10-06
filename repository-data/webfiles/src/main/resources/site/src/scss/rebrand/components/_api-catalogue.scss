@@ -57,13 +57,6 @@
     }
 
     & input[type="checkbox"] {
-        &:hover::before {
-            top: -60%;
-            left: -60%;
-            width: 2.175rem;
-            height: 2.175rem;
-        }
-
         pointer-events: none;
     }
   }
