@@ -4,7 +4,7 @@ definitions:
     /hst:hst/hst:configurations/intranet/hst:sitemap:
       /_any_:
         /_index_:
-          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationid: hst:pages/intranet-404
           hst:componentconfigurationmappingnames:
           - website:general
           - website:event
@@ -25,7 +25,7 @@ definitions:
           - hst:pages/video
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/404
+        hst:componentconfigurationid: hst:pages/intranet-404
         hst:componentconfigurationmappingnames:
         - website:general
         - website:event

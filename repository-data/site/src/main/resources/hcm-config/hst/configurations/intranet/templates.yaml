@@ -20,6 +20,9 @@ definitions:
       /intra-breadcrumb:
         hst:renderpath: webfile:/freemarker/intranet/intra-breadcrumb.ftl
         jcr:primaryType: hst:template
+      /intranet-404:
+        hst:renderpath: webfile:/freemarker/intranet/404.ftl
+        jcr:primaryType: hst:template
       /layout_master:
         hst:renderpath: webfile:/freemarker/intranet/layout/master.ftl
         jcr:primaryType: hst:template
