@@ -33,6 +33,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/latest/stylesheets/nhsd-frontend.css" />
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-edge-cases.css" />" />
     <script src="https://design-system.digital.nhs.uk/cdn/latest/scripts/nhsd-frontend.js"></script>
 
    <#--

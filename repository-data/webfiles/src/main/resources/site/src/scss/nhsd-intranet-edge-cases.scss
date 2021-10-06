@@ -1,0 +1,15 @@
+.nhsd-waffle-menu {
+    line-height: 0;
+    padding: 5px;
+    margin-left: -5px;
+    margin-right: 20px;
+    transition: 250ms background;
+
+    &:hover, &:focus {
+        background: #FAE100;
+
+        svg g {
+            fill: #003087;
+        }
+    }
+}
