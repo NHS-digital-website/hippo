@@ -2,7 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "../macro/siteHeader.ftl">
 <#include "../../common/macro/siteFooter.ftl">
-<#include "../../common/macro/component/skipLink.ftl">
+<#include "../macro/component/skipLink.ftl">
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -11,9 +11,6 @@
 
 <body class="debugs">
     <@skipLink />
-
-    <#-- Add IE banner -->
-    <@hst.include ref="ie-banner"/>
 
     <#-- Add site header without the search bar -->
     <@siteHeader false></@siteHeader>
