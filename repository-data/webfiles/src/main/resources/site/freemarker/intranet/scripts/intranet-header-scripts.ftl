@@ -15,4 +15,11 @@
 <script>
     window.resourceBaseUrl = "${webfilepath}";
 </script>
+
+<#--
+Todo once confident that all this JS can go, come back and clean up:
+    - repository-data/webfiles/src/main/resources/site/src/js/intranet-scripts.js
+    - repository-data/webfiles/src/main/resources/site/src/js/nhsd-priority-scripts.js
+<script defer src="<@hst.webfile path="/dist/intranet-scripts.bundle.js"/>"></script>
 <script defer src="<@hst.webfile path="/dist/nhsd-priority-scripts.bundle.js"/>"></script>
+-->
