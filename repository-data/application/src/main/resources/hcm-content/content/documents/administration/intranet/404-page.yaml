@@ -1,0 +1,120 @@
+---
+/content/documents/administration/intranet/404-page:
+  /404-page[1]:
+    hippo:availability:
+    - preview
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-20T13:15:24.917Z
+    hippostdpubwf:lastModificationDate: 2021-11-11T17:13:29.041Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.intra.404-page
+    resourcebundle:keys:
+    - page.title
+    - 404.error.code
+    - 404.error.message
+    - 404.try.search.text
+    - contact.text
+    - contact.telephone
+    - contact.email
+    resourcebundle:messages:
+    - We can't seem to find the page you're looking for
+    - Error, code 404
+    - If you typed in the web address, please check it is correct and try again.
+    - 'You could try our search:'
+    - If you still can’t find the information you want, try contacting our <a href="mailto:enquiries@nhsdigital.nhs.uk">helpdesk</a>.
+    - 0300 303 5678
+    - enquiries@nhsdigital.nhs.uk
+  /404-page[2]:
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-20T13:15:24.917Z
+    hippostdpubwf:lastModificationDate: 2021-11-11T16:55:33.150Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.intra.404-page
+    resourcebundle:keys:
+    - page.title
+    - 404.error.code
+    - 404.error.message
+    - 404.try.search.text
+    - contact.text
+    - contact.telephone
+    - contact.email
+    resourcebundle:messages:
+    - We can't seem to find the page you're looking for
+    - Error code 404
+    - If you typed in the web address, please check it is correct and try again.
+    - 'You could try our search:'
+    - If you still can’t find the information you want, try contacting our <a href="mailto:enquiries@nhsdigital.nhs.uk">helpdesk</a>.
+    - 0300 303 5678
+    - enquiries@nhsdigital.nhs.uk
+  /404-page[3]:
+    hippo:availability:
+    - live
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-20T13:15:24.917Z
+    hippostdpubwf:lastModificationDate: 2021-11-11T17:13:29.041Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2021-11-11T17:13:30.522Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.intra.404-page
+    resourcebundle:keys:
+    - page.title
+    - 404.error.code
+    - 404.error.message
+    - 404.try.search.text
+    - contact.text
+    - contact.telephone
+    - contact.email
+    resourcebundle:messages:
+    - We can't seem to find the page you're looking for
+    - Error code 404
+    - If you typed in the web address, please check it is correct and try again.
+    - 'You could try our search:'
+    - If you still can’t find the information you want, try contacting our <a href="mailto:enquiries@nhsdigital.nhs.uk">helpdesk</a>.
+    - 0300 303 5678
+    - enquiries@nhsdigital.nhs.uk
+  hippo:name: 404 page
+  hippo:versionHistory: 1218fc67-f0bc-4132-a705-469e01db1272
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
