@@ -1,29 +1,30 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<#include "../common/macro/iconGenerator.ftl">
 
 <#if breadcrumb?? && breadcrumb.items?size gte 1>
-<div class="grid-wrapper">
-    <div class="grid-row">
-        <div class="column column--reset">
-            <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb__crumb">
-                        <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link" data-text="NHS Digital">NHS Digital Intranet</a>
-                    </li>
-                    <#list breadcrumb.items as item>
-                        <li class="breadcrumb__crumb">
-                            <img src="<@hst.webfile  path="images/icon-arrow.svg"/>" alt="Right arrow icon" class="breadcrumb__sep" aria-hidden="true" />
-                            <#if !item?is_last>
-                            <@hst.link var="link" link=item.link/>
-                            <a href="${link}" class="breadcrumb__link" data-text="${item.title}">${item.title}</a>
-                            <#else>
-                            <span class="breadcrumb__link breadcrumb__link--secondary" data-text="${item.title}" aria-current="page">${item.title}</span>
-                            </#if>
+    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3">
+        <div class="nhsd-t-row">
+            <div class="nhsd-t-col">
+                <nav class="nhsd-m-breadcrumbs" aria-label="Breadcrumbs">
+                    <ol class="nhsd-m-breadcrumbs__list" data-uipath="document.breadcrumbs">
+                        <li class="nhsd-m-breadcrumbs__item">
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="/">NHS Digital Intranet</a>
+                            <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
                         </li>
-                    </#list>
-                </ol>
-            </nav>
+                        <#list breadcrumb.items as item>
+                            <li class="nhsd-m-breadcrumbs__item">
+                                <#if !item?is_last>
+                                    <a class="nhsd-a-link nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link link=item.link/>" data-text="${item.title}">${item.title}</a>
+                                    <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
+                                <#else>
+                                    <span class="nhsd-t-body-s" aria-current="page" data-text="${item.title}">${item.title}</span>
+                                </#if>
+                            </li>
+                        </#list>
+                    </ol>
+                </nav>
+            </div>
         </div>
     </div>
-</div>
 </#if>
