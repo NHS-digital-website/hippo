@@ -30,8 +30,7 @@ public class HighchartsDataFileValidator implements Validator<NodeDecorator> {
             if (isChartConfigInvalid(parameters)) {
                 return Optional.of(context.createViolation());
             }
-
-        } catch (RepositoryException e) {
+        } catch (NullPointerException | RepositoryException e) {
             LOGGER.error("Error occurred during validation ", e);
         }
 
@@ -41,7 +40,7 @@ public class HighchartsDataFileValidator implements Validator<NodeDecorator> {
     private boolean isChartConfigInvalid(final AbstractHighchartsParameters parameters) {
 
         if (parameters.noInputFileContent()) {
-            return false;
+            return true;
         }
 
         final HighchartsInputParser parser = HippoServiceRegistry.getService(HighchartsInputParser.class);
