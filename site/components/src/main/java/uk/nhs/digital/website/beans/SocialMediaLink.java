@@ -30,4 +30,9 @@ public class SocialMediaLink extends CommonFieldsBean {
     public String getNotes() {
         return getSingleProperty("website:notes");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:icon")
+    public String getIcon() {
+        return getSingleProperty("website:icon");
+    }
 }
