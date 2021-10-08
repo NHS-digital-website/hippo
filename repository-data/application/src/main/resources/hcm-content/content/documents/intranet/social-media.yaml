@@ -1,0 +1,384 @@
+---
+/content/documents/intranet/social-media:
+  /facebook:
+    /facebook[1]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:57:49.487Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:57:49.487Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fc42fab6-62b4-4e13-b2e5-2e0b77dc4422
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/facebook.svg
+      website:linkname: Facebook
+      website:nhsdigitalurl: https://www.facebook.com/NHSDigitalOfficial
+      website:notes: ''
+      website:sitemainurl: https://www.facebook.com/
+    /facebook[2]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:57:49.487Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:58:07.331Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fc42fab6-62b4-4e13-b2e5-2e0b77dc4422
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/facebook.svg
+      website:linkname: Facebook
+      website:nhsdigitalurl: https://www.facebook.com/NHSDigitalOfficial
+      website:notes: ''
+      website:sitemainurl: https://www.facebook.com/
+    /facebook[3]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:57:49.487Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:58:07.331Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-11-11T15:58:09.493Z
+      hippotranslation:id: fc42fab6-62b4-4e13-b2e5-2e0b77dc4422
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/facebook.svg
+      website:linkname: Facebook
+      website:nhsdigitalurl: https://www.facebook.com/NHSDigitalOfficial
+      website:notes: ''
+      website:sitemainurl: https://www.facebook.com/
+    hippo:name: Facebook
+    hippo:versionHistory: c370b9aa-7b85-4128-aee3-66dfd54dc262
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /linkedin:
+    /linkedin[1]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:58:26.724Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:58:26.724Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d3ae344c-05ac-46f0-89a6-94adb480c891
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/linkedin.svg
+      website:linkname: LinkedIn
+      website:nhsdigitalurl: https://www.linkedin.com/company/nhs-digital/
+      website:notes: ''
+      website:sitemainurl: https://www.linkedin.com/
+    /linkedin[2]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:58:26.724Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:58:51.576Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d3ae344c-05ac-46f0-89a6-94adb480c891
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/linkedin.svg
+      website:linkname: LinkedIn
+      website:nhsdigitalurl: https://www.linkedin.com/company/nhs-digital/
+      website:notes: ''
+      website:sitemainurl: https://www.linkedin.com/
+    /linkedin[3]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:58:26.724Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:58:51.576Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-11-11T15:58:53.495Z
+      hippotranslation:id: d3ae344c-05ac-46f0-89a6-94adb480c891
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/linkedin.svg
+      website:linkname: LinkedIn
+      website:nhsdigitalurl: https://www.linkedin.com/company/nhs-digital/
+      website:notes: ''
+      website:sitemainurl: https://www.linkedin.com/
+    hippo:name: LinkedIn
+    hippo:versionHistory: 3d3b65f1-e5c6-42b0-bcc7-a964c392da5c
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /twitter:
+    /twitter[1]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-10-22T15:33:47.335Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:55:15.050Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ec2d61d3-b915-49e8-9d92-f06baced2081
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/twitter.svg
+      website:linkname: Twitter
+      website:nhsdigitalurl: https://twitter.com/nhsdigital
+      website:notes: ''
+      website:sitemainurl: https://twitter.com/
+    /twitter[2]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-10-22T15:33:47.335Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:55:20.267Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ec2d61d3-b915-49e8-9d92-f06baced2081
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/twitter.svg
+      website:linkname: Twitter
+      website:nhsdigitalurl: https://twitter.com/nhsdigital
+      website:notes: ''
+      website:sitemainurl: https://twitter.com/
+    /twitter[3]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-10-22T15:33:47.335Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:55:20.267Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-11-11T15:55:24.509Z
+      hippotranslation:id: ec2d61d3-b915-49e8-9d92-f06baced2081
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/twitter.svg
+      website:linkname: Twitter
+      website:nhsdigitalurl: https://twitter.com/nhsdigital
+      website:notes: ''
+      website:sitemainurl: https://twitter.com/
+    hippo:name: Twitter
+    hippo:versionHistory: 50ff8aa9-7e9e-4b51-8495-20334e842681
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /youtube:
+    /youtube[1]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:59:16.758Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:59:16.758Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ee21dffa-3b40-4d0d-adec-aef6d3ab8d74
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/youtube.svg
+      website:linkname: YouTube
+      website:nhsdigitalurl: https://www.youtube.com/channel/UCiJsGFOHyf1jeFJztqDNpsg
+      website:notes: ''
+      website:sitemainurl: https://www.youtube.com/
+    /youtube[2]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:59:16.758Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:59:39.098Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ee21dffa-3b40-4d0d-adec-aef6d3ab8d74
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/youtube.svg
+      website:linkname: YouTube
+      website:nhsdigitalurl: https://www.youtube.com/channel/UCiJsGFOHyf1jeFJztqDNpsg
+      website:notes: ''
+      website:sitemainurl: https://www.youtube.com/
+    /youtube[3]:
+      /website:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-11T15:59:16.758Z
+      hippostdpubwf:lastModificationDate: 2021-11-11T15:59:39.098Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-11-11T15:59:41.254Z
+      hippotranslation:id: ee21dffa-3b40-4d0d-adec-aef6d3ab8d74
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:socialmedialink
+      website:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/youtube.svg
+      website:linkname: YouTube
+      website:nhsdigitalurl: https://www.youtube.com/channel/UCiJsGFOHyf1jeFJztqDNpsg
+      website:notes: ''
+      website:sitemainurl: https://www.youtube.com/
+    hippo:name: YouTube
+    hippo:versionHistory: 50bd0373-d591-4f9b-ace0-68c9e4b1a69e
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Social Media
+  hippostd:foldertype:
+  - new-socialmedialink-document
+  hippotranslation:id: 9edc4e81-4fcb-4f04-a8a4-34270ff05e54
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:referenceable
+  jcr:primaryType: hippostd:folder

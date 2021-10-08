@@ -11,32 +11,35 @@ class YamlFormatter extends Script {
 
     // Don't remove the UUID for corporate-website, it's referenced in the facet configuration
     // Same for ci-hub, since referenced for page links
-    static final Set keepUuidFiles =
-        ["corporate-website.yaml",
-         "ccg-outcomes.yaml",
-         "compendium-indicators.yaml",
-         "nhs-outcomes-framework.yaml",
-         "patient-online-management-information-pomi.yaml",
-         "social-care.yaml",
-         "summary-hospital-level-mortality-indicator-shmi.yaml",
-         "content.yaml",
-         "nihub.yaml",
-         "nihublink.yaml",
-         "acceptance-tests-images.yaml",
-         "events.yaml",
-         "news.yaml",
-         "news-and-events-hub.yaml",
-         "news-and-events.yaml",
-         "cyber-alerts.yaml",
-         "api-catalogue.yaml",
-        ]
+    static final Set keepUuidFiles = [
+        "corporate-website.yaml",
+        "ccg-outcomes.yaml",
+        "compendium-indicators.yaml",
+        "nhs-outcomes-framework.yaml",
+        "patient-online-management-information-pomi.yaml",
+        "social-care.yaml",
+        "summary-hospital-level-mortality-indicator-shmi.yaml",
+        "content.yaml",
+        "nihub.yaml",
+        "nihublink.yaml",
+        "acceptance-tests-images.yaml",
+        "events.yaml",
+        "news.yaml",
+        "news-and-events-hub.yaml",
+        "news-and-events.yaml",
+        "cyber-alerts.yaml",
+        "api-catalogue.yaml",
+    ]
 
     // We don't want to change the order of the children of '/_default_' tags
     // as these are used below '/editor:templates:' tags and determine the order
     // of the components in the CMS.
-    static final Set ignoreSortNodes =
-        ["/_default_",
-         "/content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication"]
+    static final Set ignoreSortNodes = [
+        "/_default_",
+        "/content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication",
+        "/hst:hst/hst:configurations/intranet/hst:workspace/hst:sitemenus/main",
+        "/hst:hst/hst:configurations/intranet/hst:workspace/hst:sitemenus/footer",
+    ]
 
     def run() {
         // Options for how the file is written out

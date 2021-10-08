@@ -2,6 +2,18 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:abstractpages/master:
+      /footer-menu:
+        hst:componentclassname: uk.nhs.digital.intranet.components.IntranetEssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - footer
+        hst:template: base-footer-menu
+        jcr:primaryType: hst:component
       /ie-banner:
         hst:componentclassname: uk.nhs.digital.common.components.IeBanner
         hst:template: ie-banner
