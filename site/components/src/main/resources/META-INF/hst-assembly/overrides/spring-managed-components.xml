@@ -11,16 +11,24 @@
         <constructor-arg name="pageableFactory" ref="org.onehippo.cms7.essentials.components.ext.DefaultPageableFactory" />
     </bean>
 
-    <bean id="uk.nhs.digital.intranet.components.SearchPageComponent" class="uk.nhs.digital.intranet.components.SearchPageComponent" scope="prototype">
+    <bean id="graphProvider" class="uk.nhs.digital.intranet.provider.impl.GraphProviderImpl">
+        <constructor-arg name="restTemplate" ref="restTemplate" />
+    </bean>
+
+    <bean id="personFactory" class="uk.nhs.digital.intranet.factory.PersonFactory">
         <constructor-arg name="graphProvider" ref="graphProvider" />
+    </bean>
+
+    <bean id="uk.nhs.digital.intranet.components.PersonComponent" class="uk.nhs.digital.intranet.components.PersonComponent" scope="prototype">
+        <constructor-arg name="personFactory" ref="personFactory" />
+    </bean>
+
+    <bean id="uk.nhs.digital.intranet.components.SearchPageComponent" class="uk.nhs.digital.intranet.components.SearchPageComponent" scope="prototype">
+        <constructor-arg name="personFactory" ref="personFactory" />
         <constructor-arg name="bloomreachSearchProvider" ref="bloomreachSearchProvider" />
         <constructor-arg name="applicationId" ref="applicationId" />
         <constructor-arg name="redirectUri" ref="graphApiRedirectUri" />
         <constructor-arg name="baseUri" ref="graphApiBaseUri" />
-    </bean>
-
-    <bean id="uk.nhs.digital.intranet.components.PersonComponent" class="uk.nhs.digital.intranet.components.PersonComponent" scope="prototype">
-        <constructor-arg name="graphProvider" ref="graphProvider" />
     </bean>
 
     <bean id="basicRemoteContentService" class="uk.nhs.digital.freemarker.BasicRemoteContentService" />

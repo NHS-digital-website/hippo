@@ -31,6 +31,7 @@ public class FreemarkerFileTest {
     private static final String FTL_FILES_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/site/freemarker";
     private static final String DIRECTIVE_OUTPUT_FORMAT_HTML = "<#ftl output_format=\"HTML\"";
     private static final String DIRECTIVE_OUTPUT_FORMAT_PLAIN_TEXT = "<#ftl output_format=\"plainText\"";
+    private static final String DIRECTIVE_OUTPUT_FORMAT_JSON = "<#ftl output_format=\"JSON\"";
 
     @Test
     public void checkOutputFormatDirectiveIncluded() {
@@ -67,7 +68,8 @@ public class FreemarkerFileTest {
                             stream
                                 .limit(1)
                                 .filter(s -> !s.contains(DIRECTIVE_OUTPUT_FORMAT_HTML)
-                                            && !s.contains(DIRECTIVE_OUTPUT_FORMAT_PLAIN_TEXT))
+                                            && !s.contains(DIRECTIVE_OUTPUT_FORMAT_PLAIN_TEXT)
+                                            && !s.contains(DIRECTIVE_OUTPUT_FORMAT_JSON))
                                 .map(f -> file.getFileName())
                                 .forEach(element -> filesMissingOutputFormatDirective.add(element.toString()));
 

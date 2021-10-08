@@ -5,7 +5,7 @@
 <#include "../macro/component/skipLink.ftl">
 
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="nhsd-no-js">
 
 <#include "master-head.ftl">
 
@@ -25,7 +25,7 @@
 
     <@siteFooter narrowLayout=true />
 
-    <#include "../../common/scripts/footer-scripts.ftl" />
+    <#include "./footer-scripts.ftl" />
 </body>
 
 </html>

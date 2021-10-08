@@ -1,17 +1,17 @@
 package uk.nhs.digital.intranet.model;
 
-import uk.nhs.digital.intranet.enums.SearchArea;
+import uk.nhs.digital.intranet.enums.SearchTypes;
 
 import java.util.Objects;
 
 public class SearchResultTab {
 
-    public SearchResultTab(SearchArea tabName, int numberOfResults) {
+    public SearchResultTab(SearchTypes tabName, int numberOfResults) {
         this.tabName = tabName;
         this.numberOfResults = numberOfResults;
     }
 
-    private SearchArea tabName;
+    private SearchTypes tabName;
     private int numberOfResults;
 
     public String getTabName() {

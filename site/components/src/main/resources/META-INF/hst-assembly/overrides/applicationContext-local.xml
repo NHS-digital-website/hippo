@@ -29,7 +29,4 @@
     <bean id="authorizationProvider"
           class="uk.nhs.digital.intranet.provider.stub.AuthorizationProviderStub"/>
 
-    <bean id="graphProvider"
-          class="uk.nhs.digital.intranet.provider.stub.GraphProviderStub"/>
-
 </beans>

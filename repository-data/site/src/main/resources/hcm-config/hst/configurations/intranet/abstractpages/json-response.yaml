@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:abstractpages/json-response:
+      hst:template: json-template
+      jcr:primaryType: hst:component

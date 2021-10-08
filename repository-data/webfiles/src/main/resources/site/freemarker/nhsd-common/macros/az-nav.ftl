@@ -5,7 +5,9 @@
     <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
     <#assign navList = [] />
-    <#if documentOrLinks.blocks??>
+    <#if documentOrLinks?is_sequence>
+        <#assign alphabetical_hash = group_blocks(flat_blocks(documentOrLinks true))/>
+    <#elseif documentOrLinks.blocks??>
         <#assign navList = documentOrLinks.blocks />
         <#assign alphabetical_hash = group_blocks(flat_blocks(navList true))/>
         <@hst.link hippobean=documentOrLinks var="docUrl"/>
@@ -13,8 +15,6 @@
         <#assign navList = documentOrLinks.glossaryItems />
         <#assign alphabetical_hash = group_blocks(navList)/>
         <@hst.link hippobean=documentOrLinks var="docUrl"/>
-    <#elseif documentOrLinks?is_sequence>
-        <#assign alphabetical_hash = group_blocks(flat_blocks(documentOrLinks true))/>
     </#if>
 
     <#assign navUrl = ""/>
