@@ -89,6 +89,10 @@ definitions:
         hst:refId: root
         jcr:primaryType: hst:sitemapitem
       /search:
+        /json:
+          hst:componentconfigurationid: hst:pages/search-results-json
+          hst:refId: search-json
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/search-results
         hst:refId: search
         jcr:primaryType: hst:sitemapitem

@@ -2,15 +2,11 @@ package uk.nhs.digital.intranet.components;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
 import static uk.nhs.digital.intranet.components.SearchPageComponent.REQUEST_ATTR_AREA;
 import static uk.nhs.digital.intranet.components.SearchPageComponent.REQUEST_ATTR_PAGEABLE;
-import static uk.nhs.digital.intranet.components.SearchPageComponent.REQUEST_ATTR_PEOPLE_RESULTS;
-import static uk.nhs.digital.intranet.components.SearchPageComponent.REQUEST_ATTR_SEARCH_TABS;
 
 import org.hippoecm.hst.container.ModifiableRequestContextProvider;
-import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstParameterInfoProxyFactoryImpl;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
@@ -30,14 +26,13 @@ import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.springframework.mock.web.MockServletContext;
 import uk.nhs.digital.intranet.beans.Task;
 import uk.nhs.digital.intranet.enums.SearchArea;
+import uk.nhs.digital.intranet.factory.PersonFactory;
 import uk.nhs.digital.intranet.model.Person;
-import uk.nhs.digital.intranet.model.SearchResultTab;
 import uk.nhs.digital.intranet.model.exception.ProviderCommunicationException;
 import uk.nhs.digital.intranet.provider.BloomreachSearchProvider;
-import uk.nhs.digital.intranet.provider.impl.GraphProviderImpl;
+import uk.nhs.digital.intranet.provider.GraphProvider;
 import uk.nhs.digital.intranet.utils.Constants;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -52,7 +47,10 @@ public class SearchPageComponentTest {
     private BloomreachSearchProvider bloomreachSearchProvider;
 
     @Mock
-    private GraphProviderImpl graphProvider;
+    private PersonFactory personFactory;
+
+    @Mock
+    private GraphProvider graphProvider;
 
     private MockHstRequestContext mockHstRequestContext;
 
@@ -62,7 +60,7 @@ public class SearchPageComponentTest {
         mockHstRequestContext = new MockHstRequestContext();
         mockHstRequestContext.setParameterInfoProxyFactory(new HstParameterInfoProxyFactoryImpl());
         ModifiableRequestContextProvider.set(mockHstRequestContext);
-        underTest = new SearchPageComponent(graphProvider, bloomreachSearchProvider, "applicationId", "redirectUri", "baseUri");
+        underTest = new SearchPageComponent(personFactory, bloomreachSearchProvider, "applicationId", "redirectUri", "baseUri");
         underTest.init(new MockServletContext(), new MockComponentConfiguration());
     }
 
@@ -71,7 +69,8 @@ public class SearchPageComponentTest {
         MockHstRequest request = new MockHstRequest();
         request.setParameterMap("", Collections.emptyMap());
         Pageable<HippoBean> documentResults = new DefaultPagination<>(Collections.singletonList(new Task()));
-        Mockito.when(bloomreachSearchProvider.getBloomreachResults(Mockito.nullable(String.class), anyInt(), anyInt(), eq(SearchArea.ALL))).thenReturn(documentResults);
+        Mockito.when(bloomreachSearchProvider.getBloomreachResults(Mockito.nullable(String.class), anyInt(), anyInt(),
+            SearchArea.INDIVIDUAL_DOCUMENT_SEARCH_AREAS, null, null, null, null)).thenReturn(documentResults);
 
         underTest.doBeforeRender(request, new MockHstResponse());
 
@@ -87,9 +86,8 @@ public class SearchPageComponentTest {
 
         underTest.doBeforeRender(request, new MockHstResponse());
 
-        Mockito.verify(graphProvider, Mockito.never()).getPeople(Mockito.nullable(String.class));
-        assertNull(request.getAttribute(REQUEST_ATTR_PEOPLE_RESULTS));
-        assertTrue(((List)request.getAttribute(REQUEST_ATTR_SEARCH_TABS)).contains(new SearchResultTab(SearchArea.PEOPLE, 0)));
+        Mockito.verify(graphProvider, Mockito.never()).getUsers(Mockito.nullable(String.class), anyInt());
+        assertNull(request.getAttribute(REQUEST_ATTR_PAGEABLE));
     }
 
     @Test
@@ -101,31 +99,8 @@ public class SearchPageComponentTest {
 
         underTest.doBeforeRender(request, new MockHstResponse());
 
-        Mockito.verify(graphProvider, Mockito.never()).getPeople(Mockito.nullable(String.class));
-        assertNull(request.getAttribute(REQUEST_ATTR_PEOPLE_RESULTS));
-        assertTrue(((List)request.getAttribute(REQUEST_ATTR_SEARCH_TABS)).contains(new SearchResultTab(SearchArea.PEOPLE, 0)));
-    }
-
-    @Test
-    public void blankQueryReturnsTabs() {
-        MockHstRequest request = new MockHstRequest();
-        request.setParameterMap("", Collections.emptyMap());
-        int newsResults = 9;
-        int tasksResults = 5;
-        int teamsResults = 2;
-        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(null, SearchArea.NEWS)).thenReturn(newsResults);
-        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(null, SearchArea.TASKS)).thenReturn(tasksResults);
-        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(null, SearchArea.TEAMS)).thenReturn(teamsResults);
-
-        underTest.doBeforeRender(request, new MockHstResponse());
-
-        List<SearchResultTab> tabs = (List<SearchResultTab>) request.getAttribute(REQUEST_ATTR_SEARCH_TABS);
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.NEWS, newsResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.TASKS, tasksResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.TEAMS, teamsResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.PEOPLE, 0)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.ALL,
-            newsResults + tasksResults + teamsResults)));
+        Mockito.verify(graphProvider, Mockito.never()).getUsers(Mockito.nullable(String.class), anyInt());
+        assertNull(request.getAttribute(REQUEST_ATTR_PAGEABLE));
     }
 
     @Test
@@ -137,21 +112,16 @@ public class SearchPageComponentTest {
         int tasksResults = 5;
         int teamsResults = 2;
         Pageable<HippoBean> documentResults = new DefaultPagination<>(Collections.singletonList(new Task()), newsResults);
-        Mockito.when(bloomreachSearchProvider.getBloomreachResults(Mockito.nullable(String.class), anyInt(), anyInt(), eq(SearchArea.NEWS))).thenReturn(documentResults);
-        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(null, SearchArea.TASKS)).thenReturn(tasksResults);
-        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(null, SearchArea.TEAMS)).thenReturn(teamsResults);
+        Mockito.when(bloomreachSearchProvider.getBloomreachResults(Mockito.nullable(String.class), anyInt(), anyInt(),
+            eq(SearchArea.INDIVIDUAL_DOCUMENT_SEARCH_AREAS), null, null, null, null)).thenReturn(documentResults);
+        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(null, Collections.singletonList(SearchArea.TASKS), null, null, null)).thenReturn(tasksResults);
+        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(null, Collections.singletonList(SearchArea.TEAMS), null, null, null)).thenReturn(teamsResults);
 
         underTest.doBeforeRender(request, new MockHstResponse());
 
         assertEquals(documentResults, request.getAttribute(REQUEST_ATTR_PAGEABLE));
-        Mockito.verify(bloomreachSearchProvider, Mockito.never()).getBloomreachResultsCount(Mockito.nullable(String.class), eq(SearchArea.NEWS));
-        List<SearchResultTab> tabs = (List<SearchResultTab>) request.getAttribute(REQUEST_ATTR_SEARCH_TABS);
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.NEWS, newsResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.TASKS, tasksResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.TEAMS, teamsResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.PEOPLE, 0)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.ALL,
-            newsResults + tasksResults + teamsResults)));
+        Mockito.verify(bloomreachSearchProvider, Mockito.never()).getBloomreachResultsCount(Mockito.nullable(String.class),
+            eq(Collections.singletonList(SearchArea.NEWS)), null, null, null);
     }
 
     @Test
@@ -164,24 +134,16 @@ public class SearchPageComponentTest {
         int newsResults = 13;
         int tasksResults = 5;
         int teamsResults = 2;
-        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(anyString(), eq(SearchArea.NEWS))).thenReturn(newsResults);
-        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(anyString(), eq(SearchArea.TASKS))).thenReturn(tasksResults);
-        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(anyString(), eq(SearchArea.TEAMS))).thenReturn(teamsResults);
+        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(anyString(), eq(Collections.singletonList(SearchArea.NEWS)), null, null, null)).thenReturn(newsResults);
+        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(anyString(), eq(Collections.singletonList(SearchArea.TASKS)), null, null, null)).thenReturn(tasksResults);
+        Mockito.when(bloomreachSearchProvider.getBloomreachResultsCount(anyString(), eq(Collections.singletonList(SearchArea.TEAMS)), null, null, null)).thenReturn(teamsResults);
 
         List<Person> expectedPeopleResults = Collections.singletonList(new Person("1", "bob", "finance"));
-        Mockito.when(graphProvider.getPeople(anyString())).thenReturn(expectedPeopleResults);
+        Mockito.when(personFactory.createPersons(any())).thenReturn(expectedPeopleResults);
 
         underTest.doBeforeRender(request, new MockHstResponse());
 
-        assertEquals(expectedPeopleResults, request.getAttribute(REQUEST_ATTR_PEOPLE_RESULTS));
-        Mockito.verify(bloomreachSearchProvider, Mockito.never()).getBloomreachResults(anyString(), anyInt(), anyInt(), any());
-        List<SearchResultTab> tabs = (List<SearchResultTab>) request.getAttribute(REQUEST_ATTR_SEARCH_TABS);
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.NEWS, newsResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.TASKS, tasksResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.TEAMS, teamsResults)));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.PEOPLE, expectedPeopleResults.size())));
-        assertTrue(tabs.contains(new SearchResultTab(SearchArea.ALL,
-            newsResults + tasksResults + teamsResults + expectedPeopleResults
-                .size())));
+        assertEquals(expectedPeopleResults, request.getAttribute(REQUEST_ATTR_PAGEABLE));
+        Mockito.verify(bloomreachSearchProvider, Mockito.never()).getBloomreachResults(anyString(), anyInt(), anyInt(), any(), any(), any(), any(), null);
     }
 }

@@ -4,8 +4,10 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNull;
 
 import org.junit.Test;
+import org.mockito.Mock;
 import uk.nhs.digital.intranet.json.User;
 import uk.nhs.digital.intranet.model.Person;
+import uk.nhs.digital.intranet.provider.GraphProvider;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,6 +15,8 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class PersonFactoryTest {
+    @Mock
+    private GraphProvider graphProvider;
 
     private static final String DEPT = "IT";
     private static final String BUSINESS_PHONE = "07777777777";
@@ -23,7 +27,7 @@ public class PersonFactoryTest {
     private static final String OFFICE = "UK";
     private static final String USER_PRINCIPAL_NAME_FORMAT = "%s.user.principal";
     private static final String PHOTO = "base-64-photo";
-    private final PersonFactory personFactory = new PersonFactory();
+    private final PersonFactory personFactory = new PersonFactory(graphProvider);
 
     @Test
     public void createsPersonFromUserAndPhoto() {

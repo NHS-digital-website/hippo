@@ -6,19 +6,19 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.springframework.util.StringUtils;
+import uk.nhs.digital.intranet.factory.PersonFactory;
 import uk.nhs.digital.intranet.model.Person;
 import uk.nhs.digital.intranet.model.exception.ProviderCommunicationException;
-import uk.nhs.digital.intranet.provider.GraphProvider;
 import uk.nhs.digital.intranet.utils.Constants;
 
 public class PersonComponent extends BaseHstComponent {
 
     private static final String PROVIDER_COMMUNICATION_ERROR_MESSAGE = "Unable to perform operation.";
 
-    private final GraphProvider graphProvider;
+    private final PersonFactory personFactory;
 
-    public PersonComponent(GraphProvider graphProvider) {
-        this.graphProvider = graphProvider;
+    public PersonComponent(PersonFactory personFactory) {
+        this.personFactory = personFactory;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class PersonComponent extends BaseHstComponent {
 
         final String id = getComponentParameter("id");
         try {
-            final Person person = graphProvider.getPerson(id);
+            final Person person = personFactory.fetchPerson(id);
             request.setAttribute("person", person);
         } catch (final ProviderCommunicationException e) {
             request.setAttribute("errorMessage", PROVIDER_COMMUNICATION_ERROR_MESSAGE);

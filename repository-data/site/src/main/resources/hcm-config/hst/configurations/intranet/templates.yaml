@@ -26,6 +26,9 @@ definitions:
       /intranet-404:
         hst:renderpath: webfile:/freemarker/intranet/404.ftl
         jcr:primaryType: hst:template
+      /json-template:
+        hst:renderpath: webfile:/freemarker/intranet/layout/json-template.ftl
+        jcr:primaryType: hst:template
       /layout_master:
         hst:renderpath: webfile:/freemarker/intranet/layout/master.ftl
         jcr:primaryType: hst:template
@@ -40,6 +43,9 @@ definitions:
         jcr:primaryType: hst:template
       /search-results:
         hst:renderpath: webfile:/freemarker/intranet/search-results.ftl
+        jcr:primaryType: hst:template
+      /search-results-api:
+        hst:renderpath: webfile:/freemarker/intranet/search-results-api.ftl
         jcr:primaryType: hst:template
       /taskhub:
         hst:renderpath: webfile:/freemarker/intranet/task-list-article.ftl

@@ -28,6 +28,14 @@
         <constructor-arg value="#{applicationSecrets.getValue('graph.api.base.url')}" />
     </bean>
 
+    <bean id="graphProvider" class="uk.nhs.digital.intranet.provider.impl.GraphProviderImpl">
+        <constructor-arg name="restTemplate" ref="restTemplate" />
+    </bean>
+
+    <bean id="personFactory" class="uk.nhs.digital.intranet.factory.PersonFactory">
+        <constructor-arg name="graphProvider" ref="graphProvider" />
+    </bean>
+
     <bean id="authorizationProvider" class="uk.nhs.digital.intranet.provider.impl.MicrosoftGraphAuthorizationProvider">
         <constructor-arg name="restTemplate" ref="restTemplate" />
         <constructor-arg name="applicationId" ref="applicationId" />
@@ -35,10 +43,4 @@
         <constructor-arg name="redirectUri" ref="graphApiRedirectUri" />
         <constructor-arg name="baseUri" ref="graphApiBaseUri" />
     </bean>
-
-    <bean id="graphProvider" class="uk.nhs.digital.intranet.provider.impl.GraphProviderImpl">
-        <constructor-arg name="restTemplate" ref="restTemplate" />
-        <constructor-arg name="personFactory" ref="personFactory" />
-    </bean>
-
 </beans>

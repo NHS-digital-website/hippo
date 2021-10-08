@@ -11,7 +11,4 @@
     <bean id="cookieProvider" class="uk.nhs.digital.intranet.provider.CookieProvider">
         <constructor-arg name="encoder" ref="accessTokenEncoder" />
     </bean>
-
-    <bean id="personFactory" class="uk.nhs.digital.intranet.factory.PersonFactory" />
-
 </beans>
