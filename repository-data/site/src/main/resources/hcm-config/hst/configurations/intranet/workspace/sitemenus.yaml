@@ -2,27 +2,4 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:workspace/hst:sitemenus:
-      /main:
-        .meta:residual-child-node-category: content
-        /Collaborate:
-          hst:externallink: '#'
-          hst:repobased: false
-          jcr:primaryType: hst:sitemenuitem
-        /News & Announcements:
-          .meta:order-before: Collaborate
-          hst:externallink: '#'
-          hst:repobased: false
-          jcr:primaryType: hst:sitemenuitem
-        /Tasks:
-          .meta:order-before: Teams & Networks
-          hst:referencesitemapitem: tasks
-          hst:repobased: false
-          jcr:primaryType: hst:sitemenuitem
-        /Teams & Networks:
-          .meta:order-before: News & Announcements
-          hst:externallink: '#'
-          hst:repobased: false
-          jcr:primaryType: hst:sitemenuitem
-        hst:lastmodified: 2020-04-23T15:25:56.929Z
-        jcr:primaryType: hst:sitemenu
       jcr:primaryType: hst:sitemenus

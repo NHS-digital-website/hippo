@@ -1,0 +1,23 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:workspace/hst:sitemenus/main:
+      .meta:residual-child-node-category: content
+      /Tasks:
+        hst:referencesitemapitem: tasks
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Teams & Networks:
+        hst:externallink: '#'
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /News & Announcements:
+        hst:externallink: '#'
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Collaborate:
+        hst:externallink: '#'
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      hst:lastmodified: 2020-04-23T15:25:56.929Z
+      jcr:primaryType: hst:sitemenu

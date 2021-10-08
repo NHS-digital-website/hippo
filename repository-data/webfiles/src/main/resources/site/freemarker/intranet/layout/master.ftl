@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../macro/siteHeader.ftl">
-<#include "../../common/macro/siteFooter.ftl">
 <#include "../../common/macro/component/skipLink.ftl">
 
 <!DOCTYPE html>
@@ -32,9 +31,8 @@
         <@hst.include ref="main"/>
     </main>
 
-    <@siteFooter narrowLayout=true />
+    <@hst.include ref="footer-menu"/>
 
-    <#include "../../common/scripts/footer-scripts.ftl" />
 </body>
 
 </html>
