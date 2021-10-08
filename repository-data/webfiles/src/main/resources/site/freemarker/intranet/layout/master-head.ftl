@@ -32,9 +32,12 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/latest/stylesheets/nhsd-frontend.css" />
+    <@hst.setBundle basename="design-system"/>
+    <@fmt.message key="design-system.url" var="designSystemUrl" />
+    <link rel="stylesheet" href="${designSystemUrl}/cdn/v0.127.0/stylesheets/nhsd-frontend.css" />
+    <script src="${designSystemUrl}/cdn/v0.127.0/scripts/nhsd-frontend.js"></script>
+
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-edge-cases.css" />" />
-    <script src="https://design-system.digital.nhs.uk/cdn/latest/scripts/nhsd-frontend.js"></script>
 
    <#--
     Todo once confident that all this CSS can go, come back and clean up:

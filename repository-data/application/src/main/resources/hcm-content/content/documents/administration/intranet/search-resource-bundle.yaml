@@ -39,7 +39,7 @@
     - labels.peopleSearchBtn
     resourcebundle:messages:
     - Search results
-    - containing
+    - matching
     - results
     - No results.
     - Click here for more results
@@ -91,7 +91,7 @@
     - labels.peopleSearchBtn
     resourcebundle:messages:
     - Search results
-    - containing
+    - matching
     - results
     - No results.
     - Click here for more results
@@ -143,7 +143,7 @@
     - labels.peopleSearchBtn
     resourcebundle:messages:
     - Search results
-    - containing
+    - matching
     - results
     - No results.
     - Click here for more results
