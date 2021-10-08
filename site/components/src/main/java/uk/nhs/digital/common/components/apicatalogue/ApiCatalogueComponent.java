@@ -23,7 +23,7 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
 
-    private static final Set<String> DEPRECATED_RETIRED_API_FILTER_KEYS = ImmutableSet.of("deprecated-api", "retired-api");
+    private static final Set<String> RETIRED_API_FILTER_KEYS = ImmutableSet.of("retired-api");
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -31,35 +31,38 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
 
         final List<ApiCatalogueLink> allApiCatalogueLinks = apiCatalogueLinksFrom(request);
 
-        final boolean showDeprecatedAndRetired = queryStringContainsParameter(request, Param.showDeprecatedAndRetired);
+        final boolean showRetired = shouldShowRetired(request);
 
-        final List<ApiCatalogueLink> apiCatalogueLinksExcludingDeprecatedAndRetiredIfNeeded =
-            eliminateDeprecatedAndRetiredIfNeeded(allApiCatalogueLinks, showDeprecatedAndRetired);
+        final List<ApiCatalogueLink> apiCatalogueLinksExcludingRetiredIfNeeded =
+            eliminateRetiredIfNeeded(allApiCatalogueLinks, showRetired);
 
         final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
         final List<ApiCatalogueLink> apiCatalogueLinksFiltered = applyUserSelectedFilters(
-            apiCatalogueLinksExcludingDeprecatedAndRetiredIfNeeded,
+            apiCatalogueLinksExcludingRetiredIfNeeded,
             userSelectedFilterKeys
         );
 
-        request.setAttribute(Param.apiCatalogueLinks.name(), apiCatalogueLinksFiltered.stream().map(ApiCatalogueLink::raw).collect(toList()));
-
         final Filters filtersModel = filtersModel(
-            apiCatalogueLinksExcludingDeprecatedAndRetiredIfNeeded,
+            apiCatalogueLinksExcludingRetiredIfNeeded,
             userSelectedFilterKeys,
             sessionFrom(request)
         );
 
+        request.setAttribute(Param.showRetired.name(), showRetired);
+        request.setAttribute(Param.apiCatalogueLinks.name(), apiCatalogueLinksFiltered.stream().map(ApiCatalogueLink::raw).collect(toList()));
         request.setAttribute(Param.filtersModel.name(), filtersModel);
-
-        request.setAttribute(Param.showDeprecatedAndRetired.name(), showDeprecatedAndRetired);
     }
 
     private boolean queryStringContainsParameter(final HstRequest request, final Param queryStringParameter) {
         return Optional.ofNullable(request.getQueryString())
             .filter(queryString -> queryString.contains(queryStringParameter.name()))
             .isPresent();
+    }
+
+    private boolean shouldShowRetired(final HstRequest request) {
+        return queryStringContainsParameter(request, Param.showDeprecatedAndRetired)
+            || queryStringContainsParameter(request, Param.showRetired);
     }
 
     private Session sessionFrom(final HstRequest request) {
@@ -74,12 +77,12 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
         return ApiCatalogueLink.linksFrom(((ComponentList) request.getRequestContext().getContentBean()).getBlocks());
     }
 
-    private List<ApiCatalogueLink> eliminateDeprecatedAndRetiredIfNeeded(
+    private List<ApiCatalogueLink> eliminateRetiredIfNeeded(
         final List<ApiCatalogueLink> apiCatalogueLinks,
-        final boolean showDeprecatedAndRetired
+        final boolean showRetired
     ) {
         return apiCatalogueLinks.stream()
-            .filter(link -> showDeprecatedAndRetired || link.notFilterable() || link.notTaggedWithAnyOf(DEPRECATED_RETIRED_API_FILTER_KEYS))
+            .filter(link -> showRetired || link.notFilterable() || link.notTaggedWithAnyOf(RETIRED_API_FILTER_KEYS))
             .collect(toList());
     }
 
@@ -152,9 +155,13 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
     }
 
     enum Param {
-        showDeprecatedAndRetired,
+        showRetired,
         apiCatalogueLinks,
         filtersModel,
-        filter
+        filter,
+
+        // Older parameter, deprecated in favour of showRetired,
+        // retained in case it's been included in existing bookmarks.
+        showDeprecatedAndRetired,
     }
 }

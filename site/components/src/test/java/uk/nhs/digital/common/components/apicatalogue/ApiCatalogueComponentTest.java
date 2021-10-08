@@ -102,11 +102,11 @@ public class ApiCatalogueComponentTest {
     }
 
     @Test
-    public void listsAllApiCatalogueDocs_excludingDeprecatedAndRetiredApis_whenUserSelectedFiltersApplied_andShowDeprecatedAndRetiredNotApplied() {
+    public void listsAllApiCatalogueDocs_excludingRetiredApis_whenUserSelectedFiltersApplied_andShowRetiredNotApplied() {
 
         // given
         final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
-            = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health");
+            = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health", "deprecated-api");
 
         final Set<String> noUserSelectedFilterKeys = emptySet();
 
@@ -121,13 +121,15 @@ public class ApiCatalogueComponentTest {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise links of all docs referenced from API catalogue, except of docs tagged as Deprecated or Retired.",
+            "Results comprise links of all docs referenced from API catalogue, except of docs tagged as Retired.",
             actualResults,
             is(asList(
                 allCatalogueLinksToTaggedDocuments.get(0),
                 allCatalogueLinksToTaggedDocuments.get(1),
                 allCatalogueLinksToTaggedDocuments.get(2),
                 allCatalogueLinksToTaggedDocuments.get(3),
+                allCatalogueLinksToTaggedDocuments.get(4),
+                allCatalogueLinksToTaggedDocuments.get(6),
                 allCatalogueLinksToTaggedDocuments.get(7)
             ))
         );
@@ -141,7 +143,7 @@ public class ApiCatalogueComponentTest {
     }
 
     @Test
-    public void listsAllApiCatalogueDocs_includingDeprecatedAndRetiredApis_whenUserSelectedFiltersNotApplied_andShowDeprecatedAndRetiredApplied() {
+    public void listsAllApiCatalogueDocs_includingRetiredApis_whenUserSelectedFiltersNotApplied_andShowRetiredApplied() {
 
         // given
         final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
@@ -154,7 +156,7 @@ public class ApiCatalogueComponentTest {
             noUserSelectedFilterKeys
         )).willReturn(expectedFiltersFromFactory);
 
-        request.setQueryString("showDeprecatedAndRetired");
+        request.setQueryString("showRetired");
 
         // when
         apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
@@ -162,7 +164,7 @@ public class ApiCatalogueComponentTest {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise links of all docs referenced from API catalogue, including of docs tagged as Deprecated or Retired.",
+            "Results comprise links of all docs referenced from API catalogue, including of docs tagged as Retired.",
             actualResults,
             is(allCatalogueLinksToTaggedDocuments)
         );
@@ -176,15 +178,15 @@ public class ApiCatalogueComponentTest {
     }
 
     @Test
-    public void listsApiCatalogueDocs_taggedWithAllAppliedFilters_includingRetiredAndDeprecated_whenUserSelectedFiltersApplied_andShowDeprecatedAndRetiredApplied() {
+    public void listsApiCatalogueDocs_taggedWithAllAppliedFilters_includingRetired_whenUserSelectedFiltersApplied_andShowRetiredApplied() {
 
         // given
-        final Set<String> userSelectedFilterKeys = ImmutableSet.of("fhir", "deprecated-api");
+        final Set<String> userSelectedFilterKeys = ImmutableSet.of("fhir", "retired-api");
 
         // @formatter:off
         final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys = ImmutableSet.of(
             "fhir",                 // user-selected
-            "deprecated-api"        // user-selected
+            "retired-api"           // user-selected
         );
         // @formatter:on
 
@@ -195,7 +197,7 @@ public class ApiCatalogueComponentTest {
 
         hstContainerUrl.setParameter("filter", userSelectedFilterKeys.toArray(new String[0]));
 
-        request.setQueryString("showDeprecatedAndRetired");
+        request.setQueryString("showRetired");
 
         // when
         apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
@@ -203,10 +205,10 @@ public class ApiCatalogueComponentTest {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise links of all docs referenced from API catalogue, that are tagged with user selected filter keys, including of docs tagged as Deprecated or Retired.",
+            "Results comprise links of all docs referenced from API catalogue, that are tagged with user selected filter keys, including of docs tagged as Retired.",
             actualResults,
             is(Collections.singletonList(
-                allCatalogueLinksToTaggedDocuments.get(4)
+                allCatalogueLinksToTaggedDocuments.get(5)
             ))
         );
 
@@ -219,7 +221,7 @@ public class ApiCatalogueComponentTest {
     }
 
     @Test
-    public void listsApiCatalogueDocs_taggedWithAllAppliedFilters_excludingRetiredAndDeprecated_whenUserSelectedFiltersApplied_andShowDeprecatedAndRetiredNotApplied() {
+    public void listsApiCatalogueDocs_taggedWithAllAppliedFilters_excludingRetired_whenUserSelectedFiltersApplied_andShowRetiredNotApplied() {
 
         // given
         final Set<String> userSelectedFilterKeys = ImmutableSet.of(
@@ -248,7 +250,7 @@ public class ApiCatalogueComponentTest {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise links of all docs referenced from API catalogue, that are tagged with user selected filter keys, except of docs tagged as Deprecated or Retired.",
+            "Results comprise links of all docs referenced from API catalogue, that are tagged with user selected filter keys, except of docs tagged as Retired.",
             actualResults,
             is(asList(
                 allCatalogueLinksToTaggedDocuments.get(1),
@@ -283,6 +285,8 @@ public class ApiCatalogueComponentTest {
                 allCatalogueLinksToTaggedDocuments.get(1),
                 allCatalogueLinksToTaggedDocuments.get(2),
                 allCatalogueLinksToTaggedDocuments.get(3),
+                allCatalogueLinksToTaggedDocuments.get(4),
+                allCatalogueLinksToTaggedDocuments.get(6),
                 allCatalogueLinksToTaggedDocuments.get(7)
             ))
         );

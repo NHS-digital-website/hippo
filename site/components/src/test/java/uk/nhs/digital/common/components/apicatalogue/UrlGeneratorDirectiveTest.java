@@ -40,7 +40,7 @@ public class UrlGeneratorDirectiveTest {
     }
 
     @Test
-    public void generatesUrlWithAllQueryParameters_whenFiltersSelected_andDeprecatedAndRetiredToBeShown() throws TemplateException, IOException {
+    public void generatesUrlWithAllQueryParameters_whenFiltersSelected_andRetiredToBeShown() throws TemplateException, IOException {
 
         // given
         filterKeys.add("inpatient");
@@ -48,7 +48,7 @@ public class UrlGeneratorDirectiveTest {
 
         final Map<String, Object> parameters = ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "showDeprecatedAndRetired", TemplateBooleanModel.TRUE,
+            "showRetired", TemplateBooleanModel.TRUE,
             "filters", filterKeys
         );
 
@@ -56,11 +56,11 @@ public class UrlGeneratorDirectiveTest {
         urlGeneratorDirective.execute(environment, parameters, null, null);
 
         // then
-        then(writer).should().append("/site/developer/api-catalogue?showDeprecatedAndRetired&filter=inpatient&filter=hospital");
+        then(writer).should().append("/site/developer/api-catalogue?showRetired&filter=inpatient&filter=hospital");
     }
 
     @Test
-    public void generatesUrlWithOnlyFiltersQueryParameters_whenFiltersSelected_andDeprecatedAndRetiredToBeHidden() throws TemplateException, IOException {
+    public void generatesUrlWithOnlyFiltersQueryParameters_whenFiltersSelected_andRetiredToBeHidden() throws TemplateException, IOException {
 
         // given
         filterKeys.add("inpatient");
@@ -68,7 +68,7 @@ public class UrlGeneratorDirectiveTest {
 
         final Map<String, Object> parameters = ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "showDeprecatedAndRetired", TemplateBooleanModel.FALSE,
+            "showRetired", TemplateBooleanModel.FALSE,
             "filters", filterKeys
         );
 
@@ -80,12 +80,12 @@ public class UrlGeneratorDirectiveTest {
     }
 
     @Test
-    public void generatesUrlWithOnlyShowDeprecatedAndRetiredQueryParameter_whenNoFiltersSelected_andDeprecatedAndRetiredToBeShown() throws TemplateException, IOException {
+    public void generatesUrlWithOnlyShowRetiredQueryParameter_whenNoFiltersSelected_andRetiredToBeShown() throws TemplateException, IOException {
 
         // given
         final Map<String, Object> parameters = ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "showDeprecatedAndRetired", TemplateBooleanModel.TRUE,
+            "showRetired", TemplateBooleanModel.TRUE,
             "filters", filterKeys
         );
 
@@ -93,16 +93,16 @@ public class UrlGeneratorDirectiveTest {
         urlGeneratorDirective.execute(environment, parameters, null, null);
 
         // then
-        then(writer).should().append("/site/developer/api-catalogue?showDeprecatedAndRetired");
+        then(writer).should().append("/site/developer/api-catalogue?showRetired");
     }
 
     @Test
-    public void generatesUrlWithNoParameters_whenNoFiltersSelected_andDeprecatedAndRetiredToBeHidden() throws TemplateException, IOException {
+    public void generatesUrlWithNoParameters_whenNoFiltersSelected_andRetiredToBeHidden() throws TemplateException, IOException {
 
         // given
         final Map<String, Object> parameters =  ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "showDeprecatedAndRetired", TemplateBooleanModel.FALSE,
+            "showRetired", TemplateBooleanModel.FALSE,
             "filters", filterKeys
         );
 
@@ -147,7 +147,7 @@ public class UrlGeneratorDirectiveTest {
 
         final Map<String, Object> parameters =  ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "showDeprecatedAndRetired", TemplateBooleanModel.FALSE,
+            "showRetired", TemplateBooleanModel.FALSE,
             "filters", filterKeys
         );
 
