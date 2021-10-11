@@ -27,7 +27,7 @@
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-content-feed-dependencies-cms</artifactId>
-            <version>${bloomreach.version}</version>
+            <version>${hippo.addon-content-feed.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
