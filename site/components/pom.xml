@@ -84,7 +84,7 @@
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-content-feed-dependencies-site</artifactId>
-            <version>${bloomreach.version}</version>
+            <version>${hippo.addon-content-feed.version}</version>
             <type>pom</type>
         </dependency>
 
