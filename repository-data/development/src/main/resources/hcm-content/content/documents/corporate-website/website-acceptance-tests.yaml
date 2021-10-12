@@ -4098,11 +4098,23 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
       /website:items:
         jcr:primaryType: website:externallink
         website:link: https://www.bbc.co.uk
         website:shortsummary: some summary text
         website:title: General external link
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
       /website:pageicon:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -4212,13 +4224,25 @@
 
           <p>A <a href="https://bbc.co.uk" title="BBC website">link</a> to external site.</p>
         jcr:primaryType: hippostd:html
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:userNeedismet:
+        - ''
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
+      hippostd:retainable: false
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-04-29T10:34:33.154Z
+      hippostdpubwf:lastModificationDate: 2021-09-19T20:36:58.223Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
@@ -4227,6 +4251,11 @@
       - mix:referenceable
       jcr:primaryType: website:general
       website:gossid: 0
+      website:navigationcontroller: withNav
+      website:noindexcontrol: false
+      website:propmtuserorg: Do not prompt
+      website:seosummarytext: SEO is good.  Some nice summary to help with Google
+        rankings.
       website:shortsummary: General short summary to go here
       website:title: General AcceptanceTestDocument
       website:type: guidance
@@ -4238,11 +4267,23 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
       /website:items:
         jcr:primaryType: website:externallink
         website:link: https://www.bbc.co.uk
         website:shortsummary: some summary text
         website:title: General external link
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
       /website:pageicon:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -4352,14 +4393,26 @@
 
           <p>A <a href="https://bbc.co.uk" title="BBC website">link</a> to external site.</p>
         jcr:primaryType: hippostd:html
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:userNeedismet:
+        - ''
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - preview
+      hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-04-29T10:35:30.293Z
+      hippostdpubwf:lastModificationDate: 2021-09-19T20:34:32.713Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
@@ -4368,6 +4421,11 @@
       - mix:versionable
       jcr:primaryType: website:general
       website:gossid: 0
+      website:navigationcontroller: withNav
+      website:noindexcontrol: false
+      website:propmtuserorg: Do not prompt
+      website:seosummarytext: SEO is good.  Some nice summary to help with Google
+        rankings.
       website:shortsummary: General short summary to go here
       website:title: General AcceptanceTestDocument
       website:type: guidance
@@ -4379,11 +4437,23 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
       /website:items:
         jcr:primaryType: website:externallink
         website:link: https://www.bbc.co.uk
         website:shortsummary: some summary text
         website:title: General external link
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
       /website:pageicon:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -4493,16 +4563,28 @@
 
           <p>A <a href="https://bbc.co.uk" title="BBC website">link</a> to external site.</p>
         jcr:primaryType: hippostd:html
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:userNeedismet:
+        - ''
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - live
+      hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-04-29T10:35:30.293Z
+      hippostdpubwf:lastModificationDate: 2021-09-19T20:34:32.713Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2019-04-29T10:35:33.804Z
+      hippostdpubwf:publicationDate: 2021-09-19T20:34:34.535Z
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -4510,11 +4592,16 @@
       - mix:referenceable
       jcr:primaryType: website:general
       website:gossid: 0
+      website:navigationcontroller: withNav
+      website:noindexcontrol: false
+      website:propmtuserorg: Do not prompt
+      website:seosummarytext: SEO is good.  Some nice summary to help with Google
+        rankings.
       website:shortsummary: General short summary to go here
       website:title: General AcceptanceTestDocument
       website:type: guidance
     hippo:name: General test document
-    hippo:versionHistory: bccf46be-d7d7-4238-921a-02bc6c79faeb
+    hippo:versionHistory: 104a2fe6-057d-452e-b3e6-89af11281c9f
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo

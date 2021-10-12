@@ -354,8 +354,6 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // given
         final String specificationJson = from("oasV3_withNoRequest.json");
 
-        final String expectedSpecHtml = from("oasV3_withNoRequest.html");
-
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
 
@@ -363,7 +361,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         assertThat(
             "Heading 'Request' is not rendered when request content absent from the specification.",
             ignoringWhiteSpacesIn(actualSpecHtml),
-            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+            not(containsString(">Request<"))
         );
     }
 
@@ -373,8 +371,6 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // given
         final String specificationJson = from("oasV3_withNoResponse.json");
 
-        final String expectedSpecHtml = from("oasV3_withNoResponse.html");
-
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
 
@@ -382,7 +378,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         assertThat(
             "Heading 'Response' is not rendered when response content absent from the specification.",
             ignoringWhiteSpacesIn(actualSpecHtml),
-            is(ignoringWhiteSpacesIn(expectedSpecHtml))
+            not(containsString(">Response<"))
         );
     }
 
