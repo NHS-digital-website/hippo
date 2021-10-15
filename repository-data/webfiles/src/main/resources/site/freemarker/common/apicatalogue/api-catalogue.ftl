@@ -21,7 +21,7 @@
 
 <@hero getHeroOptions(document) />
 
-<div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-api-catalogue">
+<div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-7 nhsd-api-catalogue">
 
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-12">
