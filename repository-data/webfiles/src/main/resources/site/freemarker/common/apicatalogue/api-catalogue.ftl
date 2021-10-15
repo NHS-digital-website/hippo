@@ -10,6 +10,7 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
+<#-- @ftlvariable name="keyword" -->
 <#assign renderUrl = "uk.nhs.digital.common.components.apicatalogue.UrlGeneratorDirective"?new() />
 
 <#-- Add meta tags -->
@@ -44,7 +45,7 @@
                 <div class="nhsd-t-row">
                     <div class="nhsd-t-col-3">
                         <div class="nhsd-t-float-left">
-                            <h6 class="nhsd-t-heading-xs">${apiCatalogueLinks?size} results</h6>
+                            <p class="nhsd-t-heading-xs">${apiCatalogueLinks?size} results</p>
                         </div>
                     </div>
                     <div class="nhsd-t-col-8 nhsd-t-col-l-8">

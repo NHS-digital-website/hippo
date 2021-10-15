@@ -14,6 +14,7 @@ import uk.nhs.digital.common.components.apicatalogue.filters.Filters;
 import uk.nhs.digital.website.beans.ComponentList;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.jcr.RepositoryException;
@@ -37,10 +38,12 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
             eliminateRetiredIfNeeded(allApiCatalogueLinks, showRetired);
 
         final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
+        final Set<String> userEnteredKeywords = userEnteredKeywordsFrom(request);
 
-        final List<ApiCatalogueLink> apiCatalogueLinksFiltered = applyUserSelectedFilters(
+        final List<ApiCatalogueLink> apiCatalogueLinksFiltered = applyUserSelectedFiltersAndUserEnteredKeywords(
             apiCatalogueLinksExcludingRetiredIfNeeded,
-            userSelectedFilterKeys
+            userSelectedFilterKeys,
+            userEnteredKeywords
         );
 
         final Filters filtersModel = filtersModel(
@@ -52,6 +55,7 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
         request.setAttribute(Param.showRetired.name(), showRetired);
         request.setAttribute(Param.apiCatalogueLinks.name(), apiCatalogueLinksFiltered.stream().map(ApiCatalogueLink::raw).collect(toList()));
         request.setAttribute(Param.filtersModel.name(), filtersModel);
+        request.setAttribute(Param.keyword.name(), userEnteredKeywords);
     }
 
     private boolean queryStringContainsParameter(final HstRequest request, final Param queryStringParameter) {
@@ -86,23 +90,36 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
             .collect(toList());
     }
 
-    private static Set<String> userSelectedFilterKeysFrom(final HstRequest request) {
+    private Set<String> userSelectedFilterKeysFrom(final HstRequest request) {
+        return collectSetOfStringParam(request, Param.filter.name());
+    }
 
+
+    private Set<String> userEnteredKeywordsFrom(HstRequest request) {
+        return collectSetOfStringParam(request, Param.keyword.name());
+    }
+
+    private Set<String> collectSetOfStringParam(HstRequest request, String paramName) {
         return Optional.ofNullable(request.getRequestContext())
             .map(HstRequestContext::getBaseURL)
             .map(HstContainerURL::getParameterMap)
-            .map(parameterMap -> parameterMap.get(Param.filter.name()))
+            .map(parameterMap -> parameterMap.get(paramName))
             .map(Arrays::stream)
-            .map(filterKeys -> filterKeys.collect(Collectors.toSet()))
+            .map(paramValues -> paramValues.collect(Collectors.toSet()))
             .orElse(Collections.emptySet());
     }
 
-    private List<ApiCatalogueLink> applyUserSelectedFilters(final List<ApiCatalogueLink> links, final Set<String> selectedTags) {
-        if (selectedTags.isEmpty()) {
+    private List<ApiCatalogueLink> applyUserSelectedFiltersAndUserEnteredKeywords(
+        final List<ApiCatalogueLink> links,
+        final Set<String> selectedTags,
+        final Set<String> enteredKeywords
+    ) {
+        if (selectedTags.isEmpty() && enteredKeywords.isEmpty()) {
             return links;
         }
 
-        return linksWithAllUserSelectedFilterKeys(links, selectedTags).collect(toList());
+        List<ApiCatalogueLink> linksWithFiltersApplied = linksWithAllUserSelectedFilterKeys(links, selectedTags).collect(toList());
+        return linksWithAllUserEnteredKeywords(linksWithFiltersApplied, enteredKeywords).collect(toList());
     }
 
     private Filters filtersModel(
@@ -142,6 +159,26 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
             .filter(link -> userSelectedFilterKeys.isEmpty() || link.taggedWith(userSelectedFilterKeys));
     }
 
+    private Stream<ApiCatalogueLink> linksWithAllUserEnteredKeywords(final List<ApiCatalogueLink> links,
+                                                                        final Set<String> userEnteredKeywords) {
+        return links.stream()
+            .filter(link -> userEnteredKeywords.isEmpty() || linkContainsUserEnteredKeyword(link, userEnteredKeywords));
+    }
+
+    private boolean linkContainsUserEnteredKeyword(ApiCatalogueLink link, Set<String> userEnteredKeywords) {
+        String title = link.getPropertyOrDefault("website:title", "").toString();
+        String shortSummary = link.getPropertyOrDefault("website:shortsummary", "").toString();
+
+        Set<String> searchFields = link.allTaxonomyKeysOfReferencedDoc();
+        searchFields.addAll(
+            ImmutableSet.of(title, shortSummary)
+        );
+
+        Predicate<String> linkContainsKeyword = keyword -> searchFields.stream().anyMatch(field -> field.toLowerCase().contains(keyword.toLowerCase()));
+
+        return userEnteredKeywords.stream().anyMatch(linkContainsKeyword);
+    }
+
     private static Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session) {
 
         try {
@@ -159,6 +196,7 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
         apiCatalogueLinks,
         filtersModel,
         filter,
+        keyword,
 
         // Older parameter, deprecated in favour of showRetired,
         // retained in case it's been included in existing bookmarks.

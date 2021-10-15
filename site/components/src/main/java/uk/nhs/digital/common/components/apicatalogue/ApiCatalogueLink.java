@@ -53,10 +53,14 @@ class ApiCatalogueLink {
     Set<String> allTaxonomyKeysOfReferencedDoc() {
         return notFilterable()
             ? Collections.emptySet()
-            : new HashSet<>(Arrays.asList((String[]) ((Internallink) raw())
+            : new HashSet<>(Arrays.asList((String[]) getPropertyOrDefault("hippotaxonomy:keys", new String[0])));
+    }
+
+    Object getPropertyOrDefault(String key, Object defaultValue) {
+        return ((Internallink) raw())
             .getLink()
             .getProperties()
-            .getOrDefault("hippotaxonomy:keys", new String[0])));
+            .getOrDefault(key, defaultValue);
     }
 
     /**
