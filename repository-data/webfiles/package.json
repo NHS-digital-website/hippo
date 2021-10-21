@@ -124,7 +124,7 @@
     },
     "dependencies": {
         "countup.js": "^2.0.7",
-        "highcharts": "^9.1.0",
+        "highcharts": "^9.2.2",
         "jquery": "^3.6.0",
         "jquery-ui": "^1.12.1",
         "papaparse": "^5.3.1",
