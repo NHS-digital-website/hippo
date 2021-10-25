@@ -8,7 +8,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-10-25T07:39:57.096Z
+      hippostdpubwf:lastModificationDate: 2021-11-05T11:53:13.710Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
@@ -72,10 +72,10 @@
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
         \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
-        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
-        \n      displayName: Retired\r\n    - taxonomyKey: category,with,commas\r\n\
-        \      displayName: category,with,commas\r\n    - taxonomyKey: category_x007c_with_x007c_pipes\r\
-        \n      displayName: category|with|pipes"
+        \ deprecated-api\r\n      displayName: Deprecated\r\n      highlight: light-red\r\
+        \n    - taxonomyKey: retired-api\r\n      displayName: Retired\r\n    - taxonomyKey:\
+        \ category,with,commas\r\n      displayName: category,with,commas\r\n    -\
+        \ taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
     /taxonomy-filters-mapping[2]:
       common:searchable: true
       hippo:availability:
@@ -84,7 +84,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-10-25T07:40:07.711Z
+      hippostdpubwf:lastModificationDate: 2021-11-05T11:53:13.657Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
@@ -149,10 +149,10 @@
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
         \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
-        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
-        \n      displayName: Retired\r\n    - taxonomyKey: category,with,commas\r\n\
-        \      displayName: category,with,commas\r\n    - taxonomyKey: category_x007c_with_x007c_pipes\r\
-        \n      displayName: category|with|pipes"
+        \ deprecated-api\r\n      displayName: Deprecated\r\n      highlight: light-red\r\
+        \n    - taxonomyKey: retired-api\r\n      displayName: Retired\r\n    - taxonomyKey:\
+        \ category,with,commas\r\n      displayName: category,with,commas\r\n    -\
+        \ taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
     /taxonomy-filters-mapping[3]:
       common:searchable: true
       hippo:availability:
@@ -161,9 +161,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-10-25T07:40:07.711Z
+      hippostdpubwf:lastModificationDate: 2021-11-05T11:53:13.657Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2021-10-25T07:40:10.239Z
+      hippostdpubwf:publicationDate: 2021-11-05T11:53:16.202Z
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
       jcr:mixinTypes:
@@ -226,12 +226,12 @@
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
         \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
-        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
-        \n      displayName: Retired\r\n    - taxonomyKey: category,with,commas\r\n\
-        \      displayName: category,with,commas\r\n    - taxonomyKey: category_x007c_with_x007c_pipes\r\
-        \n      displayName: category|with|pipes"
+        \ deprecated-api\r\n      displayName: Deprecated\r\n      highlight: light-red\r\
+        \n    - taxonomyKey: retired-api\r\n      displayName: Retired\r\n    - taxonomyKey:\
+        \ category,with,commas\r\n      displayName: category,with,commas\r\n    -\
+        \ taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
     hippo:name: Taxonomy filters mapping
-    hippo:versionHistory: 283ec566-7903-4bda-9f13-2a9dcd310bc9
+    hippo:versionHistory: db76f34b-d54f-4b60-b664-2e5220b2830b
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo

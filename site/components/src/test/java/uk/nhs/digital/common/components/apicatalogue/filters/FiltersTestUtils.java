@@ -1,7 +1,6 @@
 package uk.nhs.digital.common.components.apicatalogue.filters;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
 
 import com.google.common.collect.ImmutableSet;
 import uk.nhs.digital.test.util.ReflectionTestUtils;
@@ -31,19 +30,27 @@ public class FiltersTestUtils {
     }
 
     public static Subsection subsection(final String displayName, final Subsection... subsections) {
-        return new Subsection(displayName, null, null, subsections);
+        return new Subsection(displayName, null, null, null, subsections);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey) {
-        return new Subsection(displayName, taxonomyKey, null);
+        return new Subsection(displayName, taxonomyKey, null, null);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, null, subsections);
+        return new Subsection(displayName, taxonomyKey, null, null, subsections);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final String description) {
-        return new Subsection(displayName, taxonomyKey, description);
+        return new Subsection(displayName, taxonomyKey, description, null);
+    }
+
+    public static Subsection subsection(final String displayName, final String taxonomyKey, final String highlight, final Subsection... subsections) {
+        return new Subsection(displayName, taxonomyKey, null, highlight, subsections);
+    }
+
+    public static Subsection subsection(final String displayName, final String taxonomyKey, final String description, final String highlight, final Subsection... subsections) {
+        return new Subsection(displayName, taxonomyKey, description, highlight, subsections);
     }
 
     public static void updateFilters(
