@@ -24,7 +24,7 @@
     },
     "homepage": "https://github.com/NHS-digital-website/hippo#readme",
     "devDependencies": {
-        "@babel/core": "^7.14.3",
+        "@babel/core": "^7.15.8",
         "@babel/preset-env": "^7.14.4",
         "autoprefixer": "^9.8.6",
         "babel-loader": "^8.2.2",
