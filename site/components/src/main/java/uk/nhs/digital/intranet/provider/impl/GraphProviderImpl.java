@@ -58,6 +58,7 @@ public class GraphProviderImpl implements GraphProvider {
             .toUri();
 
         try {
+            LOGGER.error("Value of URL is  {} ", uri);
             final ResponseEntity<UserResponse> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, httpRequest, UserResponse.class);
             Assert.notNull(responseEntity.getBody(), "Received null response from Microsoft Graph API.");
             return personFactory.createPersons(responseEntity.getBody().getValue());

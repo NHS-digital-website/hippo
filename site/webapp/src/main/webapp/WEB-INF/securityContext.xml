@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/security
+      http://www.springframework.org/schema/security/spring-security.xsd
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/security/oauth2
+      https://www.springframework.org/schema/security/spring-security-oauth2-1.0.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd
+      http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd ">
+    <context:annotation-config/>
+    <context:component-scan
+        base-package="uk.nhs.digital"/>
+    <sec:global-method-security pre-post-annotations="enabled"/>
+
+
+    <!-- Static Resources -->
+    <sec:http pattern="/css/**" security="none"/>
+    <sec:http pattern="/images/**" security="none"/>
+    <sec:http pattern="/script/**" security="none"/>
+    <sec:http pattern="/binaries/**" security="none"/>
+    <sec:http pattern="/webfiles/**" security="none"/>
+
+    <!-- Channel Manager requests may bypass authentication -->
+    <sec:http pattern="/_rp/**" security="none"/>
+    <sec:http pattern="/_cmsrest/**" security="none"/>
+    <sec:http pattern="/_cmsinternal/**" security="none"/>
+    <sec:http pattern="/_cmssessioncontext/**" security="none"/>
+
+    <sec:http auto-config="true" use-expressions="true"
+              authentication-manager-ref="authenticationManager">
+
+        <sec:logout invalidate-session="true" delete-cookies="JSESSIONID"
+                    logout-success-url="/"
+                    logout-url="/logout"/>
+        <sec:intercept-url pattern="/oauth2/authorize/**" access="permitAll"/>
+        <sec:intercept-url pattern="/news/**" access="permitAll"/>
+        <sec:intercept-url pattern="/events/**" access="isAuthenticated()"/>
+
+
+        <sec:intercept-url pattern="/intranet/**" access="isAuthenticated()"/>
+
+        <sec:oauth2-login
+            authorized-client-repository-ref="authorizedClientRepository"
+            login-processing-url="/oauth2/authorize/keycloak/*"
+            oidc-user-service-ref="oidcUserService"
+            login-page="https://dev.nhsd.io/oauth2/authorization/keycloak"
+        />
+        <sec:headers disabled="false"/>
+        <sec:custom-filter after="BASIC_AUTH_FILTER" ref="oauth2AuntFilter"/>
+    </sec:http>
+
+    <bean id="oauth2AuntFilter"
+          class="uk.nhs.digital.filter.AuthenticateFilter">
+        <constructor-arg index="0"
+                         type="org.springframework.security.oauth2.client.registration.ClientRegistrationRepository"
+                         ref="clientRegistrationRepository"/>
+        <constructor-arg index="1"
+                         type="org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepository"
+                         ref="authorizedClientRepository"/>
+        <constructor-arg index="2" type="java.lang.String" value="/intranet/"/>
+        <property name="authenticationManager" ref="authenticationManager"/>
+    </bean>
+
+    <bean id="authenticationManager"
+          class="org.springframework.security.authentication.ProviderManager">
+        <constructor-arg>
+            <list>
+                <ref bean="oidcLoginAuthenticationProvider"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="authorizedClientRepository"
+          class="org.springframework.security.oauth2.client.web.AuthenticatedPrincipalOAuth2AuthorizedClientRepository">
+        <constructor-arg ref="oauth2AuthorizedClientService"/>
+    </bean>
+
+    <bean id="oidcLoginAuthenticationProvider"
+          class="org.springframework.security.oauth2.client.oidc.authentication.OidcAuthorizationCodeAuthenticationProvider">
+        <constructor-arg index="0"
+                         ref="defaultAuthorizationCodeTokenResponseClient"/>
+        <constructor-arg index="1" ref="oidcUserService"/>
+    </bean>
+
+    <bean id="defaultAuthorizationCodeTokenResponseClient"
+          class="org.springframework.security.oauth2.client.endpoint.DefaultAuthorizationCodeTokenResponseClient"/>
+    <bean id="oauth2AuthorizedClientService"
+          class="org.springframework.security.oauth2.client.InMemoryOAuth2AuthorizedClientService">
+        <constructor-arg ref="clientRegistrationRepository"/>
+    </bean>
+</beans>
