@@ -5,7 +5,9 @@ definitions:
       hst:componentclassname: org.onehippo.forge.sitemapv2.components.DocumentFeed
       hst:parameternames:
       - query-offset
+      - query-sortField
       hst:parametervalues:
       - ${query-offset}
+      - hippostdpubwf:publicationDate
       hst:template: forge-sitemapv2-feed.ftl
       jcr:primaryType: hst:component
