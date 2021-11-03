@@ -2,7 +2,11 @@
 <!DOCTYPE configuration SYSTEM "http://jackrabbit.apache.org/dtd/indexing-configuration-1.1.dtd">
 <!--
 Check documentation page for more details:
-https://wiki.apache.org/jackrabbit/IndexingConfiguration
+http://jackrabbit.apache.org/archive/wiki/JCR/IndexingConfiguration_115513411.html
+
+
+Note that this specific file is only relevant in context of local development.
+Changing indexing on the servers is being done by Bloomreach Infra team on request.
 -->
 <configuration
     xmlns:hippostd="http://www.onehippo.org/jcr/hippostd/nt/2.0"
@@ -200,6 +204,15 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
         <property>website:leadparagraph</property>
         <property>website:backstory</property>
 
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
+    <index-rule nodeType="website:apispecification">
+        <property>website:title</property>
+        <property>website:summary</property>
+        <property>website:shortsummary</property>
+        <property>website:seosummary</property>
+        <property>website:json</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
