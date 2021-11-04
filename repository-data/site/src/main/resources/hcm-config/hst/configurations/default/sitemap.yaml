@@ -26,6 +26,10 @@ definitions:
         hst:namedpipeline: S3ConnectorPipeline
         hst:refId: S3CONNECTOR-PIPELINE-ID
         jcr:primaryType: hst:sitemapitem
+      /sitemap-combined.xml:
+        hst:authenticated: false
+        hst:containerresource: true
+        jcr:primaryType: hst:sitemapitem
       /version:
         hst:containerresource: true
         jcr:primaryType: hst:sitemapitem
