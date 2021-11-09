@@ -1,0 +1,10 @@
+{
+    "example": {
+        "plainText": "top level \"plain\" text",
+        "number": 10.1,
+        "nestedJsonProperty": {
+            "nestedPlainText": "nested plain\ntext",
+            "nestedNumber": 10.2
+        }
+    }
+}

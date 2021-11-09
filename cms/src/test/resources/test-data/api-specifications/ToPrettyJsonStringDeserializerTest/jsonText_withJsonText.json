@@ -1,0 +1,3 @@
+{
+    "example": "{\n  \"withJsonObject\": \"{\\n  \\\"defined\\\": \\\"as text\\\"\\n}\"\n}"
+}

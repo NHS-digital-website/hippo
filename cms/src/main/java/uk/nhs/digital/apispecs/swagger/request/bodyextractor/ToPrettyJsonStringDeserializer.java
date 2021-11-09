@@ -1,12 +1,9 @@
 package uk.nhs.digital.apispecs.swagger.request.bodyextractor;
 
-import static org.apache.commons.lang3.StringUtils.removeEnd;
-import static org.apache.commons.lang3.StringUtils.removeStart;
-
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 
@@ -23,32 +20,33 @@ public class ToPrettyJsonStringDeserializer extends StdDeserializer<String> {
     @Override
     public String deserialize(final JsonParser parser, final DeserializationContext context) throws IOException {
 
-        final String prettyString = parseAsJson(parser);
-
-        return sanitise(prettyString);
+        return isJsonObject(parser)
+            ? parseAsJsonObject(parser, context)
+            : parseAsString(parser);
     }
 
-    private String sanitise(final String text) {
+    private boolean isJsonObject(final JsonParser parser) throws IOException {
 
-        String sanitisedText = stripLeadingAndTrailingQuoteCharacters(text);
-        sanitisedText = unescapeQuotes(sanitisedText);
+        // Evaluates to true for values defined as JSON objects, e.g.:
+        //
+        //    { "some": "property" }
 
-        return sanitisedText;
+        // Evaluates to false for values defined as strings, e.g.:
+        //
+        //    "{ \"some\": \"property\" }"
+        //
+        //    "plain text"
+        //
+        //    "<xml> <element>text value</element> </xml>"
+
+        return StringUtils.length(parser.getText()) <= 1;
     }
 
-    private String unescapeQuotes(final String text) {
-        return text.replaceAll("\\\\\"", "\"");
+    private String parseAsJsonObject(final JsonParser parser, final DeserializationContext context) throws IOException {
+        return context.readTree(parser).toPrettyString();
     }
 
-    private String parseAsJson(final JsonParser parser) throws IOException {
-        return parser.getCodec().<JsonNode>readTree(parser).toPrettyString();
-    }
-
-    private String stripLeadingAndTrailingQuoteCharacters(final String inputString) {
-
-        String cleanedString = removeStart(inputString, "\"");
-        cleanedString = removeEnd(cleanedString, "\"");
-
-        return cleanedString;
+    private String parseAsString(final JsonParser parser) throws IOException {
+        return parser.getText();
     }
 }

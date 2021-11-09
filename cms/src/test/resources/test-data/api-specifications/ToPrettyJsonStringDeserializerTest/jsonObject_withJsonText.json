@@ -1,0 +1,5 @@
+{
+    "example": {
+        "jsonObjectAsString": "{\n    \"some\": \"json with \\\"quotes\\\"\n}"
+    }
+}
