@@ -4,99 +4,71 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import uk.nhs.digital.apispecs.swagger.request.bodyextractor.ToPrettyJsonStringDeserializer;
 
-import java.io.IOException;
-
+@RunWith(DataProviderRunner.class)
 public class ToPrettyJsonStringDeserializerTest {
 
     private final ObjectMapper objectMapper = new ObjectMapper()
         .configure(MapperFeature.USE_ANNOTATIONS, true);
 
-    private final ToPrettyJsonStringDeserializer deserializer = new ToPrettyJsonStringDeserializer();
-
     @Test
-    public void deserialisesJsonObjectToPrettyPrintedJsonString() throws IOException {
+    @UseDataProvider("inputsAndExpected")
+    public void prettyPrints(final String testCase, final String testFileName) throws JsonProcessingException {
 
         // given
-        final String jsonObject = "{\"some\":\"json\"}";
-        final String jsonPrettyPrinted = "{\n  \"some\" : \"json\"\n}";
+        final String input = from(testFileName + ".json");
+        final String expectedText = from(testFileName + ".txt");
 
         // when
-        final String actualDeserializedContent = deserializer.deserialize(
-            objectMapper.getFactory().createParser(jsonObject),
-            null // ignored
-        );
-
-        // then
-        assertThat("Deserialises JSON content into pretty-printed JSON string.",
-            actualDeserializedContent,
-            is(jsonPrettyPrinted)
-        );
-    }
-
-    @Test
-    public void deserialisesPlainTextToPlainString_trimmingLeadingAndTrailingQuotes() throws IOException {
-
-        // given
-        final String jsonPropertyStringValue = from("plainText.json");
-
-        final String plainTextValueWithNoSurroundingQuotes = "plain text";
-
-        // when
-        final String actualValue = objectMapper.readValue(jsonPropertyStringValue, TestDto.class).getProperty();
+        // instantiates and invokes ToPrettyJsonStringDeserializer
+        final String actualParsedText = objectMapper.readValue(input, TestDto.class).getExample();
 
         // then
         assertThat(
-            "Deserialises string JSON value into plain text string, trimming leading and trailing quote characters.",
-            actualValue,
-            is(plainTextValueWithNoSurroundingQuotes)
+            "Deserialises and pretty-prints " + testCase + ".",
+            actualParsedText,
+            is(expectedText)
         );
     }
 
-    @Test
-    public void deserialisesPlainTextToPlainString_unescapingDoubleQuotesWithinTheValue() throws IOException {
+    @DataProvider
+    public static Object[][] inputsAndExpected() {
 
-        // given
-        final String jsonPropertyStringValue = from("plainTextWithQuotes.json");
+        // @formatter:off
+        return new String[][]{
 
-        final String plainTextValueWithQuotes = "plain text with \"quotes\"";
+            // testCase                                                             testFileName (+ .json, .txt)
 
-        // when
-        final String actualValue = objectMapper.readValue(jsonPropertyStringValue, TestDto.class).getProperty();
+            // JSON defined as object
+            {"JSON defined as an object",                                           "jsonObject"},
+            {"JSON defined as an object with property with JSON defined as text",   "jsonObject_withJsonText"},
+            {"JSON defined as an object with property with XML defined as text",    "jsonObject_withXmlText"},
 
-        // then
-        assertThat(
-            "Deserialises string JSON value into plain text preserving double-quote characters within it.",
-            actualValue,
-            is(plainTextValueWithQuotes)
-        );
+            // JSON defined as text
+            {"JSON defined as a text", "jsonText"},
+            {"JSON defined as a text with property with JSON defined as text",      "jsonText_withJsonText"},
+            {"JSON defined as a text with property with XML defined as text",       "jsonText_withXmlText"},
+
+            // XML
+            {"XML defined as a text",                                               "xmlText"},
+
+            // Plain text
+            {"plain text",                                                          "plainText"}
+        };
+        // @formatter:on
     }
 
-    @Test
-    public void deserialisesJsonToPrettyPrintedString_unescapingDoubleQuotesWithinTheValue() throws IOException {
-
-        // given
-        final String jsonPropertyStringValue = from("nestedJsonWithQuotes.json");
-
-        final String prettyPrintedJsonWithQuotes = "{\n  \"nested-property\" : \"with \"quotes\"\"\n}";
-
-        // when
-        final String actualValue = objectMapper.readValue(jsonPropertyStringValue, TestDto.class).getProperty();
-
-        // then
-        assertThat(
-            "Deserialises nested JSON, preserving double quotes embedded within its property.",
-            actualValue,
-            is(prettyPrintedJsonWithQuotes)
-        );
-    }
-
-    private String from(final String testFileName) {
+    private static String from(final String testFileName) {
         return contentOfFileFromClasspath(
             "/test-data/api-specifications/ToPrettyJsonStringDeserializerTest/" + testFileName
         );
@@ -105,10 +77,10 @@ public class ToPrettyJsonStringDeserializerTest {
     public static class TestDto {
 
         @JsonDeserialize(using = ToPrettyJsonStringDeserializer.class)
-        private String property;
+        private String example;
 
-        private String getProperty() {
-            return property;
+        private String getExample() {
+            return example;
         }
     }
 }
