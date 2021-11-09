@@ -1,0 +1,3 @@
+{
+  "withJsonObject": "{\n  \"defined\": \"as text\"\n}"
+}
