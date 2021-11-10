@@ -3,7 +3,7 @@
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Quote" -->
 
 <#macro quoteSection section>
-    <div class="quote-box" aria-label="Quotation">
+    <div class="quote-box">
        <div itemscope itemtype="https://schema.org/Quotation">
          <div class="quote-text" itemprop="text">
           <@hst.html hippohtml=section.quote contentRewriter=gaContentRewriter/>

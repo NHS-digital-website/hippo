@@ -43,7 +43,7 @@
 
 <article class="article article--person" itemscope itemtype="http://schema.org/Person">
 
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
 
         <#if notSuppress>
           <#if document.postnominals?? && document.postnominals?has_content>
@@ -135,7 +135,7 @@
         </div>
         </div>
 
-        <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+        <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <#if renderNav>
               <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">

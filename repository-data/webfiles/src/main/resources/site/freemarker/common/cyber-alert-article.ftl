@@ -309,7 +309,7 @@
                     <div id="${slugify(acknowledgementHeader)}" class="article-section">
                         <h2>${acknowledgementHeader}</h2>
                         <#list document.cyberAcknowledgements as item>
-                            <div class="emphasis-box emphasis-box-emphasis" aria-label="Emphasis">
+                            <div class="emphasis-box emphasis-box-emphasis">
 
                                 <div class="emphasis-box__content">
                                     <a href="${item.linkAddress}"

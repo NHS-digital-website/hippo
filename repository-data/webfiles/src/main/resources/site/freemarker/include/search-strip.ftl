@@ -18,7 +18,7 @@
             <label for="${searchId?has_content?then(searchId, 'query')}" class="visually-hidden">${buttonLabel}</label>
         </div>
         <div class="search-strip__table-cell search-strip__table-cell--button">
-            <button data-uipath="search.button" class="search-strip__button" aria-label="${buttonLabel}" id="search_button">
+            <button data-uipath="search.button" class="search-strip__button" aria-label="${buttonLabel}" id="search_button_strip">
                 <img src="<@hst.webfile path="/images/icon-search-white.png"/>" alt="Magnifying glass" class="search-strip__icon" aria-hidden="true" />
 
                 <img src="<@hst.webfile  path="images/icon-loading.svg"/>" alt="Spinning circle graphic" class="search-strip__icon search-strip__icon--loading" aria-hidden="true" />
@@ -26,8 +26,8 @@
         </div>
     </div>
     <#-- Search Event Pixel -->
-     <script type="text/javascript">
-        document.getElementById("search_button").addEventListener("click", myFunction);
+     <script>
+        document.getElementById("search_button_strip").addEventListener("click", myFunction);
         document.getElementsByName("query")[0].addEventListener("click", myFunction);
         function myFunction() {
             var searchData = {};

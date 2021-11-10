@@ -32,7 +32,7 @@
         <div class="nhsd-o-banner__image-container">
             <#if options.video?has_content>
                 <div class="nhsd-o-banner__iframe-wrapper">
-                    <iframe class="nhsd-o-banner__iframe" type="text/html" src="${options.video}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="nhsd-o-banner__iframe" src="${options.video}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                 </div>
             <#else>
                 <figure class="nhsd-a-image nhsd-a-image--cover">

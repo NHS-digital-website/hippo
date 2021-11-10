@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
-<#-- Return an inline SVG icon by ID -->
-<#macro svgIcon id="" className="">
+<#-- Return an inline SVG icon by ID --> <-- W3C recommend non empty id strings remove and test #TODO LK -->
+<#macro svgIcon>
     <#assign viewBox="0 0 20 20" />
     <#if id="actionArrow">
         <#assign viewBox="0 0 24 24" />
