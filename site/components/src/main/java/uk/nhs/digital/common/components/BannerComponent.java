@@ -6,6 +6,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsBannerComponentInfo;
+import uk.nhs.digital.common.util.DocumentUtils;
 
 @ParametersInfo(type = EssentialsBannerComponentInfo.class)
 public class BannerComponent extends CommonComponent {
@@ -19,6 +20,7 @@ public class BannerComponent extends CommonComponent {
 
         request.setAttribute("document", document);
         request.setAttribute("cparam", componentInfo);
+        DocumentUtils.setMetaTags(request, this);
 
     }
 }

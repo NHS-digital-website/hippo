@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
 <@hst.setBundle basename="design-system"/>
-<@metaTags></@metaTags>
+<@metaTags title summary></@metaTags>
 
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
