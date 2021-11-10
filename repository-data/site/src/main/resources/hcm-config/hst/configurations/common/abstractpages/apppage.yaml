@@ -25,5 +25,6 @@ definitions:
         - main
         hst:template: base-top-menu
         jcr:primaryType: hst:component
+      hst:componentclassname: uk.nhs.digital.common.components.MetaTagsComponent
       hst:template: app-layout
       jcr:primaryType: hst:component

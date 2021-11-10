@@ -42,7 +42,7 @@
 
 <#if banner??>
     <#assign overridePageTitle>${banner.title}</#assign>
-    <@metaTags></@metaTags>
+    <@metaTags title summary></@metaTags>
     <#global test="Hello"/>
     <@hero heroOptions />
 </#if>

@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#macro metaTags>
+<#macro metaTags contentTitle="" contentDescription="">
     <#assign siteTitle = "NHS Digital"/>
     <#assign pageTitle = 'Home - ' + siteTitle />
     <#assign siteSEOSummary = "We’re the national information and technology partner to the health and social care system using digital technology to transform the NHS and social care" />
@@ -14,6 +14,10 @@
     <#if overridePageTitle?? >
         <#assign pageTitle = overridePageTitle + ' - ' + siteTitle />
     </#if>
+    <#if contentTitle?? && contentTitle?has_content >
+        <#assign pageTitle = contentTitle />
+    </#if>
+
     <#if document?? && document.seosummary?? && document.seosummary?has_content>
         <#noautoesc>
           <!-- strip HTML tags -->
@@ -22,6 +26,9 @@
             <#assign pageSEOSummary = tempSEOSummary />
           </#if>
         </#noautoesc>
+    </#if>
+    <#if contentDescription?? && contentDescription?has_content>
+        <#assign pageSEOSummary = contentDescription?replace('<[^>]+>','','r') />
     </#if>
 
     <#-- lead image to replace default (field name must be leadImage - see blog and general types -->
