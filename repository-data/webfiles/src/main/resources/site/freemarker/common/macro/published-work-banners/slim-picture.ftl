@@ -43,10 +43,10 @@
         </style>
     </@hst.headContribution>
 
-    <div class="banner-image" aria-label="Document Header" style="background-image: url(${bannerImage});">
+    <div class="banner-image" style="background-image: url(${bannerImage});">
         <#if document.bannerImageAltText??>
             <#-- Add some descriptive text to the otherwise inaccessible background image -->
-            <span role="img" aria-label="${bannerImageAltText}"> </span>
+            <span role="img"> </span>
         </#if>
         <div class="grid-wrapper">
             <div class="grid-row">

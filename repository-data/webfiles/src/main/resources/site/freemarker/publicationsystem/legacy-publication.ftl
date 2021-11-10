@@ -74,7 +74,7 @@
 </#macro>
 
 <#macro restrictedContentOfUpcomingPublication>
-<div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+<div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
     <div class="local-header article-header article-header--detailed">
         <div class="grid-wrapper">
             <div class="article-header__inner">
@@ -101,7 +101,7 @@
         </div>
     </div>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
@@ -114,7 +114,7 @@
 </#macro>
 
 <#macro fullContentOfPubliclyAvailablePublication>
-<div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+<div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
     <div class="local-header article-header article-header--detailed">
         <div class="grid-wrapper">
             <div class="article-header__inner">
@@ -199,7 +199,7 @@
     </div>
 </div>
 
-<div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+<div class="grid-wrapper grid-wrapper--article">
     <#if legacyPublication.updates?has_content>
         <div class="grid-row">
             <div class="column column--no-padding">

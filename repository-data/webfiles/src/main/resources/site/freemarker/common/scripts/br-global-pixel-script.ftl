@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<script type="text/javascript">
+<script>
     var br_data = br_data || {};
     br_data.acct_id = "6405";
     br_data.catalogs = [ { "name" : "content_en" } ];

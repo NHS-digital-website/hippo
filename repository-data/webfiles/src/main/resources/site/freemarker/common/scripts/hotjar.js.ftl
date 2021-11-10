@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
 <!-- Hotjar Tracking Code for https://digital.nhs.uk -->
-<script type="text/plain" data-cookieconsent="statistics">
+<script data-cookieconsent="statistics">
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:944417,hjsv:6};

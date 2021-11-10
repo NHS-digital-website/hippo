@@ -138,7 +138,7 @@
         <div class="grid-row">
             <div style="padding-left: 20">To try an endpoint expand the section and click the Execute button at the bottom.</div>
 
-            <div id="content" aria-label="Document content">
+            <div id="content">
 
                 <#if document?? >
                     <div id="swagger-ui"></div>
