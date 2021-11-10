@@ -36,5 +36,6 @@ definitions:
         - nhsd-main-nav
         hst:template: nhsd-main-nav
         jcr:primaryType: hst:component
+      hst:componentclassname: uk.nhs.digital.common.components.MetaTagsComponent
       hst:template: nhsd-homepage-layout
       jcr:primaryType: hst:component

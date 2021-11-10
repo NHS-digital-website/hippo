@@ -5,7 +5,7 @@
 <#assign overridePageTitle>${document.title}</#assign>
 <#-- Add meta tags -->
 <#include "../../common/macro/metaTags.ftl">
-<@metaTags></@metaTags>
+<@metaTags title summary></@metaTags>
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->
 
