@@ -32,4 +32,9 @@ public class Feature extends CaseStudyAndBlogBase implements IntranetSearchResul
     public String getDocType() {
         return "Feature";
     }
+
+    @HippoEssentialsGenerated(internalName = "website:thumbnailImage")
+    public CorporateWebsiteImageset getThumbnailImage() {
+        return getLinkedBean("website:thumbnailImage", CorporateWebsiteImageset.class);
+    }
 }
