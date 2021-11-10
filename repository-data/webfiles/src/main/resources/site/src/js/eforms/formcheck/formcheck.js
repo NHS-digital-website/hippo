@@ -25,7 +25,7 @@
 		show errors one by one or all together, show a list of all errors at the top of the form, localize error messages, add new regex check, ...
 
 		The layout is design only with css. Now I added a hack to use transparent png with IE6, so you can use png images in formcheck.css (works only for theme, so the file must be named formcheck.css). It can also works with multiple forms on a single html page.
-		The class supports now internationalization. To use it, simply specify a new <script> element in your html head, like this : <script type="text/javascript" src="formcheck/lang/fr.js"></script>.
+		The class supports now internationalization. To use it, simply specify a new <script> element in your html head, like this : <script src="formcheck/lang/fr.js"></script>.
 
 		If you add the class
 			(code)
@@ -162,7 +162,7 @@
 		You can initialize a formcheck (no scroll, custom classes and alert) by adding for example this in your html head this code :
 
 		(code)
-		<script type="text/javascript">
+		<script>
 			window.addEvent('domready', function() {
 				var myCheck = new FormCheck('form_id', {
 					tipsClass : 'tips_box',
@@ -330,7 +330,7 @@ var FormCheck = new Class({
 
 	Example:
 		(code)
-		<script type="text/javascript">
+		<script>
 			window.addEvent('domready', function() {
 				formcheck = new FormCheck('form_id');
 			});
@@ -407,7 +407,7 @@ var FormCheck = new Class({
 
 	Example:
 		(code)
-		<script type="text/javascript">
+		<script>
 			window.addEvent('domready', function() {
 				formcheck = new FormCheck('form_id');
 			});

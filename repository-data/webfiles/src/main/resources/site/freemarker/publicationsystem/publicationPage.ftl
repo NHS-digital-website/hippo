@@ -23,7 +23,7 @@
         </div>
     </#if>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <#assign links=getStickySectionNavLinks({ "document" : page })/>
             <#if links?size != 0>

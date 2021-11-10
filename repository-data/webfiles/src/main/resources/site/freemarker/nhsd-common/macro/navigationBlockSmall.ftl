@@ -32,8 +32,6 @@
                     <#if hasImage>
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
                             <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                            <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
-                                <picture class="nhsd-a-image__picture">
                                     <@hst.link hippobean=item.icon var="image"/>
                                     <#assign imgDescription = item.icon.description />
                                     <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
@@ -45,12 +43,10 @@
 
                                         <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
                                         <#assign imageUrl += "?colour=${colour}" />
-                                        <img src="${imageUrl}" alt="${altText}">
+                                        <image src="${imageUrl}" alt="${altText}">
                                     <#else>
-                                        <img src="${image}" alt="${altText}">
+                                        <image src="${image}" alt="${altText}">
                                     </#if>
-                                </picture>
-                            </figure>
                         </svg>
                     <#else>
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">

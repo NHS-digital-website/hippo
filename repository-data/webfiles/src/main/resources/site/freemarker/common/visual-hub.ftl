@@ -53,7 +53,6 @@
     <#elseif hasBannerImage && hasTabTileLinks>
         <@hst.link hippobean=document.image fullyQualified=true var="bannerImage" />
         <div class="banner-image banner-image--short banner-image--tint"
-             aria-label="Document Header"
              style="background-image: linear-gradient(0deg, rgba(0,94,184,0.8), rgba(0,94,184,0.8)), url(${bannerImage});">
             <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
                 <div class="article-header--with-icon">

@@ -126,7 +126,7 @@
         </div>
     </div>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
