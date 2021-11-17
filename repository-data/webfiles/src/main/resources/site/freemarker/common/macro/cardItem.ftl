@@ -6,7 +6,7 @@
     <#if cardProps.featured?? && cardProps.featured && cardProps.image?has_content>
         <#assign cardClass = "nhsd-m-card--image-position-adjacent nhsd-m-card--full-height"/>
     </#if>
-    <#if cardProps.authors?has_content && cardProps.authors?size gt 0>
+    <#if cardProps.authorsInfo?has_content && cardProps.authorsInfo?size gt 0>
         <#assign cardClass += " nhsd-m-card--author"/>
     </#if>
     <article class="nhsd-m-card ${cardClass} ${cardProps.cardClass?has_content?then(cardProps.cardClass, '')}">
@@ -39,8 +39,8 @@
                 </div>
             </div>
         </a>
-        <#if cardProps.authors?has_content && cardProps.authors?size gt 0>
-            <@authorSection cardProps.authors />
+        <#if cardProps.authorsInfo?has_content && cardProps.authorsInfo?size gt 0>
+            <@authorSection cardProps.authorsInfo />
         </#if>
     </article>
 </#macro>
