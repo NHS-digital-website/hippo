@@ -53,7 +53,7 @@
         'link': cardLink,
         'shortsummary': item.shortsummary?has_content?then(item.shortsummary, ''),
         'background': 'pale-grey',
-        'authors': authors,
+        'authorsInfo': authors,
         'featured': feature,
         'cardClass': 'nhsd-m-card--full-height'
     } />
