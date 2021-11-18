@@ -60,6 +60,9 @@ class MoveKeyfactsToSection extends BaseNodeUpdateVisitor {
                         def body = publicationNode.getNode(subNode)
                         Node section = publicationNode.addNode("website:sections","website:section")
                         Node bodyNode = section.addNode("website:html", "hippostd:html")
+                        section.setProperty("website:numberedList", false)
+                        section.setProperty("website:title", "")
+                        section.setProperty("website:type", "")
 
                         String property = body.getProperty("hippostd:content").toString()
                         bodyNode.setProperty("hippostd:content", JcrUtils.getStringProperty(body, "hippostd:content", ""))
@@ -73,7 +76,7 @@ class MoveKeyfactsToSection extends BaseNodeUpdateVisitor {
 
                 }
 
-                log.info("  UPDATED: test")
+                log.info("Finished updating")
             }
         }
 
