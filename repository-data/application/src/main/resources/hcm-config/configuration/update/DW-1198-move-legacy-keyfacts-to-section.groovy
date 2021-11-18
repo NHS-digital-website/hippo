@@ -39,6 +39,9 @@ class MoveLegacyKeyfactsToSection extends BaseNodeUpdateVisitor {
                         def body = publicationNode.getNode(subNode)
                         Node section = publicationNode.addNode("website:sections","website:section")
                         Node bodyNode = section.addNode("website:html", "hippostd:html")
+                        section.setProperty("website:numberedList", false)
+                        section.setProperty("website:title", "")
+                        section.setProperty("website:type", "")
 
                         bodyNode.setProperty("hippostd:content", JcrUtils.getStringProperty(body, "hippostd:content", ""))
 
@@ -46,12 +49,11 @@ class MoveLegacyKeyfactsToSection extends BaseNodeUpdateVisitor {
                             JcrUtils.copy(body.getNodes().nextNode(), body.getNodes().nextNode().getName(), bodyNode)
                         }
 
-                        body.remove();
+                        body.setProperty("hippostd:content", "")
                     }
-
                 }
 
-                log.info("  UPDATED: test")
+                log.info("Finished updating")
             }
 
         return false
