@@ -387,6 +387,11 @@
                                         <todir>conf/query/lucene</todir>
                                         <tofile>indexing_configuration.xml</tofile>
                                     </configfile>
+                                    <configfile>
+                                        <file>${website.basedir}/conf/platform-dev.properties</file>
+                                        <todir>conf/</todir>
+                                        <tofile>platform.properties</tofile>
+                                    </configfile>
                                 </configfiles>
                                 <files>
                                     <file>
@@ -406,6 +411,17 @@
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
                                 </files>
+                                <properties>
+                                    <cargo.jvmargs>
+                                        -Xmx1024m
+                                        -Duser.timezone=Etc/UTC
+                                        -Dfile.encoding=ANSI_X3.4-1968
+                                    </cargo.jvmargs>
+                                    <cargo.start.jvmargs>
+                                        -Xdebug
+                                        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
+                                    </cargo.start.jvmargs>
+                                </properties>
                             </configuration>
                             <deployables>
                                 <deployable>
