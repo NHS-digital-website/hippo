@@ -61,9 +61,6 @@ public class SiteSteps extends AbstractSpringSteps {
     @Given("^I navigate to (?:the )?\"([^\"]+)\" (?:.* )?page$")
     public void givenINavigateToPage(String pageName) throws Throwable {
         sitePage.openByPageName(pageName);
-
-        // Clear the cookie banner if it's up
-        sitePage.clickCookieAcceptButton();
     }
 
     /**
@@ -78,9 +75,6 @@ public class SiteSteps extends AbstractSpringSteps {
             element, is(notNullValue()));
 
         sitePage.clickOnElement(element);
-
-        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
-        sitePage.clickCookieAcceptButton();
     }
 
     @When("^I click on the (?:link|button) named \"([^\"]+)\"$")
@@ -91,9 +85,6 @@ public class SiteSteps extends AbstractSpringSteps {
             element, is(notNullValue()));
 
         sitePage.clickOnElement(element);
-
-        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
-        sitePage.clickCookieAcceptButton();
     }
 
     @When("^I (?:can )?click on the label for \"([^\"]+)\"$")
@@ -108,9 +99,6 @@ public class SiteSteps extends AbstractSpringSteps {
             element, is(notNullValue()));
 
         sitePage.clickOnElement(element);
-
-        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
-        sitePage.clickCookieAcceptButton();
     }
 
     @Then("^I (?:can )?see \"([^\"]+)\" (?:link|button|image)$")

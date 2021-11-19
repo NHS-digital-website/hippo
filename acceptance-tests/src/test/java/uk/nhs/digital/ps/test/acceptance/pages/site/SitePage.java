@@ -145,23 +145,6 @@ public class SitePage extends AbstractSitePage {
         return helper.findElement(By.id("footer"));
     }
 
-    public void clickCookieAcceptButton() {
-        WebElement cookieConsent = helper.findOptionalElement(By.linkText("Cookie consent"));
-        if (cookieConsent != null) {
-            cookieConsent.click();
-        }
-        WebElement cookieAllowButton = helper.findOptionalElement(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"));
-        if (cookieAllowButton != null
-            && cookieAllowButton.isDisplayed()) {
-            cookieAllowButton.click();
-            waitForCookiebotDialogToBeGone();
-        }
-    }
-
-    private void waitForCookiebotDialogToBeGone() {
-        helper.waitUntilTrue(() -> findCookiebotDialog() == null);
-    }
-
     private WebElement findCookiebotDialog() {
         return helper.findOptionalElement(By.xpath(".//*[@id='CybotCookiebotDialog' and contains(@style,'display: block')]"));
     }

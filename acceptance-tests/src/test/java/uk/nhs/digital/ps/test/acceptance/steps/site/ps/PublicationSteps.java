@@ -17,7 +17,6 @@ import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.*;
 import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
-import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
@@ -50,7 +49,6 @@ public class PublicationSteps extends AbstractSpringSteps {
         final Publication publication = testDataRepo.getCurrentPublication();
 
         publicationPage.open(publication);
-        sitePage.clickCookieAcceptButton();
 
         thenICanSeeThePublicationHeader();
 
