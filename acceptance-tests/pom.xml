@@ -375,6 +375,11 @@
                                         <todir>conf/query/lucene</todir>
                                         <tofile>indexing_configuration.xml</tofile>
                                     </configfile>
+                                    <configfile>
+                                        <file>${website.basedir}/conf/platform-dev.properties</file>
+                                        <todir>conf/</todir>
+                                        <tofile>platform.properties</tofile>
+                                    </configfile>
                                 </configfiles>
                                 <files>
                                     <file>
