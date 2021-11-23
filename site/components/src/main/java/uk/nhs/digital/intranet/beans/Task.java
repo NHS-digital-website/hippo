@@ -7,10 +7,12 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.ContentBeanUtils;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.intranet.enums.SearchResultType;
 import uk.nhs.digital.intranet.model.IntranetSearchResult;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
@@ -84,6 +86,16 @@ public class Task extends BaseDocument implements IntranetSearchResult {
             property, beanClass, false);
 
         return toList(query.execute().getHippoBeans());
+    }
+
+    @HippoEssentialsGenerated(internalName = "intranet:linkicon")
+    public HippoGalleryImageSet getLinkIcon() {
+        return getLinkedBean("intranet:linkicon", HippoGalleryImageSet.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "intranet:icon")
+    public String getIcon() {
+        return getSingleProperty("intranet:icon");
     }
 
     @Override
