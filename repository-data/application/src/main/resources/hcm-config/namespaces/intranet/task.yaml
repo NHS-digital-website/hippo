@@ -122,6 +122,26 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /icon:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/value-lists/toolkit-icons
+            caption: Icon
+            field: icon
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /linkicon:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Temporarily Icon Link
+            field: linkicon
+            hint: This can only be used temporarily if an icon is not currently available
+              in the 'Icon List'.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /bannercontrols:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -181,6 +201,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
             jcr:primaryType: hipposysedit:field
+          /icon:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:icon
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            jcr:primaryType: hipposysedit:field
           /introduction:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -190,6 +218,14 @@ definitions:
             hipposysedit:type: hippostd:html
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /linkicon:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:linkicon
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
             jcr:primaryType: hipposysedit:field
           /priorityactions:
             hipposysedit:mandatory: false
@@ -284,6 +320,12 @@ definitions:
           /intranet:introduction:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /intranet:linkicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -294,6 +336,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           intranet:alternativenames: []
           intranet:expirydate: 0001-01-01T12:00:00Z
+          intranet:icon: ''
           intranet:prioritytask: false
           intranet:reviewdate: 0001-01-01T12:00:00Z
           intranet:shortsummary: ''
