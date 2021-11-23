@@ -7,7 +7,7 @@
 <#include "../macro/trendingArticlesShortSummary.ftl">
 
 <div class="intra-box">
-    <#if wrappingDocument.title?? && wrappingDocument.title?has_content>
+    <#if wrappingDocument?? && wrappingDocument.title?? && wrappingDocument.title?has_content>
         <div class="nhsd-t-col">
             <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7">${wrappingDocument.title}</h2>
         </div>
@@ -61,7 +61,7 @@
             </div>
         </div>
     </#if>
-    <#if wrappingDocument.title?? && wrappingDocument.title?has_content>
+    <#if wrappingDocument?? && wrappingDocument.title?? && wrappingDocument.title?has_content>
         <@hst.link var="link" hippobean=wrappingDocument/>
          <nav class="nhsd-m-button-nav">
             <a class="nhsd-a-button" href="${link}">

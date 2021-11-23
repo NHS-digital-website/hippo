@@ -1,0 +1,64 @@
+---
+/content/documents/administration/resources/rb.generic.intranet.headers:
+  /rb.generic.intranet.headers[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T14:00:44.792Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: rb.generic.intranet.headers
+    resourcebundle:keys:
+    - headers.tasks
+    resourcebundle:messages:
+    - Tasks
+  /rb.generic.intranet.headers[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T14:01:10.683Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: rb.generic.intranet.headers
+    resourcebundle:keys:
+    - headers.tasks
+    resourcebundle:messages:
+    - Tasks
+  /rb.generic.intranet.headers[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T14:01:10.683Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-02-12T14:01:11.886Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: rb.generic.intranet.headers
+    resourcebundle:keys:
+    - headers.tasks
+    resourcebundle:messages:
+    - Tasks
+  hippo:name: Headers
+  hippo:versionHistory: 8a656810-ed34-4aa0-8d27-20a7c13ea2b9
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
