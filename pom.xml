@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.6.0</version>
+        <version>14.7.0</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -80,7 +80,8 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <bloomreach.version>14.6.0</bloomreach.version>
+        <bloomreach.version>14.7.0</bloomreach.version>
+        <bloomreach.essential.dashboard>14.6.0</bloomreach.essential.dashboard>
         <h2.database.version>1.4.200</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
@@ -128,9 +129,8 @@
 
         <hystrix-javanica.version>1.5.18</hystrix-javanica.version>
         <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
-        <bloomreach.text-search-replace.version>2.0.0</bloomreach.text-search-replace.version>
+        <bloomreach.text-search-replace.version>2.1.0</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>5.0</forge.resetpassword.version>
-        <bloomreach.text-search-replace.version>1.0.4</bloomreach.text-search-replace.version>
         <bloomreach.forge.sitemapv2.version>2.0.6</bloomreach.forge.sitemapv2.version>
 
         <!--***START temporary override of versions*** -->

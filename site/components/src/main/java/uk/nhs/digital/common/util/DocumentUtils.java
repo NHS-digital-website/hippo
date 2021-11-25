@@ -75,7 +75,14 @@ public final class DocumentUtils {
         String title = null;
         try {
             String path = request.getPathInfo().replaceAll("/", "") + "/content/";
-            Node node = commonComponent.getHippoBeanForPath(path, HippoBean.class).getNode();
+            HippoBean bean = commonComponent.getHippoBeanForPath(path, HippoBean.class);
+            Node node = null;
+            if (bean != null) {
+                node = bean.getNode();
+            } else {
+                log.warn("No Bean found for path " + path);
+                return;
+            }
             log.debug("Value of node is " + node);
             if (node.hasProperty("website:seosummarytext")) {
                 seoSummary = node.getProperty("website:seosummarytext").getValue().getString();
