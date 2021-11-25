@@ -529,7 +529,6 @@
                                         <groupId>javax.mail</groupId>
                                         <artifactId>mail</artifactId>
                                         <classpath>extra</classpath>
-                                        <scope>provided</scope>
                                     </dependency>
                                     <dependency>
                                         <groupId>org.apache.logging.log4j</groupId>
