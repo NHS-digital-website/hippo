@@ -96,8 +96,8 @@
                     <artifactId>mailapi</artifactId>
                 </exclusion>
                 <exclusion>
-                    <artifactId>mailapi</artifactId>
                     <groupId>com.sun.mail</groupId>
+                    <artifactId>mailapi</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>org.yaml</groupId>
@@ -347,7 +347,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
+            <groupId>org.commonmark</groupId>
             <artifactId>commonmark-ext-gfm-tables</artifactId>
         </dependency>
 
