@@ -348,7 +348,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.commonmark</groupId>
+            <groupId>com.atlassian.commonmark</groupId>
             <artifactId>commonmark-ext-gfm-tables</artifactId>
         </dependency>
 
