@@ -61,7 +61,6 @@
         </snapshotRepository>
     </distributionManagement>
     <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
-
     <properties>
         <!--
         KEEP IN LINE WITH BLOOMREACH VERSION - see <parent><version> above.
