@@ -157,7 +157,7 @@
                     </#if>
 
 
-                    <#if !document.class ?contains('PublicationPage')>
+                    <#if !document.class?contains('PublicationPage')>
                         <#assign hasSectionContent = document.sections?has_content />
                         <#if hasSectionContent>
                             <div class="article-section" id="highlights">
