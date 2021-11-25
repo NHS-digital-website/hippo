@@ -26,6 +26,7 @@
         DO NOT remove these tags but instead fill them in appropriately as needed,
         UNLESS the inherited values are valid for your project.
     -->
+
     <url/>
     <inceptionYear/>
     <organization/>
@@ -61,6 +62,7 @@
         </snapshotRepository>
     </distributionManagement>
     <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
+
     <properties>
         <!--
         KEEP IN LINE WITH BLOOMREACH VERSION - see <parent><version> above.
@@ -696,7 +698,7 @@
             </dependency>
 
             <dependency>
-                <groupId>org.commonmark</groupId>
+                <groupId>com.atlassian.commonmark</groupId>
                 <artifactId>commonmark-ext-gfm-tables</artifactId>
                 <version>${commonmark.version}</version>
             </dependency>
