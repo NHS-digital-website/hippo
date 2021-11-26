@@ -14,6 +14,7 @@ import uk.nhs.digital.apispecs.model.SpecificationSyncData;
 import uk.nhs.digital.apispecs.model.SyncResults;
 import uk.nhs.digital.common.util.TimeProvider;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -26,17 +27,21 @@ import java.util.stream.Collector;
 public class ApiSpecificationPublicationService {
 
     private static final Logger log = LoggerFactory.getLogger(ApiSpecificationPublicationService.class);
+
     private static Pattern UUID_REGEX = Pattern.compile("[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}");
 
+    private final ApiSpecificationImportMetadataRepository apiSpecificationImportMetadataRepository;
     private final OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter;
     private final OpenApiSpecificationRepository remoteSpecRepository;
     private final ApiSpecificationDocumentRepository localSpecRepository;
 
     public ApiSpecificationPublicationService(final OpenApiSpecificationRepository remoteSpecRepository,
                                               final ApiSpecificationDocumentRepository localSpecRepository,
+                                              final ApiSpecificationImportMetadataRepository apiSpecificationImportMetadataRepository,
                                               final OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter) {
         this.remoteSpecRepository = remoteSpecRepository;
         this.localSpecRepository = localSpecRepository;
+        this.apiSpecificationImportMetadataRepository = apiSpecificationImportMetadataRepository;
         this.openApiSpecificationJsonToHtmlConverter = openApiSpecificationJsonToHtmlConverter;
     }
 
@@ -48,52 +53,80 @@ public class ApiSpecificationPublicationService {
             ? emptyList()
             : getRemoteSpecifications();
 
+        final ApiSpecificationImportMetadata apiSpecificationImportMetadata = apiSpecificationImportMetadata();
+
         final Map<String, OpenApiSpecification> remoteSpecsById = Maps.uniqueIndex(
             remoteSpecs, OpenApiSpecification::getId
         );
 
         final SyncResults syncResults = localSpecs.stream()
             .filter(specificationsPresentInBothSystems(remoteSpecsById))
-            .map(toInitialSpecSyncData(remoteSpecsById))
+            .map(toInitialSpecSyncData(remoteSpecsById, apiSpecificationImportMetadata))
             .peek(determineEligibility())
             .peek(renderHtmlIfContentActuallyChanged())
             .peek(setLastChangeCheckInstant())
             .peek(publishSpecIfActuallyChanged())
             .collect(syncResults());
 
+        save(apiSpecificationImportMetadata);
+
         reportPublicationStatusFor(localSpecs.size(), remoteSpecs.size(), syncResults);
     }
 
-    private Consumer<SpecificationSyncData> determineEligibility() {
-        return specSyncData -> {
-            if (specSyncData.failedEarlier()) {
-                return;
-            }
+    private void save(final ApiSpecificationImportMetadata localSpecsMetadata) {
+        log.debug("Saving API Specification import metadata: start: {}", localSpecsMetadata);
+        apiSpecificationImportMetadataRepository.save(localSpecsMetadata);
+        log.debug("Saving API Specification import metadata: done.");
+    }
 
-            try {
-                specSyncData.setEligible(specSyncData.specContentChanged());
-            } catch (final Exception e) {
-                specSyncData.setError("Failed to determine whether the specification is eligible for update.", e);
-            }
-        };
+    private ApiSpecificationImportMetadata apiSpecificationImportMetadata() {
+
+        log.debug("API Specification import metadata: query start.");
+        final ApiSpecificationImportMetadata apiSpecificationImportMetadata = apiSpecificationImportMetadataRepository.findApiSpecificationImportMetadata();
+        log.debug("API Specification import metadata: found metadata: {}", apiSpecificationImportMetadata);
+
+        return apiSpecificationImportMetadata;
     }
 
     private Function<ApiSpecificationDocument, SpecificationSyncData> toInitialSpecSyncData(
-        final Map<String, OpenApiSpecification> remoteSpecsById) {
-        return localSpec -> SpecificationSyncData.with(
-            localSpec,
-            remoteSpecsById.get(localSpec.getId())
-        );
+        final Map<String, OpenApiSpecification> remoteSpecsById,
+        final ApiSpecificationImportMetadata apiSpecificationImportMetadata
+    ) {
+        return localSpec -> {
+            final ApiSpecificationImportMetadata.Item specMetadata = apiSpecificationImportMetadata.getBySpecJcrId(localSpec.jcrId());
+            specMetadata.setSpecExists();
+
+            log.debug("{} Processing API Specification: id: {}; path: {}.", localSpec.jcrId(), localSpec.specificationId(), localSpec.path());
+
+            return SpecificationSyncData.with(
+                localSpec,
+                remoteSpecsById.get(localSpec.specificationId()),
+                specMetadata
+            );
+        };
+    }
+
+    private Consumer<SpecificationSyncData> determineEligibility() {
+        return ifSuccessfulSoFar(specSyncData -> {
+            try {
+                log.debug("{} Determining eligibility for update: start.", specSyncData.specJcrId());
+                final boolean eligible = specSyncData.specContentChanged();
+                log.debug("{} Determining eligibility for update: done; eligible: {}.", specSyncData.specJcrId(), eligible);
+
+                specSyncData.setEligible(eligible);
+            } catch (final Exception e) {
+                specSyncData.setError("Failed to determine whether the specification is eligible for update.", e);
+            }
+        });
     }
 
     private Consumer<SpecificationSyncData> renderHtmlIfContentActuallyChanged() {
-        return specSyncData -> {
-            if (specSyncData.failedEarlier()) {
-                return;
-            }
-
+        return ifSuccessfulSoFar(specSyncData -> {
+            log.debug("{} Rendering HTML: start.", specSyncData.specJcrId());
             try {
                 if (specSyncData.eligible()) {
+
+                    log.debug("{} Rendering HTML: spec eligible; starting.", specSyncData.specJcrId());
 
                     specSyncData.remoteSpec()
                         .getSpecJson()
@@ -101,46 +134,57 @@ public class ApiSpecificationPublicationService {
                         .ifPresent(specSyncData::setHtml);
 
                 } else {
-                    if (specSyncData.specReportedAsUpdated()) {
+                    log.debug("{} Rendering HTML: spec not eligible; skipping.", specSyncData.specJcrId());
+
+                    if (specSyncData.remoteSpecReportedAsUpdated()) {
                         specSyncData.markSkipped();
                     }
                 }
             } catch (final Exception e) {
                 specSyncData.setError("Failed to render OAS JSON into HTML.", e);
+                log.debug("{} Rendering HTML: failed.", specSyncData.specJcrId());
             }
-        };
+            log.debug("{} Rendering HTML: done.", specSyncData.specJcrId());
+        });
     }
 
     private Consumer<SpecificationSyncData> setLastChangeCheckInstant() {
-        return specSyncData -> {
-            if (specSyncData.failedEarlier()) {
-                return;
-            }
-
+        return ifSuccessfulSoFar(specSyncData -> {
             try {
-                specSyncData.localSpec().setLastChangeCheckInstantInPlace(TimeProvider.getNowInstant());
-                specSyncData.localSpec().save();
+                final Instant nowInstant = TimeProvider.getNowInstant();
+
+                log.debug("{} Setting lastChangeCheckInstant to {}", specSyncData.specJcrId(), nowInstant.toString());
+
+                specSyncData.localMetadata().setLastChangeCheckInstant(nowInstant);
             } catch (final Exception cause) {
                 specSyncData.setError(
                     format("Failed to record time of last check on specification with id %s at %s.",
-                        specSyncData.localSpec().getId(),
+                        specSyncData.localSpec().specificationId(),
                         specSyncData.localSpec().path()
                     ),
                     cause
                 );
             }
-        };
+        });
     }
 
     private Consumer<SpecificationSyncData> publishSpecIfActuallyChanged() {
+        return ifSuccessfulSoFar(specSyncData -> {
+            if (specSyncData.eligible()) {
+                log.debug("{} Publishing spec: start.", specSyncData.specJcrId());
+                updateAndPublish(specSyncData);
+                log.debug("{} Publishing spec: done.", specSyncData.specJcrId());
+            }
+        });
+    }
+
+    private Consumer<SpecificationSyncData> ifSuccessfulSoFar(final Consumer<SpecificationSyncData> specificationSyncDataConsumer) {
         return specSyncData -> {
             if (specSyncData.failedEarlier()) {
                 return;
             }
 
-            if (specSyncData.eligible()) {
-                updateAndPublish(specSyncData);
-            }
+            specificationSyncDataConsumer.accept(specSyncData);
         };
     }
 
@@ -181,24 +225,32 @@ public class ApiSpecificationPublicationService {
 
         final List<ApiSpecificationDocument> cmsApiSpecificationDocuments = findCmsApiSpecifications();
 
-        log.debug("API Specifications found: {}", cmsApiSpecificationDocuments.size());
-
         final long failedSpecificationsCount = rerenderIfRenderingLogicChanged(cmsApiSpecificationDocuments);
 
         reportRerenderingStats(failedSpecificationsCount, cmsApiSpecificationDocuments.size());
     }
 
     private List<OpenApiSpecification> getRemoteSpecifications() {
-        return remoteSpecRepository.apiSpecificationStatuses();
+
+        log.debug("Retrieving API Specification statuses from remote repository: start.");
+        final List<OpenApiSpecification> openApiSpecifications = remoteSpecRepository.apiSpecificationStatuses();
+        log.debug("Retrieving API Specification statuses from remote repository: found {} entries", openApiSpecifications.size());
+
+        return openApiSpecifications;
     }
 
     private List<ApiSpecificationDocument> findCmsApiSpecifications() {
-        return localSpecRepository.findAllApiSpecifications();
+
+        log.debug("Local API Specifications query: start.");
+        final List<ApiSpecificationDocument> allApiSpecifications = localSpecRepository.findAllApiSpecifications();
+        log.debug("Local API Specifications query: found {} documents.", allApiSpecifications.size());
+
+        return allApiSpecifications;
     }
 
     private Predicate<ApiSpecificationDocument> specificationsPresentInBothSystems(
         final Map<String, OpenApiSpecification> remoteSpecsById) {
-        return apiSpecification -> remoteSpecsById.containsKey(apiSpecification.getId());
+        return apiSpecification -> remoteSpecsById.containsKey(apiSpecification.specificationId());
     }
 
     private void updateAndPublish(final SpecificationSyncData specSyncData) {
@@ -238,7 +290,7 @@ public class ApiSpecificationPublicationService {
             final String candidateHtml = apiSpecificationDocument.json().map(this::specHtmlFrom).orElse("");
 
             if (renderingNotChangedIgnoringKnownVolatiles(candidateHtml, publishedHtml)) {
-                log.debug("No changes to API Specification, skipped: {}", apiSpecificationDocument.getId());
+                log.debug("No changes to API Specification, skipped: {}", apiSpecificationDocument.specificationId());
                 return PASS;
             }
 
@@ -246,7 +298,7 @@ public class ApiSpecificationPublicationService {
 
             apiSpecificationDocument.save();
 
-            log.info("API Specification has been rerendered: id: {}, path: {}", apiSpecificationDocument.getId(), apiSpecificationDocument.path());
+            log.info("API Specification has been rerendered: id: {}, path: {}", apiSpecificationDocument.specificationId(), apiSpecificationDocument.path());
             return PASS;
 
         } catch (final Exception e) {

@@ -1,0 +1,16 @@
+---
+
+# Root API Specifications metadata node under module config node
+# /hippo:configuration/hippo:modules/api-specification-sync/api-specification-sync/hippo:moduleconfig
+
+- path: /hippo:configuration/hippo:modules/api-specification-sync/hippo:moduleconfig/api-specification-metadata
+  primaryType: hipposys:moduleconfig
+  properties:
+    website:apiSpecHandleNodeIds:
+    - api-spec-a-6c684d98-61e9-4ff6-bf40-5e288bd692f8
+    - api-spec-b-06bf9af3-e63d-42cf-a60a-b80063129638
+    - api-spec-c-b214ce0f-8202-46b8-895b-24129a2dfd9c
+    website:lastChangeCheckInstants:
+    - 2021-11-26T12:30:00.001Z
+    - 2021-11-26T12:30:00.002Z
+    - 2021-11-26T12:30:00.003Z

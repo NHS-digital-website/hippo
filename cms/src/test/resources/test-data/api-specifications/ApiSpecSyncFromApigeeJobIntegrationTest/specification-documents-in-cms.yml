@@ -1,5 +1,4 @@
 ---
-
 # Folder
 - path: /content/documents/corporate-website/api-specifications-location-a
   primaryType: hippo:folder
@@ -29,3 +28,10 @@
     website:html: <p>API Specification - A</p>
     website:specification_id: 269326
     hippostdpubwf:publicationDate: '2020-05-03T10:30:00.000Z'
+
+# Root API Specifications metadata node under module config node
+- path: /hippo:configuration/hippo:modules/api-specification-sync/hippo:moduleconfig/api-specification-metadata
+  primaryType: hipposys:moduleconfig
+  properties:
+    website:apiSpecHandleNodeIds: []
+    website:lastChangeCheckInstants: []

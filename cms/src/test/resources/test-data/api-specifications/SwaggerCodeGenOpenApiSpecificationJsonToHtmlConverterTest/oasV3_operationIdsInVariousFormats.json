@@ -36,7 +36,7 @@
                 "operationId": "ALLCAPS"
             },
             "put": {
-                "summary": "Pu numbers operation",
+                "summary": "Put numbers operation",
                 "operationId": "12345"
             },
             "delete": {

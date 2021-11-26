@@ -2,15 +2,16 @@ package uk.nhs.digital.test.util;
 
 import static java.util.Collections.emptyMap;
 
+import org.apache.jackrabbit.value.DateValue;
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import javax.jcr.Node;
-import javax.jcr.Repository;
-import javax.jcr.Session;
+import javax.jcr.*;
 
 public class MockJcrRepoProvider {
 
@@ -46,9 +47,13 @@ public class MockJcrRepoProvider {
                 Node secondaryNode = rootNode.addNode(node.path, node.primaryType);
                 for (Map.Entry<String, Object> entry : node.properties.entrySet()) {
                     if (entry.getValue() instanceof Boolean) {
-                        secondaryNode.setProperty(entry.getKey(), (Boolean) entry.getValue());
+                        addBooleanProperty(secondaryNode, entry);
+                    } else if (entry.getValue() instanceof Date) {
+                        addDateProperty(secondaryNode, entry);
+                    } else if (entry.getValue() instanceof List) {
+                        addMultiValueProperty(secondaryNode, entry);
                     } else {
-                        secondaryNode.setProperty(entry.getKey(), entry.getValue().toString());
+                        addStringProperty(secondaryNode, entry);
                     }
                 }
             }
@@ -57,6 +62,51 @@ public class MockJcrRepoProvider {
         } catch (final Exception exception) {
             throw new RuntimeException("Failed to load JCR content from fixture file " + fileClassPath, exception);
         }
+    }
+
+    private static void addBooleanProperty(final Node node, final Map.Entry<String, Object> entry) throws RepositoryException {
+        node.setProperty(entry.getKey(), (Boolean)entry.getValue());
+    }
+
+    private static void addStringProperty(final Node node, final Map.Entry<String, Object> entry) throws RepositoryException {
+        node.setProperty(entry.getKey(), entry.getValue().toString());
+    }
+
+    private static void addDateProperty(final Node node, final Map.Entry<String, Object> entry) throws RepositoryException {
+        node.setProperty(entry.getKey(), toCalendar((Date) entry.getValue()));
+    }
+
+    private static void addMultiValueProperty(final Node node, final Map.Entry<String, Object> entry) throws RepositoryException {
+
+        final List<?> values = (List<?>) entry.getValue();
+
+        if (values.isEmpty()) {
+            node.setProperty(entry.getKey(), new Value[0]);
+            return;
+        }
+
+        if (values.get(0) instanceof Date) {
+            addMultiValueDateProperty(node, entry.getKey(), (List<Date>)values);
+        } else {
+            addMultiValueStringProperty(node, entry.getKey(), (List<String>)values);
+        }
+    }
+
+    private static void addMultiValueStringProperty(final Node node, final String propertyName, final List<String> values) throws RepositoryException {
+        node.setProperty(propertyName, values.toArray(new String[0]));
+    }
+
+    private static void addMultiValueDateProperty(final Node node, final String propertyName, final List<Date> values) throws RepositoryException {
+        final DateValue[] dates = values.stream()
+            .map(date -> new Calendar.Builder().setInstant(date).build())
+            .map(DateValue::new)
+            .toArray(DateValue[]::new);
+
+        node.setProperty(propertyName, dates);
+    }
+
+    private static Calendar toCalendar(final Date date) {
+        return new Calendar.Builder().setInstant(date).build();
     }
 
     private static List<Map<String, Object>> parseYaml(final String fileClassPath) {
@@ -69,7 +119,7 @@ public class MockJcrRepoProvider {
                 throw new RuntimeException("No file was available at " + fileClassPath);
             }
 
-            return (List<Map<String, Object>>) parser.load(fixtureYamlFileInputStream);
+            return parser.load(fixtureYamlFileInputStream);
 
         } catch (final Exception e) {
             throw new RuntimeException("Failed to parse the fixture file", e);
