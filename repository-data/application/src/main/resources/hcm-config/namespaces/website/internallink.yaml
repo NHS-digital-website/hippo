@@ -22,6 +22,7 @@ definitions:
           /link:
             /cluster.options:
               base.path: /content/documents
+              cluster.name: cms-pickers/documents-only
               jcr:primaryType: frontend:pluginconfig
               nodetypes: []
             caption: Internal Link
