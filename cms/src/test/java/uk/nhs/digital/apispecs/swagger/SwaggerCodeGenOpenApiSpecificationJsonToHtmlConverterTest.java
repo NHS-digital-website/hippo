@@ -40,7 +40,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     public void setUp() {
         initMocks(this);
 
-        given(apiSpecificationDocument.getId()).willReturn(specificationId);
+        given(apiSpecificationDocument.specificationId()).willReturn(specificationId);
 
         swaggerCodeGenApiSpecHtmlProvider = new SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter();
     }
@@ -387,17 +387,36 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // given
         final String specificationJson = from("oasV3_operationIdsInVariousFormats.json");
 
-        final String expectedSpecHtml = from("oasV3_operationIdsInVariousFormats.html");
-
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
 
         // then
+        // @formatter:off
         assertThat(
             "OperationID rendered as it is on the specification - Camel case and snake case tested.",
-            ignoringUuids(ignoringWhiteSpacesIn(actualSpecHtml)),
-            is(ignoringUuids(ignoringWhiteSpacesIn(expectedSpecHtml)))
+            actualSpecHtml,
+            stringContainsInOrder(
+
+                // side nav
+                "\"#api--snake_case\"",                 "Get snake_case operation",
+                "\"#api-Default-12345\"",               "Put numbers operation",
+                "\"#api-Default-ALLCAPS\"",             "Post ALLCAPS operation",
+                "\"#api-Default-kebab-case\"",          "Post kebab-case operation",
+                "\"#api-Default-mixed123withNubmers\"", "Delete mixed123withNubmers operation",
+                "\"#api-Default-with_space\"",          "Post with space operation",
+                "api-Patients-camelCase",               "Get camelCase operation",
+
+                // content
+                "\"api--snake_case\"",                 ">Get snake_case operation<",             "'//snake_case'",
+                "\"api-Default-12345\"",               ">Put numbers operation<",                "'/default/12345'",
+                "\"api-Default-ALLCAPS\"",             ">Post ALLCAPS operation<",               "'/default/ALLCAPS'",
+                "\"api-Default-kebab-case\"",          ">Post kebab-case operation<",            "'/default/kebab-case'",
+                "\"api-Default-mixed123withNubmers\"", ">Delete mixed123withNubmers operation<", "'/default/mixed123withNubmers'",
+                "\"api-Default-with_space\"",          ">Post with space operation<",            "'/default/with_space'",
+                "\"api-Patients-camelCase\"",          ">Get camelCase operation<",              "'/Patients/camelCase'"
+            )
         );
+        // @formatter:on
     }
 
     private String from(final String fileName) {

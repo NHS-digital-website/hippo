@@ -13,7 +13,7 @@ public class SyncResults {
 
     static SyncResults.SyncResult from(final SpecificationSyncData specificationSyncData) {
         return new SyncResults.SyncResult(
-            specificationSyncData.localSpec().getId(),
+            specificationSyncData.localSpec().specificationId(),
             specificationSyncData.localSpec().path(),
             specificationSyncData.error(),
             specificationSyncData.eligible(),

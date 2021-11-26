@@ -29,6 +29,7 @@ public class ApiSpecRerenderJob implements RepositoryJob {
                 new ApiSpecificationPublicationService(
                     null,
                     new ApiSpecificationDocumentJcrRepository(session),
+                    null,
                     new SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter()
                 );
 

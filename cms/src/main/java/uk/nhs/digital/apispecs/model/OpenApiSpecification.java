@@ -14,7 +14,7 @@ public class OpenApiSpecification {
     private final String id;
     private final String modified;
     private String specJson;
-    private Supplier<String> lazySpecJsonSupplier;
+    private Supplier<String> specJsonSupplier;
 
     @ConstructorProperties({"id", "modified"})
     public OpenApiSpecification(final String id, final String modified) {
@@ -31,13 +31,13 @@ public class OpenApiSpecification {
     }
 
     public void setApigeeService(final OpenApiSpecificationRepository openApiSpecificationRepository) {
-        lazySpecJsonSupplier = () -> openApiSpecificationRepository.apiSpecificationJsonForSpecId(getId());
+        specJsonSupplier = () -> openApiSpecificationRepository.apiSpecificationJsonForSpecId(getId());
     }
 
     public Optional<String> getSpecJson() {
 
         if (specJson == null) {
-            specJson = lazySpecJsonSupplier.get();
+            specJson = specJsonSupplier.get();
         }
 
         return Optional.ofNullable(specJson);

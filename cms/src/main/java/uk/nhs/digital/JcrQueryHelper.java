@@ -36,4 +36,17 @@ public class JcrQueryHelper {
         return executeSql2Query(node.getSession(), queryTemplate,
             decendantPrimaryType, node.getPath());
     }
+
+    public static QueryResult executeJcrXpathQuery(final Session session, final String queryStatement) {
+        try {
+            return session
+                .getWorkspace()
+                .getQueryManager()
+                .createQuery(queryStatement, Query.XPATH)
+                .execute();
+
+        } catch (final Exception e) {
+            throw new RuntimeException(String.format("Failed to execute query %s.", queryStatement), e);
+        }
+    }
 }

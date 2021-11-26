@@ -3,6 +3,10 @@ definitions:
   config:
     /hippo:configuration/hippo:modules/api-specification-sync:
       /hippo:moduleconfig:
+        /api-specification-metadata:
+          jcr:primaryType: hipposys:moduleconfig
+          website:apiSpecHandleNodeIds: []
+          website:lastChangeCheckInstants: []
         jcr:primaryType: hipposys:moduleconfig
       hipposys:className: uk.nhs.digital.apispecs.module.ApiSpecSyncFromApigeeModule
       hipposys:cmsonly: true

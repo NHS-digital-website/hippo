@@ -114,6 +114,10 @@ public class JcrDocumentLifecycleSupport {
         return getNodePathQuietly(documentHandleNode);
     }
 
+    public String jcrId() {
+        return JcrNodeUtils.getNodeIdQuietly(documentHandleNode);
+    }
+
     public void save() {
         try {
             saveSession();

@@ -1,5 +1,8 @@
 package uk.nhs.digital.test;
 
+import static ch.qos.logback.classic.Level.ALL;
+
+import ch.qos.logback.classic.Level;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
@@ -63,14 +66,27 @@ public class TestLoggerRule implements TestRule {
 
     private final Class<?> loggingClassUnderTest;
     private TestLogger logger;
+    private Level level;
 
-    private TestLoggerRule(final Class<?> loggingClassUnderTest) {
-
+    private TestLoggerRule(final Class<?> loggingClassUnderTest, final Level level) {
         this.loggingClassUnderTest = loggingClassUnderTest;
+        this.level = level;
     }
 
+    /**
+     * Initialises logger to verify logs of ALL levels.
+     * If you only need to verify logs of and above specific level, use {@linkplain #targeting(Class, Level)}.
+     */
     public static TestLoggerRule targeting(final Class<?> loggingClassUnderTest) {
-        return new TestLoggerRule(loggingClassUnderTest);
+        return new TestLoggerRule(loggingClassUnderTest, ALL);
+    }
+
+    /**
+     * Initialises logger to verify logs of the given level and above.
+     * If you need to verify logs of all levels, use {@linkplain #targeting(Class)}.
+     */
+    public static TestLoggerRule targeting(final Class<?> loggingClassUnderTest, final Level level) {
+        return new TestLoggerRule(loggingClassUnderTest, level);
     }
 
     @Override public Statement apply(final Statement statement, final Description description) {
@@ -79,7 +95,7 @@ public class TestLoggerRule implements TestRule {
             @Override public void evaluate() throws Throwable {
 
                 try {
-                    logger = TestLogger.initialiseFor(loggingClassUnderTest);
+                    logger = TestLogger.initialiseFor(loggingClassUnderTest, level);
 
                     statement.evaluate();
 
