@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs;
+package uk.nhs.digital.apispecs.jcr;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
@@ -55,7 +55,6 @@ public class ApiSpecificationDocumentJcrRepositoryQueryTest {
         final String specificationIdInJcr = "api-specification-id-a";
         final Optional<String> jsonInJcr = Optional.of("{ \"json\" : \"payload A on PUBLISHED\" }");
         final Optional<String> htmlInJcr = Optional.of("<p>API Specification A on PUBLISHED</p>");
-        final Optional<Instant> lastChangeCheckTimeInJcr = Optional.of(Instant.parse("2020-07-08T08:37:10.900Z"));
         final Optional<Instant> lastPublicationInstantInJcr = Optional.of(Instant.parse("2020-07-08T08:37:03.915Z"));
 
         // when
@@ -63,7 +62,7 @@ public class ApiSpecificationDocumentJcrRepositoryQueryTest {
 
         // then
         assertThat("Document contains specification id as present on draft variant in the JCR repo.",
-            actualApiSpec.getId(),
+            actualApiSpec.specificationId(),
             is(specificationIdInJcr)
         );
 
@@ -75,11 +74,6 @@ public class ApiSpecificationDocumentJcrRepositoryQueryTest {
         assertThat("Document contains HTML as present on published variant in the JCR repo.",
             actualApiSpec.html(),
             is(htmlInJcr)
-        );
-
-        assertThat("Document contains last change check instant as present on published variant in the JCR repo.",
-            actualApiSpec.lastChangeCheckInstant(),
-            is(lastChangeCheckTimeInJcr)
         );
 
         assertThat("Document contains last publication instant as present on published variant in the JCR repo.",
@@ -104,12 +98,12 @@ public class ApiSpecificationDocumentJcrRepositoryQueryTest {
         );
 
         assertThat("First document corresponds to one of the specifications in JCR.",
-            actualApiSpecs.get(0).getId(),
+            actualApiSpecs.get(0).specificationId(),
             is("api-specification-id-a")
         );
 
         assertThat("Second document corresponds to the other specifications in JCR.",
-            actualApiSpecs.get(1).getId(),
+            actualApiSpecs.get(1).specificationId(),
             is("api-specification-id-b")
         );
     }

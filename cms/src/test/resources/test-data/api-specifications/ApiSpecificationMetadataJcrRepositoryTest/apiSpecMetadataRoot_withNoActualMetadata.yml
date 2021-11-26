@@ -1,0 +1,11 @@
+---
+
+# Root API Specifications metadata node under module config node
+# /hippo:configuration/hippo:modules/api-specification-sync/api-specification-sync/hippo:moduleconfig
+
+- path: /hippo:configuration/hippo:modules/api-specification-sync/hippo:moduleconfig/api-specification-metadata
+  primaryType: hipposys:moduleconfig
+  properties:
+    website:apiSpecHandleNodeIds: [ ]
+    website:lastChangeCheckInstants: [ ]
+

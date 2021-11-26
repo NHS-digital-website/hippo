@@ -42,6 +42,7 @@ import uk.nhs.digital.JcrDocumentUtils;
 
 import javax.jcr.Node;
 import javax.jcr.Session;
+import javax.jcr.query.Query;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JcrDocumentUtils.class, ApiSpecSyncFromApigeeJob.class})
@@ -221,6 +222,11 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
             repositoryRootNode, "/content/documents/corporate-website/api-specifications-location-a/api-spec-a");
     }
 
+    private Node existingSpecImportMetadataNode() {
+        return getRelativeNode(
+            repositoryRootNode, "/hippo:configuration/hippo:modules/api-specification-sync/hippo:moduleconfig/api-specification-metadata");
+    }
+
     private void apigeeReturnsAccessToken() {
 
         wireMock.givenThat(
@@ -300,8 +306,18 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         repositoryRootNode = getRootNode(session);
 
         final Node specDocHandleNode = existingSpecHandleNode();
+        MockJcr.setQueryResult(
+            session,
+            "/jcr:root/content/documents/corporate-website//element(*, website:apispecification)/..[@jcr:primaryType='hippo:handle']",
+            Query.XPATH,
+            singletonList(specDocHandleNode)
+        );
 
-        MockJcr.setQueryResult(session, singletonList(specDocHandleNode));
+        MockJcr.setQueryResult(session,
+            "/jcr:root/hippo:configuration/hippo:modules/api-specification-sync/hippo:moduleconfig/api-specification-metadata",
+            Query.XPATH,
+            singletonList(existingSpecImportMetadataNode())
+        );
 
         // Low-level JCR-related components mocked where it was prohibitively hard to avoid:
 
