@@ -156,12 +156,15 @@
                         <hr class="nhsd-a-horizontal-rule"/>
                     </#if>
 
-                    <#assign hasSectionContent = document.sections?has_content />
-                    <#if hasSectionContent>
-                        <div class="article-section" id="highlights">
-                            <h2>${highlightsHeader}</h2>
-                            <@sections document.sections></@sections>
-                        </div>
+
+                    <#if !document.class?contains('PublicationPage')>
+                        <#assign hasSectionContent = document.sections?has_content />
+                        <#if hasSectionContent>
+                            <div class="article-section" id="highlights">
+                                <h2>${highlightsHeader}</h2>
+                                <@sections document.sections></@sections>
+                            </div>
+                        </#if>
                     </#if>
 
                     <#assign hasFactHead = (document.keyFactsHead?? && document.keyFactsHead.content?has_content) />
