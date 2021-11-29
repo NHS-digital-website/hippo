@@ -38,6 +38,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Heading
             field: heading
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -91,8 +92,6 @@ definitions:
             hipposysedit:path: website:heading
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           /headinglevel:
             hipposysedit:mandatory: false
