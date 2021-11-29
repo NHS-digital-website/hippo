@@ -58,7 +58,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/corporate-website/supplementary-info
+          hipposys:value: /content/documents/corporate-website/supplementary-information
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
       /supplementary-information-assets:
