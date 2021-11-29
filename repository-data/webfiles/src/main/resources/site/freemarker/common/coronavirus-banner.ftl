@@ -6,8 +6,6 @@
     <!--googleoff: index-->
     <article>
         <header class="coronavirus-banner" aria-labelledby="message-summary-title" tabindex="-1">
-            <div role="alert">
-            <h2>&nbsp;</h2>
             <div class="grid-wrapper grid-wrapper--collapse">
                 <div class="grid-row">
                     <div class="column column--two-thirds column--reset">
@@ -31,7 +29,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </header>
     </article>
