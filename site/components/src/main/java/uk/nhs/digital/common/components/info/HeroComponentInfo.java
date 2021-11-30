@@ -11,7 +11,7 @@ import org.hippoecm.hst.core.parameters.*;
     ),
     @FieldGroup(
         value = {
-            "size", "alignment", "colourBar"
+            "size", "alignment", "colour", "colourBar"
         }
     )
     })
@@ -54,4 +54,13 @@ public interface HeroComponentInfo {
         )
     @DropDownList({"true", "false"})
     Boolean getColourBar();
+
+    @Parameter(
+        name = "colour",
+        required = true,
+        defaultValue = "Blue grey",
+        displayName = "Style"
+        )
+    @DropDownList({"Blue grey", "Black", "Dark blue", "Mid blue", "Light blue", "Yellow"})
+    String getColour();
 }
