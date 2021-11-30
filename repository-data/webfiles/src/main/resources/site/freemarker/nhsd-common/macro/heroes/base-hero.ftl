@@ -56,10 +56,10 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             <#assign bgClass="nhsd-!t-bg-black">
             <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
             <#assign digiblockColorClass="nhsd-a-digiblocks--col-black">
-        <#elseif options.colour == "Blue" || options.colour == "blue">
+        <#elseif options.colour == "Light Blue" || options.colour == "blue">
             <#assign bgClass="nhsd-!t-bg-bright-blue-20-tint">
             <#assign digiblockColorClass="nhsd-a-digiblocks--col-blue">
-        <#elseif options.colour == "Dark Blue" || options.colour == "darkBlue">
+        <#elseif options.colour == "Dark Blue" || options.colour == "darkBlue" || options.colour == "Dark blue">
             <#assign bgClass="nhsd-!t-bg-blue">
             <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
             <#assign digiblockColorClass="nhsd-a-digiblocks--col-light-blue">
@@ -69,6 +69,16 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#elseif options.colour == "Yellow" || options.colour == "yellow">
             <#assign bgClass="nhsd-!t-bg-yellow-20-tint">
             <#assign digiblockColorClass="nhsd-a-digiblocks--col-yellow">
+        <#elseif options.colour == "Blue grey">
+            <#assign bgClass="nhsd-!t-bg-bright-blue-10-tint">
+        <#elseif options.colour == "Light blue">
+            <#assign bgClass="nhsd-!t-bg-bright-blue-20-tint">
+        <#elseif options.colour == "Black">
+            <#assign bgClass="nhsd-!t-bg-black">
+            <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
+        <#elseif options.colour == "Mid blue">
+            <#assign bgClass="nhsd-!t-bg-accessible-blue">
+            <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
         </#if>
     </#if>
 

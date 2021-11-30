@@ -2,11 +2,33 @@
 
 <#macro nhsdBanner options mirrored = false>
     <div class="nhsd-o-banner ${mirrored?then("nhsd-o-banner--mirrored", "")}">
-        <div class="nhsd-o-banner__content-container nhsd-!t-bg-bright-blue-10-tint">
+        <#assign bgClass="">
+        <#assign buttonClass="">
+        <#assign textClass="nhsd-!t-text-align-left">
+        <#if options.colour?has_content>
+            <#if options.colour == "Blue grey">
+                <#assign bgClass="nhsd-!t-bg-bright-blue-10-tint">
+            <#elseif options.colour == "Black">
+                <#assign bgClass="nhsd-!t-bg-black">
+                <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
+            <#elseif options.colour == "Dark Blue Multicolour">
+                <#assign bgClass="nhsd-!t-bg-blue">
+                <#assign textClass += "nhsd-o-hero--light-text nhsd-!t-col-white">
+            <#elseif options.colour == "Mid blue">
+                <#assign bgClass="nhsd-!t-bg-accessible-blue">
+                <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
+            <#elseif options.colour == "Light Blue" || options.colour == "blue">
+                <#assign bgClass="nhsd-!t-bg-bright-blue-20-tint">
+            <#elseif options.colour == "Yellow" || options.colour == "yellow">
+                <#assign bgClass="nhsd-!t-bg-yellow-20-tint">
+            </#if>
+        </#if>
+
+        <div class="nhsd-o-banner__content-container ${bgClass}">
             <div class="nhsd-o-banner__inner-content-container">
-                <span class="nhsd-t-heading-l">${options.title}</span>
+                <span class="nhsd-t-heading-l ${textClass}">${options.title}</span>
                 <#if options.summary?has_content>
-                    <div class="nhsd-t-heading-s nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0" data-uipath="${uiPath}.summary">
+                    <div class="nhsd-t-heading-s nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0 ${textClass}" data-uipath="${uiPath}.summary">
                         <#if hst.isBeanType(content, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
                             <@hst.html hippohtml=options.summary contentRewriter=stripTagsContentRewriter />
                         <#else>
@@ -17,7 +39,12 @@
                 <#if options.buttons?has_content && options.buttons?size gt 0>
                     <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed nhsd-!t-text-align-left nhsd-!t-margin-top-6">
                         <#list options.buttons as button>
-                            <a class="nhsd-a-button" href="${button.src}">
+                            <#if options.colour == "Dark Blue Multicolour">
+                                <#assign buttonClass="nhsd-a-button--invert">
+                            <#else >
+                                <#assign buttonClass="nhsd-a-button">
+                            </#if>
+                            <a class="nhsd-a-button ${buttonClass}" href="${button.src}">
                                 <span class="nhsd-a-button__label">${button.text}</span>
                                 <#if button.srText?has_content>
                                     <span class="nhsd-t-sr-only">${button.srText}</span>
