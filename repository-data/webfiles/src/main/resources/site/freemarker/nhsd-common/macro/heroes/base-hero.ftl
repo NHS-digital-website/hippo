@@ -63,6 +63,9 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             <#assign bgClass="nhsd-!t-bg-blue">
             <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
             <#assign digiblockColorClass="nhsd-a-digiblocks--col-light-blue">
+        <#elseif options.colour == "Dark Blue Multicolour">
+            <#assign bgClass="nhsd-!t-bg-blue">
+            <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
         <#elseif options.colour == "Yellow" || options.colour == "yellow">
             <#assign bgClass="nhsd-!t-bg-yellow-20-tint">
             <#assign digiblockColorClass="nhsd-a-digiblocks--col-yellow">
