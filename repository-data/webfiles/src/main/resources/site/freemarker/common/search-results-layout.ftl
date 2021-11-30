@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "macro/searchTabsComponent.ftl">
 
-<div class="article article--search-results" aria-label="Search Results">
+<div class="article article--search-results" aria-label="Search Results" role="search">
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">

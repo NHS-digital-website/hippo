@@ -27,7 +27,7 @@
 
     <@releaseInfo article=document/>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
       <div class="grid-row">
 
         <#if renderNav>

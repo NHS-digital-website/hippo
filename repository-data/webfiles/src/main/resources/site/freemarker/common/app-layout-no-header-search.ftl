@@ -26,7 +26,7 @@
         <@hst.include ref="main"/>
     </main>
     <#-- Home Page Pixel -->
-    <script type="text/javascript">
+    <script>
         var br_data = br_data || {};
         br_data.ptype = "homepage";
     </script>

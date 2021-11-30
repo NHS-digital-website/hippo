@@ -8,7 +8,7 @@
 <#assign hasIntroductionContent = document.introduction?? && document.introduction.content?has_content />
 
 <#macro releaseInfo article>
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed">
             <div class="grid-wrapper">
                 <div class="article-header__inner">

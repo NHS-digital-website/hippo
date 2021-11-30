@@ -30,7 +30,7 @@
             </#if>
         </div>
 
-        <script type="text/javascript">
+        <script>
             var vizMessages = {
                 LOAD_ERROR: "<@fmt.message key="load-error"/>",
                 LOADING_MESSAGE_LONGER: "<@fmt.message key="loading-message-longer"/>",
@@ -38,7 +38,7 @@
             };
         </script>
 
-        <script type="text/javascript">
+        <script>
 
             // Viz instance
             var viz${index};

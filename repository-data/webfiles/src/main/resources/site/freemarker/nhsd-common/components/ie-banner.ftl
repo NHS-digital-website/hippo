@@ -6,7 +6,7 @@
     <!--googleoff: index-->
     <article id="ieBanner" class="nhsd-!t-bg-accessible-red" style="display:none;">
         <div class="nhsd-a-box nhsd-!t-bg-accessible-red nhsd-!t-col-white nhsd-!t-padding-bottom-7" aria-labelledby="ie-banner-title" role="banner" tabindex="-1">
-            <h1 id="ie-banner-title"><@fmt.message key="title"/></h1>
+            <h2 id="ie-banner-title"><@fmt.message key="title"/></h2>
             <p><@fmt.message key="message"/></p>
         </div>
     </article>

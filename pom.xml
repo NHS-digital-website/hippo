@@ -26,7 +26,6 @@
         DO NOT remove these tags but instead fill them in appropriately as needed,
         UNLESS the inherited values are valid for your project.
     -->
-
     <url/>
     <inceptionYear/>
     <organization/>
@@ -206,6 +205,13 @@
                 <groupId>org.onehippo.cms7</groupId>
                 <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId>
                 <version>${bloomreach.forge.sitemapv2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.7</version>
+                <scope>provided</scope>
             </dependency>
 
             <dependency>
@@ -666,7 +672,7 @@
             </dependency>
 
             <dependency>
-                <groupId>com.atlassian.commonmark</groupId>
+                <groupId>org.commonmark</groupId>
                 <artifactId>commonmark-ext-gfm-tables</artifactId>
                 <version>${commonmark.version}</version>
             </dependency>

@@ -3,6 +3,7 @@
 <#-- @ftlvariable name="legacyPublication" type="uk.nhs.digital.ps.beans.LegacyPublication" -->
 
 <#include "../include/imports.ftl">
+<#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/component/lastModified.ftl">
@@ -17,11 +18,12 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
-<#assign informationTypes = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.informationType?has_content?then(legacyPublication.parentDocument.informationType, legacyPublication.informationType), legacyPublication.informationType) />
-<#assign fullTaxonomyList = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.fullTaxonomyList?has_content?then(legacyPublication.parentDocument.fullTaxonomyList, legacyPublication.fullTaxonomyList), legacyPublication.fullTaxonomyList) />
-<#assign geographicCoverage = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.geographicCoverage?has_content?then(legacyPublication.parentDocument.geographicCoverage, legacyPublication.geographicCoverage), legacyPublication.geographicCoverage) />
-<#assign granularity = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.granularity?has_content?then(legacyPublication.parentDocument.granularity, legacyPublication.granularity), legacyPublication.granularity) />
-<#assign administrativeSources = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.administrativeSources?has_content?then(legacyPublication.parentDocument.administrativeSources, legacyPublication.administrativeSources), legacyPublication.administrativeSources) />
+<#assign informationTypes = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.informationType?has_content?then(legacyPublication.parentDocument.informationType, {}), {}) />
+<#assign fullTaxonomyList = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.fullTaxonomyList?has_content?then(legacyPublication.parentDocument.fullTaxonomyList, {}), {}) />
+<#assign geographicCoverage = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.geographicCoverage?has_content?then(legacyPublication.parentDocument.geographicCoverage, {}), {}) />
+<#assign granularity = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.granularity?has_content?then(legacyPublication.parentDocument.granularity, {}), {}) />
+<#assign administrativeSources = legacyPublication.parentDocument?has_content?then(legacyPublication.parentDocument.administrativeSources?has_content?then(legacyPublication.parentDocument.administrativeSources, ""), "") />
+
 
 <#assign hasSummary = legacyPublication.summary.content?has_content>
 <#assign hasAdministrativeSources = administrativeSources?has_content>
@@ -32,14 +34,14 @@
 <#assign hasRelatedLinks = legacyPublication.relatedLinks?has_content>
 <#assign hasRelatedNews = legacyPublication.relatedNews?has_content>
 <#assign hasResources = hasAttachments || hasResourceLinks || hasDataSets>
-
+<#assign hasSectionContent = legacyPublication.sections?has_content />
 <#assign idsuffix = slugify(legacyPublication.title) />
 
 <#assign sectionCounter = 0 />
 <#function shouldRenderNav>
     <#assign result = false />
 
-    <#list [hasAdministrativeSources, hasAttachments, hasKeyFacts, hasResourceLinks, hasDataSets, hasRelatedLinks, hasResources] as section>
+    <#list [hasAdministrativeSources, hasAttachments, hasKeyFacts, hasResourceLinks, hasDataSets, hasRelatedLinks, hasResources, hasSectionContent] as section>
         <#if section>
             <#assign sectionCounter += 1 />
         </#if>
@@ -56,6 +58,7 @@
 <@fmt.message key="headers.summary" var="summaryHeader" />
 <@fmt.message key="headers.key-facts" var="keyFactsHeader" />
 <@fmt.message key="headers.administrative-sources" var="adminSourcesHeader" />
+<@fmt.message key="headers.highlights" var="highlightsHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
 <@fmt.message key="headers.related-links" var="relatedLinksHeader" />
 
@@ -71,7 +74,7 @@
 </#macro>
 
 <#macro restrictedContentOfUpcomingPublication>
-<div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+<div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
     <div class="local-header article-header article-header--detailed">
         <div class="grid-wrapper">
             <div class="article-header__inner">
@@ -98,7 +101,7 @@
         </div>
     </div>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
@@ -111,7 +114,7 @@
 </#macro>
 
 <#macro fullContentOfPubliclyAvailablePublication>
-<div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+<div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
     <div class="local-header article-header article-header--detailed">
         <div class="grid-wrapper">
             <div class="article-header__inner">
@@ -196,7 +199,7 @@
     </div>
 </div>
 
-<div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+<div class="grid-wrapper grid-wrapper--article">
     <#if legacyPublication.updates?has_content>
         <div class="grid-row">
             <div class="column column--no-padding">
@@ -221,6 +224,9 @@
                 <#if hasSummary>
                     <#assign links = [{ "url": "#" + slugify(summaryHeader), "title": summaryHeader }] />
                 </#if>
+                <#if hasSectionContent>
+                    <#assign links = [{ "url": "#" + slugify(highlightsHeader), "title": highlightsHeader }] />
+                </#if>
                 <#if hasKeyFacts>
                     <#assign links += [{ "url": "#" + slugify(keyFactsHeader), "title": keyFactsHeader }] />
                 </#if>
@@ -236,7 +242,7 @@
                 <#if hasRelatedLinks>
                     <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
                 </#if>
-                <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
+                <@stickyNavSections getStickySectionNavLinks({"document": legacyPublication, "sections": links})></@stickyNavSections>
             </div>
             <!-- end sticky-nav -->
         </div>
@@ -257,6 +263,13 @@
             </div>
             </#if>
             <#-- [FTL-END] mandatory 'Summary' section -->
+
+            <#if hasSectionContent>
+            <div class="article-section" id="highlights">
+                <h2>${highlightsHeader}</h2>
+                    <@sections legacyPublication.sections></@sections>
+            </div>
+            </#if>
 
             <#-- [FTL-BEGIN] optional list of 'Key facts' section -->
             <#if hasKeyFacts>

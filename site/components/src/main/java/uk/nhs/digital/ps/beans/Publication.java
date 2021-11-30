@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.pagination.Paginated;
@@ -51,6 +52,11 @@ public class Publication extends PublicationBase implements Paginated {
         assertPropertyPermitted(PublicationBase.PropertyKeys.KEY_FACTS_HEAD);
 
         return getHippoHtml(PublicationBase.PropertyKeys.KEY_FACTS_TAIL);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:sections")
+    public List<HippoBean> getSections() {
+        return getChildBeansIfPermitted("website:sections", HippoBean.class);
     }
 
     public List<PublicationPage> getPages() {

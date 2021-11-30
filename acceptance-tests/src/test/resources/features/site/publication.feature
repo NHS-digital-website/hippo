@@ -6,9 +6,6 @@ Feature: Ensure publication page displays required fields.
         And I should also see:
             | Publication Summary                   | Etiam vitae tincidunt lectus. Nulla posuere ultricies ...         |
             | Publication Key Facts                 | Cras eget elementum erat. Aliquam ornare urna ut ligula ...       |
-            | Publication Geographic Coverage       | England                                                           |
-            | Publication Granularity               | NHS Trusts                                                        |
-            | Publication Administrative Sources    | Mauris pretium orci ac gravida accumsan. Cras mattis massa ...    |
             | Publication Date Range                | 10 Feb 2015 to 15 Sep 2016                                        |
             | Publication Date                      | 10 Oct 2016                                                       |
 
@@ -51,12 +48,9 @@ Feature: Ensure publication page displays required fields.
         Given I navigate to the "publication with datasets" page
         Then I should see headers:
             | Publication Date:         |
-            | Geographic Coverage:      |
-            | Geographical Granularity: |
             | Date Range:               |
             | Summary                   |
             | Key Facts                 |
-            | Administrative Sources    |
             | Data Sets                 |
             | Resources                 |
             | Related Links             |

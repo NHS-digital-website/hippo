@@ -34,7 +34,7 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="grid-wrapper grid-wrapper--article grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--article grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header--detailed">
             <div class="grid-wrapper">
                 <div class="article-header__inner">
@@ -125,7 +125,7 @@
         </div>
     </div>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
 
             <div class="column column--two-thirds page-block page-block--main">
@@ -287,7 +287,7 @@
         </div>
     </div>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
 
             <@latestblogs document.latestBlogs></@latestblogs>

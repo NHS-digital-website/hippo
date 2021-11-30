@@ -8,7 +8,7 @@
             <div class="grid-row">
                 <div class="column column--two-thirds column--reset">
                     <div class="article-header article-header--secondary">
-                        <h1 class="ie-banner__title" id="ie-banner-title"><@fmt.message key="title"/></h1>
+                        <h2 class="ie-banner__title" id="ie-banner-title"><@fmt.message key="title"/></h2>
                     </div>
                 </div>
             </div>

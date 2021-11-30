@@ -36,8 +36,7 @@
     </span>
     </#if>
 
-    <script type="text/javascript" data-chartsource="highchart"
-            data-charttype="${type}" data-sectionid="${section.uniqueId}">
+    <script data-chartsource="highchart" data-charttype="${type}" data-sectionid="${section.uniqueId}">
         window.highchartData${section.uniqueId?remove_beginning("-")} = <#outputformat "plainText">${section.chartConfig}</#outputformat>;
     </script>
 </#macro>
