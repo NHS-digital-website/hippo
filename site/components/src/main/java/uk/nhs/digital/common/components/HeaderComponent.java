@@ -24,7 +24,11 @@ public class HeaderComponent extends CommonComponent {
         request.setAttribute("banner", banner);
 
         String colour = componentParametersInfo.getColour();
-        request.setAttribute("colour", colour);
+        if ("Dark Blue".equalsIgnoreCase(colour)) {
+            request.setAttribute("colour", "Dark Blue Multicolour");
+        } else {
+            request.setAttribute("colour", colour);
+        }
 
         String digiblockPosition = componentParametersInfo.getDigiblockPosition();
         request.setAttribute("digiblockposition", digiblockPosition);
@@ -41,9 +45,9 @@ public class HeaderComponent extends CommonComponent {
         String button2Url = componentParametersInfo.getButton2Url();
         request.setAttribute("button2Text", button2text);
         request.setAttribute("button2Url", button2Url);
-        request.getRequestContext().setAttribute("headerPresent",true);
+        request.getRequestContext().setAttribute("headerPresent", true);
 
         request.setAttribute("stripTagsContentRewriter", stripTagsContentRewriter);
-        DocumentUtils.setMetaTags(request,this);
+        DocumentUtils.setMetaTags(request, this);
     }
 }
