@@ -21,7 +21,12 @@ public class HeroComponent extends CommonComponent {
         final String textAlignment = componentInfo.getTextAlignment();
         final Boolean colourBar = componentInfo.getColourBar();
         HippoBean document = getHippoBeanForPath(componentInfo.getDocument(), HippoBean.class);
-
+        String colour = componentInfo.getColour();
+        if ("Dark Blue".equalsIgnoreCase(colour)) {
+            request.setAttribute("colour", "Dark Blue Multicolour");
+        } else {
+            request.setAttribute("colour", colour);
+        }
         request.setAttribute("document", document);
         request.setAttribute("size", size);
         request.setAttribute("textAlignment", textAlignment);

@@ -78,6 +78,12 @@
         }/>
     </#if>
 
+    <#if colour?has_content>
+        <#assign heroOptions += {
+        "colour": colour
+        }/>
+    </#if>
+
     <#if isHero>
         <#assign heroType = "accentedImage" />
         <#if textAlignment?has_content && textAlignment == "right">
