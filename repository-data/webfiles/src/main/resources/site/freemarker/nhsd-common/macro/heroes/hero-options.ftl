@@ -20,6 +20,12 @@ Example use:
     </#if>
     <#assign options += { "summary": content }/>
 
+    <#assign categoryInfo="">
+    <#if document.categoryInfo?has_content>
+        <#assign categoryInfo = document.categoryInfo/>
+    </#if>
+    <#assign options += { "categoryInfo": categoryInfo }/>
+
     <#if document.image?has_content || document.leadImage?has_content || document.bannerImage?has_content && document.bannerImage.pageHeaderHeroModule?has_content
     || (document.publicationStyle?has_content && document.publicationStyle.bannerImage?has_content)>
         <#assign alt = ""/>

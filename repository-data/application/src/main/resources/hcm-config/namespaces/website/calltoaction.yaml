@@ -77,6 +77,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /categoryInfo:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '30'
+              size: '30'
+            caption: Category information
+            field: categoryInfo
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /image:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -128,6 +139,16 @@ definitions:
             hipposysedit:path: website:altText
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /categoryInfo:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:categoryInfo
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /external:
             hipposysedit:mandatory: false
@@ -229,6 +250,7 @@ definitions:
           jcr:primaryType: website:calltoaction
           website:Label: ''
           website:altText: ''
+          website:categoryInfo: ''
           website:content: ''
           website:external: ''
           website:isDecorative: false

@@ -47,6 +47,11 @@ public class Calltoaction extends BaseDocument {
         return Boolean.toString(getSingleProperty("website:isDecorative"));
     }
 
+    @HippoEssentialsGenerated(internalName = "website:categoryInfo")
+    public String getCategoryInfo() {
+        return getSingleProperty("website:categoryInfo");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:icon")
     public CorporateWebsiteImageset getIcon() {
         return getLinkedBean("website:icon", CorporateWebsiteImageset.class);
