@@ -26,6 +26,7 @@
 
         <div class="nhsd-o-banner__content-container ${bgClass}">
             <div class="nhsd-o-banner__inner-content-container">
+                <p class="nhsd-t-body">${options.categoryInfo}</p>
                 <span class="nhsd-t-heading-l ${textClass}">${options.title}</span>
                 <#if options.summary?has_content>
                     <div class="nhsd-t-heading-s nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0 ${textClass}" data-uipath="${uiPath}.summary">

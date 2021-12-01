@@ -6,7 +6,9 @@
     <#if options.introText?has_content>
         <p class="nhsd-t-body">${options.introText?no_esc}</p>
     </#if>
-
+    <#if options.categoryInfo?has_content>
+        <p class="nhsd-t-body">${options.categoryInfo}</p>
+    </#if>
     <#if options.title?has_content>
         <#assign headingTag = headingLevel?has_content?then('h${headingLevel}', 'span') />
         <${headingTag} class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-0" data-uipath="document.title">${options.title}</${headingTag}>
