@@ -29,7 +29,7 @@
 </#function>
 
 <article class="article article--news-hub">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--with-icon">
             <div class="grid-wrapper">
                 <div class="article-header__inner">

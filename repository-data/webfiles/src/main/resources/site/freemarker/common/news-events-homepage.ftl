@@ -45,7 +45,7 @@
 <article class="article article--news-hub">
     <@documentHeader document 'news-events-homepage' '' '' '' '' false></@documentHeader>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-quarter page-block page-block--sidebar">
                 <div id="sticky-nav">

@@ -27,7 +27,7 @@
 <#macro restrictedContentOfUpcomingPublication>
     <@publicationHeader publication=publication restricted=true downloadPDF=false />
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
@@ -70,7 +70,7 @@
     <#-- Content Page Pixel -->
     <@contentPixel publication.getCanonicalUUID() publication.title></@contentPixel>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
 
         <@updateGroup document=publication />
 

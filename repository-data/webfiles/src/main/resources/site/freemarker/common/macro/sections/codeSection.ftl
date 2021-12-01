@@ -34,9 +34,9 @@
             <div class="button-bar">
                 <span
                     role="button"
-                    aria-label="Copy the code block to the clipboard. Javascript must be enabled"
-                    class="button-code-block"
-                ><span class="hidden-text">COPY</span></span>
+                    class="button-code-block">
+                    <span class="hidden-text">COPY</span>
+                </span>
             </div>
 
             <div class="code-content" itemscope itemtype="https://schema.org/SoftwareSourceCode">

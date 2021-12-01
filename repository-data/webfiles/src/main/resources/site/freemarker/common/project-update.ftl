@@ -12,7 +12,7 @@
 <#macro restrictedContentOfUpcomingProjectUpdates>
 <#--    <@publicationHeader publication=publication restricted=true downloadPDF=false />-->
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
@@ -62,7 +62,7 @@
 
 <#macro fullContentOfPubliclyAvailableProjectUpdates>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
 
             <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
@@ -235,7 +235,7 @@
             <span itemprop="category" class="is-hidden">${document.wikiLink}</span>
         </#if>
 
-        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
             <div class="local-header article-header article-header--with-icon">
                 <div class="grid-wrapper">
                     <div class="article-header__inner">

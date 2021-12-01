@@ -17,13 +17,13 @@
                 <label for="query" class="visually-hidden">${buttonLabel}</label>
             </div>
             <div>
-                <button class="search-banner__button" data-uipath="search.button" value="Search" id="search_button">${buttonLabel}</button>
+                <button class="search-banner__button" data-uipath="search.button" value="Search" id="search_button_bar">${buttonLabel}</button>
             </div>
         </form>
     </div>
     <#-- Search Event Pixel -->
-     <script type="text/javascript">
-        document.getElementById("search_button").addEventListener("click", myFunction);
+     <script>
+        document.getElementById("search_button_bar").addEventListener("click", myFunction);
         document.getElementById("query").addEventListener("click", myFunction);
         function myFunction() {
             var searchData = {};

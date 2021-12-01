@@ -9,7 +9,7 @@
 <@metaTags></@metaTags>
 
 <#-- Search Page Pixel -->
-<script type="text/javascript">
+<script>
     if ("${query}"){
         var br_data = br_data || {};
         br_data.ptype = "search";

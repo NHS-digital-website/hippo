@@ -26,7 +26,6 @@
         DO NOT remove these tags but instead fill them in appropriately as needed,
         UNLESS the inherited values are valid for your project.
     -->
-
     <url/>
     <inceptionYear/>
     <organization/>
@@ -135,7 +134,7 @@
         <bloomreach.forge.sitemapv2.version>2.0.6</bloomreach.forge.sitemapv2.version>
 
         <!--***START temporary override of versions*** -->
-        <hippo.addon-content-feed.version>14.7.d6d501e2</hippo.addon-content-feed.version>
+        <hippo.addon-content-feed.version>14.7.8ed926d4</hippo.addon-content-feed.version>
         <!-- ***END temporary override of versions*** -->
 
     </properties>
