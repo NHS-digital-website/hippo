@@ -97,10 +97,14 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
 
         <#if heroType == "image" || heroType == "backgroundImage" || heroType == "accentedImage" || heroType == "accentedImageMirrored">
             <#assign imageClasses = ""/>
+            <#assign style = ""/>
             <#if heroType == "image">
                 <#assign imageClasses = "nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
             <#elseif heroType == "backgroundImage">
                 <#assign imageClasses = "nhsd-a-image--cover"/>
+            <#elseif options.isCTARich?has_content>
+                <#assign imageClasses = " nhsd-a-image--maintain-ratio"/>
+                <#assign style = "height:max-content"/>
             </#if>
             <div class="nhsd-o-hero__image-container">
                 <#if options.video?has_content>
@@ -108,7 +112,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                         <iframe class="nhsd-o-banner__iframe" src="${options.video}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 <#else>
-                    <figure class="nhsd-a-image ${imageClasses}">
+                    <figure class="nhsd-a-image ${imageClasses}" style="${style}">
                         <picture class="nhsd-a-image__picture">
                             <#if options.image?has_content && options.image.src?has_content>
                                 <img src="${options.image.src}" alt="<#if options.image.alt?has_content>${options.image.alt}</#if>">

@@ -17,6 +17,8 @@ Example use:
         <#assign content = document.shortsummary/>
     <#elseif document.content?has_content>
         <#assign content = document.content/>
+    <#elseif document.richContent?has_content>
+        <#assign content = document.richContent/>
     </#if>
     <#assign options += { "summary": content }/>
 

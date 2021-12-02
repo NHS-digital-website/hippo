@@ -503,3 +503,6 @@
 
 [website:Odsimport] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
+
+[website:calltoactionrich] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+   orderable
