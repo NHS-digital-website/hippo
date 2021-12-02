@@ -108,6 +108,145 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /travel-and-accommodation:
+    /travel-and-accommodation[1]:
+      /intranet:introduction:
+        hippostd:content: <p>NHS Digital will pay for your journey if you need to
+          travel for meetings, training or conferences. Find out how to book trains,
+          flights and hotels.</p>
+        jcr:primaryType: hippostd:html
+      /intranet:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /intranet:sections:
+        /website:html:
+          hippostd:content: <p>If you already have a login for DigiTS, uses the login
+            button below and enter your NHS Digital email address and password.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Accessing the System
+        website:type: ''
+      hippo:availability: []
+      hippostd:holder: admin
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-29T15:28:08.895Z
+      hippostdpubwf:lastModificationDate: 2021-11-30T16:00:23.772Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: e4db5f46-508a-4739-a835-ae6fea43cc51
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:icon: ''
+      intranet:prioritytask: false
+      intranet:reviewdate: 2021-11-29T00:00:00Z
+      intranet:shortsummary: NHS Digital travel and accommodation information.
+      intranet:title: Travel and Accommodation
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    /travel-and-accommodation[2]:
+      /intranet:introduction:
+        hippostd:content: <p>NHS Digital will pay for your journey if you need to
+          travel for meetings, training or conferences. Find out how to book trains,
+          flights and hotels.</p>
+        jcr:primaryType: hippostd:html
+      /intranet:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /intranet:sections:
+        /website:html:
+          hippostd:content: <p>If you already have a login for DigiTS, uses the login
+            button below and enter your NHS Digital email address and password.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Accessing the System
+        website:type: ''
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-29T15:28:08.895Z
+      hippostdpubwf:lastModificationDate: 2021-11-29T15:37:37.654Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: e4db5f46-508a-4739-a835-ae6fea43cc51
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:icon: ''
+      intranet:prioritytask: false
+      intranet:reviewdate: 2021-11-29T00:00:00Z
+      intranet:shortsummary: NHS Digital travel and accommodation information.
+      intranet:title: Travel and Accommodation
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: intranet:task
+    /travel-and-accommodation[3]:
+      /intranet:introduction:
+        hippostd:content: <p>NHS Digital will pay for your journey if you need to
+          travel for meetings, training or conferences. Find out how to book trains,
+          flights and hotels.</p>
+        jcr:primaryType: hippostd:html
+      /intranet:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /intranet:sections:
+        /website:html:
+          hippostd:content: <p>If you already have a login for DigiTS, uses the login
+            button below and enter your NHS Digital email address and password.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Accessing the System
+        website:type: ''
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-11-29T15:28:08.895Z
+      hippostdpubwf:lastModificationDate: 2021-11-29T15:37:37.654Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-11-29T15:38:13.908Z
+      hippotranslation:id: e4db5f46-508a-4739-a835-ae6fea43cc51
+      hippotranslation:locale: en
+      intranet:alternativenames: []
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:icon: ''
+      intranet:prioritytask: false
+      intranet:reviewdate: 2021-11-29T00:00:00Z
+      intranet:shortsummary: NHS Digital travel and accommodation information.
+      intranet:title: Travel and Accommodation
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    hippo:name: Travel and Accommodation
+    hippo:versionHistory: 316188c5-de68-4f0f-ad8a-eff0d068d2f6
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Tasks
   hippostd:foldertype:
   - new-intranet-document

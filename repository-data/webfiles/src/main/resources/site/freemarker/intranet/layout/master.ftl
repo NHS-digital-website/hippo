@@ -22,6 +22,8 @@
     <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>
 
+    <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0" />
+
     <@hst.include ref="intra-breadcrumb"/>
 
     <main id="main-content">
