@@ -42,7 +42,7 @@
             </span>
         </figure>
     </div>
-    <script type="text/javascript" data-chartsource="highchart"
+    <script data-chartsource="highchart"
             data-charttype="chart" data-sectionid="${section.uniqueId}">
         <#if (chartData.data)??>
         var chartData = "${chartData.data}";

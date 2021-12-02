@@ -44,7 +44,7 @@
     <#assign headerStyle = '${headerStyle}${headerStyle?has_content?then(";","style=")}color:${document.bannercontrols.fontcolor}' />
     </#if>
 
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--with-icon" ${headerStyle}>
             <div class="grid-wrapper">
                 <div class="article-header__inner">

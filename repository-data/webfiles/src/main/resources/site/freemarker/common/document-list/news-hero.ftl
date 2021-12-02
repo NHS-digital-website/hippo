@@ -31,7 +31,7 @@
                         <figure class="media-text-hero__media">
                             <#if hasVideo == true && item.videoUri?has_content>
                                 <div class="iframe-wrapper iframe-wrapper--16-9">
-                                    <iframe id="ytplayer" type="text/html" src="${item.videoUri}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe id="ytplayer" src="${item.videoUri}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                                     <link itemprop="embedUrl" href="${item.videoUri}" />
                                 </div>
                             <#elseif image?? && image?has_content>

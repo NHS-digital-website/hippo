@@ -1,0 +1,33 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:catalog:
+      /intranet-catalog:
+        /callToAction:
+          hst:componentclassname: uk.nhs.digital.common.components.CallToActionComponent
+          hst:label: Call To Action
+          hst:template: callToAction
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /carousel:
+          hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
+          hst:iconpath: images/catalog/component-products-30x30.png
+          hst:label: Documents Picker
+          hst:template: document-list
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /feedlist:
+          hst:componentclassname: uk.nhs.digital.common.components.FeedListComponent
+          hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+          hst:label: Feed List
+          hst:template: feedlist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        /hero:
+          hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+          hst:label: Hero
+          hst:template: hero
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
+        jcr:primaryType: hst:containeritempackage
+      jcr:primaryType: hst:catalog

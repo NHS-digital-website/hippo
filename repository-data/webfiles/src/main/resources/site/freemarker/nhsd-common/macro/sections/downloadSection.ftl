@@ -16,9 +16,9 @@
 
         <#if section.headingLevel == 'Main heading'>
             <hr class="nhsd-a-horizontal-rule" />
-            <h2 class="nhsd-t-heading-l" data-uipath="website.contentblock.download.title">${section.heading}</h2>
+            <h2 class="nhsd-t-heading-xl" data-uipath="website.contentblock.download.title">${section.heading}</h2>
         <#else>
-            <h3 class="nhsd-t-heading-s" data-uipath="website.contentblock.download.title">${section.heading}</h3>
+            <h3 class="nhsd-t-heading-l" data-uipath="website.contentblock.download.title">${section.heading}</h3>
         </#if>
 
         <div data-uipath="website.contentblock.download.description">

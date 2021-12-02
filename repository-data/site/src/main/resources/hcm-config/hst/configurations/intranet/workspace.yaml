@@ -4,48 +4,59 @@ definitions:
     /hst:hst/hst:configurations/intranet/hst:workspace:
       /hst:containers:
         /collaboratecontainer:
+          hippo:identifier: c0d35b71-d594-4920-8c3f-bb50b4208817
           hst:label: Collaborate container
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /homepage:
           /homepagecontainer1:
+            hippo:identifier: b3faa2cf-d767-4b94-a2ca-ca038b46bd80
             hst:label: Container1
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /homepagecontainer2:
+            hippo:identifier: c4262d17-8685-417e-b072-d021fc1d58bd
             hst:label: Container2
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /homepagecontainer3:
+            hippo:identifier: c8ab895b-7df7-4217-b187-934fb6158878
             hst:label: Container3
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /homepagecontainer4:
+            hippo:identifier: 885c3ad5-d875-44d2-b4af-575b64ce5882
             hst:label: Container4
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /homepagecontainer5:
+            hippo:identifier: 8605de6a-1699-4aa3-b9b6-0548ec445cd6
             hst:label: Container5
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           jcr:primaryType: hst:containercomponentfolder
         /how-we-work-container:
+          hippo:identifier: da633a62-8e70-4a31-bf93-be703dec4e5c
           hst:label: How we work container
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /newscontainer:
+          hippo:identifier: 9e8e1774-a172-4f02-8e9b-2210821fac10
           hst:label: News container
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /taskscontainer:
+          hippo:identifier: 400f8450-25e8-4883-bb68-b74b270c1ebd
           hst:label: Tasks container
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /teamscontainer:
+          hippo:identifier: 6a53a2e7-81e8-42eb-8ce4-385c838c340d
           hst:label: Teams container
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /who-we-are-container:
+          hippo:identifier: 6285b2b0-00c5-44f8-9716-a5ce9b92f1f5
           hst:label: Who We Are container
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent

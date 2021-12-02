@@ -5,6 +5,9 @@ definitions:
       /base-footer-menu:
         hst:renderpath: webfile:/freemarker/common/base-footer-menu.ftl
         jcr:primaryType: hst:template
+      /document-list:
+        hst:renderpath: webfile:/freemarker/common/document-list.ftl
+        jcr:primaryType: hst:template
       /static-ui-homepage:
         hst:renderpath: webfile:/freemarker/intranet/home-static.ftl
         jcr:primaryType: hst:template

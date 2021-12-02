@@ -51,8 +51,7 @@
 </div>
 
 <article class="article article--general icon-library-item">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide"
-         aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed">
             <div class="grid-wrapper">
                 <div class="article-header__inner">
@@ -81,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-quarter">
                 <div class="base-icon">
@@ -151,8 +150,7 @@
         </div>
         <div class="grid-row">
             <div class="column--three-quarters column--reset">
-                <div class="emphasis-box emphasis-box-important"
-                     aria-label="Important Information">
+                <div class="emphasis-box emphasis-box-important">
                     <div class="emphasis-box__content">
                         <div>
                             <p>Do not try to create your own icons or amend existing
