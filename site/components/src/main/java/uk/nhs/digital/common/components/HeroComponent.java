@@ -6,11 +6,13 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import uk.nhs.digital.common.components.info.HeroComponentInfo;
+import uk.nhs.digital.common.contentrewriters.BrandRefreshContentRewriter;
 import uk.nhs.digital.common.contentrewriters.StripTagsContentRewriter;
 
 @ParametersInfo(type = HeroComponentInfo.class)
 public class HeroComponent extends CommonComponent {
     private static final StripTagsContentRewriter stripTagsContentRewriter = new StripTagsContentRewriter();
+    private static final BrandRefreshContentRewriter brContentRewriter = new BrandRefreshContentRewriter();
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -32,5 +34,6 @@ public class HeroComponent extends CommonComponent {
         request.setAttribute("textAlignment", textAlignment);
         request.setAttribute("displayColourBar", colourBar);
         request.setAttribute("stripTagsContentRewriter", stripTagsContentRewriter);
+        request.setAttribute("brContentRewriter", brContentRewriter);
     }
 }

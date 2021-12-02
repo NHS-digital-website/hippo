@@ -6,6 +6,7 @@
 <#include "../nhsd-common/macro/banners/nhsd-banner.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.CallToActionRich" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Video" -->
 
@@ -29,6 +30,7 @@
 
 <#-- Colourbar -->
 <#assign hasColourBar = isTall?then(displayColourBar, false) />
+<#assign isCTARich = document.richContent?has_content />
 
 <#if hasDocument>
     <#assign heroOptions = getHeroOptions(document) />
@@ -88,6 +90,11 @@
         <#assign heroType = "accentedImage" />
         <#if textAlignment?has_content && textAlignment == "right">
             <#assign heroType = "accentedImageMirrored" />
+        </#if>
+        <#if isCTARich>
+            <#assign heroOptions += {
+            "isCTARich": true
+            }/>
         </#if>
         <@hero heroOptions heroType/>
     <#else>

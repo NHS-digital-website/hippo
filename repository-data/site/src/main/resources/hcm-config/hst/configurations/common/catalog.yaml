@@ -31,6 +31,12 @@ definitions:
           hst:template: callToAction
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
+        /callToActionRich:
+          hst:componentclassname: uk.nhs.digital.common.components.CallToActionComponent
+          hst:label: Call To Action
+          hst:template: callToAction
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
         /cardlist:
           hst:componentclassname: uk.nhs.digital.common.components.CardListComponent
           hst:label: Card List

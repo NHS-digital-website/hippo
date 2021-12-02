@@ -19,7 +19,7 @@ public interface CaseStudyComponentInfo {
         )
     @JcrPath(
         isRelative = true,
-        pickerSelectableNodeTypes = {"website:calltoaction"}
+        pickerSelectableNodeTypes = {"website:calltoaction", "website:calltoactionrich"}
         )
     String getDocument();
 
