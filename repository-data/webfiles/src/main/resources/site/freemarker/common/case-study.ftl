@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.CallToActionRich" -->
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
@@ -14,6 +15,7 @@
     <#assign hasTitle = document.title?has_content />
     <#assign hasCategoryInfo = document.categoryInfo?has_content />
     <#assign hasContent = document.content?has_content />
+    <#assign hasRichContent = document.richContent?has_content />
     <#assign hasImage = document.image?has_content />
     <#assign hasLink = (document.external?has_content || document.internal?has_content) && document.label?has_content />
     <#assign isCtaDoc = document.class.simpleName?starts_with("Calltoaction") />
@@ -46,7 +48,15 @@
                                 </figure>
 
                                 <#if hasContent>
-                                    <p class="nhsd-t-body nhsd-!t-margin-bottom-4">${document.content}</p>
+                                    <p class="nhsd-t-body nhsd-!t-margin-bottom-4">
+                                    <#if hst.isBeanType(document.content, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
+                                        <@hst.html hippohtml=document.content contentRewriter=gaContentRewriter />
+                                    <#else>
+                                        ${document.content}
+                                    </#if>
+                                    </p>
+                                    <#elseif hasRichContent>
+                                        <@hst.html hippohtml=document.richContent contentRewriter=gaContentRewriter />
                                 </#if>
 
                                 <#if hasLink>

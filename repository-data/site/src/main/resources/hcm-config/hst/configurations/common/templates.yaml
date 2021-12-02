@@ -56,6 +56,9 @@ definitions:
       /callToAction:
         hst:renderpath: webfile:/freemarker/common/callToAction.ftl
         jcr:primaryType: hst:template
+      /callToActionRich:
+        hst:renderpath: webfile:/freemarker/common/callToAction.ftl
+        jcr:primaryType: hst:template
       /cardlist:
         hst:renderpath: webfile:/freemarker/common/cardlist.ftl
         jcr:primaryType: hst:template

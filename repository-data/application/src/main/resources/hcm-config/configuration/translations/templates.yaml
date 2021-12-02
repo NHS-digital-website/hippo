@@ -236,6 +236,11 @@ definitions:
           jcr:name: Call to action
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:calltoactionrich:
+        /en:
+          jcr:name: Call to action rich
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:casestudy:
         /en:
           jcr:name: DSC Case Study
