@@ -6,3 +6,33 @@
 @import "components/api-catalogue";
 @import "components/api-specification";
 @import "components/publications";
+
+// To be removed once DW-2763 toolkit changes are available
+.nhsd-o-global-header {
+    &__search-content-box {
+        position: relative;
+        padding: 20px;
+    }
+
+    &__header-section {
+        width: 100%;
+        position: relative;
+        text-align: left;
+    }
+
+    &__search-label {
+        display: inline;
+        line-height: 42px;
+    }
+
+    &__search-close-button {
+        margin: 0;
+        margin-right: -5px;
+        float: right;
+    }
+
+    .nhsd-m-search-bar {
+        padding: 0;
+        margin-top: 6px;
+    }
+}
