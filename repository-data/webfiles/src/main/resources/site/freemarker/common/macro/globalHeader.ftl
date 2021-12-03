@@ -54,20 +54,23 @@
                             <div class="nhsd-o-global-header__search" id="nhsd-global-header__search">
                                 <div class="nhsd-o-global-header__search-background"></div>
                                 <div class="nhsd-o-global-header__search-content-box">
-                                    <a class="nhsd-a-icon-link nhsd-o-global-header__search-close-button" id="nhsd-global-header__search-close-button" href="#">
-                                        <span class="nhsd-a-icon-link__label">${closeSearch}</span>
-                                        <span class="nhsd-a-icon nhsd-a-icon--size-m">
-                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
-                                                <path d="M8.9,8l3.1,3.1L11.1,12L8,8.9L4.9,12L4,11.1L7.1,8L4,4.9L4.9,4L8,7.1L11.1,4L12,4.9L8.9,8z"></path>
-                                                <path d="M8,1.3c3.7,0,6.7,3,6.7,6.7s-3,6.7-6.7,6.7s-6.7-3-6.7-6.7S4.3,1.3,8,1.3 M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8 s8-3.6,8-8S12.4,0,8,0L8,0z"></path>
-                                            </svg>
-                                        </span>
-                                    </a>
+                                    <div class="nhsd-o-global-header__header-section">
+                                        <label for="query" class="nhsd-o-global-header__search-label nhsd-t-heading-m">Search</label>
+                                        <a class="nhsd-a-icon-link nhsd-o-global-header__search-close-button" id="nhsd-global-header__search-close-button" href="#">
+                                            <span class="nhsd-a-icon-link__label">${closeSearch}</span>
+                                            <span class="nhsd-a-icon nhsd-a-icon--size-m">
+                                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
+                                                    <path d="M8.9,8l3.1,3.1L11.1,12L8,8.9L4.9,12L4,11.1L7.1,8L4,4.9L4.9,4L8,7.1L11.1,4L12,4.9L8.9,8z"></path>
+                                                    <path d="M8,1.3c3.7,0,6.7,3,6.7,6.7s-3,6.7-6.7,6.7s-6.7-3-6.7-6.7S4.3,1.3,8,1.3 M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8 s8-3.6,8-8S12.4,0,8,0L8,0z"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
                                     <div class="nhsd-m-search-bar">
-                                        <form role="search" method="get" action="${searchLink}" class="nhsd-t-form" novalidate="" autocomplete="off" aria-label="Search">
+                                        <form role="search" method="get" action="${searchLink}" class="nhsd-t-form" novalidate="" autocomplete="off">
                                             <div class="nhsd-t-form-group">
                                                 <div class="nhsd-t-form-control">
-                                                    <input class="nhsd-t-form-input" type="text" id="query" name="query" autocomplete="off" placeholder="What are you looking for today?" aria-label="Keywords">
+                                                    <input class="nhsd-t-form-input" type="text" id="query" name="query" autocomplete="off" placeholder="What are you looking for today?">
                                                     <span class="nhsd-t-form-control__button">
 													<button data-uipath="search.button" class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent" type="submit" aria-label="Perform search">
 														<@buildInlineSvg "search" "s"/>
