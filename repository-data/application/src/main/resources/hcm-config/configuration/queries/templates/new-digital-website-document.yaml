@@ -43,4 +43,5 @@ definitions:
         or @jcr:primaryType='website:video' or @jcr:primaryType='website:hubnewsandevents'
         or @jcr:primaryType='website:feature' or @jcr:primaryType='website:graphicblock'
         or @jcr:primaryType='website:socialmedialink' or @jcr:primaryType='website:feedhub'
-        or @jcr:primaryType='website:Odsimport']
+        or @jcr:primaryType='website:Odsimport' or @jcr:primaryType='website:quotehero'
+        or @jcr:primaryType='website:calltoactionrich']

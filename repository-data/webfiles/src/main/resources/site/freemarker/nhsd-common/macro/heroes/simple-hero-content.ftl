@@ -6,7 +6,7 @@
     <#if options.introText?has_content>
         <p class="nhsd-t-body">${options.introText?no_esc}</p>
     </#if>
-    <#if options.categoryInfo?has_content>
+    <#if options.categoryInfo?has_content && !options.quote?has_content>
         <p class="nhsd-t-body">${options.categoryInfo}</p>
     </#if>
     <#if options.title?has_content>
