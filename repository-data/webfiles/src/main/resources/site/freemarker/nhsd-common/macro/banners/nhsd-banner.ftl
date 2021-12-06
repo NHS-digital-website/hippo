@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-
+<#include "../heroes/quote-hero-content.ftl">
 <#macro nhsdBanner options mirrored = false>
     <div class="nhsd-o-banner ${mirrored?then("nhsd-o-banner--mirrored", "")}">
         <#assign bgClass="">
@@ -17,7 +17,7 @@
             <#elseif options.colour == "Mid blue">
                 <#assign bgClass="nhsd-!t-bg-accessible-blue">
                 <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
-            <#elseif options.colour == "Light Blue" || options.colour == "blue">
+            <#elseif options.colour == "Light Blue" || options.colour == "Light blue">
                 <#assign bgClass="nhsd-!t-bg-bright-blue-20-tint">
             <#elseif options.colour == "Yellow" || options.colour == "yellow">
                 <#assign bgClass="nhsd-!t-bg-yellow-20-tint">
@@ -26,7 +26,11 @@
 
         <div class="nhsd-o-banner__content-container ${bgClass}">
             <div class="nhsd-o-banner__inner-content-container">
-                <p class="nhsd-t-body ${textClass}">${options.categoryInfo}</p>
+                <#if options.quote?has_content>
+                    <@quoteHeroContent options/>
+                    <#else>
+                        <p class="nhsd-t-body ${textClass}">${options.categoryInfo}</p>
+                </#if>
                 <span class="nhsd-t-heading-l ${textClass}">${options.title}</span>
                 <#if options.summary?has_content>
                     <div class="nhsd-t-heading-s nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0 ${textClass}" data-uipath="${uiPath}.summary">

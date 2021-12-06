@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 
 <#include "./simple-hero-content.ftl">
+<#include "./quote-hero-content.ftl">
 
 <#macro fullHeroContent options>
     <#assign uiPath = options.uiPath?has_content?then(options.uiPath, "website.hero") />
@@ -12,7 +13,9 @@
             </#list>
         </div>
     </#if>
-
+    <#if options.quote?has_content>
+       <@quoteHeroContent options/>
+    </#if>
     <@simpleHeroContent options>
         <#nested />
 

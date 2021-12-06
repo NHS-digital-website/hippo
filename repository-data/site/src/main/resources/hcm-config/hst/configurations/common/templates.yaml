@@ -305,6 +305,9 @@ definitions:
       /pubs_searchbar:
         hst:renderpath: webfile:/freemarker/common/pubs_searchbar.ftl
         jcr:primaryType: hst:template
+      /quotehero:
+        hst:renderpath: webfile:/freemarker/common/quotehero.ftl
+        jcr:primaryType: hst:template
       /roadmap:
         hst:renderpath: webfile:/freemarker/common/roadmap.ftl
         jcr:primaryType: hst:template
