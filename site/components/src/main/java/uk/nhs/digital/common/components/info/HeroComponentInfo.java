@@ -24,7 +24,7 @@ public interface HeroComponentInfo {
         )
     @JcrPath(
         isRelative = true,
-        pickerSelectableNodeTypes = {"website:calltoaction", "website:bannerdocument", "website:video", "website:calltoactionrich"}
+        pickerSelectableNodeTypes = {"website:calltoaction", "website:bannerdocument", "website:video", "website:calltoactionrich","website:quotehero"}
         )
     String getDocument();
 

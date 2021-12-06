@@ -698,6 +698,11 @@ definitions:
           jcr:name: Quote
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:quotehero:
+        /en:
+          jcr:name: Quote hero
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:releaseinfo:
         /en:
           jcr:name: Release info

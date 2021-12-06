@@ -7,9 +7,14 @@ Example use:
 <@hero getHeroOptions(document) />
 -->
 <#function getHeroOptions document isPolicy=false>
-    <#assign options = {
-    "title": document.title
-    }>
+  <#if document.title?has_content>
+        <#assign options = {
+        "title": document.title
+        }>
+        <#else>
+         <#assign options = {
+         }>
+    </#if>
     <#assign content="">
     <#if document.summary?has_content>
         <#assign content = document.summary/>
