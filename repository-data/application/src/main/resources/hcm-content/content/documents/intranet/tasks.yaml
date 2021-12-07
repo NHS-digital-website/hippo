@@ -108,6 +108,552 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /timesheets:
+    /timesheets[1]:
+      /intranet:bannercontrols:
+        /website:icon:
+          hippo:docbase: c825b495-1f80-40ab-9fef-a22e3de6a6a8
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:bannercontrol
+        website:backgroundcolor: ''
+        website:fontcolor: ''
+        website:icon: Bullet
+        website:iconcolor: ''
+      /intranet:introduction:
+        hippostd:content: <p>Find out how to submit your timesheets, including information
+          on completing and&nbsp;approving them and what to do if you're a contractor
+          or temporary member of staff.</p>
+        jcr:primaryType: hippostd:html
+      /intranet:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /intranet:priorityactions:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://hscic365.sharepoint.com/sites/ABR/Timesheet.aspx
+        jcr:primaryType: website:priorityaction
+        website:action: Submit a timesheet
+        website:additionalinformation: Enter your login details and complete the timesheet.
+      /intranet:relateddocuments:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /intranet:sections[1]:
+        /website:html:
+          hippostd:content: <p>Timesheets are essential to the management of the organisation.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: About timesheets
+        website:type: ''
+      /intranet:sections[2]:
+        /website:customicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:listentries[1]:
+          hippostd:content: <p>allows us to accurately understand the cost of our
+            services and programmes</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[2]:
+          hippostd:content: <p>enables us to provide transparency to our system partners</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[3]:
+          hippostd:content: <p>underpins the production of our annual report and accounts,
+            which we are required to lay before Parliament</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:checklist
+        website:heading: The information collected from timesheets
+        website:icon: ' Tick'
+      /intranet:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>Here’s how to access timesheets:&nbsp;</p>
+
+            <ol>
+             <li>Select 'Submit a timesheet' from the top of this page.&nbsp;</li>
+             <li>This will open the current timesheet in your ABR.&nbsp;</li>
+             <li>If you need to access a timesheet from a different week, select Manage my timesheets on the left-hand side.&nbsp;</li>
+             <li>This will then bring you to the area where you can recall or create a timesheet for other weeks within the current financial period.</li>
+            </ol>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Accessing timesheets
+        website:type: ''
+      /intranet:sections[4]:
+        /website:customicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:listentries[1]:
+          hippostd:content: <p>All NHS Digital staff are required to complete a timesheet.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[2]:
+          hippostd:content: <p>The deadline is 5:30pm&nbsp;on Monday of the following
+            week.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[3]:
+          hippostd:content: <p>Time recorded should be the actual hours you have worked.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[4]:
+          hippostd:content: <p>You can record a maximum of 75 hours worked per week.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[5]:
+          hippostd:content: <p>Time can only be charged to an activity if you’ve been
+            allocated to a resource plan.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[6]:
+          hippostd:content: <p>If you spend more than five days on an activity in
+            a financial year it should be added as a resource plan.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[7]:
+          hippostd:content: <p>Timesheets should be completed in advance for annual
+            leave or other planned absence.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:checklist
+        website:heading: General rules for completing timesheets
+        website:icon: Bullet
+      /intranet:sections[5]:
+        /website:html:
+          hippostd:content: |-
+            <ul>
+             <li>Staff who miss the submission deadline will receive a personal email reminder. If timesheets are still not submitted it will be escalated.&nbsp;</li>
+             <li>Timesheets should be submitted by line managers for staff on extended periods of absence (such as long-term sickness). <a href="https://hscic365.sharepoint.com/sites/ABR/Lists/CAS%20FAQS%20MASTER/DispForm.aspx?ID=2&amp;Source=https%3A%2F%2Fhscic365%2Esharepoint%2Ecom%2Fsites%2FABR%2FSitePages%2FFAQs%2520%2D%2520Timesheets%2Easpx&amp;ContentTypeId=0x0100D319A89EED20D94A8C4A07C7F7E28C08">Find out how to submit timesheets for other employees</a>.&nbsp;</li>
+             <li>When staff leave the organisation, line managers should complete the standard leavers’ process to ensure ABR accounts are closed.&nbsp;</li>
+            </ul>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Failing to complete timesheets
+        website:type: ''
+      /intranet:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>If you’re a temporary member of staff or contractor and are classed as contingent labour (such as an interim manager or specialist contractor), you should still complete your timesheet to accurately record costs to the correct project.</p>
+
+            <p>If you record the actual hours worked, rather than the standard 7.5 hours, we use this information to show HMRC:&nbsp;</p>
+
+            <ul>
+             <li>the hours worked are to a specific project, which shows you cannot be moved between projects&nbsp;</li>
+             <li>contractors do not work set hours, as we would expect to see the hours reflecting the needs of the project, rather than a standard 7.5 hours&nbsp;</li>
+             <li>if a contractor works more than 7.5 hours to complete a project, this shows the contractor has worked additional time at their own cost to complete a project milestone</li>
+            </ul>
+
+            <p>Anyone who completes timesheets on the Fieldglass system also needs to complete timesheets in ABR. &nbsp; &nbsp;</p>
+
+            <p>However, if you’re contracted through a work package or consultancy requirement you don’t need to complete our timesheets, as your cost is charged to the relevant portfolio through the payment of invoices.&nbsp;</p>
+
+            <p>Further guidance is available in the <a href="https://hscic365.sharepoint.com/sites/abr/SitePages/Guidance%20Home.aspx">ABR portal</a>&nbsp;or <a href="https://hscic365.sharepoint.com/sites/ABR/SitePages/FAQs%20-%20Timesheets.aspx">Frequently Asked Questions</a>.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Temporary staff and contractors  
+        website:type: ''
+      /intranet:shortsummary:
+        hippostd:content: <p>Access your timesheets and find out how to submit them.</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability: []
+      hippostd:holder: admin
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: oliver.gara
+      hippostdpubwf:creationDate: 2020-04-17T14:11:08.691Z
+      hippostdpubwf:lastModificationDate: 2021-12-07T15:36:21.402Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 494ae816-740e-449d-ba90-3300b0c3f65d
+      hippotranslation:locale: en
+      intranet:alternativenames:
+      - Timesheets
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/exclamation_triangle.svg
+      intranet:prioritytask: false
+      intranet:reviewdate: 2021-04-19T23:00:00Z
+      intranet:shortsummary: Access your timesheets and find out how to submit them.
+      intranet:title: Timesheets
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    /timesheets[2]:
+      /intranet:bannercontrols:
+        /website:icon:
+          hippo:docbase: c825b495-1f80-40ab-9fef-a22e3de6a6a8
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:bannercontrol
+        website:backgroundcolor: ''
+        website:fontcolor: ''
+        website:icon: Bullet
+        website:iconcolor: ''
+      /intranet:introduction:
+        hippostd:content: <p>Find out how to submit your timesheets, including information
+          on completing and&nbsp;approving them and what to do if you're a contractor
+          or temporary member of staff.</p>
+        jcr:primaryType: hippostd:html
+      /intranet:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /intranet:priorityactions:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://hscic365.sharepoint.com/sites/ABR/Timesheet.aspx
+        jcr:primaryType: website:priorityaction
+        website:action: Submit a timesheet
+        website:additionalinformation: Enter your login details and complete the timesheet.
+      /intranet:relateddocuments:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /intranet:sections[1]:
+        /website:html:
+          hippostd:content: <p>Timesheets are essential to the management of the organisation.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: About timesheets
+        website:type: ''
+      /intranet:sections[2]:
+        /website:customicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:listentries[1]:
+          hippostd:content: <p>allows us to accurately understand the cost of our
+            services and programmes</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[2]:
+          hippostd:content: <p>enables us to provide transparency to our system partners</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[3]:
+          hippostd:content: <p>underpins the production of our annual report and accounts,
+            which we are required to lay before Parliament</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:checklist
+        website:heading: The information collected from timesheets
+        website:icon: ' Tick'
+      /intranet:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>Here’s how to access timesheets:&nbsp;</p>
+
+            <ol>
+             <li>Select 'Submit a timesheet' from the top of this page.&nbsp;</li>
+             <li>This will open the current timesheet in your ABR.&nbsp;</li>
+             <li>If you need to access a timesheet from a different week, select Manage my timesheets on the left-hand side.&nbsp;</li>
+             <li>This will then bring you to the area where you can recall or create a timesheet for other weeks within the current financial period.</li>
+            </ol>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Accessing timesheets
+        website:type: ''
+      /intranet:sections[4]:
+        /website:customicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:listentries[1]:
+          hippostd:content: <p>All NHS Digital staff are required to complete a timesheet.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[2]:
+          hippostd:content: <p>The deadline is 5:30pm&nbsp;on Monday of the following
+            week.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[3]:
+          hippostd:content: <p>Time recorded should be the actual hours you have worked.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[4]:
+          hippostd:content: <p>You can record a maximum of 75 hours worked per week.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[5]:
+          hippostd:content: <p>Time can only be charged to an activity if you’ve been
+            allocated to a resource plan.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[6]:
+          hippostd:content: <p>If you spend more than five days on an activity in
+            a financial year it should be added as a resource plan.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[7]:
+          hippostd:content: <p>Timesheets should be completed in advance for annual
+            leave or other planned absence.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:checklist
+        website:heading: General rules for completing timesheets
+        website:icon: Bullet
+      /intranet:sections[5]:
+        /website:html:
+          hippostd:content: |-
+            <ul>
+             <li>Staff who miss the submission deadline will receive a personal email reminder. If timesheets are still not submitted it will be escalated.&nbsp;</li>
+             <li>Timesheets should be submitted by line managers for staff on extended periods of absence (such as long-term sickness). <a href="https://hscic365.sharepoint.com/sites/ABR/Lists/CAS%20FAQS%20MASTER/DispForm.aspx?ID=2&amp;Source=https%3A%2F%2Fhscic365%2Esharepoint%2Ecom%2Fsites%2FABR%2FSitePages%2FFAQs%2520%2D%2520Timesheets%2Easpx&amp;ContentTypeId=0x0100D319A89EED20D94A8C4A07C7F7E28C08">Find out how to submit timesheets for other employees</a>.&nbsp;</li>
+             <li>When staff leave the organisation, line managers should complete the standard leavers’ process to ensure ABR accounts are closed.&nbsp;</li>
+            </ul>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Failing to complete timesheets
+        website:type: ''
+      /intranet:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>If you’re a temporary member of staff or contractor and are classed as contingent labour (such as an interim manager or specialist contractor), you should still complete your timesheet to accurately record costs to the correct project.</p>
+
+            <p>If you record the actual hours worked, rather than the standard 7.5 hours, we use this information to show HMRC:&nbsp;</p>
+
+            <ul>
+             <li>the hours worked are to a specific project, which shows you cannot be moved between projects&nbsp;</li>
+             <li>contractors do not work set hours, as we would expect to see the hours reflecting the needs of the project, rather than a standard 7.5 hours&nbsp;</li>
+             <li>if a contractor works more than 7.5 hours to complete a project, this shows the contractor has worked additional time at their own cost to complete a project milestone</li>
+            </ul>
+
+            <p>Anyone who completes timesheets on the Fieldglass system also needs to complete timesheets in ABR. &nbsp; &nbsp;</p>
+
+            <p>However, if you’re contracted through a work package or consultancy requirement you don’t need to complete our timesheets, as your cost is charged to the relevant portfolio through the payment of invoices.&nbsp;</p>
+
+            <p>Further guidance is available in the <a href="https://hscic365.sharepoint.com/sites/abr/SitePages/Guidance%20Home.aspx">ABR portal</a>&nbsp;or <a href="https://hscic365.sharepoint.com/sites/ABR/SitePages/FAQs%20-%20Timesheets.aspx">Frequently Asked Questions</a>.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Temporary staff and contractors  
+        website:type: ''
+      /intranet:shortsummary:
+        hippostd:content: <p>Access your timesheets and find out how to submit them.</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: oliver.gara
+      hippostdpubwf:creationDate: 2020-04-17T14:11:08.691Z
+      hippostdpubwf:lastModificationDate: 2021-11-25T10:47:17.130Z
+      hippostdpubwf:lastModifiedBy: geoffrey.hayward
+      hippotranslation:id: 494ae816-740e-449d-ba90-3300b0c3f65d
+      hippotranslation:locale: en
+      intranet:alternativenames:
+      - Timesheets
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/exclamation_triangle.svg
+      intranet:prioritytask: false
+      intranet:reviewdate: 2021-04-19T23:00:00Z
+      intranet:shortsummary: Access your timesheets and find out how to submit them.
+      intranet:title: Timesheets
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: intranet:task
+    /timesheets[3]:
+      /intranet:bannercontrols:
+        /website:icon:
+          hippo:docbase: c825b495-1f80-40ab-9fef-a22e3de6a6a8
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:bannercontrol
+        website:backgroundcolor: ''
+        website:fontcolor: ''
+        website:icon: Bullet
+        website:iconcolor: ''
+      /intranet:introduction:
+        hippostd:content: <p>Find out how to submit your timesheets, including information
+          on completing and&nbsp;approving them and what to do if you're a contractor
+          or temporary member of staff.</p>
+        jcr:primaryType: hippostd:html
+      /intranet:linkicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /intranet:priorityactions:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://hscic365.sharepoint.com/sites/ABR/Timesheet.aspx
+        jcr:primaryType: website:priorityaction
+        website:action: Submit a timesheet
+        website:additionalinformation: Enter your login details and complete the timesheet.
+      /intranet:relateddocuments:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /intranet:sections[1]:
+        /website:html:
+          hippostd:content: <p>Timesheets are essential to the management of the organisation.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: About timesheets
+        website:type: ''
+      /intranet:sections[2]:
+        /website:customicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:listentries[1]:
+          hippostd:content: <p>allows us to accurately understand the cost of our
+            services and programmes</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[2]:
+          hippostd:content: <p>enables us to provide transparency to our system partners</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[3]:
+          hippostd:content: <p>underpins the production of our annual report and accounts,
+            which we are required to lay before Parliament</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:checklist
+        website:heading: The information collected from timesheets
+        website:icon: ' Tick'
+      /intranet:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>Here’s how to access timesheets:&nbsp;</p>
+
+            <ol>
+             <li>Select 'Submit a timesheet' from the top of this page.&nbsp;</li>
+             <li>This will open the current timesheet in your ABR.&nbsp;</li>
+             <li>If you need to access a timesheet from a different week, select Manage my timesheets on the left-hand side.&nbsp;</li>
+             <li>This will then bring you to the area where you can recall or create a timesheet for other weeks within the current financial period.</li>
+            </ol>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Accessing timesheets
+        website:type: ''
+      /intranet:sections[4]:
+        /website:customicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:listentries[1]:
+          hippostd:content: <p>All NHS Digital staff are required to complete a timesheet.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[2]:
+          hippostd:content: <p>The deadline is 5:30pm&nbsp;on Monday of the following
+            week.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[3]:
+          hippostd:content: <p>Time recorded should be the actual hours you have worked.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[4]:
+          hippostd:content: <p>You can record a maximum of 75 hours worked per week.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[5]:
+          hippostd:content: <p>Time can only be charged to an activity if you’ve been
+            allocated to a resource plan.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[6]:
+          hippostd:content: <p>If you spend more than five days on an activity in
+            a financial year it should be added as a resource plan.</p>
+          jcr:primaryType: hippostd:html
+        /website:listentries[7]:
+          hippostd:content: <p>Timesheets should be completed in advance for annual
+            leave or other planned absence.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:checklist
+        website:heading: General rules for completing timesheets
+        website:icon: Bullet
+      /intranet:sections[5]:
+        /website:html:
+          hippostd:content: |-
+            <ul>
+             <li>Staff who miss the submission deadline will receive a personal email reminder. If timesheets are still not submitted it will be escalated.&nbsp;</li>
+             <li>Timesheets should be submitted by line managers for staff on extended periods of absence (such as long-term sickness). <a href="https://hscic365.sharepoint.com/sites/ABR/Lists/CAS%20FAQS%20MASTER/DispForm.aspx?ID=2&amp;Source=https%3A%2F%2Fhscic365%2Esharepoint%2Ecom%2Fsites%2FABR%2FSitePages%2FFAQs%2520%2D%2520Timesheets%2Easpx&amp;ContentTypeId=0x0100D319A89EED20D94A8C4A07C7F7E28C08">Find out how to submit timesheets for other employees</a>.&nbsp;</li>
+             <li>When staff leave the organisation, line managers should complete the standard leavers’ process to ensure ABR accounts are closed.&nbsp;</li>
+            </ul>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Failing to complete timesheets
+        website:type: ''
+      /intranet:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>If you’re a temporary member of staff or contractor and are classed as contingent labour (such as an interim manager or specialist contractor), you should still complete your timesheet to accurately record costs to the correct project.</p>
+
+            <p>If you record the actual hours worked, rather than the standard 7.5 hours, we use this information to show HMRC:&nbsp;</p>
+
+            <ul>
+             <li>the hours worked are to a specific project, which shows you cannot be moved between projects&nbsp;</li>
+             <li>contractors do not work set hours, as we would expect to see the hours reflecting the needs of the project, rather than a standard 7.5 hours&nbsp;</li>
+             <li>if a contractor works more than 7.5 hours to complete a project, this shows the contractor has worked additional time at their own cost to complete a project milestone</li>
+            </ul>
+
+            <p>Anyone who completes timesheets on the Fieldglass system also needs to complete timesheets in ABR. &nbsp; &nbsp;</p>
+
+            <p>However, if you’re contracted through a work package or consultancy requirement you don’t need to complete our timesheets, as your cost is charged to the relevant portfolio through the payment of invoices.&nbsp;</p>
+
+            <p>Further guidance is available in the <a href="https://hscic365.sharepoint.com/sites/abr/SitePages/Guidance%20Home.aspx">ABR portal</a>&nbsp;or <a href="https://hscic365.sharepoint.com/sites/ABR/SitePages/FAQs%20-%20Timesheets.aspx">Frequently Asked Questions</a>.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Temporary staff and contractors  
+        website:type: ''
+      /intranet:shortsummary:
+        hippostd:content: <p>Access your timesheets and find out how to submit them.</p>
+        jcr:primaryType: hippostd:html
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: oliver.gara
+      hippostdpubwf:creationDate: 2020-04-17T14:11:08.691Z
+      hippostdpubwf:lastModificationDate: 2021-11-25T10:47:17.130Z
+      hippostdpubwf:lastModifiedBy: geoffrey.hayward
+      hippostdpubwf:publicationDate: 2021-11-25T10:47:39.667Z
+      hippotranslation:id: 494ae816-740e-449d-ba90-3300b0c3f65d
+      hippotranslation:locale: en
+      intranet:alternativenames:
+      - Timesheets
+      intranet:expirydate: 0001-01-01T12:00:00Z
+      intranet:icon: https://design-system.digital.nhs.uk/cdn/latest/icons/exclamation_triangle.svg
+      intranet:prioritytask: false
+      intranet:reviewdate: 2021-04-19T23:00:00Z
+      intranet:shortsummary: Access your timesheets and find out how to submit them.
+      intranet:title: Timesheets
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: intranet:task
+    hippo:name: Timesheets
+    hippo:versionHistory: 2e69f28e-6e46-49f7-8b57-bdacd6d1d33c
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   /travel-and-accommodation:
     /travel-and-accommodation[1]:
       /intranet:introduction:

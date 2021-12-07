@@ -1,12 +1,12 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
-<#include "../intranet/macro/stickyNavSections.ftl">
+
 
 <#--<#include "../publicationsystem/macro/structured-text.ftl">-->
 <#--<#include "../common/macro/sections/sections.ftl">
 
-<#include "../common/macro/stickyNavSections.ftl">
+
 <#include "../common/macro/component/calloutBox.ftl">
 <#include "macro/taskChapterNav.ftl">
 <#include "macro/metaTags.ftl">
@@ -71,321 +71,13 @@
 </#if>
 -->
 
+<#include "../nhsd-common/macro/heroes/hero-options.ftl">
+<#include "../nhsd-common/macro/heroes/hero.ftl">
+<#include "../nhsd-common/macro/stickyNavSections.ftl">
+<#include "../nhsd-common/macro/sections/sections.ftl">
 
-
-<#--
-Todo: find out where topics go
-<#assign metaData = [] />
-<#if document.topics?has_content>
-<#assign metaData += [{"key":"Topics", "value": document.topics?join(", "), "uipath": "taxonomy", "schemaOrgTag": "", "type": ""}] />
-</#if>-->
-
-<div class="nhsd-o-hero nhsd-!t-text-align-center">
-    <div class="nhsd-o-hero__content-container">
-        <div class="nhsd-o-hero__inner-content-container">
-            <h1 class="nhsd-t-heading-xxl">${document.title}</h1>
-            <#if document.introduction?has_content>
-                <p class="nhsd-t-body"><@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter /></p>
-            </#if>
-        </div>
-    </div>
-    <div class="nhsd-a-digiblocks nhsd-a-digiblocks--pos-bl">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 550">
-            <g>
-                <g transform="translate(222, 224)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon>
-                </g>
-                <g transform="translate(328.5, 367.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon>
-                </g>
-                <g transform="translate(151, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#3C4D57"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#32434C"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#313D45"></polygon>
-                </g>
-                <g transform="translate(80, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(186.5, 203.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon>
-                </g>
-                <g transform="translate(186.5, 285.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(222, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(9, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(257.5, 449.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#F5D507"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F2CB0C"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EEC000"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(186.5, 203.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon>
-                </g>
-                <g transform="translate(399.5, 326.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon>
-                </g>
-                <g transform="translate(222, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(328.5, 162.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#F5D507"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F2CB0C"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EEC000"></polygon>
-                </g>
-                <g transform="translate(399.5, 244.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(115.5, 162.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon>
-                </g>
-                <g transform="translate(186.5, 244.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon>
-                </g>
-                <g transform="translate(328.5, 326.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon>
-                </g>
-                <g transform="translate(257.5, 326.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#3C4D57"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#32434C"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#313D45"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(328.5, 244.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#DADFDF"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#CDD5D6"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#C5CDCF"></polygon>
-                </g>
-                <g transform="translate(257.5, 285.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon>
-                </g>
-                <g transform="translate(44.5, 203.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon>
-                </g>
-                <g transform="translate(151, 265)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(435, 142)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(328.5, 39.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon>
-                </g>
-                <g transform="translate(222, 19)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(257.5, 80.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#DADFDF"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#CDD5D6"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#C5CDCF"></polygon>
-                </g>
-            </g>
-        </svg>
-    </div>
-    <div class="nhsd-a-digiblocks nhsd-a-digiblocks--pos-tr">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 550">
-            <g>
-                <g transform="translate(222, 224)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon>
-                </g>
-                <g transform="translate(328.5, 367.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon>
-                </g>
-                <g transform="translate(151, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#3C4D57"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#32434C"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#313D45"></polygon>
-                </g>
-                <g transform="translate(80, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(186.5, 203.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon>
-                </g>
-                <g transform="translate(186.5, 285.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(222, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(9, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(257.5, 449.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#F5D507"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F2CB0C"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EEC000"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(186.5, 203.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon>
-                </g>
-                <g transform="translate(399.5, 326.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon>
-                </g>
-                <g transform="translate(222, 306)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#FBFAFA"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F5F5F4"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EFF2F1"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(328.5, 162.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#F5D507"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#F2CB0C"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#EEC000"></polygon>
-                </g>
-                <g transform="translate(399.5, 244.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(115.5, 162.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon>
-                </g>
-                <g transform="translate(186.5, 244.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon>
-                </g>
-                <g transform="translate(328.5, 326.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon>
-                </g>
-                <g transform="translate(257.5, 326.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#3C4D57"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#32434C"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#313D45"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(328.5, 244.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#DADFDF"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#CDD5D6"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#C5CDCF"></polygon>
-                </g>
-                <g transform="translate(257.5, 285.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon>
-                </g>
-                <g transform="translate(44.5, 203.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#6D7B86"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#62717A"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#5C6B75"></polygon>
-                </g>
-                <g transform="translate(151, 265)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(435, 142)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#0062CC"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#005ABE"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#0050B5"></polygon>
-                </g>
-            </g>
-            <g>
-                <g transform="translate(328.5, 39.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#BFD7ED"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#B2CFEA"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#A6C7E6"></polygon>
-                </g>
-                <g transform="translate(222, 19)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#00267A"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#001F75"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#001766"></polygon>
-                </g>
-                <g transform="translate(257.5, 80.5)">
-                    <polygon points="0,20.5 35.5,0 71,20.5 35.5,41" fill="#DADFDF"></polygon>
-                    <polygon points="35.5,82 71,61.4 71,20.5 35.5,41" fill="#CDD5D6"></polygon>
-                    <polygon points="0,20.5 0,61.4 35.5,82 35.5,41" fill="#C5CDCF"></polygon>
-                </g>
-            </g>
-        </svg>
-    </div>
-</div>
+<#assign introduction><@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter /></#assign>
+<@hero { 'digiblocks': ['tr', 'bl'], 'alignment': 'centre', 'title': document.title, 'summary': document.shortsummary } />
 
 <article class="nhsd-t-grid nhsd-!t-margin-top-7">
     <div class="nhsd-t-row ">
@@ -396,22 +88,24 @@ Todo: find out where topics go
                     <#assign links += [{ "url": "#" + slugify(responsibleTeamsSectionHeader), "title": responsibleTeamsSectionHeader }] />
                 </#if>
                 <#assign links += [{ "url": "#" + slugify(datesSectionHeader), "title": datesSectionHeader }] />
-
                 <@stickyNavSections getStickySectionNavLinks({"document": document, "appendSections": links, "includeTopLink": true})></@stickyNavSections>
             </div>
         </div>
         <div class="nhsd-t-col-9">
-            <h2>Title</h2>
+            <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
+            <#if document.sections?has_content>
+                <@sections sections=document.sections />
+            </#if>
         </div>
     </div>
 </article>
 
-<#--<#if hasChapters>
+<#if hasChapters>
     <@taskChapterNav previousTask=previousTask currentTask=document nextTask=nextTask />
-</#if>-->
+</#if>
 
     <#-- Updates, changes and expiration notice block -->
-   <#-- <#if hasUpdates || hasExpired>
+   <#if hasUpdates || hasExpired>
         <div class="grid-wrapper">
             <div class="grid-row">
                 <div class="column column--no-padding">
@@ -458,37 +152,35 @@ Todo: find out where topics go
                 </div>
             </div>
         </div>
-    </#if> -->
+    </#if>
     <#-- End of Updates, changes and expiration notice block -->
 
-   <#-- <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
-        <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
-                <div id="sticky-nav">
-                    <#assign links = [] />
-                    <#if hasResponsibleTeams>
-                        <#assign links += [{ "url": "#" + slugify(responsibleTeamsSectionHeader), "title": responsibleTeamsSectionHeader }] />
-                    </#if>
-                    <#assign links += [{ "url": "#" + slugify(datesSectionHeader), "title": datesSectionHeader }] />
+<#-- <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+       <div class="grid-row">-->
+           <#--<div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+               <div id="sticky-nav">
+                   <#assign links = [] />
+                   <#if hasResponsibleTeams>
+                       <#assign links += [{ "url": "#" + slugify(responsibleTeamsSectionHeader), "title": responsibleTeamsSectionHeader }] />
+                   </#if>
+                   <#assign links += [{ "url": "#" + slugify(datesSectionHeader), "title": datesSectionHeader }] />
 
-                    <@stickyNavSections getStickySectionNavLinks({"document": document, "appendSections": links, "includeTopLink": true})></@stickyNavSections>
--->
-                    <#-- Restore the bundle -->
-                    <#--<@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
-                </div>
-            </div>
+                   <@stickyNavSections getStickySectionNavLinks({"document": document, "appendSections": links, "includeTopLink": true})></@stickyNavSections>
 
+
+
+               </div>
+           </div>-->
+
+            <#-- Restore the bundle -->
+<#--<@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
 
             <div class="column column--two-thirds page-block page-block--main">
 
-                <#if document.sections?has_content>
-                    <div class="article-section">
-                        <@sections sections=document.sections />
-                    </div>
-                </#if>-->
 
-                <#-- Restore the bundle -->
-               <#-- <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
+
+                <#-- Restore the bundle --
+               <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
 
                 <#if hasResponsibleTeams>
                     <div id="${slugify(responsibleTeamsSectionHeader)}" class="article-section no-border">
