@@ -43,7 +43,7 @@
                                 <#if author.personimages?? && author.personimages?has_content && author.personimages.picture?has_content>
                                 <@hst.link hippobean=author.personimages.picture.authorPhotoLarge fullyQualified=true var="authorPicture" />
                                 <@hst.link hippobean=author.personimages.picture.authorPhotoLarge2x fullyQualified=true var="authorPicture2x" />
-                                <img srcset="${authorPicture} 200px, ${authorPicture2x} 400px"
+                                <img srcset="${authorPicture} 200w, ${authorPicture2x} 400w"
                                      sizes="200px"
                                      src="${authorPicture}" alt="${author.title}"/>
                                 <#else>

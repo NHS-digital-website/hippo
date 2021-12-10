@@ -175,7 +175,8 @@ definitions:
           /headertype:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Cube header,Image header
+              selectable.options: Black hero,White hero,Black background,Cube header,Image
+                header
             caption: Header type
             field: headertype
             hint: ''
