@@ -10,6 +10,8 @@
 <#include "macro/shareThisPage.ftl">
 <#include "macro/heroes/hero-options.ftl">
 <#include "macro/heroes/hero.ftl">
+<#include "macro/card.ftl">
+<#include "macro/personitem.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -30,6 +32,7 @@
 
 <#assign hasContactDetails = document.contactDetails?? && document.contactDetails.content?has_content />
 <#assign hasRelatedSubjects = document.relatedSubjects?? && document.relatedSubjects?has_content />
+<#assign heroType = "default"/>
 <#assign hasCubeHeader = document.headertype == "Cube header" />
 
 <#-- Content Page Pixel -->
@@ -39,46 +42,7 @@
     <#assign heroOptions = getHeroOptions(document) />
 
     <#assign metaData = [] />
-    <#if hasAuthors>
-        <#assign authorValue>
-            <div class="nhsd-!t-margin-bottom-1">
-                <#list document.authors as author>
-                    <@hst.link hippobean=author var="authorLink" />
-                    <div>
-                        <a class="nhsd-a-link"
-                           href="${authorLink}"
-                           onClick="${getOnClickMethodCall(document.class.name, authorLink)}"
-                        >
-                            ${author.title}
-                        </a>
-                        <#if author.roles??>
-                            <#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if>
-                        </#if>
-                    </div>
-                </#list>
-            </div>
-        </#assign>
-        <#assign metaData += [{
-            "title": "Author${(document.authors?size gt 1)?then('s', '')}",
-            "value": authorValue
-        }] />
-    <#elseif document.authorName?has_content>
-        <#assign authorValue>
-            ${document.authorName}<#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if>
-        </#assign>
-        <#assign metaData += [{
-            "title": "Author",
-            "value": authorValue
-        }] />
-    </#if>
 
-    <#if document.dateOfPublication.time?has_content>
-        <@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="dateOfPublication" />
-        <#assign metaData += [{
-            "title": "Date",
-            "value": dateOfPublication
-        }] />
-    </#if>
     <#if hasTopics>
         <#assign topics>
             <#list document.topics as tag>${tag}<#sep>, </#list>
@@ -104,13 +68,22 @@
         "uiPath": "website.feature"
     } />
 
-    <#assign heroType = "default"/>
     <#if document.headertype?has_content && document.headertype == "Image header" && document.leadImage?has_content>
         <#assign heroType = "backgroundImage"/>
+    <#elseif document.headertype?has_content && document.headertype == "Black hero" />
+    	<#assign heroType = "blackHero"/>
+    	<#assign heroOptions += {"colour": "Black"}>
+    <#elseif document.headertype?has_content && document.headertype == "White hero" />
+    	<#assign heroType = "whiteHero"/>
+    	<#assign heroOptions += {"colour": "White"}>
+    <#elseif document.headertype?has_content && document.headertype == "Black background" />
+    	<#assign heroType = "blackBackground"/>
+    	<#assign heroOptions += {"colour": "Black"}>
+    	<#assign heroOptions += {"image": {"src": leadImageBlogIndexThumb@2x, "alt": document.leadImageAltText}}>
     </#if>
     <@hero heroOptions heroType />
 
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8" aria-label="document-content">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-col-m-8 nhsd-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
                 <#if hasLeadParagraph>
@@ -208,6 +181,31 @@
                     <#if hasRelatedSubjects || hasSectionContent && !hasBackstory && !hasContactDetails && !hasRelatedSubjects>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
+
+                    <#if hasAuthors>
+	                    <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
+	                    <div class="nhsd-o-gallery">
+	                        <div class="nhsd-t-grid nhsd-!t-no-gutters">
+	                            <div class="nhsd-t-row nhsd-o-gallery__items">
+	                                <#list document.authors as author>
+	                                    <@personitem author/>
+	                                </#list>
+	                            </div>
+	                        </div>
+	                    </div>
+	                <#elseif document.authorName?has_content>
+	                	<p class="nhsd-t-heading-xl"> Author</p>
+				        <#assign authorValue>
+				            ${document.authorName}<#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if>
+				        </#assign>
+
+        				<#assign cardProperties = {
+                    		"background": "light-grey",
+							"title": authorValue               	
+                    	}/>
+	                    <@card cardProperties/>
+                	</#if>
+                    <hr class="nhsd-a-horizontal-rule" />
                     <p class="nhsd-t-heading-xl">Share this page</p>
                     <#-- Use UTF-8 charset for URL escaping from now: -->
                     <#setting url_escaping_charset="UTF-8">
@@ -240,65 +238,7 @@
                     </div>
                 </div>
 
-                <#if hasAuthors>
-                    <hr class="nhsd-a-horizontal-rule" />
-                    <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
-                    <div class="nhsd-o-gallery">
-                        <div class="nhsd-t-grid nhsd-!t-no-gutters">
-                            <div class="nhsd-t-row nhsd-o-gallery__items">
-                                <#list document.authors as author>
-                                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4">
-                                        <div class="nhsd-o-gallery__card-container">
-                                            <div class="nhsd-m-card">
-                                                <@hst.link hippobean=author var="authorLink"/>
-                                                <a href="${authorLink}"
-                                                   onClick="${getOnClickMethodCall(document.class.name, authorLink)}"
-                                                   onKeyUp="return vjsu.onKeyUp(event)"
-                                                   class="nhsd-a-box-link nhsd-a-box-link--focus-orange"
-                                                   aria-label="${author.title}"
-                                                >
-                                                    <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                                                    <#if author.personimages.picture.authorPhotoLarge2x?has_content>
-                                                        <div class="nhsd-m-card__image_container">
-                                                            <figure class="nhsd-a-image nhsd-a-image--maintain-ratio">
-                                                                <picture class="nhsd-a-image__picture ">
-                                                                    <@hst.link hippobean=author.personimages.picture.authorPhotoLarge2x fullyQualified=true var="authorPicture" />
-                                                                    <img src="${authorPicture}" alt="${author.title}">
-                                                                </picture>
-                                                            </figure>
-                                                        </div>
-                                                    </#if>
-                                                        <div class="nhsd-m-card__content_container">
-                                                            <div class="nhsd-m-card__content-box">
-                                                                <h1 class="nhsd-t-heading-s">${author.title}</h1>
-                                                                <span class="nhsd-m-card__date">
-                                                                    <#if author.roles?has_content >
-                                                                        ${author.roles.firstprimaryrole}, ${author.roles.primaryroleorg}
-                                                                    </#if>
-                                                                </span>
-                                                                <#assign profbiography><@hst.html hippohtml=author.biographies.profbiography contentRewriter=brContentRewriter/></#assign>
-                                                                ${profbiography}
-                                                                <div class="nhsd-m-card__button-box">
-                                                                    <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                                                        </svg>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </#list>
-                            </div>
-                        </div>
-                    </div>
-                </#if>
-
-                <div class="nhsd-!t-margin-bottom-6" aria-label="document-content">
+                <div class="nhsd-!t-margin-bottom-6">
                     <@lastModified document.lastModified false></@lastModified>
                 </div>
 

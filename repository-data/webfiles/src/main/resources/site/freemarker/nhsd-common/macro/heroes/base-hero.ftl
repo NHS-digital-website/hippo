@@ -41,7 +41,11 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
 
     <#if heroType == "backgroundImage">
         <#assign heroClasses="nhsd-o-hero--background-image">
-    <#elseif heroType == "image">
+    <#elseif heroType == "whiteHero">
+    	<#assign heroClasses="nhsd-o-hero--image">
+        <#assign bgClass="nhsd-!t-bg-white">
+        <#assign textClass += " nhsd-o-hero--dark-text nhsd-!t-col-black">
+    <#elseif heroType == "image" || heroType == "blackHero">
         <#assign heroClasses="nhsd-o-hero--image">
         <#assign bgClass="nhsd-!t-bg-grad-black">
         <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
@@ -95,11 +99,13 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             </div>
         </div>
 
-        <#if heroType == "image" || heroType == "backgroundImage" || heroType == "accentedImage" || heroType == "accentedImageMirrored">
+        <#if heroType == "blackHero" || heroType == "whiteHero" || heroType == "blackBackground" || heroType == "image" || heroType == "backgroundImage" || heroType == "accentedImage" || heroType == "accentedImageMirrored">
             <#assign imageClasses = ""/>
             <#assign style = ""/>
             <#if heroType == "image">
-                <#assign imageClasses = "nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
+            	<#assign imageClasses = "nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
+            <#elseif heroType == "blackBackground">
+                <#assign imageClasses = "nhsd-a-image nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
             <#elseif heroType == "backgroundImage">
                 <#assign imageClasses = "nhsd-a-image--cover"/>
             <#elseif options.isCTARich?has_content>
