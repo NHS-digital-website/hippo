@@ -18,7 +18,7 @@
         <div class="nhsd-t-row nhsd-t-row--centred">
             <div class="nhsd-t-col-12">
                 <div class="nhsd-t-flex nhsd-t-flex--justify-content-centre">
-                    <div class="nhsd-m-emphasis-box nhsd-m-emphasis-box--centred nhsd-m-emphasis-box--warning">
+                    <div class="hsd-t-flex-item nhsd-t-flex-item--grow nhsd-m-emphasis-box nhsd-m-emphasis-box--centred nhsd-m-emphasis-box--warning">
                         <div class="nhsd-a-box nhsd-a-box--border-red">
                             <#if hasImage>
                                 <div class="nhsd-m-emphasis-box__icon-box">
