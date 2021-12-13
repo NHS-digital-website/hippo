@@ -137,6 +137,8 @@
         <hippo.addon-content-feed.version>14.7.8ed926d4</hippo.addon-content-feed.version>
         <!-- ***END temporary override of versions*** -->
 
+        <log4j2.version>2.15.0</log4j2.version>
+
     </properties>
 
     <repositories>
