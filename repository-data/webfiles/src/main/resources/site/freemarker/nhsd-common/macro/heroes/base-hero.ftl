@@ -105,9 +105,6 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             <#elseif options.isCTARich?has_content>
                 <#assign imageClasses = " nhsd-a-image--maintain-ratio"/>
                 <#assign style = "height:max-content"/>
-            <#elseif options.quote?has_content>
-                <#assign imageClasses = " nhsd-a-image--maintain-ratio"/>
-                <#assign style = "height:max-content"/>
             </#if>
             <div class="nhsd-o-hero__image-container">
                 <#if options.video?has_content>
