@@ -20,6 +20,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-caching-hst</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.splunk.logging</groupId>
             <artifactId>splunk-library-javalogging</artifactId>
             <version>1.9.0</version>

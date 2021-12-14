@@ -35,4 +35,13 @@
             minEvictableIdleTimeMillis="60000, 60000" />
   -->
 
+  <Environment name="stalePageCache" type="java.lang.String" value="{
+    'maxEntriesLocalHeap' : 1000,
+    'maxEntriesLocalDisk' : 1000,
+    'timeToLiveSeconds' : 86400,
+    'timeToIdleSeconds' : 86400,
+    'diskExpiryThreadIntervalSeconds' : 60,
+    'stats' : true
+    }" />
+
 </Context>
