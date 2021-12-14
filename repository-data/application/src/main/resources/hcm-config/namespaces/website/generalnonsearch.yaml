@@ -270,6 +270,124 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
+        /hipposysedit:nodetype[2]:
+          /component:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:component
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /friendlyurls:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:friendlyurls
+            hipposysedit:primary: false
+            hipposysedit:type: website:friendlyurls
+            jcr:primaryType: hipposysedit:field
+          /gossid:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:gossid
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+            jcr:primaryType: hipposysedit:field
+          /items:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:items
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /sections:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:sections
+            hipposysedit:primary: false
+            hipposysedit:type: website:section
+            jcr:primaryType: hipposysedit:field
+          /seosummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
+          /shortsummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /summary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /type:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:type
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            jcr:primaryType: hipposysedit:field
+          /userContact:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userContact
+            hipposysedit:primary: false
+            hipposysedit:type: website:userContact
+            jcr:primaryType: hipposysedit:field
+          /userNeed:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userNeed
+            hipposysedit:primary: false
+            hipposysedit:type: website:userNeed
+            jcr:primaryType: hipposysedit:field
+          /userNeedandcontact:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userNeedandcontact
+            hipposysedit:primary: false
+            hipposysedit:type: website:userNeedandcontact
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
@@ -328,6 +446,68 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:generalnonsearch
+          website:gossid: 0
+          website:shortsummary: ''
+          website:title: ''
+          website:type: ''
+        /hipposysedit:prototype[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 1
+          common:searchable: false
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - hippostd:publishableSummary
+          - hippostd:relaxed
+          - hippostdpubwf:document
+          - hippotaxonomy:classifiable
+          - hippotranslation:translated
+          - mix:referenceable
+          jcr:primaryType: nt:unstructured
           website:gossid: 0
           website:shortsummary: ''
           website:title: ''
