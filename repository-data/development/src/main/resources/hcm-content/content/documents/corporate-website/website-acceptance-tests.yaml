@@ -34,7 +34,7 @@
               someemailagain@address.co.uk</p>
             jcr:primaryType: hippostd:html
           /website:leadimage:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:docbase: aebb7704-2b85-47a8-ab48-a8463d48dc7e
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -104,10 +104,11 @@
           common:searchable: true
           hippo:availability:
           - preview
+          hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-          hippostdpubwf:lastModificationDate: 2019-08-30T09:47:28.639Z
+          hippostdpubwf:lastModificationDate: 2021-12-08T11:46:27.298Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: []
           hippotranslation:id: 78ebdfeb-deef-4a40-8a48-e1c2786ecd5b
@@ -123,11 +124,17 @@
           website:casestudycategories:
           - Prototyping
           website:dateofpublication: 2019-04-15T23:00:00Z
+          website:headertype: Cube header
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
             image alt text
+          website:seosummarytext: Some useful summary for the blog post for purpose
+            of SEO
           website:shortsummary: Donec tempor enim nunc, vel vehicula justo bibendum
             et. Pellentesque faucibus vulputate interdum. Aliquam fringilla laoreet
             dui, at gravida augue tempus vel. Aenean scelerisque cursus porttitor.
+          website:taxonomyClassificationField:
+            type: double
+            value: []
           website:title: Blog AcceptanceTestDocument 3
           website:twitterhashtag: []
         /blog-test-document-3[2]:
@@ -136,12 +143,6 @@
               eu condimentum id, egestas sit amet sem. Cras consequat iaculis est
               ut mollis. Sed vitae mauris a nulla mollis semper.</p>
             jcr:primaryType: hippostd:html
-          /website:authors[1]:
-            hippo:docbase: 5979690c-bad6-42aa-9aa7-b8ff3685e160
-            jcr:primaryType: hippo:mirror
-          /website:authors[2]:
-            hippo:docbase: 4c3c020c-5ffe-48b5-adca-53f8073c4b6e
-            jcr:primaryType: hippo:mirror
           /website:backstory:
             hippostd:content: |-
               <p>Proin fermentum ligula ac augue aliquet rhoncus ut at dolor. Ut scelerisque ex metus, id luctus sem congue a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed orci id neque ultricies feugiat. Duis vitae aliquam ante. Nam iaculis diam eget tellus laoreet hendrerit eu in est. In vitae facilisis libero. Pellentesque interdum egestas malesuada. Phasellus porttitor sem at vehicula scelerisque. Nunc ut nisl ut lectus elementum mattis vitae a orci.</p>
@@ -160,7 +161,7 @@
               someemailagain@address.co.uk</p>
             jcr:primaryType: hippostd:html
           /website:leadimage:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:docbase: aebb7704-2b85-47a8-ab48-a8463d48dc7e
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -229,10 +230,12 @@
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
+          hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-          hippostdpubwf:lastModificationDate: 2019-08-30T09:47:21.301Z
+          hippostdpubwf:lastModificationDate: 2021-12-10T10:58:30.805Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: []
           hippotranslation:id: 78ebdfeb-deef-4a40-8a48-e1c2786ecd5b
@@ -248,11 +251,17 @@
           website:casestudycategories:
           - Prototyping
           website:dateofpublication: 2019-04-15T23:00:00Z
+          website:headertype: Cube header
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
             image alt text
+          website:seosummarytext: Some useful summary for the blog post for purpose
+            of SEO
           website:shortsummary: Donec tempor enim nunc, vel vehicula justo bibendum
             et. Pellentesque faucibus vulputate interdum. Aliquam fringilla laoreet
             dui, at gravida augue tempus vel. Aenean scelerisque cursus porttitor.
+          website:taxonomyClassificationField:
+            type: double
+            value: []
           website:title: Blog AcceptanceTestDocument 3
           website:twitterhashtag: []
         /blog-test-document-3[3]:
@@ -285,7 +294,7 @@
               someemailagain@address.co.uk</p>
             jcr:primaryType: hippostd:html
           /website:leadimage:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:docbase: aebb7704-2b85-47a8-ab48-a8463d48dc7e
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -355,12 +364,13 @@
           common:searchable: true
           hippo:availability:
           - live
+          hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-          hippostdpubwf:lastModificationDate: 2019-08-30T09:47:28.639Z
+          hippostdpubwf:lastModificationDate: 2021-12-08T11:46:27.298Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2019-08-30T09:47:30.790Z
+          hippostdpubwf:publicationDate: 2021-12-08T11:46:38.030Z
           hippotaxonomy:keys: []
           hippotranslation:id: 78ebdfeb-deef-4a40-8a48-e1c2786ecd5b
           hippotranslation:locale: en
@@ -375,15 +385,21 @@
           website:casestudycategories:
           - Prototyping
           website:dateofpublication: 2019-04-15T23:00:00Z
+          website:headertype: Cube header
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
             image alt text
+          website:seosummarytext: Some useful summary for the blog post for purpose
+            of SEO
           website:shortsummary: Donec tempor enim nunc, vel vehicula justo bibendum
             et. Pellentesque faucibus vulputate interdum. Aliquam fringilla laoreet
             dui, at gravida augue tempus vel. Aenean scelerisque cursus porttitor.
+          website:taxonomyClassificationField:
+            type: double
+            value: []
           website:title: Blog AcceptanceTestDocument 3
           website:twitterhashtag: []
         hippo:name: Blog test document 3
-        hippo:versionHistory: 8936e6cf-1a99-4911-b901-fe63151460f6
+        hippo:versionHistory: f2451a96-ee9b-418d-812f-29a4c3b05ac1
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -406,12 +422,6 @@
           hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           jcr:primaryType: hippostd:html
-        /website:authors[1]:
-          hippo:docbase: 6af33cae-fb9f-416a-b257-d30eb17950d3
-          jcr:primaryType: hippo:mirror
-        /website:authors[2]:
-          hippo:docbase: a8d050ae-7021-4cfb-8662-1b7c13b20e59
-          jcr:primaryType: hippo:mirror
         /website:backstory:
           hippostd:content: |-
             <p>Backstory lorem details here.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -434,7 +444,7 @@
             someemail@address.co.uk</p>
           jcr:primaryType: hippostd:html
         /website:leadimage:
-          hippo:docbase: c492e690-69e3-4bc4-afbf-f650587556ba
+          hippo:docbase: fd5c2810-82cc-4c79-b886-6876932a8de7
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -489,10 +499,12 @@
         common:searchRank: 5
         common:searchable: true
         hippo:availability: []
+        hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-        hippostdpubwf:lastModificationDate: 2019-08-30T09:37:12.255Z
+        hippostdpubwf:lastModificationDate: 2021-12-13T14:04:00.231Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys:
         - falls
@@ -511,8 +523,14 @@
         - Content
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
+        website:headertype: Cube header
         website:leadimagealttext: hellow work d sdkj sfsdfg sdfg dfgf
+        website:seosummarytext: Some useful summary for the blog post for purpose
+          of SEO
         website:shortsummary: Browse our blog page to see what is happening
+        website:taxonomyClassificationField:
+        - falls
+        - breaks-and-fractures
         website:title: Blog AcceptanceTestDocument 1
         website:twitterhashtag:
         - '#testonly'
@@ -521,12 +539,6 @@
           hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           jcr:primaryType: hippostd:html
-        /website:authors[1]:
-          hippo:docbase: 6af33cae-fb9f-416a-b257-d30eb17950d3
-          jcr:primaryType: hippo:mirror
-        /website:authors[2]:
-          hippo:docbase: a8d050ae-7021-4cfb-8662-1b7c13b20e59
-          jcr:primaryType: hippo:mirror
         /website:backstory:
           hippostd:content: |-
             <p>Backstory lorem details here.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -549,7 +561,7 @@
             someemail@address.co.uk</p>
           jcr:primaryType: hippostd:html
         /website:leadimage:
-          hippo:docbase: c492e690-69e3-4bc4-afbf-f650587556ba
+          hippo:docbase: fd5c2810-82cc-4c79-b886-6876932a8de7
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -605,10 +617,11 @@
         common:searchable: true
         hippo:availability:
         - preview
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-        hippostdpubwf:lastModificationDate: 2019-08-30T09:37:19.026Z
+        hippostdpubwf:lastModificationDate: 2021-12-10T10:57:56.692Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys:
         - falls
@@ -628,8 +641,14 @@
         - Content
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
+        website:headertype: Cube header
         website:leadimagealttext: hellow work d sdkj sfsdfg sdfg dfgf
+        website:seosummarytext: Some useful summary for the blog post for purpose
+          of SEO
         website:shortsummary: Browse our blog page to see what is happening
+        website:taxonomyClassificationField:
+        - falls
+        - breaks-and-fractures
         website:title: Blog AcceptanceTestDocument 1
         website:twitterhashtag:
         - '#testonly'
@@ -638,12 +657,6 @@
           hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
             elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           jcr:primaryType: hippostd:html
-        /website:authors[1]:
-          hippo:docbase: 6af33cae-fb9f-416a-b257-d30eb17950d3
-          jcr:primaryType: hippo:mirror
-        /website:authors[2]:
-          hippo:docbase: a8d050ae-7021-4cfb-8662-1b7c13b20e59
-          jcr:primaryType: hippo:mirror
         /website:backstory:
           hippostd:content: |-
             <p>Backstory lorem details here.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -666,7 +679,7 @@
             someemail@address.co.uk</p>
           jcr:primaryType: hippostd:html
         /website:leadimage:
-          hippo:docbase: c492e690-69e3-4bc4-afbf-f650587556ba
+          hippo:docbase: fd5c2810-82cc-4c79-b886-6876932a8de7
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -722,12 +735,13 @@
         common:searchable: true
         hippo:availability:
         - live
+        hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-        hippostdpubwf:lastModificationDate: 2019-08-30T09:37:19.026Z
+        hippostdpubwf:lastModificationDate: 2021-12-10T10:57:56.692Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2019-08-30T09:37:20.923Z
+        hippostdpubwf:publicationDate: 2021-12-10T10:59:11.270Z
         hippotaxonomy:keys:
         - falls
         - breaks-and-fractures
@@ -745,13 +759,19 @@
         - Content
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
+        website:headertype: Cube header
         website:leadimagealttext: hellow work d sdkj sfsdfg sdfg dfgf
+        website:seosummarytext: Some useful summary for the blog post for purpose
+          of SEO
         website:shortsummary: Browse our blog page to see what is happening
+        website:taxonomyClassificationField:
+        - falls
+        - breaks-and-fractures
         website:title: Blog AcceptanceTestDocument 1
         website:twitterhashtag:
         - '#testonly'
       hippo:name: Blog test document 1
-      hippo:versionHistory: 9ea23796-9ce4-48ab-ab4c-33fc81c53de1
+      hippo:versionHistory: 935bd271-b75c-4c8f-8d1e-ab01fa3ba555
       jcr:mixinTypes:
       - hippo:named
       - hippo:versionInfo
@@ -766,12 +786,6 @@
             Proin ultricies, turpis in tincidunt lacinia, nunc mauris rutrum ligula,
             at elementum sapien turpis a nibh.&nbsp;</p>
           jcr:primaryType: hippostd:html
-        /website:authors[1]:
-          hippo:docbase: 5979690c-bad6-42aa-9aa7-b8ff3685e160
-          jcr:primaryType: hippo:mirror
-        /website:authors[2]:
-          hippo:docbase: 4c3c020c-5ffe-48b5-adca-53f8073c4b6e
-          jcr:primaryType: hippo:mirror
         /website:backstory:
           hippostd:content: |-
             <p>Backstory&nbsp;Phasellus ac venenatis quam, non finibus neque. Aliquam ornare, nisl nec mattis pellentesque, neque elit rutrum justo, a egestas tortor ligula eu nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam aliquam dictum elit eu molestie. Proin iaculis consectetur nunc, at ullamcorper purus lobortis ut. Nullam ultrices eros nisi, in condimentum sapien tincidunt sit amet. Integer mi libero, lacinia eu convallis quis, porttitor quis justo.</p>
@@ -794,7 +808,7 @@
             someemailagain@address.co.uk</p>
           jcr:primaryType: hippostd:html
         /website:leadimage:
-          hippo:docbase: 98583217-1884-42e2-b4e8-2061938673ff
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -859,10 +873,11 @@
         common:searchable: true
         hippo:availability:
         - preview
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-        hippostdpubwf:lastModificationDate: 2019-08-30T09:30:28.620Z
+        hippostdpubwf:lastModificationDate: 2021-12-10T10:58:06.872Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys:
         - clinical-commissioning-groups-outcomes-framework
@@ -881,11 +896,19 @@
         website:authorrole: CTO on some service
         website:casestudycategories: []
         website:dateofpublication: 2019-08-27T23:00:00Z
+        website:headertype: Cube header
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text
+        website:seosummarytext: Some useful summary for the blog post for purpose
+          of SEO
         website:shortsummary: Fusce in lectus augue. Nunc libero nisl, faucibus eu
           condimentum id, egestas sit amet sem. Cras consequat iaculis est ut mollis.
           Sed vitae mauris a nulla mollis semper.
+        website:taxonomyClassificationField:
+        - clinical-commissioning-groups-outcomes-framework
+        - immune-system-disorders
+        - infectious-diseases
+        - mental-and-behavioural-disorders
         website:title: Blog AcceptanceTestDocument 2
         website:twitterhashtag:
         - '#somehash'
@@ -898,12 +921,6 @@
             Proin ultricies, turpis in tincidunt lacinia, nunc mauris rutrum ligula,
             at elementum sapien turpis a nibh.&nbsp;</p>
           jcr:primaryType: hippostd:html
-        /website:authors[1]:
-          hippo:docbase: 5979690c-bad6-42aa-9aa7-b8ff3685e160
-          jcr:primaryType: hippo:mirror
-        /website:authors[2]:
-          hippo:docbase: 4c3c020c-5ffe-48b5-adca-53f8073c4b6e
-          jcr:primaryType: hippo:mirror
         /website:backstory:
           hippostd:content: |-
             <p>Backstory&nbsp;Phasellus ac venenatis quam, non finibus neque. Aliquam ornare, nisl nec mattis pellentesque, neque elit rutrum justo, a egestas tortor ligula eu nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam aliquam dictum elit eu molestie. Proin iaculis consectetur nunc, at ullamcorper purus lobortis ut. Nullam ultrices eros nisi, in condimentum sapien tincidunt sit amet. Integer mi libero, lacinia eu convallis quis, porttitor quis justo.</p>
@@ -926,7 +943,7 @@
             someemailagain@address.co.uk</p>
           jcr:primaryType: hippostd:html
         /website:leadimage:
-          hippo:docbase: 98583217-1884-42e2-b4e8-2061938673ff
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -990,10 +1007,11 @@
         common:searchRank: 5
         common:searchable: true
         hippo:availability: []
+        hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-        hippostdpubwf:lastModificationDate: 2019-08-30T09:30:10.407Z
+        hippostdpubwf:lastModificationDate: 2021-12-10T10:58:00.471Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys:
         - clinical-commissioning-groups-outcomes-framework
@@ -1012,11 +1030,19 @@
         website:authorrole: CTO on some service
         website:casestudycategories: []
         website:dateofpublication: 2019-08-27T23:00:00Z
+        website:headertype: Cube header
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text
+        website:seosummarytext: Some useful summary for the blog post for purpose
+          of SEO
         website:shortsummary: Fusce in lectus augue. Nunc libero nisl, faucibus eu
           condimentum id, egestas sit amet sem. Cras consequat iaculis est ut mollis.
           Sed vitae mauris a nulla mollis semper.
+        website:taxonomyClassificationField:
+        - clinical-commissioning-groups-outcomes-framework
+        - immune-system-disorders
+        - infectious-diseases
+        - mental-and-behavioural-disorders
         website:title: Blog AcceptanceTestDocument 2
         website:twitterhashtag:
         - '#somehash'
@@ -1029,12 +1055,6 @@
             Proin ultricies, turpis in tincidunt lacinia, nunc mauris rutrum ligula,
             at elementum sapien turpis a nibh.&nbsp;</p>
           jcr:primaryType: hippostd:html
-        /website:authors[1]:
-          hippo:docbase: 5979690c-bad6-42aa-9aa7-b8ff3685e160
-          jcr:primaryType: hippo:mirror
-        /website:authors[2]:
-          hippo:docbase: 4c3c020c-5ffe-48b5-adca-53f8073c4b6e
-          jcr:primaryType: hippo:mirror
         /website:backstory:
           hippostd:content: |-
             <p>Backstory&nbsp;Phasellus ac venenatis quam, non finibus neque. Aliquam ornare, nisl nec mattis pellentesque, neque elit rutrum justo, a egestas tortor ligula eu nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam aliquam dictum elit eu molestie. Proin iaculis consectetur nunc, at ullamcorper purus lobortis ut. Nullam ultrices eros nisi, in condimentum sapien tincidunt sit amet. Integer mi libero, lacinia eu convallis quis, porttitor quis justo.</p>
@@ -1057,7 +1077,7 @@
             someemailagain@address.co.uk</p>
           jcr:primaryType: hippostd:html
         /website:leadimage:
-          hippo:docbase: 98583217-1884-42e2-b4e8-2061938673ff
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -1122,12 +1142,13 @@
         common:searchable: true
         hippo:availability:
         - live
+        hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2019-08-12T14:44:50.579Z
-        hippostdpubwf:lastModificationDate: 2019-08-30T09:30:28.620Z
+        hippostdpubwf:lastModificationDate: 2021-12-10T10:58:06.872Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2019-08-30T09:30:31.497Z
+        hippostdpubwf:publicationDate: 2021-12-10T10:59:11.486Z
         hippotaxonomy:keys:
         - clinical-commissioning-groups-outcomes-framework
         - immune-system-disorders
@@ -1145,17 +1166,25 @@
         website:authorrole: CTO on some service
         website:casestudycategories: []
         website:dateofpublication: 2019-08-27T23:00:00Z
+        website:headertype: Cube header
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text
+        website:seosummarytext: Some useful summary for the blog post for purpose
+          of SEO
         website:shortsummary: Fusce in lectus augue. Nunc libero nisl, faucibus eu
           condimentum id, egestas sit amet sem. Cras consequat iaculis est ut mollis.
           Sed vitae mauris a nulla mollis semper.
+        website:taxonomyClassificationField:
+        - clinical-commissioning-groups-outcomes-framework
+        - immune-system-disorders
+        - infectious-diseases
+        - mental-and-behavioural-disorders
         website:title: Blog AcceptanceTestDocument 2
         website:twitterhashtag:
         - '#somehash'
         - hashtagwithoutprefix
       hippo:name: Blog test document 2
-      hippo:versionHistory: 6daac41b-2539-4cc4-a164-09e86d551006
+      hippo:versionHistory: 9d25ada7-ce6e-4274-ae57-29b0d887e76b
       jcr:mixinTypes:
       - hippo:named
       - hippo:versionInfo
@@ -1659,6 +1688,3379 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+    /dw-2686-test-blog-hub:
+      /dw-2686-test-blog-hub[1]:
+        /website:author:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:blogheadingimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: f40783b7-75d4-4069-b191-5e094367e0bf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:publisher:
+          hippo:docbase: 9f770632-e567-4eb1-8378-0a39eb399ec3
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: This is a test blog hub entry
+          jcr:primaryType: hippostd:html
+        /website:subject:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:summary:
+          hippostd:content: |-
+            <p>START ABOUT</p>
+
+            <p>This is a test blog hub entry.</p>
+
+            <p>It is for testing of Jira DW-2686</p>
+
+            <p>It needs a lot of text to fill this about section</p>
+
+            <p>END ABOUT</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T09:47:18.373Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T15:08:30.902Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 4acbfcf7-2d6b-47fa-ab3f-1cfd21f040e0
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: website:bloghub
+        website:issn: ''
+        website:seosummarytext: This is a test blog hub entry
+        website:shortsummary: "START SUMMARY\r\nThis is a test blog hub entry short\
+          \ summary.\r\nIts fairly short.\r\nEND SUMMARY"
+        website:subtitle: This is a test Blog Hub doc
+        website:title: DW-2686 Test Blog Hub
+      /dw-2686-test-blog-hub[2]:
+        /website:author:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:blogheadingimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: f40783b7-75d4-4069-b191-5e094367e0bf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:publisher:
+          hippo:docbase: 9f770632-e567-4eb1-8378-0a39eb399ec3
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: This is a test blog hub entry
+          jcr:primaryType: hippostd:html
+        /website:subject:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:summary:
+          hippostd:content: |-
+            <p>START ABOUT</p>
+
+            <p>This is a test blog hub entry.</p>
+
+            <p>It is for testing of Jira DW-2686</p>
+
+            <p>It needs a lot of text to fill this about section</p>
+
+            <p>END ABOUT</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T09:47:18.373Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T15:08:30.902Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-12-08T15:08:39.506Z
+        hippotranslation:id: 4acbfcf7-2d6b-47fa-ab3f-1cfd21f040e0
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:bloghub
+        website:issn: ''
+        website:seosummarytext: This is a test blog hub entry
+        website:shortsummary: "START SUMMARY\r\nThis is a test blog hub entry short\
+          \ summary.\r\nIts fairly short.\r\nEND SUMMARY"
+        website:subtitle: This is a test Blog Hub doc
+        website:title: DW-2686 Test Blog Hub
+      /dw-2686-test-blog-hub[3]:
+        /website:author:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:blogheadingimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimage:
+          hippo:docbase: f40783b7-75d4-4069-b191-5e094367e0bf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:publisher:
+          hippo:docbase: 9f770632-e567-4eb1-8378-0a39eb399ec3
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: This is a test blog hub entry
+          jcr:primaryType: hippostd:html
+        /website:subject:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:summary:
+          hippostd:content: |-
+            <p>START ABOUT</p>
+
+            <p>This is a test blog hub entry.</p>
+
+            <p>It is for testing of Jira DW-2686</p>
+
+            <p>It needs a lot of text to fill this about section</p>
+
+            <p>END ABOUT</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T09:47:18.373Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T15:08:20.636Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 4acbfcf7-2d6b-47fa-ab3f-1cfd21f040e0
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:bloghub
+        website:issn: ''
+        website:seosummarytext: This is a test blog hub entry
+        website:shortsummary: "START SUMMARY\r\nThis is a test blog hub entry short\
+          \ summary.\r\nIts fairly short.\r\nEND SUMMARY"
+        website:subtitle: This is a test Blog Hub doc
+        website:title: DW-2686 Test Blog Hub
+      hippo:name: DW-2686 Test Blog Hub
+      hippo:versionHistory: 2de18391-ea10-4ed9-99da-15f6ed267c04
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /dw-2686-test-doc-4:
+      /dw-2686-test-doc-4[1]:
+        /website:authordescription:
+          hippostd:content: <p>You do not need to know who decides who needs to know.</p>
+          jcr:primaryType: hippostd:html
+        /website:authors[1]:
+          hippo:docbase: fff6f827-51d4-44b8-893f-41c8fa6e39fc
+          jcr:primaryType: hippo:mirror
+        /website:authors[2]:
+          hippo:docbase: 083af64c-c704-4645-bde0-89f640cedf27
+          jcr:primaryType: hippo:mirror
+        /website:authors[3]:
+          hippo:docbase: 303e415b-dbf9-42f2-a56a-3b37f1db1def
+          jcr:primaryType: hippo:mirror
+        /website:backstory:
+          hippostd:content: <p>This is the back story</p>
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: <p>These are the contact details</p>
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: <p>This is the lead image caption</p>
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: |-
+            <p>START LEAD PARAGRAPH</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>END LEAD PARAGRAPH</p>
+          jcr:primaryType: hippostd:html
+        /website:relatedsubjects:
+          hippo:docbase: d7256323-db5e-477c-b7f3-17ed2b585909
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686
+            Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: |-
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: b782f7fe-24c2-4182-9530-1f25faa850fd
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:holder: admin
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:57:53.547Z
+        hippostdpubwf:lastModificationDate: 2021-12-13T11:35:56.384Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 488a9fb1-caee-4005-8c74-beff83cd2a3f
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: Developer
+        website:authorname: John Mile
+        website:authororganisation: Me, Myself and I
+        website:authorrole: Developer
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: This is the lead image alt text
+        website:shortsummary: "This is the summary\r\nThis is the summary\r\nThis\
+          \ is the summary\r\nThis is the summary"
+        website:title: DW-2686 Test Doc 4
+      /dw-2686-test-doc-4[2]:
+        /website:authordescription:
+          hippostd:content: <p>You do not need to know who decides who needs to know.</p>
+          jcr:primaryType: hippostd:html
+        /website:authors[1]:
+          hippo:docbase: fff6f827-51d4-44b8-893f-41c8fa6e39fc
+          jcr:primaryType: hippo:mirror
+        /website:authors[2]:
+          hippo:docbase: 083af64c-c704-4645-bde0-89f640cedf27
+          jcr:primaryType: hippo:mirror
+        /website:authors[3]:
+          hippo:docbase: 303e415b-dbf9-42f2-a56a-3b37f1db1def
+          jcr:primaryType: hippo:mirror
+        /website:backstory:
+          hippostd:content: <p>This is the back story</p>
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: <p>These are the contact details</p>
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: <p>This is the lead image caption</p>
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: |-
+            <p>START LEAD PARAGRAPH</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>END LEAD PARAGRAPH</p>
+          jcr:primaryType: hippostd:html
+        /website:relatedsubjects:
+          hippo:docbase: d7256323-db5e-477c-b7f3-17ed2b585909
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686
+            Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: |-
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: b782f7fe-24c2-4182-9530-1f25faa850fd
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:57:53.547Z
+        hippostdpubwf:lastModificationDate: 2021-12-13T10:17:55.624Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 488a9fb1-caee-4005-8c74-beff83cd2a3f
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: Developer
+        website:authorname: John Mile
+        website:authororganisation: Me, Myself and I
+        website:authorrole: Developer
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: This is the lead image alt text
+        website:shortsummary: "This is the summary\r\nThis is the summary\r\nThis\
+          \ is the summary\r\nThis is the summary"
+        website:title: DW-2686 Test Doc 4
+      /dw-2686-test-doc-4[3]:
+        /website:authordescription:
+          hippostd:content: <p>You do not need to know who decides who needs to know.</p>
+          jcr:primaryType: hippostd:html
+        /website:authors[1]:
+          hippo:docbase: fff6f827-51d4-44b8-893f-41c8fa6e39fc
+          jcr:primaryType: hippo:mirror
+        /website:authors[2]:
+          hippo:docbase: 083af64c-c704-4645-bde0-89f640cedf27
+          jcr:primaryType: hippo:mirror
+        /website:authors[3]:
+          hippo:docbase: 303e415b-dbf9-42f2-a56a-3b37f1db1def
+          jcr:primaryType: hippo:mirror
+        /website:backstory:
+          hippostd:content: <p>This is the back story</p>
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: <p>These are the contact details</p>
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: <p>This is the lead image caption</p>
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: |-
+            <p>START LEAD PARAGRAPH</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>the quick brown fox jumped over the lazy dog</p>
+
+            <p>now is the winter of our discontent</p>
+
+            <p>I can't do that Dave</p>
+
+            <p>END LEAD PARAGRAPH</p>
+          jcr:primaryType: hippostd:html
+        /website:relatedsubjects:
+          hippo:docbase: d7256323-db5e-477c-b7f3-17ed2b585909
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686
+            Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4DW-2686 Test Doc 4
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: |-
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+
+            <p>This is the introduction text</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: b782f7fe-24c2-4182-9530-1f25faa850fd
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:57:53.547Z
+        hippostdpubwf:lastModificationDate: 2021-12-13T10:17:55.624Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-12-13T10:17:59.299Z
+        hippotranslation:id: 488a9fb1-caee-4005-8c74-beff83cd2a3f
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: Developer
+        website:authorname: John Mile
+        website:authororganisation: Me, Myself and I
+        website:authorrole: Developer
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: This is the lead image alt text
+        website:shortsummary: "This is the summary\r\nThis is the summary\r\nThis\
+          \ is the summary\r\nThis is the summary"
+        website:title: DW-2686 Test Doc 4
+      hippo:name: DW-2686 Test Doc 4
+      hippo:versionHistory: 91f515c3-6890-4e9a-a7b1-4a5d6c978fc4
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /dw-2686-test-doc-5:
+      /dw-2686-test-doc-5[1]:
+        /website:authordescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:backstory:
+          hippostd:content: <p>The back story is that we need a test document for
+            testing this change</p>
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: <p>Don't call us, we'll call you</p>
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: <p>DW-2686 Test Doc 5 image caption</p>
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: |-
+            <p>This is the lead paragraph for test document 5</p>
+
+            <p style="margin-left:0; margin-right:0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit, tortor a gravida rhoncus, risus ipsum finibus neque, sed varius massa elit in risus. Praesent vulputate est ex. Sed rhoncus, ligula non faucibus sollicitudin, ex nulla interdum mi, vitae sagittis purus nibh ac purus. Pellentesque ut ligula iaculis lacus condimentum congue. Duis vitae porta ex. Maecenas vitae ipsum nunc. Proin tincidunt ornare vestibulum. Mauris in lorem non dui volutpat tristique. Proin imperdiet et est mollis faucibus. Fusce laoreet, diam maximus ornare interdum, augue erat tincidunt ante, quis aliquet magna neque ut leo.</p>
+
+            <p style="margin-left:0; margin-right:0">Vivamus id libero efficitur, sagittis est id, pellentesque lacus. Donec justo ipsum, consequat ac ultricies sit amet, vehicula non libero. Curabitur suscipit vitae nulla quis sagittis. Praesent vitae vulputate magna, ac ullamcorper lorem. Morbi vel nunc tristique, porta nibh a, consectetur lorem. Etiam lobortis massa vel mi tincidunt, at ultricies enim blandit. Aliquam condimentum urna eget dolor consequat, eu rutrum magna tincidunt. Suspendisse potenti. Cras malesuada magna odio, non laoreet tortor volutpat et. Nunc at sollicitudin leo. Nunc rutrum pellentesque eros eget placerat. Nam vulputate lectus in turpis tincidunt, ut feugiat tellus pellentesque.</p>
+
+            <p style="margin-left:0; margin-right:0">Etiam ac ultrices mi, id tempus mi. Aliquam a blandit sem. Nunc mattis dui sit amet accumsan commodo. Fusce accumsan velit non faucibus scelerisque. Sed in elit condimentum neque bibendum efficitur eu consequat felis. Curabitur mattis elit ante. Sed gravida risus ut ullamcorper viverra. Vivamus mauris tellus, eleifend et placerat a, blandit ac quam. Nullam laoreet tortor nunc, nec tempus ligula bibendum ac. Mauris a lectus et sem aliquet euismod. Vivamus pellentesque quis lorem eget ultrices.</p>
+
+            <p style="margin-left:0; margin-right:0">Maecenas eleifend quam felis, vitae blandit dolor tincidunt non. Mauris ac dui quis libero eleifend tincidunt ac quis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec nec mi feugiat, fermentum purus sed, placerat arcu. Nunc imperdiet mi bibendum ante consectetur euismod. Aenean scelerisque ornare laoreet. Aliquam id sagittis nunc. Aenean non lacinia felis, at ornare urna. Nam eu fringilla ligula, sed luctus neque. In hendrerit faucibus quam, sed sagittis est semper ac. Nulla sapien ipsum, posuere a mi ac, mattis interdum sapien. Duis sit amet neque lobortis, sollicitudin arcu eget, fringilla quam. Sed et lorem ullamcorper, finibus orci a, vulputate turpis. Phasellus sem tortor, vulputate ac ullamcorper eu, egestas at massa. Pellentesque laoreet sollicitudin augue, quis condimentum dui pellentesque eu. Cras nec blandit ipsum, id sagittis sem.</p>
+
+            <p style="margin-left:0; margin-right:0">Suspendisse potenti. Nulla rutrum quam a nisl tincidunt suscipit. Donec gravida vehicula magna, et tempus eros porttitor sit amet. Suspendisse feugiat lorem quis ligula rhoncus bibendum. Ut dapibus sem eget dictum blandit. Aliquam vulputate justo eu cursus rhoncus. Praesent vestibulum neque non lectus ornare malesuada. Nunc non congue turpis. Nullam sit amet porttitor turpis.</p>
+
+            <p>&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 5DW-2686 Test Doc 5DW-2686 Test Doc 5DW-2686
+            Test Doc 5DW-2686 Test Doc 5
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: |-
+            <p>DW-2686 Test Doc 5</p>
+
+            <p>This is the introduction to test document number 5</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:59:09.274Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T16:47:38.502Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 89d24fbb-14d1-4cb3-84a3-ef1ff9b5791c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: ''
+        website:authorname: ''
+        website:authororganisation: ''
+        website:authorrole: ''
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: ''
+        website:shortsummary: "DW-2686 Test Doc 5\r\nA very short summary of what\
+          \ this test document is about.\r\nIt is a test document\r\nDoh!\r\nLorem\
+          \ ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit, tortor\
+          \ a gravida rhoncus, risus ipsum finibus neque, sed varius massa elit in\
+          \ risus."
+        website:title: DW-2686 Test Doc 5
+      /dw-2686-test-doc-5[2]:
+        /website:authordescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:backstory:
+          hippostd:content: <p>The back story is that we need a test document for
+            testing this change</p>
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: <p>Don't call us, we'll call you</p>
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: <p>DW-2686 Test Doc 5 image caption</p>
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: |-
+            <p>This is the lead paragraph for test document 5</p>
+
+            <p style="margin-left:0; margin-right:0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit, tortor a gravida rhoncus, risus ipsum finibus neque, sed varius massa elit in risus. Praesent vulputate est ex. Sed rhoncus, ligula non faucibus sollicitudin, ex nulla interdum mi, vitae sagittis purus nibh ac purus. Pellentesque ut ligula iaculis lacus condimentum congue. Duis vitae porta ex. Maecenas vitae ipsum nunc. Proin tincidunt ornare vestibulum. Mauris in lorem non dui volutpat tristique. Proin imperdiet et est mollis faucibus. Fusce laoreet, diam maximus ornare interdum, augue erat tincidunt ante, quis aliquet magna neque ut leo.</p>
+
+            <p style="margin-left:0; margin-right:0">Vivamus id libero efficitur, sagittis est id, pellentesque lacus. Donec justo ipsum, consequat ac ultricies sit amet, vehicula non libero. Curabitur suscipit vitae nulla quis sagittis. Praesent vitae vulputate magna, ac ullamcorper lorem. Morbi vel nunc tristique, porta nibh a, consectetur lorem. Etiam lobortis massa vel mi tincidunt, at ultricies enim blandit. Aliquam condimentum urna eget dolor consequat, eu rutrum magna tincidunt. Suspendisse potenti. Cras malesuada magna odio, non laoreet tortor volutpat et. Nunc at sollicitudin leo. Nunc rutrum pellentesque eros eget placerat. Nam vulputate lectus in turpis tincidunt, ut feugiat tellus pellentesque.</p>
+
+            <p style="margin-left:0; margin-right:0">Etiam ac ultrices mi, id tempus mi. Aliquam a blandit sem. Nunc mattis dui sit amet accumsan commodo. Fusce accumsan velit non faucibus scelerisque. Sed in elit condimentum neque bibendum efficitur eu consequat felis. Curabitur mattis elit ante. Sed gravida risus ut ullamcorper viverra. Vivamus mauris tellus, eleifend et placerat a, blandit ac quam. Nullam laoreet tortor nunc, nec tempus ligula bibendum ac. Mauris a lectus et sem aliquet euismod. Vivamus pellentesque quis lorem eget ultrices.</p>
+
+            <p style="margin-left:0; margin-right:0">Maecenas eleifend quam felis, vitae blandit dolor tincidunt non. Mauris ac dui quis libero eleifend tincidunt ac quis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec nec mi feugiat, fermentum purus sed, placerat arcu. Nunc imperdiet mi bibendum ante consectetur euismod. Aenean scelerisque ornare laoreet. Aliquam id sagittis nunc. Aenean non lacinia felis, at ornare urna. Nam eu fringilla ligula, sed luctus neque. In hendrerit faucibus quam, sed sagittis est semper ac. Nulla sapien ipsum, posuere a mi ac, mattis interdum sapien. Duis sit amet neque lobortis, sollicitudin arcu eget, fringilla quam. Sed et lorem ullamcorper, finibus orci a, vulputate turpis. Phasellus sem tortor, vulputate ac ullamcorper eu, egestas at massa. Pellentesque laoreet sollicitudin augue, quis condimentum dui pellentesque eu. Cras nec blandit ipsum, id sagittis sem.</p>
+
+            <p style="margin-left:0; margin-right:0">Suspendisse potenti. Nulla rutrum quam a nisl tincidunt suscipit. Donec gravida vehicula magna, et tempus eros porttitor sit amet. Suspendisse feugiat lorem quis ligula rhoncus bibendum. Ut dapibus sem eget dictum blandit. Aliquam vulputate justo eu cursus rhoncus. Praesent vestibulum neque non lectus ornare malesuada. Nunc non congue turpis. Nullam sit amet porttitor turpis.</p>
+
+            <p>&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 5DW-2686 Test Doc 5DW-2686 Test Doc 5DW-2686
+            Test Doc 5DW-2686 Test Doc 5
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: |-
+            <p>DW-2686 Test Doc 5</p>
+
+            <p>This is the introduction to test document number 5</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:59:09.274Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T16:47:48.099Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 89d24fbb-14d1-4cb3-84a3-ef1ff9b5791c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: ''
+        website:authorname: ''
+        website:authororganisation: ''
+        website:authorrole: ''
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: ''
+        website:shortsummary: "DW-2686 Test Doc 5\r\nA very short summary of what\
+          \ this test document is about.\r\nIt is a test document\r\nDoh!\r\nLorem\
+          \ ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit, tortor\
+          \ a gravida rhoncus, risus ipsum finibus neque, sed varius massa elit in\
+          \ risus."
+        website:title: DW-2686 Test Doc 5
+      /dw-2686-test-doc-5[3]:
+        /website:authordescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:backstory:
+          hippostd:content: <p>The back story is that we need a test document for
+            testing this change</p>
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: <p>Don't call us, we'll call you</p>
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: d1a89b66-5cf8-4f31-a169-d177b59bdc13
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: <p>DW-2686 Test Doc 5 image caption</p>
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: |-
+            <p>This is the lead paragraph for test document 5</p>
+
+            <p style="margin-left:0; margin-right:0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit, tortor a gravida rhoncus, risus ipsum finibus neque, sed varius massa elit in risus. Praesent vulputate est ex. Sed rhoncus, ligula non faucibus sollicitudin, ex nulla interdum mi, vitae sagittis purus nibh ac purus. Pellentesque ut ligula iaculis lacus condimentum congue. Duis vitae porta ex. Maecenas vitae ipsum nunc. Proin tincidunt ornare vestibulum. Mauris in lorem non dui volutpat tristique. Proin imperdiet et est mollis faucibus. Fusce laoreet, diam maximus ornare interdum, augue erat tincidunt ante, quis aliquet magna neque ut leo.</p>
+
+            <p style="margin-left:0; margin-right:0">Vivamus id libero efficitur, sagittis est id, pellentesque lacus. Donec justo ipsum, consequat ac ultricies sit amet, vehicula non libero. Curabitur suscipit vitae nulla quis sagittis. Praesent vitae vulputate magna, ac ullamcorper lorem. Morbi vel nunc tristique, porta nibh a, consectetur lorem. Etiam lobortis massa vel mi tincidunt, at ultricies enim blandit. Aliquam condimentum urna eget dolor consequat, eu rutrum magna tincidunt. Suspendisse potenti. Cras malesuada magna odio, non laoreet tortor volutpat et. Nunc at sollicitudin leo. Nunc rutrum pellentesque eros eget placerat. Nam vulputate lectus in turpis tincidunt, ut feugiat tellus pellentesque.</p>
+
+            <p style="margin-left:0; margin-right:0">Etiam ac ultrices mi, id tempus mi. Aliquam a blandit sem. Nunc mattis dui sit amet accumsan commodo. Fusce accumsan velit non faucibus scelerisque. Sed in elit condimentum neque bibendum efficitur eu consequat felis. Curabitur mattis elit ante. Sed gravida risus ut ullamcorper viverra. Vivamus mauris tellus, eleifend et placerat a, blandit ac quam. Nullam laoreet tortor nunc, nec tempus ligula bibendum ac. Mauris a lectus et sem aliquet euismod. Vivamus pellentesque quis lorem eget ultrices.</p>
+
+            <p style="margin-left:0; margin-right:0">Maecenas eleifend quam felis, vitae blandit dolor tincidunt non. Mauris ac dui quis libero eleifend tincidunt ac quis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec nec mi feugiat, fermentum purus sed, placerat arcu. Nunc imperdiet mi bibendum ante consectetur euismod. Aenean scelerisque ornare laoreet. Aliquam id sagittis nunc. Aenean non lacinia felis, at ornare urna. Nam eu fringilla ligula, sed luctus neque. In hendrerit faucibus quam, sed sagittis est semper ac. Nulla sapien ipsum, posuere a mi ac, mattis interdum sapien. Duis sit amet neque lobortis, sollicitudin arcu eget, fringilla quam. Sed et lorem ullamcorper, finibus orci a, vulputate turpis. Phasellus sem tortor, vulputate ac ullamcorper eu, egestas at massa. Pellentesque laoreet sollicitudin augue, quis condimentum dui pellentesque eu. Cras nec blandit ipsum, id sagittis sem.</p>
+
+            <p style="margin-left:0; margin-right:0">Suspendisse potenti. Nulla rutrum quam a nisl tincidunt suscipit. Donec gravida vehicula magna, et tempus eros porttitor sit amet. Suspendisse feugiat lorem quis ligula rhoncus bibendum. Ut dapibus sem eget dictum blandit. Aliquam vulputate justo eu cursus rhoncus. Praesent vestibulum neque non lectus ornare malesuada. Nunc non congue turpis. Nullam sit amet porttitor turpis.</p>
+
+            <p>&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 5DW-2686 Test Doc 5DW-2686 Test Doc 5DW-2686
+            Test Doc 5DW-2686 Test Doc 5
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: |-
+            <p>DW-2686 Test Doc 5</p>
+
+            <p>This is the introduction to test document number 5</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:59:09.274Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T16:47:48.099Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-12-08T16:47:50.851Z
+        hippotranslation:id: 89d24fbb-14d1-4cb3-84a3-ef1ff9b5791c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: ''
+        website:authorname: ''
+        website:authororganisation: ''
+        website:authorrole: ''
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: ''
+        website:shortsummary: "DW-2686 Test Doc 5\r\nA very short summary of what\
+          \ this test document is about.\r\nIt is a test document\r\nDoh!\r\nLorem\
+          \ ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit, tortor\
+          \ a gravida rhoncus, risus ipsum finibus neque, sed varius massa elit in\
+          \ risus."
+        website:title: DW-2686 Test Doc 5
+      hippo:name: DW-2686 Test Doc 5
+      hippo:versionHistory: 056f9cbc-5d22-426e-8817-649e6062d9fa
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /dw-2686-test-doc-6:
+      /dw-2686-test-doc-6[1]:
+        /website:authordescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:backstory:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: aebb7704-2b85-47a8-ab48-a8463d48dc7e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 6
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>DW-2686 Test Doc 6</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:59:54.138Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T14:16:03.057Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 30e59177-5068-4157-9850-957307a44c5d
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: ''
+        website:authorname: ''
+        website:authororganisation: ''
+        website:authorrole: ''
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: ''
+        website:shortsummary: DW-2686 Test Doc 6
+        website:title: DW-2686 Test Doc 6
+      /dw-2686-test-doc-6[2]:
+        /website:authordescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:backstory:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: aebb7704-2b85-47a8-ab48-a8463d48dc7e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 6
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>DW-2686 Test Doc 6</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:59:54.138Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T14:16:11.861Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 30e59177-5068-4157-9850-957307a44c5d
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: ''
+        website:authorname: ''
+        website:authororganisation: ''
+        website:authorrole: ''
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: ''
+        website:shortsummary: DW-2686 Test Doc 6
+        website:title: DW-2686 Test Doc 6
+      /dw-2686-test-doc-6[3]:
+        /website:authordescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:backstory:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:contactdetails:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:leadimage:
+          hippo:docbase: aebb7704-2b85-47a8-ab48-a8463d48dc7e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:leadimagecaption:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:leadparagraph:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: DW-2686 Test Doc 6
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>DW-2686 Test Doc 6</p>
+          jcr:primaryType: hippostd:html
+        /website:thumbnailimage:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-12-08T10:59:54.138Z
+        hippostdpubwf:lastModificationDate: 2021-12-08T14:16:11.861Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-12-08T14:16:15.059Z
+        hippotranslation:id: 30e59177-5068-4157-9850-957307a44c5d
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:feature
+        website:authorjobtitle: ''
+        website:authorname: ''
+        website:authororganisation: ''
+        website:authorrole: ''
+        website:dateofpublication: 2021-12-08T00:00:00Z
+        website:headertype: Cube header
+        website:leadimagealttext: ''
+        website:shortsummary: DW-2686 Test Doc 6
+        website:title: DW-2686 Test Doc 6
+      hippo:name: DW-2686 Test Doc 6
+      hippo:versionHistory: 4ffe6335-36cf-47e0-9d1a-edf012406b06
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /dw-2689-test-docs:
+      /api-endpoint:
+        /api-endpoint[1]:
+          /website:resdefcontent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/api-endpoint/api-endpoint[1]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/api-endpoint/api-endpoint[1]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>summary text in here</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apiendpoint
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:03:25.860Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:03:25.860Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 7e85a969-d8ec-4d61-b9f3-59dbf772a1a2
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:apiendpoint
+          website:apimethod: CONNECT
+          website:releasestatus: experimental
+          website:requestname: DW-2689 request name
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:uriaddress: http://localhosts
+        /api-endpoint[2]:
+          /website:resdefcontent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/api-endpoint/api-endpoint[2]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/api-endpoint/api-endpoint[2]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>summary text in here</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apiendpoint
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:03:25.860Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:25:26.207Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 7e85a969-d8ec-4d61-b9f3-59dbf772a1a2
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:apiendpoint
+          website:apimethod: CONNECT
+          website:releasestatus: experimental
+          website:requestname: DW-2689 request name
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:uriaddress: http://localhosts
+        /api-endpoint[3]:
+          /website:resdefcontent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/api-endpoint/api-endpoint[3]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/api-endpoint/api-endpoint[3]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>summary text in here</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apiendpoint
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:03:25.860Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:25:26.207Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-12-14T15:25:30.966Z
+          hippotranslation:id: 7e85a969-d8ec-4d61-b9f3-59dbf772a1a2
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:apiendpoint
+          website:apimethod: CONNECT
+          website:releasestatus: experimental
+          website:requestname: DW-2689 request name
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:uriaddress: http://localhosts
+        hippo:name: API Endpoint
+        hippo:versionHistory: 04298e75-044a-4479-ab1d-71dcea68e5d4
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /api-master:
+        /api-master[1]:
+          /website:introduction:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:releaseinfos:
+            jcr:primaryType: website:releaseinfo
+            website:changesummary: ''
+            website:effectivedate: 0001-01-01T12:00:00Z
+            website:otherversionreference: ''
+            website:releasedate: 0001-01-01T12:00:00Z
+            website:releasestatus: experimental
+            website:version: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>summary text</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apimaster
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:08:22.590Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:54:48.022Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: e5295354-18b2-4f8c-8ee0-6500cc2ae90d
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:apimaster
+          website:seosummary: ''
+          website:shortsummary: short summary
+          website:summary: ''
+          website:title: DW-2689 API name API Master
+        /api-master[2]:
+          /website:introduction:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:releaseinfos:
+            jcr:primaryType: website:releaseinfo
+            website:changesummary: ''
+            website:effectivedate: 0001-01-01T12:00:00Z
+            website:otherversionreference: ''
+            website:releasedate: 0001-01-01T12:00:00Z
+            website:releasestatus: experimental
+            website:version: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>summary text</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apimaster
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:08:22.590Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:31:39.132Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: e5295354-18b2-4f8c-8ee0-6500cc2ae90d
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:apimaster
+          website:seosummary: ''
+          website:shortsummary: short summary
+          website:summary: ''
+          website:title: DW-2689 API name API Master
+        hippo:name: API Master
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /blog:
+        /blog[1]:
+          /website:authordescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:contactdetails:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimagecaption:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadparagraph:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/blog/blog[1]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/blog/blog[1]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>introduction text</p>
+            jcr:primaryType: hippostd:html
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:16:42.248Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:16:42.248Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ac83dae1-9f7f-4229-819a-2d21e7070948
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:blog
+          website:authorjobtitle: ''
+          website:authorname: ''
+          website:authororganisation: ''
+          website:authorrole: ''
+          website:dateofpublication: 2021-12-14T00:00:00Z
+          website:headertype: Cube header
+          website:leadimagealttext: ''
+          website:seosummarytext: ''
+          website:shortsummary: sort summary text
+          website:title: DW-2689 title Blog
+        /blog[2]:
+          /website:authordescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:contactdetails:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimagecaption:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadparagraph:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/blog/blog[2]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/blog/blog[2]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>introduction text</p>
+            jcr:primaryType: hippostd:html
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:16:42.248Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:29:04.377Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ac83dae1-9f7f-4229-819a-2d21e7070948
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:blog
+          website:authorjobtitle: ''
+          website:authorname: ''
+          website:authororganisation: ''
+          website:authorrole: ''
+          website:dateofpublication: 2021-12-14T00:00:00Z
+          website:headertype: Cube header
+          website:leadimagealttext: ''
+          website:seosummarytext: ''
+          website:shortsummary: sort summary text
+          website:title: DW-2689 title Blog
+        /blog[3]:
+          /website:authordescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:contactdetails:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimagecaption:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadparagraph:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/blog/blog[3]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/blog/blog[3]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>introduction text</p>
+            jcr:primaryType: hippostd:html
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:16:42.248Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:29:04.377Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-12-14T15:29:07.667Z
+          hippotranslation:id: ac83dae1-9f7f-4229-819a-2d21e7070948
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:blog
+          website:authorjobtitle: ''
+          website:authorname: ''
+          website:authororganisation: ''
+          website:authorrole: ''
+          website:dateofpublication: 2021-12-14T00:00:00Z
+          website:headertype: Cube header
+          website:leadimagealttext: ''
+          website:seosummarytext: ''
+          website:shortsummary: sort summary text
+          website:title: DW-2689 title Blog
+        hippo:name: Blog
+        hippo:versionHistory: 63463a3f-4429-4cec-aea2-c19f1f04a851
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /dw-2689-test-doc:
+        /dw-2689-test-doc[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: ft-857.jpeg
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/dw-2689-test-doc/dw-2689-test-doc[1]/sections/image/text.jpg
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/dw-2689-test-doc/dw-2689-test-doc[1]/sections/image/data.jpg
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2021-12-14T14:31:22.408Z
+              jcr:mimeType: image/jpeg
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: FT857 Alt Text
+            publicationsystem:caption: FT857 Caption
+            publicationsystem:imageSize: Half
+            publicationsystem:imagetype: ' Black hero image left'
+            publicationsystem:link: http://yaesu.com
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: hgfhfghfhf
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: <p>the brief description of this document goes in
+                here</p>
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-13T12:34:59.417Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T14:34:54.386Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 750ebf19-14b9-4900-bb49-abf641fb6308
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:general
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 TEST DOC
+          website:type: ''
+        /dw-2689-test-doc[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: ft-857.jpeg
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/dw-2689-test-doc/dw-2689-test-doc[2]/sections/image/text.jpg
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/dw-2689-test-doc/dw-2689-test-doc[2]/sections/image/data.jpg
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2021-12-14T14:31:22.408Z
+              jcr:mimeType: image/jpeg
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: FT857 Alt Text
+            publicationsystem:caption: FT857 Caption
+            publicationsystem:imageSize: Half
+            publicationsystem:imagetype: ' Black hero image left'
+            publicationsystem:link: http://yaesu.com
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: hgfhfghfhf
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: <p>the brief description of this document goes in
+                here</p>
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-13T12:34:59.417Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T14:35:03.415Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 750ebf19-14b9-4900-bb49-abf641fb6308
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:general
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 TEST DOC
+          website:type: ''
+        /dw-2689-test-doc[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: ft-857.jpeg
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/dw-2689-test-doc/dw-2689-test-doc[3]/sections/image/text.jpg
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/dw-2689-test-doc/dw-2689-test-doc[3]/sections/image/data.jpg
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2021-12-14T14:31:22.408Z
+              jcr:mimeType: image/jpeg
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: FT857 Alt Text
+            publicationsystem:caption: FT857 Caption
+            publicationsystem:imageSize: Half
+            publicationsystem:imagetype: ' Black hero image left'
+            publicationsystem:link: http://yaesu.com
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: hgfhfghfhf
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: <p>the brief description of this document goes in
+                here</p>
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-13T12:34:59.417Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T14:35:03.415Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-12-14T14:49:45.338Z
+          hippotranslation:id: 750ebf19-14b9-4900-bb49-abf641fb6308
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:general
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 TEST DOC
+          website:type: ''
+        hippo:name: DW-2689 test doc General
+        hippo:versionHistory: d69c4c1c-7aac-4563-9b0f-719f0a7cfdcc
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /event:
+        /event[1]:
+          /website:events:
+            jcr:primaryType: website:interval
+            website:enddatetime: 2021-12-31T15:35:00Z
+            website:startdatetime: 2021-12-14T00:00:00Z
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summaryimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:34:28.817Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:34:28.817Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a72212d1-0cbe-4ddc-a62e-e7fadd78fbb4
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:event
+          website:booking: ''
+          website:display: false
+          website:location: Location
+          website:maplocation: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Event
+          website:type: []
+        /event[2]:
+          /website:events:
+            jcr:primaryType: website:interval
+            website:enddatetime: 2021-12-31T15:35:00Z
+            website:startdatetime: 2021-12-14T00:00:00Z
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summaryimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:34:28.817Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:35:15.403Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a72212d1-0cbe-4ddc-a62e-e7fadd78fbb4
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:event
+          website:booking: ''
+          website:display: false
+          website:location: Location
+          website:maplocation: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Event
+          website:type: []
+        hippo:name: Event
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /feature:
+        /feature[1]:
+          /website:authordescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:contactdetails:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimagecaption:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadparagraph:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/feature/feature[1]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/feature/feature[1]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>introduction text</p>
+            jcr:primaryType: hippostd:html
+          /website:thumbnailimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:17:57.244Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:17:57.244Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 2c987cf1-620d-40b4-957d-b97d7b9f0c60
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:feature
+          website:authorjobtitle: ''
+          website:authorname: ''
+          website:authororganisation: ''
+          website:authorrole: ''
+          website:dateofpublication: 2021-12-14T00:00:00Z
+          website:headertype: Cube header
+          website:leadimagealttext: ''
+          website:shortsummary: short summary text
+          website:title: DW-2690 Title Feature
+        /feature[2]:
+          /website:authordescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:contactdetails:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimagecaption:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadparagraph:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/feature/feature[2]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/feature/feature[2]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>introduction text</p>
+            jcr:primaryType: hippostd:html
+          /website:thumbnailimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:17:57.244Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:29:51.670Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 2c987cf1-620d-40b4-957d-b97d7b9f0c60
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:feature
+          website:authorjobtitle: ''
+          website:authorname: ''
+          website:authororganisation: ''
+          website:authorrole: ''
+          website:dateofpublication: 2021-12-14T00:00:00Z
+          website:headertype: Cube header
+          website:leadimagealttext: ''
+          website:shortsummary: short summary text
+          website:title: DW-2690 Title Feature
+        /feature[3]:
+          /website:authordescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:contactdetails:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimagecaption:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:leadparagraph:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/feature/feature[3]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/feature/feature[3]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>introduction text</p>
+            jcr:primaryType: hippostd:html
+          /website:thumbnailimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:17:57.244Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:29:51.670Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-12-14T15:29:55.042Z
+          hippotranslation:id: 2c987cf1-620d-40b4-957d-b97d7b9f0c60
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:feature
+          website:authorjobtitle: ''
+          website:authorname: ''
+          website:authororganisation: ''
+          website:authorrole: ''
+          website:dateofpublication: 2021-12-14T00:00:00Z
+          website:headertype: Cube header
+          website:leadimagealttext: ''
+          website:shortsummary: short summary text
+          website:title: DW-2690 Title Feature
+        hippo:name: Feature
+        hippo:versionHistory: a8e3b284-d289-4c18-b62c-ee427c40809d
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /general-no-search:
+        /general-no-search[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 1
+          common:searchable: false
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T14:50:51.974Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T14:50:51.975Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: bf2de073-a981-4fdb-b362-3ff8d76a7152
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:generalnonsearch
+          website:gossid: 0
+          website:shortsummary: ''
+          website:title: DW-2689 Title General no search
+          website:type: ''
+        /general-no-search[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 1
+          common:searchable: false
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T14:50:51.974Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:33:37.475Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: bf2de073-a981-4fdb-b362-3ff8d76a7152
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:generalnonsearch
+          website:gossid: 0
+          website:shortsummary: ''
+          website:title: DW-2689 Title General no search
+          website:type: ''
+        hippo:name: General No Search
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /news:
+        /news[1]:
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/news/news[1]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/news/news[1]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:15:18.466Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:15:18.466Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ef296bf4-a8a7-4e43-ba10-be52217b0263
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:news
+          website:creditbanner: ''
+          website:display: false
+          website:prioritynews: false
+          website:publisheddatetime: 2021-12-14T15:27:00Z
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:theme: ''
+          website:title: DW-2689 Headline
+          website:type: ''
+        /news[2]:
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/news/news[2]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/news/news[2]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:15:18.466Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:28:02.683Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ef296bf4-a8a7-4e43-ba10-be52217b0263
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:news
+          website:creditbanner: ''
+          website:display: false
+          website:prioritynews: false
+          website:publisheddatetime: 2021-12-14T15:27:00Z
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:theme: ''
+          website:title: DW-2689 Headline
+          website:type: ''
+        /news[3]:
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/news/news[3]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/news/news[3]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:15:18.466Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:28:02.683Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-12-14T15:28:07.859Z
+          hippotranslation:id: ef296bf4-a8a7-4e43-ba10-be52217b0263
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:news
+          website:creditbanner: ''
+          website:display: false
+          website:prioritynews: false
+          website:publisheddatetime: 2021-12-14T15:27:00Z
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:theme: ''
+          website:title: DW-2689 Headline
+          website:type: ''
+        hippo:name: News
+        hippo:versionHistory: e085053a-bfb5-4dd8-b6f4-c09ec65014c2
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /published-work:
+        /published-work[1]:
+          /website:bannerImage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:highlightsContent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work/published-work[1]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work/published-work[1]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:10:10.891Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:10:10.891Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 344c2efa-d307-47a7-bd5f-21124a3fcf0f
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:publishedwork
+          website:InformationType: []
+          website:bannerImageAltText: ''
+          website:button: jumptocontent
+          website:coverageEnd: 0001-01-01T12:00:00Z
+          website:coverageStart: 0001-01-01T12:00:00Z
+          website:geographicCoverage: []
+          website:geographicGranularity: []
+          website:highlightsTitle: Highlights
+          website:isbn: ''
+          website:issn: ''
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:publicationDate: 2021-12-14T15:26:00Z
+          website:publicationStyle: bluebanner
+          website:seosummary: ''
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Published work
+        /published-work[2]:
+          /website:bannerImage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:highlightsContent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work/published-work[2]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work/published-work[2]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:10:10.891Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:26:18.081Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 344c2efa-d307-47a7-bd5f-21124a3fcf0f
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:publishedwork
+          website:InformationType: []
+          website:bannerImageAltText: ''
+          website:button: jumptocontent
+          website:coverageEnd: 0001-01-01T12:00:00Z
+          website:coverageStart: 0001-01-01T12:00:00Z
+          website:geographicCoverage: []
+          website:geographicGranularity: []
+          website:highlightsTitle: Highlights
+          website:isbn: ''
+          website:issn: ''
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:publicationDate: 2021-12-14T15:26:00Z
+          website:publicationStyle: bluebanner
+          website:seosummary: ''
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Published work
+        /published-work[3]:
+          /website:bannerImage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:highlightsContent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work/published-work[3]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work/published-work[3]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:10:10.891Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:26:18.081Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-12-14T15:26:24.241Z
+          hippotranslation:id: 344c2efa-d307-47a7-bd5f-21124a3fcf0f
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:publishedwork
+          website:InformationType: []
+          website:bannerImageAltText: ''
+          website:button: jumptocontent
+          website:coverageEnd: 0001-01-01T12:00:00Z
+          website:coverageStart: 0001-01-01T12:00:00Z
+          website:geographicCoverage: []
+          website:geographicGranularity: []
+          website:highlightsTitle: Highlights
+          website:isbn: ''
+          website:issn: ''
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:publicationDate: 2021-12-14T15:26:00Z
+          website:publicationStyle: bluebanner
+          website:seosummary: ''
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Published work
+        hippo:name: Published Work
+        hippo:versionHistory: 0cac1ff1-f2f9-4103-9cf9-5db65bebe7d1
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /published-work-chapter:
+        /published-work-chapter[1]:
+          /website:bannerImage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work-chapter/published-work-chapter[1]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work-chapter/published-work-chapter[1]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:11:38.854Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:11:38.854Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 4e7ebc49-25b5-49eb-82a3-7dcc0b616887
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:publishedworkchapter
+          website:bannerAltText: ''
+          website:button: jumptocontent
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:publicationStyle: parent
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Published work chapter
+        /published-work-chapter[2]:
+          /website:bannerImage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work-chapter/published-work-chapter[2]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work-chapter/published-work-chapter[2]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:11:38.854Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:27:12.970Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 4e7ebc49-25b5-49eb-82a3-7dcc0b616887
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:publishedworkchapter
+          website:bannerAltText: ''
+          website:button: jumptocontent
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:publicationStyle: parent
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Published work chapter
+        /published-work-chapter[3]:
+          /website:bannerImage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work-chapter/published-work-chapter[3]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/published-work-chapter/published-work-chapter[3]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: image alt text
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:11:38.854Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:27:12.970Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-12-14T15:27:16.191Z
+          hippotranslation:id: 4e7ebc49-25b5-49eb-82a3-7dcc0b616887
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:publishedworkchapter
+          website:bannerAltText: ''
+          website:button: jumptocontent
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:publicationStyle: parent
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Published work chapter
+        hippo:name: Published work chapter
+        hippo:versionHistory: e75e2652-e1f6-43da-873a-825d569a5b62
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /roadmap:
+        /roadmap[1]:
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:14:34.792Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:14:34.792Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: bbcb5822-3079-4e90-b24d-fd296417efc7
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:roadmap
+          website:granularity: Yearly
+          website:shortsummary: ''
+          website:title: DW-2589 Roadmap name
+        /roadmap[2]:
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:14:34.792Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:33:08.719Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: bbcb5822-3079-4e90-b24d-fd296417efc7
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:roadmap
+          website:granularity: Yearly
+          website:shortsummary: ''
+          website:title: DW-2589 Roadmap name
+        hippo:name: Roadmap
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /service:
+        /service[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/service/service[1]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/service/service[1]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: alt text goes in here
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Summary text</p>
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:00:09.497Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:00:09.497Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 06352ff5-9921-4fbd-a40b-75add2056d31
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:gossid: 0
+          website:htmlCode: ''
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:rawMetadata:
+          - ''
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Service
+        /service[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/service/service[2]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/service/service[2]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: alt text goes in here
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Summary text</p>
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:00:09.497Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:24:07.894Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 06352ff5-9921-4fbd-a40b-75add2056d31
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:service
+          website:gossid: 0
+          website:htmlCode: ''
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:rawMetadata:
+          - ''
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Service
+        /service[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /publicationsystem:image:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/service/service[3]/sections/image/text.bin
+                type: binary
+              jcr:data:
+                resource: /content/documents/corporate-website/website-acceptance-tests/blog/dw-2689-test-docs/service/service[3]/sections/image/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:imageSection
+            publicationsystem:altText: alt text goes in here
+            publicationsystem:caption: ''
+            publicationsystem:imageSize: Full
+            publicationsystem:link: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Summary text</p>
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-12-14T15:00:09.497Z
+          hippostdpubwf:lastModificationDate: 2021-12-14T15:24:07.894Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-12-14T15:24:12.078Z
+          hippotranslation:id: 06352ff5-9921-4fbd-a40b-75add2056d31
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:gossid: 0
+          website:htmlCode: ''
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:rawMetadata:
+          - ''
+          website:seosummarytext: ''
+          website:shortsummary: ''
+          website:title: DW-2689 Title Service
+        hippo:name: Service
+        hippo:versionHistory: 24b95f45-cf39-4bce-8a41-783384faead4
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      hippo:name: DW-2689 test docs
+      hippostd:foldertype:
+      - new-digital-website-folder
+      - new-digital-website-document
+      hippotranslation:id: 2524af03-15cd-4247-8029-2c6be01a5e09
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
     hippo:name: Blog
     hippostd:foldertype:
     - new-digital-website-folder

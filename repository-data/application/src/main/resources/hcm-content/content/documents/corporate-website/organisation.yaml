@@ -1,6 +1,104 @@
 ---
 /content/documents/corporate-website/organisation:
-  .meta:order-before: platform
+  /nhs-digital:
+    /nhs-digital[1]:
+      /website:seosummary:
+        hippostd:content: NHS Digital summary
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>NHS Digital summary</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-12-08T10:50:32.904Z
+      hippostdpubwf:lastModificationDate: 2021-12-08T10:51:34.487Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 3e05f732-207b-4c21-8f82-4ca21c1dfe40
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:organisation
+      website:abbreviation: []
+      website:organisationType:
+      - nhs-organisation
+      website:shortsummary: NHS Digital summary
+      website:synonyms: []
+      website:title: NHS Digital
+    /nhs-digital[2]:
+      /website:seosummary:
+        hippostd:content: NHS Digital summary
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>NHS Digital summary</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-12-08T10:50:32.904Z
+      hippostdpubwf:lastModificationDate: 2021-12-08T10:51:34.338Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 3e05f732-207b-4c21-8f82-4ca21c1dfe40
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:organisation
+      website:abbreviation: []
+      website:organisationType:
+      - nhs-organisation
+      website:shortsummary: NHS Digital summary
+      website:synonyms: []
+      website:title: NHS Digital
+    /nhs-digital[3]:
+      /website:seosummary:
+        hippostd:content: NHS Digital summary
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>NHS Digital summary</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-12-08T10:50:32.904Z
+      hippostdpubwf:lastModificationDate: 2021-12-08T10:51:34.338Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-12-08T10:51:48.598Z
+      hippotranslation:id: 3e05f732-207b-4c21-8f82-4ca21c1dfe40
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:organisation
+      website:abbreviation: []
+      website:organisationType:
+      - nhs-organisation
+      website:shortsummary: NHS Digital summary
+      website:synonyms: []
+      website:title: NHS Digital
+    hippo:name: NHS Digital
+    hippo:versionHistory: ef4bf97e-da8e-4ccd-abf4-276e2742fb27
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Organisation
   hippostd:foldertype:
   - new-organisation-folder

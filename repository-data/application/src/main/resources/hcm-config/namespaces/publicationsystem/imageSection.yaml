@@ -19,6 +19,18 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /imagetype:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: In line,Half width in line, Full width, Blue hero
+                image left, Blue hero image right, Black hero image left, Black hero
+                image right, Right column, Left column
+            caption: Image Type
+            field: imagetype
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /image:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -106,6 +118,14 @@ definitions:
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /imagetype:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:imagetype
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
           /link:
             hipposysedit:mandatory: false
