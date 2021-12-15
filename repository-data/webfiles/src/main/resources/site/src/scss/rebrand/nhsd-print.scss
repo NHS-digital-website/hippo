@@ -11,18 +11,41 @@
 .nhsd-o-global-header__search,
 .nhsd-o-global-header__menu,
 .nhsd-a-button,
-.nhsd-m-download-card__image-box {
+.nhsd-m-download-card__image-box,
+._hj-1Fv4C__Feedback__container,
+{
     display: none !important;
 }
 
+@page  {
+    size: portrait A4;
+}
 // Increase contrasts, remove backgrounds
 * {
-    color: #000000 !important;
-    background: none !important;
-    border-color: #000000 !important;
+    color: black !important;
+    background: white !important;
+    border-color: black !important;
 }
 .nhsd-m-logo-link {
     border-color: transparent !important;
+}
+
+div[class*="nhsd-o-hero"]
+{
+    color: transparent !important;
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+// this is not being picked up?
+.nhsd-a-box--border-yellow
+{
+    border-color: black;
+}
+
+p, dt, dd, hr
+{
+    color: black !important;
 }
 
 // Use full page width
@@ -40,4 +63,7 @@
 // Fix issues with unsupported display types (flex)
 div, img, article {
     display: block !important;
+    color: black !important;
+    background: white !important;
+    border-color: black !important;
 }
