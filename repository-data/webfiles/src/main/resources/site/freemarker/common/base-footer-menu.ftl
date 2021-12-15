@@ -14,7 +14,7 @@
         <div class="nhsd-t-grid">
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-                    <div class="nhsd-t-grid">
+                    <div class="nhsd-t-grid nhsd-t-grid--nested">
                         <div class="nhsd-t-row">
                             <#if menu.siteMenuItems??>
                                 <#list menu.siteMenuItems as item>

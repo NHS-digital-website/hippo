@@ -1,0 +1,1 @@
+window.Papa = require("papaparse");

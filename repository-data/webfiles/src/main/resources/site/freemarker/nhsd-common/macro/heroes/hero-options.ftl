@@ -102,6 +102,14 @@ Example use:
         }]/>
     </#if>
 
+    <#if document.topics?has_content>
+        <#assign metadata += [{
+            "title": "Topics",
+            "value": document.topics,
+            "schemaOrgTag": "keywords"
+        }] />
+    </#if>
+
     <#assign options += { "metaData": metadata }/>
     <#return options/>
 </#function>
