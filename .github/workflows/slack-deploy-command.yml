@@ -19,7 +19,7 @@ jobs:
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
       #
       - name: Validate Origin
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v5
         env:
           AGENT: ${{ github.event.client_payload.integrity.agent }}
           BODY: ${{ github.event.client_payload.integrity.body }}
@@ -56,7 +56,7 @@ jobs:
       # Identify target server
       #
       - name: Identify target
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v5
         id: find-target
         with:
           result-encoding: string
@@ -116,7 +116,7 @@ jobs:
           java-version: 8
 
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v5
         id: cache-key-helper
         with:
           result-encoding: string

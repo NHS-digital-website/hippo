@@ -19,7 +19,7 @@ jobs:
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
       #
       - name: Validate Origin
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v5
         env:
           AGENT: ${{ github.event.client_payload.integrity.agent }}
           BODY: ${{ github.event.client_payload.integrity.body }}
@@ -76,7 +76,7 @@ jobs:
           echo "::set-output name=code::$code"
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v5
         with:
           script: |
             core.setFailed('The JWT token failed verification!')

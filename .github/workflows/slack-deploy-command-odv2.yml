@@ -19,7 +19,7 @@ jobs:
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
       #
       - name: Validate Origin
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v5
         env:
           AGENT: ${{ github.event.client_payload.integrity.agent }}
           BODY: ${{ github.event.client_payload.integrity.body }}
@@ -100,7 +100,7 @@ jobs:
           java-version: 8
 
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v5
         id: cache-key-helper
         with:
           result-encoding: string
@@ -201,7 +201,7 @@ jobs:
       # Identify target server
       #
       - name: Identify target
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v5
         id: find-target
         with:
           result-encoding: json
@@ -256,7 +256,7 @@ jobs:
           echo "::set-output name=code::$code"
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v5
         with:
           script: |
             core.setFailed('The JWT token failed verification!')
@@ -293,7 +293,7 @@ jobs:
 
       - name: Check Response has ID from Upload Build to BR Cloud
         if: ${{ steps.distribution.outputs.id.length == 36 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v5
         with:
           script: |
             core.setFailed('Upload Build to BR Cloud failed!')
@@ -368,7 +368,7 @@ jobs:
 
       - name: Check Response Code from Request Deployment from BR Cloud
         if: ${{ steps.deployment.outputs.code >= 200 && steps.deployment.outputs.code < 300 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v5
         with:
           script: |
             core.setFailed('Request Deployment from BR Cloud failed!')
@@ -398,7 +398,7 @@ jobs:
           REFRESH:  ${{ steps.jwt_token.outputs.refresh }}
       - name: Check Response Code from Deletion of JWT Refresh Access tokens
         if: ${{ steps.jwt_token_invalidate.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v5
         with:
           script: |
             core.setFailed('The JWT Deletion of JWT Refresh Access tokens failed!')

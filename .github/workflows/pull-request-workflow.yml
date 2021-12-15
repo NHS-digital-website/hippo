@@ -40,7 +40,7 @@ jobs:
 
       # Step 5
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v5
         id: cache-key-helper
         with:
           result-encoding: string
