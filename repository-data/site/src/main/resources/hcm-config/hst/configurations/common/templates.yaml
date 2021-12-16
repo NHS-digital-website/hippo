@@ -251,9 +251,6 @@ definitions:
       /nhsd-ie-banner:
         hst:renderpath: webfile:/freemarker/nhsd-common/components/ie-banner.ftl
         jcr:primaryType: hst:template
-      /nhsd-list-article:
-        hst:renderpath: webfile:/freemarker/nhsd-common/nhsd-list-article.ftl
-        jcr:primaryType: hst:template
       /nhsd-main-nav:
         hst:renderpath: webfile:/freemarker/common/nhsd-main-nav.ftl
         jcr:primaryType: hst:template
