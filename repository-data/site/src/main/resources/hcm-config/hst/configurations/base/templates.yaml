@@ -23,6 +23,12 @@ definitions:
       /nhsd-breadcrumb:
         hst:renderpath: webfile:/freemarker/common/nhsd-breadcrumb.ftl
         jcr:primaryType: hst:template
+      /nhsd-homepage-layout:
+        hst:renderpath: webfile:/freemarker/common/nhsd-homepage-layout.ftl
+        jcr:primaryType: hst:template
+      /nhsd-list-article:
+        hst:renderpath: webfile:/freemarker/nhsd-common/nhsd-list-article.ftl
+        jcr:primaryType: hst:template
       /searchbar:
         hst:renderpath: webfile:/freemarker/common/searchbar.ftl
         jcr:primaryType: hst:template
