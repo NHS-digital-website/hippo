@@ -121,5 +121,6 @@
                 </div>
             </div>
         </div>
+        <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-0">
     </header>
 </#macro>

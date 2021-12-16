@@ -72,6 +72,8 @@ task("build-js", function gulpScripts() {
         `${paths.js}/nhsd-scripts.js`,
         `${paths.js}/nhsd-frontend-scripts.js`,
         `${paths.js}/intranet-scripts.js`,
+        `${paths.js}/nhsd-intranet-priority-scripts.js`,
+        `${paths.js}/nhsd-intranet-scripts.js`,
     ])
         .pipe(named())
         .pipe(
