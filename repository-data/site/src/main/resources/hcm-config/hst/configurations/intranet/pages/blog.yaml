@@ -4,6 +4,14 @@ definitions:
     /hst:hst/hst:configurations/intranet/hst:pages/blog:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.BlogComponent
+        hst:parameternames:
+        - brandRefreshContentRewriter
+        - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
+        hst:parametervalues:
+        - 'true'
+        - 'true'
+        - 'true'
         hst:template: blog-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/master
