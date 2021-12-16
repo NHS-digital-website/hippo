@@ -8,6 +8,9 @@ definitions:
       /base:
         hst:renderpath: webfile:/freemarker/common/base-layout.ftl
         jcr:primaryType: hst:template
+      /blog-article:
+        hst:renderpath: webfile:/freemarker/nhsd-common/blog-article.ftl
+        jcr:primaryType: hst:template
       /breadcrumb:
         hst:renderpath: webfile:/freemarker/common/breadcrumb.ftl
         jcr:primaryType: hst:template

@@ -5,10 +5,9 @@
 
     <#if section.title?has_content>
         <div id="${slugify(section.title)}" class="nhsd-!t-margin-bottom-6">
-            <hr class="nhsd-a-horizontal-rule" style="<#if isPreviousSectionEmphasisBox || subHeading || sectionCounter == 1 >display:none;</#if>" />
             <h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)} class="${subHeading?then("nhsd-t-heading-l", "nhsd-t-heading-xl")}" data-uipath="website.contentblock.section.title">
                 <#if section.isNumberedList>
-                    ${numberedListCount}. 
+                    ${numberedListCount}.
                 </#if>${section.title}
             </h${subHeading?then(mainHeadingLevel?int + 1, mainHeadingLevel)}>
             <div data-uipath="website.contentblock.section.content">
@@ -20,6 +19,6 @@
             <div data-uipath="website.contentblock.section.content">
                 <@hst.html hippohtml=section.html contentRewriter=brContentRewriter/>
             </div>
-        </div> 
+        </div>
     </#if>
 </#macro>

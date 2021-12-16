@@ -15,7 +15,7 @@
         <#if title?has_content>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <h2 id="${slugify(title)}" class="nhsd-t-heading-xl ${centred?then('nhsd-t-text-align-center', '')} nhsd-!t-margin-top-6">${title}</h2>
+                    <h2 id="${slugify(title)}" class="nhsd-t-heading-xl ${centred?then('nhsd-t-text-align-center', '')}">${title}</h2>
                 </div>
             </div>
         </#if>
