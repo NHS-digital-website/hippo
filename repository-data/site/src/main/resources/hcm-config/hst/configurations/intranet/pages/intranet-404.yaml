@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/intranet-404:
+    /hst:hst/hst:configurations/intranet/hst:pages/intranet-404:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.PageNotFoundComponent
         hst:template: intranet-404
