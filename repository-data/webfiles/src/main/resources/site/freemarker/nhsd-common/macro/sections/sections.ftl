@@ -90,6 +90,7 @@
             <#elseif section.sectionType == 'tableau'>
                 <@tableau section=section index=section?index/>
             </#if>
+            <#if !section?is_last><hr class="nhsd-a-horizontal-rule"/></#if>
         <#if wrap>
         </div>
         </#if>

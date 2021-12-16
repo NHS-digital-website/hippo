@@ -15,7 +15,7 @@
         <${headingTag} class="nhsd-t-heading-m" data-uipath="website.contentblock.codesection.title">${section.heading}</${headingTag}>
     </#if>
 
-    <article class="nhsd-o-code-viewer nhsd-!t-margin-bottom-9">
+    <article class="nhsd-o-code-viewer nhsd-!t-margin-bottom-6">
         <div class="nhsd-o-code-viewer__tab-content">
             <div class="nhsd-o-code-viewer__code">
                 <div id="${section.language.label}-content" class="nhsd-o-code-viewer__code-content" role="tabpanel" aria-labelledby="tab-${section.language.label}-content">

@@ -21,7 +21,7 @@
 
     <#list section.modules>
         <div class="nhsd-o-statistics-block-list">
-            <div class="nhsd-t-grid">
+            <div class="nhsd-t-grid nhsd-t-grid--nested">
                 <div class="nhsd-t-row nhsd_o_statistics-block-list__item">
                     <#items as stat>
                         <div class="nhsd-t-col-xs-12 <#if section.modules?size gt 1>nhsd-t-col-s-6</#if>">

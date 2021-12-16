@@ -12,10 +12,9 @@
 <#macro downloadSection section mainHeadingLevel=2 orgPrompt=false>
     <#assign hasLinks = section.items?? && section.items?size gt 0 />
 
-    <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')}">
+    <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')} nhsd-!t-margin-bottom-6">
 
         <#if section.headingLevel == 'Main heading'>
-            <hr class="nhsd-a-horizontal-rule" />
             <h2 class="nhsd-t-heading-xl" data-uipath="website.contentblock.download.title">${section.heading}</h2>
         <#else>
             <h3 class="nhsd-t-heading-l" data-uipath="website.contentblock.download.title">${section.heading}</h3>
@@ -31,7 +30,7 @@
                     <div class="nhsd-t-col">
                         <#list section.items as block>
                             <#if block.linkType??>
-                                <div class="nhsd-!t-margin-bottom-6">
+                                <div ${block?is_last?then('', 'class="nhsd-!t-margin-bottom-6"')}>
                                     <#if block.linkType == "internal">
                                         <@downloadBlockInternal document.class.name block.link block.link.title block.link.shortsummary getFileExtension(block.link.name) />
                                     <#elseif block.linkType == "external">

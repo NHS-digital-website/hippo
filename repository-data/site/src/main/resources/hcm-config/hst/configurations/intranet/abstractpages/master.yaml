@@ -33,5 +33,6 @@ definitions:
         - main
         hst:template: base-top-menu
         jcr:primaryType: hst:component
+      hst:componentclassname: uk.nhs.digital.intranet.components.MasterComponent
       hst:template: layout_master
       jcr:primaryType: hst:component
