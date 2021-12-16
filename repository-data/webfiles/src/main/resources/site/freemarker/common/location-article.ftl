@@ -34,7 +34,7 @@
 </#if>
 
 <article class="article article--general">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed">
             <div class="grid-wrapper">
                 <div class="article-header__inner">
@@ -190,7 +190,7 @@
                 <#if hasUrgentinformation >
                     <div class="article-section">
                         <div id="Theoffice" class=" article-section article-section--highlighted">
-                            <div class="emphasis-box emphasis-box-important" aria-label="Important Information">
+                            <div class="emphasis-box emphasis-box-important">
                                 <div data-uipath="website.contentblock.urgentinformation" class="emphasis-box__content">
                                   <@hst.html hippohtml=document.urgentinformation contentRewriter=gaContentRewriter/>
                                 </div>

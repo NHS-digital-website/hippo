@@ -1,8 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../macro/siteHeader.ftl">
-<#include "../../common/macro/siteFooter.ftl">
-<#include "../../common/macro/component/skipLink.ftl">
+<#include "../macro/component/skipLink.ftl">
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -20,9 +19,6 @@
 
     <@skipLink />
 
-    <#-- Add IE banner -->
-    <@hst.include ref="ie-banner"/>
-
     <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>
 
@@ -32,9 +28,8 @@
         <@hst.include ref="main"/>
     </main>
 
-    <@siteFooter narrowLayout=true />
+    <@hst.include ref="footer-menu"/>
 
-    <#include "../../common/scripts/footer-scripts.ftl" />
 </body>
 
 </html>

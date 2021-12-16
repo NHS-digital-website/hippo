@@ -10,7 +10,7 @@
 
 <article class="article article--nilanding">
     <#if document??>
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="local-header article-header">
                 <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
@@ -29,7 +29,7 @@
                     <div class="rich-text-content">
                         <#outputformat "undefined">${document.adviceContent.content}</#outputformat>
                     </div>
-                    
+
                     <br>
                     <@externalstorageLink document.adviceForm.resource; url>
                     <a class="niFormBtn" title="${document.adviceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download advice form','Indicator','${document.adviceForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.adviceForm"/></a>
@@ -57,16 +57,16 @@
                     <div class="rich-text-content">
                         <#outputformat "undefined">${document.applyContent.content}</#outputformat>
                     </div>
-                    
+
                     <br>
-                    
+
                     <@externalstorageLink document.applyForm.resource; url>
                     <a class="niFormBtn" title="${document.applyForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download assurance application form','Indicator','${document.applyForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.applyForm"/></a>
                     </@externalstorageLink>
                     <@fileMetaAppendix document.applyForm.resource.length, document.applyForm.resource.mimeType ></@fileMetaAppendix>
-                    
+
                     <br>
-                    
+
                     <@externalstorageLink document.applyGuidanceForm.resource; url>
                     <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.applyGuidanceForm"/></a></@externalstorageLink>
                     <@fileMetaAppendix document.applyGuidanceForm.resource.length, document.applyGuidanceForm.resource.mimeType ></@fileMetaAppendix>

@@ -1,14 +1,21 @@
 package uk.nhs.digital.apispecs.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.nhs.digital.apispecs.ApiSpecificationImportMetadata;
+
 import java.time.Instant;
 import java.util.regex.Pattern;
 
 public class SpecificationSyncData {
 
+    private static final Logger log = LoggerFactory.getLogger(SpecificationSyncData.class);
+
     private static final Pattern VERSION_FIELD_PATTERN = Pattern.compile("\"version\"\\s*:\\s*\"[^\"]+\"");
 
     private final ApiSpecificationDocument localSpec;
     private final OpenApiSpecification remoteSpec;
+    private final ApiSpecificationImportMetadata.Item localSpecMetadataItem;
     private String html;
     private Exception error;
     private boolean published;
@@ -17,25 +24,29 @@ public class SpecificationSyncData {
 
     private SpecificationSyncData(
         final ApiSpecificationDocument localSpec,
-        final OpenApiSpecification remoteSpec
+        final OpenApiSpecification remoteSpec,
+        final ApiSpecificationImportMetadata.Item localSpecMetadataItem
     ) {
         this.localSpec = localSpec;
         this.remoteSpec = remoteSpec;
+        this.localSpecMetadataItem = localSpecMetadataItem;
     }
 
     public static SpecificationSyncData with(
         final ApiSpecificationDocument localSpec,
-        final OpenApiSpecification remoteSpec
+        final OpenApiSpecification remoteSpec,
+        final ApiSpecificationImportMetadata.Item localSpecMetadataItem
     ) {
         return new SpecificationSyncData(
             localSpec,
-            remoteSpec
+            remoteSpec,
+            localSpecMetadataItem
         );
     }
 
-    private static boolean specContentDiffersIgnoringVersion(final String left, final String right) {
+    private boolean specContentDiffersIgnoringVersion(final String left, final String right) {
 
-        // We're ignoring version field because it often is the only piece of spec's content that actually changes.
+        // We're ignoring version field because it is often the only piece of spec's content that actually changes.
         // It is calculated from git tags which are incremented on each merge to master (of the API codebase)
         // and that incrementation often takes place as a result of the API proxy definition being updated,
         // with no change to the spec itself.
@@ -43,33 +54,39 @@ public class SpecificationSyncData {
         final String leftSpecJsonNoVersion = VERSION_FIELD_PATTERN.matcher(left).replaceFirst("");
         final String rightSpecJsonNoVersion = VERSION_FIELD_PATTERN.matcher(right).replaceFirst("");
 
-        return !leftSpecJsonNoVersion.equals(rightSpecJsonNoVersion);
+        final boolean jsonDiffers = !leftSpecJsonNoVersion.equals(rightSpecJsonNoVersion);
+
+        log.debug("{} Json differs: {}.", specJcrId(), jsonDiffers);
+
+        return jsonDiffers;
     }
 
     public boolean specContentChanged() {
 
-        return specReportedAsUpdated() && specContentDiffersIgnoringVersion(
+        return remoteSpecReportedAsUpdated() && specContentDiffersIgnoringVersion(
             remoteSpec.getSpecJson().orElse(""),
             localSpec.json().orElse("")
         );
 
     }
 
-    public boolean specReportedAsUpdated() {
-        return remoteSpec.getModified().isAfter(localSpecLastCheckTime());
+    public boolean remoteSpecReportedAsUpdated() {
+
+        final boolean specReportedAsUpdated = remoteSpec.getModified().isAfter(localSpecLastCheckTime());
+
+        log.debug(
+            "{} Remote spec reported as modified after last check: {}; local: {}, remote: {} ",
+            specJcrId(),
+            specReportedAsUpdated,
+            localSpecLastCheckTime(),
+            remoteSpec.getModified()
+        );
+
+        return specReportedAsUpdated;
     }
 
     private Instant localSpecLastCheckTime() {
-
-        // Once the spec is published for the very first time,
-        // its 'published' variant won't have the 'last check time'
-        // recorded yet, but the last publication time is a good
-        // substitute in such instance and helps avoiding a redundant
-        // call to Apigee in that scenario.
-
-        return localSpec.lastChangeCheckInstant()
-            .orElse(localSpec.lastPublicationInstant()
-                .orElse(Instant.EPOCH));
+        return localMetadata().lastChangeCheckInstant();
     }
 
     public void setHtml(final String html) {
@@ -126,5 +143,13 @@ public class SpecificationSyncData {
 
     public boolean skipped() {
         return skipped;
+    }
+
+    public ApiSpecificationImportMetadata.Item localMetadata() {
+        return localSpecMetadataItem;
+    }
+
+    public String specJcrId() {
+        return localSpecMetadataItem.apiSpecJcrId();
     }
 }

@@ -40,7 +40,6 @@ serve.noexport: essentials/target/essentials.war
 run:
 	mvn $(MVN_OPTS) -P $(PROFILE_RUN) $(REPO_PATH)
 
-
 # we don't have to recompile it every time.
 essentials/target/essentials.war:
 	mvn clean verify $(MVN_OPTS) -pl essentials -am --offline -DskipTests=true

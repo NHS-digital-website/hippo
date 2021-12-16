@@ -14,17 +14,17 @@
     </#if>
 
     <#if pageable?? && pageable.items?has_content>
-        <#-- Initialise webkitLineClamp -->
+    <#-- Initialise webkitLineClamp -->
         <script>
             window.webkitLineClamp = []
         </script>
         <ul class="intra-home-article-grid">
             <#list pageable.items as trending>
 
-             <!-- Only render Announcements if they haven't expired -->
-            <#if trending.docType == 'Announcement' && currentDate.after(trending.expirydate)>
-                <#continue>
-            </#if>
+                <!-- Only render Announcements if they haven't expired -->
+                <#if trending.docType == 'Announcement' && currentDate.after(trending.expirydate)>
+                    <#continue>
+                </#if>
 
                 <li class="intra-home-article-grid-item">
                     <article class="intra-home-article-grid-article">

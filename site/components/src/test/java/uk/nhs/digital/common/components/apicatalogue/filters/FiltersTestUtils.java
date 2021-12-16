@@ -22,19 +22,35 @@ public class FiltersTestUtils {
     }
 
     public static Section section(final String displayName, final Subsection... subsections) {
-        return new Section(displayName, subsections);
+        return new Section(displayName, null, subsections);
+    }
+
+    public static Section section(final String displayName, final String description, final Subsection... subsections) {
+        return new Section(displayName, description, subsections);
     }
 
     public static Subsection subsection(final String displayName, final Subsection... subsections) {
-        return new Subsection(displayName, null, subsections);
+        return new Subsection(displayName, null, null, null, subsections);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey) {
-        return new Subsection(displayName, taxonomyKey);
+        return new Subsection(displayName, taxonomyKey, null, null);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, subsections);
+        return new Subsection(displayName, taxonomyKey, null, null, subsections);
+    }
+
+    public static Subsection subsection(final String displayName, final String taxonomyKey, final String description) {
+        return new Subsection(displayName, taxonomyKey, description, null);
+    }
+
+    public static Subsection subsection(final String displayName, final String taxonomyKey, final String highlight, final Subsection... subsections) {
+        return new Subsection(displayName, taxonomyKey, null, highlight, subsections);
+    }
+
+    public static Subsection subsection(final String displayName, final String taxonomyKey, final String description, final String highlight, final Subsection... subsections) {
+        return new Subsection(displayName, taxonomyKey, description, highlight, subsections);
     }
 
     public static void updateFilters(

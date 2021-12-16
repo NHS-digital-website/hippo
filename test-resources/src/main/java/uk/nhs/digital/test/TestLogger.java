@@ -2,23 +2,16 @@ package uk.nhs.digital.test;
 
 import static ch.qos.logback.classic.Level.*;
 import static org.hamcrest.Matchers.is;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.times;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.IThrowableProxy;
-import ch.qos.logback.core.Appender;
+import ch.qos.logback.core.AppenderBase;
 import org.hamcrest.MatcherAssert;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -89,35 +82,49 @@ import java.util.stream.Collectors;
 public class TestLogger {
 
     private final Class<?> loggingClassUnderTest;
+    private final Level level;
 
-    @Mock
-    private Appender<ILoggingEvent> appender;
+    private MockAppender mockAppender;
 
-    @Captor
-    private ArgumentCaptor<ILoggingEvent> loggerArgCaptor;
-
-    private TestLogger(final Class<?> loggingClassUnderTest) {
+    private TestLogger(final Class<?> loggingClassUnderTest, final Level level) {
         this.loggingClassUnderTest = loggingClassUnderTest;
+        this.level = level;
 
-        MockitoAnnotations.initMocks(this);
+        mockAppender = new MockAppender();
 
         registerMockAppenderFor(loggingClassUnderTest);
     }
 
+    /**
+     * Initialises logger to verify logs of the given level and above.
+     * If you need to verify logs of all levels, use {@linkplain #initialiseFor(Class)}.
+     */
     public static TestLogger initialiseFor(final Class<?> loggingClassUnderTest) {
-        return new TestLogger(loggingClassUnderTest);
+        return initialiseFor(loggingClassUnderTest, ALL);
     }
 
-    public void reset() {
-        loggerFor(loggingClassUnderTest).detachAppender(appender);
-    }
-
-    public void shouldReceive(final LogAssertor... expectedLogEntries) {
-        LogAssertor.assertLogs(appender, loggerArgCaptor, expectedLogEntries);
+    /**
+     * Initialises logger to verify logs of ALL levels.
+     * If you only need to verify logs of and above specific level, use {@linkplain #initialiseFor(Class, Level)}.
+     */
+    public static TestLogger initialiseFor(final Class<?> loggingClassUnderTest, final Level level) {
+        return new TestLogger(loggingClassUnderTest, level);
     }
 
     private void registerMockAppenderFor(final Class<?> loggingClassUnderTest) {
-        loggerFor(loggingClassUnderTest).addAppender(appender);
+        loggerFor(loggingClassUnderTest).addAppender(mockAppender);
+
+        mockAppender.start();
+    }
+
+    public void reset() {
+        loggerFor(loggingClassUnderTest).detachAppender(mockAppender);
+
+        mockAppender.stop();
+    }
+
+    public void shouldReceive(final LogAssertor... expectedLogEntries) {
+        LogAssertor.assertLogs(mockAppender, level, expectedLogEntries);
     }
 
     private Logger loggerFor(final Class<?> loggingClassUnderTest) {
@@ -175,11 +182,7 @@ public class TestLogger {
         }
 
         @SuppressWarnings("StringBufferReplaceableByString")
-        static void assertLogs(final Appender<ILoggingEvent> appender,
-                               final ArgumentCaptor<ILoggingEvent> loggerArgCaptor,
-                               final LogAssertor... expectedLogEntries
-        ) {
-            then(appender).should(times(expectedLogEntries.length)).doAppend(loggerArgCaptor.capture());
+        static void assertLogs(final MockAppender appender, final Level level, final LogAssertor... expectedLogEntries) {
 
             final String expectedLog = Arrays.stream(expectedLogEntries)
                 .map(expected -> new StringBuilder()
@@ -193,7 +196,8 @@ public class TestLogger {
                     .toString())
                 .collect(Collectors.joining("\n"));
 
-            final String actualLog = loggerArgCaptor.getAllValues().stream()
+            final String actualLog = appender.getAllValues().stream()
+                .filter(iLoggingEvent -> iLoggingEvent.getLevel().isGreaterOrEqual(level))
                 .map(actual -> new StringBuilder()
                     .append(actual.getLevel())
                     .append(": ")
@@ -206,6 +210,19 @@ public class TestLogger {
                 .collect(Collectors.joining("\n"));
 
             MatcherAssert.assertThat("Key events are logged.", actualLog, is(expectedLog));
+        }
+    }
+
+    static class MockAppender extends AppenderBase<ILoggingEvent> {
+
+        private List<ILoggingEvent> loggingEvents = new ArrayList<>();
+
+        @Override protected void append(final ILoggingEvent eventObject) {
+            loggingEvents.add(eventObject);
+        }
+
+        Collection<ILoggingEvent> getAllValues() {
+            return Collections.unmodifiableList(loggingEvents);
         }
     }
 }

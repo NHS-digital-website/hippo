@@ -6,8 +6,10 @@
 <#include "../nhsd-common/macro/banners/nhsd-banner.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.CallToActionRich" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Video" -->
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.QuoteHero" -->
 
 <@hst.setBundle basename="rb.generic.texts"/>
 
@@ -22,13 +24,14 @@
 
 <#assign breadcrumb  = hstRequestContext.getAttribute("bread")>
 
-<#if (breadcrumb=="Coronavirus" || breadcrumb=="News") && !hstRequestContext.getAttribute("headerPresent")?if_exists>
+<#if breadcrumb?has_content && (breadcrumb=="Coronavirus" || breadcrumb=="News") && !hstRequestContext.getAttribute("headerPresent")?if_exists>
     <#assign overridePageTitle>${breadcrumb}</#assign>
     <@metaTags></@metaTags>
 </#if>
 
 <#-- Colourbar -->
-<#assign hasColourBar = isTall?then(displayColourBar, false) />
+<#assign isCTARich = document.richContent?has_content />
+<#assign hasColourBar = isTall?has_content?then(displayColourBar, false) />
 
 <#if hasDocument>
     <#assign heroOptions = getHeroOptions(document) />
@@ -72,9 +75,21 @@
         }/>
     </#if>
 
+    <#if document.quote?has_content>
+        <#assign heroOptions += {
+        "quote": "${document.quote}"
+        }/>
+    </#if>
+
     <#if displayColourBar?has_content>
         <#assign heroOptions += {
             "colourBar": displayColourBar
+        }/>
+    </#if>
+
+    <#if colour?has_content>
+        <#assign heroOptions += {
+        "colour": colour
         }/>
     </#if>
 
@@ -82,6 +97,16 @@
         <#assign heroType = "accentedImage" />
         <#if textAlignment?has_content && textAlignment == "right">
             <#assign heroType = "accentedImageMirrored" />
+        </#if>
+        <#if isCTARich>
+            <#assign heroOptions += {
+            "isCTARich": true
+            }/>
+        </#if>
+        <#if document.quote?has_content>
+            <#assign heroOptions += {
+            "isTall": isHero
+            }/>
         </#if>
         <@hero heroOptions heroType/>
     <#else>

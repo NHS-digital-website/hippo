@@ -18,7 +18,7 @@
 <#assign resourcesHeader = "Resources" />
 
 <article class="article article--service">
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="local-header article-header">
                 <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>

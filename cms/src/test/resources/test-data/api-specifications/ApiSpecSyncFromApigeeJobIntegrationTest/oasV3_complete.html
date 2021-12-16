@@ -55,7 +55,7 @@
     </div>
     <!-- end sticky-nav -->
 </div>
-<div id="content" class="nhsd-t-col-xs-12 nhsd-t-col-s-8" aria-label="Document content">
+<div id="content" class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
     <!-- API Title: Personal Demographics Service (FHIR) API -->
     <div id="api-description">
         <h2 class="nhsd-t-heading-xl" id="api-description__overview">Overview</h2>
@@ -67,22 +67,22 @@
     <hr class="nhsd-a-horizontal-rule">
     <h2 id="api-Patients" class="nhsd-t-heading-xl">Endpoints: Patients</h2>
     <h3 id="api-Patients-get-patient" class="nhsd-t-heading-l">Retrieve a patient&#x27;s resource</h3>
-    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
+    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-!t-padding-left-3 nhsd-!t-padding-right-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-t-flex nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-!t-margin-bottom-0 nhsd-t-flex nhsd-t-flex--align-items-centre">
                 <span class="nhsd-!t-col-white nhsd-t-heading-l nhsd-t-display-contents nhsd-t-text-transform-uppercase">get</span>
                 <span class="nhsd-!t-col-white nhsd-t-heading-s nhsd-t-display-contents"><pre class="nhsd-t-wrap-text-pre nhsd-t-overflow-wrap-text nhsd-t-display-contents">/Patient/{id}</pre></span>
             </div>
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
-                <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button">
-                    <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3 nhsd-t-width-full" type="button"
+                <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button nhsd-t-flex nhsd-t-flex--align-items-centre">
+                    <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-bottom-0 nhsd-t-width-full" type="button"
                             onclick="tryEndpointNow('/Patients/get-patient')" disabled>
                         <span class="nhsd-a-button__label">Enable Javascript to try this API</span>
                         <span class="nhsd-a-icon nhsd-a-icon--size-m nhsd-!t-display-hide">
-<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
-<path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
-</svg>
-</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
+                                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
+                                                        </svg>
+                                                    </span>
                     </button>
                 </div>
             </div>
@@ -179,14 +179,14 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;address&quot; : [ {
-&quot;id&quot; : &quot;456&quot;,
-&quot;line&quot; : [ &quot;1 Trevelyan Square&quot;, &quot;Boar Lane&quot;, &quot;City Centre&quot;, &quot;Leeds&quot;, &quot;West Yorkshire&quot; ],
-&quot;postalCode&quot; : &quot;LS1 6AE&quot;,
-&quot;use&quot; : &quot;home&quot;
-} ],
-&quot;birthDate&quot; : &quot;2010-10-22&quot;
+                                                                <pre class="line-numbers"><code>{
+  &quot;address&quot; : [ {
+    &quot;id&quot; : &quot;456&quot;,
+    &quot;line&quot; : [ &quot;1 Trevelyan Square&quot;, &quot;Boar Lane&quot;, &quot;City Centre&quot;, &quot;Leeds&quot;, &quot;West Yorkshire&quot; ],
+    &quot;postalCode&quot; : &quot;LS1 6AE&quot;,
+    &quot;use&quot; : &quot;home&quot;
+  } ],
+  &quot;birthDate&quot; : &quot;2010-10-22&quot;
 }</code></pre>
                 </div>
             </div>
@@ -197,20 +197,20 @@
             <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
         </div>
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
-            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
-            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+            <button onclick="collapseAll('8bc9cb7d-dc68-4a02-bb42-5bd05995a76f')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('8bc9cb7d-dc68-4a02-bb42-5bd05995a76f')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
         </div>
     </div>
-    <div class="nhsd-o-schema" data-schema-uuid="">
+    <div class="nhsd-o-schema" data-schema-uuid="8bc9cb7d-dc68-4a02-bb42-5bd05995a76f">
         <div class="nhsd-m-table nhsd-t-body">
             <table data-no-sort="true">
                 <thead class="nhsd-o-schema__header">
                 <th>Name</th>
                 <th>Description</th>
                 </thead>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="dcfc97d1-87e8-47c4-8a60-b84e23042203" data-indentation="0" colspan="2">
                     <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="dcfc97d1-87e8-47c4-8a60-b84e23042203" onclick="collapseChildren('dcfc97d1-87e8-47c4-8a60-b84e23042203')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -219,7 +219,7 @@
                     <td class="nhsd-o-schema__description-column">
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="c6e1d10a-51bd-41c8-aa08-e6971499c982" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>resourceType</strong></div>
@@ -233,7 +233,7 @@
                         <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Patient</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="530a22ef-3247-4a61-9219-f4b75c216da9" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>id</strong></div>
@@ -261,20 +261,20 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;resourceType&quot; : &quot;OperationOutcome&quot;,
-&quot;issue&quot; : [ {
-&quot;severity&quot; : &quot;error&quot;,
-&quot;code&quot; : &quot;value&quot;,
-&quot;details&quot; : {
-&quot;coding&quot; : [ {
-&quot;system&quot; : &quot;https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode&quot;,
-&quot;version&quot; : &quot;1&quot;,
-&quot;code&quot; : &quot;INVALID_RESOURCE_ID&quot;,
-&quot;display&quot; : &quot;Resource Id is invalid&quot;
-} ]
-}
-} ]
+                                                                <pre class="line-numbers"><code>{
+  &quot;resourceType&quot; : &quot;OperationOutcome&quot;,
+  &quot;issue&quot; : [ {
+    &quot;severity&quot; : &quot;error&quot;,
+    &quot;code&quot; : &quot;value&quot;,
+    &quot;details&quot; : {
+      &quot;coding&quot; : [ {
+        &quot;system&quot; : &quot;https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode&quot;,
+        &quot;version&quot; : &quot;1&quot;,
+        &quot;code&quot; : &quot;INVALID_RESOURCE_ID&quot;,
+        &quot;display&quot; : &quot;Resource Id is invalid&quot;
+      } ]
+    }
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -285,20 +285,20 @@
             <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
         </div>
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
-            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
-            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+            <button onclick="collapseAll('7291c70b-4b9c-489e-a5c7-66075813b0a0')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('7291c70b-4b9c-489e-a5c7-66075813b0a0')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
         </div>
     </div>
-    <div class="nhsd-o-schema" data-schema-uuid="">
+    <div class="nhsd-o-schema" data-schema-uuid="7291c70b-4b9c-489e-a5c7-66075813b0a0">
         <div class="nhsd-m-table nhsd-t-body">
             <table data-no-sort="true">
                 <thead class="nhsd-o-schema__header">
                 <th>Name</th>
                 <th>Description</th>
                 </thead>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="a47f25db-5e45-4edf-af32-ddd2fe71fe81" data-indentation="0" colspan="2">
                     <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="a47f25db-5e45-4edf-af32-ddd2fe71fe81" onclick="collapseChildren('a47f25db-5e45-4edf-af32-ddd2fe71fe81')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -330,7 +330,7 @@
                             </table></div></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="2afd7c6e-8da8-4f8b-adfc-267fb423e332" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>resourceType</strong></div>
@@ -344,9 +344,9 @@
                         <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">OperationOutcome</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="0dc44bb2-afb6-4705-a568-f7d6eb189736" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="0dc44bb2-afb6-4705-a568-f7d6eb189736" onclick="collapseChildren('0dc44bb2-afb6-4705-a568-f7d6eb189736')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>issue</strong></div>
                         <div>
@@ -358,7 +358,7 @@
                         <div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">1</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="dc3f6710-c597-41b9-aa2f-826e7ba68315" data-indentation="2" colspan="2">
                     <td style="padding-left: 3.0em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
                         <div>
@@ -371,22 +371,22 @@
             </table>
         </div>                                                </div>
     <h3 id="api-Patients-search-patient" class="nhsd-t-heading-l">Search for patient</h3>
-    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
+    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-!t-padding-left-3 nhsd-!t-padding-right-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-t-flex nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-!t-margin-bottom-0 nhsd-t-flex nhsd-t-flex--align-items-centre">
                 <span class="nhsd-!t-col-white nhsd-t-heading-l nhsd-t-display-contents nhsd-t-text-transform-uppercase">get</span>
                 <span class="nhsd-!t-col-white nhsd-t-heading-s nhsd-t-display-contents"><pre class="nhsd-t-wrap-text-pre nhsd-t-overflow-wrap-text nhsd-t-display-contents">/Patient</pre></span>
             </div>
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
-                <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button">
-                    <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3 nhsd-t-width-full" type="button"
+                <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button nhsd-t-flex nhsd-t-flex--align-items-centre">
+                    <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-bottom-0 nhsd-t-width-full" type="button"
                             onclick="tryEndpointNow('/Patients/search-patient')" disabled>
                         <span class="nhsd-a-button__label">Enable Javascript to try this API</span>
                         <span class="nhsd-a-icon nhsd-a-icon--size-m nhsd-!t-display-hide">
-<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
-<path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
-</svg>
-</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
+                                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
+                                                        </svg>
+                                                    </span>
                     </button>
                 </div>
             </div>
@@ -488,17 +488,17 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;resourceType&quot; : &quot;Bundle&quot;,
-&quot;type&quot; : &quot;searchset&quot;,
-&quot;timestamp&quot; : &quot;2019-12-25T12:00:00+00:00&quot;,
-&quot;total&quot; : 1,
-&quot;entry&quot; : [ {
-&quot;fullUrl&quot; : &quot;https://beta.api.digital.nhs.uk/personal-demographics/Patient/9000000009&quot;,
-&quot;search&quot; : {
-&quot;score&quot; : 1
-}
-} ]
+                                                                <pre class="line-numbers"><code>{
+  &quot;resourceType&quot; : &quot;Bundle&quot;,
+  &quot;type&quot; : &quot;searchset&quot;,
+  &quot;timestamp&quot; : &quot;2019-12-25T12:00:00+00:00&quot;,
+  &quot;total&quot; : 1,
+  &quot;entry&quot; : [ {
+    &quot;fullUrl&quot; : &quot;https://beta.api.digital.nhs.uk/personal-demographics/Patient/9000000009&quot;,
+    &quot;search&quot; : {
+      &quot;score&quot; : 1
+    }
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -509,20 +509,20 @@
             <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
         </div>
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
-            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
-            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+            <button onclick="collapseAll('4bde71c1-aa96-4200-a4c2-953176d36da2')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('4bde71c1-aa96-4200-a4c2-953176d36da2')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
         </div>
     </div>
-    <div class="nhsd-o-schema" data-schema-uuid="">
+    <div class="nhsd-o-schema" data-schema-uuid="4bde71c1-aa96-4200-a4c2-953176d36da2">
         <div class="nhsd-m-table nhsd-t-body">
             <table data-no-sort="true">
                 <thead class="nhsd-o-schema__header">
                 <th>Name</th>
                 <th>Description</th>
                 </thead>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="460bf182-dc64-4306-97e7-39399841aeab" data-indentation="0" colspan="2">
                     <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="460bf182-dc64-4306-97e7-39399841aeab" onclick="collapseChildren('460bf182-dc64-4306-97e7-39399841aeab')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -531,7 +531,7 @@
                     <td class="nhsd-o-schema__description-column">
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="52eef2f7-d870-425b-85cb-4ed6565678fe" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>resourceType</strong></div>
@@ -544,7 +544,7 @@
                         <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Bundle</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="dfd263a2-f13c-4c10-91d1-bfd192c47e28" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>type</strong></div>
@@ -557,7 +557,7 @@
                         <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">searchset</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="4960cf73-fc84-4787-95dd-5ae8c59eb4b6" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>deathDateTime</strong></div>
@@ -584,12 +584,12 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;resourceType&quot; : &quot;OperationOutcome&quot;,
-&quot;issue&quot; : [ {
-&quot;severity&quot; : &quot;error&quot;,
-&quot;code&quot; : &quot;value&quot;
-} ]
+                                                                <pre class="line-numbers"><code>{
+  &quot;resourceType&quot; : &quot;OperationOutcome&quot;,
+  &quot;issue&quot; : [ {
+    &quot;severity&quot; : &quot;error&quot;,
+    &quot;code&quot; : &quot;value&quot;
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -600,12 +600,12 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;resourceType&quot; : &quot;OperationOutcome&quot;,
-&quot;issue&quot; : [ {
-&quot;severity&quot; : &quot;error&quot;,
-&quot;code&quot; : &quot;value&quot;
-} ]
+                                                                <pre class="line-numbers"><code>{
+  &quot;resourceType&quot; : &quot;OperationOutcome&quot;,
+  &quot;issue&quot; : [ {
+    &quot;severity&quot; : &quot;error&quot;,
+    &quot;code&quot; : &quot;value&quot;
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -616,18 +616,18 @@
             <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
         </div>
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
-            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
-            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+            <button onclick="collapseAll('ecb15aaa-44ca-41e0-8157-73be2b56a6a9')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('ecb15aaa-44ca-41e0-8157-73be2b56a6a9')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
         </div>
     </div>
-    <div class="nhsd-o-schema" data-schema-uuid="">
+    <div class="nhsd-o-schema" data-schema-uuid="ecb15aaa-44ca-41e0-8157-73be2b56a6a9">
         <div class="nhsd-m-table nhsd-t-body">
             <table data-no-sort="true">
                 <thead class="nhsd-o-schema__header">
                 <th>Name</th>
                 <th>Description</th>
                 </thead>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="5b2b4218-7211-4fea-91b5-11925295e17c" data-indentation="0" colspan="2">
                     <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -661,22 +661,22 @@
             </table>
         </div>                                                </div>
     <h3 id="api-Patients-update-patient-partial" class="nhsd-t-heading-l">Update a patient&#x27;s resource</h3>
-    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
+    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-!t-padding-left-3 nhsd-!t-padding-right-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-t-flex nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-!t-margin-bottom-0 nhsd-t-flex nhsd-t-flex--align-items-centre">
                 <span class="nhsd-!t-col-white nhsd-t-heading-l nhsd-t-display-contents nhsd-t-text-transform-uppercase">patch</span>
                 <span class="nhsd-!t-col-white nhsd-t-heading-s nhsd-t-display-contents"><pre class="nhsd-t-wrap-text-pre nhsd-t-overflow-wrap-text nhsd-t-display-contents">/Patient/{id}</pre></span>
             </div>
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
-                <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button">
-                    <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3 nhsd-t-width-full" type="button"
+                <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button nhsd-t-flex nhsd-t-flex--align-items-centre">
+                    <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-bottom-0 nhsd-t-width-full" type="button"
                             onclick="tryEndpointNow('/Patients/update-patient-partial')" disabled>
                         <span class="nhsd-a-button__label">Enable Javascript to try this API</span>
                         <span class="nhsd-a-icon nhsd-a-icon--size-m nhsd-!t-display-hide">
-<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
-<path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
-</svg>
-</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
+                                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
+                                                        </svg>
+                                                    </span>
                     </button>
                 </div>
             </div>
@@ -763,12 +763,12 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;patches&quot; : [ {
-&quot;op&quot; : &quot;add&quot;,
-&quot;path&quot; : &quot;/deceasedDateTime&quot;,
-&quot;value&quot; : &quot;2010-10-22T00:00:00+00:00&quot;
-} ]
+                                                                    <pre class="line-numbers"><code>{
+  &quot;patches&quot; : [ {
+    &quot;op&quot; : &quot;add&quot;,
+    &quot;path&quot; : &quot;/deceasedDateTime&quot;,
+    &quot;value&quot; : &quot;2010-10-22T00:00:00+00:00&quot;
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -779,12 +779,12 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;patches&quot; : [ {
-&quot;op&quot; : &quot;replace&quot;,
-&quot;path&quot; : &quot;/gender&quot;,
-&quot;value&quot; : &quot;male&quot;
-} ]
+                                                                    <pre class="line-numbers"><code>{
+  &quot;patches&quot; : [ {
+    &quot;op&quot; : &quot;replace&quot;,
+    &quot;path&quot; : &quot;/gender&quot;,
+    &quot;value&quot; : &quot;male&quot;
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -795,18 +795,18 @@
             <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
         </div>
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
-            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
-            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+            <button onclick="collapseAll('46d075e1-5e9a-412f-9a48-e10188ead8b3')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('46d075e1-5e9a-412f-9a48-e10188ead8b3')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
         </div>
     </div>
-    <div class="nhsd-o-schema" data-schema-uuid="">
+    <div class="nhsd-o-schema" data-schema-uuid="46d075e1-5e9a-412f-9a48-e10188ead8b3">
         <div class="nhsd-m-table nhsd-t-body">
             <table data-no-sort="true">
                 <thead class="nhsd-o-schema__header">
                 <th>Name</th>
                 <th>Description</th>
                 </thead>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="91c75ff1-3156-471b-8ea2-0b62a9cfc836" data-indentation="0" colspan="2">
                     <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -889,20 +889,20 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;resourceType&quot; : &quot;OperationOutcome&quot;,
-&quot;issue&quot; : [ {
-&quot;severity&quot; : &quot;error&quot;,
-&quot;code&quot; : &quot;value&quot;,
-&quot;details&quot; : {
-&quot;coding&quot; : [ {
-&quot;system&quot; : &quot;https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode&quot;,
-&quot;version&quot; : &quot;1&quot;,
-&quot;code&quot; : &quot;INVALID_RESOURCE_ID&quot;,
-&quot;display&quot; : &quot;Resource Id is invalid&quot;
-} ]
-}
-} ]
+                                                                <pre class="line-numbers"><code>{
+  &quot;resourceType&quot; : &quot;OperationOutcome&quot;,
+  &quot;issue&quot; : [ {
+    &quot;severity&quot; : &quot;error&quot;,
+    &quot;code&quot; : &quot;value&quot;,
+    &quot;details&quot; : {
+      &quot;coding&quot; : [ {
+        &quot;system&quot; : &quot;https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode&quot;,
+        &quot;version&quot; : &quot;1&quot;,
+        &quot;code&quot; : &quot;INVALID_RESOURCE_ID&quot;,
+        &quot;display&quot; : &quot;Resource Id is invalid&quot;
+      } ]
+    }
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -913,20 +913,20 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;resourceType&quot; : &quot;OperationOutcome&quot;,
-&quot;issue&quot; : [ {
-&quot;severity&quot; : &quot;error&quot;,
-&quot;code&quot; : &quot;required&quot;,
-&quot;details&quot; : {
-&quot;coding&quot; : [ {
-&quot;system&quot; : &quot;https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode&quot;,
-&quot;version&quot; : &quot;1&quot;,
-&quot;code&quot; : &quot;MISSING_VALUE&quot;,
-&quot;display&quot; : &quot;Missing value - patches&quot;
-} ]
-}
-} ]
+                                                                <pre class="line-numbers"><code>{
+  &quot;resourceType&quot; : &quot;OperationOutcome&quot;,
+  &quot;issue&quot; : [ {
+    &quot;severity&quot; : &quot;error&quot;,
+    &quot;code&quot; : &quot;required&quot;,
+    &quot;details&quot; : {
+      &quot;coding&quot; : [ {
+        &quot;system&quot; : &quot;https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode&quot;,
+        &quot;version&quot; : &quot;1&quot;,
+        &quot;code&quot; : &quot;MISSING_VALUE&quot;,
+        &quot;display&quot; : &quot;Missing value - patches&quot;
+      } ]
+    }
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -937,20 +937,20 @@
             <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
         </div>
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
-            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
-            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+            <button onclick="collapseAll('c4ca83e6-336f-4f4a-9faf-ace108654a5f')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('c4ca83e6-336f-4f4a-9faf-ace108654a5f')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
         </div>
     </div>
-    <div class="nhsd-o-schema" data-schema-uuid="">
+    <div class="nhsd-o-schema" data-schema-uuid="c4ca83e6-336f-4f4a-9faf-ace108654a5f">
         <div class="nhsd-m-table nhsd-t-body">
             <table data-no-sort="true">
                 <thead class="nhsd-o-schema__header">
                 <th>Name</th>
                 <th>Description</th>
                 </thead>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="37d9f570-77d5-4399-abe6-b23fd04dff98" data-indentation="0" colspan="2">
                     <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="37d9f570-77d5-4399-abe6-b23fd04dff98" onclick="collapseChildren('37d9f570-77d5-4399-abe6-b23fd04dff98')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -982,7 +982,7 @@
                             </table></div></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="220f9957-b864-41ec-b708-445bf41b3005" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>resourceType</strong></div>
@@ -996,9 +996,9 @@
                         <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">OperationOutcome</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="3ead2a8c-ae4b-4391-8150-fbdaf35846d5" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="3ead2a8c-ae4b-4391-8150-fbdaf35846d5" onclick="collapseChildren('3ead2a8c-ae4b-4391-8150-fbdaf35846d5')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>issue</strong></div>
                         <div>
@@ -1010,9 +1010,9 @@
                         <div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">1</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="0066691b-dcdc-4f0e-a564-28d6b6028cbd" data-indentation="2" colspan="2">
                     <td style="padding-left: 3.0em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="0066691b-dcdc-4f0e-a564-28d6b6028cbd" onclick="collapseChildren('0066691b-dcdc-4f0e-a564-28d6b6028cbd')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -1021,7 +1021,7 @@
                     <td class="nhsd-o-schema__description-column">
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="1d430291-bf05-4625-847a-c74077092729" data-indentation="3" colspan="2">
                     <td style="padding-left: 4.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
                         <div><strong>severity</strong></div>
@@ -1035,7 +1035,7 @@
                         <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">fatal</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">error</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">warning</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">information</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="a677a081-aee2-485d-b003-c676b79c1c9d" data-indentation="3" colspan="2">
                     <td style="padding-left: 4.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
                         <div><strong>code</strong></div>
@@ -1054,22 +1054,22 @@
     <hr class="nhsd-a-horizontal-rule">
     <h2 id="api-Polling" class="nhsd-t-heading-xl">Endpoints: Polling</h2>
     <h3 id="api-Polling-polling" class="nhsd-t-heading-l">Retrieve the outcome of the accepted update.</h3>
-    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
+    <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-!t-padding-left-3 nhsd-!t-padding-right-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-t-flex nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-!t-margin-bottom-0 nhsd-t-flex nhsd-t-flex--align-items-centre">
                 <span class="nhsd-!t-col-white nhsd-t-heading-l nhsd-t-display-contents nhsd-t-text-transform-uppercase">get</span>
                 <span class="nhsd-!t-col-white nhsd-t-heading-s nhsd-t-display-contents"><pre class="nhsd-t-wrap-text-pre nhsd-t-overflow-wrap-text nhsd-t-display-contents">/Polling/{message_id}</pre></span>
             </div>
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
-                <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button">
-                    <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-3 nhsd-t-width-full" type="button"
+                <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button nhsd-t-flex nhsd-t-flex--align-items-centre">
+                    <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-bottom-0 nhsd-t-width-full" type="button"
                             onclick="tryEndpointNow('/Polling/polling')" disabled>
                         <span class="nhsd-a-button__label">Enable Javascript to try this API</span>
                         <span class="nhsd-a-icon nhsd-a-icon--size-m nhsd-!t-display-hide">
-<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
-<path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
-</svg>
-</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
+                                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
+                                                        </svg>
+                                                    </span>
                     </button>
                 </div>
             </div>
@@ -1167,20 +1167,20 @@
             <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
         </div>
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
-            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
-            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+            <button onclick="collapseAll('1935ede7-f064-4e7c-8f7b-cf15b87f484d')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('1935ede7-f064-4e7c-8f7b-cf15b87f484d')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
         </div>
     </div>
-    <div class="nhsd-o-schema" data-schema-uuid="">
+    <div class="nhsd-o-schema" data-schema-uuid="1935ede7-f064-4e7c-8f7b-cf15b87f484d">
         <div class="nhsd-m-table nhsd-t-body">
             <table data-no-sort="true">
                 <thead class="nhsd-o-schema__header">
                 <th>Name</th>
                 <th>Description</th>
                 </thead>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="f42b4ac4-e452-4319-b65d-84948725fd16" data-indentation="0" colspan="2">
                     <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="f42b4ac4-e452-4319-b65d-84948725fd16" onclick="collapseChildren('f42b4ac4-e452-4319-b65d-84948725fd16')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -1189,7 +1189,7 @@
                     <td class="nhsd-o-schema__description-column">
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="f3c0d3dc-5645-485f-8d48-d38f6fd1064c" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>resourceType</strong></div>
@@ -1203,7 +1203,7 @@
                         <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">Patient</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="09c7abcf-551e-4340-959c-39c4de08132f" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>id</strong></div>
@@ -1232,20 +1232,20 @@
         <div class="nhsd-o-code-viewer__tab-content" role="tabpanel" aria-hidden="true" aria-labelledby="tab-html-content">
             <div class="nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim">
                 <div class="nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim">
-<pre class="line-numbers"><code>{
-&quot;resourceType&quot; : &quot;OperationOutcome&quot;,
-&quot;issue&quot; : [ {
-&quot;severity&quot; : &quot;error&quot;,
-&quot;code&quot; : &quot;structure&quot;,
-&quot;details&quot; : {
-&quot;coding&quot; : [ {
-&quot;system&quot; : &quot;https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode&quot;,
-&quot;version&quot; : &quot;1&quot;,
-&quot;code&quot; : &quot;INVALID_UPDATE&quot;,
-&quot;display&quot; : &quot;Invalid update with error - business effective start date is after the end date&quot;
-} ]
-}
-} ]
+                                                                <pre class="line-numbers"><code>{
+  &quot;resourceType&quot; : &quot;OperationOutcome&quot;,
+  &quot;issue&quot; : [ {
+    &quot;severity&quot; : &quot;error&quot;,
+    &quot;code&quot; : &quot;structure&quot;,
+    &quot;details&quot; : {
+      &quot;coding&quot; : [ {
+        &quot;system&quot; : &quot;https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode&quot;,
+        &quot;version&quot; : &quot;1&quot;,
+        &quot;code&quot; : &quot;INVALID_UPDATE&quot;,
+        &quot;display&quot; : &quot;Invalid update with error - business effective start date is after the end date&quot;
+      } ]
+    }
+  } ]
 }</code></pre>
                 </div>
             </div>
@@ -1256,20 +1256,20 @@
             <h4 class="nhsd-t-heading-m nhsd-!t-margin-bottom-0">Schema</h4>
         </div>
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-!t-padding-0 nhsd-t-text-align-l-right">
-            <button onclick="collapseAll('')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
-            <button onclick="expandAll('')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
+            <button onclick="collapseAll('845ecbe1-dafb-4501-92a0-81469bddb7c3')" class="nhsd-a-button nhsd-a-button--outline nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Collapse all</button>
+            <button onclick="expandAll('845ecbe1-dafb-4501-92a0-81469bddb7c3')" class="nhsd-a-button nhsd-o-schema__header-button nhsd-!t-margin-bottom-0 nhsd-!t-display-hide">Expand all</button>
         </div>
     </div>
-    <div class="nhsd-o-schema" data-schema-uuid="">
+    <div class="nhsd-o-schema" data-schema-uuid="845ecbe1-dafb-4501-92a0-81469bddb7c3">
         <div class="nhsd-m-table nhsd-t-body">
             <table data-no-sort="true">
                 <thead class="nhsd-o-schema__header">
                 <th>Name</th>
                 <th>Description</th>
                 </thead>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="0" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="41d4dfa3-69e1-4f26-8cee-951e1988337e" data-indentation="0" colspan="2">
                     <td style="padding-left: 0.0em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="41d4dfa3-69e1-4f26-8cee-951e1988337e" onclick="collapseChildren('41d4dfa3-69e1-4f26-8cee-951e1988337e')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 31.4%"></span>
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -1301,7 +1301,7 @@
                             </table></div></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="fc04ffaa-2677-46d0-b86b-f22434e3b40f" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>resourceType</strong></div>
@@ -1315,9 +1315,9 @@
                         <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">OperationOutcome</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="1" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="0972eb57-98d1-4491-9eb7-e02e4ff2c568" data-indentation="1" colspan="2">
                     <td style="padding-left: 1.5em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="0972eb57-98d1-4491-9eb7-e02e4ff2c568" onclick="collapseChildren('0972eb57-98d1-4491-9eb7-e02e4ff2c568')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 31.4%"></span>
                         <div><strong>issue</strong></div>
                         <div>
@@ -1329,9 +1329,9 @@
                         <div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">1</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="2" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="49216acf-171d-4694-9843-1d178ffbbed9" data-indentation="2" colspan="2">
                     <td style="padding-left: 3.0em;" class="nhsd-o-schema__name-column">
-                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="" onclick="collapseChildren('')"></a>
+                        <a class="nhsd-o-schema__button nhsd-o-schema__collapser nhsd-!t-display-hide" data-schema-uuid="49216acf-171d-4694-9843-1d178ffbbed9" onclick="collapseChildren('49216acf-171d-4694-9843-1d178ffbbed9')"></a>
                         <span class="nhsd-o-schema__border-child" style="--border-padding: 1.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-short-horizontal" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 34.0%"></span>
                         <div>
                             <span class="nhsd-t-col-grey-mid">object</span>
@@ -1340,7 +1340,7 @@
                     <td class="nhsd-o-schema__description-column">
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="044d2ac9-7981-418f-92a8-8ff456030104" data-indentation="3" colspan="2">
                     <td style="padding-left: 4.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-vertical" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
                         <div><strong>severity</strong></div>
@@ -1354,7 +1354,7 @@
                         <div>Allowed values: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">fatal</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">error</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">warning</span>, <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">information</span></div>
                     </td>
                 </tr>
-                <tr class="nhsd-o-schema__expanded" data-schema-uuid="" data-indentation="3" colspan="2">
+                <tr class="nhsd-o-schema__expanded" data-schema-uuid="9cb41c52-c64c-46e0-a3f9-b50e819a05ef" data-indentation="3" colspan="2">
                     <td style="padding-left: 4.5em;" class="nhsd-o-schema__name-column">
                         <span class="nhsd-o-schema__border-horizontal" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span><span class="nhsd-o-schema__border-short-vertical" style="--border-padding: -0.25em; --border-lightness: 35.4%"></span>
                         <div><strong>code</strong></div>

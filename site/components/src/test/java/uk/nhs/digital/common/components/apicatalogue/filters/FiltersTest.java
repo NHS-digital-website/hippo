@@ -76,19 +76,77 @@ public class FiltersTest {
         );
     }
 
+    @Test
+    public void isHighlighted_returnsHighlightStatus_GivenDisplayName() {
+
+        // given
+        final Filters filters = baseFilters();
+
+        final List<Boolean> expectedHighlightStatusResults = asList(
+            false,
+            true,
+            true,
+            false,
+            true,
+            false
+        );
+
+        // when
+        final List<Boolean> actualHighlightStatusResults = asList(
+            filters.isHighlighted("Subsection Z"),
+            filters.isHighlighted("Subsection D"),
+            filters.isHighlighted("Subsection S"),
+            filters.isHighlighted("Subsection U"),
+            filters.isHighlighted("Subsection T"),
+            filters.isHighlighted("Subsection E")
+        );
+
+        // then
+        assertThat("Filters returned correct highlight status.",actualHighlightStatusResults ,is(expectedHighlightStatusResults));
+    }
+
+    @Test
+    public void getHighlight_returnsHighlightColour_GivenDisplayName() {
+
+        // given
+        final Filters filters = baseFilters();
+
+        final List<String> expectedHighlightResults = asList(
+            "light-grey",
+            "colour-a",
+            "colour-b",
+            "light-grey",
+            "colour-c",
+            "light-grey"
+        );
+
+        // when
+        final List<String> actualHighlightResults = asList(
+            filters.getHighlight("Subsection Z"),
+            filters.getHighlight("Subsection D"),
+            filters.getHighlight("Subsection S"),
+            filters.getHighlight("Subsection U"),
+            filters.getHighlight("Subsection T"),
+            filters.getHighlight("Subsection E")
+        );
+
+        // then
+        assertThat("Filters returned correct highlight status.",actualHighlightResults ,is(expectedHighlightResults));
+    }
+
     private Filters baseFilters() {
         return FiltersTestUtils.filters(
             section("Section 5",
                 subsection("Subsection Z", "key-z"),
-                subsection("Subsection D", "key-d",
-                    subsection("Subsection S", "key-s"),
+                subsection("Subsection D", "key-d", "colour-a",
+                    subsection("Subsection S", "key-s", null, "colour-b"),
                     subsection("Subsection U", "key-u")
                 )
             ),
             section("Section 2",
                 subsection("Subsection 3", "key-3"),
                 subsection("Subsection I", "key-i",
-                    subsection("Subsection T", "key-t"),
+                    subsection("Subsection T", "key-t", null, "colour-c"),
                     subsection("Subsection E", "key-e")
                 )
             )

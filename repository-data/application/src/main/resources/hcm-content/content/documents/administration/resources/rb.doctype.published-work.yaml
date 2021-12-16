@@ -26,6 +26,7 @@
     - Resources label
     - Published Work label
     - Published Work Chapter label
+    - Print to PDF
     resourcebundle:id: rb.doctype.published-work
     resourcebundle:keys:
     - headers.summary
@@ -43,6 +44,7 @@
     - labels.resources
     - labels.publishedwork
     - labels.publishedworkchapter
+    - labels.download-pdf
     resourcebundle:messages:
     - Summary
     - Overview
@@ -59,6 +61,7 @@
     - Resources
     - Published Work
     - Published Work Chapter
+    - Print to PDF
   /rb.doctype.published-work[2]:
     hippo:availability:
     - preview
@@ -87,6 +90,7 @@
     - Resources label
     - Published Work label
     - Published Work Chapter label
+    - Print to PDF
     resourcebundle:id: rb.doctype.published-work
     resourcebundle:keys:
     - headers.summary
@@ -104,6 +108,7 @@
     - labels.resources
     - labels.publishedwork
     - labels.publishedworkchapter
+    - labels.download-pdf
     resourcebundle:messages:
     - Summary
     - Overview
@@ -120,6 +125,7 @@
     - Resources
     - Published Work
     - Published Work Chapter
+    - Print to PDF
   /rb.doctype.published-work[3]:
     hippo:availability:
     - live
@@ -148,6 +154,7 @@
     - Resources label
     - Published Work label
     - Published Work Chapter label
+    - Print to PDF
     resourcebundle:id: rb.doctype.published-work
     resourcebundle:keys:
     - headers.summary
@@ -165,6 +172,7 @@
     - labels.resources
     - labels.publishedwork
     - labels.publishedworkchapter
+    - labels.download-pdf
     resourcebundle:messages:
     - Summary
     - Overview
@@ -181,6 +189,7 @@
     - Resources
     - Published Work
     - Published Work Chapter
+    - Print to PDF
   hippo:name: Published Work Resource Bundle
   jcr:mixinTypes:
   - hippo:named

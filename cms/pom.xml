@@ -27,7 +27,7 @@
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-content-feed-dependencies-cms</artifactId>
-            <version>${bloomreach.version}</version>
+            <version>${hippo.addon-content-feed.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
@@ -92,6 +92,10 @@
             <artifactId>swagger-codegen-generators</artifactId>
             <exclusions>
                 <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mailapi</artifactId>
+                </exclusion>
+                <exclusion>
                     <groupId>com.sun.mail</groupId>
                     <artifactId>mailapi</artifactId>
                 </exclusion>
@@ -111,6 +115,7 @@
                     <groupId>com.fasterxml.jackson.datatype</groupId>
                     <artifactId>jackson-datatype-jsr310</artifactId>
                 </exclusion>
+
             </exclusions>
         </dependency>
         <dependency>
@@ -343,7 +348,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
+            <groupId>org.commonmark</groupId>
             <artifactId>commonmark-ext-gfm-tables</artifactId>
         </dependency>
 

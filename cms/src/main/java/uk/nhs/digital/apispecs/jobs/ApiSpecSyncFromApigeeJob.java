@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
 import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
+import uk.nhs.digital.apispecs.jcr.ApiSpecificationImportImportMetadataJcrRepository;
 import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
 
 import java.util.Optional;
@@ -74,6 +75,7 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
                 new ApiSpecificationPublicationService(
                     apigeeService,
                     new ApiSpecificationDocumentJcrRepository(session),
+                    new ApiSpecificationImportImportMetadataJcrRepository(session),
                     new SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter()
                 );
 

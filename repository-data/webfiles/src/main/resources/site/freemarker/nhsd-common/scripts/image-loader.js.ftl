@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<script type="text/javascript">
+<script>
     /* eslint-disable no-underscore-dangle */
     window.ImageLoader = function () {
         // ///////////

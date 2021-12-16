@@ -49,8 +49,7 @@
 <article class="article article--general">
     <#if hasBannerImage>
         <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
-        <div class="banner-image" aria-label="Document Header"
-             style="background-image: url(${bannerImage});">
+        <div class="banner-image" style="background-image: url(${bannerImage});">
             <div class="grid-wrapper">
                 <div class="grid-row">
                     <div class="column column--reset banner-image-title">

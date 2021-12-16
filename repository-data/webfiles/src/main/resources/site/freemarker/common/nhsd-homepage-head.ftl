@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
 <@hst.setBundle basename="design-system"/>
-<@metaTags></@metaTags>
+<@metaTags title summary></@metaTags>
 
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
@@ -50,7 +50,7 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="${designSystemUrl}/cdn/v0.112.0/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="${designSystemUrl}/cdn/v0.120.0/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" media="screen" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />

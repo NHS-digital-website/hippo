@@ -1,0 +1,3 @@
+{
+  "withXml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"> <p> <b>Generated Narrative with Details</b> </p> </div>"
+}

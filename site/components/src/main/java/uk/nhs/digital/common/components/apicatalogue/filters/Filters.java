@@ -12,6 +12,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class Filters implements Walkable {
 
@@ -84,15 +85,35 @@ public class Filters implements Walkable {
 
         if (selectedFiltersKeys == null) {
 
-            selectedFiltersKeys = sectionsInOrderOfDeclaration().stream()
-                .filter(Subsection.class::isInstance)
-                .map(Subsection.class::cast)
+            selectedFiltersKeys = getSubsectionsStream()
                 .filter(Subsection::isSelected)
                 .map(Subsection::getKey)
                 .collect(toSet());
         }
 
         return selectedFiltersKeys;
+    }
+
+    public boolean isHighlighted(final String displayName) {
+        return getSubsectionsStream()
+            .filter(section -> section.getDisplayName().equals(displayName))
+            .findAny()      //If filters are duplicated this method will pick up the highlight status of the instance the highest up the tree.
+            .map(section -> section.isHighlighted())
+            .orElse(false);
+    }
+
+    public String getHighlight(final String displayName) {
+        return getSubsectionsStream()
+            .filter(section -> section.getDisplayName().equals(displayName))
+            .findAny()      //If filters are duplicated this method will pick up the highlight colour of the instance the highest up the tree.
+            .map(section -> section.getHighlight())
+            .orElse("light-grey");      //light-grey is returned if the highlight field is not populated as this is the default.
+    }
+
+    private Stream<Subsection> getSubsectionsStream() {
+        return sectionsInOrderOfDeclaration().stream()
+            .filter(Subsection.class::isInstance)
+            .map(Subsection.class::cast);
     }
 
     public static Filters emptyInstance() {

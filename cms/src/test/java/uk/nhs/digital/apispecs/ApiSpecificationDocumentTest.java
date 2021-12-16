@@ -40,7 +40,7 @@ public class ApiSpecificationDocumentTest {
             .willReturn(Optional.of(expectedSpecificationId));
 
         // when
-        final String actualSpecificationId = apiSpecificationDocument.getId();
+        final String actualSpecificationId = apiSpecificationDocument.specificationId();
 
         // then
         assertThat("HTML value is as returned from document proxy.",
@@ -121,38 +121,6 @@ public class ApiSpecificationDocumentTest {
 
         // then
         then(jcrDocumentLifecycleSupport).should().saveAndPublish();
-    }
-
-    @Test
-    public void lastChangeCheckTime_delegatesToDocumentProxy() {
-
-        // given
-        final Instant expectedInstant = Instant.now();
-
-        given(jcrDocumentLifecycleSupport.getInstantProperty("website:lastChangeCheckInstant", PUBLISHED))
-            .willReturn(Optional.of(expectedInstant));
-
-        // when
-        final Optional<Instant> actualInstant = apiSpecificationDocument.lastChangeCheckInstant();
-
-        // then
-        assertThat("Last change check time value is as returned from document proxy.",
-            actualInstant,
-            is(Optional.of(expectedInstant))
-        );
-    }
-
-    @Test
-    public void setLastChangeCheckInstant_delegatesToDocumentProxy() {
-
-        // given
-        final Instant newInstant = Instant.now();
-
-        // when
-        apiSpecificationDocument.setLastChangeCheckInstantInPlace(newInstant);
-
-        // then
-        then(jcrDocumentLifecycleSupport).should().setInstantPropertyNoCheckout("website:lastChangeCheckInstant", PUBLISHED, newInstant);
     }
 
     @Test

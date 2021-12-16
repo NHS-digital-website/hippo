@@ -4,25 +4,24 @@ import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
-import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.common.components.*;
+import uk.nhs.digital.common.components.ContentRewriterComponent;
 import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class PublicationComponent extends ContentRewriterComponent {
 
     private static final String SUMMARY_ID = "Summary";
+    private static final String HIGHLIGHTS_ID = "Highlights";
     private static final String KEY_FACTS_ID = "Key facts";
     private static final String ADMIN_SOURCES_ID = "Administrative sources";
     private static final String DATASETS_ID = "Data sets";
@@ -57,26 +56,15 @@ public class PublicationComponent extends ContentRewriterComponent {
             index.add(SUMMARY_ID);
         }
 
-        Boolean hasKeyFactHead = Optional.ofNullable(publication.getKeyFactsHead())
-            .map(HippoHtml::getContent)
-            .filter(content -> !content.isEmpty())
-            .isPresent();
+        if (!publication.getSections().isEmpty()) {
+            index.add(HIGHLIGHTS_ID);
+        }
 
-        Boolean hasKeyFactTail = Optional.ofNullable(publication.getKeyFactsTail())
-            .map(HippoHtml::getContent)
-            .filter(content -> !content.isEmpty())
-            .isPresent();
-
-        Boolean hasKeyFactInfographics = Optional.ofNullable(publication.getKeyFactInfographics())
-            .filter(keyFactsInfoGraphic -> !keyFactsInfoGraphic.isEmpty())
-            .isPresent();
-
-        boolean hasNewKeyFacts = hasKeyFactHead || hasKeyFactTail || hasKeyFactInfographics;
-        if (!publication.getKeyFacts().isEmpty() || hasNewKeyFacts) {
+        if (!publication.getKeyFacts().isEmpty()) {
             index.add(KEY_FACTS_ID);
         }
 
-        if (parentIsSeriesAndAdminSourcesNotBlank(publication) || parentIsArchiveAndAdminSourcesNotBlank(publication) || isNotBlank(publication.getAdministrativeSources())) {
+        if (parentIsSeriesAndAdminSourcesNotBlank(publication) || parentIsArchiveAndAdminSourcesNotBlank(publication)) {
             index.add(ADMIN_SOURCES_ID);
         }
 

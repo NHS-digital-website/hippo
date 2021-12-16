@@ -1,0 +1,12 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/tasks:
+      /main:
+        /taskscontainer:
+          hst:referencecomponent: taskscontainer
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: tasks
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component

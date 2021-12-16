@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.6.0</version>
+        <version>14.7.0</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -19,7 +19,6 @@
     <artifactId>website</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
-
     <!--
         The below project elements are emptied/overridden as otherwise their metadata would be
         inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
@@ -27,7 +26,6 @@
         DO NOT remove these tags but instead fill them in appropriately as needed,
         UNLESS the inherited values are valid for your project.
     -->
-
     <url/>
     <inceptionYear/>
     <organization/>
@@ -82,7 +80,8 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <bloomreach.version>14.6.0</bloomreach.version>
+        <bloomreach.version>14.7.0</bloomreach.version>
+        <bloomreach.essential.dashboard>14.6.0</bloomreach.essential.dashboard>
         <h2.database.version>1.4.200</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
@@ -130,12 +129,15 @@
 
         <hystrix-javanica.version>1.5.18</hystrix-javanica.version>
         <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
-        <bloomreach.text-search-replace.version>2.0.0</bloomreach.text-search-replace.version>
+        <bloomreach.text-search-replace.version>2.1.0</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>5.0</forge.resetpassword.version>
+        <bloomreach.forge.sitemapv2.version>2.0.6</bloomreach.forge.sitemapv2.version>
 
         <!--***START temporary override of versions*** -->
-        <hippo.addon-content-feed.version>14.7.d6d501e2</hippo.addon-content-feed.version>
+        <hippo.addon-content-feed.version>14.7.8ed926d4</hippo.addon-content-feed.version>
         <!-- ***END temporary override of versions*** -->
+
+        <log4j2.version>2.16.0</log4j2.version>
 
     </properties>
 
@@ -195,6 +197,24 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.onehippo.cms7</groupId>
+                <artifactId>hippo-plugin-sitemapv2-component</artifactId>
+                <version>${bloomreach.forge.sitemapv2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.onehippo.cms7</groupId>
+                <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId>
+                <version>${bloomreach.forge.sitemapv2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.7</version>
+                <scope>provided</scope>
+            </dependency>
 
             <dependency>
                 <groupId>com.h2database</groupId>
@@ -654,7 +674,7 @@
             </dependency>
 
             <dependency>
-                <groupId>com.atlassian.commonmark</groupId>
+                <groupId>org.commonmark</groupId>
                 <artifactId>commonmark-ext-gfm-tables</artifactId>
                 <version>${commonmark.version}</version>
             </dependency>
@@ -730,6 +750,24 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.commonjava.maven.plugins</groupId>
+                <artifactId>directory-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>directories</id>
+                        <goals>
+                            <goal>highest-basedir</goal>
+                        </goals>
+                        <phase>initialize</phase>
+                        <configuration>
+                            <property>website.basedir</property>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -901,6 +939,11 @@
                                         <file>${project.basedir}/conf/query/lucene/indexing_configuration.xml</file>
                                         <todir>conf/query/lucene</todir>
                                         <tofile>indexing_configuration.xml</tofile>
+                                    </configfile>
+                                    <configfile>
+                                        <file>${project.basedir}/conf/platform-dev.properties</file>
+                                        <todir>conf/</todir>
+                                        <tofile>platform.properties</tofile>
                                     </configfile>
                                 </configfiles>
                                 <files>

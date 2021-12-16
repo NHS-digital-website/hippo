@@ -18,12 +18,12 @@ public class UrlGeneratorDirective implements TemplateDirectiveModel {
     ) throws TemplateException, IOException {
 
         final String baseUrl = ((SimpleScalar) parameters.get(Param.baseUrl.name())).getAsString();
-        final boolean showDeprecatedAndRetired = ((TemplateBooleanModel) parameters.get(Param.showDeprecatedAndRetired.name())).getAsBoolean();
+        final boolean showRetired = ((TemplateBooleanModel) parameters.get(Param.showRetired.name())).getAsBoolean();
         final TemplateSequenceModel filtersModelWrapper = ((SimpleSequence) parameters.get(Param.filters.name()));
 
         final Map<String, List<String>> params = new LinkedHashMap<>();
 
-        prepareShowDeprecatedAndRetiredParam(params, showDeprecatedAndRetired);
+        prepareshowRetiredParam(params, showRetired);
 
         prepareFilterParams(params, filtersModelWrapper);
 
@@ -32,11 +32,11 @@ public class UrlGeneratorDirective implements TemplateDirectiveModel {
         environment.getOut().append(url);
     }
 
-    private void prepareShowDeprecatedAndRetiredParam(final Map<String, List<String>> params,
-                                                      final boolean showDeprecatedAndRetired
+    private void prepareshowRetiredParam(final Map<String, List<String>> params,
+                                                      final boolean showRetired
     ) {
-        if (showDeprecatedAndRetired) {
-            params.put(Param.showDeprecatedAndRetired.name(), Collections.emptyList());
+        if (showRetired) {
+            params.put(Param.showRetired.name(), Collections.emptyList());
         }
     }
 
@@ -100,7 +100,7 @@ public class UrlGeneratorDirective implements TemplateDirectiveModel {
 
     enum Param {
         baseUrl,
-        showDeprecatedAndRetired,
+        showRetired,
         filter,
         filters
     }

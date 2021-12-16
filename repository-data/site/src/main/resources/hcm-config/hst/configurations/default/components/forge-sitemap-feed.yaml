@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:components/forge-sitemap-feed:
+      .meta:delete: true

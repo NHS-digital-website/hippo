@@ -1,13 +1,14 @@
 import './utils/public-path';
+import cookies from './utils/cookies';
 
 /**
  * Scripts to load just before `</body>`
  */
 import {initCookieConsent} from "./relevance/relevance-cookie";
-import "./nhsd-frontend/nhsd-frontend";
 import {printingEvents} from "./events/printingEvents";
 import "./print-publication";
 import "./feed-page";
+import "./show-hide-articles";
 
 initCookieConsent();
 printingEvents();
@@ -17,4 +18,9 @@ if (document.querySelector('[data-chartsource=highchart]')) {
         const charts = module.default;
         charts();
     })
+}
+
+// Download org prompt
+if (document.querySelector('[data-org-prompt]')) {
+    cookies.onCookieConsent('statistics').then(() => import(/* webpackChunkName: "org-prompt" */ './dialogs/org-prompt'));
 }

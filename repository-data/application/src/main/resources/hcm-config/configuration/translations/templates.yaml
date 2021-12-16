@@ -21,6 +21,7 @@ definitions:
       new-platform-folder: new folder
       new-project-update-document: new update document
       new-project-update-folder: new folder
+      new-socialmedialink-document: new socialmedialink document
       new-statistical-publications-and-clinical-indicators-document: new document
       new-statistical-publications-and-clinical-indicators-folder: new folder
       new-supplementary-info-document: new supplementary information document
@@ -235,6 +236,11 @@ definitions:
           jcr:name: Call to action
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:calltoactionrich:
+        /en:
+          jcr:name: Call to action rich
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:casestudy:
         /en:
           jcr:name: DSC Case Study
@@ -276,6 +282,11 @@ definitions:
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:corporateWebsiteImageset:
+        jcr:primaryType: hipposys:resourcebundles
+      /website:corporatepolicy:
+        /en:
+          jcr:name: Policy
+          jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
         /en:
@@ -627,6 +638,11 @@ definitions:
           jcr:name: Platform version
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:policypage:
+        /en:
+          jcr:name: Policy page
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:postnominal:
         /en:
           jcr:name: Post nominal
@@ -680,6 +696,11 @@ definitions:
       /website:quote:
         /en:
           jcr:name: Quote
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:quotehero:
+        /en:
+          jcr:name: Quote hero
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:releaseinfo:

@@ -6,13 +6,25 @@ definitions:
         hst:renderpath: webfile:/freemarker/intranet/announcement.ftl
         jcr:primaryType: hst:template
       /base-top-menu:
-        hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
+        hst:renderpath: webfile:/freemarker/intranet/base-top-menu.ftl
+        jcr:primaryType: hst:template
+      /collaborate:
+        hst:renderpath: webfile:/freemarker/intranet/collaborate.ftl
+        jcr:primaryType: hst:template
+      /document-list:
+        hst:renderpath: webfile:/freemarker/intranet/document-list.ftl
         jcr:primaryType: hst:template
       /home:
         hst:renderpath: webfile:/freemarker/intranet/home.ftl
         jcr:primaryType: hst:template
+      /how-we-work:
+        hst:renderpath: webfile:/freemarker/intranet/how-we-work.ftl
+        jcr:primaryType: hst:template
       /intra-breadcrumb:
         hst:renderpath: webfile:/freemarker/intranet/intra-breadcrumb.ftl
+        jcr:primaryType: hst:template
+      /intranet-404:
+        hst:renderpath: webfile:/freemarker/intranet/404.ftl
         jcr:primaryType: hst:template
       /layout_master:
         hst:renderpath: webfile:/freemarker/intranet/layout/master.ftl
@@ -21,7 +33,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/intranet/layout/master-no-header-search.ftl
         jcr:primaryType: hst:template
       /news:
-        hst:renderpath: webfile:/freemarker/intranet/news-internal.ftl
+        hst:renderpath: webfile:/freemarker/intranet/news.ftl
         jcr:primaryType: hst:template
       /person:
         hst:renderpath: webfile:/freemarker/intranet/person.ftl
@@ -34,5 +46,14 @@ definitions:
         jcr:primaryType: hst:template
       /taskhub:
         hst:renderpath: webfile:/freemarker/intranet/task-list-article.ftl
+        jcr:primaryType: hst:template
+      /tasks:
+        hst:renderpath: webfile:/freemarker/intranet/tasks.ftl
+        jcr:primaryType: hst:template
+      /teams:
+        hst:renderpath: webfile:/freemarker/intranet/teams.ftl
+        jcr:primaryType: hst:template
+      /who-we-are:
+        hst:renderpath: webfile:/freemarker/intranet/who-we-are.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

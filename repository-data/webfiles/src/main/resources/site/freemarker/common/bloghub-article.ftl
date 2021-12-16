@@ -42,7 +42,7 @@
     <!-- metadata schema.org data - END   -->
         <@documentHeader document 'bloghub'></@documentHeader>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <#if hasLatestFeatures>
                 <@hubArticle document.latestFeatures></@hubArticle>

@@ -6,9 +6,6 @@ Feature: Ensure publication page displays required fields.
         And I should also see:
             | Publication Summary                   | Etiam vitae tincidunt lectus. Nulla posuere ultricies ...         |
             | Publication Key Facts                 | Cras eget elementum erat. Aliquam ornare urna ut ligula ...       |
-            | Publication Geographic Coverage       | England                                                           |
-            | Publication Granularity               | NHS Trusts                                                        |
-            | Publication Administrative Sources    | Mauris pretium orci ac gravida accumsan. Cras mattis massa ...    |
             | Publication Date Range                | 10 Feb 2015 to 15 Sep 2016                                        |
             | Publication Date                      | 10 Oct 2016                                                       |
 
@@ -51,12 +48,9 @@ Feature: Ensure publication page displays required fields.
         Given I navigate to the "publication with datasets" page
         Then I should see headers:
             | Publication Date:         |
-            | Geographic Coverage:      |
-            | Geographical Granularity: |
             | Date Range:               |
             | Summary                   |
             | Key Facts                 |
-            | Administrative Sources    |
             | Data Sets                 |
             | Resources                 |
             | Related Links             |
@@ -86,16 +80,6 @@ Feature: Ensure publication page displays required fields.
             # bullet list
             | Morbi eget congue turpis. Fusce in purus mollis ...           |
             | Aliquam erat volutpat. Quisque eget massa ...                 |
-
-    Scenario: Show attachments with and without display names
-        Given I navigate to "attachment test publication" page
-        Then I should see publication page titled "Attachment Test Publication"
-        And I should also see element with UI path "ps.publication.resources-attachments" with:
-            | attachment.pdf\nPDF 7 KB       |
-            | Attachment with text\nPDF 7 KB |
-        And I can download following files:
-            | attachment.pdf       | attachment.pdf      |
-            | Attachment with text | attachment-text.pdf |
 
     Scenario: Dataset order on a publication
         Given I navigate to "ordered publication" page

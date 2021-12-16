@@ -21,7 +21,7 @@
 
 <@hero getHeroOptions(document) />
 
-<div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-api-catalogue">
+<div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-7 nhsd-api-catalogue">
 
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-12">
@@ -49,15 +49,15 @@
                     </div>
                     <div class="nhsd-t-col-8 nhsd-t-col-l-8">
                         <div class="nhsd-t-float-right nhsd-!t-margin-top-1">
-                            <p class="nhsd-t-body-s">Include deprecated and retired APIs</p>
+                            <p class="nhsd-t-body-s">Include retired APIs</p>
                         </div>
                     </div>
                     <div class="nhsd-t-col-1 nhsd-t-col-l-1">
-                        <label class="nhsd-a-selector-toggle nhsd-a-selector-toggle--cancel" aria-label="Include deprecated and retired APIs">
+                        <label class="nhsd-a-selector-toggle nhsd-a-selector-toggle--cancel" aria-label="Include retired APIs">
                             <@hst.link var="baseUrl"/>
-                            <a href="<@renderUrl baseUrl=baseUrl showDeprecatedAndRetired=!showDeprecatedAndRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api", "deprecated-api"]) />"
+                            <a href="<@renderUrl baseUrl=baseUrl showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api"]) />"
                                class="nhsd-a-checkbox__label nhsd-t-body-s">
-                                <input type="checkbox"  <#if showDeprecatedAndRetired>checked</#if> />
+                                <input type="checkbox"  <#if showRetired>checked</#if> />
                                 <span class="slider"></span>
                             </a>
 

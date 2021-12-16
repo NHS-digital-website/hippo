@@ -10,6 +10,8 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
 import static uk.nhs.digital.test.util.TimeTestUtils.calendarFrom;
 
+import org.apache.jackrabbit.value.DateValue;
+import org.apache.jackrabbit.value.StringValue;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -17,8 +19,10 @@ import org.junit.rules.ExpectedException;
 import org.onehippo.repository.mock.MockNode;
 import org.onehippo.repository.mock.MockNodeIterator;
 
+import java.sql.Date;
 import java.time.Instant;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 import javax.jcr.*;
@@ -169,19 +173,68 @@ public class JcrNodeUtilsTest {
     }
 
     @Test
-    public void setInstantPropertyQuietly() throws RepositoryException {
+    public void getMultipleStringPropertyQuietly_returnsValuesOfGivenPropertyOnGivenNode() throws RepositoryException {
 
         // given
-        final Node node = mock(Node.class);
-
         final String expectedPropertyName = "expectedPropertyName";
-        final Instant expectedPropertyValue = Instant.parse("2020-05-04T10:30:00.000Z");
+        final List<String> expectedPropertyValues = asList("value-a", "value-b");
+
+        final Property expectedProperty = mock(Property.class);
+        final StringValue[] storedPropertyValues = fromStrings(expectedPropertyValues);
+
+        given(expectedProperty.getValues()).willReturn(storedPropertyValues);
+
+        final Node node = mock(Node.class);
+        given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
+        given(node.hasProperty(expectedPropertyName)).willReturn(true);
 
         // when
-        JcrNodeUtils.setInstantPropertyQuietly(node, expectedPropertyName, expectedPropertyValue);
+        final List<String> actualPropertyValues =
+            JcrNodeUtils.getMultipleStringPropertyQuietly(node, expectedPropertyName);
 
         // then
-        then(node).should().setProperty(expectedPropertyName, calendarFrom(expectedPropertyValue));
+        assertThat(
+            "Value returned was read from the given node",
+            actualPropertyValues,
+            is(expectedPropertyValues)
+        );
+    }
+
+    @Test
+    public void setMultipleStringPropertyQuietly_savesGivenListOfValuesOnGivenNode() throws RepositoryException {
+
+        // given
+        final String expectedPropertyName = "expectedPropertyName";
+        final String[] expectedPropertyValues = new String[]{"value-a", "value-b"};
+        final List<String> incomingPropertyValues = asList(expectedPropertyValues);
+
+        final Node node = mock(Node.class);
+        final Property expectedProperty = mock(Property.class);
+        given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
+
+        // when
+        JcrNodeUtils.setMultipleStringPropertyQuietly(node, expectedPropertyName, incomingPropertyValues);
+
+        // then
+        then(expectedProperty).should().setValue(expectedPropertyValues);
+    }
+
+    @Test
+    public void setMultipleStringPropertyQuietly_savesGivenArrayOfValuesOnGivenNode() throws RepositoryException {
+
+        // given
+        final String expectedPropertyName = "expectedPropertyName";
+        final String[] expectedPropertyValues = new String[]{"value-a", "value-b"};
+
+        final Node node = mock(Node.class);
+        final Property expectedProperty = mock(Property.class);
+        given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
+
+        // when
+        JcrNodeUtils.setMultipleStringPropertyQuietly(node, expectedPropertyName, expectedPropertyValues);
+
+        // then
+        then(expectedProperty).should().setValue(expectedPropertyValues);
     }
 
     @Test
@@ -232,6 +285,99 @@ public class JcrNodeUtilsTest {
     }
 
     @Test
+    public void setInstantPropertyQuietly() throws RepositoryException {
+
+        // given
+        final Node node = mock(Node.class);
+
+        final String expectedPropertyName = "expectedPropertyName";
+        final Instant expectedPropertyValue = Instant.parse("2020-05-04T10:30:00.000Z");
+
+        // when
+        JcrNodeUtils.setInstantPropertyQuietly(node, expectedPropertyName, expectedPropertyValue);
+
+        // then
+        then(node).should().setProperty(expectedPropertyName, calendarFrom(expectedPropertyValue));
+    }
+
+    @Test
+    public void getMultipleInstantPropertyQuietly_returnsValuesOfGivenPropertyOnGivenNode() throws RepositoryException {
+
+        // given
+        final String expectedPropertyName = "expectedPropertyName";
+        final List<Instant> expectedPropertyValues = asList(
+            Instant.parse("2020-05-04T10:30:00.000Z"),
+            Instant.parse("2020-05-04T10:30:00.001Z")
+        );
+
+        final Property expectedProperty = mock(Property.class);
+        final DateValue[] storedPropertyValues = fromInstants(expectedPropertyValues);
+
+        given(expectedProperty.getValues()).willReturn(storedPropertyValues);
+
+        final Node node = mock(Node.class);
+        given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
+        given(node.hasProperty(expectedPropertyName)).willReturn(true);
+
+        // when
+        final List<Instant> actualPropertyValues =
+            JcrNodeUtils.getMultipleInstantPropertyQuietly(node, expectedPropertyName);
+
+        // then
+        assertThat(
+            "Value returned was read from the given node",
+            actualPropertyValues,
+            is(expectedPropertyValues)
+        );
+    }
+
+    @Test
+    public void setMultipleInstantPropertyQuietly_savesGivenListOfValuesOnGivenNode() throws RepositoryException {
+
+        // given
+        final String expectedPropertyName = "expectedPropertyName";
+        final List<Instant> incomingPropertyValues = asList(
+            Instant.parse("2020-05-04T10:30:00.000Z"),
+            Instant.parse("2020-05-04T10:30:00.001Z")
+        );
+        final DateValue[] expectedPropertyValues = fromInstants(incomingPropertyValues);
+
+        final Node node = mock(Node.class);
+        final Property expectedProperty = mock(Property.class);
+        given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
+
+        // when
+        JcrNodeUtils.setMultipleInstantPropertyQuietly(node, expectedPropertyName, incomingPropertyValues);
+
+        // then
+        then(expectedProperty).should().setValue(expectedPropertyValues);
+    }
+
+    @Test
+    public void setMultipleInstantPropertyQuietly_savesGivenArrayOfValuesOnGivenNode() throws RepositoryException {
+
+        // given
+        final String expectedPropertyName = "expectedPropertyName";
+
+        final Instant[] incomingPropertyValues = new Instant[]{
+            Instant.parse("2020-05-04T10:30:00.000Z"),
+            Instant.parse("2020-05-04T10:30:00.001Z")
+        };
+
+        final DateValue[] expectedPropertyValues = fromInstants(incomingPropertyValues);
+
+        final Node node = mock(Node.class);
+        final Property expectedProperty = mock(Property.class);
+        given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
+
+        // when
+        JcrNodeUtils.setMultipleInstantPropertyQuietly(node, expectedPropertyName, incomingPropertyValues);
+
+        // then
+        then(expectedProperty).should().setValue(expectedPropertyValues);
+    }
+
+    @Test
     public void validateIsOfTypeHandle_deemsNodeValid_whenItsJcrPrimaryTypeIsHippoHandle() throws RepositoryException {
 
         // given
@@ -260,5 +406,20 @@ public class JcrNodeUtilsTest {
 
         // then
         // expectations set in 'given' are satisfied
+    }
+
+    private static DateValue[] fromInstants(final Instant[] values) {
+        return fromInstants(asList(values));
+    }
+
+    private static DateValue[] fromInstants(final List<Instant> values) {
+        return values.stream()
+            .map(instant -> new Calendar.Builder().setInstant(Date.from(instant)).build())
+            .map(DateValue::new)
+            .toArray(DateValue[]::new);
+    }
+
+    private static StringValue[] fromStrings(final List<String> values) {
+        return values.stream().map(StringValue::new).toArray(StringValue[]::new);
     }
 }

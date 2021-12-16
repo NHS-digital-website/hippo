@@ -8,49 +8,55 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-08-19T11:31:09.417Z
+      hippostdpubwf:lastModificationDate: 2021-11-05T11:53:13.710Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:taxonomymapping
-      website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
+      website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
+        \ Short description of\r\n                 filter category.\r\n    entries:\r\
         \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
         \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
         \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n     \
         \   entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n\
         \            displayName: A&E / Emergency Department\r\n          - taxonomyKey:\
-        \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
-        \ outpatients\r\n            displayName: Outpatient\r\n      - taxonomyKey:\
-        \ maternity\r\n        displayName: Maternity\r\n      - taxonomyKey: mental-health\r\
-        \n        displayName: Mental Health\r\n      - taxonomyKey: patient-citizen\r\
-        \n        displayName: Patient / Citizen\r\n      - taxonomyKey: pharmacy\r\
-        \n        displayName: Pharmacy\r\n      - taxonomyKey: general-practice\r\
-        \n        displayName: GP / Primary Care\r\n      - taxonomyKey: transport-infrastructure\r\
-        \n        displayName: Transport / Infrastructure\r\n      - taxonomyKey:\
-        \ social-care\r\n        displayName: Social Care\r\n      - taxonomyKey:\
-        \ urgent-and-emergency-care\r\n        displayName: Urgent And Emergency Care\r\
-        \n        entries:\r\n        - taxonomyKey: ambulance-services\r\n      \
-        \    displayName: Ambulance Services\r\n        - taxonomyKey: 111\r\n   \
-        \       displayName: NHS 111\r\n        - taxonomyKey: urgent-treatment-centres\r\
-        \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
-        \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
-        \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\
-        \r\n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
-        \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      -\
-        \ taxonomyKey: referrals\r\n        displayName: Referrals\r\n    - taxonomyKey:\
-        \ access-to-records_1\r\n      displayName: Access to Records\r\n    - taxonomyKey:\
-        \ clinical-decision-support\r\n      displayName: Clinical Decision Support\r\
-        \n    - taxonomyKey: continuity-of-care\r\n      displayName: Continuity of\
-        \ Care (ToC)\r\n    - taxonomyKey: demographics\r\n      displayName: Demographics\r\
-        \n    - taxonomyKey: key-care-information\r\n      displayName: Key Care Information\r\
-        \n    - taxonomyKey: medication-management\r\n      displayName: Medication\
-        \ Management\r\n      entries:\r\n      - taxonomyKey: prescribing\r\n   \
-        \     displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\n    \
-        \    displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n     \
-        \   displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
-        \      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\
+        \ inpatients\r\n            displayName: Inpatient\r\n            description:\
+        \  Longer description of a filter\r\n              with a [hyperlink](https://digital.nhs.uk)\
+        \ and some more text.\r\n              And then some. And even more. And more,\
+        \ and more and more.\r\n\r\n\r\n              Second paragraph with <b>embedded\
+        \ HTML</b> that should be escaped,\r\n              followed by some more\
+        \ text. And then some. And even more. And more,\r\n              and more\
+        \ and more.\r\n          - taxonomyKey: outpatients\r\n            displayName:\
+        \ Outpatient\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
+        \n      - taxonomyKey: mental-health\r\n        displayName: Mental Health\r\
+        \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient / Citizen\r\
+        \n      - taxonomyKey: pharmacy\r\n        displayName: Pharmacy\r\n     \
+        \ - taxonomyKey: general-practice\r\n        displayName: GP / Primary Care\r\
+        \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
+        \ / Infrastructure\r\n      - taxonomyKey: social-care\r\n        displayName:\
+        \ Social Care\r\n      - taxonomyKey: urgent-and-emergency-care\r\n      \
+        \  displayName: Urgent And Emergency Care\r\n        entries:\r\n        -\
+        \ taxonomyKey: ambulance-services\r\n          displayName: Ambulance Services\r\
+        \n        - taxonomyKey: 111\r\n          displayName: NHS 111\r\n       \
+        \ - taxonomyKey: urgent-treatment-centres\r\n          displayName: Urgent\
+        \ Treatment Centres\r\n        - taxonomyKey: accident-and-emergency--a-e-\r\
+        \n          displayName: A&E / Emergency Department\r\n        - taxonomyKey:\
+        \ out-of-hours\r\n          displayName: OOH GP\r\n\r\n  - displayName: Business\
+        \ Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\n  \
+        \    displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
+        \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
+        \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
+        \n      displayName: Clinical Decision Support\r\n    - taxonomyKey: continuity-of-care\r\
+        \n      displayName: Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\
+        \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+        \n      displayName: Key Care Information\r\n    - taxonomyKey: medication-management\r\
+        \n      displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
+        \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey:\
+        \ dispensing\r\n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\
+        \n        displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\
+        \n      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\
         \n      displayName: Patient Communication\r\n    - taxonomyKey: reference-data\r\
         \n      displayName: Reference Data\r\n    - taxonomyKey: information-governance\r\
         \n      displayName: Information Governance\r\n    - taxonomyKey: security\r\
@@ -66,8 +72,10 @@
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
         \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
-        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
-        \n      displayName: Retired"
+        \ deprecated-api\r\n      displayName: Deprecated\r\n      highlight: light-red\r\
+        \n    - taxonomyKey: retired-api\r\n      displayName: Retired\r\n    - taxonomyKey:\
+        \ category,with,commas\r\n      displayName: category,with,commas\r\n    -\
+        \ taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
     /taxonomy-filters-mapping[2]:
       common:searchable: true
       hippo:availability:
@@ -76,7 +84,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-08-19T11:31:26.939Z
+      hippostdpubwf:lastModificationDate: 2021-11-05T11:53:13.657Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
@@ -84,42 +92,48 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:taxonomymapping
-      website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
+      website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
+        \ Short description of\r\n                 filter category.\r\n    entries:\r\
         \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
         \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
         \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n     \
         \   entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n\
         \            displayName: A&E / Emergency Department\r\n          - taxonomyKey:\
-        \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
-        \ outpatients\r\n            displayName: Outpatient\r\n      - taxonomyKey:\
-        \ maternity\r\n        displayName: Maternity\r\n      - taxonomyKey: mental-health\r\
-        \n        displayName: Mental Health\r\n      - taxonomyKey: patient-citizen\r\
-        \n        displayName: Patient / Citizen\r\n      - taxonomyKey: pharmacy\r\
-        \n        displayName: Pharmacy\r\n      - taxonomyKey: general-practice\r\
-        \n        displayName: GP / Primary Care\r\n      - taxonomyKey: transport-infrastructure\r\
-        \n        displayName: Transport / Infrastructure\r\n      - taxonomyKey:\
-        \ social-care\r\n        displayName: Social Care\r\n      - taxonomyKey:\
-        \ urgent-and-emergency-care\r\n        displayName: Urgent And Emergency Care\r\
-        \n        entries:\r\n        - taxonomyKey: ambulance-services\r\n      \
-        \    displayName: Ambulance Services\r\n        - taxonomyKey: 111\r\n   \
-        \       displayName: NHS 111\r\n        - taxonomyKey: urgent-treatment-centres\r\
-        \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
-        \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
-        \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\
-        \r\n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
-        \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      -\
-        \ taxonomyKey: referrals\r\n        displayName: Referrals\r\n    - taxonomyKey:\
-        \ access-to-records_1\r\n      displayName: Access to Records\r\n    - taxonomyKey:\
-        \ clinical-decision-support\r\n      displayName: Clinical Decision Support\r\
-        \n    - taxonomyKey: continuity-of-care\r\n      displayName: Continuity of\
-        \ Care (ToC)\r\n    - taxonomyKey: demographics\r\n      displayName: Demographics\r\
-        \n    - taxonomyKey: key-care-information\r\n      displayName: Key Care Information\r\
-        \n    - taxonomyKey: medication-management\r\n      displayName: Medication\
-        \ Management\r\n      entries:\r\n      - taxonomyKey: prescribing\r\n   \
-        \     displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\n    \
-        \    displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n     \
-        \   displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
-        \      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\
+        \ inpatients\r\n            displayName: Inpatient\r\n            description:\
+        \  Longer description of a filter\r\n              with a [hyperlink](https://digital.nhs.uk)\
+        \ and some more text.\r\n              And then some. And even more. And more,\
+        \ and more and more.\r\n\r\n\r\n              Second paragraph with <b>embedded\
+        \ HTML</b> that should be escaped,\r\n              followed by some more\
+        \ text. And then some. And even more. And more,\r\n              and more\
+        \ and more.\r\n          - taxonomyKey: outpatients\r\n            displayName:\
+        \ Outpatient\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
+        \n      - taxonomyKey: mental-health\r\n        displayName: Mental Health\r\
+        \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient / Citizen\r\
+        \n      - taxonomyKey: pharmacy\r\n        displayName: Pharmacy\r\n     \
+        \ - taxonomyKey: general-practice\r\n        displayName: GP / Primary Care\r\
+        \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
+        \ / Infrastructure\r\n      - taxonomyKey: social-care\r\n        displayName:\
+        \ Social Care\r\n      - taxonomyKey: urgent-and-emergency-care\r\n      \
+        \  displayName: Urgent And Emergency Care\r\n        entries:\r\n        -\
+        \ taxonomyKey: ambulance-services\r\n          displayName: Ambulance Services\r\
+        \n        - taxonomyKey: 111\r\n          displayName: NHS 111\r\n       \
+        \ - taxonomyKey: urgent-treatment-centres\r\n          displayName: Urgent\
+        \ Treatment Centres\r\n        - taxonomyKey: accident-and-emergency--a-e-\r\
+        \n          displayName: A&E / Emergency Department\r\n        - taxonomyKey:\
+        \ out-of-hours\r\n          displayName: OOH GP\r\n\r\n  - displayName: Business\
+        \ Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\n  \
+        \    displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
+        \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
+        \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
+        \n      displayName: Clinical Decision Support\r\n    - taxonomyKey: continuity-of-care\r\
+        \n      displayName: Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\
+        \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+        \n      displayName: Key Care Information\r\n    - taxonomyKey: medication-management\r\
+        \n      displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
+        \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey:\
+        \ dispensing\r\n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\
+        \n        displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\
+        \n      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\
         \n      displayName: Patient Communication\r\n    - taxonomyKey: reference-data\r\
         \n      displayName: Reference Data\r\n    - taxonomyKey: information-governance\r\
         \n      displayName: Information Governance\r\n    - taxonomyKey: security\r\
@@ -135,8 +149,10 @@
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
         \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
-        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
-        \n      displayName: Retired"
+        \ deprecated-api\r\n      displayName: Deprecated\r\n      highlight: light-red\r\
+        \n    - taxonomyKey: retired-api\r\n      displayName: Retired\r\n    - taxonomyKey:\
+        \ category,with,commas\r\n      displayName: category,with,commas\r\n    -\
+        \ taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
     /taxonomy-filters-mapping[3]:
       common:searchable: true
       hippo:availability:
@@ -145,50 +161,56 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-      hippostdpubwf:lastModificationDate: 2021-08-19T11:31:26.939Z
+      hippostdpubwf:lastModificationDate: 2021-11-05T11:53:13.657Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2021-08-19T11:31:30.463Z
+      hippostdpubwf:publicationDate: 2021-11-05T11:53:16.202Z
       hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
       hippotranslation:locale: document-type-locale
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:taxonomymapping
-      website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
+      website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
+        \ Short description of\r\n                 filter category.\r\n    entries:\r\
         \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
         \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
         \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n     \
         \   entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n\
         \            displayName: A&E / Emergency Department\r\n          - taxonomyKey:\
-        \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
-        \ outpatients\r\n            displayName: Outpatient\r\n      - taxonomyKey:\
-        \ maternity\r\n        displayName: Maternity\r\n      - taxonomyKey: mental-health\r\
-        \n        displayName: Mental Health\r\n      - taxonomyKey: patient-citizen\r\
-        \n        displayName: Patient / Citizen\r\n      - taxonomyKey: pharmacy\r\
-        \n        displayName: Pharmacy\r\n      - taxonomyKey: general-practice\r\
-        \n        displayName: GP / Primary Care\r\n      - taxonomyKey: transport-infrastructure\r\
-        \n        displayName: Transport / Infrastructure\r\n      - taxonomyKey:\
-        \ social-care\r\n        displayName: Social Care\r\n      - taxonomyKey:\
-        \ urgent-and-emergency-care\r\n        displayName: Urgent And Emergency Care\r\
-        \n        entries:\r\n        - taxonomyKey: ambulance-services\r\n      \
-        \    displayName: Ambulance Services\r\n        - taxonomyKey: 111\r\n   \
-        \       displayName: NHS 111\r\n        - taxonomyKey: urgent-treatment-centres\r\
-        \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
-        \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
-        \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\
-        \r\n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
-        \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      -\
-        \ taxonomyKey: referrals\r\n        displayName: Referrals\r\n    - taxonomyKey:\
-        \ access-to-records_1\r\n      displayName: Access to Records\r\n    - taxonomyKey:\
-        \ clinical-decision-support\r\n      displayName: Clinical Decision Support\r\
-        \n    - taxonomyKey: continuity-of-care\r\n      displayName: Continuity of\
-        \ Care (ToC)\r\n    - taxonomyKey: demographics\r\n      displayName: Demographics\r\
-        \n    - taxonomyKey: key-care-information\r\n      displayName: Key Care Information\r\
-        \n    - taxonomyKey: medication-management\r\n      displayName: Medication\
-        \ Management\r\n      entries:\r\n      - taxonomyKey: prescribing\r\n   \
-        \     displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\n    \
-        \    displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n     \
-        \   displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
-        \      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\
+        \ inpatients\r\n            displayName: Inpatient\r\n            description:\
+        \  Longer description of a filter\r\n              with a [hyperlink](https://digital.nhs.uk)\
+        \ and some more text.\r\n              And then some. And even more. And more,\
+        \ and more and more.\r\n\r\n\r\n              Second paragraph with <b>embedded\
+        \ HTML</b> that should be escaped,\r\n              followed by some more\
+        \ text. And then some. And even more. And more,\r\n              and more\
+        \ and more.\r\n          - taxonomyKey: outpatients\r\n            displayName:\
+        \ Outpatient\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
+        \n      - taxonomyKey: mental-health\r\n        displayName: Mental Health\r\
+        \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient / Citizen\r\
+        \n      - taxonomyKey: pharmacy\r\n        displayName: Pharmacy\r\n     \
+        \ - taxonomyKey: general-practice\r\n        displayName: GP / Primary Care\r\
+        \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
+        \ / Infrastructure\r\n      - taxonomyKey: social-care\r\n        displayName:\
+        \ Social Care\r\n      - taxonomyKey: urgent-and-emergency-care\r\n      \
+        \  displayName: Urgent And Emergency Care\r\n        entries:\r\n        -\
+        \ taxonomyKey: ambulance-services\r\n          displayName: Ambulance Services\r\
+        \n        - taxonomyKey: 111\r\n          displayName: NHS 111\r\n       \
+        \ - taxonomyKey: urgent-treatment-centres\r\n          displayName: Urgent\
+        \ Treatment Centres\r\n        - taxonomyKey: accident-and-emergency--a-e-\r\
+        \n          displayName: A&E / Emergency Department\r\n        - taxonomyKey:\
+        \ out-of-hours\r\n          displayName: OOH GP\r\n\r\n  - displayName: Business\
+        \ Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\n  \
+        \    displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
+        \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
+        \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
+        \n      displayName: Clinical Decision Support\r\n    - taxonomyKey: continuity-of-care\r\
+        \n      displayName: Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\
+        \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+        \n      displayName: Key Care Information\r\n    - taxonomyKey: medication-management\r\
+        \n      displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
+        \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey:\
+        \ dispensing\r\n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\
+        \n        displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\
+        \n      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\
         \n      displayName: Patient Communication\r\n    - taxonomyKey: reference-data\r\
         \n      displayName: Reference Data\r\n    - taxonomyKey: information-governance\r\
         \n      displayName: Information Governance\r\n    - taxonomyKey: security\r\
@@ -204,10 +226,12 @@
         \  displayName: Central\r\n      - taxonomyKey: intermediary\r\n        displayName:\
         \ Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName: API\
         \ Standard\r\n\r\n  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey:\
-        \ deprecated-api\r\n      displayName: Deprecated\r\n    - taxonomyKey: retired-api\r\
-        \n      displayName: Retired"
+        \ deprecated-api\r\n      displayName: Deprecated\r\n      highlight: light-red\r\
+        \n    - taxonomyKey: retired-api\r\n      displayName: Retired\r\n    - taxonomyKey:\
+        \ category,with,commas\r\n      displayName: category,with,commas\r\n    -\
+        \ taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
     hippo:name: Taxonomy filters mapping
-    hippo:versionHistory: a21f6ee4-53b6-4afe-9132-13bab150481a
+    hippo:versionHistory: db76f34b-d54f-4b60-b664-2e5220b2830b
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo

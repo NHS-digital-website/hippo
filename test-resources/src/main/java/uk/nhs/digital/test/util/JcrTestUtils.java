@@ -89,6 +89,10 @@ public class JcrTestUtils {
         );
     }
 
+    public static String getNameQuietly(final Node node) {
+        return wrapCheckedException(node::getName);
+    }
+
     public enum BloomReachJcrDocumentVariantType {
         DRAFT,
         UNPUBLISHED,

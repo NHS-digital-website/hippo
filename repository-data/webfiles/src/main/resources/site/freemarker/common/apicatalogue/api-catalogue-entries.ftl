@@ -52,8 +52,12 @@
                                             </#if>
                                         </#if>
                                     </#if>
-
-                                    <h2 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-1" id="${block.title?lower_case?replace(" ", "-")}">
+                                        <#list get_unique_sorted_tags(block filtersModel) as taxonomyTag>
+                                            <#if filtersModel.isHighlighted(taxonomyTag)>
+                                                <span class="nhsd-a-tag nhsd-a-tag--bg-${filtersModel.getHighlight(taxonomyTag)} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag}</span>
+                                            </#if>
+                                        </#list>
+                                    <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" id="${block.title?lower_case?replace(" ", "-")}">
                                         <#if link?has_content>
                                             <a href="${link}" class="nhsd-a-link" data-filterable>${block.title}</a>
                                         <#else>
@@ -68,10 +72,11 @@
                                             <@hst.html hippohtml=block.definition contentRewriter=brContentRewriter/>
                                         </div>
                                     </#if>
-                                    <#list get_sorted_tags(block filtersModel) as taxonomyTag>
-                                        <span class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag}</span>
+                                        <#list get_unique_sorted_tags(block filtersModel) as taxonomyTag>
+                                            <#if !filtersModel.isHighlighted(taxonomyTag)>
+                                                <span style="line-height:1" class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag}</span>
+                                        </#if>
                                     </#list>
-
                                     <#if block?index lt blockGroups[letter]?size - 1>
                                         <hr class="nhsd-a-horizontal-rule"/>
                                     </#if>
@@ -85,13 +90,13 @@
     </#if>
 </#macro>
 
-<#function get_sorted_tags block filtersModel>
+<#function get_unique_sorted_tags block filtersModel>
     <#local documentTags = block.getMultipleProperty("hippotaxonomy:keys")![] />
-    <#local sortedTagDisplayNames = [] />
+    <#local uniqueSortedTagDisplayNames = [] />
     <#list filtersModel.sectionsInOrderOfDeclaration() as filterSection>
-        <#if documentTags?? && documentTags?seq_contains(filterSection.getKey())>
-            <#local sortedTagDisplayNames = sortedTagDisplayNames + [ filterSection.displayName ] />
+        <#if documentTags?? && documentTags?seq_contains(filterSection.getKey()) && !uniqueSortedTagDisplayNames?seq_contains(filterSection.getDisplayName())>
+            <#local uniqueSortedTagDisplayNames = uniqueSortedTagDisplayNames + [ filterSection.displayName ] />
         </#if>
     </#list>
-    <#return sortedTagDisplayNames>
+    <#return uniqueSortedTagDisplayNames>
 </#function>

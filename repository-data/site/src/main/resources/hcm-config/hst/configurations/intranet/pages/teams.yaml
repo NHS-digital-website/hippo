@@ -1,0 +1,12 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/teams:
+      /main:
+        /teamscontainer:
+          hst:referencecomponent: teamscontainer
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: teams
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component

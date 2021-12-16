@@ -10,7 +10,7 @@ definitions:
         jcr:primaryType: hst:configuration
       /intranet:
         hst:inheritsfrom:
-        - ../common
+        - ../base
         jcr:primaryType: hst:configuration
       /nationalindicatorlibrary:
         hst:inheritsfrom:

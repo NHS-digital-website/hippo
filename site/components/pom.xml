@@ -84,7 +84,7 @@
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-content-feed-dependencies-site</artifactId>
-            <version>${bloomreach.version}</version>
+            <version>${hippo.addon-content-feed.version}</version>
             <type>pom</type>
         </dependency>
 
@@ -146,9 +146,15 @@
             <scope>compile</scope>
         </dependency>
 
+<!--   #TODO     do we need this sitemap? conflict? have left it alone until further clarification-->
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-sitemap-component</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-sitemapv2-component</artifactId>
         </dependency>
 
         <dependency>

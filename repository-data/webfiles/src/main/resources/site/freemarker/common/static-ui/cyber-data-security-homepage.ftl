@@ -16,7 +16,7 @@
 
 
 <article class="article article--news-hub">
-    <div class="banner-image banner-image--short article-header" aria-label="Document Header" style="background-image: url(https://i.ibb.co/0QMQgzT/Artboard.jpg);">
+    <div class="banner-image banner-image--short article-header" style="background-image: url(https://i.ibb.co/0QMQgzT/Artboard.jpg);">
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
             <div class="article-header--with-icon">
                 <div class="grid-wrapper">

@@ -1,0 +1,103 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:workspace/hst:sitemenus/footer:
+      .meta:residual-child-node-category: content
+      hst:lastmodified: 2021-11-11T16:01:44.972Z
+      jcr:primaryType: hst:sitemenu
+      /About NHS Digital:
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /About us:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Our strategy:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/our-strategy
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Annual report and accounts:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-s-annual-reports-and-accounts
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Our business plan:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-business-plan-2018--19
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /News and events:
+        hst:externallink: https://digital.nhs.uk/news-and-events
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Legal:
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Privacy and cookies:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/privacy-and-cookies
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Terms and conditions:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/terms-and-conditions
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Looking after your data:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/our-work/keeping-patient-data-safe/how-we-look-after-your-health-and-care-information
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Freedom of information:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/contact-us/freedom-of-information
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Open Government Licence:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/terms-and-conditions
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Accessibility:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/accessibility
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Change cookie settings:
+        hst:externallink: javascript:Cookiebot.renew()
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Get in touch:
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Contact us:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/contact-us
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Press office:
+        hst:externallink: https://digital.nhs.uk/news/press-office
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Careers:
+        hst:externallink: https://digital.nhs.uk/careers
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Tell us what you think of our website:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/tell-us-what-you-think-of-our-website
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /RSS feeds:
+        hst:externallink: https://digital.nhs.uk/about-nhs-digital/rss-feeds
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Follow us on:
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Twitter:
+        hst:referencesitemapitem: social-media/twitter
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /Facebook:
+        hst:referencesitemapitem: social-media/facebook
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /LinkedIn:
+        hst:referencesitemapitem: social-media/linkedin
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem
+      /YouTube:
+        hst:referencesitemapitem: social-media/youtube
+        hst:repobased: false
+        jcr:primaryType: hst:sitemenuitem

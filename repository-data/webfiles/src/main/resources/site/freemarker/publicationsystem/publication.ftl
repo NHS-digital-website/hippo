@@ -27,7 +27,7 @@
 <#macro restrictedContentOfUpcomingPublication>
     <@publicationHeader publication=publication restricted=true downloadPDF=false />
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
@@ -44,6 +44,7 @@
 <@fmt.message key="headers.related-links" var="relatedLinksHeader" />
 <@fmt.message key="headers.key-facts" var="keyFactsHeader" />
 <@fmt.message key="headers.administrative-sources" var="administrativeResourcesHeader" />
+<@fmt.message key="headers.highlights" var="highlightsHeader" />
 <@fmt.message key="headers.datasets" var="datasetsHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
 <@fmt.message key="headers.supplementary-information-requests" var="supplementaryHeader" />
@@ -61,6 +62,7 @@
 <#assign hasNewKeyfacts = (publication.keyFactsHead?? && publication.keyFactsHead.content?has_content)
 || (publication.keyFactsTail?? && publication.keyFactsTail.content?has_content)
 || (publication.keyFactInfographics?? && publication.keyFactInfographics?size >0)  />
+<#assign hasSectionContent = document.sections?has_content />
 
 <#macro fullContentOfPubliclyAvailablePublication>
     <@publicationHeader publication=publication restricted=false downloadPDF=true/>
@@ -68,7 +70,7 @@
     <#-- Content Page Pixel -->
     <@contentPixel publication.getCanonicalUUID() publication.title></@contentPixel>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
 
         <@updateGroup document=publication />
 
@@ -96,6 +98,13 @@
                     <div
                         itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></div>
                 </div>
+
+                <#if hasSectionContent>
+                    <div class="article-section" id="highlights">
+                        <h2>${highlightsHeader}</h2>
+                        <@sections document.sections></@sections>
+                    </div>
+                </#if>
 
                 <div data-uipath="ps.publication.body"></div>
 
@@ -179,7 +188,8 @@
         </div>
     </#if>
 
-                <#assign administrativeSources = publication.parentDocument?has_content?then(publication.parentDocument.administrativeSources?has_content?then(publication.parentDocument.administrativeSources, publication.administrativeSources), publication.administrativeSources) />
+                <#assign administrativeSources = publication.parentDocument?has_content?then(publication.parentDocument.administrativeSources?has_content?then(publication.parentDocument.administrativeSources, ""), "") />
+
                 <#if administrativeSources?has_content>
                     <div class="article-section" id="administrative-sources">
                         <h2>${administrativeResourcesHeader}</h2>

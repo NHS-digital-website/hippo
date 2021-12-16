@@ -12,7 +12,7 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article itemscope itemtype="https://schema.org/VideoObject">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed">
             <div class="grid-wrapper">
                 <div class="article-header__inner">
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
                 <@hst.html hippohtml=document.introduction />
@@ -38,7 +38,7 @@
         <div class="article-section">
             <div class="grid-row">
                 <div class="iframe-wrapper iframe-wrapper--16-9">
-                    <iframe id="ytplayer" type="text/html" src="${document.videoUri}" frameborder="0"></iframe>
+                    <iframe id="ytplayer" src="${document.videoUri}"></iframe>
                     <link itemprop="embedUrl" href="${document.videoUri}" />
                 </div>
             </div>

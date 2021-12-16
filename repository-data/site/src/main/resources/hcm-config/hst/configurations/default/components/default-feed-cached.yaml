@@ -1,0 +1,11 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:components/forge-sitemapv2-default-feed-cached:
+      hst:componentclassname: org.onehippo.forge.sitemapv2.components.DefaultSitemapFeed
+      hst:parameternames:
+      - cache-enabled
+      hst:parametervalues:
+      - 'true'
+      hst:template: forge-sitemapv2-feed.ftl
+      jcr:primaryType: hst:component

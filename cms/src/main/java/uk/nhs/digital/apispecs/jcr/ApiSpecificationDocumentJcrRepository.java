@@ -60,10 +60,10 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
 
     private QueryResult findApiSpecificationsHandleNodes() {
 
-        return executeJcrXpathQueryForQueryResult(QUERY_APISPEC_HANDLE_NODES_IN_WEBSITE_DOCS_FOLDER);
+        return executeJcrXpathQueryForQueryResult(session, QUERY_APISPEC_HANDLE_NODES_IN_WEBSITE_DOCS_FOLDER);
     }
 
-    private QueryResult executeJcrXpathQueryForQueryResult(final String queryStatement) {
+    public static QueryResult executeJcrXpathQueryForQueryResult(final Session session, final String queryStatement) {
         try {
             return session
                 .getWorkspace()

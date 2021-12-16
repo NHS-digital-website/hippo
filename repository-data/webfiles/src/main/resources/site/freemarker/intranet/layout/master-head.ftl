@@ -32,10 +32,18 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/latest/stylesheets/nhsd-frontend.css" />
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-edge-cases.css" />" />
+    <script src="https://design-system.digital.nhs.uk/cdn/latest/scripts/nhsd-frontend.js"></script>
+
+   <#--
+    Todo once confident that all this CSS can go, come back and clean up:
+        - repository-data/webfiles/src/main/resources/site/src/scss/nhsd-intranet.scss
+        - repository-data/webfiles/src/main/resources/site/src/scss/nhsd-intranet-print.scss
+        - repository-data/webfiles/src/main/resources/site/src/scss/intranet
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet.css"/>" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-print.css"/>" media="print" type="text/css"/>
-
-    <script defer src="<@hst.webfile path="/dist/intranet-scripts.bundle.js"/>"></script>
+    -->
 
     <#include "../scripts/intranet-header-scripts.ftl" />
 </head>

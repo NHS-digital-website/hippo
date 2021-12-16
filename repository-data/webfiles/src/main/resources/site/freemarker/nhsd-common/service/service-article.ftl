@@ -48,6 +48,7 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article>
+
     <#assign heroType = "default" />
     <#if hasBannerImage>
         <#assign heroType = "image" />
@@ -154,7 +155,7 @@
                     </#if>
                     <div id="${slugify('Contact details')}">
                         <p class="nhsd-t-heading-xl"><@fmt.message key="headers.contact-details" /></p>
-                        <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
+                        <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6">
                             <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
                                 <div class="nhsd-m-contact-us__content">
                                     <@hst.html hippohtml=document.contactdetails contentRewriter=brContentRewriter/>

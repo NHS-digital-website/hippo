@@ -1,0 +1,113 @@
+---
+/content/documents/administration/value-lists/toolkit-icons:
+  /toolkit-icons:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: other
+      selection:label: Other (please uses temporary icon link)
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/arrow_down.svg
+      selection:label: Arrow down
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/arrow_left.svg
+      selection:label: Arrow left
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/arrow_right.svg
+      selection:label: Arrow right
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/arrow_up.svg
+      selection:label: Arrow up
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/burger.svg
+      selection:label: Burger
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/chart.svg
+      selection:label: Chart
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/check.svg
+      selection:label: Check
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/chevron_down.svg
+      selection:label: Chevron down
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/chevron_left.svg
+      selection:label: Chevron left
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/chevron_right.svg
+      selection:label: Chevron right
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/chevron_up.svg
+      selection:label: Chevron up
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/ellipsis.svg
+      selection:label: Ellipsis
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/exclamation_circled.svg
+      selection:label: Exclamation circled
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/exclamation_triangle.svg
+      selection:label: Exclamation triangle
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/facebook.svg
+      selection:label: Facebook
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/i_circled.svg
+      selection:label: I_circled
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/link.svg
+      selection:label: Link
+    /selection:listitem[19]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/linkedin.svg
+      selection:label: Linkedin
+    /selection:listitem[20]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/quote_open.svg
+      selection:label: Quote open
+    /selection:listitem[21]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/search.svg
+      selection:label: Search
+    /selection:listitem[22]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/twitter.svg
+      selection:label: Twitter
+    /selection:listitem[23]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/x_circled.svg
+      selection:label: X circled
+    /selection:listitem[24]:
+      jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/youtube.svg
+      selection:label: Youtube
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 466163be-f2d4-4cf4-a276-18276702ee48
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Toolkit Hex Icons
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

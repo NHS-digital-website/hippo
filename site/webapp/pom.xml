@@ -41,10 +41,17 @@
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-robotstxt-addon-hcm-site</artifactId>
         </dependency>
+        <!--   #TODO     do we need this sitemap? conflict? have left it alone until further clarification-->
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-sitemap-hcm-site</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-eforms-hcm-site</artifactId>
