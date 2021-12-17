@@ -1,131 +1,39 @@
----
 /content/documents/corporate-website/cyber-alerts/wannatest:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: e22d969f-7a7e-4b81-98bf-4ddf0203ef76
+  hippo:name: Wannatest
   /wannatest[1]:
-    /website:cyberacknowledgement[1]:
-      jcr:primaryType: website:cyberacknowledgement
-      website:linkaddress: https://www.somelink568.co.uk
-      website:responsedatetime: 2019-06-26T10:03:00Z
-    /website:cyberacknowledgement[2]:
-      jcr:primaryType: website:cyberacknowledgement
-      website:linkaddress: https://www.anotherlink123.co.uk
-      website:responsedatetime: 2019-06-26T10:41:00Z
-    /website:cybercveidentifiers:
-      /website:cvetext:
-        hippostd:content: <p>Some CVE text to go here.&nbsp;"Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:cybercveidentifier
-      website:cveidentifier: CVE-2018-UGVBA
-      website:cvestatus: Master
-    /website:indicatorscompromise:
-      hippostd:content: <p>slow machine performance.</p>
-      jcr:primaryType: hippostd:html
-    /website:remediationintro:
-      hippostd:content: <p>Add some intro text here for remediation</p>
-      jcr:primaryType: hippostd:html
-    /website:remediationsteps[1]:
-      /website:step:
-        hippostd:content: <p>step one will be not to open email</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:remediationstep
-      website:link: https://www.someotherlink.co.uk
-      website:type: Guidance
-    /website:remediationsteps[2]:
-      /website:step:
-        hippostd:content: <p>step 2 is to delete email</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:remediationstep
-      website:link: ''
-      website:type: Action
-    /website:section:
-      /website:body:
-        hippostd:content: <p>self explanatory</p>
-        jcr:primaryType: hippostd:html
-      /website:image:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
-      jcr:primaryType: website:emphasisBox
-      website:emphasisType: Warning
-      website:heading: Do not click on the button
-    /website:seosummary:
-      hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
-      jcr:primaryType: hippostd:html
-    /website:summary:
-      hippostd:content: <p>Some summary information please</p>
-      jcr:primaryType: hippostd:html
-    /website:threataffects[1]:
-      /website:platformaffected:
-        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
-        jcr:primaryType: hippo:mirror
-      /website:platformtext:
-        hippostd:content: <p>platformaffect threat</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:threataffect
-      website:versionsaffected:
-      - v1.0.1
-      - v1.3.0
-    /website:threataffects[2]:
-      /website:platformaffected:
-        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
-        jcr:primaryType: hippo:mirror
-      /website:platformtext:
-        hippostd:content: <p>platform take 2</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:threataffect
-      website:versionsaffected:
-      - v1.0.2
-    /website:threatupdates:
-      /website:content:
-        hippostd:content: <p>Some content description to go here.&nbsp; Lorem ipsum.&nbsp;</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:threatupdate
-      website:date: 2019-06-26T10:43:00Z
-      website:title: Update is this is not good
-    common:FullTaxonomy:
-    - infectious-diseases
-    - conditions
-    - circulatory-system-diseases
-    common:SearchableTags:
-    - Circulatory system diseases
-    - Infectious diseases
+    jcr:primaryType: website:cyberalert
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    jcr:uuid: 9b63d6a3-f445-4074-9ed6-a10390dd8bd8
+    common:FullTaxonomy: [infectious-diseases, conditions, circulatory-system-diseases]
+    common:SearchableTags: [Circulatory system diseases, Infectious diseases]
     common:searchRank: 3
     common:searchable: true
     hippo:availability: []
+    hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2019-02-19T22:00:36.335Z
-    hippostdpubwf:lastModificationDate: 2019-06-26T10:52:08.910Z
+    hippostdpubwf:lastModificationDate: 2021-12-17T13:57:51.861Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys:
-    - circulatory-system-diseases
-    - infectious-diseases
+    hippotaxonomy:keys: [circulatory-system-diseases, infectious-diseases]
     hippotranslation:id: 5a65a8b1-951e-42cd-aa47-393cc151f00c
     hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippotaxonomy:classifiable
-    - mix:referenceable
-    jcr:primaryType: website:cyberalert
     publicationsystem:NominalDate: 2019-02-19T00:00:00Z
-    website:category:
-    - Botnet
-    - Exploit
+    website:archivecontent: false
+    website:category: [Botnet, Exploit]
     website:ncsclink: https://www.somelink34113.gov.uk
     website:publicallyaccessible: true
     website:severity: High
     website:shortsummary: Browse SHMI
-    website:sourceofthreatupdates:
-    - https://www.somegovsite.uk
+    website:sourceofthreatupdates: ['https://www.somegovsite.uk']
     website:threatid: ID12345
     website:threattype: Insecure software
-    website:threatvector:
-    - Phishing
+    website:threatvector: [Phishing]
     website:title: Wanna Cry
-  /wannatest[2]:
     /website:cyberacknowledgement[1]:
       jcr:primaryType: website:cyberacknowledgement
       website:linkaddress: https://www.somelink568.co.uk
@@ -135,124 +43,110 @@
       website:linkaddress: https://www.anotherlink123.co.uk
       website:responsedatetime: 2019-06-26T10:41:00Z
     /website:cybercveidentifiers:
+      jcr:primaryType: website:cybercveidentifier
+      website:cveidentifier: CVE-2018-UGVBA
+      website:cvestatus: Published
       /website:cvetext:
+        jcr:primaryType: hippostd:html
         hippostd:content: <p>Some CVE text to go here.&nbsp;"Lorem ipsum dolor sit
           amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
           et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
           ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:cybercveidentifier
-      website:cveidentifier: CVE-2018-UGVBA
-      website:cvestatus: Master
     /website:indicatorscompromise:
+      jcr:primaryType: hippostd:html
       hippostd:content: <p>slow machine performance.</p>
-      jcr:primaryType: hippostd:html
     /website:remediationintro:
-      hippostd:content: <p>Add some intro text here for remediation</p>
       jcr:primaryType: hippostd:html
+      hippostd:content: <p>Add some intro text here for remediation</p>
     /website:remediationsteps[1]:
-      /website:step:
-        hippostd:content: <p>step one will be not to open email</p>
-        jcr:primaryType: hippostd:html
       jcr:primaryType: website:remediationstep
       website:link: https://www.someotherlink.co.uk
       website:type: Guidance
-    /website:remediationsteps[2]:
       /website:step:
-        hippostd:content: <p>step 2 is to delete email</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>step one will be not to open email</p>
+    /website:remediationsteps[2]:
       jcr:primaryType: website:remediationstep
       website:link: ''
       website:type: Action
-    /website:section:
-      /website:body:
-        hippostd:content: <p>self explanatory</p>
+      /website:step:
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>step 2 is to delete email</p>
+    /website:section:
+      jcr:primaryType: website:emphasisBox
+      website:emphasisType: Warning
+      website:heading: Do not click on the button
+      /website:body:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>self explanatory</p>
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
-      jcr:primaryType: website:emphasisBox
-      website:emphasisType: Warning
-      website:heading: Do not click on the button
     /website:seosummary:
-      hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
       jcr:primaryType: hippostd:html
+      hippostd:content: SEO is good. Some nice summary to help with Google rankings.
     /website:summary:
-      hippostd:content: <p>Some summary information please</p>
       jcr:primaryType: hippostd:html
+      hippostd:content: <p>Some summary information please</p>
     /website:threataffects[1]:
+      jcr:primaryType: website:threataffect
+      website:versionsaffected: [v1.0.1, v1.3.0]
       /website:platformaffected:
-        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
         jcr:primaryType: hippo:mirror
+        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
       /website:platformtext:
+        jcr:primaryType: hippostd:html
         hippostd:content: <p>platformaffect threat</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:threataffect
-      website:versionsaffected:
-      - v1.0.1
-      - v1.3.0
     /website:threataffects[2]:
-      /website:platformaffected:
-        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
-        jcr:primaryType: hippo:mirror
-      /website:platformtext:
-        hippostd:content: <p>platform take 2</p>
-        jcr:primaryType: hippostd:html
       jcr:primaryType: website:threataffect
-      website:versionsaffected:
-      - v1.0.2
-    /website:threatupdates:
-      /website:content:
-        hippostd:content: <p>Some content description to go here.&nbsp; Lorem ipsum.&nbsp;</p>
+      website:versionsaffected: [v1.0.2]
+      /website:platformaffected:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
+      /website:platformtext:
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>platform take 2</p>
+    /website:threatupdates:
       jcr:primaryType: website:threatupdate
       website:date: 2019-06-26T10:43:00Z
       website:title: Update is this is not good
-    common:FullTaxonomy:
-    - infectious-diseases
-    - conditions
-    - circulatory-system-diseases
-    common:SearchableTags:
-    - Circulatory system diseases
-    - Infectious diseases
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Some content description to go here.&nbsp; Lorem ipsum.&nbsp;</p>
+    /website:severitystatuschanges:
+      jcr:primaryType: website:severitystatuschange
+      website:date: 0001-01-01T12:00:00Z
+  /wannatest[2]:
+    jcr:primaryType: website:cyberalert
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+    jcr:uuid: a26d1801-81b2-4596-a6cf-f20d2115478e
+    common:FullTaxonomy: [infectious-diseases, conditions, circulatory-system-diseases]
+    common:SearchableTags: [Circulatory system diseases, Infectious diseases]
     common:searchRank: 3
     common:searchable: true
-    hippo:availability:
-    - preview
+    hippo:availability: [preview]
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2019-02-19T22:00:36.335Z
     hippostdpubwf:lastModificationDate: 2019-06-26T10:52:51.207Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys:
-    - circulatory-system-diseases
-    - infectious-diseases
+    hippotaxonomy:keys: [circulatory-system-diseases, infectious-diseases]
     hippotranslation:id: 5a65a8b1-951e-42cd-aa47-393cc151f00c
     hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippotaxonomy:classifiable
-    - mix:referenceable
-    - mix:versionable
-    jcr:primaryType: website:cyberalert
     publicationsystem:NominalDate: 2019-02-19T00:00:00Z
-    website:category:
-    - Botnet
-    - Exploit
+    website:category: [Botnet, Exploit]
     website:ncsclink: https://www.somelink34113.gov.uk
     website:publicallyaccessible: true
     website:severity: High
     website:shortsummary: Browse SHMI
-    website:sourceofthreatupdates:
-    - https://www.somegovsite.uk
+    website:sourceofthreatupdates: ['https://www.somegovsite.uk']
     website:threatid: ID12345
     website:threattype: Insecure software
-    website:threatvector:
-    - Phishing
+    website:threatvector: [Phishing]
     website:title: Wanna Cry
-  /wannatest[3]:
     /website:cyberacknowledgement[1]:
       jcr:primaryType: website:cyberacknowledgement
       website:linkaddress: https://www.somelink568.co.uk
@@ -262,125 +156,187 @@
       website:linkaddress: https://www.anotherlink123.co.uk
       website:responsedatetime: 2019-06-26T10:41:00Z
     /website:cybercveidentifiers:
+      jcr:primaryType: website:cybercveidentifier
+      website:cveidentifier: CVE-2018-UGVBA
+      website:cvestatus: Master
       /website:cvetext:
+        jcr:primaryType: hippostd:html
         hippostd:content: <p>Some CVE text to go here.&nbsp;"Lorem ipsum dolor sit
           amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
           et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
           ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:cybercveidentifier
-      website:cveidentifier: CVE-2018-UGVBA
-      website:cvestatus: Master
     /website:indicatorscompromise:
+      jcr:primaryType: hippostd:html
       hippostd:content: <p>slow machine performance.</p>
-      jcr:primaryType: hippostd:html
     /website:remediationintro:
-      hippostd:content: <p>Add some intro text here for remediation</p>
       jcr:primaryType: hippostd:html
+      hippostd:content: <p>Add some intro text here for remediation</p>
     /website:remediationsteps[1]:
-      /website:step:
-        hippostd:content: <p>step one will be not to open email</p>
-        jcr:primaryType: hippostd:html
       jcr:primaryType: website:remediationstep
       website:link: https://www.someotherlink.co.uk
       website:type: Guidance
-    /website:remediationsteps[2]:
       /website:step:
-        hippostd:content: <p>step 2 is to delete email</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>step one will be not to open email</p>
+    /website:remediationsteps[2]:
       jcr:primaryType: website:remediationstep
       website:link: ''
       website:type: Action
-    /website:section:
-      /website:body:
-        hippostd:content: <p>self explanatory</p>
+      /website:step:
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>step 2 is to delete email</p>
+    /website:section:
+      jcr:primaryType: website:emphasisBox
+      website:emphasisType: Warning
+      website:heading: Do not click on the button
+      /website:body:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>self explanatory</p>
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
-      jcr:primaryType: website:emphasisBox
-      website:emphasisType: Warning
-      website:heading: Do not click on the button
     /website:seosummary:
+      jcr:primaryType: hippostd:html
       hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
-      jcr:primaryType: hippostd:html
     /website:summary:
-      hippostd:content: <p>Some summary information please</p>
       jcr:primaryType: hippostd:html
+      hippostd:content: <p>Some summary information please</p>
     /website:threataffects[1]:
+      jcr:primaryType: website:threataffect
+      website:versionsaffected: [v1.0.1, v1.3.0]
       /website:platformaffected:
-        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
         jcr:primaryType: hippo:mirror
+        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
       /website:platformtext:
+        jcr:primaryType: hippostd:html
         hippostd:content: <p>platformaffect threat</p>
-        jcr:primaryType: hippostd:html
-      jcr:primaryType: website:threataffect
-      website:versionsaffected:
-      - v1.0.1
-      - v1.3.0
     /website:threataffects[2]:
-      /website:platformaffected:
-        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
-        jcr:primaryType: hippo:mirror
-      /website:platformtext:
-        hippostd:content: <p>platform take 2</p>
-        jcr:primaryType: hippostd:html
       jcr:primaryType: website:threataffect
-      website:versionsaffected:
-      - v1.0.2
-    /website:threatupdates:
-      /website:content:
-        hippostd:content: <p>Some content description to go here.&nbsp; Lorem ipsum.&nbsp;</p>
+      website:versionsaffected: [v1.0.2]
+      /website:platformaffected:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
+      /website:platformtext:
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>platform take 2</p>
+    /website:threatupdates:
       jcr:primaryType: website:threatupdate
       website:date: 2019-06-26T10:43:00Z
       website:title: Update is this is not good
-    common:FullTaxonomy:
-    - infectious-diseases
-    - conditions
-    - circulatory-system-diseases
-    common:SearchableTags:
-    - Circulatory system diseases
-    - Infectious diseases
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Some content description to go here.&nbsp; Lorem ipsum.&nbsp;</p>
+  /wannatest[3]:
+    jcr:primaryType: website:cyberalert
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    jcr:uuid: c1ef958c-dfcd-496a-ae11-87f381fdecbf
+    common:FullTaxonomy: [infectious-diseases, conditions, circulatory-system-diseases]
+    common:SearchableTags: [Circulatory system diseases, Infectious diseases]
     common:searchRank: 3
     common:searchable: true
-    hippo:availability:
-    - live
+    hippo:availability: [live]
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2019-02-19T22:00:36.335Z
     hippostdpubwf:lastModificationDate: 2019-06-26T10:52:51.207Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2019-06-26T10:52:53.708Z
-    hippotaxonomy:keys:
-    - circulatory-system-diseases
-    - infectious-diseases
+    hippotaxonomy:keys: [circulatory-system-diseases, infectious-diseases]
     hippotranslation:id: 5a65a8b1-951e-42cd-aa47-393cc151f00c
     hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippotaxonomy:classifiable
-    - mix:referenceable
-    jcr:primaryType: website:cyberalert
     publicationsystem:NominalDate: 2019-02-19T00:00:00Z
-    website:category:
-    - Botnet
-    - Exploit
+    website:category: [Botnet, Exploit]
     website:ncsclink: https://www.somelink34113.gov.uk
     website:publicallyaccessible: true
     website:severity: High
     website:shortsummary: Browse SHMI
-    website:sourceofthreatupdates:
-    - https://www.somegovsite.uk
+    website:sourceofthreatupdates: ['https://www.somegovsite.uk']
     website:threatid: ID12345
     website:threattype: Insecure software
-    website:threatvector:
-    - Phishing
+    website:threatvector: [Phishing]
     website:title: Wanna Cry
-  hippo:name: Wannatest
-  jcr:mixinTypes:
-  - hippo:named
-  - mix:referenceable
-  jcr:primaryType: hippo:handle
+    /website:cyberacknowledgement[1]:
+      jcr:primaryType: website:cyberacknowledgement
+      website:linkaddress: https://www.somelink568.co.uk
+      website:responsedatetime: 2019-06-26T10:03:00Z
+    /website:cyberacknowledgement[2]:
+      jcr:primaryType: website:cyberacknowledgement
+      website:linkaddress: https://www.anotherlink123.co.uk
+      website:responsedatetime: 2019-06-26T10:41:00Z
+    /website:cybercveidentifiers:
+      jcr:primaryType: website:cybercveidentifier
+      website:cveidentifier: CVE-2018-UGVBA
+      website:cvestatus: Master
+      /website:cvetext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Some CVE text to go here.&nbsp;"Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+    /website:indicatorscompromise:
+      jcr:primaryType: hippostd:html
+      hippostd:content: <p>slow machine performance.</p>
+    /website:remediationintro:
+      jcr:primaryType: hippostd:html
+      hippostd:content: <p>Add some intro text here for remediation</p>
+    /website:remediationsteps[1]:
+      jcr:primaryType: website:remediationstep
+      website:link: https://www.someotherlink.co.uk
+      website:type: Guidance
+      /website:step:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>step one will be not to open email</p>
+    /website:remediationsteps[2]:
+      jcr:primaryType: website:remediationstep
+      website:link: ''
+      website:type: Action
+      /website:step:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>step 2 is to delete email</p>
+    /website:section:
+      jcr:primaryType: website:emphasisBox
+      website:emphasisType: Warning
+      website:heading: Do not click on the button
+      /website:body:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>self explanatory</p>
+      /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+    /website:seosummary:
+      jcr:primaryType: hippostd:html
+      hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
+    /website:summary:
+      jcr:primaryType: hippostd:html
+      hippostd:content: <p>Some summary information please</p>
+    /website:threataffects[1]:
+      jcr:primaryType: website:threataffect
+      website:versionsaffected: [v1.0.1, v1.3.0]
+      /website:platformaffected:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
+      /website:platformtext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>platformaffect threat</p>
+    /website:threataffects[2]:
+      jcr:primaryType: website:threataffect
+      website:versionsaffected: [v1.0.2]
+      /website:platformaffected:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: 34186f3d-32ac-4322-ba82-3b698221be56
+      /website:platformtext:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>platform take 2</p>
+    /website:threatupdates:
+      jcr:primaryType: website:threatupdate
+      website:date: 2019-06-26T10:43:00Z
+      website:title: Update is this is not good
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Some content description to go here.&nbsp; Lorem ipsum.&nbsp;</p>
