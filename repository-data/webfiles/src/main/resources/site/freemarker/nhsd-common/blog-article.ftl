@@ -7,7 +7,6 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">
-<#include "macro/personitem.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/shareThisPage.ftl">
 <#include "macro/heroes/hero.ftl">

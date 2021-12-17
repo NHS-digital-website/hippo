@@ -6,7 +6,6 @@
 <#include "macro/sections/sections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
-<#include "macro/personitem.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/shareThisPage.ftl">
 <#include "macro/heroes/hero-options.ftl">

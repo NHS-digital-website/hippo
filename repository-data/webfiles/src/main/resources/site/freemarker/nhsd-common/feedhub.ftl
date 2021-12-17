@@ -5,7 +5,6 @@
 <#include "macro/sections/sections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
-<#include "macro/personitem.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macros/header-banner.ftl">
 <#include "macro/results-list.ftl">

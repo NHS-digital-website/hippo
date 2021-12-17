@@ -4,6 +4,16 @@ definitions:
     /hst:hst/hst:configurations/intranet/hst:pages/team:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
+        hst:parameternames:
+        - googleAnalyticsContentRewriter
+        - brandRefreshContentRewriter
+        - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
+        hst:parametervalues:
+        - 'true'
+        - 'true'
+        - 'true'
+        - 'true'
         hst:template: team
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/master
