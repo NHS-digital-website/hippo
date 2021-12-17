@@ -386,9 +386,6 @@ definitions:
       /supplementaryinformation:
         hst:renderpath: webfile:/freemarker/common/supplementaryinformation.ftl
         jcr:primaryType: hst:template
-      /team:
-        hst:renderpath: webfile:/freemarker/common/team.ftl
-        jcr:primaryType: hst:template
       /video-page:
         hst:renderpath: webfile:/freemarker/common/video-page.ftl
         jcr:primaryType: hst:template
