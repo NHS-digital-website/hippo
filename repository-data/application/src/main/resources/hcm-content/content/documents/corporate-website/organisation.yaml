@@ -1,14 +1,9 @@
----
 /content/documents/corporate-website/organisation:
-  .meta:order-before: platform
+  .meta:order-before: features
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 4f6fccef-255a-45a4-9b6a-d8d2cd1049eb
   hippo:name: Organisation
-  hippostd:foldertype:
-  - new-organisation-folder
-  - new-organisation-document
+  hippostd:foldertype: [new-organisation-folder, new-organisation-document]
   hippotranslation:id: 08a9130a-c4b5-447a-b6ae-9458059037e9
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder

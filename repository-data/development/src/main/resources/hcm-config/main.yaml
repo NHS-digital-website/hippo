@@ -1,11 +1,7 @@
----
 definitions:
   config:
     /hippo:configuration/hippo:modules/autoexport/hippo:moduleconfig:
-      autoexport:enabled: false
-      autoexport:modules:
-      - repository-data/application:/
-      - repository-data/local
-      - repository-data/development
-      - repository-data/site:publicationsystem:/hst:hst
-      - repository-data/site-development:publicationsystem
+      autoexport:modules: ['repository-data/application:/', repository-data/local,
+        repository-data/development, 'repository-data/site:publicationsystem:/hst:hst',
+        'repository-data/site-development:publicationsystem']
+      autoexport:enabled: true
