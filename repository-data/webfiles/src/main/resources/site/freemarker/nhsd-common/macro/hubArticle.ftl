@@ -61,7 +61,7 @@
 	<#-- DW-2686 if there is a thumbnail image use it else use the lead image -->
 	<#if item.thumbnailimage?has_content>
         <#assign cardData += {
-            'image': item.thumbnailimage
+            'image': item.thumbnailImage
         } />
     <#elseif item.leadImage?has_content>
         <#assign cardData += {
