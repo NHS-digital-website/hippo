@@ -1,13 +1,9 @@
----
 /content/documents/corporate-website/national-indicator-library:
+  .meta:order-before: features
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 55e5a2c9-48b4-429c-aa62-bf970faaf28d
   hippo:name: National Indicator Library
-  hippostd:foldertype:
-  - new-national-indicator-library-document
-  - new-national-indicator-library-folder
+  hippostd:foldertype: [new-national-indicator-library-document, new-national-indicator-library-folder]
   hippotranslation:id: a79f6853-1e85-4eb3-8a65-5c6c2aba1a61
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder

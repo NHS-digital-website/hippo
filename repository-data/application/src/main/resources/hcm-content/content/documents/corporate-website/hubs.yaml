@@ -1,13 +1,9 @@
----
 /content/documents/corporate-website/hubs:
+  .meta:order-before: features
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: bf900828-2f13-4869-b275-b4d300355554
   hippo:name: Hubs
-  hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
+  hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
   hippotranslation:id: 40edc8b3-8840-4fa5-8fa7-b56f61f934e4
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder

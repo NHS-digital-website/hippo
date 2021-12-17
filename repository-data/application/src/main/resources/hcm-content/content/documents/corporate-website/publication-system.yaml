@@ -1,13 +1,10 @@
----
 /content/documents/corporate-website/publication-system:
+  .meta:order-before: features
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 85cf24d2-e2ad-486b-8810-df45a8415378
   hippo:name: Publication System
-  hippostd:foldertype:
-  - new-statistical-publications-and-clinical-indicators-document
-  - new-statistical-publications-and-clinical-indicators-folder
+  hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-document,
+    new-statistical-publications-and-clinical-indicators-folder]
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder

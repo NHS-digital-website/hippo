@@ -1,4 +1,3 @@
----
 definitions:
   config:
     /hippo:configuration/hippo:modules/content-feed/hippo:moduleconfig/metadata:
@@ -6,52 +5,19 @@ definitions:
       excludedDocumentTypes:
         operation: add
         type: string
-        value:
-        - common:basedocument
-        - common:about
-        - common:stringlist
-        - externalstorage:resource
-        - intranet:basedocument
-        - intranet:newsinternal
-        - intranet:task
-        - intranet:announcement
-        - nationalindicatorlibrary:basedocument
-        - nationalindicatorlibrary:nihub
-        - nationalindicatorlibrary:nilanding
-        - publicationsystem:basedocument
-        - publicationsystem:cilanding
-        - publicationsystem:publicationPage
-        - publicationsystem:resource
-        - website:basedocument
-        - website:financial
-        - website:bannerdocument
-        - website:calltoaction
-        - website:casestudy
-        - website:categorylist
-        - website:customizedAssetSet
-        - website:definedterms
-        - website:dschomepage
-        - website:editorsnotes
-        - website:generalnonsearch
-        - website:group
-        - website:hubnewsandevents
-        - website:jobrole
-        - website:location
-        - website:organisation
-        - website:platform
-        - website:projectfeed
-        - website:projectupdate
-        - website:signup
-        - website:supplementaryinformationhub
-        - website:team
-        - website:update
-        - website:numberedList
-        - selection:valuelist
-        - selection:BooleanRadioGroup
-        - selection:listitem
-        - inferenceengine:rulesdocument
-        - robotstxt:robotstxt
-        - eforms:form
+        value: ['common:basedocument', 'common:about', 'common:stringlist', 'externalstorage:resource',
+          'intranet:basedocument', 'intranet:newsinternal', 'intranet:task', 'intranet:announcement',
+          'nationalindicatorlibrary:basedocument', 'nationalindicatorlibrary:nihub',
+          'nationalindicatorlibrary:nilanding', 'publicationsystem:basedocument',
+          'publicationsystem:cilanding', 'publicationsystem:publicationPage', 'publicationsystem:resource',
+          'website:basedocument', 'website:financial', 'website:bannerdocument', 'website:calltoaction',
+          'website:casestudy', 'website:categorylist', 'website:customizedAssetSet',
+          'website:definedterms', 'website:dschomepage', 'website:editorsnotes', 'website:generalnonsearch',
+          'website:group', 'website:hubnewsandevents', 'website:jobrole', 'website:location',
+          'website:organisation', 'website:platform', 'website:projectfeed', 'website:projectupdate',
+          'website:signup', 'website:supplementaryinformationhub', 'website:team',
+          'website:update', 'website:numberedList', 'selection:valuelist', 'selection:BooleanRadioGroup',
+          'selection:listitem', 'inferenceengine:rulesdocument', 'robotstxt:robotstxt',
+          'eforms:form']
       feedCronExpression: 0 0 * ? * *
-      includedPaths:
-      - /content/documents/corporate-website
+      includedPaths: [/content/documents/corporate-website]
