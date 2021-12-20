@@ -75,17 +75,26 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /text:
+            jcr:primaryType: frontend:plugin
+            caption: Text
+            field: text
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
       /hipposysedit:nodetype:
         jcr:mixinTypes: ['mix:referenceable']
         jcr:primaryType: hippo:handle
-        jcr:uuid: 0d0d72c9-ecad-4a0a-ab1e-a6795fa0465a
+        jcr:uuid: 8fec7a86-7d59-4efc-b987-0b47dc6b9205
         /hipposysedit:nodetype:
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 09716d64-b935-4ee1-a1ef-32d69a2060b9
+          jcr:uuid: 2b15ea68-1444-4a9f-b9ad-81bb869287ab
           /altText:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -129,6 +138,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          /text:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:text
+            hipposysedit:primary: false
+            hipposysedit:type: Text
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -137,6 +154,7 @@ definitions:
           publicationsystem:caption: ''
           publicationsystem:imageSize: In line
           publicationsystem:link: ''
+          publicationsystem:text: ''
           /publicationsystem:image:
             hippo:filename: publicationsystem:resource
             hippo:text:
