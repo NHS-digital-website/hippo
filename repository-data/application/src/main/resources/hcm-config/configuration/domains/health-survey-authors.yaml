@@ -1,0 +1,38 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/health-survey-authors:
+      jcr:primaryType: hipposys:domain
+      /pub-stats-health-survey:
+        jcr:primaryType: hipposys:domainrule
+        /path-by-uuid:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/publication-system/statistical/health-survey-for-england
+      /author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [health-survey-authors]
+        hipposys:role: author
+      /readwrite:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [health-survey-authors]
+        hipposys:role: readwrite
+      /health-survey-images:
+        jcr:primaryType: hipposys:domainrule
+        /path-by-uuid:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery
