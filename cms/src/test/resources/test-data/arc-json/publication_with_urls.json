@@ -1,0 +1,33 @@
+{
+    "doctype_REQ": "PublicationSystem:PublicationPage",
+
+    "title_REQ": "Part 1 - Quit attempts and self-reported quit rates by demographic variables",
+
+    "_guidance": "The 'body' field can contain one or more of ANY of the following field types",
+
+    "body": [
+        {
+            "section_type": "website_section",
+            "title": "",
+            "heading_level": "",
+            "html": "This section of the report presents information on the number of quit attempts and self-reported quit rates by a range of demographic variables.",
+            "type": "",
+            "numbered_list": "false"
+        },
+        {
+            "section_type": "website_section",
+            "title": "Gender",
+            "heading_level": "Sub heading",
+            "html": "A higher number of females attempted to quit in 2020/21 (103,027) than males (75,788).",
+            "type": "",
+            "numbered_list": "false"
+        },
+        {
+            "section_type": "publicationsystem_chartsection",
+            "type_REQ": "Bar",
+            "title_REQ": "Self-reported and CO validated quitters time series",
+            "data_file_REQ": "s3://hippo-data-bucket/publicationpagefolder/Setting+quit+date+by+gender.xlsx",
+            "yTitle_REQ": "y Title"
+        }
+    ]
+}

@@ -21,4 +21,9 @@ public class S3FileProxy implements S3File {
     public InputStream getContent() {
         return s3Object.getObjectContent();
     }
+
+    @Override
+    public String getContentType() {
+        return s3Object.getObjectMetadata().getContentType();
+    }
 }

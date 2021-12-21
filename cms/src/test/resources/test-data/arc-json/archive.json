@@ -1,0 +1,23 @@
+{
+    "doctype_REQ": "PublicationSystem:Archive",
+
+    "title_REQ": "My archive",
+    "summary_REQ": "Here is another archive for you to browse and review as you wish",
+
+    "information_type": [
+        "Audit",
+        "Experimental statistics"
+    ],
+
+    "geographic_coverage": [
+        "England",
+        "Scotland"
+    ],
+
+    "granularity": [
+        "Ambulance Trusts",
+        "Wards"
+    ],
+
+    "administrative_sources": "Text"
+}

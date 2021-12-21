@@ -27,4 +27,6 @@ public interface S3File {
     long getLength();
 
     InputStream getContent();
+
+    String getContentType();
 }
