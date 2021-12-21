@@ -131,7 +131,7 @@
         <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
         <bloomreach.text-search-replace.version>2.1.0</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>5.0</forge.resetpassword.version>
-        <bloomreach.forge.sitemapv2.version>2.0.6</bloomreach.forge.sitemapv2.version>
+        <bloomreach.forge.sitemapv2.version>2.0.7</bloomreach.forge.sitemapv2.version>
 
         <!--***START temporary override of versions*** -->
         <hippo.addon-content-feed.version>14.7.8ed926d4</hippo.addon-content-feed.version>
