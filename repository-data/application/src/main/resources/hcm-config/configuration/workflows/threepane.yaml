@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:workflows/default/handle/frontend:renderer/create-report:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.arc.plugin.ArcDocumentWorkflowPlugin
+      wicket.id: ${item}

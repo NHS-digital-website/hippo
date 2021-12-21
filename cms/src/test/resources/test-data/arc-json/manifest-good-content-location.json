@@ -1,0 +1,13 @@
+{
+    "_comment": "Test data",
+
+    "document_base": "s3://bucket/folder/report-folder",
+
+    "pages": [
+        {
+            "document_type": "publicationsystem:publication",
+            "page_name": "content",
+            "page_ref": "file-exist.json"
+        }
+    ]
+}
