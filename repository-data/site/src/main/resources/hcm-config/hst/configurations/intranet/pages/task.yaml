@@ -4,6 +4,10 @@ definitions:
     /hst:hst/hst:configurations/intranet/hst:pages/task:
       /main:
         hst:componentclassname: uk.nhs.digital.intranet.components.TaskComponent
+        hst:parameternames:
+        - stripTagsWithLinksContentRewriter
+        hst:parametervalues:
+        - 'true'
         hst:template: task
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/master

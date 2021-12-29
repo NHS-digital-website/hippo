@@ -2,13 +2,17 @@
 <#include "../include/imports.ftl">
 
 <#include "../publicationsystem/macro/structured-text.ftl">
-<#include "../common/macro/sections/sections.ftl">
+<#include "../nhsd-common/macro/sections/sections.ftl">
 <#include "../common/macro/documentHeader.ftl">
-<#include "../common/macro/stickyNavSections.ftl">
-<#include "../common/macro/component/calloutBox.ftl">
+<#include "../nhsd-common/macro/stickyNavSections.ftl">
+<#include "../nhsd-common/macro/component/calloutBox.ftl">
 <#include "macro/taskChapterNav.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/googleTags.ftl">
+<#include "../nhsd-common/macro/heroes/hero.ftl">
+<#include "../nhsd-common/macro/heroes/hero-options.ftl">
+<#include "../nhsd-common/macro/stickyNavSections.ftl">
+<#include "../nhsd-common/macro/component/chapter-pagination.ftl">
 
 <#assign teamTitles = []/>
 <#list document.responsibleTeams as team>
@@ -68,17 +72,25 @@
     </#list>
 </#if>
 
-<article class="article article--intranet-task">
-
+<article>
     <#assign metaData = [] />
     <#if document.topics?has_content>
         <#assign metaData += [{"key":"Topics", "value": document.topics?join(", "), "uipath": "taxonomy", "schemaOrgTag": "", "type": ""}] />
     </#if>
-    <@documentHeader document 'intranet-task' "" "" "" "" false metaData></@documentHeader>
+    <#assign heroOptions = getHeroOptions(document) />
+
+    <#assign digiblocks = ["tr","bl"] />
+    <#assign alignment = "centre" />
+
+    <#assign heroOptions += {"digiblocks": digiblocks} />
+    <#assign heroOptions += {"alignment": "centre"} />
+
+    <@hero heroOptions/>
 
     <#if hasChapters>
         <@taskChapterNav previousTask=previousTask currentTask=document nextTask=nextTask />
     </#if>
+
 
     <#-- Updates, changes and expiration notice block -->
     <#if hasUpdates || hasExpired>
@@ -131,71 +143,76 @@
     </#if>
     <#-- End of Updates, changes and expiration notice block -->
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
-        <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
-                <div id="sticky-nav">
-                    <#assign links = [] />
-                    <#if hasResponsibleTeams>
-                        <#assign links += [{ "url": "#" + slugify(responsibleTeamsSectionHeader), "title": responsibleTeamsSectionHeader }] />
-                    </#if>
-                    <#assign links += [{ "url": "#" + slugify(datesSectionHeader), "title": datesSectionHeader }] />
+    <div aria-label="Document Content">
+        <div class="nhsd-t-grid nhsd-!t-margin-top-8">
+            <div class="nhsd-t-row">
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
 
-                    <@stickyNavSections getStickySectionNavLinks({"document": document, "appendSections": links, "includeTopLink": true})></@stickyNavSections>
+                        <#assign links = [] />
+                        <#if hasResponsibleTeams>
+                            <#assign links += [{ "url": "#" + slugify(responsibleTeamsSectionHeader), "title": responsibleTeamsSectionHeader }] />
+                        </#if>
+                        <#assign links += [{ "url": "#" + slugify(datesSectionHeader), "title": datesSectionHeader }] />
+
+                        <@stickyNavSections getStickySectionNavLinks({"document": document, "appendSections": links, "includeTopLink": true})></@stickyNavSections>
+
+                        <#-- Restore the bundle -->
+                        <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
+
+                </div>
+
+
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+
+                    <#if document.sections?has_content>
+                            <@sections sections=document.sections />
+                    </#if>
 
                     <#-- Restore the bundle -->
                     <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
-                </div>
-            </div>
 
+                    <#if hasResponsibleTeams>
+                        <div id="${slugify(responsibleTeamsSectionHeader)}"
+                             class="article-section no-border">
+                            <h2>${responsibleTeamsSectionHeader}</h2>
+                            <ul>
+                                <#list document.responsibleTeams as team>
+                                    <li>
+                                        <a href="<@hst.link hippobean=team />">${team.title}</a>
+                                    </li>
+                                </#list>
+                            </ul>
+                        </div>
+                    </#if>
 
-            <div class="column column--two-thirds page-block page-block--main">
+                    <div class="article-section"
+                         id="${slugify(datesSectionHeader)}">
+                        <h2>${datesSectionHeader}</h2>
+                        <div class="detail-list-grid detail-list-grid--regular">
+                            <#if document.reviewDate?has_content>
+                                <dl class="detail-list">
+                                    <dt class="detail-list__key"><@fmt.message key="labels.review-date"/></dt>
+                                    <dd class="detail-list__value"><@fmt.formatDate value=document.reviewDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></dd>
+                                </dl>
+                            </#if>
 
-                <#if document.sections?has_content>
-                    <div class="article-section">
-                        <@sections sections=document.sections />
+                            <dl class="detail-list">
+                                <dt class="detail-list__key"><@fmt.message key="labels.last-modified"/></dt>
+                                <dd class="detail-list__value">
+                                    <@fmt.formatDate value=document.lastModified?date type="date" pattern="d MMMM yyyy h:mm a" timeZone="${getTimeZone()}" var="lastModifiedDate" />
+                                    ${lastModifiedDate?replace("AM", "am")?replace("PM", "pm")}
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
-                </#if>
-
-                <#-- Restore the bundle -->
-                <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
-
-                <#if hasResponsibleTeams>
-                    <div id="${slugify(responsibleTeamsSectionHeader)}" class="article-section no-border">
-                        <h2>${responsibleTeamsSectionHeader}</h2>
-                        <ul>
-                            <#list document.responsibleTeams as team>
-                                <li><a href="<@hst.link hippobean=team />">${team.title}</a></li>
-                            </#list>
-                        </ul>
-                    </div>
-                </#if>
-
-                <div class="article-section" id="${slugify(datesSectionHeader)}">
-                    <h2>${datesSectionHeader}</h2>
-                    <div class="detail-list-grid detail-list-grid--regular">
-                        <#if document.reviewDate?has_content>
-                        <dl class="detail-list">
-                            <dt class="detail-list__key"><@fmt.message key="labels.review-date"/></dt>
-                            <dd class="detail-list__value"><@fmt.formatDate value=document.reviewDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></dd>
-                        </dl>
-                        </#if>
-
-                        <dl class="detail-list">
-                            <dt class="detail-list__key"><@fmt.message key="labels.last-modified"/></dt>
-                            <dd class="detail-list__value">
-                                <@fmt.formatDate value=document.lastModified?date type="date" pattern="d MMMM yyyy h:mm a" timeZone="${getTimeZone()}" var="lastModifiedDate" />
-                                ${lastModifiedDate?replace("AM", "am")?replace("PM", "pm")}
-                            </dd>
-                        </dl>
-                    </div>
+                    <#if hasChapters>
+                        <@fmt.message key="headers.task-chapters" var="chapterIndexNavTitle" />
+                        <@taskChapterIndexNav documents=taskChapters title=chapterIndexNavTitle />
+                    </#if>
                 </div>
             </div>
         </div>
     </div>
 
-    <#if hasChapters>
-        <@fmt.message key="headers.task-chapters" var="chapterIndexNavTitle" />
-        <@taskChapterIndexNav documents=taskChapters title=chapterIndexNavTitle />
-    </#if>
+
 </article>

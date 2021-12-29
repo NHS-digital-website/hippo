@@ -1,72 +1,60 @@
 <#ftl output_format="HTML">
 
 <#macro taskChapterNav previousTask="" currentTask="" nextTask="">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide grid-wrapper--chapter-pagination">
-        <div class="chapter-pagination-wrapper">
-            <div class="grid-wrapper">
-                <div class="grid-row chapter-pagination-wrapper__skip visually-hidden">
-                    <div class="column column--reset">
-                        <a href="#document-content"><@fmt.message key="labels.skip-to-content" /></a>
-                    </div>
-                </div>
+    <div class="nhsd-o-chapter-navigation nhsd-!t-bg-pale-grey-80-tint">
+        <div class="nhsd-a-box">
 
-                <nav class="chapter-pagination" aria-label="Chapter Navigation">
-                    <ul class="chapter-pagination__list grid-row">
-                        <#if previousTask?has_content>
-                            <li class="chapter-pagination__list-item chapter-pagination-item--previous">
-                                <p>
-                                    <span class="chapter-pagination__direction" aria-hidden="true"><@fmt.message key="labels.task-chapter-nav.previous" /></span>
-                                    <a class="chapter-pagination__link"
-                                       href="${previousTask.link}">
-                                        <span class="chapter-pagination__link-direction visually-hidden"><@fmt.message key="labels.task-chapter-nav.previous" />: </span>
-                                        <span class="chapter-pagination__link-arrow"><img
-                                                    aria-hidden="true" alt="Left Arrow"
-                                                    src="<@hst.webfile path="/images/chapter-navigation/left-arrow.svg"/>"/></span><!--
-            No space between elements --><span class="chapter-pagination__link-page">${previousTask.title}</span>
-                                    </a>
-                                </p>
-                            </li>
-                        <#else>
-                            <li class="chapter-pagination__list-item"></li>
-                        </#if>
-                        <li class="chapter-pagination__list-item chapter-pagination-item--current column-one-third">
-                            <p>
-                                    <span class="chapter-pagination__direction">${currentTask.title}</span>
-                                <a class="chapter-pagination__link"
-                                   href="#chapter-index">
-                                    <span class="chapter-pagination__link-direction visually-hidden"></span>
-                                    <span class="chapter-pagination__link-arrow"><img
-                                                aria-hidden="true" alt="Down Arrow"
-                                                src="<@hst.webfile path="/images/chapter-navigation/down-arrow.svg"/>"/></span><!--
-            No space between elements --><span class="chapter-pagination__link-page"><@fmt.message key="labels.task-chapter-nav.view-all" /></span>
-                                </a>
-                            </p>
+            <#if previousTask?has_content>
 
-                        </li>
-                        <#if nextTask?has_content>
-                            <li class="chapter-pagination__list-item chapter-pagination-item--next column-one-third">
-                                <p>
-                                    <span class="chapter-pagination__direction"
-                                          aria-hidden="true">
-                                        <@fmt.message key="labels.task-chapter-nav.next" />
+                <div class="nhsd-o-chapter-navigation__previous-chapter">
+                    <a class="nhsd-m-chapter"
+                       href="${previousTask.link}"
+                       onClick="${getOnClickMethodCall(document.class.name,previousTask.link )}"
+                       aria-label="Previous Chapter"
+                    >
+                        <div class="nhsd-m-chapter__content">
+                                <span class="nhsd-m-chapter__icon">
+                                    <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                            <path d="M7.5,15L1,8l6.5-7L9,2.5L4.8,7H15v2H4.8L9,13.5L7.5,15z"/>
+                                        </svg>
                                     </span>
-                                    <a class="chapter-pagination__link"
-                                       href="${nextTask.link}">
-                                        <span class="chapter-pagination__link-direction visually-hidden"><@fmt.message key="labels.task-chapter-nav.next" />: </span>
-                                        <span class="chapter-pagination__link-page">${nextTask.title}</span><!--
-            No space between elements --><span class="chapter-pagination__link-arrow"><img
-                                                    aria-hidden="true" alt="Right Arrow"
-                                                    src="<@hst.webfile path="/images/chapter-navigation/right-arrow.svg"/>"/></span>
-                                    </a>
-                                </p>
-                            </li>
-                        <#else>
-                            <li class="chapter-pagination__list-item"></li>
-                        </#if>
-                    </ul>
-                </nav>
-
+                                </span>
+                            <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"><@fmt.message key="labels.task-chapter-nav.previous" /></p>
+                        </div>
+                        <p class="nhsd-m-chapter__link nhsd-t-body-s">${previousTask.title}</p>
+                    </a>
+                </div>
+            </#if>
+            <div class="nhsd-o-chapter-navigation__current-chapter">
+                <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0">Current task chapter</p>
+                <div class="nhsd-!t-margin-bottom-0 nhsd-t-body-s">
+                    <a class="nhsd-a-link" href="#chapter-index"><@fmt.message key="labels.task-chapter-nav.view-all" />
+                        <span class="nhsd-t-sr-only"></span>
+                    </a>
+                </div>
             </div>
+            <#if nextTask??>
+                <div class="nhsd-o-chapter-navigation__next-chapter">
+                    <a class="nhsd-m-chapter nhsd-m-chapter--right"
+                       href="${nextTask.link}"
+                       onClick="${getOnClickMethodCall(document.class.name, nextTask.link)}"
+                       aria-label="Next Chapter"
+                    >
+                        <div class="nhsd-m-chapter__content">
+                            <p class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"><@fmt.message key="labels.task-chapter-nav.next" /></p>
+                            <span class="nhsd-m-chapter__icon">
+                                    <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                        </svg>
+                                    </span>
+                                </span>
+                        </div>
+                        <p class="nhsd-m-chapter__link nhsd-t-body-s">${nextTask.title}</p>
+                    </a>
+                </div>
+            </#if>
         </div>
     </div>
 </#macro>
@@ -74,7 +62,7 @@
 <#-- Footer index navigation for chaptered tasks -->
 <#macro taskChapterIndexNav documents={} title="">
     <#assign splitChapters = splitHash(documents) />
-    
+
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" id="chapter-index">
         <div class="chapter-nav">
             <div class="grid-wrapper">

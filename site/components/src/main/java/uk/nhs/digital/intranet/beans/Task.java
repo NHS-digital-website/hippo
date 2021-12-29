@@ -15,7 +15,10 @@ import org.hippoecm.hst.util.ContentBeanUtils;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.intranet.enums.SearchResultType;
 import uk.nhs.digital.intranet.model.IntranetSearchResult;
+import uk.nhs.digital.pagination.Paginated;
+import uk.nhs.digital.pagination.Pagination;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
+import uk.nhs.digital.ps.beans.IndexPageImpl;
 import uk.nhs.digital.website.beans.BannerControl;
 import uk.nhs.digital.website.beans.PriorityAction;
 import uk.nhs.digital.website.beans.Team;
@@ -24,7 +27,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Node(jcrType = "intranet:task")
-public class Task extends BaseDocument implements IntranetSearchResult {
+public class Task extends BaseDocument implements IntranetSearchResult, Paginated {
 
     public String[] getAlternativeNames() {
         return getMultipleProperty("intranet:alternativenames");
@@ -77,7 +80,7 @@ public class Task extends BaseDocument implements IntranetSearchResult {
     }
 
     private <T extends HippoBean> List<T> getRelatedDocuments(String property,
-        Class<T> beanClass) throws HstComponentException, QueryException {
+                                                              Class<T> beanClass) throws HstComponentException, QueryException {
 
         final HstRequestContext context = RequestContextProvider.get();
 
@@ -111,5 +114,10 @@ public class Task extends BaseDocument implements IntranetSearchResult {
     @Override
     public String getSearchResultType() {
         return SearchResultType.TASK.getValue();
+    }
+
+    @Override
+    public Pagination paginate() {
+        return new Pagination(null, getChildren().stream().findFirst().map(i -> new IndexPageImpl(i.getDisplayName(), i)).orElse(null));
     }
 }
