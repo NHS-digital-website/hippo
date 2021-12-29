@@ -14,7 +14,7 @@
 <#include "macro/heroes/hero.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/latestblogs.ftl">
-<#include "macro/shareThisPage.ftl">
+<#include "macro/shareSection.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -193,36 +193,7 @@
                 </#if>
 
                 <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
-                    <h2 class="nhsd-t-heading-xl">Share this page</h2>
-                    <#-- Use UTF-8 charset for URL escaping from now: -->
-                    <#setting url_escaping_charset="UTF-8">
-
-                    <div class="nhsd-t-grid nhsd-!t-margin-bottom-4 nhsd-!t-no-gutters">
-                        <#--  Facebook  -->
-                        <#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${currentUrl?url}"/>
-                        <#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
-                        <@shareThisPage document "Facebook" facebookUrl facebookIconPath/>
-
-                        <#--  Twitter  -->
-                        <#assign hashtags ='' />
-                        <#if hasTwitterHashtag>
-                            <#list document.twitterHashtag as tag>
-                                <#if tag?starts_with("#")>
-                                    <#assign hashtags = hashtags + tag?keep_after('#') + ','>
-                                <#else>
-                                    <#assign hashtags = hashtags + tag + ','>
-                                </#if>
-                            </#list>
-                        </#if>
-                        <#assign twitterUrl = "https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"/>
-                        <#assign twitterIconPath = "/images/icon/rebrand-twitter.svg" />
-                        <@shareThisPage document "Twitter" twitterUrl twitterIconPath/>
-
-                        <#--  LinkedIn  -->
-                        <#assign linkedInUrl = "http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"/>
-                        <#assign linkedInIconPath = "/images/icon/rebrand-linkedin.svg" />
-                        <@shareThisPage document "LinkedIn" linkedInUrl linkedInIconPath/>
-                    </div>
+                    <@shareSection document />
                 </div>
 
                 <#if hasPeople>
