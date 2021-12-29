@@ -114,7 +114,7 @@
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasLeadParagraph>
-                    <div class="nhsd-t-heading-xs" itemprop="articleBody" data-uipath="website.feature.leadparagraph">
+                    <div class="nhsd-t-heading-m" itemprop="articleBody" data-uipath="website.feature.leadparagraph">
                         <@hst.html hippohtml=document.leadParagraph contentRewriter=brContentRewriter/>
                     </div>
                 </#if>
