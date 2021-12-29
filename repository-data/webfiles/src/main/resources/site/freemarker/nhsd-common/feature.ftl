@@ -11,6 +11,7 @@
 <#include "macro/shareThisPage.ftl">
 <#include "macro/heroes/hero-options.ftl">
 <#include "macro/heroes/hero.ftl">
+<#include "macro/socialMediaBar.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -25,6 +26,7 @@
 <#assign hasLeadImage = document.leadImage?has_content />
 <#assign hasLeadImageAltText = document.leadImageAltText?has_content />
 <#assign hasLeadImageCaption = document.leadImageCaption?? && document.leadImageCaption.content?has_content />
+<#assign hasTwitterHashtag = document.twitterHashtag?? && document.twitterHashtag?has_content />
 <#assign hasLeadParagraph = document.leadParagraph?? && document.leadParagraph.content?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasBackstory = document.backstory?? && document.backstory.content?has_content />
@@ -38,6 +40,37 @@
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <#assign heroOptions = getHeroOptions(document) />
+ 
+    <#-- Use UTF-8 charset for URL escaping from now: -->
+    <#setting url_escaping_charset="UTF-8">
+ 	
+	<#--  Facebook  -->
+	<#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${currentUrl?url}"/>
+	<#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
+                           
+    <#--  Twitter  -->
+    <#assign hashtags ='' />
+    <#if hasTwitterHashtag>
+        <#list document.twitterHashtag as tag>
+            <#if tag?starts_with("#")>
+                <#assign hashtags = hashtags + tag?keep_after('#') + ','>
+            <#else>
+                <#assign hashtags = hashtags + tag + ','>
+            </#if>
+        </#list>
+    </#if>
+    <#assign twitterUrl = "https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"/>
+    <#assign twitterIconPath = "/images/icon/rebrand-twitter.svg" />
+                        
+     <#--  LinkedIn  -->
+    <#assign linkedInUrl = "http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"/>
+    <#assign linkedInIconPath = "/images/icon/rebrand-linkedin.svg" />
+    
+    <#--  YouTube  -->
+	<#assign youTubeUrl = "http://www.youtube.com/watch?v=${currentUrl?url}"/>
+	<#assign youTubeIconPath = "/images/icon/rebrand-youtube.svg" />
+
+	<@socialMediaBar/>
 
     <#assign metaData = [] />
     <#if hasAuthors>
@@ -109,7 +142,7 @@
     <#if document.headertype?has_content && document.headertype == "Image header" && document.leadImage?has_content>
         <#assign heroType = "backgroundImage"/>
     </#if>
-    <@hero heroOptions heroType />
+   <#-- TODO <@hero heroOptions heroType /> -->
 
     <div class="nhsd-t-grid nhsd-!t-margin-top-8" aria-label="document-content">
         <div class="nhsd-t-row">
@@ -210,34 +243,11 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <p class="nhsd-t-heading-xl">Share this page</p>
-                    <#-- Use UTF-8 charset for URL escaping from now: -->
-                    <#setting url_escaping_charset="UTF-8">
 
                     <div class="nhsd-t-grid nhsd-!t-margin-bottom-4 nhsd-!t-no-gutters">
-                        <#--  Facebook  -->
-                        <#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${currentUrl?url}"/>
-                        <#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
-                        <@shareThisPage document "Facebook" facebookUrl facebookIconPath/>
-
-                        <#--  Twitter  -->
-                        <#assign hashtags ='' />
-                        <#if hasTwitterHashtag>
-                            <#list document.twitterHashtag as tag>
-                                <#if tag?starts_with("#")>
-                                    <#assign hashtags = hashtags + tag?keep_after('#') + ','>
-                                <#else>
-                                    <#assign hashtags = hashtags + tag + ','>
-                                </#if>
-                            </#list>
-                        </#if>
-                        <#assign twitterUrl = "https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"/>
-                        <#assign twitterIconPath = "/images/icon/rebrand-twitter.svg" />
-                        <@shareThisPage document "Twitter" twitterUrl twitterIconPath/>
-
-                        <#--  LinkedIn  -->
-                        <#assign linkedInUrl = "http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"/>
-                        <#assign linkedInIconPath = "/images/icon/rebrand-linkedin.svg" />
-                        <@shareThisPage document "LinkedIn" linkedInUrl linkedInIconPath/>
+                        <@shareThisPage document "Facebook" facebookUrl facebookIconPath />
+                        <@shareThisPage document "Twitter" twitterUrl twitterIconPath />
+                        <@shareThisPage document "LinkedIn" linkedInUrl linkedInIconPath />
                     </div>
                 </div>
 
