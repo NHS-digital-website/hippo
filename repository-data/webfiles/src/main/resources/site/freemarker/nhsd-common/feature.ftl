@@ -142,7 +142,7 @@
     <#if document.headertype?has_content && document.headertype == "Image header" && document.leadImage?has_content>
         <#assign heroType = "backgroundImage"/>
     </#if>
-   <#-- TODO <@hero heroOptions heroType /> -->
+    <@hero heroOptions heroType />
 
     <div class="nhsd-t-grid nhsd-!t-margin-top-8" aria-label="document-content">
         <div class="nhsd-t-row">

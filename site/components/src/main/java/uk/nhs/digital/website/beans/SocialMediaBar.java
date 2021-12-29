@@ -7,10 +7,6 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 @HippoEssentialsGenerated(internalName = "website:socialMediaBar")
 @Node(jcrType = "website:socialMediaBar")
 public class SocialMediaBar extends HippoCompound {
-
-    public String getSectionType() {
-        return "socialMediaBar";
-    }
     
     @HippoEssentialsGenerated(internalName = "website:enable")
     public Boolean getEnable() {
