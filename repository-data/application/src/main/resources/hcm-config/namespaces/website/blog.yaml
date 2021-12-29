@@ -41,6 +41,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /socialMediaBar:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: SocialMediaBar
+            field: socialMediaBar
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /summary:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
@@ -69,14 +78,6 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /dateofpublication:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Date of publication
-            field: dateofpublication
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
           /authors:
             /cluster.options:
@@ -135,6 +136,14 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
+          /dateofpublication:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Date of publication
+            field: dateofpublication
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /leadimage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -439,6 +448,14 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /socialMediaBar:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:socialMediaBar
+            hipposysedit:primary: false
+            hipposysedit:type: website:socialMediaBar
+            jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -512,6 +529,13 @@ definitions:
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:socialMediaBar:
+            jcr:primaryType: website:socialMediaBar
+            website:direction: false
+            website:enable: false
+            website:hexagons: false
+            website:iconSize: false
+            website:imageSize: false
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html

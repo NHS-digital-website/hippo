@@ -10,10 +10,11 @@
 <#include "macro/personitem.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/heroes/hero.ftl">
+<#include "macro/shareSection.ftl">
+<#include "macro/socialMediaBar.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
-
 
 <#assign hasAuthors = document.authors?? && document.authors?has_content />
 <#assign hasAuthorManualEntry = document.authorRole?? || (document.authorDescription?? && document.authorDescription?has_content) ||
@@ -63,6 +64,13 @@
     <#--  YouTube  -->
     <#assign youTubeUrl = "http://www.youtube.com/watch?v=${currentUrl?url}"/>
     <#assign youTubeIconPath = "/images/icon/rebrand-youtube.svg" />
+
+    <#assign props = {
+        "bar": document.socialMediaBar,
+        "twitterHashtag": (document.twitterHashtag)!"",
+        "title": document.title,
+        "shortsummary": document.shortsummary
+    } />
 
     <#assign metaData = [] />
     <#if hasAuthors>
@@ -122,8 +130,7 @@
             "value": categories
         }] />
     </#if>
-
-    <@hst.link hippobean=document.leadImage.pageHeaderHeroModule2x fullyQualified=true var="bannerImage" />
+ 
     <#assign heroOptions = {
         "introTags": ["Blog"],
         "title": document.title,
@@ -147,6 +154,8 @@
         <#assign heroType = "backgroundImage" />
     </#if>
     <@hero heroOptions heroType/>
+    
+    <@socialMediaBar props />
 
     <div itemprop="articleBody">
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
@@ -165,7 +174,6 @@
                                 <figure class="nhsd-a-image nhsd-a-image--round-top-corners">
                                     <picture class="nhsd-a-image__picture ">
                                         <@hst.link hippobean=document.leadImage.newsPostImageLarge2x fullyQualified=true var="leadImageLarge2x" />
-                                        <meta itemprop="url" content="${leadImage}">
                                         <img src="${leadImageLarge2x}" alt="<#if hasLeadImageAltText>${document.leadImageAltText}</#if>" />
                                     </picture>
                                 </figure>
@@ -297,7 +305,7 @@
                     </div>
                 </#if>
 
-                <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
+                <div class="grid-wrapper grid-wrapper--article">
                     <div class="grid-row">
                         <@latestblogs document.latestBlogs></@latestblogs>
                     </div>

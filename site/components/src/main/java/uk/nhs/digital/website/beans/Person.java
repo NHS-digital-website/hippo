@@ -62,6 +62,11 @@ public class Person extends CommonFieldsBean {
     public SocialMedia getSocialmedias() {
         return getBean("website:socialmedias", SocialMedia.class);
     }
+    
+    @HippoEssentialsGenerated(internalName = "website:socialmedia")
+    public SocialMedia getSocialmedia() {
+        return getBean("website:socialmedia", SocialMedia.class);
+    }
 
     @HippoEssentialsGenerated(internalName = "website:personalinfos")
     public PersonalInfo getPersonalinfos() {
@@ -156,4 +161,8 @@ public class Person extends CommonFieldsBean {
         return null;
     }
 
+    @HippoEssentialsGenerated(internalName = "website:socialMediaBar")
+    public SocialMediaBar getSocialMediaBar() {
+        return getBean("website:socialMediaBar", SocialMediaBar.class);
+    }
 }

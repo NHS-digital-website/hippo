@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
-
-<#-- @ftlvariable name="feature" type="uk.nhs.digital.website.beans.Feature" -->
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Feature" -->
 
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
@@ -12,10 +11,10 @@
 <#include "macro/heroes/hero.ftl">
 <#include "macro/card.ftl">
 <#include "macro/personitem.ftl">
+<#include "macro/socialMediaBar.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
-
 
 <#assign hasAuthors = document.authors?? && document.authors?has_content />
 <#assign hasAuthorManualEntry = document.authorRole?? || (document.authorDescription?? && document.authorDescription?has_content) ||
@@ -41,6 +40,42 @@
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <#assign heroOptions = getHeroOptions(document) />
+
+    <#-- Use UTF-8 charset for URL escaping from now: -->
+    <#setting url_escaping_charset="UTF-8">
+
+	<#--  Facebook  -->
+	<#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${currentUrl?url}"/>
+	<#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
+
+    <#--  Twitter  -->
+    <#assign hashtags ='' />
+    <#if hasTwitterHashtag>
+        <#list document.twitterHashtag as tag>
+            <#if tag?starts_with("#")>
+                <#assign hashtags = hashtags + tag?keep_after('#') + ','>
+            <#else>
+                <#assign hashtags = hashtags + tag + ','>
+            </#if>
+        </#list>
+    </#if>
+    <#assign twitterUrl = "https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"/>
+    <#assign twitterIconPath = "/images/icon/rebrand-twitter.svg" />
+
+     <#--  LinkedIn  -->
+    <#assign linkedInUrl = "http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"/>
+    <#assign linkedInIconPath = "/images/icon/rebrand-linkedin.svg" />
+
+    <#--  YouTube  -->
+	<#assign youTubeUrl = "http://www.youtube.com/watch?v=${currentUrl?url}"/>
+	<#assign youTubeIconPath = "/images/icon/rebrand-youtube.svg" />
+
+    <#assign props = {
+        "bar": document.socialMediaBar,
+        "twitterHashtag": (document.twitterHashtag)!"",
+        "title": document.title,
+        "shortsummary": document.shortsummary
+    } />
 
     <#-- Use UTF-8 charset for URL escaping from now: -->
     <#setting url_escaping_charset="UTF-8">
@@ -113,9 +148,11 @@
         <#assign heroOptions += {"image": {"src": leadImageBlogIndexThumb@2x, "alt": document.leadImageAltText}}>
     </#if>
     <@hero heroOptions heroType />
+    
+    <@socialMediaBar props />
 
     <div itemprop="articleBody">
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8" aria-label="document-content">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasLeadParagraph>
@@ -171,7 +208,7 @@
                     <#if hasSectionContent && !hasBackstory>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
-                    <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
+                    <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
                             <div class="nhsd-m-contact-us__content">
                                 <p class="nhsd-t-heading-m">Contact Us</p>
