@@ -1,0 +1,119 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/socialMediaBar:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /enable:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Enable social media bar
+            field: enable
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /direction:
+            /cluster.options:
+              falseLabel: Vertical
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: Horizontal
+            caption: Direction
+            field: direction
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /hexagons:
+            /cluster.options:
+              falseLabel: Without hexagons
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: With hexagons
+            caption: Show hexagons
+            field: hexagons
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /iconSize:
+            /cluster.options:
+              falseLabel: Small
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: Large
+            caption: Icon size
+            field: imageSize
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /direction:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:direction
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            jcr:primaryType: hipposysedit:field
+          /enable:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:enable
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
+          /hexagons:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:hexagons
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            jcr:primaryType: hipposysedit:field
+          /imageSize:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:iconSize
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          jcr:primaryType: website:socialMediaBar
+          website:direction: false
+          website:enable: false
+          website:hexagons: false
+          website:iconSize: false
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

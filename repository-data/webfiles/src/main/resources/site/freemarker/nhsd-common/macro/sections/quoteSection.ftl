@@ -3,7 +3,7 @@
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Quote" -->
 
 <#macro quoteSection section>
-    <div class="nhsd-m-quote nhsd-!t-margin-bottom-6" aria-label="Quotation">
+    <div class="nhsd-m-quote nhsd-!t-margin-bottom-6">
         <div itemscope itemtype="https://schema.org/Quotation" class="nhsd-a-box nhsd-a-box--bg-light-grey">
             <figure>
                 <blockquote class="nhsd-t-heading-l">

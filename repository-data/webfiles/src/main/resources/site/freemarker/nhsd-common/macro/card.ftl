@@ -31,14 +31,11 @@
                             </div>
                         </#if>
 
-                        <#if publishedDate?has_content>
-                            <span class="nhsd-m-card__date">${publishedDate} (updated ${lastModifiedDate})</span>
+                        <#if cardProperties.date?has_content>
+                            <h2 class="nhsd-m-card__date">${cardProperties.date}</h2>
                         </#if>
                         <#if cardProperties.title?has_content>
                             <h2 class="nhsd-t-heading-s">${cardProperties.title}</h2>
-                        </#if>
-                        <#if cardProperties.shortsummary?has_content>
-                       		<p class="nhsd-t-body-s">${cardProperties.shortsummary}</p>
                         </#if>
 
                         <#if cardProperties.icon?has_content>

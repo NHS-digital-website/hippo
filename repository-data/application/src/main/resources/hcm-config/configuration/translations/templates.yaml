@@ -788,6 +788,11 @@ definitions:
           jcr:name: Sign up page
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:socialMediaBar:
+        /en:
+          jcr:name: Social media bar
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:socialmedia:
         /en:
           jcr:name: Social media
