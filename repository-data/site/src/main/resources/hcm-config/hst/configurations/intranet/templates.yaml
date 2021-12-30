@@ -50,6 +50,9 @@ definitions:
       /teams:
         hst:renderpath: webfile:/freemarker/intranet/teams.ftl
         jcr:primaryType: hst:template
+      /video-page:
+        hst:renderpath: webfile:/freemarker/intranet/video-page.ftl
+        jcr:primaryType: hst:template
       /who-we-are:
         hst:renderpath: webfile:/freemarker/intranet/who-we-are.ftl
         jcr:primaryType: hst:template
