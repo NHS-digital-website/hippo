@@ -114,7 +114,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:download,website:iconlist,website:gallerysection,website:code,website:expander,website:ctabutton,website:quote,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
+            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:download,website:iconlist,website:gallerysection,website:code,website:expander,website:ctabutton,website:quote,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable,website:VideoSection
             contentPickerType: links
             field: sections
             hint: ''

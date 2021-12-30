@@ -49,6 +49,10 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses="nhsd-o-hero--image">
         <#assign bgClass="nhsd-!t-bg-grad-black">
         <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
+    <#elseif heroType == "imageMirrored">
+        <#assign heroClasses="nhsd-o-hero--image-mirrored">
+        <#assign bgClass="nhsd-!t-bg-grad-black">
+        <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
     <#elseif heroType == "accentedImage">
         <#assign heroClasses="nhsd-o-hero--image-accented">
     <#elseif heroType == "accentedImageMirrored">
@@ -99,10 +103,10 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             </div>
         </div>
 
-        <#if heroType == "blackHero" || heroType == "whiteHero" || heroType == "blackBackground" || heroType == "image" || heroType == "backgroundImage" || heroType == "accentedImage" || heroType == "accentedImageMirrored">
+        <#if heroType == "blackHero" || heroType == "whiteHero" || heroType == "blackBackground" || heroType == "image" || heroType == "imageMirrored" || heroType == "backgroundImage" || heroType == "accentedImage" || heroType == "accentedImageMirrored">
             <#assign imageClasses = ""/>
             <#assign style = ""/>
-            <#if heroType == "image">
+            <#if heroType == "image" || heroType == "imageMirrored">
             	<#assign imageClasses = "nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
             <#elseif heroType == "blackBackground">
                 <#assign imageClasses = "nhsd-a-image nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
@@ -114,8 +118,13 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             </#if>
             <div class="nhsd-o-hero__image-container">
                 <#if options.video?has_content>
-                    <div class="nhsd-o-hero__iframe-wrapper">
-                        <iframe class="nhsd-o-banner__iframe" src="${options.video}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                    <div class="nhsd-t-ratio-16x9">
+                        <figure>
+                            <iframe src="${options.video.src}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                            <#if options.video.caption?has_content>
+                                <figcaption>${options.video.caption}</figcaption>
+                            </#if>
+                        </figure>
                     </div>
                 <#else>
                     <figure class="nhsd-a-image ${imageClasses}" style="${style}">
@@ -143,7 +152,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             </#list>
         </#if>
 
-        <#if (heroType == "accentedImage" || heroType == "accentedImageMirrored") && (!options.colourBar?has_content || options.colourBar)>
+        <#if (heroType == "accentedImage" || heroType == "accentedImageMirrored")>
             <span class="nhsd-a-colour-bar"></span>
         </#if>
 

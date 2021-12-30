@@ -71,7 +71,9 @@
 
     <#if document.videoUri?has_content>
         <#assign heroOptions += {
-            "video": "${document.videoUri}&rel=0&enablejsapi=1"
+            "video": {
+                "src": "${document.videoUri}&rel=0&enablejsapi=1"
+            }
         }/>
     </#if>
 

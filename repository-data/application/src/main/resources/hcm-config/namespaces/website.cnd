@@ -17,6 +17,9 @@
 [website:video] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:VideoSection] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:aboutapi] > hippo:compound, hippostd:relaxed
   orderable
 

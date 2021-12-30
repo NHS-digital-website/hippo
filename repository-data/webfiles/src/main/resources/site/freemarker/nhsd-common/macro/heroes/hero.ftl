@@ -41,7 +41,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
 
 <#macro hero options = {} heroType = "default">
     <#assign validatedType = heroType/>
-    <#if !['accentedImage', 'accentedImageMirrored', 'image', 'backgroundImage', 'blackHero', 'whiteHero', 'blackBackground']?seq_contains(validatedType)>
+    <#if !['accentedImage', 'accentedImageMirrored', 'image', 'imageMirrored', 'backgroundImage', 'blackHero', 'whiteHero', 'blackBackground']?seq_contains(validatedType)>
         <#assign validatedType = "default"/>
     </#if>
 

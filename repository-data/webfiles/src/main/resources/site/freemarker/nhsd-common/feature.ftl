@@ -83,11 +83,12 @@
     </#if>
     <@hero heroOptions heroType />
 
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
+    <div itemprop="articleBody">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8" aria-label="document-content">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-col-m-8 nhsd-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasLeadParagraph>
-                    <div class="nhsd-t-heading-m" itemprop="articleBody" data-uipath="website.feature.leadparagraph">
+                    <div class="nhsd-t-heading-m" data-uipath="website.feature.leadparagraph">
                         <@hst.html hippohtml=document.leadParagraph contentRewriter=brContentRewriter/>
                     </div>
                 </#if>
@@ -96,7 +97,7 @@
                     <div class="nhsd-m-card nhsd-!t-margin-bottom-6">
                         <div class="nhsd-a-box nhsd-a-box--border-grey">
                             <div class="nhsd-m-card__image_container">
-                                <figure class="nhsd-a-image nhsd-a-image--round-top-corners">
+                                <figure class="nhsd-a-image">
                                     <meta itemprop="url" content="${leadImage}" />
                                     <picture class="nhsd-a-image__picture " itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                         <@hst.link hippobean=document.leadImage.newsPostImageLarge2x fullyQualified=true var="leadImageLarge2x" />
@@ -115,20 +116,19 @@
                     </div>
                 </#if>
 
+                <#if hasLeadParagraph || (hasLeadImage && hasCubeHeader)>
+                    <hr class="nhsd-a-horizontal-rule" />
+                </#if>
+
                 <#if hasSectionContent>
-                    <#if !hasLeadImage>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
-                    <div itemprop="articleBody">
-                        <@sections document.sections></@sections>
-                    </div>
+                    <@sections document.sections></@sections>
                 </#if>
 
                  <#if hasBackstory>
                     <#if hasSectionContent>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
-                    <div itemprop="articleBody">
+                    <div>
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6" data-uipath="website.feature.backstory">
                             <p class="nhsd-t-heading-m">Back story</p>
                             <@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter />
@@ -142,7 +142,7 @@
                     </#if>
                     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
-                            <div class="nhsd-m-contact-us__content" itemprop="articleBody">
+                            <div class="nhsd-m-contact-us__content">
                                 <p class="nhsd-t-heading-m">Contact Us</p>
                                 <div data-uipath="website.feature.contactus">
                                     <@hst.html hippohtml=document.contactDetails contentRewriter=brContentRewriter/>
@@ -177,7 +177,7 @@
                     </div>
                 </#if>
 
-                <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
+                <div class="nhsd-!t-margin-bottom-6">
                     <#if hasRelatedSubjects || hasSectionContent && !hasBackstory && !hasContactDetails && !hasRelatedSubjects>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
@@ -201,7 +201,7 @@
 
         				<#assign cardProperties = {
                     		"background": "light-grey",
-							"title": authorValue               	
+							"title": authorValue
                     	}/>
 	                    <@card cardProperties/>
                 	</#if>
@@ -244,5 +244,6 @@
 
             </div>
         </div>
+    </div>
     </div>
 </article>
