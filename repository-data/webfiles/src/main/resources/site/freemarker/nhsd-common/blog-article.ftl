@@ -120,11 +120,12 @@
     </#if>
     <@hero heroOptions heroType/>
 
+    <div itemprop="articleBody">
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasLeadParagraph>
-                    <div class="nhsd-t-heading-xs" itemprop="articleBody" data-uipath="website.blog.leadparagraph">
+                    <div class="nhsd-t-heading-xs" data-uipath="website.blog.leadparagraph">
                         <@hst.html hippohtml=document.leadParagraph contentRewriter=brContentRewriter/>
                     </div>
                 </#if>
@@ -154,18 +155,14 @@
                 </#if>
 
                 <#if hasSectionContent>
-                    <div itemprop="articleBody">
-                        <@sections document.sections></@sections>
-                    </div>
+                    <@sections document.sections></@sections>
                     <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasBackstory>
-                    <div itemprop="articleBody">
-                        <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6"">
-                            <p class="nhsd-t-heading-m">Back story</p>
-                            <div data-uipath="website.blog.backstory"><@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter /></div>
-                        </div>
+                    <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6">
+                        <p class="nhsd-t-heading-m">Back story</p>
+                        <div data-uipath="website.blog.backstory"><@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter /></div>
                     </div>
                     <hr class="nhsd-a-horizontal-rule" />
                 </#if>
@@ -207,7 +204,7 @@
                     <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
-                <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
+                <div class="nhsd-!t-margin-bottom-6">
                     <@shareSection document />
                     <hr class="nhsd-a-horizontal-rule" />
                 </div>
@@ -284,5 +281,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </article>

@@ -15,10 +15,10 @@
     </#if>
 
     <#if options.summary?has_content>
-        <#if hst.isBeanType(content, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
+        <#if hst.isBeanType(options.summary, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
             <@hst.html var="htmlSummary" hippohtml=options.summary contentRewriter=brContentRewriter />
             <#if htmlSummary?has_content>
-                <div class="nhsd-!t-margin-top-6" data-uipath="document.summary">${htmlSummary?no_esc}</div>
+                <div class="${options.title?has_content?then('nhsd-!t-margin-top-6', '')}" data-uipath="document.summary">${htmlSummary?no_esc}</div>
             </#if>
         <#else>
             <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0" data-uipath="document.summary">${options.summary}</div>

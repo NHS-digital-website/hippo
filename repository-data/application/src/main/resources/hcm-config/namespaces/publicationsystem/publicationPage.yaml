@@ -31,7 +31,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Body
-            compoundList: website:section,publicationsystem:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,publicationsystem:textSection,website:iconlist,website:gallerysection,website:download,website:expander,website:ctabutton,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:propertytable
+            compoundList: website:section,publicationsystem:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,publicationsystem:textSection,website:iconlist,website:gallerysection,website:download,website:expander,website:ctabutton,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:propertytable,website:VideoSection
             contentPickerType: links
             field: body
             hint: ''

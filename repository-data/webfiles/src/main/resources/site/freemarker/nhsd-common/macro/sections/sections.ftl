@@ -20,6 +20,7 @@
 <#include "tableauLookupSection.ftl">
 <#include "fullWidthImage.ftl">
 <#include "navigation.ftl">
+<#include "videoSection.ftl">
 <#include "../../../common/macro/sections/svgSection.ftl">
 <#include "../component/infoGraphic.ftl">
 
@@ -32,7 +33,7 @@
     <#assign isPreviousEmphasisBox = false />
     <#list sections as section>
         <#if wrap>
-        <div >
+        <div>
         </#if>
             <#-- Add HR if it's not the first section and has a top level heading -->
             <#if !section?is_first && (section.headingLevel?has_content && section.headingLevel == 'Main heading')>
@@ -93,6 +94,8 @@
                 <@svgSection section=section index=section?index/>
             <#elseif section.sectionType == 'tableau'>
                 <@tableau section=section index=section?index/>
+            <#elseif section.sectionType == 'VideoSection'>
+                <@videoSection section=section/>
             </#if>
         <#if wrap>
         </div>

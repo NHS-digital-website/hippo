@@ -55,7 +55,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Section Builder
-            compoundList: website:section,website:emphasisBox,website:quote,website:expander,website:svg,website:propertytable
+            compoundList: website:section,website:emphasisBox,website:quote,website:expander,website:svg,website:propertytable,website:VideoSection
             contentPickerType: links
             field: sections
             hint: ''
