@@ -112,7 +112,7 @@
 
     <div class="nhsd-t-grid nhsd-!t-margin-top-8" aria-label="document-content">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-col-m-8 nhsd-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
                 <#if hasLeadParagraph>
                     <div class="nhsd-t-heading-xs" itemprop="articleBody" data-uipath="website.feature.leadparagraph">
                         <@hst.html hippohtml=document.leadParagraph contentRewriter=brContentRewriter/>
