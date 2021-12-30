@@ -16,6 +16,8 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/cms-services/assetProcessorService:
       plugin.class: uk.nhs.digital.common.galleryprocessors.MyNullGalleryProcessorPlugin
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
+      extension.mimetype.allowed.mappings:
+      - .csv,text/csv
       extensions.allowed:
       - doc
       - docx
@@ -42,7 +44,10 @@ definitions:
       - odt
       - odp
       - ods
+      jcr:primaryType: frontend:plugin
       max.file.size: 3000M
+      plugin.class: org.hippoecm.frontend.plugins.yui.upload.validation.AssetUploadValidationPlugin
+      validator.id: service.gallery.asset.validation
     /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/website:authorPhoto:
       compression: 0.8
       cropping: true
