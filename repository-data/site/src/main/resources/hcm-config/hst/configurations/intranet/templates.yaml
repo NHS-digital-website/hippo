@@ -36,7 +36,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/intranet/news.ftl
         jcr:primaryType: hst:template
       /person:
-        hst:renderpath: webfile:/freemarker/intranet/person.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/person-article.ftl
         jcr:primaryType: hst:template
       /search-results:
         hst:renderpath: webfile:/freemarker/intranet/search-results.ftl
