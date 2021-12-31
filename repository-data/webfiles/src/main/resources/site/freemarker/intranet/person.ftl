@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 
 <#if person??>
-    <#assign documentTitle = "${person.displayName}" />
+    <#assign documentTitle = "${document.displayName}" />
 <#else>
     <#assign documentTitle = "Profile page" />
 </#if>
@@ -18,16 +18,16 @@
                 <a class="button" href="<@hst.link siteMapItemRefId='root'/>">Home</a>
             </div>
         <#else>
-            <#if person??>
-                <img src="data:image/png;base64,${person.photo}" alt="photo"/>
+            <#if document??>
+                <img src="data:image/png;base64,${document.photo}" alt="photo"/>
 
                 <div class="grid-row">
                     <div class="column column--two-thirds page-block page-block--main">
                         <div class="article-section">
-                            <p><strong>Email: </strong>${person.email}</p>
-                            <p><strong>Phone number: </strong>${person.phoneNumber}</p>
-                            <p><strong>Job role: </strong>${person.jobRole}</p>
-                            <p><strong>Department: </strong>${person.department}</p>
+                            <p><strong>Email: </strong>${document.email}</p>
+                            <p><strong>Phone number: </strong>${document.phoneNumber}</p>
+                            <p><strong>Job role: </strong>${document.jobRole}</p>
+                            <p><strong>Department: </strong>${document.department}</p>
                         </div>
                     </div>
                 </div>

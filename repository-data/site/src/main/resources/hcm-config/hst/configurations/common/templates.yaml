@@ -261,7 +261,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/nhsd-common/orgstructure.ftl
         jcr:primaryType: hst:template
       /person-article:
-        hst:renderpath: webfile:/freemarker/common/person-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/person-article.ftl
         jcr:primaryType: hst:template
       /policy-page:
         hst:renderpath: webfile:/freemarker/nhsd-common/policy-page.ftl
