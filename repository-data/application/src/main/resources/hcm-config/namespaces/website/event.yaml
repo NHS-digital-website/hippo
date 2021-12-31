@@ -1,37 +1,41 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/event:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
-      jcr:uuid: 4092a5eb-08e1-4d5b-ad9c-5c067121512b
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /shortsummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /shortsummary:
             caption: Short Summary
             field: shortsummary
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /seosummary:
             caption: SEO Summary
             field: seosummary
@@ -40,60 +44,63 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /summaryimage:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Summary image
             field: summaryimage
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /body:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /body:
             caption: Body
             field: body
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /events:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /events:
             caption: Events
             field: interval
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /location:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /location:
             caption: Location
             field: location
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /maplocation:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /maplocation:
             caption: Map location
             field: maplocation
             hint: Url location (e.g. Google Maps URL)
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /booking:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /booking:
             caption: Booking
             field: booking
             hint: URL
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /type:
+              source: /content/documents/administration/website/events-type
             caption: Type
             field: type
             jcr:primaryType: frontend:plugin
@@ -104,57 +111,58 @@ definitions:
             selectlist.maxrows: '10'
             valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.field
+          /attachments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/events-type
-          /attachments:
             caption: Attachments
             field: attachment
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /peoplementioned:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes:
+              - website:person
             caption: People attending
             field: peoplementioned
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              base.path: /content/documents
-              jcr:primaryType: frontend:pluginconfig
-              nodetypes: ['website:person']
           /relatedDocuments:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Services or pages related to this event
             field: relatedDocuments
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /display:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /display:
             caption: Display on events hub and homepage
             field: display
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /classifiable:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /classifiable:
+              taxonomy.name: publication_taxonomy
             essentials-taxonomy-name: publication_taxonomy
             jcr:primaryType: frontend:plugin
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
+          /taxonomyClassificationField:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: publication_taxonomy
-          /taxonomyClassificationField:
             caption: Taxonomy - Used for Search (Do Not Edit)
             field: taxonomyClassificationField
             hint: ''
@@ -162,30 +170,18 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /friendlyurls:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
-          /friendlyurls:
             caption: Friendly URLs
             field: friendlyurls
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
-        jcr:uuid: deba0e90-27c2-40d5-9ff0-91c64e8a3f2e
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['hippotranslation:translated', 'website:basedocument',
-            'hippotaxonomy:classifiable', 'hippostd:relaxed']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: ca741f81-09fe-47a2-a7b9-68e87df4ce9a
           /attachment:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -201,7 +197,8 @@ definitions:
             hipposysedit:path: website:body
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [optional]
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /booking:
             hipposysedit:mandatory: false
@@ -242,7 +239,8 @@ definitions:
             hipposysedit:path: website:location
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /maplocation:
             hipposysedit:mandatory: false
@@ -320,7 +318,8 @@ definitions:
             hipposysedit:path: website:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /type:
             hipposysedit:mandatory: false
@@ -330,29 +329,22 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippotranslation:translated
+          - website:basedocument
+          - hippotaxonomy:classifiable
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          common:searchRank: 4
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-01-23T14:14:09.771Z
-          hippostdpubwf:lastModificationDate: 2018-01-23T14:14:09.771Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:primaryType: website:event
-          website:booking: ''
-          website:display: false
-          website:location: ''
-          website:maplocation: ''
-          website:shortsummary: ''
-          website:title: ''
-          website:type: []
-          jcr:uuid: 49f43721-2bcc-4721-a825-88a4392fd3c7
           /website:events:
             jcr:primaryType: website:interval
             website:enddatetime: 0001-01-01T12:00:00Z
@@ -367,3 +359,29 @@ definitions:
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 4
+          common:searchable: true
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2018-01-23T14:14:09.771Z
+          hippostdpubwf:lastModificationDate: 2018-01-23T14:14:09.771Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hippotaxonomy:classifiable
+          jcr:primaryType: website:event
+          website:booking: ''
+          website:display: false
+          website:location: ''
+          website:maplocation: ''
+          website:shortsummary: ''
+          website:title: ''
+          website:type: []
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
