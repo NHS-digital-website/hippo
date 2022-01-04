@@ -3,25 +3,28 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Person" -->
 
 <#include "../include/imports.ftl">
-<#include "../common/macro/postnominal.ftl">
-<#include "../common/macro/qualification.ftl">
-<#include "../common/macro/award.ftl">
-<#include "../common/macro/contactdetail.ftl">
-<#include "../common/macro/socialmedia.ftl">
-<#include "../common/macro/biography.ftl">
-<#include "../common/macro/responsibility.ftl">
-<#include "../common/macro/personalinfo.ftl">
-<#include "../common/macro/lawfulbasis.ftl">
-<#include "../common/macro/personimage.ftl">
-<#include "../common/macro/role.ftl">
-<#include "../common/macro/stickyNavSections.ftl">
-<#include "../common/macro/relatedarticles.ftl">
-<#include "../common/macro/latestblogs.ftl">
-<#include "../common/macro/component/downloadBlock.ftl">
-<#include "../common/macro/contentPixel.ftl">
+<#include "../nhsd-common/macro/postnominal.ftl">
+<#include "../nhsd-common/macro/qualification.ftl">
+<#include "../nhsd-common/macro/award.ftl">
+<#include "../nhsd-common/macro/contactdetail.ftl">
+<#include "../nhsd-common/macro/socialmedia.ftl">
+<#include "../nhsd-common/macro/biography.ftl">
+<#include "../nhsd-common/macro/responsibility.ftl">
+<#include "../nhsd-common/macro/personalinfo.ftl">
+<#include "../nhsd-common/macro/lawfulbasis.ftl">
+<#include "../nhsd-common/macro/personimage.ftl">
+<#include "../nhsd-common/macro/role.ftl">
+<#include "../nhsd-common/macro/stickyNavSections.ftl">
+<#include "../nhsd-common/macro/relatedarticles.ftl">
+<#include "../nhsd-common/macro/latestblogs.ftl">
+<#include "../nhsd-common/macro/component/downloadBlock.ftl">
+<#include "../nhsd-common/macro/contentPixel.ftl">
+
+<#include "macro/heroes/hero.ftl">
+<#include "macro/heroes/hero-options.ftl">
 
 <#-- Add meta tags -->
-<#include "macro/metaTags.ftl">
+<#include "../nhsd-common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
 
@@ -39,123 +42,63 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article>
+    <#assign heroOptions = getHeroOptions(document) />
+    <#assign metadata = []/>
 
-    <div class="nhsd-o-hero">
-        <#if notSuppress>
-            <#if document.postnominals?? && document.postnominals?has_content>
-                <#list document.postnominals as postnominal>
-                    <#if postnominal.letters == "PhD">
-                        <#assign personMainName = "Dr " + personMainName />
-                    </#if>
-                    <#assign postnominals += postnominal.letters />
+    <#if document.socialmedias?? && document.socialmedias.othersocialmedias?has_content>
+        <#list document.socialmedias.othersocialmedias as medium>
+                            <#assign metadata += [{
+                                "title": "${medium.title}",
+                                "value": "<a itemprop=\"sameAs\"
+                               href=\"${medium.link}\"
+                               onClick=\"logGoogleAnalyticsEvent('Link click','Person','${medium.link}');\"
+                               onKeyUp=\"return vjsu.onKeyUp(event)\"
+                               title=\"${medium.title}\">${medium.link}</a>"
+                            }] />
 
-                    <#if postnominal?has_next>
-                        <#assign postnominals += ", " />
-                    </#if>
-                    <#assign personMainNameAndPostnominals = personMainName + " (" + postnominals + ")"/>
-                </#list>
-            </#if>
+        </#list>
+    </#if>
+
+
+    <#if document.socialmedias?? && document.socialmedias.linkedinlink?has_content>
+        <#assign linkedInUrl =
+        "<a itemprop=\"sameAs\"
+               href=\"${document.socialmedias.linkedinlink}\"
+                           onClick=\"logGoogleAnalyticsEvent('Link click','Person','${document.socialmedias.linkedinlink}');\"
+                           onKeyUp=\"return vjsu.onKeyUp(event)\"
+                           title=\"${document.socialmedias.linkedinlink}\">LinkedIn profile</a>"/>
+        <#assign metadata += [{
+        "title": "LinkedIn",
+        "value": linkedInUrl
+        }] />
+
+    </#if>
+
+    <#if document.socialmedias?? && document.socialmedias.twitteruser?has_content>
+        <#assign twitteruser = document.socialmedias.twitteruser />
+        <#if twitteruser?substring(0, 1) == "@">
+            <#assign twitteruser = document.socialmedias.twitteruser?substring(1) />
         </#if>
+        <#assign twitterlink = "https://twitter.com/" + twitteruser />
+        <#assign twitterHashTags =
+        "<a itemprop=\"sameAs\"
+                           href=\"${twitterlink}\"
+                           onClick=\"logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');\"
+                           onKeyUp=\"return vjsu.onKeyUp(event)\"
+                           title=\"${document.socialmedias.twitteruser}\"
+                           target=\"_blank\">@${twitteruser}</a>"/>
+        <#assign metadata += [{
+        "title": "Twitter",
+        "value": twitterHashTags
+        }] />
 
-        <div class="nhsd-t-grid">
-            <div class="nhsd-t-row ">
-                <div class="nhsd-t-col-12 nhsd-!t-no-gutters nhsd-!t-padding-1">
-                    <div class="nhsd-t-grid">
-                        <h1 id="top" class="local-header__title"
-                            data-uipath="document.personalinfos.name"><span
-                                    itemprop="name">${personMainName}</span>
-                        </h1>
-                        <#if document.roles?has_content>
-                            <@personrole document.roles idsuffix></@personrole>
-                        </#if>
+    </#if>
 
-                        <#if notSuppress>
-                            <#if postnominals?has_content>
-                                <div class="article-header__label">
-                                    ${postnominals}
-                                </div>
-                            </#if>
+    <#assign heroOptions += {
+        "metaData": metadata
+    }/>
+    <@hero heroOptions />
 
-                            <div class="detail-list-grid">
-                                <#if document.socialmedias?? && document.socialmedias.linkedinlink?has_content>
-                                    <div class="grid-row">
-                                        <div class="column column--reset">
-                                            <dl class="detail-list">
-                                                <dt class="detail-list__key"
-                                                    id="linkedin-${slugify(idsuffix)}">
-                                                    Linkedin:
-                                                </dt>
-                                                <dd class="detail-list__value"
-                                                    data-uipath="person.socialmedia.linkedinlink">
-                                                    <a itemprop="sameAs"
-                                                       href="${document.socialmedias.linkedinlink}"
-                                                       onClick="logGoogleAnalyticsEvent('Link click','Person','${document.socialmedias.linkedinlink}');"
-                                                       onKeyUp="return vjsu.onKeyUp(event)"
-                                                       title="${document.socialmedias.linkedinlink}">LinkedIn
-                                                        profile</a>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                </#if>
-
-                                <#if document.socialmedias?? && document.socialmedias.twitteruser?has_content>
-                                    <div class="nhsd-t-grid">
-                                        <div class="column column--reset">
-                                            <dl class="detail-list">
-                                                <dt class="detail-list__key"
-                                                    id="twitter-${slugify(idsuffix)}">
-                                                    Twitter:
-                                                </dt>
-                                                <dd class="detail-list__value"
-                                                    data-uipath="person.socialmedia.twitteruser">
-
-                                                    <#assign twitteruser = document.socialmedias.twitteruser />
-                                                    <#if twitteruser?substring(0, 1) == "@">
-                                                        <#assign twitteruser = document.socialmedias.twitteruser?substring(1) />
-                                                    </#if>
-                                                    <#assign twitterlink = "https://twitter.com/" + twitteruser />
-
-                                                    <a itemprop="sameAs"
-                                                       href="${twitterlink}"
-                                                       onClick="logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');"
-                                                       onKeyUp="return vjsu.onKeyUp(event)"
-                                                       title="${document.socialmedias.twitteruser}"
-                                                       target="_blank">@${twitteruser}</a>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                </#if>
-                                <#if document.socialmedias?? && document.socialmedias.othersocialmedias?has_content>
-                                    <#list document.socialmedias.othersocialmedias as medium>
-                                        <div class="grid-row">
-                                            <div class="column column--reset">
-                                                <dl class="detail-list">
-                                                    <dt class="detail-list__key">${medium.title}
-                                                        :
-                                                    </dt>
-                                                    <dd class="detail-list__value"
-                                                        data-uipath="person.socialmedia.${slugify(medium.title)}">
-                                                        <a itemprop="sameAs"
-                                                           href="${medium.link}"
-                                                           onClick="logGoogleAnalyticsEvent('Link click','Person','${medium.link}');"
-                                                           onKeyUp="return vjsu.onKeyUp(event)"
-                                                           title="${medium.title}">${medium.link}</a>
-                                                    </dd>
-                                                </dl>
-                                            </div>
-                                        </div>
-                                    </#list>
-                                </#if>
-
-                            </div>
-                        </#if>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="nhsd-t-grid">
         <div class="nhsd-t-row">
