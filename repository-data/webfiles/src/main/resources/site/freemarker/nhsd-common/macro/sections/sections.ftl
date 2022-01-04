@@ -33,7 +33,6 @@
     <#assign numberedListCount=0 />
     <#assign isPreviousEmphasisBox = false />
     <#list sections as section>
-    XX]${section.sectionType}[XX<BR/>
         <#if wrap>
         <div >
         </#if>
