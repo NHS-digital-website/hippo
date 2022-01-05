@@ -17,7 +17,7 @@
     </div>
 
     <div class="nhsd-o-gallery">
-      <div class="nhsd-t-grid nhsd-!t-no-gutters">
+      <div class="nhsd-t-grid nhsd-t-grid--nested">
         <div class="nhsd-t-row nhsd-o-gallery__items">
 
           <#list section.galleryItems as galleryItem>

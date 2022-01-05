@@ -43,4 +43,5 @@
             </div>
         </div>
     </div>
+<hr class="nhsd-a-horizontal-rule nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0" />
 </#if>

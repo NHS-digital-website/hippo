@@ -7,7 +7,7 @@
 <#assign itemsMaxCountWithJS=3/>
 
 
-<#macro latestblogs blogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs">
+<#macro latestblogs blogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs" centred=true>
 
  <#assign hasLatestBlogs = blogs?has_content && blogs?size &gt; 0 />
   <#if hasLatestBlogs>
@@ -16,7 +16,7 @@
         <#if title?has_content>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7 nhsd-!t-margin-top-6">${title}</h2>
+                    <h2 id="${slugify(title)}" class="nhsd-t-heading-xl ${centred?then('nhsd-t-text-align-center', '')} nhsd-!t-margin-top-6">${title}</h2>
                 </div>
             </div>
         </#if>
