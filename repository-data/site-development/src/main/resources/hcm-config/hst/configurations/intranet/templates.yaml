@@ -1,4 +1,3 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:templates:
@@ -74,3 +73,6 @@ definitions:
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
+      /location-article:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/nhsd-common/location-article.ftl

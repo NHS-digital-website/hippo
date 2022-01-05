@@ -93,7 +93,7 @@ public class Location extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:uniquepropertyreferencenumber")
     public String getUniquePropertyReferenceNumber() {
-        return getSingleProperty("website:uniquepropertyreferencenumber");
+        return getSingleProperty("website:uniquepropertyreferencenumber").toString();
     }
 
     @HippoEssentialsGenerated(internalName = "website:nhsdigitalsite")

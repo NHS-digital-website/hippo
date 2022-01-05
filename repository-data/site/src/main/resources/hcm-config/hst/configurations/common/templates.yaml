@@ -207,7 +207,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/list-article.ftl
         jcr:primaryType: hst:template
       /location-article:
-        hst:renderpath: webfile:/freemarker/common/location-article.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/location-article.ftl
         jcr:primaryType: hst:template
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
