@@ -115,7 +115,7 @@ public class Publishedwork extends CommonFieldsBean implements Paginated {
 
     @HippoEssentialsGenerated(internalName = "website:noindexcontrol")
     public boolean getNoIndexControl() {
-        return getSingleProperty("website:noindexcontrol");
+        return getSingleProperty("website:noindexcontrol", true);
     }
 
     @Override
