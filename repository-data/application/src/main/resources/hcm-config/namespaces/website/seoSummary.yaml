@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/hippostd/seoSummary:
+    /hippo:namespaces/website/seoSummary:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster

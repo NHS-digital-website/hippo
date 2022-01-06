@@ -110,7 +110,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
+            hipposysedit:type: website:seosummary
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -118,7 +118,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seoSummary
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
+            hipposysedit:type: website:seosummary
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false

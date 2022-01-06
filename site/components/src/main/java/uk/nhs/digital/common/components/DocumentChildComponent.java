@@ -35,9 +35,9 @@ public class DocumentChildComponent extends ContentRewriterComponent {
                             relatedDocuments.add((HippoBean) document);
                         }
                     } catch (RepositoryException repositoryEx) {
-                        log.warn("Repository exception while fetching child nodes", repositoryEx);
+                        log.info("Repository exception while fetching child nodes", repositoryEx);
                     } catch (ObjectBeanManagerException beanManagerEx) {
-                        log.warn("Bean manager exception while converting linked node", beanManagerEx);
+                        log.info("Bean manager exception while converting linked node", beanManagerEx);
                     }
                 }
             } else if (item instanceof Externallink || item instanceof Assetlink) {
