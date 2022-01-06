@@ -28,7 +28,7 @@ public class TaxonomyFacet {
 
     public String getValueName() {
         if (taxonomyCategory == null) {
-            log.error("No taxonomy for key: " + facetBean.getName());
+            log.debug("No taxonomy for key: " + facetBean.getName());
 
             return "Invalid Taxonomy: " + facetBean.getName();
         } else {

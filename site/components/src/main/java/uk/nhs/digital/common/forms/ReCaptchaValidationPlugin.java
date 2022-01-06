@@ -48,7 +48,7 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
         if (!success) {
             String errorList = getReCaptchaErrors(gRecaptchaResponse);
 
-            log.warn("Google ReCaptcha failed:" + errorList);
+            log.debug("Google ReCaptcha failed:" + errorList);
             errors.put("ReCaptcha Validation", new ErrorMessage("ReCaptcha validation failed", errorList));
         }
 
