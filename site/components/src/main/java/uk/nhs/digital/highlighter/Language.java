@@ -84,6 +84,7 @@ public enum Language {
     JSON("json", "JSON"),
     JULIA("julia", "Julia"),
     KOTLIN("kotlin", "Kotlin"),
+    KQL("q", "KQL"),
     LASSO("lasso", "Lasso"),
     LDIF("ldif", "LDIF"),
     LEAF("leaf", "Leaf"),
