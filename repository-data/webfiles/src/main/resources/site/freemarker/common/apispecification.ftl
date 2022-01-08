@@ -14,6 +14,7 @@
         <#include "api-try-it-now.ftl">
 
     <#else>
+        <#assign renderHtml = "uk.nhs.digital.common.components.apispecification.ApiSpecificationRendererDirective"?new() />
 
         <#-- Add meta tags -->
         <#include "../common/macro/metaTags.ftl">
@@ -34,12 +35,12 @@
             </style>
 
             <div class="nhsd-t-grid nhsd-!t-margin-top-6">
-                <div class="nhsd-t-row">${document.html?no_esc}</div>
+                <div class="nhsd-t-row"><@renderHtml specificationJson=document.json path=path/></div>
             </div>
         </article>
 
         <script>
-            // used in function tryEndpointNow from apispecificaion.js
+            // used in function tryEndpointNow from apispecification.js
             <@hst.renderURL var="tryItNowUrl"/>
             const tryEndpointNowBaseUrl = '${tryItNowUrl}';
         </script>
