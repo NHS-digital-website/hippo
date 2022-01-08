@@ -403,7 +403,7 @@
                                     <cargo.jvmargs>
                                         -Xmx1024m
                                         -Duser.timezone=Etc/UTC
-                                        -Dfile.encoding=ANSI_X3.4-1968
+                                        -Dfile.encoding=UTF-8
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
                                         -Xdebug
