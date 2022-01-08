@@ -24,7 +24,6 @@
     hippostd:state: published
     hippostdpubwf:publicationDate: '2020-07-08T08:37:03.915Z'
     website:json: '{ "json" : "payload A on PUBLISHED" }'
-    website:html: <p>API Specification A on PUBLISHED</p>
     website:lastChangeCheckInstant: '2020-07-08T08:37:10.900Z'
 
 # Folder B
@@ -50,7 +49,6 @@
     common:searchable: true
     hippostd:state: published
     website:json: '{ "json" : "payload B" }'
-    website:html: <p>API Specification - B</p>
     website:specification_id: api-specification-id-b
     website:lastChangeCheckInstant: '2020-07-08T08:37:10.900Z'
     hippostdpubwf:publicationDate: '2020-07-08T08:37:03.920Z'

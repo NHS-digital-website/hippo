@@ -35,18 +35,6 @@ public class ApiSpecificationDocument {
         return jcrDocument().jcrId();
     }
 
-    public Optional<String> html() {
-        return jcrDocument().getStringProperty(HTML.jcrName, PUBLISHED);
-    }
-
-    public void setHtmlForPublishing(final String html) {
-        jcrDocument().setStringPropertyWithCheckout(HTML.jcrName, html);
-    }
-
-    public void setHtmlInPlace(final String html) {
-        jcrDocument().setStringPropertyNoCheckout(HTML.jcrName, PUBLISHED, html);
-    }
-
     public Optional<String> json() {
         return jcrDocument().getStringProperty(JSON.jcrName, PUBLISHED);
     }

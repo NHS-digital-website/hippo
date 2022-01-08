@@ -13,6 +13,8 @@ import java.util.Optional;
  * <p>
  * Provides convenient DSL and assertion to aid in validating that desired statements have been logged.
  * <p>
+ * NOTE: assumes tha logging is done using Logback.
+ * <p>
  * Example of use:
  * <pre>
  *     import static uk.nhs.digital.test.TestLogger.LogAssertor.*;

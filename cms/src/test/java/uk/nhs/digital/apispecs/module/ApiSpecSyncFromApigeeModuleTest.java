@@ -27,7 +27,6 @@ import org.onehippo.repository.scheduling.RepositoryScheduler;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import uk.nhs.digital.apispecs.jobs.ApiSpecRerenderJob;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob;
 
 import java.util.List;
@@ -40,7 +39,6 @@ import javax.jcr.Session;
 public class ApiSpecSyncFromApigeeModuleTest {
 
     public static final String DAILY_JOB_NAME = "apiSpecSyncFromApigee";
-    public static final String NIGHTLY_JOB_NAME = "apiSpecRerender";
     public static final String JOB_GROUP_NAME = "devzone";
     private static final String TRIGGER_NAME = "cronTrigger";
 
@@ -71,10 +69,8 @@ public class ApiSpecSyncFromApigeeModuleTest {
 
         // given
         final String expectedDailyCronExpression = "0 0/10 * ? * *";
-        final String expectedNightlyCronExpression = "0 10/10 * ? * *";
 
         System.setProperty("devzone.apispec.sync.daily-cron-expression", expectedDailyCronExpression);
-        System.setProperty("devzone.apispec.sync.nightly-cron-expression", expectedNightlyCronExpression);
         System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT0.5S");
 
         // when
@@ -86,10 +82,10 @@ public class ApiSpecSyncFromApigeeModuleTest {
             .await()
             .atMost(5, SECONDS)
             .untilAsserted(() ->
-                then(scheduler).should(times(2)).scheduleJob(any(), any())
+                then(scheduler).should(times(1)).scheduleJob(any(), any())
             );
 
-        then(scheduler).should(times(2)).scheduleJob(
+        then(scheduler).should(times(1)).scheduleJob(
             jobInfoArgCaptor.capture(),
             jobTriggerArgCaptor.capture()
         );
@@ -97,14 +93,9 @@ public class ApiSpecSyncFromApigeeModuleTest {
         final List<RepositoryJobInfo> actualJobInfos = jobInfoArgCaptor.getAllValues();
 
         final RepositoryJobInfo dailyJobInfo = actualJobInfos.get(0);
-        final RepositoryJobInfo nightlyJobInfo = actualJobInfos.get(1);
         assertThat("Daily job is scheduled with correct group.", dailyJobInfo.getGroup(), is(JOB_GROUP_NAME));
         assertThat("Daily job is scheduled with correct name.", dailyJobInfo.getName(), is(DAILY_JOB_NAME));
         assertThat("Daily job is scheduled with correct class.", dailyJobInfo.getJobClass(), is(ApiSpecSyncFromApigeeJob.class));
-
-        assertThat("Nightly job is scheduled with correct group.", nightlyJobInfo.getGroup(), is(JOB_GROUP_NAME));
-        assertThat("Nightly job is scheduled with correct name.", nightlyJobInfo.getName(), is(NIGHTLY_JOB_NAME));
-        assertThat("Nightly job is scheduled with correct class.", nightlyJobInfo.getJobClass(), is(ApiSpecRerenderJob.class));
 
         final List<RepositoryJobTrigger> actualJobTriggers = jobTriggerArgCaptor.getAllValues();
 
@@ -112,11 +103,6 @@ public class ApiSpecSyncFromApigeeModuleTest {
         assertThat("Daily job is scheduled as a cron job.", dailyJobTrigger, instanceOf(RepositoryJobCronTrigger.class));
         assertThat("Daily job is scheduled with correct trigger name", dailyJobTrigger.getName(), is(TRIGGER_NAME));
         assertThat("Daily job is scheduled with correct cron expression", ((RepositoryJobCronTrigger)dailyJobTrigger).getCronExpression(), is(expectedDailyCronExpression));
-
-        final RepositoryJobTrigger nightlyJobTrigger = actualJobTriggers.get(1);
-        assertThat("Nightly job is scheduled as a cron job.", nightlyJobTrigger, instanceOf(RepositoryJobCronTrigger.class));
-        assertThat("Nightly job is scheduled with correct trigger name", nightlyJobTrigger.getName(), is(TRIGGER_NAME));
-        assertThat("Nightly job is scheduled with correct cron expression", ((RepositoryJobCronTrigger)nightlyJobTrigger).getCronExpression(), is(expectedNightlyCronExpression));
     }
 
     @Test
@@ -138,8 +124,6 @@ public class ApiSpecSyncFromApigeeModuleTest {
             .untilAsserted(() -> {
                 then(scheduler).should().checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME);
                 then(scheduler).should().deleteJob(DAILY_JOB_NAME, JOB_GROUP_NAME);
-                then(scheduler).should().checkExists(NIGHTLY_JOB_NAME, JOB_GROUP_NAME);
-                then(scheduler).should().deleteJob(NIGHTLY_JOB_NAME, JOB_GROUP_NAME);
             });
     }
 
@@ -174,8 +158,6 @@ public class ApiSpecSyncFromApigeeModuleTest {
         // then
         then(scheduler).should().checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME);
         then(scheduler).should().deleteJob(DAILY_JOB_NAME, JOB_GROUP_NAME);
-        then(scheduler).should().checkExists(NIGHTLY_JOB_NAME, JOB_GROUP_NAME);
-        then(scheduler).should().deleteJob(NIGHTLY_JOB_NAME, JOB_GROUP_NAME);
     }
 
     @Test
@@ -193,7 +175,6 @@ public class ApiSpecSyncFromApigeeModuleTest {
 
     private void unsetSystemProperties() {
         System.getProperties().remove("devzone.apispec.sync.daily-cron-expression");
-        System.getProperties().remove("devzone.apispec.sync.nightly-cron-expression");
         System.getProperties().remove("devzone.apispec.sync.schedule-delay-duration");
     }
 }
