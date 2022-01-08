@@ -668,6 +668,12 @@
             </dependency>
 
             <dependency>
+                <groupId>com.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-caching-hst</artifactId>
+                <version>${bloomreach.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.atlassian.commonmark</groupId>
                 <artifactId>commonmark</artifactId>
                 <version>${commonmark.version}</version>
@@ -968,7 +974,7 @@
                                     <cargo.jvmargs>
                                         -Xmx1024m
                                         -Duser.timezone=Etc/UTC
-                                        -Dfile.encoding=ANSI_X3.4-1968
+                                        -Dfile.encoding=UTF-8
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
                                         -Xdebug

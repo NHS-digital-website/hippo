@@ -2,7 +2,10 @@
 <#include "../include/imports.ftl">
 <#include "macro/searchTabsComponent.ftl">
 
+<#assign simulateLongRendering = "uk.nhs.digital.common.components.apicatalogue.LogRenderingDirective"?new() />
+
 <div class="article article--search-results" aria-label="Search Results" role="search">
+    <@simulateLongRendering name="SEARCH" durationInSecs=0/>
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
