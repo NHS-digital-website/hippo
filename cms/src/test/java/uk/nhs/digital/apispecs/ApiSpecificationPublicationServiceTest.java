@@ -48,9 +48,6 @@ public class ApiSpecificationPublicationServiceTest {
     private ApiSpecificationDocumentJcrRepository apiSpecDocumentRepo;
 
     @Mock
-    private OpenApiSpecificationJsonToHtmlConverter apiSpecHtmlProvider;
-
-    @Mock
     private ApiSpecificationImportMetadataRepository apiSpecMetadataRepo;
 
     private final ArgumentCaptor<ApiSpecificationImportMetadata> apiSpecsImportMetadataArgumentCaptor =
@@ -68,8 +65,7 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService = new ApiSpecificationPublicationService(
             apigeeService,
             apiSpecDocumentRepo,
-            apiSpecMetadataRepo,
-            apiSpecHtmlProvider
+            apiSpecMetadataRepo
         );
     }
 
@@ -93,7 +89,6 @@ public class ApiSpecificationPublicationServiceTest {
         final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.001Z"); // younger than either of the above
 
         final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
-        final String newSpecificationHtml       = "<html><body> new spec html </body></html>";
         // @formatter:on
 
         metadataExistsForSpecWith(apiSpecJcrId, oldLocalCheckTime);
@@ -114,8 +109,6 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
 
-        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJson)).willReturn(newSpecificationHtml);
-
         // when
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
@@ -123,7 +116,6 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublished).should(never()).save();
 
         then(localSpecNeverPublished).should().setJsonForPublishing(remoteSpecificationJson);
-        then(localSpecNeverPublished).should().setHtmlForPublishing(newSpecificationHtml);
         then(localSpecNeverPublished).should().saveAndPublish();
 
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
@@ -148,7 +140,6 @@ public class ApiSpecificationPublicationServiceTest {
 
         final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
         final String oldLocalSpecificationJson  = "{ \"old-spec\": \"json\" }";
-        final String newSpecificationHtml       = "<html><body> new spec html </body></html>";
         // @formatter:on
 
         metadataExistsForSpecWith(apiSpecJcrId, oldLocalCheckTime);
@@ -161,7 +152,6 @@ public class ApiSpecificationPublicationServiceTest {
             .withSpecId(specificationId)
             .withJcrId(apiSpecJcrId)
             .withJson(oldLocalSpecificationJson)
-            .withHtml(newSpecificationHtml)
             .mock();
 
         given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
@@ -171,8 +161,6 @@ public class ApiSpecificationPublicationServiceTest {
 
         given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
 
-        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJson)).willReturn(newSpecificationHtml);
-
         // when
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
@@ -180,7 +168,6 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).save();
 
         then(localSpecPublishedBefore).should().setJsonForPublishing(remoteSpecificationJson);
-        then(localSpecPublishedBefore).should().setHtmlForPublishing(newSpecificationHtml);
         then(localSpecPublishedBefore).should().saveAndPublish();
 
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
@@ -234,7 +221,6 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).save();
 
         then(localSpecPublishedBefore).should(never()).setJsonForPublishing(any());
-        then(localSpecPublishedBefore).should(never()).setHtmlForPublishing(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
@@ -280,7 +266,6 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecPublishedBefore).should(never()).save();
 
         then(localSpecPublishedBefore).should(never()).setJsonForPublishing(any());
-        then(localSpecPublishedBefore).should(never()).setHtmlForPublishing(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
@@ -324,7 +309,6 @@ public class ApiSpecificationPublicationServiceTest {
 
         // then
         then(localSpecPublishedBefore).should(never()).setJsonForPublishing(any());
-        then(localSpecPublishedBefore).should(never()).setHtmlForPublishing(any());
         then(localSpecPublishedBefore).should(never()).saveAndPublish();
 
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
@@ -371,7 +355,6 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpec).should(never()).save();
 
         then(localSpec).should(never()).setJsonForPublishing(any());
-        then(localSpec).should(never()).setHtmlForPublishing(any());
         then(localSpec).should(never()).saveAndPublish();
 
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
@@ -381,60 +364,6 @@ public class ApiSpecificationPublicationServiceTest {
             error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
                 .withException("Failed to determine whether the specification is eligible for update.")
                 .withCause("Failed to retrieve remote spec.")
-        );
-    }
-
-    @Test
-    public void sync_doesNotChangeOrPublishSpec_onFailureTo_renderJsonToHtml() {
-
-        // given
-        // @formatter:off
-        final String specificationId            = "248569";
-        final String apiSpecJcrId               = "30f1cc21-77fb-49a2-bf93-5c6d9191a636";
-
-        final String remoteSpecModificationTime =           "2020-05-10T10:30:00.001Z";
-        final String oldLocalCheckTime          =           "2020-05-10T10:30:00.000Z";  // older than remoteSpecModificationTime
-
-        final String remoteSpecificationJson    = "{ \"new-spec\": \"json\" }";
-        // @formatter:on
-
-        metadataExistsForSpecWith(apiSpecJcrId, oldLocalCheckTime);
-
-        final ApiSpecificationImportMetadata newApiSpecificationImportMetadata = metadataWith(
-            newMetadataItem(apiSpecJcrId, oldLocalCheckTime)  // last change check time expected to NOT be updated
-        );
-
-        final ApiSpecificationDocument localSpec = localSpec()
-            .withSpecId(specificationId)
-            .withJcrId(apiSpecJcrId)
-            .mock();
-
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpec));
-
-        final OpenApiSpecification remoteSpec = remoteSpecWith(specificationId, remoteSpecModificationTime);
-        given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpec));
-
-        given(apigeeService.apiSpecificationJsonForSpecId(specificationId)).willReturn(remoteSpecificationJson);
-
-        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJson)).willThrow(new RuntimeException("Invalid spec."));
-
-        // when
-        apiSpecificationPublicationService.syncEligibleSpecifications();
-
-        // then
-        then(localSpec).should(never()).save();
-
-        then(localSpec).should(never()).setJsonForPublishing(any());
-        then(localSpec).should(never()).setHtmlForPublishing(any());
-        then(localSpec).should(never()).saveAndPublish();
-
-        metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
-
-        logger.shouldReceive(
-            info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 0, failed to sync: 1"),
-            error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
-                .withException("Failed to render OAS JSON into HTML.")
-                    .withCause("Invalid spec.")
         );
     }
 
@@ -451,14 +380,12 @@ public class ApiSpecificationPublicationServiceTest {
 
         final String remoteSpecModificationTimeA =           "2020-05-10T10:30:00.000Z";
         final Instant newCheckTimeA              = Instant.EPOCH;
-        final String remoteSpecificationJsonA    = "{ \"new-spec\": \"json-a\" }";
 
         final String remoteSpecModificationTimeB =           "2020-05-10T10:30:00.000Z";
         final Instant newCheckTimeB              = nextNowIs("2020-05-10T10:30:00.002Z");
         // expecting only B to be read - we're breaking A before it can read the time
 
         final String remoteSpecificationJsonB    = "{ \"new-spec\": \"json-b\" }";
-        final String newSpecificationHtmlB       = "<html><body> new spec html B</body></html>";
         // @formatter:on
 
         metadataExistsWithItems(emptyList());
@@ -489,11 +416,8 @@ public class ApiSpecificationPublicationServiceTest {
             remoteSpecA, remoteSpecB
         ));
 
-        given(apigeeService.apiSpecificationJsonForSpecId(specificationIdA)).willReturn(remoteSpecificationJsonA);
+        given(apigeeService.apiSpecificationJsonForSpecId(specificationIdA)).willThrow(new RuntimeException("Failed to retrieve remote spec."));
         given(apigeeService.apiSpecificationJsonForSpecId(specificationIdB)).willReturn(remoteSpecificationJsonB);
-
-        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJsonA)).willThrow(new RuntimeException("Invalid spec."));
-        given(apiSpecHtmlProvider.htmlFrom(remoteSpecificationJsonB)).willReturn(newSpecificationHtmlB);
 
         // when
         apiSpecificationPublicationService.syncEligibleSpecifications();
@@ -502,23 +426,21 @@ public class ApiSpecificationPublicationServiceTest {
         then(localSpecNeverPublishedA).should(never()).save();
 
         then(localSpecNeverPublishedA).should(never()).setJsonForPublishing(any());
-        then(localSpecNeverPublishedA).should(never()).setHtmlForPublishing(any());
         then(localSpecNeverPublishedA).should(never()).saveAndPublish();
 
         then(localSpecNeverPublishedB).should(never()).save();
 
         then(localSpecNeverPublishedB).should().setJsonForPublishing(remoteSpecificationJsonB);
-        then(localSpecNeverPublishedB).should().setHtmlForPublishing(newSpecificationHtmlB);
         then(localSpecNeverPublishedB).should().saveAndPublish();
 
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 2, synced: 1, failed to sync: 1"),
+            info("API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 1"),
             info("Synchronised API Specification with id 965842 at /content/docs/965842"),
             error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
-                .withException("Failed to render OAS JSON into HTML.")
-                .withCause("Invalid spec.")
+                .withException("Failed to determine whether the specification is eligible for update.")
+                .withCause("Failed to retrieve remote spec.")
         );
     }
 
@@ -533,123 +455,6 @@ public class ApiSpecificationPublicationServiceTest {
 
         // then
         then(apigeeService).shouldHaveNoInteractions();
-    }
-
-    @Test
-    public void rerender_updatesAndPublishesSpecificationWhenChanged() {
-
-        // @formatter:off
-        final String specificationId            = "248569";
-
-        final String localSpecificationJson     = "{ \"old-spec\": \"json\" }";
-        final String newSpecificationHtml       = "<html><body> new spec html </body></html>";
-        final String oldSpecificationHtml       = "<html><body> old spec html </body></html>";
-        // @formatter:on
-
-        final ApiSpecificationDocument localSpecPublishedBefore = localSpec()
-            .withSpecId(specificationId)
-            .withJson(localSpecificationJson)
-            .withHtml(oldSpecificationHtml)
-            .mock();
-
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
-
-        given(apiSpecHtmlProvider.htmlFrom(localSpecificationJson)).willReturn(newSpecificationHtml);
-
-        // when
-        apiSpecificationPublicationService.rerenderSpecifications();
-
-        // then
-        then(localSpecPublishedBefore).should().json();
-        then(localSpecPublishedBefore).should().html();
-        then(localSpecPublishedBefore).should().setHtmlInPlace(newSpecificationHtml);
-        then(localSpecPublishedBefore).should().save();
-        then(localSpecPublishedBefore).should().specificationId(); // this call is made for the sake of logging
-        then(localSpecPublishedBefore).should().path();  // this call is made for the sake of logging
-        then(localSpecPublishedBefore).shouldHaveNoMoreInteractions();
-    }
-
-    @Test
-    public void rerender_skipsSpecification_whenUnchanged() {
-        // given
-        // @formatter:off
-        final String specificationId        = "248569";
-
-        final String localSpecificationJson = "{ \"json\": \"payload\" }";
-        final String localSpecificationHtml = "<html><body>existing spec content</body></html>";
-        // @formatter:on
-
-        final ApiSpecificationDocument localSpecPublishedBefore = localSpec()
-            .withSpecId(specificationId)
-            .withJson(localSpecificationJson)
-            .withHtml(localSpecificationHtml)
-            .mock();
-
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
-
-        given(apiSpecHtmlProvider.htmlFrom(localSpecificationJson)).willReturn(localSpecificationHtml);
-
-        // when
-        apiSpecificationPublicationService.rerenderSpecifications();
-
-        // then
-        then(localSpecPublishedBefore).should().json();
-        then(localSpecPublishedBefore).should().html();
-        then(localSpecPublishedBefore).should().specificationId(); // this call is made for the sake of logging
-        then(localSpecPublishedBefore).shouldHaveNoMoreInteractions();
-    }
-
-    @Test
-    public void rerender_skipsSpecification_whenUnchanged_ignoringUuids() {
-
-        // given
-        // @formatter:off
-        final String specificationId        = "248569";
-
-        final String localSpecificationJson = "{ \"json\": \"payload\" }";
-        final String newSpecificationHtml   = "<html><body><div data-schema-uuid=\"df7a85bf-8dcf-4b7d-9bbb-1d387c638091\">spec html different only in UUID</div></body></html>";
-        final String oldSpecificationHtml   = "<html><body><div data-schema-uuid=\"ea5cd2c0-37eb-4e7c-af44-112f574b5c51\">spec html different only in UUID</div></body></html>";
-        // @formatter:on
-
-        final ApiSpecificationDocument localSpecPublishedBefore = localSpec()
-            .withSpecId(specificationId)
-            .withJson(localSpecificationJson)
-            .withHtml(oldSpecificationHtml)
-            .mock();
-
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecPublishedBefore));
-
-        given(apiSpecHtmlProvider.htmlFrom(localSpecificationJson)).willReturn(newSpecificationHtml);
-
-        // when
-        apiSpecificationPublicationService.rerenderSpecifications();
-
-        // then
-        then(localSpecPublishedBefore).should().json();
-        then(localSpecPublishedBefore).should().html();
-        then(localSpecPublishedBefore).should().specificationId(); // this call is made for the sake of logging
-        then(localSpecPublishedBefore).shouldHaveNoMoreInteractions();
-    }
-
-    @Test
-    public void rerender_skipsSpecification_whenNeverPublished() {
-        // given
-        final String specificationId = "248569";
-
-        final ApiSpecificationDocument localSpecNeverPublished = localSpec()
-            .withSpecId(specificationId)
-            .mock();
-
-        given(apiSpecDocumentRepo.findAllApiSpecifications()).willReturn(singletonList(localSpecNeverPublished));
-
-        // when
-        apiSpecificationPublicationService.rerenderSpecifications();
-
-        // then
-        then(localSpecNeverPublished).should().json();
-        then(localSpecNeverPublished).should().html();
-        then(localSpecNeverPublished).should().specificationId(); // this call is made for the sake of logging
-        then(localSpecNeverPublished).shouldHaveNoMoreInteractions();
     }
 
     private void metadataForAllProcessedApiSpecsAreUpdatedAndSaved(final ApiSpecificationImportMetadata newApiSpecificationImportMetadata) {
@@ -720,12 +525,6 @@ public class ApiSpecificationPublicationServiceTest {
 
         public ApiSpecDocMockBuilder withJson(final String json) {
             given(spec.json()).willReturn(Optional.of(json));
-
-            return this;
-        }
-
-        public ApiSpecDocMockBuilder withHtml(final String html) {
-            given(spec.html()).willReturn(Optional.of(html));
 
             return this;
         }

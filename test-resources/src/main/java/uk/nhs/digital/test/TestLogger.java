@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
  * <p>
  * Provides convenient DSL and assertion to aid in validating that desired statements have been logged.
  * <p>
+ * NOTE: assumes tha logging is done using Logback.
+ * <p>
  * Can be used directly or via {@linkplain TestLoggerRule} (<b>recommended</b>).
  * <p>
  * <b>If using directly, remember to call {@linkplain #reset()} method after each test, else you're
@@ -82,17 +84,27 @@ import java.util.stream.Collectors;
 public class TestLogger {
 
     private final Class<?> loggingClassUnderTest;
-    private final Level level;
+    private final Level targetLevel;
 
+    private Level originalLevel;
     private MockAppender mockAppender;
+
 
     private TestLogger(final Class<?> loggingClassUnderTest, final Level level) {
         this.loggingClassUnderTest = loggingClassUnderTest;
-        this.level = level;
+        this.targetLevel = level;
+    }
 
-        mockAppender = new MockAppender();
+    private void initialise() {
+        initialiseLogger(loggingClassUnderTest, targetLevel);
 
         registerMockAppenderFor(loggingClassUnderTest);
+    }
+
+    private void initialiseLogger(final Class<?> loggingClassUnderTest, final Level level) {
+        final Logger logger = loggerFor(loggingClassUnderTest);
+        originalLevel = logger.getLevel();
+        logger.setLevel(level);
     }
 
     /**
@@ -108,10 +120,15 @@ public class TestLogger {
      * If you only need to verify logs of and above specific level, use {@linkplain #initialiseFor(Class, Level)}.
      */
     public static TestLogger initialiseFor(final Class<?> loggingClassUnderTest, final Level level) {
-        return new TestLogger(loggingClassUnderTest, level);
+        final TestLogger testLogger = new TestLogger(loggingClassUnderTest, level);
+
+        testLogger.initialise();
+
+        return testLogger;
     }
 
     private void registerMockAppenderFor(final Class<?> loggingClassUnderTest) {
+        mockAppender = new MockAppender();
         loggerFor(loggingClassUnderTest).addAppender(mockAppender);
 
         mockAppender.start();
@@ -119,12 +136,13 @@ public class TestLogger {
 
     public void reset() {
         loggerFor(loggingClassUnderTest).detachAppender(mockAppender);
+        loggerFor(loggingClassUnderTest).setLevel(originalLevel);
 
         mockAppender.stop();
     }
 
     public void shouldReceive(final LogAssertor... expectedLogEntries) {
-        LogAssertor.assertLogs(mockAppender, level, expectedLogEntries);
+        LogAssertor.assertLogs(mockAppender, targetLevel, expectedLogEntries);
     }
 
     private Logger loggerFor(final Class<?> loggingClassUnderTest) {

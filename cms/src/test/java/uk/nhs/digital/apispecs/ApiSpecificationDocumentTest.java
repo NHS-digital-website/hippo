@@ -43,42 +43,10 @@ public class ApiSpecificationDocumentTest {
         final String actualSpecificationId = apiSpecificationDocument.specificationId();
 
         // then
-        assertThat("HTML value is as returned from document proxy.",
+        assertThat("ID value is as returned from document proxy.",
             actualSpecificationId,
             is(expectedSpecificationId)
         );
-    }
-
-    @Test
-    public void html_delegatesToDocumentProxy() {
-
-        // given
-        final String expectedHtml = randomString();
-
-        given(jcrDocumentLifecycleSupport.getStringProperty("website:html", PUBLISHED))
-            .willReturn(Optional.of(expectedHtml));
-
-        // when
-        final Optional<String> actualHtml = apiSpecificationDocument.html();
-
-        // then
-        assertThat("HTML value is as returned from document proxy.",
-            actualHtml,
-            is(Optional.of(expectedHtml))
-        );
-    }
-
-    @Test
-    public void setHtml_delegatesToDocumentProxy() {
-
-        // given
-        final String updatedHtmlContent = randomString();
-
-        // when
-        apiSpecificationDocument.setHtmlForPublishing(updatedHtmlContent);
-
-        // then
-        then(jcrDocumentLifecycleSupport).should().setStringPropertyWithCheckout("website:html", updatedHtmlContent);
     }
 
     @Test
@@ -91,11 +59,11 @@ public class ApiSpecificationDocumentTest {
             .willReturn(Optional.of(expectedJson));
 
         // when
-        final Optional<String> actualHtml = apiSpecificationDocument.json();
+        final Optional<String> actualJson = apiSpecificationDocument.json();
 
         // then
         assertThat("JSON value is as returned from document proxy.",
-            actualHtml,
+            actualJson,
             is(Optional.of(expectedJson))
         );
     }

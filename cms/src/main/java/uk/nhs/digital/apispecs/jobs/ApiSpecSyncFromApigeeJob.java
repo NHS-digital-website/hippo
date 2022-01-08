@@ -12,7 +12,6 @@ import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
 import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationImportImportMetadataJcrRepository;
-import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
 
 import java.util.Optional;
 import javax.jcr.Session;
@@ -51,8 +50,7 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
                 new ApiSpecificationPublicationService(
                     apigeeService,
                     new ApiSpecificationDocumentJcrRepository(session),
-                    new ApiSpecificationImportImportMetadataJcrRepository(session),
-                    new SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter()
+                    new ApiSpecificationImportImportMetadataJcrRepository(session)
                 );
 
             apiSpecificationPublicationService.syncEligibleSpecifications();

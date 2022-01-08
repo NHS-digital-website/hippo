@@ -15,7 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.exception.ApiCatalogueJobException;
 import uk.nhs.digital.apispecs.exception.ApiCatalogueModuleException;
-import uk.nhs.digital.apispecs.jobs.ApiSpecRerenderJob;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob;
 
 import java.time.Duration;
@@ -152,11 +151,6 @@ public class ApiSpecSyncFromApigeeModule implements DaemonModule {
             "apiSpecSyncFromApigee",
             ApiSpecSyncFromApigeeJob.class,
             "devzone.apispec.sync.daily-cron-expression"
-        ),
-        NIGHTLY(
-            "apiSpecRerender",
-            ApiSpecRerenderJob.class,
-            "devzone.apispec.sync.nightly-cron-expression"
         );
 
         private final String jobName;
