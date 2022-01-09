@@ -50,6 +50,20 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     <#elseif heroType == "accentedImageMirrored">
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
     </#if>
+    
+    <#assign inLine=""/>
+    <#if options.inline?has_content>
+    	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 50%)/2); width: 100vw;\""/>
+    </#if>
+    
+    <#assign videoOptions=""/>
+    <#if options.videoOptions?has_content && options.videoOptions?size gt 0>
+    	<#assign videoOptions="?"/>
+    	<#list options.videoOptions?keys as videoOptionsKey>
+    		<#assign videoOptions += videoOptionsKey + "=" + options.videoOptions[videoOptionsKey] + "&"/>
+    	</#list>
+    	<#assign videoOptions += "rel=0"/>
+    </#if>
 
     <#if options.colour?has_content>
         <#if options.colour == "Dark Grey" || options.colour == "darkGrey">
@@ -88,7 +102,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses += " nhsd-o-hero--left-align"/>
     </#if>
 
-    <div class="nhsd-o-hero ${heroClasses} ${textClass} ${bgClass}">
+    <div class="nhsd-o-hero ${heroClasses} ${textClass} ${bgClass}" ${inLine?no_esc}>
         <div class="nhsd-o-hero__content-container">
             <div class="nhsd-o-hero__inner-content-container">
                 <#nested/>
@@ -109,7 +123,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             <div class="nhsd-o-hero__image-container">
                 <#if options.video?has_content>
                     <div class="nhsd-o-hero__iframe-wrapper">
-                        <iframe class="nhsd-o-banner__iframe" src="${options.video}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="nhsd-o-banner__iframe" src="${options.video}${videoOptions}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 <#else>
                     <figure class="nhsd-a-image ${imageClasses}" style="${style}">
