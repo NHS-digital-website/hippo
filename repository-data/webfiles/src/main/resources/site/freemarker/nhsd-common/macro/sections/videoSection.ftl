@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#macro videoSections section>
+<#macro videoSection section>
 
 <#if section.videoUrl?contains("www.youtube") || section.videoUrl.contains("www.vimeo")>
 		
