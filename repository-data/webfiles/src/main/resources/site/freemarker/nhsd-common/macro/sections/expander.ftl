@@ -12,7 +12,7 @@
             </#if>"
         >
             <details>
-                <summary class="nhsd-m-expander__heading-container" aria-label="${section.heading}" >
+                <summary class="nhsd-m-expander__heading-container" aria-label="${section.heading}" ></summary>
                     <div>
                         <span class="nhsd-m-expander__icon nhsd-!t-margin-right-1">
                             <span class="nhsd-a-icon nhsd-a-icon--size-xs">
@@ -29,8 +29,6 @@
                             </#if>
                         </p>
                     </div>
-                </summary>
-
                 <div class="nhsd-m-expander__content-container">
                     <#if content?has_content>
                         <@hst.html hippohtml=content contentRewriter=brContentRewriter />
