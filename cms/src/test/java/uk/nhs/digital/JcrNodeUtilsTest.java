@@ -12,12 +12,12 @@ import static uk.nhs.digital.test.util.TimeTestUtils.calendarFrom;
 
 import org.apache.jackrabbit.value.DateValue;
 import org.apache.jackrabbit.value.StringValue;
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.onehippo.repository.mock.MockNode;
 import org.onehippo.repository.mock.MockNodeIterator;
+import uk.nhs.digital.toolbox.exception.ExceptionUtils;
 
 import java.sql.Date;
 import java.time.Instant;

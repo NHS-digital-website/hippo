@@ -1,4 +1,4 @@
-package uk.nhs.digital;
+package uk.nhs.digital.toolbox.exception;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.sameInstance;
@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.sameInstance;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import uk.nhs.digital.toolbox.exception.ExceptionUtils;
 
 public class ExceptionUtilsTest {
 

@@ -1,7 +1,7 @@
 package uk.nhs.digital;
 
-import static uk.nhs.digital.ExceptionUtils.wrapCheckedException;
 import static uk.nhs.digital.JcrNodeUtils.validateIsOfTypeHandle;
+import static uk.nhs.digital.toolbox.exception.ExceptionUtils.wrapCheckedException;
 
 import org.hippoecm.repository.util.JcrUtils;
 import org.hippoecm.repository.util.WorkflowUtils;

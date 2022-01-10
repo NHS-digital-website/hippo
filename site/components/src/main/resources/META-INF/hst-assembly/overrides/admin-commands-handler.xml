@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+      Components related to handling admin commands within application 'site'.
+      These handlers are invoked in response to the Admin Command Interface document
+      being published.
+
+      They detect and react to the command currently saved in that document,
+      each handler only handling the command if it supports it.
+
+      These listeners are registered and are invoked on each node of the cluster,
+      regardless of which node the document's publication was triggered from.
+
+      This is mostly useful for when there is a need to execute repeated
+      actions that modify some resources on all nodes of the cluster, that are _not_
+      data in JCR. Example of such a resource and action are on-disk caches
+      maintained individually by each node.
+
+      For manipulating actual data, the mechanism of updater scripts is sufficient.
+    -->
+
+    <bean class="uk.nhs.digital.cache.listener.PersistedHippoEventListenerRegisteringComponent">
+        <constructor-arg name="listener">
+            <bean class="uk.nhs.digital.admin.AdminCommandEventListener">
+                <constructor-arg name="adminCommandProvider">
+                    <bean class="uk.nhs.digital.admin.AdminCommandProvider">
+                        <constructor-arg name="sessionProvider">
+                            <bean class="uk.nhs.digital.HstSessionUtils" factory-method="contentReadOnlySessionProvider"/>
+                        </constructor-arg>
+                    </bean>
+                </constructor-arg>
+                <constructor-arg name="adminCommandEvenHandlers">
+                    <set>
+                        <bean class="uk.nhs.digital.cache.listener.CacheManagementAdminCommandHandler">
+                            <constructor-arg name="cache" ref="heavyContentCache"/>
+                        </bean>
+                    </set>
+                </constructor-arg>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+</beans>

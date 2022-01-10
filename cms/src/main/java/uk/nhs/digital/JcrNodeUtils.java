@@ -1,7 +1,7 @@
 package uk.nhs.digital;
 
 
-import static uk.nhs.digital.ExceptionUtils.wrapCheckedException;
+import static uk.nhs.digital.toolbox.exception.ExceptionUtils.wrapCheckedException;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.jackrabbit.value.DateValue;

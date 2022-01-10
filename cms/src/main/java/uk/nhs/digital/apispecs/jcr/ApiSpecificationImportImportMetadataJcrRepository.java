@@ -2,9 +2,9 @@ package uk.nhs.digital.apispecs.jcr;
 
 
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ExceptionUtils.wrapCheckedException;
 import static uk.nhs.digital.JcrNodeUtils.*;
 import static uk.nhs.digital.apispecs.ApiSpecificationImportMetadata.Item.metadataItem;
+import static uk.nhs.digital.toolbox.exception.ExceptionUtils.wrapCheckedException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

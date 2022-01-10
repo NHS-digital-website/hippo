@@ -1,0 +1,43 @@
+---
+/content/documents/administration/admin-command-interface:
+  /admin-command-interface[1]:
+    common:entries:
+      type: string
+      value: []
+    common:searchable: true
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-01-18T20:13:48.231Z
+    hippostdpubwf:lastModificationDate: 2022-01-18T20:13:48.231Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: cc919a10-e73d-4370-a8ec-88c6b2d40ff9
+    hippotranslation:locale: document-type-locale
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: common:stringlist
+  /admin-command-interface[2]:
+    common:entries:
+      type: string
+      value: []
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-01-18T20:13:48.231Z
+    hippostdpubwf:lastModificationDate: 2022-01-18T20:13:51.445Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: cc919a10-e73d-4370-a8ec-88c6b2d40ff9
+    hippotranslation:locale: document-type-locale
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: common:stringlist
+  hippo:name: Admin command interface
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
