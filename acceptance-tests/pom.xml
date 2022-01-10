@@ -416,7 +416,7 @@
                                     <cargo.jvmargs>
                                         -Xmx1024m
                                         -Duser.timezone=Etc/UTC
-                                        -Dfile.encoding=ANSI_X3.4-1968
+                                        -Dfile.encoding=UTF-8
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
                                         -Xdebug
@@ -474,7 +474,6 @@
                                     <devzone.apispec.sync.schedule-delay-duration>${devzone.apispec.sync.schedule-delay-duration}</devzone.apispec.sync.schedule-delay-duration>
                                     <devzone.apispec.sync.daily-cron-expression>${devzone.apispec.sync.daily-cron-expression}</devzone.apispec.sync.daily-cron-expression>
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
-
                                 </systemProperties>
 
                                 <dependencies>

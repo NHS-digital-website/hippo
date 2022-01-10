@@ -1,4 +1,4 @@
-package uk.nhs.digital;
+package uk.nhs.digital.toolbox.exception;
 
 
 public abstract class ExceptionUtils {
@@ -43,7 +43,7 @@ public abstract class ExceptionUtils {
         void apply() throws Exception;
     }
 
-    static class UncheckedWrappingException extends RuntimeException {
+    public static class UncheckedWrappingException extends RuntimeException {
 
         public UncheckedWrappingException(final Exception checkedException) {
             super(checkedException);

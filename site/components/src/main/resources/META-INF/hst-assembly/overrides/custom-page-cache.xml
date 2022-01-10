@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+      Components related to custom page caching.
+    -->
+
+    <!--
+    Summary:
+      Cache manager for all custom site caches; backed by a disk store.
+
+    Characteristics:
+      * Implemented using Ehcache v3.x.
+      * Provides a single, configurable location for all caches that are registered with this manager.
+    -->
+    <bean id="siteCacheManager" class="uk.nhs.digital.cache.OnDiskEhcacheManagerFactoryBean">
+        <constructor-arg name="diskStorePath" value="${siteCache.cacheManager.diskStorePath:defaultTempLocation}"/>
+    </bean>
+
+    <!--
+    Summary:
+      Cache for 'heavy' content, i.e. one that:
+        * takes a long time to render,
+        * is large,
+        * incurs non-trivial CPU and RAM/heap cost,
+        * can be accessed infrequently.
+
+    Purpose:
+      * Reduce the number of times end users have to wait for rendering to complete.
+      * Reduce impact of CPU and RAM intensive rendering on system resources.
+      * Support cases that are not well served by any of the out of the box available caching solutions,
+        as these do not prevent re-rendering of the heavy content if it's accessed infrequently
+        (see https://community.bloomreach.com/t/does-stale-page-cache-eliminate-re-renderings-for-less-frequent-requests/2959).
+
+    Characteristics:
+     * Very long time-to-idle (TTI): items can stay unused in the cache even for weeks on end without re-rendering.
+     * Backed by persistent disk store: to enable long TTI.
+     * No in-memory cache: to reduce impact on RAM/heap and avoid adding to memory used by First Level Page Caching (FLPC).
+     * Not blocking: blocking and thundering-heard protection delegated to FLPC; this avoids complication of making the cache
+       self-populating.
+     * Uses Ehcache v3.x: see Ehcache docs for more details.
+
+    NOTE:
+      Recommended to ONLY USE FOR CONTENT OF PAGES THAT ARE CACHED BY FIRST LEVEL PAGE CACHING in order to provide blocking and
+      resilience against thundering herd.
+
+      If using in other context, either:
+      * make sure that there is no risk from non-blocking behaviour,
+      * or turn this cache into a blocking one by making it self-populating (see Ehcache docs for details),
+      * or simply add a new cache with different parameters.
+    -->
+    <bean id="heavyContentEhcache" class="uk.nhs.digital.cache.DiskOnlyEhcacheFactoryBean">
+        <constructor-arg name="cacheManager" ref="siteCacheManager"/>
+        <constructor-arg name="cacheName" value="heavyContentPageCache"/>
+        <constructor-arg name="maxMegabytesLocalDisk" value="${siteCache.heavyContentPageCache.maxMegabytesLocalDisk:128}"/>
+        <constructor-arg name="diskContentSurvivesJvmRestarts" value="${siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts:false}"/>
+        <constructor-arg name="timeToIdle" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
+    </bean>
+
+    <!-- Convenience wrapper for heavyContentEhcache. See JavaDoc for more details. -->
+    <bean id="heavyContentCache" class="uk.nhs.digital.cache.Cache">
+        <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
+    </bean>
+
+    <!--
+    Registers listener that reacts to 'publish' events for documents of types given
+    as constructors parameters, evicting corresponding entries from given cache.
+
+    It listens on a cluster wide event bus, and so is invoked on each cluster node,
+    resulting in each node-local cache being updated.
+    -->
+    <bean class="uk.nhs.digital.cache.listener.PersistedHippoEventListenerRegisteringComponent">
+        <constructor-arg name="listener">
+            <bean class="uk.nhs.digital.cache.listener.CacheEvictingListener">
+                <constructor-arg name="cache" ref="heavyContentCache"/>
+                <constructor-arg name="eligibleDoctypes">
+                    <set>
+                        <value>website:apispecification</value>
+                    </set>
+                </constructor-arg>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+</beans>
