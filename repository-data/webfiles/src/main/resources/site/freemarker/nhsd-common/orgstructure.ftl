@@ -163,7 +163,7 @@
                   <#if directorate.mainbusinessunit.businessunit?has_content>
                     <h4 class="nhsd-t-heading-m" id="${slugify(directorate.mainbusinessunit.businessunit.title)}" ${directorateStyle} >${directorate.mainbusinessunit.businessunit.title}</h4>
                     <p class="nhsd-t-body nhsd-!t-margin-top-3" >${directorate.mainbusinessunit.businessunit.shortsummary}</p>
-                    <a class="nhsd-a-button nhsd-a-button--invert ${(directorate.backgroundcolor == "#FAE100")?then("nhsd-a-button--custom","")}" type="button" style="max-width: 100%" href="<@hst.link hippobean=directorate.mainbusinessunit.businessunit/>">
+                    <a class="nhsd-a-button nhsd-a-button--invert ${(directorate.backgroundcolor == "#FAE100")?then("nhsd-a-button--custom","")}" style="max-width: 100%" href="<@hst.link hippobean=directorate.mainbusinessunit.businessunit/>">
                       <span class="nhsd-a-button__label">${directorate.mainbusinessunit.businessunit.title}</span>
                     </a>
                   </#if>
