@@ -37,9 +37,9 @@
 
                                 <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
                                 <#assign imageUrl += "?colour=${colour}" />
-                                <image x="4" y="4" width="8" height="8" href="${imageUrl}">
+                                <image x="4" y="4" width="8" height="8" href="${imageUrl}"/>
                             <#else>
-                                <image x="4" y="4" width="8" height="8" href="${image}">
+                                <image x="4" y="4" width="8" height="8" href="${image}"/>
                             </#if>
                         </svg>
                     <#else>

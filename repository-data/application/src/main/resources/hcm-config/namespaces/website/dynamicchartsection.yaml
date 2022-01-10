@@ -164,7 +164,8 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           jcr:primaryType: website:dynamicchartsection
-          website:htmlCode: <img src="" id="chartPrintFriendly" style="display:none">
+          website:htmlCode: <img src="" id="chartPrintFriendly" alt="Print Friendly
+            Chart" style="display:none">
           website:title: ''
           website:url: ''
           website:xTitle: ''

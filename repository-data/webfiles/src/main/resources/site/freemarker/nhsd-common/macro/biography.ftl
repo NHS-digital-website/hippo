@@ -38,45 +38,45 @@
                     <#if biographiesMap?size != 1 >
                         <h3>Professional biography</h3>
                     </#if>
-                    <p data-uipath="biographies.profbiography">
-                        <span itemprop="description">${biographiesMap['profbiography']}</span>
-                    </p>
+                    <div data-uipath="biographies.profbiography">
+                        ${biographiesMap['profbiography']}
+                    </div>
                 </#if>
 
                 <#if prevpositions?has_content>
                     <#if biographiesMap?size != 1 >
                         <h3>Previous positions / experience</h3>
                     </#if>
-                    <p data-uipath="biographies.prevpositions">
-                        <span itemprop="description">${biographiesMap['prevpositions']}</span>
-                    </p>
+                    <div data-uipath="biographies.prevpositions">
+                        ${biographiesMap['prevpositions']}
+                    </div>
                 </#if>
 
                 <#if nonnhspositions?has_content>
                     <#if biographiesMap?size != 1 >
                         <h3>Non-NHS Digital positions / awards</h3>
                     </#if>
-                    <p data-uipath="biographies.nonnhspositions">
-                        <span itemprop="description">${biographiesMap['nonnhspositions']}</span>
-                    </p>
+                    <div data-uipath="biographies.nonnhspositions">
+                       ${biographiesMap['nonnhspositions']}
+                    </div>
                 </#if>
 
                 <#if additionalbiography?has_content>
                     <#if biographiesMap?size != 1 >
                         <h3>Additional biography</h3>
                     </#if>
-                    <p data-uipath="biographies.additionalbiography">
-                        <span itemprop="description">${biographiesMap['additionalbiography']}</span>
-                    </p>
+                    <div data-uipath="biographies.additionalbiography">
+                        ${biographiesMap['additionalbiography']}
+                    </div>
                 </#if>
 
                 <#if personalbiography?has_content>
                     <#if biographiesMap?size != 1 >
                         <h3>Personal biography</h3>
                     </#if>
-                    <p data-uipath="biographies.personalbiography">
-                        <span itemprop="description">${biographiesMap['personalbiography']}</span>
-                    </p>
+                    <div data-uipath="biographies.personalbiography">
+                        ${biographiesMap['personalbiography']}
+                    </div>
                 </#if>
             </div>
         </#if>
