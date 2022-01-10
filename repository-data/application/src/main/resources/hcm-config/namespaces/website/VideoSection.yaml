@@ -17,36 +17,39 @@ definitions:
           /type:
             caption: Type
             field: type
+            hint: Hero and Full width only available in Feature and Blog document
+              types
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: Hero and Full width only available in Feature and Blog document
-              types
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: In line,Full width,Hero video left,Hero video right
           /videoUrl:
             caption: Video URL
             field: videoUrl
+            hint: Use the embedded URL E.G. https//www.youtube.com/embed/kLK0DoMpPCo
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: Use the embedded URL E.G. https//www.youtube.com/embed/kLK0DoMpPCo
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /playlist:
             caption: Playlist
             field: playlist
-            hint: Internal use only.
+            hint: Internal use only do not enter anything in this field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: [nhsd-m-notification-banner--hidden]
+            wicket.css: []
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '0'
+              size: '0'
           /caption:
             caption: Caption
             field: caption
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -82,14 +85,14 @@ definitions:
       /hipposysedit:nodetype:
         jcr:mixinTypes: ['mix:referenceable']
         jcr:primaryType: hippo:handle
-        jcr:uuid: b5cc9c86-7a23-478e-82c8-099b9a1d183e
+        jcr:uuid: 1ca9286a-f750-48b5-b390-b55a230a4af9
         /hipposysedit:nodetype:
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: e377be5a-208d-468f-a948-f8f5ede27412
+          jcr:uuid: 13db0874-6886-4278-8b1a-aeb7b7665238
           /behaviour:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false

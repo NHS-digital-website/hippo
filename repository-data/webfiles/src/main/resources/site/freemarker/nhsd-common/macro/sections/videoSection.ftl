@@ -1,11 +1,15 @@
 <#ftl output_format="HTML">
 
 <#macro videoSection section>
+<#import "../../../include/debugger.ftl" as debug>
 
 <#if section.videoUrl?contains("www.youtube") || section.videoUrl.contains("www.vimeo")>
 		
 	<#if (document.docType == "Feature" || document.docType == "Blog") && (section.type == "Hero video right" || section.type == "Hero video left")>
-	
+
+
+		<@debug.debug debugObject=section depth=1 />
+		
 		<#assign heroOptions = getHeroOptions(document) />
 		<#assign heroOptions += {
 			"colour": "Dark blue",
@@ -14,6 +18,7 @@
 			"title": "",
 			"summary": section.text,
 			"videoOptions": {
+				"caption": "${section.caption}",
 				"autoplay": "${section.behaviour?then('1','0')}",
 				"loop": "${section.loop?then('1','0')}",
 				"playlist": "${section.playlist}",	<#-- need a playlist for loop to work -->
@@ -32,7 +37,7 @@
 		<@hero heroOptions heroType/>
 	<#else>
 		<#if (document.docType == "Feature" || document.docType == "Blog") && section.type == "Full width">
-			<#assign fullWidth="position: relative; left: calc(-1 * (50vw - 50%)/2); width: 100vw;"/>
+			<#assign fullWidth="position: relative; left: calc(-1 * (50vw - 50%)/2); width: 100vw; height: 100vh"/>
 		</#if>
 		
 		<figure style="position: relative; width: 50vw; height: 50vh; text-align: center; ${fullWidth}">
