@@ -13,4 +13,9 @@ public class CustomizedAssetSet extends HippoAsset {
         return getSingleProperty("website:meetpdfa");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:archiveMaterial")
+    public Boolean getArchiveMaterial() {
+        return getSingleProperty("website:archiveMaterial");
+    }
+
 }

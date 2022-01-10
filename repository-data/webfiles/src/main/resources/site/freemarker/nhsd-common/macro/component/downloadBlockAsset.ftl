@@ -15,7 +15,7 @@
   <#return sizeString>
 </#function>
 
-<#macro downloadBlockAsset classname resource title shortsummary mimeType size external=false small=false orgPrompt=false>
+<#macro downloadBlockAsset classname resource title shortsummary mimeType size external=false small=false orgPrompt=false archiveContent=false>
     <#if size?has_content>
         <#assign sizeString = sizeToDisplay(size) />
     </#if>
@@ -27,7 +27,7 @@
                class="nhsd-a-box-link"
                onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, url), true)}"
                onKeyUp="return vjsu.onKeyUp(event)"
-               ${orgPrompt?then('data-org-prompt', '')}>
+               ${orgPrompt?then('data-org-prompt', '')} ${archiveContent?then('rel=archived', '')}>
                 <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                     <div class="${(small == true)?then('nhsd-m-download-card__image-box small', 'nhsd-m-download-card__image-box')}">
                         <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->
@@ -41,7 +41,7 @@
                     <div class="${(small == true)?then('nhsd-m-download-card__content-box small', 'nhsd-m-download-card__content-box')}">
 
                         <#if title?has_content>
-                        <p class="${(small == true)?then('nhsd-t-heading-xs nhsd-!t-margin-bottom-2', 'nhsd-t-heading-s')}">${title}</p>
+                        <p class="${(small == true)?then('nhsd-t-heading-xs nhsd-!t-margin-bottom-2', 'nhsd-t-heading-s')}">${title} ${archiveContent?then("[Archive content]", "")}</p>
                         </#if>
 
                         <div class="nhsd-m-download-card__meta-tags">

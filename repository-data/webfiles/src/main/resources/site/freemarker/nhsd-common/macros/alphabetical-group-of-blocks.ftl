@@ -52,7 +52,7 @@
 
                             <h2 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-1" id="${block.title?lower_case?replace(" ", "-")}">
                                 <#if link?has_content>
-                                    <a href="${link}" class="nhsd-a-link" data-filterable>${block.title}</a>
+                                    <a href="${link}" class="nhsd-a-link" data-filterable ${block.link.archiveMaterial?then('rel=archived', '')}>${block.title} ${block.link.archiveMaterial?then("[Archive content]", "")}</a>
                                 <#else>
                                     ${block.title}
                                 </#if>

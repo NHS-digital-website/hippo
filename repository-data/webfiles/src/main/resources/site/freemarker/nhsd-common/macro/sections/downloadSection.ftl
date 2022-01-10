@@ -40,7 +40,7 @@
                                             <@downloadBlockExternal document.class.name block.link "${block.title}" "${block.shortsummary}"/>
                                         </#if>
                                     <#elseif block.linkType == "asset">
-                                        <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength() false false orgPrompt/>
+                                        <@downloadBlockAsset document.class.name block.link "${block.title}" "" block.link.asset.mimeType block.link.asset.getLength() false false orgPrompt block.link.archiveMaterial/>
                                     </#if>
                                 </div>
                             </#if>
