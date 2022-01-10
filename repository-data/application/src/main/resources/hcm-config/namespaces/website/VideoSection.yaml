@@ -1,90 +1,95 @@
----
 definitions:
   config:
     /hippo:namespaces/website/VideoSection:
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
+        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties:
-          - mode
-          frontend:references:
-          - wicket.model
-          - model.compareTo
-          - engine
-          - validator.id
-          frontend:services:
-          - wicket.id
-          - validator.id
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /type:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: In line,Full width,Hero video left,Hero video right
             caption: Type
             field: type
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /videoUrl:
+            hint: Hero and Full width only available in Feature and Blog document
+              types
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              selectable.options: In line,Full width,Hero video left,Hero video right
+          /videoUrl:
             caption: Video URL
             field: videoUrl
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /playlist:
+            hint: Use the embedded URL E.G. https//www.youtube.com/embed/kLK0DoMpPCo
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /playlist:
             caption: Playlist
             field: playlist
-            hint: ''
+            hint: Internal use only.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - hidden
+            wicket.css: [nhsd-m-notification-banner--hidden]
             wicket.id: ${cluster.id}.field
-          /caption:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /caption:
             caption: Caption
             field: caption
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /text:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /text:
             caption: Text
             field: text
-            hint: ''
+            hint: Text is only visible when the Hero types are selected.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /behaviour:
             /cluster.options:
-              falseLabel: Manual play
               jcr:primaryType: frontend:pluginconfig
-              trueLabel: Autoplay
+          /behaviour:
             caption: Behaviour
             field: behaviour
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /loop:
             /cluster.options:
+              falseLabel: Manual play
               jcr:primaryType: frontend:pluginconfig
+              trueLabel: Autoplay
+          /loop:
             caption: Loop
             field: loop
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-        jcr:primaryType: editor:templateset
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
       /hipposysedit:nodetype:
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:primaryType: hippo:handle
+        jcr:uuid: b5cc9c86-7a23-478e-82c8-099b9a1d183e
         /hipposysedit:nodetype:
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:uuid: e377be5a-208d-468f-a948-f8f5ede27412
           /behaviour:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -140,22 +145,10 @@ definitions:
             hipposysedit:path: website:videoUrl
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - required
+            hipposysedit:validators: [required]
             jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - hippo:compound
-          - hippostd:relaxed
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes:
-          - hipposysedit:remodel
-          - mix:referenceable
-          jcr:primaryType: hipposysedit:nodetype
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: website:VideoSection
           website:behaviour: false
@@ -164,8 +157,3 @@ definitions:
           website:playlist: ''
           website:text: ''
           website:videoUrl: ''
-        jcr:primaryType: hipposysedit:prototypeset
-      jcr:mixinTypes:
-      - editor:editable
-      - mix:referenceable
-      jcr:primaryType: hipposysedit:templatetype

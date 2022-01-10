@@ -13,11 +13,16 @@
 			"introText": section.text,
 			"title": "",
 			"summary": section.text,
-			"videoOptions": {"autoplay": "${section.behaviour?then('1','0')}", "loop": "${section.loop?then('1','0')}", "playlist": "${section.playlist}", "mute": "${section.behaviour?then('1','0')}"},
+			"videoOptions": {
+				"autoplay": "${section.behaviour?then('1','0')}",
+				"loop": "${section.loop?then('1','0')}",
+				"playlist": "${section.playlist}",	<#-- need a playlist for loop to work -->
+				"mute": "${section.behaviour?then('1','0')}" <#-- need to mute audio for autoplay to work -->
+			},
 			"inline": "yes",	<#-- make hero break out of its bootstrap container (new option) -->
 			"colourBar": "No"	<#-- make hero think we dont have a colour bar (existing option) -->
 			}/>
-		
+				
 		<#if section.type == "Hero video left">
 			<#assign heroType = "accentedImageMirrored"/>
 		<#else>
