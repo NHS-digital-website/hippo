@@ -16,9 +16,9 @@
 
                     <#if block.linkType == "asset" || block.linkType == "external">
                         <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
-
                         <#if block.linkType == "asset">
-                            <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />">${block.title}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix></h2>
+                            <#assign archiveContent = block.link.archiveMaterial/>
+                            <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />" ${archiveContent?then('rel=archived', '')} >${block.title} ${archiveContent?then("[Archive content]", "")}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix></h2>
                         <#elseif block.linkType == "external">
                             <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
                             <p class="cta__text">${block.shortsummary}</p>

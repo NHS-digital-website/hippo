@@ -58,7 +58,7 @@
                     <#-- If asset link -->
                     <#if childPage.linkType == "asset">
                         <div class="nhsd-t-col-12 nhsd-!t-no-gutters nhsd-!t-margin-bottom-6">
-                            <@downloadBlockAsset document.class.name childPage.link "${childPage.title}" "" childPage.link.asset.mimeType childPage.link.asset.getLength() false false orgPrompt/>
+                            <@downloadBlockAsset document.class.name childPage.link "${childPage.title}" "" childPage.link.asset.mimeType childPage.link.asset.getLength() false false orgPrompt childPage.link.archiveMaterial/>
                         </div>
                     </#if>
                 </#if>

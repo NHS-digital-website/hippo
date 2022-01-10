@@ -55,7 +55,7 @@
                           <#list galleryItem.relatedFiles as attachment>
                             <div class="nhsd-m-card__download-card nhsd-!t-margin-bottom-6">
                               <#if attachment.link.asset?has_content>
-                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.asset.mimeType attachment.link.asset.getLength() false true orgPrompt=orgPrompt/>
+                                <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.asset.mimeType attachment.link.asset.getLength() false true orgPrompt=orgPrompt attachment.link.archiveMaterial/>
                               <#else>
                                 <@downloadBlockAsset document.class.name attachment.link "${attachment.title}" "" attachment.link.original.mimeType attachment.link.original.getLength() false true orgPrompt=orgPrompt/>
                               </#if>

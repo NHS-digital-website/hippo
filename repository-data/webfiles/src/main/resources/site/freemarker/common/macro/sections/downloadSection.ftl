@@ -60,16 +60,16 @@
 
                                 <#elseif block.linkType == "asset">
                                     <@hst.link hippobean=block.link var="link" />
-
+                                    <#assign archiveContent = block.link.archiveMaterial/>
                                     <a href="${link}"
                                        class="block-link"
                                        onClick="${getOnClickMethodCall(document.class.name, link)}"
-                                       onKeyUp="return vjsu.onKeyUp(event)">
+                                       onKeyUp="return vjsu.onKeyUp(event)" ${archiveContent?then('rel=archived', '')}>
                                     <div class="block-link__header">
                                         <@fileIconByMimeType block.link.asset.mimeType></@fileIconByMimeType>
                                     </div>
                                     <div class="block-link__body">
-                                        <span class="block-link__title">${block.title}</span>
+                                        <span class="block-link__title">${block.title} ${archiveContent?then("[Archive content]", "")}</span>
                                         <#assign meetpdfa = false />
                                         <#if block.link.meetpdfa?? && block.link.meetpdfa >
                                           <#assign meetpdfa = true />
