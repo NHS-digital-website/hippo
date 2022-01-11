@@ -30,7 +30,7 @@
 
     <@hst.include ref="footer-menu"/>
 
-    <#include "../../common/scripts/footer-scripts.ftl" />
+    <#include "../../intranet/scripts/footer-scripts.ftl" />
 </body>
 
 </html>
