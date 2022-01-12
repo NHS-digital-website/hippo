@@ -93,12 +93,8 @@
                 <div class="nhsd-t-col">
                     <nav class="nhsd-m-button-nav">
                     <#if idsuffix?contains("news")>
-                        <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="newsfeed"/>" >
-                        <#else>
-                        <a id="btn-view-all" onClick="toggleCards(${itemsMaxCountWithJS}, ${blogs?size}, '${idsuffix?js_string}'); return false;" class="nhsd-a-button" href="#">
-                        </#if>
-                            <span class="nhsd-a-button__label">View all news</span>
+                        <span class="nhsd-a-button__label">See all news</span>
                     <#elseif idsuffix?contains("event") >
                         <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="eventsfeed"/>">
