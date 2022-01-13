@@ -1,14 +1,9 @@
 <#ftl output_format="HTML">
 
 <#macro videoSection section>
-<#import "../../../include/debugger.ftl" as debug>
 
 <#if section.videoUrl?contains("www.youtube") || section.videoUrl.contains("www.vimeo")>
-
 	<#if (document.docType == "Feature" || document.docType == "Blog") && (section.type == "Hero video right" || section.type == "Hero video left")>
-
-
-		<@debug.debug debugObject=section depth=1 />
 
 		<#assign heroOptions = getHeroOptions(document) />
 		<#assign heroOptions += {

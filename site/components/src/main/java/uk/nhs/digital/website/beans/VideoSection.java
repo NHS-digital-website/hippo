@@ -1,7 +1,10 @@
 package uk.nhs.digital.website.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.regex.Matcher;
@@ -49,6 +52,25 @@ public class VideoSection extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "loop")
     public Boolean getLoop() {
         return getSingleProperty("website:loop");
+    }
+    
+    @JsonProperty("summary")
+    public String getSummaryJson() {
+        return getHippoHtmlContent("website:summary");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:summary", allowModifications = false)
+    public HippoHtml getSummary() {
+        return getHippoHtml("website:summary");
+    }
+    
+    @JsonIgnore
+    protected String getHippoHtmlContent(String property) {
+        HippoHtml html = getHippoHtml(property);
+        if (html != null) {
+            return html.getContent();
+        }
+        return null;
     }
     
     private String embedVideo(String url) {
