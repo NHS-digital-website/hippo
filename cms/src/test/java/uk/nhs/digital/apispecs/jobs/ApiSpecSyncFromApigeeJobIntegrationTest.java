@@ -40,9 +40,8 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.mock.env.MockEnvironment;
 import uk.nhs.digital.JcrDocumentUtils;
 import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
-import uk.nhs.digital.toolbox.secrets.RemoteSecrets;
 
-import java.util.HashMap;
+import java.util.Optional;
 import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
@@ -108,13 +107,6 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         given(repositoryJobExecutionContext.createSystemSession()).willReturn(session);
 
         apiSpecSyncFromApigeeJob = new ApiSpecSyncFromApigeeJob();
-
-        apiSpecSyncFromApigeeJob.setApplicationSecrets(new ApplicationSecrets(new HashMap<>(), new RemoteSecrets() {
-            @Override
-            public String getRemoteValue(String addressOfRemoteValue) {
-                return null;
-            }
-        }));
     }
 
     @Test
@@ -366,5 +358,14 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     private String testDataFileLocation(final String fileName) {
         return TEST_DATA_FILES_DIR + fileName;
+    }
+
+    // Invoked from the test-specific crisp-spring-context-properties-support.xml
+    public static class DummyApplicationSecrets {
+
+        public String getValue(final String propertyName) {
+            return Optional.ofNullable(System.getProperty(propertyName))
+                .orElse(System.getenv(propertyName));
+        }
     }
 }
