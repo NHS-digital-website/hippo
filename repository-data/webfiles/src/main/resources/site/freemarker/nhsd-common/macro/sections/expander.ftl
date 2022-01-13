@@ -9,8 +9,7 @@
                 nhsd-a-box--bg-light-grey
             <#else>
             nhsd-!t-padding-top-0
-            </#if>"
-        >
+            </#if>">
             <details>
                 <summary class="nhsd-m-expander__heading-container" aria-label="${section.heading}" >
                     <div>
