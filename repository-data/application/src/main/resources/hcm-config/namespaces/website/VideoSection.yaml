@@ -87,6 +87,19 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /summary:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Summary text
+            field: summary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -121,6 +134,14 @@ definitions:
             hipposysedit:path: website:playlist
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /summary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: Html
             jcr:primaryType: hipposysedit:field
           /text:
             hipposysedit:mandatory: false
@@ -157,6 +178,80 @@ definitions:
           - hipposysedit:remodel
           - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
+        /hipposysedit:nodetype[2]:
+          /behaviour:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:behaviour
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            jcr:primaryType: hipposysedit:field
+          /caption:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:caption
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /loop:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:loop
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
+          /playlist:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:playlist
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /summary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: Html
+            jcr:primaryType: hipposysedit:field
+          /text:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:text
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /type:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:type
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            jcr:primaryType: hipposysedit:field
+          /videoUrl:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:videoUrl
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
@@ -167,7 +262,20 @@ definitions:
           website:caption: ''
           website:loop: false
           website:playlist: ''
+          website:summary: ''
           website:text: ''
+          website:videoUrl: ''
+        /hipposysedit:prototype[2]:
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: nt:unstructured
+          website:behaviour: false
+          website:caption: ''
+          website:loop: false
+          website:playlist: ''
+          website:summary: ''
+          website:text: ''
+          website:type: ''
           website:videoUrl: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

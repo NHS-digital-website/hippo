@@ -59,9 +59,15 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     <#assign videoOptions=""/>
     <#assign position=""/>
     <#if options.videoOptions?has_content && options.videoOptions?size gt 0>
-    	<#assign videoOptions="?"/>
+    	<#if options.video?contains("vimeo")>
+    		<#assign videoOptions="&"/>
+    	<#else>
+    		<#assign videoOptions="?"/>
+    	</#if>
     	<#list options.videoOptions?keys as videoOptionsKey>
-    		<#assign videoOptions += videoOptionsKey + "=" + options.videoOptions[videoOptionsKey] + "&"/>
+    		<#if videoOptionsKey != "caption">
+    			<#assign videoOptions += videoOptionsKey + "=" + options.videoOptions[videoOptionsKey] + "&"/>
+    		</#if>
     	</#list>
     	<#assign videoOptions += "rel=0"/>
     	<#if options.videoOptions.caption?has_content>
@@ -126,14 +132,16 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             </#if>
             <div class="nhsd-o-hero__image-container">
                 <#if options.video?has_content>
-                    <div class="nhsd-o-hero__iframe-wrapper">
-                        <iframe class="nhsd-o-banner__iframe" src="${options.video}${videoOptions}"
-                         allow="autoplay; encrypted-media; picture-in-picture"
-                         allowfullscreen></iframe>
-                     </div>
-                     <#if options.videoOptions.caption?has_content>
-	                  	<figcaption style="height: 10%; width: 100%; text-align: center;">${options.videoOptions.caption}</figcaption>
-	                 </#if>
+	                <figure style="width: 100%; margin: 0;">
+	                    <div class="nhsd-o-hero__iframe-wrapper">
+	                        <iframe class="nhsd-o-banner__iframe" src="${options.video}${videoOptions}"
+	                         allow="autoplay; encrypted-media; picture-in-picture"
+	                         allowfullscreen></iframe>
+	                     </div>
+	                     <#if options.videoOptions.caption?has_content>
+		                  	<figcaption style="height: 10%; width: 100%; text-align: center;">${options.videoOptions.caption}</figcaption>
+		                 </#if>
+	                 </figure>
                 <#else>
                     <figure class="nhsd-a-image ${imageClasses}" style="${style}">
                         <picture class="nhsd-a-image__picture">
