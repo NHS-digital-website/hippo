@@ -8,13 +8,11 @@ import org.onehippo.repository.scheduling.RepositoryJob;
 import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
 import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationImportImportMetadataJcrRepository;
 import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
-import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.Optional;
 import javax.jcr.Session;
@@ -26,49 +24,18 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
     // @formatter:off
     private static final String APIGEE_ALL_SPEC_URL    = "devzone.apigee.resources.specs.all.url";
     private static final String APIGEE_SINGLE_SPEC_URL = "devzone.apigee.resources.specs.individual.url";
-
-    private static final String OAUTH_TOKEN_URL        = "devzone.apigee.oauth.token.url";
-
-    private static final String USERNAME               = "DEVZONE_APIGEE_OAUTH_USERNAME";
-    private static final String PASSWORD               = "DEVZONE_APIGEE_OAUTH_PASSWORD";
-    private static final String BASIC_TOKEN            = "DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN";
-    private static final String OTP_KEY                = "DEVZONE_APIGEE_OAUTH_OTPKEY";
     // @formatter:on
-
-    private ApplicationSecrets secrets;
-
-    @Autowired
-    public void setApplicationSecrets(ApplicationSecrets secrets) {
-        this.secrets = secrets;
-    }
 
     @Override
     public void execute(final RepositoryJobExecutionContext context) {
 
         log.debug("API Specifications sync from Apigee: start.");
 
-        // System properties for config - LOGGED ON SYSTEM START
-        final String apigeeAllSpecUrl = System.getProperty(APIGEE_ALL_SPEC_URL);
-        final String apigeeSingleSpecUrl = System.getProperty(APIGEE_SINGLE_SPEC_URL);
-        final String oauthTokenUrl = System.getProperty(OAUTH_TOKEN_URL);
-
-        // Environment variables FOR SECRETS - not logged on system start
-        final String username = this.secrets.getValue(USERNAME);
-        final String password = this.secrets.getValue(PASSWORD);
-        final String basicToken = this.secrets.getValue(BASIC_TOKEN);
-        final String otpKey = this.secrets.getValue(OTP_KEY);
-
         Session session = null;
 
         try {
-
-            ensureRequiredArgProvided(APIGEE_ALL_SPEC_URL, apigeeAllSpecUrl);
-            ensureRequiredArgProvided(APIGEE_SINGLE_SPEC_URL, apigeeSingleSpecUrl);
-            ensureRequiredArgProvided(OAUTH_TOKEN_URL, oauthTokenUrl);
-            ensureRequiredArgProvided(USERNAME, username);
-            ensureRequiredArgProvided(PASSWORD, password);
-            ensureRequiredArgProvided(BASIC_TOKEN, basicToken);
-            ensureRequiredArgProvided(OTP_KEY, otpKey);
+            final String apigeeAllSpecUrl = requireParameter(APIGEE_ALL_SPEC_URL, System.getProperty(APIGEE_ALL_SPEC_URL));
+            final String apigeeSingleSpecUrl = requireParameter(APIGEE_SINGLE_SPEC_URL, System.getProperty(APIGEE_SINGLE_SPEC_URL));
 
             final ResourceServiceBroker resourceServiceBroker = resourceServiceBroker();
 
@@ -99,8 +66,8 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
         }
     }
 
-    private void ensureRequiredArgProvided(final String argName, final String argValue) {
-        Validate.notBlank(argValue, "Required configuration argument is missing: %s", argName);
+    private String requireParameter(final String argName, final String argValue) {
+        return Validate.notBlank(argValue, "Required configuration argument is missing: %s", argName);
     }
 
     private ResourceServiceBroker resourceServiceBroker() {
