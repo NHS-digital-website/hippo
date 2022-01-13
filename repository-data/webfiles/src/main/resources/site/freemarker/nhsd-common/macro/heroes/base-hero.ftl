@@ -50,18 +50,20 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     <#elseif heroType == "accentedImageMirrored">
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
     </#if>
-    
+
     <#assign inLine=""/>
     <#if options.inline?has_content>
     	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 58%)/2); width: 100vw;\""/>
     </#if>
-    
+
     <#assign videoOptions=""/>
     <#assign position=""/>
     <#if options.videoOptions?has_content && options.videoOptions?size gt 0>
     	<#assign videoOptions="?"/>
     	<#list options.videoOptions?keys as videoOptionsKey>
-    		<#assign videoOptions += videoOptionsKey + "=" + options.videoOptions[videoOptionsKey] + "&"/>
+            <#if options.videoOptions[videoOptionsKey]?has_content>
+    		    <#assign videoOptions += videoOptionsKey + "=" + options.videoOptions[videoOptionsKey] + "&"/>
+            </#if>
     	</#list>
     	<#assign videoOptions += "rel=0"/>
     	<#if options.videoOptions.caption?has_content>

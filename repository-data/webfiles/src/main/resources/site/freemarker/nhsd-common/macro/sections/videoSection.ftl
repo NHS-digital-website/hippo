@@ -2,14 +2,15 @@
 
 <#macro videoSection section>
 
-<#if section.videoUrl?contains("www.youtube") || section.videoUrl.contains("www.vimeo")>
-	<#if (document.docType == "Feature" || document.docType == "Blog") && (section.type == "Hero video right" || section.type == "Hero video left")>
+<#if section.videoUrl?contains("www.youtube") || section.videoUrl?contains("youtu.be") || section.videoUrl.contains("www.vimeo")>
+	<#if document.docType == "Feature" || document.docType == "Blog" && (section.type == "Hero video right" || section.type == "Hero video left")>
 
+        ${section.playlist}
 		<#assign heroOptions = getHeroOptions(document) />
 		<#assign heroOptions += {
 			"colour": "Dark blue",
 			"video": section.videoUrl,
-			"introText": "",
+			"introText": section.text,
 			"title": "",
 			"summary": section.text,
 			"videoOptions": {
@@ -23,6 +24,8 @@
 			"colourBar": "No"	<#-- make hero think we dont have a colour bar (existing option) -->
 			}/>
 
+
+
 		<#if section.type == "Hero video left">
 			<#assign heroType = "accentedImageMirrored"/>
 		<#else>
@@ -34,9 +37,8 @@
 		<#if (document.docType == "Feature" || document.docType == "Blog") && section.type == "Full width">
 			<#assign fullWidth="position: relative; left: calc(-1 * (50vw - 50%)/2); width: 100vw; height: 100vh"/>
 		</#if>
-
 		<figure style="position: relative; width: 50vw; height: 50vh; text-align: center; ${fullWidth}">
-			<iframe src="${section.videoUrl}?autoplay=${section.behaviour?then('1','0')}&loop=${section.loop?then('1','0')}&playlist=${section.playlist}&mute=${section.behaviour?then('1','0')}&rel=0"
+			<iframe src="${section.videoUrl}?autoplay=${section.behaviour?then('1','0')}&loop=${section.loop?then('1','0')}${section.playlist?has_content?then("&playlist=", "")}${section.playlist}&mute=${section.behaviour?then('1','0')}&rel=0"
 				title="${document.title}"
 				allow="autoplay"
 				style="position: absolute; top: 0; height: 90%; width: 100%; display: block; border: none;"></iframe>
