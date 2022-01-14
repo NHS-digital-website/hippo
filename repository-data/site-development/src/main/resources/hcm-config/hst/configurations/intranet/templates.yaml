@@ -2,9 +2,75 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:templates:
+      /az-list:
+        hst:renderpath: webfile:/freemarker/nhsd-common/components/az-list.ftl
+        jcr:primaryType: hst:template
       /base-footer-menu:
         hst:renderpath: webfile:/freemarker/common/base-footer-menu.ftl
         jcr:primaryType: hst:template
+      /button:
+        hst:renderpath: webfile:/freemarker/common/button.ftl
+        jcr:primaryType: hst:template
+      /callToAction:
+        hst:renderpath: webfile:/freemarker/common/callToAction.ftl
+        jcr:primaryType: hst:template
+      /cardlist:
+        hst:renderpath: webfile:/freemarker/common/cardlist.ftl
+        jcr:primaryType: hst:template
+      /case-study:
+        hst:renderpath: webfile:/freemarker/common/case-study.ftl
+        jcr:primaryType: hst:template
+      /cyber-alerts:
+        hst:renderpath: webfile:/freemarker/common/cyber-alerts.ftl
+        jcr:primaryType: hst:template
+      /document-list:
+        hst:renderpath: webfile:/freemarker/common/document-list.ftl
+        jcr:primaryType: hst:template
+      /eventlist-main-eventlist:
+        hst:renderpath: webfile:/freemarker/common/eventlist-main-eventlist.ftl
+        jcr:primaryType: hst:template
+      /feedlist:
+        hst:renderpath: webfile:/freemarker/common/feedlist.ftl
+        jcr:primaryType: hst:template
+      /header-banner:
+        hst:renderpath: webfile:/freemarker/common/header-banner.ftl
+        jcr:primaryType: hst:template
+      /heading-and-copy:
+        hst:renderpath: webfile:/freemarker/common/heading-and-copy.ftl
+        jcr:primaryType: hst:template
+      /hero:
+        hst:renderpath: webfile:/freemarker/common/hero.ftl
+        jcr:primaryType: hst:template
+      /homeland-bloglist:
+        hst:renderpath: webfile:/freemarker/common/homeland-bloglist.ftl
+        jcr:primaryType: hst:template
+      /jobsfeedcomponent:
+        hst:renderpath: webfile:/freemarker/common/jobfeed.ftl
+        jcr:primaryType: hst:template
+      /menu:
+        hst:renderpath: webfile:/freemarker/common/menu.ftl
+        jcr:primaryType: hst:template
+      /navigationBlock:
+        hst:renderpath: webfile:/freemarker/nhsd-common/navigationBlock.ftl
+        jcr:primaryType: hst:template
+      /newslist-main-newslist:
+        hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
+        jcr:primaryType: hst:template
+      /publications-list:
+        hst:renderpath: webfile:/freemarker/common/publications-list.ftl
+        jcr:primaryType: hst:template
+      /searchbanner:
+        hst:renderpath: webfile:/freemarker/common/search-banner.ftl
+        jcr:primaryType: hst:template
+      /service-list:
+        hst:renderpath: webfile:/freemarker/common/service-list.ftl
+        jcr:primaryType: hst:template
+      /social-media:
+        hst:renderpath: webfile:/freemarker/common/social-media.ftl
+        jcr:primaryType: hst:template
       /static-ui-homepage:
         hst:renderpath: webfile:/freemarker/intranet/home-static.ftl
+        jcr:primaryType: hst:template
+      /white-space:
+        hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
