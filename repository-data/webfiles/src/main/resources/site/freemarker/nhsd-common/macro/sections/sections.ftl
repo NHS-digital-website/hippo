@@ -20,7 +20,7 @@
 <#include "tableauLookupSection.ftl">
 <#include "fullWidthImage.ftl">
 <#include "navigation.ftl">
-<#include "videoSections.ftl">
+<#include "VideoSection.ftl">
 <#include "../../../common/macro/sections/svgSection.ftl">
 <#include "../component/infoGraphic.ftl">
 
@@ -90,8 +90,8 @@
                 <@svgSection section=section index=section?index/>
             <#elseif section.sectionType == 'tableau'>
                 <@tableau section=section index=section?index/>
-            <#elseif section.sectionType == 'VideoSections'>
-                <@videoSections section=section/>
+            <#elseif section.sectionType == 'VideoSection'>
+                <@videoSection section=section/>
             </#if>
         <#if wrap>
         </div>

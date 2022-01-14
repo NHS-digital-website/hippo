@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/VideoSections:
+    /hippo:namespaces/website/VideoSection:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -22,11 +22,11 @@ definitions:
           /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: In line, Full width, Hero video left, Hero video
-                right
-            caption: Video Type
+              selectable.options: In line,Full width,Hero video left,Hero video right
+            caption: Type
             field: type
-            hint: ''
+            hint: Hero and Full width only available in Feature and Blog document
+              types
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -35,14 +35,28 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Video URL
             field: videoUrl
+            hint: Use the embedded URL E.G. https//www.youtube.com/embed/kLK0DoMpPCo
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /playlist:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '0'
+              size: '0'
+            caption: Playlist
+            field: playlist
+            hint: Internal use only do not enter anything in this field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css: []
             wicket.id: ${cluster.id}.field
           /caption:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Caption
             field: caption
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -51,7 +65,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Text
             field: text
-            hint: ''
+            hint: Text is only visible when the Hero types are selected.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -68,7 +82,7 @@ definitions:
           /loop:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Loop video
+            caption: Loop
             field: loop
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -99,6 +113,14 @@ definitions:
             hipposysedit:path: website:loop
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
+          /playlist:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:playlist
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /text:
             hipposysedit:mandatory: false
@@ -140,10 +162,11 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          jcr:primaryType: website:VideoSections
+          jcr:primaryType: website:VideoSection
           website:behaviour: false
           website:caption: ''
           website:loop: false
+          website:playlist: ''
           website:text: ''
           website:videoUrl: ''
         jcr:primaryType: hipposysedit:prototypeset
