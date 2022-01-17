@@ -23,9 +23,9 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: In line,Half width in line, Full width, Blue hero
-                image left, Blue hero image right, Black hero image left, Black hero
-                image right, Right column, Left column
+              selectable.options: In line,Half width in line,Full width,Blue hero
+                image left,Blue hero image right,Black hero image left,Black hero
+                image right,Right column,Left column
           /image:
             caption: Image
             field: image
@@ -45,9 +45,9 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: In line,Full width,Half width inline, Blue hero
-                image left, Blue hero image right,Black hero image left, Black hero
-                image right, Right column, Left column
+              selectable.options: In line,Full width,Half width in line,Blue hero
+                image left,Blue hero image right,Black hero image left,Black hero
+                image right,Right column,Left column
           /altText:
             caption: Alternative Text
             field: altText
@@ -75,17 +75,26 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /text:
+            jcr:primaryType: frontend:plugin
+            caption: Text
+            field: text
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
       /hipposysedit:nodetype:
         jcr:mixinTypes: ['mix:referenceable']
         jcr:primaryType: hippo:handle
-        jcr:uuid: 0d0d72c9-ecad-4a0a-ab1e-a6795fa0465a
+        jcr:uuid: f243064b-a67b-4ede-a66f-9d713db7d47f
         /hipposysedit:nodetype:
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 09716d64-b935-4ee1-a1ef-32d69a2060b9
+          jcr:uuid: a45686c5-89e6-444a-a990-3622388f5683
           /altText:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -129,6 +138,71 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          /text:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:text
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: d6bdc2c3-3bc9-4e0d-abcd-0bc999208417
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          /altText:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:altText
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /caption:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:caption
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /image:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:image
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:resource
+            hipposysedit:validators: [required]
+          /imageSize:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:imageSize
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators: [required]
+          /link:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:link
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /text:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:text
+            hipposysedit:primary: false
+            hipposysedit:type: Text
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -137,6 +211,7 @@ definitions:
           publicationsystem:caption: ''
           publicationsystem:imageSize: In line
           publicationsystem:link: ''
+          publicationsystem:text: ''
           /publicationsystem:image:
             hippo:filename: publicationsystem:resource
             hippo:text:
@@ -149,3 +224,23 @@ definitions:
             jcr:lastModified: 2008-03-26T11:03:00Z
             jcr:mimeType: application/vnd.hippo.blank
             jcr:primaryType: publicationsystem:resource
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:relaxed']
+          publicationsystem:altText: ''
+          publicationsystem:caption: ''
+          publicationsystem:imageSize: In line
+          publicationsystem:link: ''
+          publicationsystem:text: ''
+          /publicationsystem:image:
+            jcr:primaryType: publicationsystem:resource
+            hippo:filename: publicationsystem:resource
+            hippo:text:
+              type: binary
+              resource: /namespaces/publicationsystem/imageSection/prototypes/prototype[2]/image/text.bin
+            jcr:data:
+              type: binary
+              resource: /namespaces/publicationsystem/imageSection/prototypes/prototype[2]/image/data.bin
+            jcr:encoding: UTF-8
+            jcr:lastModified: 2008-03-26T11:03:00Z
+            jcr:mimeType: application/vnd.hippo.blank

@@ -3,6 +3,7 @@ definitions:
     /hippo:namespaces/website/feature:
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:primaryType: hipposysedit:templatetype
+      jcr:uuid: 12ab1dec-3543-41da-8e68-52deed87bd06
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -188,7 +189,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /sections:
             caption: Sections
-            compoundList: website:section,publicationsystem:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
+            compoundList: website:section,website:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
             contentPickerType: links
             field: sections
             hint: ''
@@ -257,7 +258,7 @@ definitions:
       /hipposysedit:nodetype:
         jcr:mixinTypes: ['mix:referenceable']
         jcr:primaryType: hippo:handle
-        jcr:uuid: d846632e-78a5-476d-9cac-bd65c9126f55
+        jcr:uuid: 8a06d314-6f38-4b2f-a63b-f249f00c3229
         /hipposysedit:nodetype:
           hipposysedit:node: true
           hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotaxonomy:classifiable',
@@ -265,7 +266,7 @@ definitions:
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 978d00cf-8a6f-449b-b70e-d263a895cddd
+          jcr:uuid: a74e5811-205c-40cf-9889-ad91d34cd95b
           /authordescription:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -453,200 +454,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 19d22947-8730-4161-ad42-7c5ad7e26554
-          hipposysedit:node: true
-          hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotaxonomy:classifiable',
-            'hippotranslation:translated']
-          /authordescription:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:authordescription
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /authorjobtitle:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:authorjobtitle
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /authorname:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:authorname
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /authororganisation:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:authororganisation
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /authorrole:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:authorrole
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /authors:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:authors
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-          /backstory:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:backstory
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /casestudycategories:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:casestudycategories
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-          /contactdetails:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:contactdetails
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /dateofpublication:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:dateofpublication
-            hipposysedit:primary: false
-            hipposysedit:type: CalendarDate
-            hipposysedit:validators: [required]
-          /headertype:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:headertype
-            hipposysedit:primary: false
-            hipposysedit:type: urlrewriter:BroadcastingStaticDropdown
-          /leadimage:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:leadimage
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-          /leadimagealttext:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:leadimagealttext
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /leadimagecaption:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:leadimagecaption
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /leadparagraph:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:leadparagraph
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /relatedsubjects:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:relatedsubjects
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-          /sections:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:sections
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
-          /seosummary:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:seosummary
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
-          /shortsummary:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:shortsummary
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators: [required]
-          /summary:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:summary
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
-          /thumbnailimage:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:thumbnailimage
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-          /title:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /twitterhashtag:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:twitterhashtag
-            hipposysedit:primary: false
-            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -671,7 +478,7 @@ definitions:
           website:leadimagealttext: ''
           website:shortsummary: ''
           website:title: ''
-          jcr:uuid: f65528e9-cf97-46ad-b5a7-881f5436a759
+          jcr:uuid: 8b4e4f6b-62e7-4119-8f4b-334d645721a7
           /website:authordescription:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -705,60 +512,3 @@ definitions:
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
-            'hippotaxonomy:classifiable', 'hippotranslation:translated', 'mix:referenceable']
-          jcr:uuid: 85d8b5c3-f6f1-4bac-9800-ac2ddf692675
-          common:searchRank: 5
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
-          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          website:authorjobtitle: ''
-          website:authorname: ''
-          website:authororganisation: ''
-          website:authorrole: ''
-          website:dateofpublication: 0001-01-01T12:00:00Z
-          website:headertype: Cube header
-          website:leadimagealttext: ''
-          website:shortsummary: ''
-          website:title: ''
-          /website:authordescription:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /website:backstory:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /website:contactdetails:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /website:leadimage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /website:leadimagecaption:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /website:leadparagraph:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /website:seosummary:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /website:summary:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /website:thumbnailimage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []

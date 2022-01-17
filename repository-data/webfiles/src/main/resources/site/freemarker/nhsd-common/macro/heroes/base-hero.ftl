@@ -50,6 +50,15 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     <#elseif heroType == "accentedImageMirrored">
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
     </#if>
+    
+    <#assign style = ""/>
+    <#assign imgStyle = ""/>
+    <#assign inLine=""/>
+    <#if options.inline?has_content>
+    	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 58%)/2); width: 100vw;\""/>
+    	<#assign style="width: 100%; margin: 0;">
+    	<#assign imgStyle="width: 100%;">
+    </#if>
 
     <#if options.colour?has_content>
         <#if options.colour == "Dark Grey" || options.colour == "darkGrey">
@@ -88,7 +97,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses += " nhsd-o-hero--left-align"/>
     </#if>
 
-    <div class="nhsd-o-hero ${heroClasses} ${textClass} ${bgClass}">
+    <div class="nhsd-o-hero ${heroClasses} ${textClass} ${bgClass}" ${inLine?no_esc}>
         <div class="nhsd-o-hero__content-container">
             <div class="nhsd-o-hero__inner-content-container">
                 <#nested/>
@@ -97,7 +106,6 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
 
         <#if heroType == "image" || heroType == "backgroundImage" || heroType == "accentedImage" || heroType == "accentedImageMirrored">
             <#assign imageClasses = ""/>
-            <#assign style = ""/>
             <#if heroType == "image">
                 <#assign imageClasses = "nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
             <#elseif heroType == "backgroundImage">
@@ -113,13 +121,29 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                     </div>
                 <#else>
                     <figure class="nhsd-a-image ${imageClasses}" style="${style}">
-                        <picture class="nhsd-a-image__picture">
+                        <picture >
                             <#if options.image?has_content && options.image.src?has_content>
-                                <img src="${options.image.src}" alt="<#if options.image.alt?has_content>${options.image.alt}</#if>">
+                                <img src="${options.image.src}" alt="<#if options.image.alt?has_content>${options.image.alt}</#if>" style="${imgStyle}">
                             <#else>
                                 <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="" />
                             </#if>
                         </picture>
+                        <#if options.caption?has_content>
+			            	<figcaption style="height: 10%; width: 100%; text-align: center;">
+				                <#if options.link?has_content>
+				                    <div class="nhsd-t-heading-s">
+				                        <a class="nhsd-a-link" href="${options.link}" data-uipath="ps.publication.image-section.link">${options.caption}</a>
+				                    </div>
+				                <#else>
+				                    <div class="nhsd-t-heading-s">
+				                        <span>${options.caption}</span>
+				                    </div>
+				                </#if>
+				                <#if link?has_content && !options.caption?has_content>
+						            </a>
+						        </#if>
+			                </figcaption>
+			            </#if>
                     </figure>
                 </#if>
             </div>

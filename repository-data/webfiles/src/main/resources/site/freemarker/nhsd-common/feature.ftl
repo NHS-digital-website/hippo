@@ -221,7 +221,7 @@
 
                         <#--  Twitter  -->
                         <#assign hashtags ='' />
-                        <#if hasTwitterHashtag>
+                        <#if hasTwitterHashtag?has_content>
                             <#list document.twitterHashtag as tag>
                                 <#if tag?starts_with("#")>
                                     <#assign hashtags = hashtags + tag?keep_after('#') + ','>
