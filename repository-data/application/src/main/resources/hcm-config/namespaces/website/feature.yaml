@@ -3,7 +3,6 @@ definitions:
     /hippo:namespaces/website/feature:
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:primaryType: hipposysedit:templatetype
-      jcr:uuid: 12ab1dec-3543-41da-8e68-52deed87bd06
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -189,7 +188,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /sections:
             caption: Sections
-            compoundList: website:section,website:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
+            compoundList: website:section,publicationsystem:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
             contentPickerType: links
             field: sections
             hint: ''
@@ -258,7 +257,6 @@ definitions:
       /hipposysedit:nodetype:
         jcr:mixinTypes: ['mix:referenceable']
         jcr:primaryType: hippo:handle
-        jcr:uuid: 8a06d314-6f38-4b2f-a63b-f249f00c3229
         /hipposysedit:nodetype:
           hipposysedit:node: true
           hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotaxonomy:classifiable',
@@ -266,7 +264,6 @@ definitions:
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: a74e5811-205c-40cf-9889-ad91d34cd95b
           /authordescription:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -478,7 +475,6 @@ definitions:
           website:leadimagealttext: ''
           website:shortsummary: ''
           website:title: ''
-          jcr:uuid: 8b4e4f6b-62e7-4119-8f4b-334d645721a7
           /website:authordescription:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
