@@ -145,6 +145,7 @@
                 <div class="nhsd-o-dropdown__input">
                     <div class="nhsd-m-search-bar nhsd-m-search-bar__small nhsd-m-search-bar__full-width">
                         <div class="nhsd-t-form-control">
+                            <label class="control-label" for="org-search">Search for an organisation</label>
                             <input
                                     class="nhsd-t-form-input"
                                     type="text"
