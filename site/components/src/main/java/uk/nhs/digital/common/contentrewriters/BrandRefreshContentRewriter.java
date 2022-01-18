@@ -88,11 +88,6 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
                     table.removeAttr("data-responsive");
                 }
 
-                if (table.child(0).tagName().equals("caption")) {
-                    Element caption = table.child(0);
-                    table.prepend(String.format("<p class=\"nhsd-t-heading-xl nhsd-!t-margin-bottom-6\">%s</p>", caption.text()));
-                    caption.remove();
-                }
             }
         }
 
