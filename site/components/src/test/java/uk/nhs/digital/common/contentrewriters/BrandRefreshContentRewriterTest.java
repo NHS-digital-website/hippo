@@ -281,7 +281,7 @@ public class BrandRefreshContentRewriterTest {
         assertTrue(result.contains("p"));
         assertTrue(result.contains("table"));
         assertFalse(result.contains("cannotsort"));
-        assertFalse(result.contains("caption")); // caption tag removed and text placed in heading
+        assertTrue(result.contains("caption"));
         assertFalse(result.contains("thead"));
         assertTrue(result.contains("tr"));
         assertFalse(result.contains("data-no-sort"));
@@ -293,13 +293,11 @@ public class BrandRefreshContentRewriterTest {
         Element divTag = document.select("div").first();
         assertTrue(divTag.hasClass("nhsd-m-table nhsd-t-body"));
 
-        Element heading = divTag.child(0);
-        assertEquals("p", heading.tagName());
-        assertTrue(heading.hasClass("nhsd-t-heading-xl nhsd-!t-margin-bottom-6"));
+        Element heading = divTag.child(0).child(0);
         assertEquals("Statement of comprehensive net expenditure for the year ended 31 March 2020", heading.text());
 
         Element table = document.select("table").first();
-        assertEquals("table", divTag.child(1).tagName());
+        assertEquals("table", divTag.child(0).tagName());
         assertFalse(table.hasAttr("data-responsive"));
     }
 
@@ -319,7 +317,7 @@ public class BrandRefreshContentRewriterTest {
         assertTrue(result.contains("p"));
         assertTrue(result.contains("table"));
         assertFalse(result.contains("cannotsort"));
-        assertFalse(result.contains("caption")); // caption tag removed and text placed in heading
+        assertTrue(result.contains("caption"));
         assertTrue(result.contains("thead"));
         assertTrue(result.contains("tr"));
         assertTrue(result.contains("th"));
@@ -332,13 +330,11 @@ public class BrandRefreshContentRewriterTest {
         Element divTag = document.select("div").first();
         assertTrue(divTag.hasClass("nhsd-m-table nhsd-t-body"));
 
-        Element heading = divTag.child(0);
-        assertEquals("p", heading.tagName());
-        assertTrue(heading.hasClass("nhsd-t-heading-xl nhsd-!t-margin-bottom-6"));
+        Element heading = divTag.child(0).child(0);
         assertEquals("Statement of comprehensive net expenditure for the year ended 31 March 2020", heading.text());
 
         Element table = document.select("table").first();
-        assertEquals("table", divTag.child(1).tagName());
+        assertEquals("table", divTag.child(0).tagName());
         assertTrue(table.hasAttr("data-responsive"));
     }
 
@@ -358,7 +354,7 @@ public class BrandRefreshContentRewriterTest {
         assertTrue(result.contains("p"));
         assertTrue(result.contains("table"));
         assertFalse(result.contains("cannotsort"));
-        assertFalse(result.contains("caption"));
+        assertTrue(result.contains("caption"));
         assertTrue(result.contains("thead"));
         assertTrue(result.contains("tr"));
         assertTrue(result.contains("th"));
@@ -371,13 +367,11 @@ public class BrandRefreshContentRewriterTest {
         Element divTag = document.select("div").first();
         assertTrue(divTag.hasClass("nhsd-m-table nhsd-t-body"));
 
-        Element heading = divTag.child(0);
-        assertEquals("p", heading.tagName());
-        assertTrue(heading.hasClass("nhsd-t-heading-xl nhsd-!t-margin-bottom-6"));
+        Element heading = divTag.child(0).child(0);
         assertEquals("Statement of comprehensive net expenditure for the year ended 31 March 2020", heading.text());
 
         Element table = document.select("table").first();
-        assertEquals("table", divTag.child(1).tagName());
+        assertEquals("table", divTag.child(0).tagName());
         assertTrue(table.hasAttr("data-responsive"));
 
         Elements tableHeading = table.select("th");
