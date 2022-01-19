@@ -123,7 +123,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /sections:
             caption: Threat details
-            compoundList: website:section,publicationsystem:imageSection,website:emphasisBox,website:checklist,website:download,publicationsystem:chartSection,website:dynamicchartsection,website:code,website:expander,website:infographic,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
+            compoundList: website:section,website:imageModule,website:emphasisBox,website:checklist,website:download,publicationsystem:chartSection,website:dynamicchartsection,website:code,website:expander,website:infographic,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable
             contentPickerType: links
             field: sections
             hint: ''

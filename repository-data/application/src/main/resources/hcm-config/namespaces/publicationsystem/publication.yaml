@@ -78,7 +78,7 @@ definitions:
             wicket.id: ${cluster.id}.left.item
           /sections:
             caption: Highlights
-            compoundList: website:section,publicationsystem:imageSection,website:emphasisBox,website:infographic
+            compoundList: website:section,website:imageModule,website:emphasisBox,website:infographic
             contentPickerType: links
             field: sections
             hint: ''

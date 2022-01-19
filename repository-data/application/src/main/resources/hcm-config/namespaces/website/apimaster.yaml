@@ -148,7 +148,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /sections:
             caption: Sections
-            compoundList: website:section,publicationsystem:imageSection
+            compoundList: website:section,website:imageModule
             contentPickerType: links
             field: sections
             hint: ''

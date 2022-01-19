@@ -24,7 +24,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /bodySections:
             caption: Body
-            compoundList: website:section,publicationsystem:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,publicationsystem:textSection,website:iconlist,website:gallerysection,website:download,website:expander,website:ctabutton,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:propertytable
+            compoundList: website:section,website:imageModule,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,publicationsystem:textSection,website:iconlist,website:gallerysection,website:download,website:expander,website:ctabutton,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:propertytable
             contentPickerType: links
             field: body
             hint: ''
