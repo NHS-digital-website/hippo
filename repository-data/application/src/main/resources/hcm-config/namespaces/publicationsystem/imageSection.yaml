@@ -43,9 +43,7 @@ definitions:
           /imageSize:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: In line,Full width,Half width inline, Blue hero
-                image left, Blue hero image right,Black hero image left, Black hero
-                image right, Right column, Left column
+              selectable.options: Full,Half,Old
             caption: Image Type
             field: imageSize
             hint: Multiple sequential half width images will be displayed side by
@@ -76,15 +74,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Caption
             field: caption
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /text:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Text
-            field: text
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -138,14 +127,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /text:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:text
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - hippo:compound
@@ -175,9 +156,8 @@ definitions:
           jcr:primaryType: publicationsystem:imageSection
           publicationsystem:altText: ''
           publicationsystem:caption: ''
-          publicationsystem:imageSize: In line
+          publicationsystem:imageSize: Full
           publicationsystem:link: ''
-          publicationsystem:text: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

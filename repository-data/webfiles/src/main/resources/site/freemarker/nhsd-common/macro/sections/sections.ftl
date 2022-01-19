@@ -22,6 +22,7 @@
 <#include "navigation.ftl">
 <#include "../../../common/macro/sections/svgSection.ftl">
 <#include "../component/infoGraphic.ftl">
+<#include "imageModule.ftl">
 
 
 <!-- Set up equation support from mathjax -->
@@ -33,7 +34,7 @@
     <#assign isPreviousEmphasisBox = false />
     <#list sections as section>
         <#if wrap>
-        <div >
+        <div>
         </#if>
             <#if section.sectionType == 'text'>
                 <@textSection section=section />
@@ -45,6 +46,8 @@
                 <#assign isPreviousEmphasisBox = false />
             <#elseif section.sectionType == 'image'>
                 <@imageSection section=section />
+            <#elseif section.sectionType == 'imageModule'>
+                <@imageModule section=section />
             <#elseif section.sectionType == 'imagePair'>
                 <@imagePairSection section=section />
             <#elseif section.sectionType == 'relatedLink'>
