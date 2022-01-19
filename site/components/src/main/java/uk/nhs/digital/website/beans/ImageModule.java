@@ -2,6 +2,7 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 @HippoEssentialsGenerated(internalName = "website:ImageModule")
@@ -18,9 +19,9 @@ public class ImageModule extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:image")
-    public CorporateWebsiteImageset getImage() {
+    public HippoGalleryImageSet getImage() {
         System.out.println("XXXXXXXXXXXXXX IN 1 XXXXXXXXXXXXXXXXXX\n");
-        return getLinkedBean("website:image", CorporateWebsiteImageset.class);
+        return getLinkedBean("website:image", HippoGalleryImageSet.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:altText")
