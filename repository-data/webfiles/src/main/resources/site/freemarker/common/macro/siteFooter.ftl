@@ -23,7 +23,7 @@
                                             <li><a href="/about-nhs-digital/corporate-information-and-documents/our-strategy">Our strategy</a></li>
                                             <li><a href="/about-nhs-digital/corporate-information-and-documents/nhs-digital-s-annual-reports-and-accounts">Annual report and accounts</a></li>
                                             <li><a href="/about-nhs-digital/corporate-information-and-documents/nhs-digital-business-plan-2018--19">Our business plan</a></li>
-                                            <li><a href="/news-and-events">News</a></li>
+                                            <li><a href="/news">News</a></li>
                                             <li><a href="/about-nhs-digital/our-work/keeping-patient-data-safe/how-we-look-after-your-health-and-care-information">How we look after your information</a></li>
                                         </ul>
                                     </nav>
