@@ -425,7 +425,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: website:seosummary
+            hipposysedit:type: website:seoSummary
             jcr:primaryType: hipposysedit:field
           /seosummarytext:
             hipposysedit:mandatory: false

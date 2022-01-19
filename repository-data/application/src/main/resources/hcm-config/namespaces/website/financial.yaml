@@ -184,7 +184,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seoSummary
             hipposysedit:primary: false
-            hipposysedit:type: website:seosummary
+            hipposysedit:type: website:seoSummary
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -192,7 +192,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: website:seosummary
+            hipposysedit:type: website:seoSummary
             jcr:primaryType: hipposysedit:field
           /shortSummary:
             hipposysedit:mandatory: false

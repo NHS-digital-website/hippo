@@ -508,4 +508,7 @@
   orderable
 
 [website:calltoactionrich] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-   orderable
+  orderable
+
+[website:seoSummary] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
