@@ -22,7 +22,7 @@
 <#include "navigation.ftl">
 <#include "../../../common/macro/sections/svgSection.ftl">
 <#include "../component/infoGraphic.ftl">
-
+<#include "imageModule.ftl">
 
 <!-- Set up equation support from mathjax -->
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
@@ -49,6 +49,8 @@
                 <#assign isPreviousEmphasisBox = false />
             <#elseif section.sectionType == 'image'>
                 <@imageSection section=section />
+            <#elseif section.sectionType == 'imageModule'>
+                <@imageModule section=section />
             <#elseif section.sectionType == 'imagePair'>
                 <@imagePairSection section=section />
             <#elseif section.sectionType == 'relatedLink'>
