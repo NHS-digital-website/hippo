@@ -24,13 +24,6 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
     // @formatter:off
     private static final String APIGEE_ALL_SPEC_URL    = "devzone.apigee.resources.specs.all.url";
     private static final String APIGEE_SINGLE_SPEC_URL = "devzone.apigee.resources.specs.individual.url";
-
-    private static final String OAUTH_TOKEN_URL        = "devzone.apigee.oauth.token.url";
-
-    private static final String USERNAME               = "DEVZONE_APIGEE_OAUTH_USERNAME";
-    private static final String PASSWORD               = "DEVZONE_APIGEE_OAUTH_PASSWORD";
-    private static final String BASIC_TOKEN            = "DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN";
-    private static final String OTP_KEY                = "DEVZONE_APIGEE_OAUTH_OTPKEY";
     // @formatter:on
 
     @Override
@@ -38,28 +31,11 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
         log.debug("API Specifications sync from Apigee: start.");
 
-        // System properties for config - LOGGED ON SYSTEM START
-        final String apigeeAllSpecUrl = System.getProperty(APIGEE_ALL_SPEC_URL);
-        final String apigeeSingleSpecUrl = System.getProperty(APIGEE_SINGLE_SPEC_URL);
-        final String oauthTokenUrl = System.getProperty(OAUTH_TOKEN_URL);
-
-        // Environment variables FOR SECRETS - not logged on system start
-        final String username = System.getenv(USERNAME);
-        final String password = System.getenv(PASSWORD);
-        final String basicToken = System.getenv(BASIC_TOKEN);
-        final String otpKey = System.getenv(OTP_KEY);
-
         Session session = null;
 
         try {
-
-            ensureRequiredArgProvided(APIGEE_ALL_SPEC_URL, apigeeAllSpecUrl);
-            ensureRequiredArgProvided(APIGEE_SINGLE_SPEC_URL, apigeeSingleSpecUrl);
-            ensureRequiredArgProvided(OAUTH_TOKEN_URL, oauthTokenUrl);
-            ensureRequiredArgProvided(USERNAME, username);
-            ensureRequiredArgProvided(PASSWORD, password);
-            ensureRequiredArgProvided(BASIC_TOKEN, basicToken);
-            ensureRequiredArgProvided(OTP_KEY, otpKey);
+            final String apigeeAllSpecUrl = requireParameter(APIGEE_ALL_SPEC_URL, System.getProperty(APIGEE_ALL_SPEC_URL));
+            final String apigeeSingleSpecUrl = requireParameter(APIGEE_SINGLE_SPEC_URL, System.getProperty(APIGEE_SINGLE_SPEC_URL));
 
             final ResourceServiceBroker resourceServiceBroker = resourceServiceBroker();
 
@@ -90,8 +66,8 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
         }
     }
 
-    private void ensureRequiredArgProvided(final String argName, final String argValue) {
-        Validate.notBlank(argValue, "Required configuration argument is missing: %s", argName);
+    private String requireParameter(final String argName, final String argValue) {
+        return Validate.notBlank(argValue, "Required configuration argument is missing: %s", argName);
     }
 
     private ResourceServiceBroker resourceServiceBroker() {

@@ -145,6 +145,10 @@
     <Logger name="com.onehippo.cms7.targeting" level="warn"/>
     <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
+      <!-- IP Filter logging -->
+      <Logger name="org.bloomreach.forge.ipfilter" level="trace"/>
+      <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter" level="trace"/>
+
       <Root level="ALL">
           <AppenderRef ref="site"/>
           <AppenderRef ref="cms"/>
@@ -152,6 +156,7 @@
           <AppenderRef ref="splunk-site"/>
           <AppenderRef ref="splunk-audit"/>
       </Root>
+
   </Loggers>
 
 </Configuration>

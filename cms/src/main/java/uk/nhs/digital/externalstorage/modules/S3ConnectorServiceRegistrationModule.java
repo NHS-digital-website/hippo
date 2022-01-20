@@ -1,10 +1,10 @@
 package uk.nhs.digital.externalstorage.modules;
 
+import static java.lang.System.getProperty;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.externalstorage.modules.S3ConnectorServiceRegistrationModuleParams.*;
 
-import com.amazonaws.auth.AWSCredentialsProvider;
-import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
+import com.amazonaws.auth.*;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
@@ -161,7 +161,13 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
     }
 
     private AmazonS3 getAmazonS3Client() {
-        AWSCredentialsProvider provider = new EnvironmentVariableCredentialsProvider();
+
+        AWSCredentialsProviderChain provider =  new AWSCredentialsProviderChain(
+            new PropertiesFileCredentialsProvider(getProperty("secure.properties.location") + "/aws-credentials.properties"),
+            new EnvironmentVariableCredentialsProvider() // used by localhost
+        );
+        provider.setReuseLastProvider(true);
+
         AmazonS3ClientBuilder s3Builder = AmazonS3ClientBuilder.standard()
             .withCredentials(provider)
             .withRegion(Regions.fromName(params.getS3Region()));

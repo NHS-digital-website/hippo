@@ -23,7 +23,7 @@
                                             <li><a href="/about-nhs-digital/corporate-information-and-documents/our-strategy">Our strategy</a></li>
                                             <li><a href="/about-nhs-digital/corporate-information-and-documents/nhs-digital-s-annual-reports-and-accounts">Annual report and accounts</a></li>
                                             <li><a href="/about-nhs-digital/corporate-information-and-documents/nhs-digital-business-plan-2018--19">Our business plan</a></li>
-                                            <li><a href="/news-and-events">News and events</a></li>
+                                            <li><a href="/news">News</a></li>
                                             <li><a href="/about-nhs-digital/our-work/keeping-patient-data-safe/how-we-look-after-your-health-and-care-information">How we look after your information</a></li>
                                         </ul>
                                     </nav>
@@ -33,9 +33,9 @@
                                     <nav class="site-footer__menu site-footer__menu--3">
                                         <ul class="list list--reset list--close">
                                             <li><a href="/about-nhs-digital/contact-us">Contact us</a></li>
-                                            <li><a href="/news-and-events/press-office">Press office</a></li>
+                                            <li><a href="/news/press-office">Press office</a></li>
                                             <li><a href="/about-nhs-digital/contact-us/freedom-of-information">Freedom of information</a></li>
-                                            <li><a href="/about-nhs-digital/careers">Careers</a></li>
+                                            <li><a href="/careers">Careers</a></li>
                                             <li class="last-item"><a href="/about-nhs-digital/tell-us-what-you-think-of-our-website" title="Provide website feedback">Tell us what you think of our website</a></li>
                                         </ul>
                                     </nav>

@@ -1,10 +1,23 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:components/forge-news-sitemap-feed:
-      jcr:primaryType: hst:component
       hst:componentclassname: org.onehippo.forge.sitemap.components.NewsSitemapFeed
-      hst:parameternames: [publicationDateProperty, documentTypes, propertyCriteria,
-        timezone, publicationName, publicationLanguage, newsInformationProvider]
-      hst:parametervalues: ['${publicationDateProperty}', '${documentTypes}', '${propertyCriteria}',
-        '${timezone}', '${publicationName}', '${publicationLanguage}', '${newsInformationProvider}']
+      hst:parameternames:
+      - publicationDateProperty
+      - documentTypes
+      - propertyCriteria
+      - timezone
+      - publicationName
+      - publicationLanguage
+      - newsInformationProvider
+      hst:parametervalues:
+      - ${publicationDateProperty}
+      - ${documentTypes}
+      - ${propertyCriteria}
+      - ${timezone}
+      - ${publicationName}
+      - ${publicationLanguage}
+      - ${newsInformationProvider}
       hst:template: forge-sitemap-feed.ftl
+      jcr:primaryType: hst:component

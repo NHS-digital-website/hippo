@@ -226,6 +226,10 @@
             <version>${revision}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>uk.nhs.digital</groupId>
+            <artifactId>website-toolbox</artifactId>
+        </dependency>
 
     </dependencies>
 

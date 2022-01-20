@@ -256,7 +256,8 @@
                 <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
 
                 <#if hasLatestNews>
-                    <@latestblogs document.latestNews 'News' 'events-' + idsuffix 'Latest news' />
+                    <@latestblogs document.latestNews 'News' 'news-' + idsuffix 'Latest news' false />
+                    <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-top-0" />
                 </#if>
 
                 <@lastModified document.lastModified false></@lastModified>

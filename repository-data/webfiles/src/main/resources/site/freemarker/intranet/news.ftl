@@ -66,7 +66,7 @@
                 </#if>
 
                 <#if document.latestNews?has_content>
-                    <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-bottom-0" />
+                    <hr class="nhsd-a-horizontal-rule" />
 
                     <#assign idsuffix = slugify(document.title) />
                     <@latestblogs document.latestNews 'News' 'events-' + idsuffix latestNewsHeading false />
