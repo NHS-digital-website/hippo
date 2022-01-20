@@ -8,6 +8,6 @@ definitions:
       - query-sortField
       hst:parametervalues:
       - website:blog
-      - hippostdpubwf:publicationDate
+      - website:dateofpublication
       hst:template: forge-sitemapv2-feed.ftl
       jcr:primaryType: hst:component
