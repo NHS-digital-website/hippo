@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:templates:
+      /home:
+        hst:renderpath: webfile:/freemarker/ndrs/home.ftl
+        jcr:primaryType: hst:template
+      /menu:
+        hst:renderpath: webfile:/freemarker/common/menu.ftl
+        jcr:primaryType: hst:template
+      /ndrs-abstract-layout:
+        hst:renderpath: webfile:/freemarker/ndrs/layout/ndrs-abstract-layout.ftl
+        jcr:primaryType: hst:template
+      jcr:primaryType: hst:templates

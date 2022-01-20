@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Tell us what you think of our website:
+  .meta:order-before: RSS feeds
+  hst:externallink: https://digital.nhs.uk/about-nhs-digital/tell-us-what-you-think-of-our-website
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Contact us:
+  .meta:order-before: Careers
+  hst:externallink: https://digital.nhs.uk/about-nhs-digital/contact-us
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

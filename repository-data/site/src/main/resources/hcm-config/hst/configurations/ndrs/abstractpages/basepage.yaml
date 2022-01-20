@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:abstractpages/basepage:
+      hst:template: ndrs-abstract-layout
+      jcr:primaryType: hst:component

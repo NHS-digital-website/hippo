@@ -1,0 +1,5 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Facebook:
+  hst:referencesitemapitem: social-media/facebook
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

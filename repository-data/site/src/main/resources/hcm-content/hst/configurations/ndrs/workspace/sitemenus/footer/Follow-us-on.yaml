@@ -1,0 +1,5 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Follow us on:
+  .meta:order-before: Facebook
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

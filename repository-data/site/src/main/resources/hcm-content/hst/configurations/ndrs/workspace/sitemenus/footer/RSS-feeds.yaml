@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/RSS feeds:
+  .meta:order-before: Follow us on
+  hst:externallink: https://digital.nhs.uk/about-nhs-digital/rss-feeds
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem
