@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/ndrs:
+  hippo:name: NDRS
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: c2f9c8ab-1ef7-4d12-88c1-756c2ee0c4e9
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
