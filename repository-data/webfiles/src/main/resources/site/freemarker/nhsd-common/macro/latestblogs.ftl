@@ -15,7 +15,7 @@
         <#if title?has_content>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <h2 id="${slugify(title)}" class="nhsd-t-heading-xl ${centred?then('nhsd-t-text-align-center', '')} nhsd-!t-margin-top-6">${title}</h2>
+                    <h2 id="${slugify(title)}" class="nhsd-t-heading-xl ${centred?then('nhsd-t-text-align-center', '')}">${title}</h2>
                 </div>
             </div>
         </#if>
@@ -93,12 +93,8 @@
                 <div class="nhsd-t-col">
                     <nav class="nhsd-m-button-nav">
                     <#if idsuffix?contains("news")>
-                        <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="newsfeed"/>" >
-                        <#else>
-                        <a id="btn-view-all" onClick="toggleCards(${itemsMaxCountWithJS}, ${blogs?size}, '${idsuffix?js_string}'); return false;" class="nhsd-a-button" href="#">
-                        </#if>
-                            <span class="nhsd-a-button__label">View all news</span>
+                        <span class="nhsd-a-button__label">See all news</span>
                     <#elseif idsuffix?contains("event") >
                         <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="eventsfeed"/>">

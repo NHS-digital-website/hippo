@@ -4,9 +4,7 @@
        xmlns:cotext="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <cotext:property-placeholder location="file:#{systemProperties['secure.properties.location']}/govdelivery.properties" />
-
-    <bean id="govDeliveryApi"
+        <bean id="govDeliveryApi"
           parent="abstractCrispSimpleRestTemplateResourceResolver"
           class="org.onehippo.cms7.crisp.core.resource.jdom.SimpleJdomRestTemplateResourceResolver">
         <property name="cacheEnabled" value="false"/>
@@ -15,14 +13,14 @@
                 <property name="interceptors">
                     <list>
                         <bean class="org.springframework.http.client.support.BasicAuthenticationInterceptor">
-                            <constructor-arg value="${govdelivery.api.username}" />
-                            <constructor-arg value="${govdelivery.api.password}" />
+                            <constructor-arg value="#{applicationSecrets.getValue('govdelivery.api.username')}" />
+                            <constructor-arg value="#{applicationSecrets.getValue('govdelivery.api.password')}" />
                         </bean>
                     </list>
                 </property>
             </bean>
         </property>
-        <property name="baseUri" value="${govdelivery.api.base.url}"/>
+        <property name="baseUri" value="#{applicationSecrets.getValue('govdelivery.api.base.url')}"/>
     </bean>
     <bean id="eployApi"
           parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"

@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
+    <import resource="classpath:META-INF/hst-assembly/addon/crisp/overrides/application-secrets.xml"/>
+
     <bean id="apigeeManagementApi"
           parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
           class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
@@ -13,9 +15,9 @@
                     <bean class="org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordResourceDetails">
                         <property name="clientAuthenticationScheme" value="form"/>
                         <property name="grantType" value="password"/>
-                        <property name="accessTokenUri" value="${devzone.apigee.oauth.token.url}"/>
-                        <property name="username" value="${DEVZONE_APIGEE_OAUTH_USERNAME}"/>
-                        <property name="password" value="${DEVZONE_APIGEE_OAUTH_PASSWORD}"/>
+                        <property name="accessTokenUri" value="#{applicationSecrets.getValue('devzone.apigee.oauth.token.url')}"/>
+                        <property name="username" value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_USERNAME')}"/>
+                        <property name="password" value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_PASSWORD')}"/>
                     </bean>
                 </constructor-arg>
                 <constructor-arg>
@@ -33,8 +35,8 @@
                                 <constructor-arg>
                                     <bean class="com.warrenstrange.googleauth.GoogleAuthenticator"/>
                                 </constructor-arg>
-                                <constructor-arg value="${DEVZONE_APIGEE_OAUTH_OTPKEY}"/>
-                                <constructor-arg value="${DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN}"/>
+                                <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_OTPKEY')}"/>
+                                <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN')}"/>
                                 <constructor-arg>
                                     <bean class="java.time.Clock" factory-method="systemDefaultZone"/>
                                 </constructor-arg>

@@ -15,6 +15,7 @@ definitions:
           - website:person
           - website:video
           - website:componentlist
+          - intranet:task
           hst:componentconfigurationmappingvalues:
           - hst:pages/general
           - hst:pages/event
@@ -25,6 +26,7 @@ definitions:
           - hst:pages/website-person
           - hst:pages/video
           - hst:pages/componentlist
+          - hst:pages/task
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/intranet-404
@@ -38,6 +40,7 @@ definitions:
         - website:person
         - website:video
         - website:componentlist
+        - intranet:task
         hst:componentconfigurationmappingvalues:
         - hst:pages/general
         - hst:pages/event
@@ -48,6 +51,7 @@ definitions:
         - hst:pages/website-person
         - hst:pages/video
         - hst:pages/componentlist
+        - hst:pages/task
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /announcements:
@@ -90,7 +94,7 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /tasks:
         /_any_:
-          hst:componentconfigurationid: hst:pages/componentlist
+          hst:componentconfigurationid: hst:pages/task
           hst:relativecontentpath: tasks/${1}
           jcr:primaryType: hst:sitemapitem
         /_index_:

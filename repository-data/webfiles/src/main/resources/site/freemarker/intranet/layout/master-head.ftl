@@ -1,4 +1,8 @@
 <#ftl output_format="HTML">
+
+<#include "../macro/metaTags.ftl">
+<@metaTags />
+
 <head>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" data-blockingmode="auto" async></script>
 
@@ -6,10 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <@hst.headContributions categoryIncludes="metadata" xhtml=true />
 
     <!-- Generic meta tags -->
-    <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="intranetMeta" xhtml=true/>
+    <@hst.headContributions categoryIncludes="intranetMeta" xhtml=true/>
 
     <#-- Preload fonts to improve performance -->
     <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-55Roman.woff2" />" as="font" type="font/woff2" crossorigin>

@@ -121,7 +121,7 @@
     </#if>
     <@hero heroOptions heroType/>
 
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8" aria-label="document-content">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasLeadParagraph>
@@ -151,33 +151,27 @@
                             </#if>
                         </div>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasSectionContent>
-                    <#if !hasLeadImage>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
                     <div itemprop="articleBody">
                         <@sections document.sections></@sections>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasBackstory>
-                    <#if hasSectionContent>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
                     <div itemprop="articleBody">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6"">
                             <p class="nhsd-t-heading-m">Back story</p>
                             <div data-uipath="website.blog.backstory"><@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter /></div>
                         </div>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasContactDetails>
-                    <#if hasSectionContent && !hasBackstory>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
                     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
                             <div class="nhsd-m-contact-us__content">
@@ -188,12 +182,10 @@
                             </div>
                         </div>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasRelatedSubjects>
-                    <#if hasSectionContent && !hasBackstory && !hasContactDetails>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
                     <div class="nhsd-!t-margin-bottom-6">
                         <p class="nhsd-t-heading-xl">Related subjects</p>
                         <#list document.relatedSubjects as item>
@@ -213,11 +205,12 @@
                             </div>
                         </#list>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
-                    <hr class="nhsd-a-horizontal-rule" />
                     <@shareSection document />
+                    <hr class="nhsd-a-horizontal-rule" />
                 </div>
 
                 <#if hasAuthors>
@@ -276,14 +269,17 @@
                             </div>
                         </div>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
-                <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
+                <#if document.latestBlogs?has_content>
+                <div class="grid-wrapper grid-wrapper--article nhsd-!t-margin-bottom-6">
                     <div class="grid-row">
-                        <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-bottom-0" />
                         <@latestblogs blogs=document.latestBlogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs" centred=false></@latestblogs>
+                        <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-top-0" />
                     </div>
                 </div>
+                </#if>
                 <div class="nhsd-!t-margin-bottom-6">
                     <@lastModified document.lastModified false></@lastModified>
                 </div>

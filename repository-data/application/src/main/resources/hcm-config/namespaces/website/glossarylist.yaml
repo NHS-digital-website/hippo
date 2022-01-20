@@ -120,7 +120,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
+            hipposysedit:type: website:seoSummary
             jcr:primaryType: hipposysedit:field
           /seosummarytext:
             hipposysedit:mandatory: false

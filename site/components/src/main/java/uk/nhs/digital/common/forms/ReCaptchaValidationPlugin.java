@@ -14,6 +14,8 @@ import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +23,9 @@ import java.util.Map;
 public class ReCaptchaValidationPlugin implements ValidationBehavior {
 
     private static Logger log = LoggerFactory.getLogger(ReCaptchaValidationPlugin.class);
+
+    @Autowired
+    private ApplicationSecrets secrets;
 
     @Override
     public Map<String, ErrorMessage> validate(HstRequest request, HstResponse response, ComponentConfiguration config, FormBean bean, Form form, FormMap map) {
@@ -43,7 +48,7 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
         if (!success) {
             String errorList = getReCaptchaErrors(gRecaptchaResponse);
 
-            log.warn("Google ReCaptcha failed:" + errorList);
+            log.debug("Google ReCaptcha failed:" + errorList);
             errors.put("ReCaptcha Validation", new ErrorMessage("ReCaptcha validation failed", errorList));
         }
 
@@ -74,7 +79,7 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
             final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
 
             final Map<String, Object> pathVars = new HashMap<>();
-            pathVars.put("secret", System.getenv("GOOGLE_CAPTCHA_SECRET"));
+            pathVars.put("secret", secrets.getValue("GOOGLE_CAPTCHA_SECRET"));
             pathVars.put("response", gReCaptchaResponseCode);
 
             // Note: request submitted via CRISP default of GET, since POST is not working as described
