@@ -16,6 +16,10 @@ definitions:
         hst:inheritsfrom:
         - ../base
         jcr:primaryType: hst:configuration
+      /ndrs:
+        hst:inheritsfrom:
+        - ../base
+        jcr:primaryType: hst:configuration
       /publicationsystem:
         hst:inheritsfrom:
         - ../base

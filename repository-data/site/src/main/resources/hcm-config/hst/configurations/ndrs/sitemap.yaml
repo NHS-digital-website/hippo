@@ -1,0 +1,61 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:sitemap:
+      /_any_:
+        /_index_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:general
+          - website:event
+          - website:location
+          - website:blog
+          - website:team
+          - intranet:newsinternal
+          - website:person
+          - website:video
+          - website:componentlist
+          - intranet:task
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/general
+          - hst:pages/event
+          - hst:pages/location
+          - hst:pages/blog
+          - hst:pages/team
+          - hst:pages/news
+          - hst:pages/website-person
+          - hst:pages/video
+          - hst:pages/componentlist
+          - hst:pages/task
+          hst:relativecontentpath: ${parent}/content
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/404
+        hst:componentconfigurationmappingnames:
+        - website:general
+        - website:event
+        - website:location
+        - website:blog
+        - website:team
+        - intranet:newsinternal
+        - website:person
+        - website:video
+        - website:componentlist
+        - intranet:task
+        hst:componentconfigurationmappingvalues:
+        - hst:pages/general
+        - hst:pages/event
+        - hst:pages/location
+        - hst:pages/blog
+        - hst:pages/team
+        - hst:pages/news
+        - hst:pages/website-person
+        - hst:pages/video
+        - hst:pages/componentlist
+        - hst:pages/task
+        hst:relativecontentpath: ${1}
+        jcr:primaryType: hst:sitemapitem
+      /root:
+        hst:componentconfigurationid: hst:pages/home
+        hst:refId: root
+        jcr:primaryType: hst:sitemapitem
+      jcr:primaryType: hst:sitemap

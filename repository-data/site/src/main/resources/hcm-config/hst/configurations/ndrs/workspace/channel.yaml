@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:channel:
+      .meta:residual-child-node-category: content
+      hst:name: NDRS
+      hst:type: website
+      jcr:primaryType: hst:channel

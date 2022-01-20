@@ -1,0 +1,5 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/About us:
+  hst:externallink: https://digital.nhs.uk/about-nhs-digital
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

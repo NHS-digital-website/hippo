@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Freedom of information:
+  .meta:order-before: Accessibility
+  hst:externallink: https://digital.nhs.uk/about-nhs-digital/contact-us/freedom-of-information
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem
