@@ -53,7 +53,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
 
     <#assign inLine=""/>
     <#if options.inline?has_content>
-    	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 58%)/2); width: 100vw;\""/>
+    	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 60%)/2); width: 100vw;\""/>
     </#if>
 
     <#assign videoOptions=""/>
@@ -71,6 +71,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     		</#if>
     	</#list>
     	<#assign videoOptions += "rel=0"/>
+
     	<#if options.videoOptions.caption?has_content>
     		<#assign position="style='height: 90%;'">
     	</#if>
