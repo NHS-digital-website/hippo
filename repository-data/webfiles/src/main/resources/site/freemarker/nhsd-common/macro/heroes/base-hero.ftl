@@ -129,17 +129,24 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                             </#if>
                         </picture>
                         <#if options.caption?has_content>
+
+					        <#if hst.isBeanType(options.caption, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
+					            <@hst.html var="htmlCaption" hippohtml=options.caption contentRewriter=brContentRewriter />
+					        <#else>
+					            <#assign htmlCaption = options.caption/>
+					        </#if>
+
 			            	<figcaption style="height: 10%; width: 100%; text-align: center;">
 				                <#if options.link?has_content>
 				                    <div class="nhsd-t-heading-s">
-				                        <a class="nhsd-a-link" href="${options.link}" data-uipath="ps.publication.image-section.link">${options.caption}</a>
+				                        <a class="nhsd-a-link" href="${options.link}" data-uipath="ps.publication.image-section.link">${htmlCaption?no_esc}</a>
 				                    </div>
 				                <#else>
 				                    <div class="nhsd-t-heading-s">
-				                        <span>${options.caption}</span>
+				                        <span>${htmlCaption?no_esc}</span>
 				                    </div>
 				                </#if>
-				                <#if link?has_content && !options.caption?has_content>
+				                <#if link?has_content && !htmlCaption?has_content>
 						            </a>
 						        </#if>
 			                </figcaption>

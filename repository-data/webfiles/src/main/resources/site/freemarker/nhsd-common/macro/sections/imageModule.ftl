@@ -5,7 +5,7 @@
 <#macro imageModule section>
     <div class="nhsd-!t-margin-bottom-6" data-uipath="website.image-module">
 		<@hst.link var="imgName" hippobean=section.image/>
-		
+
 		<#if section.imageType?contains("hero image")>
         	<#assign heroOptions = getHeroOptions(document) />
         	<#assign heroOptions += {
@@ -43,12 +43,12 @@
          		<#assign figureStyle = "width: 50%; float: left;"/>
          		<#assign imageStyle = "float: left;"/>
         	<#elseif section.imageType == 'Full width'>
-        		<#assign figureStyle = "position: relative; left: calc(-1 * (50vw - 58%)/2); width: 100vw;"/>
+        		<#assign figureStyle = "position: relative; left: calc(-1 * (50vw - 58%)/3); width: 98vw;"/>
         	<#elseif section.imageType == 'Right column' && (document.docType == "Feature" || document.docType == "Blog")>
-				<div style = "position: relative; left: calc(-1 * (50vw - 50%)/2); width: 100vw;">
+				<div style = "position: relative; left: calc(-1 * (50vw - 50%)/3); width: 98vw;">
 					<div style = "width: 50%; float: right; padding-right: 10px;">
         	<#elseif section.imageType == 'Left column' && (document.docType == "Feature" || document.docType == "Blog")>
-        		<div style = "position: relative; left: calc(-1 * (50vw - 50%)/2); width: 100vw;">
+        		<div style = "position: relative; left: calc(-1 * (50vw - 50%)/3); width: 98vw;">
 					<div style = "width: 50%; float: left;">
         	</#if>
 
@@ -59,7 +59,7 @@
 	            <#if section.caption?has_content>
 	            	<figcaption style="text-align:center">
 	                    <div class="nhsd-t-heading-s">
-	                        <span>${section.caption}</span>
+	                        <span><@hst.html hippohtml=section.caption contentRewriter=brContentRewriter/></span>
 	                    </div>
 	                </figcaption>
 	            </#if>
@@ -67,7 +67,7 @@
             
             <#if (section.imageType == 'Right column' || section.imageType == 'Left column') && (document.docType == "Feature" || document.docType == "Blog")>
 		            </div>
-		            <div style="padding-right: 10px;">${section.text}</div>
+		            <div style="padding-right: 10px;"><@hst.html hippohtml=section.text contentRewriter=brContentRewriter/></div>
 	            </div>
             </#if>
         </#if>

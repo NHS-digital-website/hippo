@@ -1,8 +1,11 @@
 package uk.nhs.digital.website.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 @HippoEssentialsGenerated(internalName = "website:ImageModule")
@@ -20,7 +23,6 @@ public class ImageModule extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:image")
     public HippoGalleryImageSet getImage() {
-        System.out.println("XXXXXXXXXXXXXX IN 1 XXXXXXXXXXXXXXXXXX\n");
         return getLinkedBean("website:image", HippoGalleryImageSet.class);
     }
 
@@ -29,13 +31,27 @@ public class ImageModule extends HippoCompound {
         return getSingleProperty("website:altText");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:caption")
-    public String getCaption() {
-        return getSingleProperty("website:caption");
+    @JsonProperty("caption")
+    public String getCaptionJson() {
+        return getHippoHtmlContent("website:caption");
+    }
+    
+    @JsonProperty("text")
+    public String getTextJson() {
+        return getHippoHtmlContent("website:text");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:text")
-    public String getText() {
-        return getSingleProperty("website:text");
+    @HippoEssentialsGenerated(internalName = "website:text", allowModifications = false)
+    public HippoHtml getText() {
+        return getHippoHtml("website:text");
+    }
+
+    @JsonIgnore
+    protected String getHippoHtmlContent(String property) {
+        HippoHtml html = getHippoHtml(property);
+        if (html != null) {
+            return html.getContent();
+        }
+        return null;
     }
 }
