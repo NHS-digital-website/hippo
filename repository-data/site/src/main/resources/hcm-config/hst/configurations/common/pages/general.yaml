@@ -3,7 +3,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/general:
       /main:
-        hst:componentclassname: uk.nhs.digital.common.components.DocumentChildComponent
+        hst:componentclassname: uk.nhs.digital.common.components.GeneralArticleComponent
         hst:parameternames:
         - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
