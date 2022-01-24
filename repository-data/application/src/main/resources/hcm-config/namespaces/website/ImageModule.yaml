@@ -130,21 +130,6 @@ definitions:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        /hipposysedit:prototype:
-          /website:caption:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:image:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
-          /website:text:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:ImageModule
-          website:altText: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
