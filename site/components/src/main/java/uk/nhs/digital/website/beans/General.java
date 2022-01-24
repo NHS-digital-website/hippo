@@ -5,12 +5,12 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
-
-import java.util.*;
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:general")
 @Node(jcrType = "website:general")
 public class General extends CommonFieldsBean {
+
     @HippoEssentialsGenerated(internalName = "website:sections")
     public List<HippoBean> getSections() {
         return getChildBeansByName("website:sections");
@@ -75,4 +75,9 @@ public class General extends CommonFieldsBean {
     public String[] getPropmtUserOrg() {
         return getMultipleProperty("website:propmtuserorg");
     }
+
+    public String getEarlyAccessKey() {
+        return getSingleProperty("website:earlyaccesskey");
+    }
+
 }
