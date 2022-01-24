@@ -1,3 +1,4 @@
+---
 definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:templates/en:
@@ -31,894 +32,894 @@ definitions:
       new-website-corporateWebsiteImageset-image: New Image
     /hippo:configuration/hippo:translations/hippo:types:
       /common:stringlist:
-        jcr:primaryType: hipposys:resourcebundles
         /en:
           jcr:name: String list
           jcr:primaryType: hipposys:resourcebundle
-      /intranet:announcement:
         jcr:primaryType: hipposys:resourcebundles
+      /intranet:announcement:
         /en:
           jcr:name: Announcement
           jcr:primaryType: hipposys:resourcebundle
-      /intranet:newsinternal:
         jcr:primaryType: hipposys:resourcebundles
+      /intranet:newsinternal:
         /en:
           jcr:name: News internal
           jcr:primaryType: hipposys:resourcebundle
-      /intranet:task:
         jcr:primaryType: hipposys:resourcebundles
+      /intranet:task:
         /en:
           jcr:name: Task
           jcr:primaryType: hipposys:resourcebundle
-      /nationalindicatorlibrary:indicator:
         jcr:primaryType: hipposys:resourcebundles
+      /nationalindicatorlibrary:indicator:
         /en:
           jcr:name: Indicator
           jcr:primaryType: hipposys:resourcebundle
-      /nationalindicatorlibrary:nihub:
         jcr:primaryType: hipposys:resourcebundles
+      /nationalindicatorlibrary:nihub:
         /en:
           jcr:name: NI hub
           jcr:primaryType: hipposys:resourcebundle
-      /nationalindicatorlibrary:nilanding:
         jcr:primaryType: hipposys:resourcebundles
+      /nationalindicatorlibrary:nilanding:
         /en:
           jcr:name: NI landing
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:accessiblelink:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:accessiblelink:
         /en:
           jcr:name: Link to accessible data
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:archive:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:archive:
         /en:
           jcr:name: Archive
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:changenotice:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:changenotice:
         /en:
           jcr:name: Change notice
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:chartSection:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:chartSection:
         /en:
           jcr:name: Chart
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:cilanding:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:cilanding:
         /en:
           jcr:name: CI landing
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:dataset:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:dataset:
         /en:
           jcr:name: Data set
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:imageSection:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:imageSection:
         /en:
           jcr:name: Image
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:interactivetool:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:interactivetool:
         /en:
           jcr:name: Interactive tool section
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:legacypublication:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:legacypublication:
         /en:
           jcr:name: Legacy publication
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:mapSection:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:mapSection:
         /en:
           jcr:name: Map
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:publication:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:publication:
         /en:
           jcr:name: Publication
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:publicationPage:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:publicationPage:
         /en:
           jcr:name: Publication page
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:relatedlink:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:relatedlink:
         /en:
           jcr:name: Link
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:series:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:series:
         /en:
           jcr:name: Series / Collection
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:survey:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:survey:
         /en:
           jcr:name: Publication survey
           jcr:primaryType: hipposys:resourcebundle
-      /publicationsystem:textSection:
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:textSection:
         /en:
           jcr:name: Text
           jcr:primaryType: hipposys:resourcebundle
-      /website:about:
         jcr:primaryType: hipposys:resourcebundles
+      /website:ImageModule:
+        /en:
+          jcr:name: Image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:about:
         /en:
           jcr:name: About
           jcr:primaryType: hipposys:resourcebundle
-      /website:aboutapi:
         jcr:primaryType: hipposys:resourcebundles
+      /website:aboutapi:
         /en:
           jcr:name: About this API
           jcr:primaryType: hipposys:resourcebundle
-      /website:address:
         jcr:primaryType: hipposys:resourcebundles
+      /website:address:
         /en:
           jcr:name: Address
           jcr:primaryType: hipposys:resourcebundle
-      /website:apiendpoint:
         jcr:primaryType: hipposys:resourcebundles
+      /website:apiendpoint:
         /en:
           jcr:name: API Endpoint
           jcr:primaryType: hipposys:resourcebundle
-      /website:apiendpointgroup:
         jcr:primaryType: hipposys:resourcebundles
+      /website:apiendpointgroup:
         /en:
           jcr:name: API endpoint group
           jcr:primaryType: hipposys:resourcebundle
-      /website:apiinfobuilder:
         jcr:primaryType: hipposys:resourcebundles
+      /website:apiinfobuilder:
         /en:
           jcr:name: API information builder
           jcr:primaryType: hipposys:resourcebundle
-      /website:apimaster:
         jcr:primaryType: hipposys:resourcebundles
+      /website:apimaster:
         /en:
           jcr:name: API master
           jcr:primaryType: hipposys:resourcebundle
-      /website:apispecification:
         jcr:primaryType: hipposys:resourcebundles
+      /website:apispecification:
         /en:
           jcr:name: API Specification
           jcr:primaryType: hipposys:resourcebundle
-      /website:assetlink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:assetlink:
         /en:
           jcr:name: Related file
           jcr:primaryType: hipposys:resourcebundle
-      /website:authnandauths:
         jcr:primaryType: hipposys:resourcebundles
+      /website:authnandauths:
         /en:
           jcr:name: Authorisation and Authentication
           jcr:primaryType: hipposys:resourcebundle
-      /website:award:
         jcr:primaryType: hipposys:resourcebundles
+      /website:award:
         /en:
           jcr:name: Award
           jcr:primaryType: hipposys:resourcebundle
-      /website:bannercontrol:
         jcr:primaryType: hipposys:resourcebundles
+      /website:bannercontrol:
         /en:
           jcr:name: Banner control
           jcr:primaryType: hipposys:resourcebundle
-      /website:bannerdocument:
         jcr:primaryType: hipposys:resourcebundles
+      /website:bannerdocument:
         /en:
           jcr:name: Banner
           jcr:primaryType: hipposys:resourcebundle
-      /website:biography:
         jcr:primaryType: hipposys:resourcebundles
+      /website:biography:
         /en:
           jcr:name: Biography
           jcr:primaryType: hipposys:resourcebundle
-      /website:blog:
         jcr:primaryType: hipposys:resourcebundles
+      /website:blog:
         /en:
           jcr:name: Blog
           jcr:primaryType: hipposys:resourcebundle
-      /website:bloghub:
         jcr:primaryType: hipposys:resourcebundles
+      /website:bloghub:
         /en:
           jcr:name: Blog hub
           jcr:primaryType: hipposys:resourcebundle
-      /website:businessunit:
         jcr:primaryType: hipposys:resourcebundles
+      /website:businessunit:
         /en:
           jcr:name: Business unit
           jcr:primaryType: hipposys:resourcebundle
-      /website:calltoaction:
         jcr:primaryType: hipposys:resourcebundles
+      /website:calltoaction:
         /en:
           jcr:name: Call to action
           jcr:primaryType: hipposys:resourcebundle
-      /website:calltoactionrich:
         jcr:primaryType: hipposys:resourcebundles
+      /website:calltoactionrich:
         /en:
           jcr:name: Call to action rich
           jcr:primaryType: hipposys:resourcebundle
-      /website:casestudy:
         jcr:primaryType: hipposys:resourcebundles
+      /website:casestudy:
         /en:
           jcr:name: DSC Case Study
           jcr:primaryType: hipposys:resourcebundle
-      /website:categorylist:
         jcr:primaryType: hipposys:resourcebundles
+      /website:categorylist:
         /en:
           jcr:name: Category list
           jcr:primaryType: hipposys:resourcebundle
-      /website:checklist:
         jcr:primaryType: hipposys:resourcebundles
+      /website:checklist:
         /en:
           jcr:name: Check list
           jcr:primaryType: hipposys:resourcebundle
-      /website:componentbusinessunit:
         jcr:primaryType: hipposys:resourcebundles
+      /website:componentbusinessunit:
         /en:
           jcr:name: Component business unit
           jcr:primaryType: hipposys:resourcebundle
-      /website:componentlist:
         jcr:primaryType: hipposys:resourcebundles
+      /website:componentlist:
         /en:
           jcr:name: Links list
           jcr:primaryType: hipposys:resourcebundle
-      /website:contactdetail:
         jcr:primaryType: hipposys:resourcebundles
+      /website:contactdetail:
         /en:
           jcr:name: Contact details
           jcr:primaryType: hipposys:resourcebundle
-      /website:contactdetailextended:
         jcr:primaryType: hipposys:resourcebundles
+      /website:contactdetailextended:
         /en:
           jcr:name: Contact details (extended)
           jcr:primaryType: hipposys:resourcebundle
-      /website:copy:
         jcr:primaryType: hipposys:resourcebundles
+      /website:copy:
         /en:
           jcr:name: Copy
           jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:corporateWebsiteImageset:
         jcr:primaryType: hipposys:resourcebundles
       /website:corporatepolicy:
-        jcr:primaryType: hipposys:resourcebundles
         /en:
           jcr:name: Policy
           jcr:primaryType: hipposys:resourcebundle
-      /website:ctabutton:
         jcr:primaryType: hipposys:resourcebundles
+      /website:ctabutton:
         /en:
           jcr:name: CTA
           jcr:primaryType: hipposys:resourcebundle
-      /website:customizedAssetSet:
         jcr:primaryType: hipposys:resourcebundles
+      /website:customizedAssetSet:
         /en:
           jcr:name: Customised asset
           jcr:primaryType: hipposys:resourcebundle
-      /website:cyberacknowledgement:
         jcr:primaryType: hipposys:resourcebundles
+      /website:cyberacknowledgement:
         /en:
           jcr:name: Cyber alert acknowledgement
           jcr:primaryType: hipposys:resourcebundle
-      /website:cyberalert:
         jcr:primaryType: hipposys:resourcebundles
+      /website:cyberalert:
         /en:
           jcr:name: Cyber alert
           jcr:primaryType: hipposys:resourcebundle
-      /website:cycleparking:
         jcr:primaryType: hipposys:resourcebundles
+      /website:cycleparking:
         /en:
           jcr:name: Cycle parking
           jcr:primaryType: hipposys:resourcebundle
-      /website:definedterm:
         jcr:primaryType: hipposys:resourcebundles
+      /website:definedterm:
         /en:
           jcr:name: Defined term
           jcr:primaryType: hipposys:resourcebundle
-      /website:definedterms:
         jcr:primaryType: hipposys:resourcebundles
+      /website:definedterms:
         /en:
           jcr:name: Defined terms
           jcr:primaryType: hipposys:resourcebundle
-      /website:directiontositebycar:
         jcr:primaryType: hipposys:resourcebundles
+      /website:directiontositebycar:
         /en:
           jcr:name: Direction to site by car
           jcr:primaryType: hipposys:resourcebundle
-      /website:directiontositebypublictransport:
         jcr:primaryType: hipposys:resourcebundles
+      /website:directiontositebypublictransport:
         /en:
           jcr:name: Direction to site by public transport
           jcr:primaryType: hipposys:resourcebundle
-      /website:directorate:
         jcr:primaryType: hipposys:resourcebundles
+      /website:directorate:
         /en:
           jcr:name: Directorate
           jcr:primaryType: hipposys:resourcebundle
-      /website:download:
         jcr:primaryType: hipposys:resourcebundles
+      /website:download:
         /en:
           jcr:name: Downloads
           jcr:primaryType: hipposys:resourcebundle
-      /website:dschomepage:
         jcr:primaryType: hipposys:resourcebundles
+      /website:dschomepage:
         /en:
           jcr:name: Generic Homepage
           jcr:primaryType: hipposys:resourcebundle
-      /website:dynamicchartsection:
         jcr:primaryType: hipposys:resourcebundles
+      /website:dynamicchartsection:
         /en:
           jcr:name: Dynamic Chart
           jcr:primaryType: hipposys:resourcebundle
-      /website:editorsnotes:
         jcr:primaryType: hipposys:resourcebundles
+      /website:editorsnotes:
         /en:
           jcr:name: Editors notes
           jcr:primaryType: hipposys:resourcebundle
-      /website:effectivedate:
         jcr:primaryType: hipposys:resourcebundles
+      /website:effectivedate:
         /en:
           jcr:name: Effective date
           jcr:primaryType: hipposys:resourcebundle
-      /website:emphasisBox:
         jcr:primaryType: hipposys:resourcebundles
+      /website:emphasisBox:
         /en:
           jcr:name: Emphasis box
           jcr:primaryType: hipposys:resourcebundle
-      /website:event:
         jcr:primaryType: hipposys:resourcebundles
+      /website:event:
         /en:
           jcr:name: Event
           jcr:primaryType: hipposys:resourcebundle
-      /website:expander:
         jcr:primaryType: hipposys:resourcebundles
+      /website:expander:
         /en:
           jcr:name: Expander
           jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:externallink:
-        jcr:primaryType: hipposys:resourcebundles
         /en:
           jcr:name: External link
           jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:externallinkbase:
-        jcr:primaryType: hipposys:resourcebundles
         /en:
           jcr:name: External link
           jcr:primaryType: hipposys:resourcebundle
-      /website:feature:
         jcr:primaryType: hipposys:resourcebundles
+      /website:feature:
         /en:
           jcr:name: Feature
           jcr:primaryType: hipposys:resourcebundle
-      /website:feedhub:
         jcr:primaryType: hipposys:resourcebundles
+      /website:feedhub:
         /en:
           jcr:name: Feed
           jcr:primaryType: hipposys:resourcebundle
-      /website:financial:
         jcr:primaryType: hipposys:resourcebundles
+      /website:financial:
         /en:
           jcr:name: Financial
           jcr:primaryType: hipposys:resourcebundle
-      /website:fullWidthImage:
         jcr:primaryType: hipposys:resourcebundles
+      /website:fullWidthImage:
         /en:
           jcr:name: Full-width image
           jcr:primaryType: hipposys:resourcebundle
-      /website:galleryitem:
         jcr:primaryType: hipposys:resourcebundles
+      /website:galleryitem:
         /en:
           jcr:name: Gallery item
           jcr:primaryType: hipposys:resourcebundle
-      /website:gallerysection:
         jcr:primaryType: hipposys:resourcebundles
+      /website:gallerysection:
         /en:
           jcr:name: Gallery section
           jcr:primaryType: hipposys:resourcebundle
-      /website:gdprsummary:
         jcr:primaryType: hipposys:resourcebundles
+      /website:gdprsummary:
         /en:
           jcr:name: GDPR summary
           jcr:primaryType: hipposys:resourcebundle
-      /website:gdprtransparency:
         jcr:primaryType: hipposys:resourcebundles
+      /website:gdprtransparency:
         /en:
           jcr:name: GDPR transparency
           jcr:primaryType: hipposys:resourcebundle
-      /website:general:
         jcr:primaryType: hipposys:resourcebundles
+      /website:general:
         /en:
           jcr:name: General
           jcr:primaryType: hipposys:resourcebundle
-      /website:generalnonsearch:
         jcr:primaryType: hipposys:resourcebundles
+      /website:generalnonsearch:
         /en:
           jcr:name: General non searchable
           jcr:primaryType: hipposys:resourcebundle
-      /website:glossaryitem:
         jcr:primaryType: hipposys:resourcebundles
+      /website:glossaryitem:
         /en:
           jcr:name: Glossary item
           jcr:primaryType: hipposys:resourcebundle
-      /website:glossarylist:
         jcr:primaryType: hipposys:resourcebundles
+      /website:glossarylist:
         /en:
           jcr:name: Glossary list
           jcr:primaryType: hipposys:resourcebundle
-      /website:graphicblock:
         jcr:primaryType: hipposys:resourcebundles
+      /website:graphicblock:
         /en:
           jcr:name: Graphic block
           jcr:primaryType: hipposys:resourcebundle
-      /website:group:
         jcr:primaryType: hipposys:resourcebundles
+      /website:group:
         /en:
           jcr:name: Group
           jcr:primaryType: hipposys:resourcebundle
-      /website:grouprole:
         jcr:primaryType: hipposys:resourcebundles
+      /website:grouprole:
         /en:
           jcr:name: Group role
           jcr:primaryType: hipposys:resourcebundle
-      /website:highchartseries:
         jcr:primaryType: hipposys:resourcebundles
+      /website:highchartseries:
         /en:
           jcr:name: Highchart Series Item
           jcr:primaryType: hipposys:resourcebundle
-      /website:homepagesections:
         jcr:primaryType: hipposys:resourcebundles
+      /website:homepagesections:
         /en:
           jcr:name: DSC Homepage categories
           jcr:primaryType: hipposys:resourcebundle
-      /website:hub:
         jcr:primaryType: hipposys:resourcebundles
+      /website:hub:
         /en:
           jcr:name: Hub
           jcr:primaryType: hipposys:resourcebundle
-      /website:hubnewsandevents:
         jcr:primaryType: hipposys:resourcebundles
+      /website:hubnewsandevents:
         /en:
           jcr:name: Hub News and Events
           jcr:primaryType: hipposys:resourcebundle
-      /website:iconlist:
         jcr:primaryType: hipposys:resourcebundles
+      /website:iconlist:
         /en:
           jcr:name: Icon list
           jcr:primaryType: hipposys:resourcebundle
-      /website:iconlistitem:
         jcr:primaryType: hipposys:resourcebundles
+      /website:iconlistitem:
         /en:
           jcr:name: Icon list item
           jcr:primaryType: hipposys:resourcebundle
-      /website:infographic:
         jcr:primaryType: hipposys:resourcebundles
+      /website:infographic:
         /en:
           jcr:name: Infographic
           jcr:primaryType: hipposys:resourcebundle
-      /website:internallink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:internallink:
         /en:
           jcr:name: Internal link
           jcr:primaryType: hipposys:resourcebundle
-      /website:jobrole:
         jcr:primaryType: hipposys:resourcebundles
+      /website:jobrole:
         /en:
           jcr:name: Job role
           jcr:primaryType: hipposys:resourcebundle
-      /website:jobrolepicker:
         jcr:primaryType: hipposys:resourcebundles
+      /website:jobrolepicker:
         /en:
           jcr:name: Job role picker
           jcr:primaryType: hipposys:resourcebundle
-      /website:lawfulbasis:
         jcr:primaryType: hipposys:resourcebundles
+      /website:lawfulbasis:
         /en:
           jcr:name: Lawful basis
           jcr:primaryType: hipposys:resourcebundle
-      /website:leadimagesection:
         jcr:primaryType: hipposys:resourcebundles
+      /website:leadimagesection:
         /en:
           jcr:name: Lead image section
           jcr:primaryType: hipposys:resourcebundle
-      /website:localtaxi:
         jcr:primaryType: hipposys:resourcebundles
+      /website:localtaxi:
         /en:
           jcr:name: Local taxi
           jcr:primaryType: hipposys:resourcebundle
-      /website:location:
         jcr:primaryType: hipposys:resourcebundles
+      /website:location:
         /en:
           jcr:name: Location
           jcr:primaryType: hipposys:resourcebundle
-      /website:mediacontact:
         jcr:primaryType: hipposys:resourcebundles
+      /website:mediacontact:
         /en:
           jcr:name: Media contact
           jcr:primaryType: hipposys:resourcebundle
-      /website:navigation:
         jcr:primaryType: hipposys:resourcebundles
+      /website:navigation:
         /en:
           jcr:name: Navigation
           jcr:primaryType: hipposys:resourcebundle
-      /website:navigationTile:
         jcr:primaryType: hipposys:resourcebundles
+      /website:navigationTile:
         /en:
           jcr:name: Navigation Tile
           jcr:primaryType: hipposys:resourcebundle
-      /website:news:
         jcr:primaryType: hipposys:resourcebundles
+      /website:news:
         /en:
           jcr:name: News
           jcr:primaryType: hipposys:resourcebundle
-      /website:nonmandatoryexternalbaselink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:nonmandatoryexternalbaselink:
         /en:
           jcr:name: Non Mandatory External link
           jcr:primaryType: hipposys:resourcebundle
-      /website:nonmandatoryinternallink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:nonmandatoryinternallink:
         /en:
           jcr:name: Non Mandatory Internal link
           jcr:primaryType: hipposys:resourcebundle
-      /website:notesforeditors:
         jcr:primaryType: hipposys:resourcebundles
+      /website:notesforeditors:
         /en:
           jcr:name: Notes for editors
           jcr:primaryType: hipposys:resourcebundle
-      /website:onsitecarparking:
         jcr:primaryType: hipposys:resourcebundles
+      /website:onsitecarparking:
         /en:
           jcr:name: Onsite car parking
           jcr:primaryType: hipposys:resourcebundle
-      /website:openinghours:
         jcr:primaryType: hipposys:resourcebundles
+      /website:openinghours:
         /en:
           jcr:name: Opening hours
           jcr:primaryType: hipposys:resourcebundle
-      /website:organisation:
         jcr:primaryType: hipposys:resourcebundles
+      /website:organisation:
         /en:
           jcr:name: Organisation
           jcr:primaryType: hipposys:resourcebundle
-      /website:organisationcode:
         jcr:primaryType: hipposys:resourcebundles
+      /website:organisationcode:
         /en:
           jcr:name: Organisation code
           jcr:primaryType: hipposys:resourcebundle
-      /website:orgstructure:
         jcr:primaryType: hipposys:resourcebundles
+      /website:orgstructure:
         /en:
           jcr:name: Org structure
           jcr:primaryType: hipposys:resourcebundle
-      /website:otherrole:
         jcr:primaryType: hipposys:resourcebundles
+      /website:otherrole:
         /en:
           jcr:name: Other role
           jcr:primaryType: hipposys:resourcebundle
-      /website:othersocialmedia:
         jcr:primaryType: hipposys:resourcebundles
+      /website:othersocialmedia:
         /en:
           jcr:name: Other social media
           jcr:primaryType: hipposys:resourcebundle
-      /website:owner:
         jcr:primaryType: hipposys:resourcebundles
+      /website:owner:
         /en:
           jcr:name: Owner details
           jcr:primaryType: hipposys:resourcebundle
-      /website:parameters:
         jcr:primaryType: hipposys:resourcebundles
+      /website:parameters:
         /en:
           jcr:name: Parameters
           jcr:primaryType: hipposys:resourcebundle
-      /website:person:
         jcr:primaryType: hipposys:resourcebundles
+      /website:person:
         /en:
           jcr:name: Person
           jcr:primaryType: hipposys:resourcebundle
-      /website:personalinfo:
         jcr:primaryType: hipposys:resourcebundles
+      /website:personalinfo:
         /en:
           jcr:name: Personal information
           jcr:primaryType: hipposys:resourcebundle
-      /website:personimage:
         jcr:primaryType: hipposys:resourcebundles
+      /website:personimage:
         /en:
           jcr:name: Person image
           jcr:primaryType: hipposys:resourcebundle
-      /website:platform:
         jcr:primaryType: hipposys:resourcebundles
+      /website:platform:
         /en:
           jcr:name: Platform
           jcr:primaryType: hipposys:resourcebundle
-      /website:platformversion:
         jcr:primaryType: hipposys:resourcebundles
+      /website:platformversion:
         /en:
           jcr:name: Platform version
           jcr:primaryType: hipposys:resourcebundle
-      /website:policypage:
         jcr:primaryType: hipposys:resourcebundles
+      /website:policypage:
         /en:
           jcr:name: Policy page
           jcr:primaryType: hipposys:resourcebundle
-      /website:postnominal:
         jcr:primaryType: hipposys:resourcebundles
+      /website:postnominal:
         /en:
           jcr:name: Post nominal
           jcr:primaryType: hipposys:resourcebundle
-      /website:primarysectionvisualhub:
         jcr:primaryType: hipposys:resourcebundles
+      /website:primarysectionvisualhub:
         /en:
           jcr:name: Primary section visual hub
           jcr:primaryType: hipposys:resourcebundle
-      /website:projectfeed:
         jcr:primaryType: hipposys:resourcebundles
+      /website:projectfeed:
         /en:
           jcr:name: Project feed
           jcr:primaryType: hipposys:resourcebundle
-      /website:projectupdate:
         jcr:primaryType: hipposys:resourcebundles
+      /website:projectupdate:
         /en:
           jcr:name: Project update
           jcr:primaryType: hipposys:resourcebundle
-      /website:property:
         jcr:primaryType: hipposys:resourcebundles
+      /website:property:
         /en:
           jcr:name: Property
           jcr:primaryType: hipposys:resourcebundle
-      /website:propertytable:
         jcr:primaryType: hipposys:resourcebundles
+      /website:propertytable:
         /en:
           jcr:name: Property table
           jcr:primaryType: hipposys:resourcebundle
-      /website:publictransportstation:
         jcr:primaryType: hipposys:resourcebundles
+      /website:publictransportstation:
         /en:
           jcr:name: Public transport station
           jcr:primaryType: hipposys:resourcebundle
-      /website:publishedwork:
         jcr:primaryType: hipposys:resourcebundles
+      /website:publishedwork:
         /en:
           jcr:name: Published work
           jcr:primaryType: hipposys:resourcebundle
-      /website:publishedworkchapter:
         jcr:primaryType: hipposys:resourcebundles
+      /website:publishedworkchapter:
         /en:
           jcr:name: Published work chapter
           jcr:primaryType: hipposys:resourcebundle
-      /website:qualification:
         jcr:primaryType: hipposys:resourcebundles
+      /website:qualification:
         /en:
           jcr:name: Qualification
           jcr:primaryType: hipposys:resourcebundle
-      /website:quote:
         jcr:primaryType: hipposys:resourcebundles
+      /website:quote:
         /en:
           jcr:name: Quote
           jcr:primaryType: hipposys:resourcebundle
-      /website:quotehero:
         jcr:primaryType: hipposys:resourcebundles
+      /website:quotehero:
         /en:
           jcr:name: Quote hero
           jcr:primaryType: hipposys:resourcebundle
-      /website:releaseinfo:
         jcr:primaryType: hipposys:resourcebundles
+      /website:releaseinfo:
         /en:
           jcr:name: Release info
           jcr:primaryType: hipposys:resourcebundle
-      /website:remediationstep:
         jcr:primaryType: hipposys:resourcebundles
+      /website:remediationstep:
         /en:
           jcr:name: Remediation step
           jcr:primaryType: hipposys:resourcebundle
-      /website:resourceexternallink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:resourceexternallink:
         /en:
           jcr:name: Resource external link
           jcr:primaryType: hipposys:resourcebundle
-      /website:resourcelink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:resourcelink:
         /en:
           jcr:name: Resource internal link
           jcr:primaryType: hipposys:resourcebundle
-      /website:responsedefinition:
         jcr:primaryType: hipposys:resourcebundles
+      /website:responsedefinition:
         /en:
           jcr:name: Response definition
           jcr:primaryType: hipposys:resourcebundle
-      /website:responsibility:
         jcr:primaryType: hipposys:resourcebundles
+      /website:responsibility:
         /en:
           jcr:name: Responsibility
           jcr:primaryType: hipposys:resourcebundle
-      /website:roadmap:
         jcr:primaryType: hipposys:resourcebundles
+      /website:roadmap:
         /en:
           jcr:name: Roadmap
           jcr:primaryType: hipposys:resourcebundle
-      /website:roadmapitem:
         jcr:primaryType: hipposys:resourcebundles
+      /website:roadmapitem:
         /en:
           jcr:name: Roadmap item
           jcr:primaryType: hipposys:resourcebundle
-      /website:roadmapitemstatus:
         jcr:primaryType: hipposys:resourcebundles
+      /website:roadmapitemstatus:
         /en:
           jcr:name: Roadmap item Status
           jcr:primaryType: hipposys:resourcebundle
-      /website:role:
         jcr:primaryType: hipposys:resourcebundles
+      /website:role:
         /en:
           jcr:name: Role
           jcr:primaryType: hipposys:resourcebundle
-      /website:samplecode:
         jcr:primaryType: hipposys:resourcebundles
+      /website:samplecode:
         /en:
           jcr:name: Sample code
           jcr:primaryType: hipposys:resourcebundle
-      /website:section:
         jcr:primaryType: hipposys:resourcebundles
+      /website:section:
         /en:
           jcr:name: Section
           jcr:primaryType: hipposys:resourcebundle
-      /website:service:
         jcr:primaryType: hipposys:resourcebundles
+      /website:service:
         /en:
           jcr:name: Service
           jcr:primaryType: hipposys:resourcebundle
-      /website:severitystatuschange:
         jcr:primaryType: hipposys:resourcebundles
+      /website:severitystatuschange:
         /en:
           jcr:name: Severity status change
           jcr:primaryType: hipposys:resourcebundle
-      /website:signup:
         jcr:primaryType: hipposys:resourcebundles
+      /website:signup:
         /en:
           jcr:name: Sign up page
           jcr:primaryType: hipposys:resourcebundle
-      /website:socialmedia:
         jcr:primaryType: hipposys:resourcebundles
+      /website:socialmedia:
         /en:
           jcr:name: Social media
           jcr:primaryType: hipposys:resourcebundle
-      /website:socialmediaimages:
         jcr:primaryType: hipposys:resourcebundles
+      /website:socialmediaimages:
         /en:
           jcr:name: Social media images
           jcr:primaryType: hipposys:resourcebundle
-      /website:socialmedialink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:socialmedialink:
         /en:
           jcr:name: Social Media
           jcr:primaryType: hipposys:resourcebundle
-      /website:statistics:
         jcr:primaryType: hipposys:resourcebundles
+      /website:statistics:
         /en:
           jcr:name: Statistics
           jcr:primaryType: hipposys:resourcebundle
-      /website:statisticsFeedItem:
         jcr:primaryType: hipposys:resourcebundles
+      /website:statisticsFeedItem:
         /en:
           jcr:name: Statistics Feed item
           jcr:primaryType: hipposys:resourcebundle
-      /website:statisticsItem:
         jcr:primaryType: hipposys:resourcebundles
+      /website:statisticsItem:
         /en:
           jcr:name: Statistics item
           jcr:primaryType: hipposys:resourcebundle
-      /website:statuserrorcode:
         jcr:primaryType: hipposys:resourcebundles
+      /website:statuserrorcode:
         /en:
           jcr:name: Status error code
           jcr:primaryType: hipposys:resourcebundle
-      /website:supplementaryinformation:
         jcr:primaryType: hipposys:resourcebundles
+      /website:supplementaryinformation:
         /en:
           jcr:name: Supplementary information
           jcr:primaryType: hipposys:resourcebundle
-      /website:supplementaryinformationhub:
         jcr:primaryType: hipposys:resourcebundles
+      /website:supplementaryinformationhub:
         /en:
           jcr:name: Supplementary information hub
           jcr:primaryType: hipposys:resourcebundle
-      /website:svg:
         jcr:primaryType: hipposys:resourcebundles
+      /website:svg:
         /en:
           jcr:name: SVG
           jcr:primaryType: hipposys:resourcebundle
-      /website:tableau:
         jcr:primaryType: hipposys:resourcebundles
+      /website:tableau:
         /en:
           jcr:name: Tableau
           jcr:primaryType: hipposys:resourcebundle
-      /website:tableauLookup:
         jcr:primaryType: hipposys:resourcebundles
+      /website:tableauLookup:
         /en:
           jcr:name: Neighbourhood Dashboard
           jcr:primaryType: hipposys:resourcebundle
-      /website:taxonomymapping:
         jcr:primaryType: hipposys:resourcebundles
+      /website:taxonomymapping:
         /en:
           jcr:name: Taxonomy Mapping
           jcr:primaryType: hipposys:resourcebundle
-      /website:team:
         jcr:primaryType: hipposys:resourcebundles
+      /website:team:
         /en:
           jcr:name: Team
           jcr:primaryType: hipposys:resourcebundle
-      /website:teammember:
         jcr:primaryType: hipposys:resourcebundles
+      /website:teammember:
         /en:
           jcr:name: Team member
           jcr:primaryType: hipposys:resourcebundle
-      /website:threataffect:
         jcr:primaryType: hipposys:resourcebundles
+      /website:threataffect:
         /en:
           jcr:name: Threat affect
           jcr:primaryType: hipposys:resourcebundle
-      /website:threatupdate:
         jcr:primaryType: hipposys:resourcebundles
+      /website:threatupdate:
         /en:
           jcr:name: Threat update
           jcr:primaryType: hipposys:resourcebundle
-      /website:tilesectionvisualhub:
         jcr:primaryType: hipposys:resourcebundles
+      /website:tilesectionvisualhub:
         /en:
           jcr:name: Tiles section visual hub
           jcr:primaryType: hipposys:resourcebundle
-      /website:update:
         jcr:primaryType: hipposys:resourcebundles
+      /website:update:
         /en:
           jcr:name: Update
           jcr:primaryType: hipposys:resourcebundle
-      /website:userContact:
         jcr:primaryType: hipposys:resourcebundles
+      /website:userContact:
         /en:
           jcr:name: User contact
           jcr:primaryType: hipposys:resourcebundle
-      /website:userNeed:
         jcr:primaryType: hipposys:resourcebundles
+      /website:userNeed:
         /en:
           jcr:name: User need
           jcr:primaryType: hipposys:resourcebundle
-      /website:userNeedandcontact:
         jcr:primaryType: hipposys:resourcebundles
+      /website:userNeedandcontact:
         /en:
           jcr:name: User need and contact
           jcr:primaryType: hipposys:resourcebundle
-      /website:userNeedandcontactdocument:
         jcr:primaryType: hipposys:resourcebundles
+      /website:userNeedandcontactdocument:
         /en:
           jcr:name: User need and contact document
           jcr:primaryType: hipposys:resourcebundle
-      /website:video:
         jcr:primaryType: hipposys:resourcebundles
+      /website:video:
         /en:
           jcr:name: Video
           jcr:primaryType: hipposys:resourcebundle
-      /website:visualassetlink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:visualassetlink:
         /en:
           jcr:name: Asset icon link
           jcr:primaryType: hipposys:resourcebundle
-      /website:visualexternallink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:visualexternallink:
         /en:
           jcr:name: External icon link
           jcr:primaryType: hipposys:resourcebundle
-      /website:visualhub:
         jcr:primaryType: hipposys:resourcebundles
+      /website:visualhub:
         /en:
           jcr:name: Visual hub
           jcr:primaryType: hipposys:resourcebundle
-      /website:visualinternallink:
         jcr:primaryType: hipposys:resourcebundles
+      /website:visualinternallink:
         /en:
           jcr:name: Internal icon link
           jcr:primaryType: hipposys:resourcebundle
-      /website:ImageModule:
         jcr:primaryType: hipposys:resourcebundles
-        /en:
-          jcr:primaryType: hipposys:resourcebundle
-          jcr:name: Image

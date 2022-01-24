@@ -43,34 +43,39 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /caption:
-            caption: Caption
-            field: caption
+          /text:
+            caption: Text
+            field: html
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /text:
-            caption: Text
-            field: text
+          /caption:
+            caption: Caption
+            field: html1
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
       /hipposysedit:nodetype:
         jcr:mixinTypes: ['mix:referenceable']
         jcr:primaryType: hippo:handle
-        jcr:uuid: cc875029-8077-46a4-9412-e7b915b74a59
+        jcr:uuid: 085ea3f5-00bc-4693-ac7f-f497fd3ae5fc
         /hipposysedit:nodetype:
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: f6dfb06a-f468-4e00-a1b4-3f9aab90455c
+          jcr:uuid: 9440e4f4-9adc-477c-b291-e53b5555140c
           /altText:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -80,13 +85,21 @@ definitions:
             hipposysedit:type: String
             hipposysedit:validators: [required]
             jcr:primaryType: hipposysedit:field
-          /caption:
+          /html:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:text
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /html1:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:caption
             hipposysedit:primary: false
-            hipposysedit:type: Text
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
@@ -105,24 +118,20 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
-          /text:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:text
-            hipposysedit:primary: false
-            hipposysedit:type: Text
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: website:ImageModule
           website:altText: ''
-          website:caption: ''
-          website:text: ''
           /website:image:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
+          /website:text:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:caption:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
