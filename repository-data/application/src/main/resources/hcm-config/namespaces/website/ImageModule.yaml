@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/publicationsystem/imageSection:
+    /hippo:namespaces/website/ImageModule:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -19,52 +19,56 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /imageType:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: In line,Full width,Half width in line,Blue hero
+                image left,Blue hero image right,Black hero image left,Black hero
+                image right,Right column,Left column
+            caption: Image type
+            field: imageType
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /image:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Image
+            caption: image
             field: image
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /imageSize:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: Full,Half,Old
-            caption: Size
-            field: imageSize
-            hint: Multiple sequential half width images will be displayed side by
-              side
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /altText:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Alternative Text
+            caption: Alt text
             field: altText
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /link:
+          /text:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Link
-            field: link
+            caption: Text
+            field: html
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /caption:
             /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Caption
-            field: caption
+            field: html1
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
@@ -73,79 +77,74 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:altText
+            hipposysedit:path: website:altText
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /caption:
+          /html:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:caption
+            hipposysedit:path: website:text
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /html1:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:caption
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:image
+            hipposysedit:path: website:image
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:resource
+            hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /imageSize:
+          /imageType:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:imageSize
+            hipposysedit:path: website:imageType
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /link:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:link
-            hipposysedit:primary: false
-            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - hippo:compound
           - hippostd:relaxed
-          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
-          - mix:referenceable
           - hipposysedit:remodel
+          - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /publicationsystem:image:
-            hippo:filename: publicationsystem:resource
-            hippo:text:
-              resource: /namespaces/publicationsystem/imageSection/prototypes/prototype/image/text.bin
-              type: binary
-            jcr:data:
-              resource: data.bin
-              type: binary
-            jcr:encoding: UTF-8
-            jcr:lastModified: 2008-03-26T11:03:00Z
-            jcr:mimeType: application/vnd.hippo.blank
-            jcr:primaryType: publicationsystem:resource
-          jcr:primaryType: publicationsystem:imageSection
-          publicationsystem:altText: ''
-          publicationsystem:caption: ''
-          publicationsystem:imageSize: Full
-          publicationsystem:link: ''
+          /website:caption:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:text:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:ImageModule
+          website:altText: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
