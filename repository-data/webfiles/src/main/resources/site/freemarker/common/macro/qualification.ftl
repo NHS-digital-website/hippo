@@ -5,7 +5,7 @@
   <#macro qualification quals idsuffix firstname>
     <#if quals?has_content>
     <div id="qualification-${slugify(idsuffix)}" class="qualification--div article-section">
-      <h2>Qualifications</h2> 
+      <h2>Qualifications</h2>
 
         <p>
           <#if quals?has_content >
@@ -29,7 +29,7 @@
                   </#if>
 
                   <#if qual.qualificationlogo?has_content>
-                    <div class="quallogo--div">
+                    <div class="nhsd-a-image">
                       <@hst.link var="quallogo" hippobean=qual.qualificationlogo.original fullyQualified=true />
                       <img src="${quallogo}" alt="Qualification logo" />
                     </div>
