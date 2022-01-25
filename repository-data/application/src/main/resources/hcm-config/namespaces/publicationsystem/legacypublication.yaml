@@ -250,7 +250,6 @@ definitions:
             hipposysedit:type: CalendarDate
             hipposysedit:validators:
             - required
-            - publicationsystem-publication-date
             jcr:primaryType: hipposysedit:field
           /publicationid:
             hipposysedit:mandatory: false
