@@ -50,21 +50,22 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     <#elseif heroType == "accentedImageMirrored">
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
     </#if>
-    
+
     <#assign inLine=""/>
     <#if options.inline?has_content>
     	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 58%)/2); width: 100vw;\""/>
     	<#assign style="width: 100%; margin: 0;">
     	<#assign imgStyle="width: 100%;">
     </#if>
-    
+
     <#assign videoOptions=""/>
     <#assign position=""/>
+
     <#if options.videoOptions?has_content && options.videoOptions?size gt 0>
     	<#if options.video?contains("vimeo")>
     		<#assign videoOptions="&"/>
     	<#else>
-    		<#assign videoOptions="?"/>
+    		<#assign videoOptions="&"/>
     	</#if>
     	<#list options.videoOptions?keys as videoOptionsKey>
     		<#if videoOptionsKey != "caption">
@@ -72,6 +73,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     		</#if>
     	</#list>
     	<#assign videoOptions += "rel=0"/>
+
     	<#if options.videoOptions.caption?has_content>
     		<#assign position="style='height: 90%;'">
     	</#if>

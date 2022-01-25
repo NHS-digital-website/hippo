@@ -28,7 +28,7 @@ public class VideoSection extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "playlist")
     public String getPlaylist() {
-        return embedVideo(getSingleProperty("website:playlist"));
+        return VideoPlayer.getVideoId(getSingleProperty("website:videoUrl"));
     }
 
     @HippoEssentialsGenerated(internalName = "caption")
@@ -68,9 +68,5 @@ public class VideoSection extends HippoCompound {
             return html.getContent();
         }
         return null;
-    }
-
-    private String embedVideo(String url) {
-        return VideoPlayer.getVideoUrl(url);
     }
 }

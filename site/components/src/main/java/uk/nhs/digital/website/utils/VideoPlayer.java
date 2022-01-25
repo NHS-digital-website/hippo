@@ -58,4 +58,21 @@ public class VideoPlayer {
         return videoUri;
     }
 
+    public static String getVideoId(String videoUri) {
+        Matcher youtubeMatch = youtubeTest.matcher(videoUri);
+
+        // Make sure that YouTube URLs use the right format
+        if (youtubeMatch.matches()) {
+            return youtubeMatch.group("videoID");
+        }
+
+        Matcher vimeoMatch = vimeoTest.matcher(videoUri);
+
+        // Make sure that Vimeo URLs use the right embed format
+        if (vimeoMatch.matches()) {
+            return vimeoMatch.group("videoID");
+        }
+
+        return videoUri;
+    }
 }
