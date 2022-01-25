@@ -36,11 +36,6 @@ public class VideoSection extends HippoCompound {
         return getSingleProperty("website:caption");
     }
 
-    @HippoEssentialsGenerated(internalName = "text")
-    public String getText() {
-        return getSingleProperty("website:text");
-    }
-
     @HippoEssentialsGenerated(internalName = "behaviour")
     public Boolean getBehaviour() {
         return getSingleProperty("website:behaviour");
@@ -51,14 +46,14 @@ public class VideoSection extends HippoCompound {
         return getSingleProperty("website:loop");
     }
 
-    @JsonProperty("summary")
-    public String getSummaryJson() {
-        return getHippoHtmlContent("website:summary");
+    @JsonProperty("text")
+    public String getTextJson() {
+        return getHippoHtmlContent("website:text");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:summary", allowModifications = false)
-    public HippoHtml getSummary() {
-        return getHippoHtml("website:summary");
+    @HippoEssentialsGenerated(internalName = "website:text", allowModifications = false)
+    public HippoHtml getText() {
+        return getHippoHtml("website:text");
     }
 
     @JsonIgnore
