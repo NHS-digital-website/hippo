@@ -21,7 +21,7 @@
     </#if>
     <#assign iconTypeFromMime = getFormatByMimeType("${mimeType?lower_case}") />
 
-    <@externalstorageLink resource; url>
+    <@externalstorageLink resource earlyAccessKey; url>
         <div class="${(small == true)?then('nhsd-m-download-card', 'nhsd-m-download-card nhsd-!t-margin-bottom-6')}">
             <a href="${(external == true)?then(resource, url)}"
                class="nhsd-a-box-link"

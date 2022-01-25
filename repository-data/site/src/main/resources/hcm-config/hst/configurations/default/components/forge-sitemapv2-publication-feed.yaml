@@ -7,7 +7,7 @@ definitions:
       - query-primaryTypes
       - query-sortField
       hst:parametervalues:
-      - publicationsystem:publication
-      - hippostdpubwf:publicationDate
+      - publicationsystem:publication,publicationsystem:publicationPage,publicationsystem:series
+      - publicationsystem:NominalDate
       hst:template: forge-sitemapv2-feed.ftl
       jcr:primaryType: hst:component

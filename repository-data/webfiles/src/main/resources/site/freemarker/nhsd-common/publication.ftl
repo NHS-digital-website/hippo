@@ -23,6 +23,8 @@
 
 <@hst.setBundle basename="publicationsystem.change,publicationsystem.survey,publicationsystem.interactive,publicationsystem.labels,publicationsystem.headers"/>
 
+<#assign earlyAccessKey = hstRequest.request.getParameter("key")!"">
+
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
@@ -282,7 +284,9 @@
                             <ul data-uipath="ps.publication.datasets" class="nhsd-t-list nhsd-t-list--bullet">
                                 <#list document.datasets as dataset>
                                     <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset">
-                                        <@hst.link hippobean=dataset.selfLinkBean var="dataSetLink"/>
+                                        <@hst.link hippobean=dataset.selfLinkBean var="dataSetLink">
+                                            <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
+                                        </@hst.link>
                                         <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="${dataSetLink}"
                                                                  onClick="logGoogleAnalyticsEvent('Link click','Data set',${dataSetLink});">${dataset.title}</a></span>
                                         <#list dataset.summary.elements as element>
@@ -431,8 +435,10 @@
                                 <@hst.link hippobean=page.linkedBean var="relatedSubjectLink"/>
                                 <#assign isActive = document.getCanonicalUUID() == page.linkedBean.getCanonicalUUID()/>
                                 <li ${isActive?then('class=nhsd-m-publication-chapter-navigation--active', '')} itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                    <span itemprop="name"><a itemprop="url" href="<@hst.link hippobean=page.linkedBean/>"
-                                                             onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
+                                    <span itemprop="name"><a itemprop="url" href="<@hst.link hippobean=page.linkedBean>
+                                                <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
+                                                </@hst.link>"
+                                                onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                                                 ${isActive?then('', 'data-print-article')}>${page.title}</a></span>
                                 </li>
                             </#list>

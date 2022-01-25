@@ -15,7 +15,7 @@ definitions:
         - 81.21.138.121
         - 2001:4cb8:29d:1::/64
         cache-enabled: true
-        enabled: true
+        enabled: false
         forwarded-for-header: x-original-forwarded-for
         forwarded-host-header: x-forwarded-host
         hostnames:
