@@ -503,6 +503,9 @@
 [website:video] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:VideoSection] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:visualassetlink] > hippo:compound, hippostd:relaxed
   orderable
 

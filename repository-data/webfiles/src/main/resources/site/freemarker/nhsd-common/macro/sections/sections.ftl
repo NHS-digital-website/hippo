@@ -20,6 +20,7 @@
 <#include "tableauLookupSection.ftl">
 <#include "fullWidthImage.ftl">
 <#include "navigation.ftl">
+<#include "videoSection.ftl">
 <#include "../../../common/macro/sections/svgSection.ftl">
 <#include "../component/infoGraphic.ftl">
 <#include "imageModule.ftl">
@@ -91,6 +92,8 @@
                 <@svgSection section=section index=section?index/>
             <#elseif section.sectionType == 'tableau'>
                 <@tableau section=section index=section?index/>
+            <#elseif section.sectionType == 'VideoSection'>
+                <@videoSection section=section/>
             </#if>
             <#if !section?is_last><hr class="nhsd-a-horizontal-rule"/></#if>
         <#if wrap>

@@ -51,13 +51,30 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
     </#if>
     
-    <#assign style = ""/>
-    <#assign imgStyle = ""/>
     <#assign inLine=""/>
     <#if options.inline?has_content>
     	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 58%)/2); width: 100vw;\""/>
     	<#assign style="width: 100%; margin: 0;">
     	<#assign imgStyle="width: 100%;">
+    </#if>
+    
+    <#assign videoOptions=""/>
+    <#assign position=""/>
+    <#if options.videoOptions?has_content && options.videoOptions?size gt 0>
+    	<#if options.video?contains("vimeo")>
+    		<#assign videoOptions="&"/>
+    	<#else>
+    		<#assign videoOptions="?"/>
+    	</#if>
+    	<#list options.videoOptions?keys as videoOptionsKey>
+    		<#if videoOptionsKey != "caption">
+    			<#assign videoOptions += videoOptionsKey + "=" + options.videoOptions[videoOptionsKey] + "&"/>
+    		</#if>
+    	</#list>
+    	<#assign videoOptions += "rel=0"/>
+    	<#if options.videoOptions.caption?has_content>
+    		<#assign position="style='height: 90%;'">
+    	</#if>
     </#if>
 
     <#if options.colour?has_content>
@@ -116,9 +133,16 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             </#if>
             <div class="nhsd-o-hero__image-container">
                 <#if options.video?has_content>
-                    <div class="nhsd-o-hero__iframe-wrapper">
-                        <iframe class="nhsd-o-banner__iframe" src="${options.video}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+	                <figure style="width: 100%; margin: 0;">
+	                    <div class="nhsd-o-hero__iframe-wrapper">
+	                        <iframe class="nhsd-o-banner__iframe" src="${options.video}${videoOptions}"
+	                         allow="autoplay; encrypted-media; picture-in-picture"
+	                         allowfullscreen></iframe>
+	                     </div>
+	                     <#if options.videoOptions.caption?has_content>
+		                  	<figcaption style="height: 10%; width: 100%; text-align: center;">${options.videoOptions.caption}</figcaption>
+		                 </#if>
+	                 </figure>
                 <#else>
                     <figure class="nhsd-a-image ${imageClasses}" style="${style}">
                         <picture >
