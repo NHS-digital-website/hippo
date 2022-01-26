@@ -1,28 +1,20 @@
----
 definitions:
   config:
     /hippo:namespaces/website/VideoSection:
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
+        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties:
-          - mode
-          frontend:references:
-          - wicket.model
-          - model.compareTo
-          - engine
-          - validator.id
-          frontend:services:
-          - wicket.id
-          - validator.id
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /type:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: In line,Full width,Hero video left,Hero video right
             caption: Type
             field: type
             hint: Hero and Full width only available in Feature and Blog document
@@ -30,66 +22,68 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /videoUrl:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              selectable.options: In line,Full width,Hero video left,Hero video right
+          /videoUrl:
             caption: Video URL
             field: videoUrl
             hint: Use the embedded URL E.G. https//www.youtube.com/embed/kLK0DoMpPCo
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /playlist:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              maxlength: '0'
-              size: '0'
-            caption: Playlist
-            field: playlist
-            hint: Internal use only do not enter anything in this field
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: []
-            wicket.id: ${cluster.id}.field
           /caption:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+            jcr:primaryType: frontend:plugin
             caption: Caption
-            field: caption
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            field: html
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
           /text:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Text
-            field: text
-            hint: Text is only visible when the Hero types are selected.
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            caption: Text
+            field: html1
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /behaviour:
             /cluster.options:
-              falseLabel: Manual play
               jcr:primaryType: frontend:pluginconfig
-              trueLabel: Autoplay
+          /behaviour:
             caption: Behaviour
             field: behaviour
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /loop:
             /cluster.options:
+              falseLabel: Manual play
               jcr:primaryType: frontend:pluginconfig
+              trueLabel: Autoplay
+          /loop:
             caption: Loop
             field: loop
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-        jcr:primaryType: editor:templateset
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
       /hipposysedit:nodetype:
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:primaryType: hippo:handle
+        jcr:uuid: 8b2f4d5f-967c-4789-9bea-b625803cdccf
         /hipposysedit:nodetype:
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:uuid: f45cd543-b4a3-405e-9654-28e93fb30a48
           /behaviour:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -98,14 +92,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: selection:BooleanRadioGroup
             jcr:primaryType: hipposysedit:field
-          /caption:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:caption
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
           /loop:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -113,22 +99,6 @@ definitions:
             hipposysedit:path: website:loop
             hipposysedit:primary: false
             hipposysedit:type: Boolean
-            jcr:primaryType: hipposysedit:field
-          /playlist:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:playlist
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /text:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:text
-            hipposysedit:primary: false
-            hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
           /type:
             hipposysedit:mandatory: false
@@ -145,32 +115,34 @@ definitions:
             hipposysedit:path: website:videoUrl
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - required
+            hipposysedit:validators: [required]
             jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - hippo:compound
-          - hippostd:relaxed
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes:
-          - hipposysedit:remodel
-          - mix:referenceable
-          jcr:primaryType: hipposysedit:nodetype
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
+          /html:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:caption
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /html1:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:text
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
       /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: website:VideoSection
           website:behaviour: false
-          website:caption: ''
           website:loop: false
-          website:playlist: ''
-          website:text: ''
           website:videoUrl: ''
-        jcr:primaryType: hipposysedit:prototypeset
-      jcr:mixinTypes:
-      - editor:editable
-      - mix:referenceable
-      jcr:primaryType: hipposysedit:templatetype
+          /website:text:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /website:caption:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''

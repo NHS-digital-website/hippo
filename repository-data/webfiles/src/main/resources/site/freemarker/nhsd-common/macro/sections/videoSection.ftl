@@ -4,6 +4,11 @@
 
 <#if section.videoUrl?contains("www.youtube") || section.videoUrl?contains("youtu.be") || section.videoUrl?contains(".vimeo.com")>
     <#assign mute = section.videoUrl?contains(".vimeo.com")?then("muted", "mute")/>
+    <#if hst.isBeanType(section.caption, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
+        <@hst.html var="htmlCaption" hippohtml=section.caption contentRewriter=brContentRewriter />
+    <#else>
+        <#assign htmlCaption = section.caption/>
+    </#if>
 	<#if (document.docType == "Feature" || document.docType == "Blog") && (section.type == "Hero video right" || section.type == "Hero video left")>
 		<#assign heroOptions = getHeroOptions(document) />
 		<#assign heroOptions += {
@@ -13,7 +18,7 @@
 			"title": "",
 			"summary": section.text,
 			"videoOptions": {
-				"caption": "${section.caption}",
+				"caption": "${htmlCaption?no_esc}",
 				"autoplay": "${section.behaviour?then('1','0')}",
 				"loop": "${section.loop?then('1','0')}",
 				"playlist": "${section.playlist}",	<#-- need a playlist for loop to work -->
@@ -44,7 +49,7 @@
 				style="position: absolute; top: 0; height: 90%; width: 100%; display: block; border: none;"></iframe>
 	    	<link itemprop="embedUrl" href="${section.videoUrl}" />
 	    	<#if section.caption?has_content>
-	    		<figcaption style="position: absolute; bottom: 0; height: 10%; width: 100%; text-align: center;">${section.caption}</figcaption>
+	    		<figcaption style="position: absolute; bottom: 0; height: 10%; width: 100%; text-align: center;">${htmlCaption?no_esc}</figcaption>
 			</#if>
 	    </figure>
 	</#if>

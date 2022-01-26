@@ -31,9 +31,9 @@ public class VideoSection extends HippoCompound {
         return VideoPlayer.getVideoId(getSingleProperty("website:videoUrl"));
     }
 
-    @HippoEssentialsGenerated(internalName = "caption")
-    public String getCaption() {
-        return getSingleProperty("website:caption");
+    @JsonProperty("caption")
+    public HippoHtml getCaption() {
+        return getHippoHtml("website:caption");
     }
 
     @HippoEssentialsGenerated(internalName = "behaviour")
