@@ -40,9 +40,6 @@
             </bean>
         </property>
         <property name="targetMethod" value="addInitializationValve"/>
-        <property name="arguments">
-            <ref bean="springSecurityValve"/>
-        </property>
     </bean>
 
 
