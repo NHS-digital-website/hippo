@@ -14,8 +14,6 @@
 
         <#assign divId = "tableau-${index}"/>
 
-       <hr class="nhsd-a-horizontal-rule">
-
        <form action="javascript:void(0);" class="nhsd-t-form nhsd-!t-margin-top-6" novalidate="" autocomplete="off">
            <div class="nhsd-t-form-group" style="max-width: 300px">
                <label for="${divId}-postcode" class="nhsd-t-form-label">

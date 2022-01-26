@@ -28,14 +28,18 @@
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
 
 <#macro sections sections mainHeadingLevel=2 wrap=false padSections=false orgPrompt=false>
-
     <#assign numberedListCount=0 />
     <#assign isPreviousEmphasisBox = false />
     <#list sections as section>
         <#if wrap>
         <div >
         </#if>
+            // Add HR if it's not the first section and has a top level heading
+            <#if !section?is_first && section.headingLevel == 'Main heading'>
+                <hr class="nhsd-a-horizontal-rule" />
+            </#if>
             <#if section.sectionType == 'text'>
+                <#if !section?is_first && section.heading?has_content><hr class="nhsd-a-horizontal-rule"/></#if>
                 <@textSection section=section />
             <#elseif section.sectionType == 'website-section'>
                 <#if section.isNumberedList>
@@ -90,7 +94,6 @@
             <#elseif section.sectionType == 'tableau'>
                 <@tableau section=section index=section?index/>
             </#if>
-            <#if !section?is_last><hr class="nhsd-a-horizontal-rule"/></#if>
         <#if wrap>
         </div>
         </#if>
