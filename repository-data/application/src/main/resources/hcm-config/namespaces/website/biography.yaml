@@ -1,28 +1,21 @@
----
 definitions:
   config:
     /hippo:namespaces/website/biography:
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
+        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties:
-          - mode
-          frontend:references:
-          - wicket.model
-          - model.compareTo
-          - engine
-          - validator.id
-          frontend:services:
-          - wicket.id
-          - validator.id
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
           /root:
             extension.left: ${cluster.id}.left
             extension.right: ${cluster.id}.right
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
-            wicket.extensions:
-            - extension.left
-            - extension.right
+            wicket.extensions: [extension.left, extension.right]
           /left:
             item: ${cluster.id}.left.item
             jcr:primaryType: frontend:plugin
@@ -34,91 +27,26 @@ definitions:
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
           /profbiography:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Professional biography
+            caption: Short biography
             field: profbiography
             hint: A short biography (summary), about the person's professional experience
               and their relevance to NHS Digital
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /prevpositions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Previous positions / experience
-            field: prevpositions
-            hint: A short statement listing or describing previous positions and /
-              or related experience within NHS Digital
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /nonnhspositions:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Non NHS Digital positions / awards
-            field: nonnhspositions
-            hint: A short statement listing or describing previous positions and /
-              or related experience outside of NHS Digital
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /additionalbiography:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Additional biography summary
-            field: additionalbiography
-            hint: A short statement listing or describing additional biographical
-              information about a person's life
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /personalbiography:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Personal biography summary
-            field: personalbiography
-            hint: A short statement listing or describing biographical information
-              about a person's personal life such as a brief statement about their
-              family or where they are from
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:primaryType: hippo:handle
+        jcr:uuid: 29673be7-b371-481b-a874-1ad1ca497cca
         /hipposysedit:nodetype:
-          /additionalbiography:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:additionalbiography
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /nonnhspositions:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:nonnhspositions
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /personalbiography:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:personalbiography
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /prevpositions:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:prevpositions
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:uuid: 45045f41-479c-4609-84d1-5e5637498e0c
           /profbiography:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -127,38 +55,10 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - hippo:compound
-          - hippostd:relaxed
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes:
-          - mix:referenceable
-          - hipposysedit:remodel
-          jcr:primaryType: hipposysedit:nodetype
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          /website:additionalbiography:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:nonnhspositions:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:personalbiography:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:prevpositions:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:biography
           /website:profbiography:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          jcr:primaryType: website:biography
-        jcr:primaryType: hipposysedit:prototypeset
-      jcr:mixinTypes:
-      - editor:editable
-      - mix:referenceable
-      jcr:primaryType: hipposysedit:templatetype
