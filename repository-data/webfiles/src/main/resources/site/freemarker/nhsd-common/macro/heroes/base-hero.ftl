@@ -123,9 +123,9 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                     <figure class="nhsd-a-image ${imageClasses}" style="${style}">
                         <picture >
                             <#if options.image?has_content && options.image.src?has_content>
-                                <img src="${options.image.src}" alt="<#if options.image.alt?has_content>${options.image.alt}</#if>" style="${imgStyle}">
+                                <img src="${options.image.src}" alt="<#if options.image.alt?has_content>${options.image.alt}</#if>" style="${imgStyle}"/>
                             <#else>
-                                <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="" />
+                                <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt=""/>
                             </#if>
                         </picture>
                         <#if options.caption?has_content>
@@ -173,7 +173,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#-- Only intended to be used on publication pages -->
         <#if options.badge?has_content>
             <div class="nhsd-o-hero__stamp">
-                <img src="${options.badge.src}" data-uipath="${uiPath}.national-statistics" alt="${options.badge.alt}" />
+                <img src="${options.badge.src}" data-uipath="${uiPath}.national-statistics" alt="${options.badge.alt}"/>
             </div>
         </#if>
     </div>

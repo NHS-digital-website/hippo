@@ -13,7 +13,7 @@
 
             <figure class="nhsd-a-image nhsd-a-image--no-scale nhsd-a-image--round-corners nhsd-!t-margin-bottom-2" aria-hidden="true">
                 <picture class="nhsd-a-image__picture ">
-                    <img src="<@hst.link hippobean=section.image/>" alt="${section.altText}" data-uipath="ps.publication.image-section.image">
+                    <img src="<@hst.link hippobean=section.image/>" alt="${section.altText}" data-uipath="ps.publication.image-section.image"/>
                 </picture>
             </figure>
 
