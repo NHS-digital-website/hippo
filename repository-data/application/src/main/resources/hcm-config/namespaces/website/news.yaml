@@ -1,37 +1,41 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/news:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
-      jcr:uuid: 6d4dfb4d-8a48-4a0b-a2a5-60d2fd03b06b
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Headline
             field: title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /shortsummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /shortsummary:
             caption: Short Summary
             field: shortsummary
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /seosummary:
             caption: SEO Summary
             field: seosummary
@@ -40,16 +44,18 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /creditbanner:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/website/news-banner-type
             caption: Credit banner
             field: dynamicdropdown
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /leadimagesection:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/news-banner-type
-          /leadimagesection:
             caption: Lead image section
             compoundList: website:leadimagesection
             contentPickerType: links
@@ -58,9 +64,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /socialmediaimages:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /socialmediaimages:
             caption: Social media images
             compoundList: website:socialmediaimages
             contentPickerType: links
@@ -69,9 +75,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /sections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /sections:
             caption: Sections
             compoundList: website:section,website:emphasisBox,website:download,website:expander,website:quote,website:checklist,website:infographic,website:iconlist,website:svg,website:propertytable,website:VideoSection
             contentPickerType: links
@@ -80,9 +86,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /notesforeditors:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /notesforeditors:
             caption: Notes for editors
             compoundList: website:notesforeditors
             contentPickerType: links
@@ -91,77 +97,78 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /peoplementioned:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes:
+              - website:person
             caption: People mentioned in this story
             field: peoplementioned
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              base.path: /content/documents
-              jcr:primaryType: frontend:pluginconfig
-              nodetypes: ['website:person']
           /relateddocuments:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Services, publications, or pages related to this news
             field: relateddocuments
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /backstory:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /backstory:
             caption: Back story
             field: backstory
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /publisheddatetime:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /publisheddatetime:
             caption: Published date and time
             field: publisheddatetime
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /twitterhashtag:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /twitterhashtag:
             caption: Twitter hashtag
             field: twitterhashtag
             hint: One or more hashtags that are related directly to this blog
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /type:
+              orientation: vertical
+              source: /content/documents/administration/website/news-type
             caption: Type
             field: type
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /theme:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
-              source: /content/documents/administration/website/news-type
-          /theme:
+              source: /content/documents/administration/website/theme-type
             caption: Theme
             field: theme
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /mediacontact:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/administration/website/theme-type
-          /mediacontact:
             caption: Media contact
             compoundList: website:contactdetail
             contentPickerType: links
@@ -170,37 +177,38 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /display:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /display:
             caption: Display on news hub and homepage
             field: BooleanRadioGroup
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /prioritynews:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /prioritynews:
             caption: Priority News?
             field: prioritynews
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /classifiable:
+            /cluster.options:
+              caption: Topics
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
             essentials-taxonomy-name: publication_taxonomy
             jcr:primaryType: frontend:plugin
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
+          /taxonomyClassificationField:
             /cluster.options:
-              caption: Topics
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: publication_taxonomy
-          /taxonomyClassificationField:
             caption: Taxonomy - Used for Search (Do Not Edit)
             field: taxonomyClassificationField
             hint: ''
@@ -208,21 +216,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
-        jcr:uuid: a7f2ae1c-21aa-49f9-a716-4fae613b4aed
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['hippotranslation:translated', 'website:basedocument',
-            'hippotaxonomy:classifiable', 'hippostd:relaxed']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 9790809a-4f34-4ad5-ad31-bd8cd0b85819
           /BooleanRadioGroup:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -252,21 +248,24 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:leadimagesection
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /mediacontact:
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:mediacontact
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /notesforeditors:
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:notesforeditors
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /peoplementioned:
             hipposysedit:mandatory: false
@@ -291,7 +290,8 @@ definitions:
             hipposysedit:path: website:publisheddatetime
             hipposysedit:primary: false
             hipposysedit:type: Date
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /relateddocuments:
             hipposysedit:mandatory: false
@@ -314,7 +314,8 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: website:sections
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -345,7 +346,8 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:socialmediaimages
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /taxonomyClassificationField:
             hipposysedit:multiple: true
@@ -367,7 +369,8 @@ definitions:
             hipposysedit:path: website:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /twitterhashtag:
             hipposysedit:mandatory: false
@@ -385,8 +388,23 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippotranslation:translated
+          - website:basedocument
+          - hippotaxonomy:classifiable
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:uuid: 9790809a-4f34-4ad5-ad31-bd8cd0b85819
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+        jcr:uuid: a7f2ae1c-21aa-49f9-a716-4fae613b4aed
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           common:searchRank: 4
           common:searchable: true
@@ -398,7 +416,9 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hippotaxonomy:classifiable
           jcr:primaryType: website:news
           jcr:uuid: 89286e73-8944-4083-a906-b2fffc7440de
           website:creditbanner: ''
@@ -409,3 +429,9 @@ definitions:
           website:theme: ''
           website:title: ''
           website:type: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:uuid: 6d4dfb4d-8a48-4a0b-a2a5-60d2fd03b06b

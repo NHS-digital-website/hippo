@@ -11,7 +11,7 @@
 <#include "macro/contentPixel.ftl">
 <#include "macro/shareThisPage.ftl">
 <#include "macro/heroes/hero.ftl">
-<#include "macro/shareSection.ftl">
+<#include "macro/socialMediaBar.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -37,6 +37,37 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
+	<#-- Use UTF-8 charset for URL escaping from now: -->
+    <#setting url_escaping_charset="UTF-8">
+    
+    <#--  Facebook  -->
+    <#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${currentUrl?url}"/>
+    <#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
+    
+	<#--  Twitter  -->
+	<#assign hashtags ='' />
+	<#if hasTwitterHashtag>
+	    <#list document.twitterHashtag as tag>
+	        <#if tag?starts_with("#")>
+	            <#assign hashtags = hashtags + tag?keep_after('#') + ','>
+	        <#else>
+	            <#assign hashtags = hashtags + tag + ','>
+	        </#if>
+	    </#list>
+	</#if>
+	<#assign twitterUrl = "https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"/>
+	<#assign twitterIconPath = "/images/icon/rebrand-twitter.svg" />
+	
+    <#--  LinkedIn  -->
+    <#assign linkedInUrl = "http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"/>
+    <#assign linkedInIconPath = "/images/icon/rebrand-linkedin.svg" />
+    
+    <#--  YouTube  -->
+	<#assign youTubeUrl = "http://www.youtube.com/watch?v=${currentUrl?url}"/>
+	<#assign youTubeIconPath = "/images/icon/rebrand-youtube.svg" />
+	
+    <@socialMediaBar/>
+                 
     <#assign metaData = [] />
     <#if hasAuthors>
         <#assign authorValue>
@@ -209,8 +240,16 @@
                 </#if>
 
                 <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
-                    <@shareSection document />
-                    <hr class="nhsd-a-horizontal-rule" />
+                    <#if hasRelatedSubjects || hasSectionContent && !hasBackstory && !hasContactDetails && !hasRelatedSubjects>
+                        <hr class="nhsd-a-horizontal-rule" />
+                    </#if>
+                    <p class="nhsd-t-heading-xl">Share this page</p>
+
+                    <div class="nhsd-t-grid nhsd-!t-margin-bottom-4 nhsd-!t-no-gutters">
+                        <@shareThisPage document "Facebook" facebookUrl facebookIconPath/>
+                        <@shareThisPage document "Twitter" twitterUrl twitterIconPath/>
+                        <@shareThisPage document "LinkedIn" linkedInUrl linkedInIconPath/>
+                    </div>
                 </div>
 
                 <#if hasAuthors>

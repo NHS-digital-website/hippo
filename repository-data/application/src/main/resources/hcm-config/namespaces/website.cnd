@@ -8,6 +8,9 @@
 <'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
 <'eforms'='http://www.onehippo.org/jcr/eforms/nt/1.0'>
 
+[website:SocialMediaBar] > hippo:compound, hippostd:relaxed
+  orderable
+  
 [website:ImageModule] > hippo:compound, hippostd:relaxed
   orderable
 

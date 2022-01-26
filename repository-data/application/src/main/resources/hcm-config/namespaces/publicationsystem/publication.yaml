@@ -1,21 +1,28 @@
+---
 definitions:
   config:
     /hippo:namespaces/publicationsystem/publication:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             extension.left: ${cluster.id}.left
             extension.right: ${cluster.id}.right
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
-            wicket.extensions: [extension.left, extension.right]
+            wicket.extensions:
+            - extension.left
+            - extension.right
           /left:
             item: ${cluster.id}.left.item
             jcr:primaryType: frontend:plugin
@@ -27,47 +34,50 @@ definitions:
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
           /NominalDate:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Publication Date
             field: nominal_date
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: [nominal-date]
+            wicket.css:
+            - nominal-date
             wicket.id: ${cluster.id}.right.item
+          /Title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /Title:
+              maxlength: '250'
             caption: Title
             field: title
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: [document-title]
+            wicket.css:
+            - document-title
             wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              maxlength: '250'
           /publicly_accessible:
+            /cluster.options:
+              falseLabel: UPCOMING (Show in upcoming publications list only)
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: FINALISED (Full content publicly accessible)
             caption: Publicly Accessible
             field: publicly_accessible
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              falseLabel: UPCOMING (Show in upcoming publications list only)
-              jcr:primaryType: frontend:pluginconfig
-              trueLabel: FINALISED (Full content publicly accessible)
           /Summary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Summary
             field: summary
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: [document-summary]
+            wicket.css:
+            - document-summary
             wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /seosummary:
             caption: SEO Summary
             field: seosummary
@@ -77,6 +87,8 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
           /sections:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Highlights
             compoundList: website:section,website:emphasisBox,website:infographic,website:VideoSection
             contentPickerType: links
@@ -85,31 +97,34 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /CoverageStart:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /CoverageStart:
             caption: Coverage Start
             field: coverage_start
             hint: For snapshot date, set the Coverage Start and End dates to be the
               same
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: [coverage-start]
+            wicket.css:
+            - coverage-start
             wicket.id: ${cluster.id}.right.item
+          /CoverageEnd:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /CoverageEnd:
             caption: Coverage End
             field: coverage_end
             hint: For snapshot date, set the Coverage Start and End dates to be the
               same
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: [coverage-end]
+            wicket.css:
+            - coverage-end
             wicket.id: ${cluster.id}.right.item
+          /taxonomyClassificationField:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /taxonomyClassificationField:
+              taxonomy.name: publication_taxonomy
             caption: Taxonomy - Used for Search (Do Not Edit)
             field: taxonomyClassificationField
             hint: ''
@@ -117,15 +132,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
           /KeyFactsHead:
-            caption: Key Facts (Head Section)
-            field: keyFactsHead
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''styletoolbar'',items:
                 [''Styles'',''Bold'',''Superscript'',''Subscript''] },{ name: ''listtoolbar'',
@@ -137,22 +144,21 @@ definitions:
                 ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js'', disableNativeSpellChecker:
                 false}'
               jcr:primaryType: frontend:pluginconfig
+            caption: Key Facts (Head Section)
+            field: keyFactsHead
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /keyFactInfographics:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Key Fact Infographics
             field: keyFactInfographics
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /KeyFactsTail:
-            caption: Key Facts (Tail Section)
-            field: html
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''styletoolbar'',items:
                 [''Styles'',''Bold'',''Superscript'',''Subscript''] },{ name: ''listtoolbar'',
@@ -164,24 +170,32 @@ definitions:
                 ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js'', disableNativeSpellChecker:
                 false}'
               jcr:primaryType: frontend:pluginconfig
+            caption: Key Facts (Tail Section)
+            field: html
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /survey:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Publication Survey
             field: survey
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /interactivetool:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /interactivetool:
             caption: Interactive tool section
             field: interactivetool
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /changenotice:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /changenotice:
             caption: Change notices
             field: changenotice
             hint: Use these to tell users when something important has changed or
@@ -189,75 +203,69 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /attachments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /attachments:
             caption: Attachments
             field: attachments
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.css: [attachments]
+            wicket.css:
+            - attachments
             wicket.id: ${cluster.id}.left.item
+          /ResourceLinks:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /ResourceLinks:
             caption: Resource Links
             field: ResourceLinks
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /RelatedLinks:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /RelatedLinks:
             caption: Related Links
             field: related_links
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.css: [related-links]
+            wicket.css:
+            - related-links
             wicket.id: ${cluster.id}.left.item
+          /KeyFacts:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /KeyFacts:
             caption: Legacy Key Facts (deprecated)
             field: key_facts
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: [key-facts]
+            wicket.css:
+            - key-facts
             wicket.id: ${cluster.id}.left.item
+          /keyFactImages:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /keyFactImages:
             caption: Legacy Key Fact Infographics (deprecated)
             field: keyFactImages
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /publicationtier:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /publicationtier:
+              selectable.options: Tier 1,Tier 2,Tier 3
             caption: Publication tier
             field: publicationTier
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: Tier 1,Tier 2,Tier 3
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
-            'publicationsystem:basedocument', 'hippostd:relaxed']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:primaryType: hipposysedit:nodetype
           /ResourceLinks:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -289,7 +297,8 @@ definitions:
             hipposysedit:path: publicationsystem:CoverageEnd
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
-            hipposysedit:validators: [publicationsystem-coverage-dates]
+            hipposysedit:validators:
+            - publicationsystem-coverage-dates
             jcr:primaryType: hipposysedit:field
           /coverage_start:
             hipposysedit:mandatory: false
@@ -362,7 +371,9 @@ definitions:
             hipposysedit:path: publicationsystem:NominalDate
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
-            hipposysedit:validators: [required, publicationsystem-publication-date]
+            hipposysedit:validators:
+            - required
+            - publicationsystem-publication-date
             jcr:primaryType: hipposysedit:field
           /publicationTier:
             hipposysedit:mandatory: false
@@ -371,7 +382,8 @@ definitions:
             hipposysedit:path: publicationsystem:publicationtier
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [optional]
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /publicly_accessible:
             hipposysedit:mandatory: false
@@ -380,7 +392,8 @@ definitions:
             hipposysedit:path: publicationsystem:PubliclyAccessible
             hipposysedit:primary: false
             hipposysedit:type: selection:BooleanRadioGroup
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /related_links:
             hipposysedit:mandatory: false
@@ -403,7 +416,8 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: website:sections
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -428,7 +442,8 @@ definitions:
             hipposysedit:path: publicationsystem:Summary
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /survey:
             hipposysedit:mandatory: false
@@ -437,7 +452,8 @@ definitions:
             hipposysedit:path: publicationsystem:survey
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:survey
-            hipposysedit:validators: [optional]
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /taxonomyClassificationField:
             hipposysedit:multiple: true
@@ -451,7 +467,8 @@ definitions:
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /year:
             hipposysedit:mandatory: false
@@ -461,9 +478,25 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
+          - publicationsystem:basedocument
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
+          /publicationsystem:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:FacetType: publication
           common:orderedSearchDate: 62135726400000
           common:searchRank: 3
@@ -476,7 +509,9 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
           jcr:primaryType: publicationsystem:publication
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -486,6 +521,8 @@ definitions:
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
           publicationsystem:publicationtier: ''
-          /publicationsystem:seosummary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

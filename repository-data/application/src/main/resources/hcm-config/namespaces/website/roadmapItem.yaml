@@ -1,34 +1,33 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/roadmapitem:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /summary:
-            caption: Summary
-            field: summary
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }], allowedContent:
@@ -36,15 +35,21 @@ definitions:
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
                 disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
+            caption: Summary
+            field: summary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Short Summary
             field: shortsummary
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /seosummary:
             caption: SEO Summary
             field: seosummary
@@ -53,28 +58,31 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /categorylink:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes:
+              - website:categorylist
             caption: Category Link
             field: categorylink
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /impactedservices:
             /cluster.options:
               base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
-              nodetypes: ['website:categorylist']
-          /impactedservices:
+              nodetypes: []
             caption: Impacted Services
             field: impactedservices
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              base.path: /content/documents
-              jcr:primaryType: frontend:pluginconfig
-              nodetypes: []
           /roadmapitemstatuses:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Roadmap item status
             compoundList: website:roadmapitemstatus
             contentPickerType: links
@@ -84,27 +92,27 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
+          /effectivedate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /effectivedate:
             caption: Effective date
             field: effectivedate
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /standards:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /standards:
             caption: Relevant standards
             field: standards
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /sections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /sections:
             caption: Sections
             compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:download,website:iconlist,website:gallerysection,website:code,website:expander,website:ctabutton,website:quote,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable,website:VideoSection
             contentPickerType: links
@@ -113,9 +121,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /items:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /items:
             caption: Resources
             compoundList: website:externallink,website:internallink
             contentPickerType: links
@@ -124,17 +132,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotranslation:translated']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:primaryType: hipposysedit:nodetype
           /categorylink:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -150,7 +150,8 @@ definitions:
             hipposysedit:path: website:effectivedate
             hipposysedit:primary: false
             hipposysedit:type: website:effectivedate
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /impactedservices:
             hipposysedit:mandatory: false
@@ -165,7 +166,8 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: website:items
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /roadmapitemstatuses:
             hipposysedit:mandatory: false
@@ -173,7 +175,8 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: website:roadmapitemstatuses
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /searchTab:
             hipposysedit:mandatory: false
@@ -188,7 +191,8 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: website:sections
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -237,11 +241,32 @@ definitions:
             hipposysedit:path: website:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
+          /website:effectivedate:
+            jcr:primaryType: website:effectivedate
+            website:enddate: 0001-01-01T12:00:00Z
+            website:startdate: 0001-01-01T12:00:00Z
+            website:status: ''
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
@@ -252,15 +277,13 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes:
+          - mix:referenceable
           jcr:primaryType: website:roadmapitem
           website:shortsummary: ''
           website:title: ''
-          /website:effectivedate:
-            jcr:primaryType: website:effectivedate
-            website:enddate: 0001-01-01T12:00:00Z
-            website:startdate: 0001-01-01T12:00:00Z
-            website:status: ''
-          /website:summary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

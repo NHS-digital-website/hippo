@@ -1,0 +1,11 @@
+---
+/content/gallery/johns-other-images:
+  hippo:name: Johns Other Images
+  hippostd:foldertype:
+  - new-website-corporateWebsiteImageset-folder
+  hippostd:gallerytype:
+  - website:corporateWebsiteImageset
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippogallery:stdImageGallery

@@ -1,49 +1,54 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/cyberalert:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Name
             field: title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /summary:
-            caption: Summary
-            field: summary
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
                 disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
+            caption: Summary
+            field: summary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Short Summary
             field: shortsummary
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /seosummary:
             caption: SEO Summary
             field: seosummary
@@ -52,15 +57,17 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /threatid:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Threat ID
             field: threatid
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /severitystatuschanges:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /severitystatuschanges:
             caption: Severity history
             field: severitystatuschanges
             hint: The threat's severity status and date this took effect can be entered
@@ -69,59 +76,59 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /category:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /category:
+              selectable.options: Adware,Backdoor,Botnet,Browser-hijack,Cryptocurrency,DOS,Exploit,Loader,Miner,PUP/PUA,Ransomware,Rootkit,Spyware,Trojan,Worm
             caption: Category
             field: category
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /threattype:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Adware,Backdoor,Botnet,Browser-hijack,Cryptocurrency,DOS,Exploit,Loader,Miner,PUP/PUA,Ransomware,Rootkit,Spyware,Trojan,Worm
-          /threattype:
+              selectable.options: Attack methodology,Insecure software,Intelligence,Malware,Vulnerability
             caption: Threat type
             field: threattype
             hint: The specific type/s of threat being described
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /threatvector:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Attack methodology,Insecure software,Intelligence,Malware,Vulnerability
-          /threatvector:
+              selectable.options: Backdoor,Download,Drive by download,Email,Email
+                spam,Exploit,Exploit kit,Hacking tool,Insecure network,Macro,Malvertising,Phishing,Physical,Spear
+                phishing,Vulnerability,Zero day
             caption: Threat vector
             field: threatvector
             hint: The mechanism in which the threat uses to attack or could be viable
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /publisheddate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Backdoor,Download,Drive by download,Email,Email
-                spam,Exploit,Exploit kit,Hacking tool,Insecure network,Macro,Malvertising,Phishing,Physical,Spear
-                phishing,Vulnerability,Zero day
-          /publisheddate:
             caption: Date published
             field: publisheddate
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /threataffects:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /threataffects:
             caption: Threat affects
             field: threataffects
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /sections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /sections:
             caption: Threat details
             compoundList: website:section,website:emphasisBox,website:checklist,website:download,publicationsystem:chartSection,website:dynamicchartsection,website:code,website:expander,website:infographic,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable,website:VideoSection
             contentPickerType: links
@@ -130,36 +137,36 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /threatupdates:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /threatupdates:
             caption: Threat updates
             field: threatupdates
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /remediationintro:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /remediationintro:
             caption: Remediation introduction
             field: remediationintro
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /remediationsteps:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /remediationsteps:
             caption: Remediation steps
             field: remediationsteps
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /indicatorscompromisenew:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /indicatorscompromisenew:
             caption: Indicators of compromise
             compoundList: website:expander
             contentPickerType: links
@@ -168,9 +175,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /ncsclink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /ncsclink:
             caption: Other Links
             field: ncsclink
             hint: Link to the equivalent National Cyber Security Centre entry for
@@ -178,9 +185,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /sourceofthreatupdates:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /sourceofthreatupdates:
             caption: Definitive source of threat updates
             field: sourceofthreatupdates
             hint: URL/Link to the main authoritative and latest information on the
@@ -188,28 +195,29 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /services:
+            /cluster.options:
+              base.path: /content/documents/corporate-website/services
+              jcr:primaryType: frontend:pluginconfig
             caption: Services
             field: services
             hint: One or more services related to this threat
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              base.path: /content/documents/corporate-website/services
-              jcr:primaryType: frontend:pluginconfig
           /classifiable:
-            jcr:primaryType: frontend:plugin
-            mixin: hippotaxonomy:classifiable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               caption: Topics
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: publication_taxonomy
+            jcr:primaryType: frontend:plugin
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
           /taxonomyClassificationField:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
             caption: Taxonomy - Used for Search (Do Not Edit)
             field: taxonomyClassificationField
             hint: ''
@@ -217,56 +225,46 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /cybercveidentifiers:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
-          /cybercveidentifiers:
             caption: CVE identifier
             field: cybercveidentifiers
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /publicallyaccessible:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /publicallyaccessible:
             caption: Publically accessible
             field: publicallyaccessible
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /cyberacknowledgement:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /cyberacknowledgement:
             caption: Alert acknowledgement (CareCERT connect) link
             field: cyberacknowledgement
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /archivecontent:
+            /cluster.options:
+              falseLabel: 'No'
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: 'Yes'
             caption: Archive content?
             field: archivecontent
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              falseLabel: 'No'
-              jcr:primaryType: frontend:pluginconfig
-              trueLabel: 'Yes'
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotranslation:translated',
-            'hippotaxonomy:classifiable']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:primaryType: hipposysedit:nodetype
           /archivecontent:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -297,14 +295,16 @@ definitions:
             hipposysedit:path: website:cybercveidentifiers
             hipposysedit:primary: false
             hipposysedit:type: website:cybercveidentifier
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /indicatorscompromisenew:
             hipposysedit:multiple: true
             hipposysedit:ordered: true
             hipposysedit:path: website:indicatorscompromisenew
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /ncsclink:
             hipposysedit:mandatory: false
@@ -329,7 +329,8 @@ definitions:
             hipposysedit:path: publicationsystem:NominalDate
             hipposysedit:primary: false
             hipposysedit:type: Date
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /remediationintro:
             hipposysedit:mandatory: false
@@ -360,7 +361,8 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: website:section
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -401,7 +403,8 @@ definitions:
             hipposysedit:path: website:severitystatuschanges
             hipposysedit:primary: false
             hipposysedit:type: website:severitystatuschange
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: false
@@ -447,7 +450,8 @@ definitions:
             hipposysedit:path: website:threatid
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /threattype:
             hipposysedit:mandatory: false
@@ -456,7 +460,8 @@ definitions:
             hipposysedit:path: website:threattype
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /threatupdates:
             hipposysedit:mandatory: false
@@ -481,11 +486,34 @@ definitions:
             hipposysedit:path: website:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
+          /website:remediationintro:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
@@ -496,25 +524,25 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hippotaxonomy:classifiable
           jcr:primaryType: website:cyberalert
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           website:archivecontent: false
-          website:category: ['']
+          website:category:
+          - ''
           website:ncsclink: ''
           website:publicallyaccessible: true
           website:seosummary: ''
           website:shortsummary: ''
           website:sourceofthreatupdates: []
           website:threatid: ''
-          website:threatvector: ['']
+          website:threatvector:
+          - ''
           website:title: ''
-          /website:remediationintro:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:seosummary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:summary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

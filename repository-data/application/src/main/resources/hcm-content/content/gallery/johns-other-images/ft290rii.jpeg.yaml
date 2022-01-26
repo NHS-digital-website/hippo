@@ -1,0 +1,302 @@
+---
+/content/gallery/johns-other-images/ft290rii.jpeg:
+  /ft290rii.jpeg:
+    /hippogallery:original:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/original/original.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /hippogallery:thumbnail:
+      hippo:filename: FT290RII.jpeg
+      hippogallery:height: 23
+      hippogallery:width: 60
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/thumbnail/thumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhoto:
+      hippogallery:height: 50
+      hippogallery:width: 50
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/authorPhoto/authorPhoto.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhoto2x:
+      hippogallery:height: 100
+      hippogallery:width: 100
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/authorPhoto2x/authorPhoto2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhotoLarge:
+      hippogallery:height: 200
+      hippogallery:width: 200
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/authorPhotoLarge/authorPhotoLarge.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhotoLarge2x:
+      hippogallery:height: 400
+      hippogallery:width: 400
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/authorPhotoLarge2x/authorPhotoLarge2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:blogIndexThumb:
+      hippogallery:height: 240
+      hippogallery:width: 468
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/blogIndexThumb/blogIndexThumb.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:blogIndexThumb2x:
+      hippogallery:height: 480
+      hippogallery:width: 936
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/blogIndexThumb2x/blogIndexThumb2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumb:
+      hippogallery:height: 184
+      hippogallery:width: 468
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/homeBlogThumb/homeBlogThumb.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumb2x:
+      hippogallery:height: 368
+      hippogallery:width: 936
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/homeBlogThumb2x/homeBlogThumb2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumbSmall:
+      hippogallery:height: 184
+      hippogallery:width: 341
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumbSmall2x:
+      hippogallery:height: 368
+      hippogallery:width: 682
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/homeBlogThumbSmall2x/homeBlogThumbSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsFeaturedPost:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/newsFeaturedPost/newsFeaturedPost.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsFeaturedPost2x:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/newsFeaturedPost2x/newsFeaturedPost2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImage:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/newsPostImage/newsPostImage.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImage2x:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/newsPostImage2x/newsPostImage2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImageLarge:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/newsPostImageLarge/newsPostImageLarge.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImageLarge2x:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/newsPostImageLarge2x/newsPostImageLarge2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsThumbnail:
+      hippogallery:height: 60
+      hippogallery:width: 154
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/newsThumbnail/newsThumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsThumbnail2x:
+      hippogallery:height: 121
+      hippogallery:width: 308
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/newsThumbnail2x/newsThumbnail2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:oldArticleThumbnail:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/oldArticleThumbnail/oldArticleThumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:oldArticleThumbnail2x:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/oldArticleThumbnail2x/oldArticleThumbnail2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModule:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModule2x:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/pageHeaderHeroModule2x/pageHeaderHeroModule2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModuleSmall:
+      hippogallery:height: 375
+      hippogallery:width: 375
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModuleSmall2x:
+      hippogallery:height: 750
+      hippogallery:width: 750
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/pageHeaderHeroModuleSmall2x/pageHeaderHeroModuleSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBanner:
+      hippogallery:height: 500
+      hippogallery:width: 1270
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBanner2x:
+      hippogallery:height: 1000
+      hippogallery:width: 2540
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/pageHeaderSlimBanner2x/pageHeaderSlimBanner2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBannerSmall:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBannerSmall2x:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/pageHeaderSlimBannerSmall2x/pageHeaderSlimBannerSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:postImageSmall:
+      hippogallery:height: 135
+      hippogallery:width: 343
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/postImageSmall/postImageSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:postImageSmall2x:
+      hippogallery:height: 141
+      hippogallery:width: 356
+      jcr:data:
+        resource: /content/gallery/johns-other-images/ft290rii.jpeg/ft290rii.jpeg/postImageSmall2x/postImageSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-01-21T17:28:54.882Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    hippo:availability:
+    - live
+    - preview
+    hippogallery:filename: FT290RII.jpeg
+    jcr:primaryType: website:corporateWebsiteImageset
+  hippo:name: FT290RII.jpeg
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
