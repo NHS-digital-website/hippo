@@ -11,6 +11,8 @@
 
 <#-- @ftlvariable name="form" type="com.onehippo.cms7.eforms.hst.model.Form" -->
 
+<#assign resolveSiteKey="uk.nhs.digital.freemarker.utils.SecretsAccessor"?new() />
+
 <@hst.defineObjects />
 
 <#assign hasFieldErrors = eforms_errors?? && eforms_errors?size gt 0 />
@@ -98,7 +100,7 @@
             </#if>
 
             <div class="recaptcha">
-                <div class="g-recaptcha" data-sitekey="6LdK9HIUAAAAAKYqxARfxX087UPwOmT2Xv_OkBZ0" data-callback="enableSubmit" data-expired-callback="displayRecaptcha"></div>
+                <div class="g-recaptcha" data-sitekey="${resolveSiteKey("GOOGLE_CAPTCHA_SITE_KEY")}" data-callback="enableSubmit" data-expired-callback="displayRecaptcha"></div>
             </div>
 
             <div class="eforms-buttons">
