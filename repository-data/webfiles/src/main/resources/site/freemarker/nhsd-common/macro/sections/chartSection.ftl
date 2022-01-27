@@ -7,7 +7,7 @@
     <@fmt.message key="headers.download-chart-data" var="downloadDataFileHeader" />
     <#local linkText>${downloadDataFileHeader} ${section.title}</#local>
 
-    <div class="nhsd-!t-margin-bottom-6" data-uipath="ps.publication.chart-section">
+    <div class="nhsd-!t-margin-bottom-6" data-uipath="ps.publication.chart-section" aria-labelledby="chart-${section.uniqueId}">
         <div class="nhsd-!t-margin-bottom-2" id="chart-${section.uniqueId}" style="width:100%; height:${size}px;">
             <span class="css-loader"></span>
         </div>
