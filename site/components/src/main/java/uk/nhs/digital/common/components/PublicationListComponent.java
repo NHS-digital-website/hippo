@@ -41,7 +41,7 @@ public class PublicationListComponent extends EssentialsListComponent {
             filter.addLessOrEqualThan("publicationsystem:NominalDate",
                 GregorianCalendar.from(
                     ZonedDateTime.now(ZoneId.of("UTC")).minusHours(Publication.HOUR_OF_PUBLIC_RELEASE)
-                        .minusMinutes(Publication.MINUTE_OF_PUBLIC_RELEASE)), Resolution.SECOND);
+                        .minusMinutes(Publication.MINUTE_OF_PUBLIC_RELEASE)), Resolution.DAY);
             filter.addEqualTo("hippostd:stateSummary", "live");
             if (!componentParametersInfo.getDisplayTier3()) {
                 filter.addNotEqualTo("publicationsystem:publicationtier", "Tier 3");
