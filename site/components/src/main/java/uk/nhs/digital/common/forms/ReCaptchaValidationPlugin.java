@@ -1,5 +1,7 @@
 package uk.nhs.digital.common.forms;
 
+import static org.hippoecm.hst.site.HstServices.getComponentManager;
+
 import com.onehippo.cms7.eforms.hst.api.ValidationBehavior;
 import com.onehippo.cms7.eforms.hst.beans.FormBean;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
@@ -8,13 +10,12 @@ import org.hippoecm.hst.component.support.forms.FormMap;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
-import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.HashMap;
@@ -23,9 +24,6 @@ import java.util.Map;
 public class ReCaptchaValidationPlugin implements ValidationBehavior {
 
     private static Logger log = LoggerFactory.getLogger(ReCaptchaValidationPlugin.class);
-
-    @Autowired
-    private ApplicationSecrets secrets;
 
     @Override
     public Map<String, ErrorMessage> validate(HstRequest request, HstResponse response, ComponentConfiguration config, FormBean bean, Form form, FormMap map) {
@@ -73,13 +71,20 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
     }
 
     private Resource validateReCaptcha(String gReCaptchaResponseCode) {
+        return validateReCaptcha(
+            gReCaptchaResponseCode,
+            ((ApplicationSecrets) getComponentManager().getComponent("applicationSecrets")).getValue("GOOGLE_CAPTCHA_SECRET")
+        );
+    }
+
+    private Resource validateReCaptcha(String gReCaptchaResponseCode, String recaptchaSecret) {
         Resource resource = null;
 
         try {
-            final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
+            final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(getComponentManager());
 
             final Map<String, Object> pathVars = new HashMap<>();
-            pathVars.put("secret", secrets.getValue("GOOGLE_CAPTCHA_SECRET"));
+            pathVars.put("secret", recaptchaSecret);
             pathVars.put("response", gReCaptchaResponseCode);
 
             // Note: request submitted via CRISP default of GET, since POST is not working as described
