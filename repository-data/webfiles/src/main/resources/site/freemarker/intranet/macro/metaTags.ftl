@@ -24,10 +24,10 @@
       </#if>
 </#if>
 
-<@hst.headContribution keyHint="metaTitle" category="intranetMeta">
+<@hst.headContribution keyHint="intranetMetaTitle" category="intranetMeta">
     <title>${pageTitle}</title>
 </@hst.headContribution>
-<@hst.headContribution keyHint="metaTitle2" category="intranetMeta">
+<@hst.headContribution keyHint="intranetMetaTitle2" category="intranetMeta">
     <meta name="title" content="${pageTitle}" />
 </@hst.headContribution>
 <@hst.headContribution keyHint="metaDescription" category="intranetMeta">
