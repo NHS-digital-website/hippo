@@ -113,7 +113,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             <#assign imageClasses = ""/>
             <#assign style = ""/>
             <#if heroType == "image" || heroType == "imageMirrored">
-            	<#assign imageClasses = "nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
+                <#assign imageClasses = "nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
             <#elseif heroType == "blackBackground">
                 <#assign imageClasses = "nhsd-a-image nhsd-a-image--maintain-ratio nhsd-a-image--position-right"/>
             <#elseif heroType == "backgroundImage">

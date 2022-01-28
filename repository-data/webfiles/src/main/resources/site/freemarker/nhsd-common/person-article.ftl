@@ -3,30 +3,30 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Person" -->
 
 <#include "../include/imports.ftl">
-<#include "../nhsd-common/macro/postnominal.ftl">
-<#include "../nhsd-common/macro/qualification.ftl">
-<#include "../nhsd-common/macro/award.ftl">
-<#include "../nhsd-common/macro/contactdetail.ftl">
-<#include "../nhsd-common/macro/socialmedia.ftl">
-<#include "../nhsd-common/macro/biography.ftl">
-<#include "../nhsd-common/macro/responsibility.ftl">
-<#include "../nhsd-common/macro/personalinfo.ftl">
-<#include "../nhsd-common/macro/lawfulbasis.ftl">
-<#include "../nhsd-common/macro/personimage.ftl">
-<#include "../nhsd-common/macro/role.ftl">
-<#include "../nhsd-common/macro/stickyNavSections.ftl">
-<#include "../nhsd-common/macro/relatedarticles.ftl">
-<#include "../nhsd-common/macro/latestblogs.ftl">
-<#include "../nhsd-common/macro/component/downloadBlock.ftl">
-<#include "../nhsd-common/macro/contentPixel.ftl">
+<#include "macro/personimage.ftl">
+<#include "macro/personalinfo.ftl">
+<#include "macro/role.ftl">
+<#include "macro/socialmedia.ftl">
+<#include "macro/biography.ftl">
+<#include "macro/sections/sections.ftl">
+<#include "macro/award.ftl">
+<#-- BLOGS -->
+<#include "macro/relatedarticles.ftl">
+<#-- NEWS -->
+<#include "macro/latestblogs.ftl">
+<#--  MANAGES -->
+<#--  MANAGED BY -->
+<#include "macro/responsibility.ftl">
+
+<#include "macro/component/downloadBlock.ftl">
+<#include "macro/contentPixel.ftl">
 
 <#include "macro/heroes/hero.ftl">
 <#include "macro/heroes/hero-options.ftl">
 
 <#-- Add meta tags -->
-<#include "../nhsd-common/macro/metaTags.ftl">
+<#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
-
 
 <#assign personName  = document.personalinfos.preferredname?has_content?then(document.personalinfos.preferredname, document.personalinfos.firstname) />
 <#assign personMainName  = document.personalinfos.preferredname?has_content?then(document.personalinfos.preferredname, document.personalinfos.firstname + " " + document.personalinfos.lastname) />
@@ -40,161 +40,65 @@
 
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
-
-<article>
+   
+<article class="article article--person" itemscope itemtype="http://schema.org/Person">
     <#assign heroOptions = getHeroOptions(document) />
-    <#assign metadata = []/>
-
-    <#if document.socialmedias?? && document.socialmedias.othersocialmedias?has_content>
-        <#list document.socialmedias.othersocialmedias as medium>
-            <#assign metadata += [{
-                "title": "${medium.title}",
-                "value": "<a itemprop=\"sameAs\"
-               href=\"${medium.link}\"
-               class=\"nhsd-a-link\"
-               onClick=\"logGoogleAnalyticsEvent('Link click','Person','${medium.link}');\"
-               onKeyUp=\"return vjsu.onKeyUp(event)\">${medium.link}</a>"
-            }] />
-        </#list>
-    </#if>
-
-    <#if document.socialmedias?? && document.socialmedias.linkedinlink?has_content>
-        <#assign linkedInUrl =
-            "<a itemprop=\"sameAs\"
-               href=\"${document.socialmedias.linkedinlink}\"
-               class=\"nhsd-a-link\"
-               onClick=\"logGoogleAnalyticsEvent('Link click','Person','${document.socialmedias.linkedinlink}');\"
-               onKeyUp=\"return vjsu.onKeyUp(event)\">LinkedIn profile</a>"/>
-        <#assign metadata += [{
-            "title": "LinkedIn",
-            "value": linkedInUrl
-        }] />
-
-    </#if>
-
-    <#if document.socialmedias?? && document.socialmedias.twitteruser?has_content>
-        <#assign twitteruser = document.socialmedias.twitteruser />
-        <#if twitteruser?substring(0, 1) == "@">
-            <#assign twitteruser = document.socialmedias.twitteruser?substring(1) />
-        </#if>
-        <#assign twitterlink = "https://twitter.com/" + twitteruser />
-        <#assign twitterHashTags =
-            "<a itemprop=\"sameAs\"
-               href=\"${twitterlink}\"
-               class=\"nhsd-a-link\"
-               onClick=\"logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');\"
-               onKeyUp=\"return vjsu.onKeyUp(event)\"
-               target=\"_blank\">@${twitteruser}</a>"/>
-        <#assign metadata += [{
-        "title": "Twitter",
-        "value": twitterHashTags
-        }] />
-
-    </#if>
-
-    <#assign heroOptions += {
-        "metaData": metadata
-    }/>
     <@hero heroOptions />
-
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
-        <div class="nhsd-t-row">
-            <#if renderNav>
-                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
-                    <#assign links = [{ "url": "#top", "title": 'Top of page' }] />
-
-                    <#if notSuppress>
-                        <#if document.biographies?has_content && document.biographies.profbiography.content?has_content >
-                            <#assign links += [{ "url": "#biography-${idsuffix}", "title": 'Biography' }] />
-                        </#if>
-                        <#if hasBusinessUnits>
-                            <#assign links += [{ "url": "#businessunits-${idsuffix}", "title": 'Responsible for' }] />
-                        </#if>
-                    </#if>
-
-                    <#if
-                    document.responsibilities?has_content && (document.responsibilities.responsible?has_content || document.responsibilities.responsibleforservice?has_content) ||
-                    document.manages?has_content ||
-                    document.managedby?has_content
-                    >
-                        <#assign links += [{ "url": "#responsibility-${idsuffix}", "title": 'Responsibilities' }] />
-                    </#if>
-
-                    <#if notSuppress>
-                        <#if document.awards?has_content>
-                            <#assign links += [{ "url": "#award-${idsuffix}", "title": 'Awards' }] />
-                        </#if>
-
-                        <#if document.qualifications?has_content>
-                            <#assign links += [{ "url": "#qualification-${idsuffix}", "title": 'Qualifications' }] />
-                        </#if>
-
-                        <#if document.roles?has_content && document.roles.contactdetails?has_content && (document.roles.contactdetails.emailaddress?has_content || document.roles.contactdetails.phonenumber?has_content) >
-                            <#assign links += [{ "url": "#contactdetail-${idsuffix}", "title": 'Contact details' }] />
-                        </#if>
-                    </#if>
-
-                    <#if document.relatedBlogs?has_content >
-                        <#assign links += [{ "url": "#related-articles-blogs-${idsuffix}", "title": 'Blogs' }] />
-                    </#if>
-                    <#if document.relatedNews?has_content >
-                        <#assign links += [{ "url": "#related-articles-news-${idsuffix}", "title": 'News articles' }] />
-                    </#if>
-                    <#if document.relatedEvents?has_content >
-                        <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
-                    </#if>
-
-                    <@stickyNavSections links=links></@stickyNavSections>
-                </div>
+    <br/>
+    
+    <#if notSuppress>
+      <#if document.postnominals?? && document.postnominals?has_content>
+          <#list document.postnominals as postnominal>
+            <#if postnominal.letters == "PhD">
+              <#assign personMainName = "Dr " + personMainName />
             </#if>
+            <#assign postnominals += postnominal.letters />
+            <#if postnominal?has_next>
+              <#assign postnominals += ", " />
+            </#if>
+            <#assign personMainNameAndPostnominals = personMainName + " (" + postnominals + ")"/>
+          </#list>
+      </#if>
+    </#if>
 
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 ${renderNav?then('nhsd-t-off-s-1', '')}">
-                <#if notSuppress>
-                    <#if document.personimages?has_content>
-                        <@personimage document.personimages idsuffix personMainName></@personimage>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
-                    <#if document.biographies?has_content>
-                        <@biography document.biographies idsuffix></@biography>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
+    <div class="nhsd-t-grid">
+       <div class="nhsd-t-row">
+        	<div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-coll-m-8 nhs-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
+         		<#if notSuppress>
+              		<#if document.personimages?has_content>
+                		<@personimage document.personimages idsuffix></@personimage>
+                  	</#if>
 
-                    <#if document.businessUnits?has_content>
-                        <div id="businessunits-${idsuffix}" class="article-section">
-                            <h2 class="nhsd-t-heading-xl">Responsible for</h2>
-                            <#list document.businessUnits as businessunit>
-                                <div>
-                                    <@downloadBlock businessunit />
-                                </div>
-                            </#list>
-                        </div>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
-                </#if>
+					<#if document.roles?has_content && document.roles.primaryroles?has_content>
+						<#list document.roles.primaryroles as role>
+							${role}<br/>
+						</#list>
+					</#if>
 
-                <#if document.responsibilities?has_content >
-                    <@responsibility document.responsibilities idsuffix personName document.manages document.managedby />
-                    <hr class="nhsd-a-horizontal-rule" />
-                </#if>
+					<#if document.socialmedias?has_content>
+						<@socialMediaBar 1/>
+					</#if>
 
-                <#if notSuppress>
-                    <#if document.awards?has_content>
-                        <@award document.awards idsuffix personName />
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
-                    <#if document.qualifications?has_content>
-                        <@qualification document.qualifications idsuffix personName />
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
-                    <#if document.roles?has_content && document.roles.contactdetails?has_content>
-                        <@contactdetail document.roles.contactdetails idsuffix personMainNameAndPostnominals '' '' 'Contact details' "Person" />
-                    </#if>
-                </#if>
+                  	<#if document.biographies?has_content>
+                    	<@biography document.biographies idsuffix/>
+                  	</#if>
 
-                <@latestblogs document.relatedBlogs 'Person' 'blogs-' + idsuffix 'Blogs' />
-                <@latestblogs document.relatedNews 'Person' 'news-' + idsuffix 'News articles' />
-                <@latestblogs document.relatedEvents 'Person' 'events-' + idsuffix 'Forthcoming events' />
-            </div>
-        </div>
-    </div>
+                  	<#if document.sections?has_content>
+                  		<@sections document.sections/>
+                  	</#if>
+
+                  	<#if document.awards?has_content>
+                  		<@award document.awards "dd" document.personalinfos.firstname/>
+                  	</#if>
+         		</#if>
+         		<br/>
+	            <@latestblogs document.relatedBlogs 'Person' 'blogs-' + idsuffix 'Blogs' />
+	            <@latestblogs document.relatedNews 'Person' 'news-' + idsuffix 'News articles' />
+
+	            <#if document.responsibilities?has_content >
+	            	<@responsibility document.responsibilities idsuffix personName document.manages document.managedby ></@responsibility>
+	            </#if>
+        	</div>
+    	</div>
+	</div>
 </article>

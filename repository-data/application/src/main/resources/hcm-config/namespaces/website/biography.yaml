@@ -36,89 +36,27 @@ definitions:
           /profbiography:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Professional biography
+            caption: Short biography
             field: profbiography
             hint: A short biography (summary), about the person's professional experience
               and their relevance to NHS Digital
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /prevpositions:
+          /sections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Previous positions / experience
-            field: prevpositions
-            hint: A short statement listing or describing previous positions and /
-              or related experience within NHS Digital
+            caption: Sections
+            compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:svg,website:propertytable,website:VideoSection
+            contentPickerType: links
+            field: sections
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /nonnhspositions:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Non NHS Digital positions / awards
-            field: nonnhspositions
-            hint: A short statement listing or describing previous positions and /
-              or related experience outside of NHS Digital
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /additionalbiography:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Additional biography summary
-            field: additionalbiography
-            hint: A short statement listing or describing additional biographical
-              information about a person's life
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /personalbiography:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Personal biography summary
-            field: personalbiography
-            hint: A short statement listing or describing biographical information
-              about a person's personal life such as a brief statement about their
-              family or where they are from
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /additionalbiography:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:additionalbiography
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /nonnhspositions:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:nonnhspositions
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /personalbiography:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:personalbiography
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /prevpositions:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:prevpositions
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
           /profbiography:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -126,6 +64,14 @@ definitions:
             hipposysedit:path: website:profbiography
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /sections:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:sections
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -141,18 +87,6 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:additionalbiography:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:nonnhspositions:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:personalbiography:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:prevpositions:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
           /website:profbiography:
             hippostd:content: ''
             jcr:primaryType: hippostd:html

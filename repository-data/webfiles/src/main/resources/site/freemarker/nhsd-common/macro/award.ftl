@@ -5,14 +5,14 @@
 
 <#macro award awards idsuffix firstname>
     <#if awards?has_content>
-        <div id="award-${slugify(idsuffix)}">
+        <div id="award-${slugify(idsuffix)}" style="padding-top: 20px;">
           <h2 class="nhsd-t-heading-xl">Awards</h2>
           <#if awards?has_content>
               <p class="nhsd-t-body">${firstname} has won awards for:</p>
               <#list awards as personaward>
-                  <div class="nhsd-!t-bg-pale-grey-40-tint nhsd-!t-padding-4 nhsd-!t-margin-bottom-4 nhsd-t-round">
+                  <div class="nhsd-!t-bg-pale-grey-40-tint nhsd-!t-padding-4 nhsd-!t-margin-bottom-4 nhsd-t-round nhsd-a-box nhsd-a-box--border-blue">
                     <dl class="nhsd-a-summary-list">
-                        <div class="nhsd-a-summary-list__item">
+                        <div class="nhsd-a-summary-list__item nhsd-a-box">
                             <dt>Award</dt>
                             <dd>
                               <span class="nhsd-a-summary-list__text">
@@ -34,7 +34,7 @@
                                 <#if personaward.awardingbodylink?has_content>
                                   <a href="${personaward.awardingbodylink.link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${personaward.awardingbodylink.link}');" onKeyUp="return vjsu.onKeyUp(event)">${personaward.awardingbody}</a>
                                 <#else>
-                                  <span class="nhsd-t-heading-xs nhsd-!t-margin-0 nhsd-!t-margin-top-4">${personaward.awardingbody}</span>
+                                  <span class="hsd-!t-margin-0 nhsd-!t-margin-top-4">${personaward.awardingbody}</span>
                                 </#if>
                                 </span>
                               </dd>

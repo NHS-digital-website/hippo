@@ -11,7 +11,7 @@
         <#--  Facebook  -->
         <#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${getDocumentUrl()?url}"/>
         <#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
-        <@shareThisPage document "Facebook" facebookUrl facebookIconPath/>
+        <@shareThisPage "Facebook" facebookUrl facebookIconPath/>
 
         <#--  Twitter  -->
         <#assign hashtags ='' />
@@ -22,11 +22,11 @@
         </#if>
         <#assign twitterUrl = "https://twitter.com/intent/tweet?via=nhsdigital&url=${getDocumentUrl()?url}&text=${document.title?url}&hashtags=${hashtags?url}"/>
         <#assign twitterIconPath = "/images/icon/rebrand-twitter.svg" />
-        <@shareThisPage document "Twitter" twitterUrl twitterIconPath/>
+        <@shareThisPage "Twitter" twitterUrl twitterIconPath/>
 
         <#--  LinkedIn  -->
         <#assign linkedInUrl = "http://www.linkedin.com/shareArticle?mini=true&url=${getDocumentUrl()?url}&title=${document.title?url}&summary=${document.shortsummary?url}"/>
         <#assign linkedInIconPath = "/images/icon/rebrand-linkedin.svg" />
-        <@shareThisPage document "LinkedIn" linkedInUrl linkedInIconPath/>
+        <@shareThisPage "LinkedIn" linkedInUrl linkedInIconPath/>
     </div>
 </#macro>

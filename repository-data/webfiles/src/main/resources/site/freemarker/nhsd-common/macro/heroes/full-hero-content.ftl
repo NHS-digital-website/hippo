@@ -23,18 +23,18 @@
             <div class="nhsd-!t-margin-top-6">
                 <dl class="nhsd-o-hero__meta-data">
                     <#list options["metaData"] as metaDataItem>
-	                    <#if heroType == "default" || ((heroType == "whiteHero" || heroType == "blackHero" || heroType == "blackBackground") && metaDataItem.title != "Authors")>
-	                        <#assign schemaOrgTagAttr = data.schemaOrgTag?has_content?then('itemprop=${metaDataItem.schemaOrgTag}','') />
-	                        <div class="nhsd-o-hero__meta-data-item">
-	                            <dt class="nhsd-o-hero__meta-data-item-title">${metaDataItem.title?ends_with(":")?then(metaDataItem.title, metaDataItem.title + ":")}</dt>
-	                            <dd class="nhsd-o-hero__meta-data-item-description" ${schemaOrgTagAttr} data-uipath="${uiPath}.${slugify(metaDataItem["title"]?trim?replace(':', ''))}">
-	                                <#if metaDataItem.value?is_sequence>
-	                                    <#list metaDataItem.value as val>${val?no_esc}<#sep>, </#list>
-	                                <#else>
-	                                    ${metaDataItem.value?no_esc}
-	                                </#if>
-	                            </dd>
-	                        </div>
+                        <#if heroType == "default" || ((heroType == "whiteHero" || heroType == "blackHero" || heroType == "blackBackground") && metaDataItem.title != "Authors")>
+                            <#assign schemaOrgTagAttr = data.schemaOrgTag?has_content?then('itemprop=${metaDataItem.schemaOrgTag}','') />
+                            <div class="nhsd-o-hero__meta-data-item">
+                                <dt class="nhsd-o-hero__meta-data-item-title">${metaDataItem.title?ends_with(":")?then(metaDataItem.title, metaDataItem.title + ":")}</dt>
+                                <dd class="nhsd-o-hero__meta-data-item-description" ${schemaOrgTagAttr} data-uipath="${uiPath}.${slugify(metaDataItem["title"]?trim?replace(':', ''))}">
+                                    <#if metaDataItem.value?is_sequence>
+                                        <#list metaDataItem.value as val>${val?no_esc}<#sep>, </#list>
+                                    <#else>
+                                        ${metaDataItem.value?no_esc}
+                                    </#if>
+                                </dd>
+                            </div>
                         </#if>
                     </#list>
                 </dl>

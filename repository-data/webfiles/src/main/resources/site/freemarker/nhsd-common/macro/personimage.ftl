@@ -9,7 +9,7 @@
     <#if image?? && image?has_content && image.picture?has_content>
       <div id="personimage-${slugify(idsuffix)}" itemscope itemtype="http://schema.org/ImageObject">
         <@responsiveImage image.picture {'alt': personName} />
-        <p class="nhsd-t-body">${imagedistributiontagging[image.imagedistributiontagging]}</p>
+        <p class="nhsd-t-body" style="font-size: small;">${imagedistributiontagging[image.imagedistributiontagging]}</p>
       </div>
     </#if>
   </#macro>

@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 
 <#include "../../include/imports.ftl">
+<#include "./card.ftl">
+<#include "personitem.ftl">
 
   <#macro responsibility resp idsuffix firstname manages="" managedby="">
     <#if
@@ -14,42 +16,52 @@
         <#if resp.responsible?has_content>
           <p class="nhsd-t-body" data-uipath="person.responsibilities">
               ${firstname} has responsibility for:
+                <#list resp.responsible as responsibility>
+                <#assign cardProperties = {
+                  "background": "light-grey",
+				  "content": responsibility,
+				  "date": document.lastModified?date,
+				  "bullets": true
+                  }/>
+                  <@card cardProperties/>
+                  <br/>
+                </#list>
           </p>
-          <ul class="nhsd-t-list nhsd-t-list--bullet">
-            <#list resp.responsible as responsibility>
-              <li>${responsibility}</li>
-            </#list>
-          </ul>
         </#if>
 
         <#if resp.responsibleforservice?has_content>
           <p class="nhsd-t-body" data-uipath="person.responsibleforservice">
               ${firstname} is responsible for:
+                <#list resp.responsibleforservice as service>
+                  <@hst.link hippobean=service var="link" />
+	              <#assign cardProperties = {
+	                  "background": "light-grey",
+					  "content": service.title,
+					  "link": link,
+					  "date": service.lastModified?date
+	              }/>
+                  <@card cardProperties/>
+                  <br/>
+                </#list>
           </p>
-          <ul class="nhsd-t-list nhsd-t-list--bullet">
-            <#list resp.responsibleforservice as service>
-              <@hst.link hippobean=service var="link" />
-              <li><a href="${link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${link}');" onKeyUp="return vjsu.onKeyUp(event)">${service.title}</a></li>
-            </#list>
-          </ul>
         </#if>
 
+        <#if manages?has_content || managedby?has_content>
+            <div class="nhsd-a-box--border-blue" style="padding: 10px;">
+        </#if>
         <#if manages?has_content>
           <p class="nhsd-t-body" data-uipath="person.manages">
               ${firstname} manages:
+                <#list manages as managee>
+                  <#assign pinfo = managee.personalinfos />
+                  <#assign displayName = pinfo.preferredname?has_content?then(pinfo.preferredname, pinfo.firstname + " " + pinfo.lastname) />
+                  <#assign personrole = ''>
+                  <#if managee.roles?has_content && managee.roles.primaryroles?has_content>
+                    <#assign personrole = managee.roles.firstprimaryrole />
+                  </#if>
+                  <@personitem managee/>
+                </#list>
           </p>
-          <ul class="nhsd-t-list nhsd-t-list--bullet">
-            <#list manages as managee>
-              <#assign pinfo = managee.personalinfos />
-              <#assign displayName = pinfo.preferredname?has_content?then(pinfo.preferredname, pinfo.firstname + " " + pinfo.lastname) />
-              <#assign personrole = ''>
-              <#if managee.roles?has_content && managee.roles.primaryroles?has_content>
-                <#assign personrole = ', ' + managee.roles.firstprimaryrole />
-              </#if>
-              <@hst.link hippobean=managee var="link" />
-              <li><a href="${link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${link}');" onKeyUp="return vjsu.onKeyUp(event)">${displayName}${personrole}</a></li>
-            </#list>
-          </ul>
         </#if>
 
         <#if managedby?has_content>
@@ -61,11 +73,11 @@
                 <#assign personrole = ', ' + managedby.roles.firstprimaryrole />
               </#if>
               ${firstname} is managed by:
+              <@personitem managedby/>
           </p>
-          <ul class="nhsd-t-list nhsd-t-list--bullet">
-            <@hst.link hippobean=managedby var="link" />
-            <li><a href="${link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${link}');" onKeyUp="return vjsu.onKeyUp(event)">${displayName}${personrole}</a></li>
-          </ul>
+         </#if>
+         <#if manages?has_content || managedby?has_content>
+            </div>
         </#if>
       </div>
     </#if>

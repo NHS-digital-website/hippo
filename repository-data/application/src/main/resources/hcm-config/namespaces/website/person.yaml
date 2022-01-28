@@ -19,58 +19,6 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /personalinfos:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Personal info
-            compoundList: website:personalinfo
-            contentPickerType: links
-            field: personalinfos
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /shortsummary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Short Summary
-            field: shortsummary
-            hint: A short biography, about the person and their relevance to NHS Digital,
-              used in internal search results
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /seosummary:
-            caption: SEO Summary
-            field: seosummary
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /roles:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Role
-            compoundList: website:role
-            contentPickerType: links
-            field: roles
-            hint: A section to contain the roles a person has
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /clinician:
-            /cluster.options:
-              falseLabel: 'No'
-              jcr:primaryType: frontend:pluginconfig
-              trueLabel: 'Yes'
-            caption: Clinician
-            field: clinician
-            hint: A checkbox to indicate whether the person is a clinician
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /personimages:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -83,6 +31,49 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
+          /personalinfos:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Personal info
+            compoundList: website:personalinfo
+            contentPickerType: links
+            field: personalinfos
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
+          /roles:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Role
+            compoundList: website:role
+            contentPickerType: links
+            field: roles
+            hint: A section to contain the roles a person has
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
+          /socialmedia:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: socialmedia
+            field: socialmedia
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Short Summary
+            field: shortsummary
+            hint: A short biography, about the person and their relevance to NHS Digital,
+              used in internal search results
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /biographies:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -95,37 +86,14 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
-          /classifiable:
-            /cluster.options:
-              caption: Knows about
-              jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
-            essentials-taxonomy-name: publication_taxonomy
-            hint: One or more topics the person is knowledgeable about or interested
-              in
-            jcr:primaryType: frontend:plugin
-            mixin: hippotaxonomy:classifiable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
-            wicket.id: ${cluster.id}.field
-          /taxonomyClassificationField:
+          /awards:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
-            caption: Taxonomy - Used for Search (Do Not Edit)
-            field: taxonomyClassificationField
-            hint: ''
-            hipposys:userrole: xm.default-user.webmaster
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /socialmedias:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Social media
-            compoundList: website:socialmedia
+            caption: Awards
+            compoundList: website:award
             contentPickerType: links
-            field: socialmedias
-            hint: A section to hold the person's social media addresses
+            field: awards
+            hint: A section to contain one or more awards the person has attained
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -143,67 +111,6 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
-          /postnominals:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Post nominals
-            compoundList: website:postnominal
-            contentPickerType: links
-            field: postnominals
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /lawfulbasises:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Lawful basis
-            compoundList: website:lawfulbasis
-            contentPickerType: links
-            field: lawfulbasises
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /qualifications:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Qualifications
-            compoundList: website:qualification
-            contentPickerType: links
-            field: qualifications
-            hint: A section to contain one or more qualifications the person has attained
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /awards:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Awards
-            compoundList: website:award
-            contentPickerType: links
-            field: awards
-            hint: A section to contain one or more awards the person has attained
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /managedby:
-            /cluster.options:
-              base.path: /content/documents
-              jcr:primaryType: frontend:pluginconfig
-              last.visited.enabled: true
-              nodetypes:
-              - website:person
-            caption: Managed by
-            field: managedby
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
           /manages:
             /cluster.options:
               base.path: /content/documents
@@ -217,9 +124,37 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /managedby:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.enabled: true
+              nodetypes:
+              - website:person
+            caption: Managed by
+            field: managedby
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /seosummary:
+            caption: SEO Summary
+            field: seosummary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /SocialMediaBar:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:SocialMediaBar
+            hipposysedit:primary: false
+            hipposysedit:type: website:SocialMediaBar
+            jcr:primaryType: hipposysedit:field
           /awards:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -234,25 +169,6 @@ definitions:
             hipposysedit:multiple: false
             hipposysedit:ordered: true
             hipposysedit:path: website:biographies
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /clinician:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:clinician
-            hipposysedit:primary: false
-            hipposysedit:type: selection:BooleanRadioGroup
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /lawfulbasises:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: true
-            hipposysedit:path: website:lawfulbasises
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
@@ -292,24 +208,6 @@ definitions:
             hipposysedit:multiple: false
             hipposysedit:ordered: true
             hipposysedit:path: website:personimages
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /postnominals:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:postnominals
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /qualifications:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:qualifications
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
@@ -368,26 +266,19 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /socialmedias:
+          /socialmedia:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
-            hipposysedit:ordered: true
-            hipposysedit:path: website:socialmedias
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /taxonomyClassificationField:
-            hipposysedit:multiple: true
-            hipposysedit:path: website:taxonomyClassificationField
-            hipposysedit:type: TaxonomyClassification
+            hipposysedit:ordered: false
+            hipposysedit:path: website:socialmedia
+            hipposysedit:primary: false
+            hipposysedit:type: website:socialmedia
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - website:basedocument
           - hippostd:relaxed
           - hippotranslation:translated
-          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
@@ -398,6 +289,17 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:socialmedia:
+            /website:twitterhashtags:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:socialmedia
+            website:hellomynameis: ''
+            website:linkedinlink: ''
+            website:twitteruser: ''
           common:FacetType: person
           common:searchRank: 4
           common:searchable: true
@@ -411,10 +313,9 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
-          - hippotaxonomy:classifiable
           jcr:primaryType: website:person
-          website:clinician: false
           website:seosummary: ''
+          website:shortsummary: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
