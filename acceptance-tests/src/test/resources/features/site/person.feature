@@ -6,16 +6,9 @@ Feature: Person Pages
         When I navigate to "George Lucastine" page
         Then I should see the following:
             | Professional biography text           |
-            | Previous positions/experience text    |
-            | Non-NHS Digital positions/awards text |
-            | Additional biography text             |
-            | Personal biography text               |
         And I should see headers:
-            | Professional biography             |
-            | Previous positions / experience    |
-            | Non-NHS Digital positions / awards |
-            | Additional biography               |
-            | Personal biography                 |
+            | Biography                    |
+            | Responsibilities                   |
 
     Scenario: Display John Doe's Person Pages
     The page should show each corresponding biography sub-heading of a given
@@ -23,24 +16,15 @@ Feature: Person Pages
         When I navigate to "John Doe" page
         Then I should see the following:
             | Professional biography text           |
-            | Previous positions/experience text    |
         And I should see headers:
-            | Professional biography             |
-            | Previous positions / experience    |
+            | Biography                    |
+            | Responsibilities                   |
         But I should not see headers:
-            | Non-NHS Digital positions / awards |
-            | Additional biography               |
-            | Personal biography                 |
+            | Awards                             |
 
     Scenario: Display Cynthia Barker's Person Pages
     The page should not show the corresponding biography sub-heading of a given
     biography field when only one field is given.
-        When I navigate to "Cynthia Barker" page
-        Then I should see the following:
-            | Non NHS Digital positions/awards text |
-        And I should not see headers:
-            | Professional biography             |
-            | Previous positions / experience    |
-            | Non-NHS Digital positions / awards |
-            | Additional biography               |
-            | Personal biography                 |
+        Then I should not see headers:
+            | Biography                    |
+            | Responsibilities                   |

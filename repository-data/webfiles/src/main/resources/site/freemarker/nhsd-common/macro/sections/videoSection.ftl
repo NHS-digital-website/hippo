@@ -14,9 +14,9 @@
         <#assign htmlCaption = section.caption/>
     </#if>
 
-	<#if document.docType?has_content && (document.docType == "Feature" || document.docType == "Blog") && (section.type == "Hero video right" || section.type == "Hero video left")>
+    <#if document.docType?has_content && (document.docType == "Feature" || document.docType == "Blog") && (section.type == "Hero video right" || section.type == "Hero video left")>
         <#assign videoUrl = section.videoUrl />
-		<#assign videoUrl += "${section.videoUrl?contains('?')?then('&', '?')}autoplay=${section.behaviour?then('1','0')}" />
+        <#assign videoUrl += "${section.videoUrl?contains('?')?then('&', '?')}autoplay=${section.behaviour?then('1','0')}" />
         <#assign videoUrl += "&loop=${section.loop?then('1','0')}" />
         <#assign videoUrl += "&playlist=${section.playlist}" />
         <#assign videoUrl += "&${mute}=${section.behaviour?then('1','0')}" />
@@ -27,31 +27,31 @@
                 "src": videoUrl,
                 "caption": htmlCaption?has_content?then(htmlCaption?no_esc,'')
             },
-			"introText": "",
-			"title": "",
-			"summary": section.text,
-			"colour": "darkBlue"
+            "introText": "",
+            "title": "",
+            "summary": section.text,
+            "colour": "darkBlue"
         }/>
 
-		<#if section.type == "Hero video left">
-			<#assign heroType = "imageMirrored"/>
-		<#else>
-			<#assign heroType = "image"/>
-		</#if>
+        <#if section.type == "Hero video left">
+            <#assign heroType = "imageMirrored"/>
+        <#else>
+            <#assign heroType = "image"/>
+        </#if>
 
         </div></div></div>
-		<@hero heroOptions heroType/>
+        <@hero heroOptions heroType/>
         <div class="nhsd-t-grid"><div class="nhsd-t-row"><div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
-	<#else>
-		<#assign fullWidth = (document.docType == "Feature" || document.docType == "Blog") && section.type == "Full width"/>
-		<#if fullWidth>
-			</div></div></div>
-		</#if>
+    <#else>
+        <#assign fullWidth = (document.docType == "Feature" || document.docType == "Blog") && section.type == "Full width"/>
+        <#if fullWidth>
+            </div></div></div>
+        </#if>
 
-		<#assign videoOptions = "autoplay=${section.behaviour?then('1','0')}" +
-				"&loop=${section.loop?then('1','0')}" +
-				"&playlist=${section.playlist}" +
-				"&${mute}=${section.behaviour?then('1','0')}"/>
+        <#assign videoOptions = "autoplay=${section.behaviour?then('1','0')}" +
+                "&loop=${section.loop?then('1','0')}" +
+                "&playlist=${section.playlist}" +
+                "&${mute}=${section.behaviour?then('1','0')}"/>
 
         <div class="nhsd-t-ratio-16x9">
             <figure>
@@ -63,11 +63,11 @@
                     <figcaption>${htmlCaption?no_esc}</figcaption>
                 </#if>
             </figure>
-	    </div>
+        </div>
 
         <#if fullWidth>
             <div class="nhsd-t-grid"><div class="nhsd-t-row"><div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-col-m-8 nhsd-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
         </#if>
-	</#if>
+    </#if>
 </#if>
 </#macro>

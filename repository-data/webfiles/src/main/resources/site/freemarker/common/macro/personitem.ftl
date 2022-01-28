@@ -4,7 +4,7 @@
     <#if author?? && author?has_content >
         <div class="blog-authors__item">
 
-            <div class="blog-authors__icon">
+            <div class="nhsd-m-card">
                 <#if author.personimages?? && author.personimages?has_content && author.personimages.picture?has_content>
                     <@hst.link hippobean=author.personimages.picture.authorPhotoLarge fullyQualified=true var="authorPicture" />
                     <@hst.link hippobean=author.personimages.picture.authorPhotoLarge2x fullyQualified=true var="authorPicture2x" />

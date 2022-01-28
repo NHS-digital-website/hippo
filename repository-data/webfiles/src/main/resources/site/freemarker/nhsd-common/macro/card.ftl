@@ -43,10 +43,28 @@
                             </#if>
                         </#if>
 
+                        <#if cardProperties.bullets?has_content>
+                            <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-!t-margin-bottom-0" style="margin-left: 15px;">
+                        </#if>
                         <#if cardProperties.content?is_hash>
+                            <#if cardProperties.bullets?has_content>
+                                <li>
+                            </#if>
                             <@hst.html hippohtml=cardProperties.content contentRewriter=brContentRewriter />
+                            <#if cardProperties.bullets?has_content>
+                                </li>
+                            </#if>
                         <#else>
+                            <#if cardProperties.bullets?has_content>
+                                <li>
+                            </#if>
                             <p class="nhsd-t-body-s">${cardProperties.content}</p>
+                            <#if cardProperties.bullets?has_content>
+                                </li>
+                            </#if>
+                        </#if>
+                        <#if cardProperties.bullets?has_content>
+                            </ul>
                         </#if>
                     </div>
 
@@ -56,16 +74,18 @@
                                 <span class="nhsd-a-button__label">${cardProperties.button}</span>
                             </span>
                         </div>
+                    <#elseif cardProperties.link?has_content>
+                        <div class="nhsd-m-card__button-box">
+                            <#if cardProperties.link?has_content>
+                                <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
+                                  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                    <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                  </svg>
+                                  </span>
+                            </#if>
+                        </div>
                     <#else>
                         <div class="nhsd-m-card__button-box">
-                        	<#if cardProperties.link?has_content>
-	                            <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
-	                              <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-	                                <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-	                              </svg>
-	                          	</span>
-                        	</#if>
-                        </div>
                     </#if>
                 </div>
             </div>
