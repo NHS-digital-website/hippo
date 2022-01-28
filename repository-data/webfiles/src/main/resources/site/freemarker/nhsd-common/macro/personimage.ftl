@@ -3,19 +3,13 @@
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.PersonImage" -->
 
 <#include "../../include/imports.ftl">
+<#include "./responsiveImage.ftl">
 
-  <#macro personimage image idsuffix>
+  <#macro personimage image idsuffix personName="">
     <#if image?? && image?has_content && image.picture?has_content>
-      <div id="personimage-${slugify(idsuffix)}" class="personimage--div galleryItems__item" itemscope itemtype="http://schema.org/ImageObject">
-        <@hst.link var="picture" hippobean=image.picture.original fullyQualified=true />
-        <div class="nhsd-a-image">
-          <img itemprop="contentUrl" src="${picture}" alt="Person image" />
-          <div class="galleryItems__description">
-            <p>
-              ${imagedistributiontagging[image.imagedistributiontagging]}
-            <p>
-          </div>
-        </div>
+      <div id="personimage-${slugify(idsuffix)}" itemscope itemtype="http://schema.org/ImageObject">
+        <@responsiveImage image.picture {'alt': personName} />
+        <p class="nhsd-t-body">${imagedistributiontagging[image.imagedistributiontagging]}</p>
       </div>
     </#if>
   </#macro>

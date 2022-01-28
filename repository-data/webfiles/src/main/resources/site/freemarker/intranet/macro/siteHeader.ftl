@@ -67,14 +67,14 @@
                                     </svg>
                                 </span>
                             </a>
-                            <a class="nhsd-a-button nhsd-a-button--circle" id="nhsd-global-header__search-button" aria-label="Open search"aria-controls="nhsd-global-header__search"aria-expanded="false" href="/search">
+                            <a class="nhsd-a-button nhsd-a-button--circle" id="nhsd-global-header__search-button" aria-label="Open search" aria-controls="nhsd-global-header__search" aria-expanded="false" href="/search">
                                 <span class="nhsd-a-icon nhsd-a-icon--size-s">
                                     <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
                                         <path d="M7,10.9c-2.1,0-3.9-1.7-3.9-3.9c0-2.1,1.7-3.9,3.9-3.9c2.1,0,3.9,1.7,3.9,3.9C10.9,9.2,9.2,10.9,7,10.9zM13.4,14.8l1.4-1.4l-3-3c0.7-1,1.1-2.1,1.1-3.4c0-3.2-2.6-5.8-5.8-5.8C3.8,1.2,1.2,3.8,1.2,7c0,3.2,2.6,5.8,5.8,5.8c1.3,0,2.4-0.4,3.4-1.1L13.4,14.8z"/>
                                     </svg>
                                 </span>
                             </a>
-                            <button class="nhsd-a-button nhsd-o-global-header__menu-button" id="nhsd-global-header__menu-button" type="button" aria-controls="nhsd-global-header__menu"aria-expanded="false">
+                            <button class="nhsd-a-button nhsd-o-global-header__menu-button" id="nhsd-global-header__menu-button" type="button" aria-controls="nhsd-global-header__menu" aria-expanded="false">
                                 <span class="nhsd-a-button__label">Menu</span>
                                 <span class="nhsd-a-icon nhsd-a-icon--size-s">
                                     <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
@@ -88,7 +88,7 @@
                         <div class="nhsd-o-global-header__search" id="nhsd-global-header__search">
                             <div class="nhsd-o-global-header__search-background"></div>
                             <div class="nhsd-o-global-header__search-content-box">
-                                <a class="nhsd-a-icon-link nhsd-o-global-header__search-close-button"id="nhsd-global-header__search-close-button" href="#">
+                                <a class="nhsd-a-icon-link nhsd-o-global-header__search-close-button" id="nhsd-global-header__search-close-button" href="#">
                                     <span class="nhsd-a-icon-link__label">Close search</span>
                                     <span class="nhsd-a-icon nhsd-a-icon--size-m">
                                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">

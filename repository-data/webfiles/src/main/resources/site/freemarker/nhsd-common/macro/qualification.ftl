@@ -1,46 +1,58 @@
 <#ftl output_format="HTML">
 
 <#include "../../include/imports.ftl">
+<#include "./responsiveImage.ftl">
 
   <#macro qualification quals idsuffix firstname>
     <#if quals?has_content>
-    <div id="qualification-${slugify(idsuffix)}" class="qualification--div article-section">
-      <h2>Qualifications</h2>
-
-        <p>
-          <#if quals?has_content >
-            ${firstname} is qualified for:
-            <ul>
-              <#list quals as qual>
-                <div>
-                  <#assign qualnameDisplay = qual.qualname />
-                  <#if qual.quallink?has_content>
-                    <li><a href="${qual.quallink.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${qual.quallink.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${qualnameDisplay}">${qualnameDisplay}</a></li>
-                  <#else>
-                    <li>${qualnameDisplay}</li>
-                  </#if>
-
-                  <#if qual.qualawardingbody?has_content>
+    <div id="qualification-${slugify(idsuffix)}">
+      <h2 class="nhsd-t-heading-xl">Qualifications</h2>
+      <#if quals?has_content >
+        <p class="nhsd-t-body">${firstname} is qualified for:</p>
+          <#list quals as qual>
+            <div class="nhsd-!t-bg-pale-grey-40-tint nhsd-!t-padding-4 nhsd-!t-margin-bottom-4 nhsd-t-round">
+            <dl class="nhsd-a-summary-list">
+            <div class="nhsd-a-summary-list__item">
+              <dt>Qualification</dt>
+              <dd>
+                <span class="nhsd-a-summary-list__text">
+                <#assign qualnameDisplay = qual.qualname />
+                <#if qual.quallink?has_content>
+                  <a href="${qual.quallink.link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${qual.quallink.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${qualnameDisplay}">${qualnameDisplay}</a>
+                <#else>
+                  ${qualnameDisplay}
+                </#if>
+                </span>
+              </dd>
+            </div>
+              <#if qual.qualawardingbody?has_content>
+                <div class="nhsd-a-summary-list__item">
+                  <dt>Awarding Body</dt>
+                  <dd>
+                    <span class="nhsd-a-summary-list__text">
                     <#if qual.qualawardingbodylink?has_content>
-                      <a href="${qual.qualawardingbodylink.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${qual.qualawardingbodylink.link}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${qual.qualawardingbody}">${qual.qualawardingbody}</a>
+                      <a href="${qual.qualawardingbodylink.link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${qual.qualawardingbodylink.link}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${qual.qualawardingbody}">${qual.qualawardingbody}</a>
                     <#else>
                       ${qual.qualawardingbody}
                     </#if>
-                  </#if>
-
-                  <#if qual.qualificationlogo?has_content>
-                    <div class="nhsd-a-image">
-                      <@hst.link var="quallogo" hippobean=qual.qualificationlogo.original fullyQualified=true />
-                      <img src="${quallogo}" alt="Qualification logo" />
-                    </div>
-                  </#if>
-
+                    </span>
+                  </dd>
                 </div>
-              </#list>
-            </ul>
-          </#if>
-        </p>
-
+              </#if>
+              <#if qual.qualificationlogo?has_content>
+                <div class="nhsd-a-summary-list__item">
+                  <dt>Qualification Logo</dt>
+                  <dd>
+                    <span class="nhsd-a-summary-list__text">
+                        <@responsiveImage qual.qualificationlogo {'alt': qual.qualname} />
+                    </span>
+                  </dd>
+                </div>
+              </#if>
+            </dl>
+            </div>
+          </#list>
+      </#if>
     </div>
     </#if>
   </#macro>
