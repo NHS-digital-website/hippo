@@ -24,6 +24,8 @@
         <@hst.include ref= "footer"/>
 
         <#include "scripts/nhsd-footer-scripts.ftl" />
+
+        <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
     </div>
 </body>
 </html>

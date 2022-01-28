@@ -6,6 +6,7 @@ import com.onehippo.cms7.eforms.hst.api.ValidationBehavior;
 import com.onehippo.cms7.eforms.hst.beans.FormBean;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
 import com.onehippo.cms7.eforms.hst.model.Form;
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.component.support.forms.FormMap;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -20,6 +21,7 @@ import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ReCaptchaValidationPlugin implements ValidationBehavior {
 
@@ -48,6 +50,10 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
 
             log.debug("Google ReCaptcha failed:" + errorList);
             errors.put("ReCaptcha Validation", new ErrorMessage("ReCaptcha validation failed", errorList));
+        } else {
+            log.debug("Google ReCaptcha succeeded");
+            log.debug("Challenge TTL " + gRecaptchaResponse.getValue("challenge_ts"));
+            log.debug("Domain " + gRecaptchaResponse.getValue("hostname"));
         }
 
         return errors;
@@ -80,12 +86,16 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
     private Resource validateReCaptcha(String gReCaptchaResponseCode, String recaptchaSecret) {
         Resource resource = null;
 
+        final Map<String, Object> pathVars = new HashMap<>();
+        pathVars.put("secret", recaptchaSecret);
+        pathVars.put("response", gReCaptchaResponseCode);
+
         try {
             final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(getComponentManager());
 
-            final Map<String, Object> pathVars = new HashMap<>();
-            pathVars.put("secret", recaptchaSecret);
-            pathVars.put("response", gReCaptchaResponseCode);
+            if (Objects.isNull(resourceServiceBroker)) {
+                log.warn("The The Resource Service Broker Service is null!");
+            }
 
             // Note: request submitted via CRISP default of GET, since POST is not working as described
             // in the documentation: https://www.onehippo.org/library/concepts/crisp-api/getting-started.html
@@ -101,8 +111,11 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
             //          .build());
 
         } catch (Exception e) {
+            log.debug("recaptchaSecret is set: " + StringUtils.isNotBlank(recaptchaSecret));
+            log.debug("pathVars is" + pathVars.toString());
             log.warn("Failed to find resources from '{}' resource space for ReCaptcha validation, '{}'.",
                 "googleReCaptchaResourceResolver", "/recaptcha/api/siteverify/", e);
+
         }
 
         return resource;
