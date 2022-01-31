@@ -38,7 +38,7 @@
                             </div>
                             <div class="nhsd-o-global-header__product-name">
                                 Corporate Intranet
-                                <div class="nhsd-t-body-s nhsd-!t-col-dark-grey nhsd-!t-font-weight-regular nhsd-!t-margin-0">Morning first name last name</div>
+                                <div class="nhsd-t-body-s nhsd-!t-col-dark-grey nhsd-!t-font-weight-regular nhsd-!t-margin-0">${userName}</div>
                             </div>
                         </div>
                         <div class="nhsd-o-global-header__menu" id="nhsd-global-header__menu">
