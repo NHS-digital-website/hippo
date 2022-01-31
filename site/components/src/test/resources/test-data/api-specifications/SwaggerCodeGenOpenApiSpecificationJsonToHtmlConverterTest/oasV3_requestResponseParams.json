@@ -347,11 +347,11 @@
                 }
             }
         },
-        "/op-with-params-with-all-min-max-exlusives": {
+        "/op-with-params-with-all-min-max-exclusives": {
             "get": {
                 "summary": "Operation with parameters with inclusive/exclusive variants of min max values.",
                 "description": "Verifies that inclusive and exclusive status of min and max values is indicated correctly.",
-                "operationId": "op-with-params-with-all-min-max-exlusives",
+                "operationId": "op-with-params-with-all-min-max-exclusives",
                 "parameters": [
                     {
                         "name": "param-with-min-inclusive-max-exclusive",

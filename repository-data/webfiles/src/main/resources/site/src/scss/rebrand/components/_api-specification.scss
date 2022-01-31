@@ -36,6 +36,12 @@
 	&__collapser {
 		cursor: pointer;
 	}
+	&__expander {
+		background-image: url("../images/icon/expander-plus-icon.svg");
+	}
+	&__collapser {
+		background-image: url("../images/icon/expander-dark-grey-minus-icon.svg");
+	}
 	&__expander ~ .nhsd-o-schema__border-child {
 		display: none;
 	}
