@@ -34,8 +34,8 @@
         <#if wrap>
         <div >
         </#if>
-            // Add HR if it's not the first section and has a top level heading
-            <#if !section?is_first && section.headingLevel == 'Main heading'>
+            <#-- Add HR if it's not the first section and has a top level heading -->
+            <#if !section?is_first && (section.headingLevel?has_content && section.headingLevel == 'Main heading')>
                 <hr class="nhsd-a-horizontal-rule" />
             </#if>
             <#if section.sectionType == 'text'>
