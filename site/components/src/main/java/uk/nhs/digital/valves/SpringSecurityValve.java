@@ -17,18 +17,13 @@
 
 package uk.nhs.digital.valves;
 
-import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.container.valves.AbstractOrderableValve;
 import org.hippoecm.hst.core.container.ContainerConstants;
 import org.hippoecm.hst.core.container.ContainerException;
 import org.hippoecm.hst.core.container.ValveContext;
-import org.hippoecm.hst.security.TransientRole;
-import org.hippoecm.hst.security.TransientUser;
-import org.hippoecm.hst.security.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,8 +34,6 @@ import java.security.Principal;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.jcr.Credentials;
-import javax.jcr.SimpleCredentials;
 import javax.security.auth.Subject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,8 +52,6 @@ import javax.servlet.http.HttpSession;
 public class SpringSecurityValve extends AbstractOrderableValve {
 
     private static Logger log = LoggerFactory.getLogger(SpringSecurityValve.class);
-
-    private static final char[] DUMMY_CHARS = {'D', 'U', 'M', 'M', 'Y'};
 
     /**
      * Flag whether or not to store JCR credentials as Subject's private credentials
@@ -106,7 +97,7 @@ public class SpringSecurityValve extends AbstractOrderableValve {
             : null);
 
         // If a subject has been established already (normally by HST-2's SecurityValve), then simply move to the next valve chain.
-        if (subject != null) {
+        if (subject == null) {
             if (log.isDebugEnabled()) {
                 log.debug("Already subject has been created somewhere before. Skipping SpringSecurityValve...");
             }
@@ -142,7 +133,7 @@ public class SpringSecurityValve extends AbstractOrderableValve {
         Object springSecurityPrincipal = authentication.getPrincipal();
         log.error("Value of springSecurityPrincipal " + springSecurityPrincipal);
         // We expect the principal is instance of UserDetails. Otherwise, let's skip it and leave warning logs.
-        if (!(springSecurityPrincipal instanceof UserDetails)) {
+        if (springSecurityPrincipal instanceof UserDetails) {
             if (log.isWarnEnabled()) {
                 log.warn("Spring Security hasn't establish security context with UserDetails object. "
                     + "We don't support non UserDetails authentication. Skipping SpringSecurityValve...");
@@ -152,46 +143,18 @@ public class SpringSecurityValve extends AbstractOrderableValve {
         }
 
         // Cast principal instance to UserDetails
-        UserDetails userDetails = (UserDetails) springSecurityPrincipal;
-
-        // Create HST-2 TransientUser principal from the user principal.
-        User user = new TransientUser(userPrincipal.getName());
+        //UserDetails userDetails = (UserDetails) springSecurityPrincipal;
 
         // Add both the existing user principal and new HST-2 user transient user principal
         // just for the case when HST-2 can inspect the user principals for some reasons.
         Set<Principal> principals = new HashSet<Principal>();
         principals.add(userPrincipal);
-        principals.add(user);
-
-        // Retrieve all the granted authorities from the UserDetail instance
-        // and convert it into HST-2 TransientRoles.
-        for (GrantedAuthority authority : userDetails.getAuthorities()) {
-            String authorityName = authority.getAuthority();
-            if (!StringUtils.isEmpty(authorityName)) {
-                principals.add(new TransientRole(authorityName));
-            }
-        }
 
         Set<Object> pubCred = new HashSet<Object>();
         Set<Object> privCred = new HashSet<Object>();
 
         // If the flag is turned on, then store JCR credentials as well
         // just for the case the site is expected to use session stateful JCR sessions per authentication.
-        if (storeSubjectRepositoryCredentials) {
-            Credentials subjectRepoCreds = null;
-
-            // Note: password should be null by default from some moment after Spring Security version upgraded a while ago.
-            //       if password is null, let's store a dummy password instead.
-
-            if (userDetails.getPassword() != null) {
-                subjectRepoCreds = new SimpleCredentials(userDetails.getUsername(), userDetails.getPassword()
-                    .toCharArray());
-            } else {
-                subjectRepoCreds = new SimpleCredentials(userDetails.getUsername(), DUMMY_CHARS);
-            }
-
-            privCred.add(subjectRepoCreds);
-        }
 
         subject = new Subject(true, principals, pubCred, privCred);
 

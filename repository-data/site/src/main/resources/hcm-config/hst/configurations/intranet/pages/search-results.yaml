@@ -6,5 +6,5 @@ definitions:
         hst:componentclassname: uk.nhs.digital.intranet.components.SearchPageComponent
         hst:template: search-results
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/master-no-header-search
+      hst:referencecomponent: hst:abstractpages/master
       jcr:primaryType: hst:component
