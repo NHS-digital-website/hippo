@@ -1,3 +1,4 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:templates:
@@ -46,6 +47,9 @@ definitions:
       /jobsfeedcomponent:
         hst:renderpath: webfile:/freemarker/common/jobfeed.ftl
         jcr:primaryType: hst:template
+      /location-article:
+        hst:renderpath: webfile:/freemarker/nhsd-common/location-article.ftl
+        jcr:primaryType: hst:template
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
         jcr:primaryType: hst:template
@@ -73,6 +77,3 @@ definitions:
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
-      /location-article:
-        jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/nhsd-common/location-article.ftl
