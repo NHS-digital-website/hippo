@@ -34,8 +34,7 @@ public class FencedCodeBlockNodeRenderer implements NodeRenderer {
         html.tag("div", ImmutableMap.of(
             "class", "nhsd-o-code-viewer__tab-content",
             "role", "tabpanel",
-            "aria-hidden", "true",
-            "aria-labelledby", "tab-html-content"
+            "aria-hidden", "true"
         ));
         if (codeLanguage != null) {
             html.tag("p", ImmutableMap.of("class", "nhsd-t-heading-s nhsd-!t-margin-3","data-hide-tab-header", ""));

@@ -28,7 +28,7 @@
                                 <div class="nhsd-t-row">
                                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-!t-margin-bottom-0 nhsd-t-flex nhsd-t-flex--align-items-centre">
                                         <span class="nhsd-!t-col-white nhsd-t-heading-l nhsd-t-display-contents nhsd-t-text-transform-uppercase">{{httpMethod}}</span>
-                                        <span class="nhsd-!t-col-white nhsd-t-heading-s nhsd-t-display-contents"><pre class="nhsd-t-wrap-text-pre nhsd-t-overflow-wrap-text nhsd-t-display-contents">{{path}}</pre></span>
+                                        <span class="nhsd-!t-col-white nhsd-t-heading-s nhsd-t-display-contents"><span class="nhsd-t-wrap-text-pre nhsd-t-overflow-wrap-text nhsd-t-display-contents">{{path}}</span></span>
                                     </div>
                                     {{#ifVariableIsFalse "tryThisApiDisabled"}}
                                         {{#eq baseName 'Default'}}{{#assign "sanitizedBaseName"}}{{lower baseName}}{{/assign}}{{else}}{{#assign "sanitizedBaseName"}}{{baseName}}{{/assign}}{{/eq}}
