@@ -50,12 +50,12 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     <#elseif heroType == "accentedImageMirrored">
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
     </#if>
-    
+
     <#assign style = ""/>
     <#assign imgStyle = ""/>
     <#assign inLine=""/>
     <#if options.inline?has_content>
-    	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 58%)/2); width: 100vw;\""/>
+    	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 35%)/2); width: 100vw;\""/>
     	<#assign style="width: 100%; margin: 0;">
     	<#assign imgStyle="width: 100%;">
     </#if>
