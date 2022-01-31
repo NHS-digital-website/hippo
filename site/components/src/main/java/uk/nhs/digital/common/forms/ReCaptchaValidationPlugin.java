@@ -111,11 +111,11 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
             //          .build());
 
         } catch (Exception e) {
+            log.debug(e.getMessage());
             log.debug("recaptchaSecret is set: " + StringUtils.isNotBlank(recaptchaSecret));
             log.debug("pathVars is" + pathVars.toString());
             log.warn("Failed to find resources from '{}' resource space for ReCaptcha validation, '{}'.",
                 "googleReCaptchaResourceResolver", "/recaptcha/api/siteverify/", e);
-
         }
 
         return resource;
