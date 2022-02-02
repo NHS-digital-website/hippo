@@ -6,7 +6,6 @@ import com.onehippo.cms7.eforms.hst.api.ValidationBehavior;
 import com.onehippo.cms7.eforms.hst.beans.FormBean;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
 import com.onehippo.cms7.eforms.hst.model.Form;
-import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.component.support.forms.FormMap;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -21,6 +20,7 @@ import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.MissingResourceException;
 import java.util.Objects;
 
 public class ReCaptchaValidationPlugin implements ValidationBehavior {
@@ -30,7 +30,8 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
     @Override
     public Map<String, ErrorMessage> validate(HstRequest request, HstResponse response, ComponentConfiguration config, FormBean bean, Form form, FormMap map) {
 
-        boolean success;
+        final String reCaptchaSiteKey = ((ApplicationSecrets) getComponentManager().getComponent("applicationSecrets")).getValue("GOOGLE_CAPTCHA_SITE_KEY");
+        final String reCaptchaSecretKey = ((ApplicationSecrets) getComponentManager().getComponent("applicationSecrets")).getValue("GOOGLE_CAPTCHA_SECRET");
         final Map<String, ErrorMessage> errors = new HashMap<>();
         final String clientReCaptchaResponseString = request.getParameter("gRecaptchaResponse");
 
@@ -41,20 +42,32 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
             return errors;
         }
 
-        // Validate response with Google ReCaptcha API
-        Resource gRecaptchaResponse = validateReCaptcha(clientReCaptchaResponseString);
+        try { // to validate response with Google ReCaptcha API
 
-        success = (boolean) gRecaptchaResponse.getValue("success");
-        if (!success) {
-            String errorList = getReCaptchaErrors(gRecaptchaResponse);
+            log.debug("***************************** Validate ReCaptcha *****************************");
+            log.debug("Recaptcha Site Key: " + reCaptchaSiteKey);
+            log.debug("Recaptcha Secret Key: " + ApplicationSecrets.mask(reCaptchaSecretKey));
+            log.debug("Recaptcha Response: " + clientReCaptchaResponseString);
 
-            log.debug("Google ReCaptcha failed:" + errorList);
-            errors.put("ReCaptcha Validation", new ErrorMessage("ReCaptcha validation failed", errorList));
-        } else {
-            log.debug("Google ReCaptcha succeeded");
-            log.debug("Challenge TTL " + gRecaptchaResponse.getValue("challenge_ts"));
-            log.debug("Domain " + gRecaptchaResponse.getValue("hostname"));
+            Resource gRecaptchaResponse = validateReCaptcha(clientReCaptchaResponseString, reCaptchaSecretKey);
+
+            if (gRecaptchaResponse != null) {
+                if ((boolean) gRecaptchaResponse.getValue("success")) {
+                    log.debug("ReCaptcha succeeded!");
+                    log.debug("ReCaptcha Challenge TTL: " + gRecaptchaResponse.getValue("challenge_ts"));
+                    log.debug("ReCaptcha Hostname: " + gRecaptchaResponse.getValue("hostname"));
+                } else {
+                    String errorList = getReCaptchaErrors(gRecaptchaResponse);
+                    log.debug("ReCaptcha Failed:" + errorList);
+                    errors.put("ReCaptcha Validation", new ErrorMessage("ReCaptcha validation failed", errorList));
+                }
+            }
+        } catch (MissingResourceException e) {
+            log.warn(e.getMessage(), e.getClassName(), e.getKey(), e);
         }
+
+        log.debug("ReCaptcha Error count is: " + errors.size());
+        log.debug("**************************** End Validate ReCaptcha ****************************");
 
         return errors;
     }
@@ -76,49 +89,34 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
         return builder.toString();
     }
 
-    private Resource validateReCaptcha(String gReCaptchaResponseCode) {
-        return validateReCaptcha(
-            gReCaptchaResponseCode,
-            ((ApplicationSecrets) getComponentManager().getComponent("applicationSecrets")).getValue("GOOGLE_CAPTCHA_SECRET")
-        );
-    }
+    private Resource validateReCaptcha(String gReCaptchaResponseCode, String recaptchaSecret) throws MissingResourceException {
 
-    private Resource validateReCaptcha(String gReCaptchaResponseCode, String recaptchaSecret) {
         Resource resource = null;
 
         final Map<String, Object> pathVars = new HashMap<>();
         pathVars.put("secret", recaptchaSecret);
         pathVars.put("response", gReCaptchaResponseCode);
 
-        try {
-            final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(getComponentManager());
+        final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(getComponentManager());
 
-            if (Objects.isNull(resourceServiceBroker)) {
-                log.warn("The The Resource Service Broker Service is null!");
+        if (Objects.isNull(resourceServiceBroker)) {
+            throw new MissingResourceException("The CRISP Resource Service Broker is null!", "ResourceServiceBroker", "GoogleReCaptchaResourceResolver");
+        } else {
+            try {
+                resource = resourceServiceBroker.resolve("googleReCaptchaResourceResolver",
+                    "/recaptcha/api/siteverify?secret={secret}&response={response}",
+                    pathVars
+                );
+
+            } catch (Exception e) {
+                log.warn("Failed to find resources from '{}' resource space for ReCaptcha validation, '{}'. The message '{}'",
+                    "googleReCaptchaResourceResolver", "/recaptcha/api/siteverify/", e.getMessage(), e);
             }
-
-            // Note: request submitted via CRISP default of GET, since POST is not working as described
-            // in the documentation: https://www.onehippo.org/library/concepts/crisp-api/getting-started.html
-            resource = resourceServiceBroker.resolve("googleReCaptchaResourceResolver",
-                "/recaptcha/api/siteverify?secret={secret}&response={response}",
-                pathVars);
-
-            //  resource = resourceServiceBroker.resolve("googleReCaptchaResourceResolver",
-            //      "/recaptcha/api/siteverify",
-            //      ExchangeHintBuilder.create()
-            //          .methodName("POST")
-            //          .requestBody("{\"secret\":\"[ADD_SECRET]\",\"response\":\"" + gReCaptchaResponseCode + "\"}")
-            //          .build());
-
-        } catch (Exception e) {
-            log.debug(e.getMessage());
-            log.debug("recaptchaSecret is set: " + StringUtils.isNotBlank(recaptchaSecret));
-            log.debug("pathVars is" + pathVars.toString());
-            log.warn("Failed to find resources from '{}' resource space for ReCaptcha validation, '{}'.",
-                "googleReCaptchaResourceResolver", "/recaptcha/api/siteverify/", e);
         }
 
         return resource;
     }
+
+
 
 }
