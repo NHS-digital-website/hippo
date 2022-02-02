@@ -1,4 +1,4 @@
-name: Deploy to UAT and Git Tag
+name: Deploy to UAT and Git Tag (v2)
 
 on:
   push:
@@ -10,10 +10,6 @@ jobs:
     name: Build Master
     runs-on: ubuntu-latest
     timeout-minutes: 90
-    env:
-      SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
-      CHANNEL_ID: C8QJFKBC2 # support channel
-      ENV: "uat"
 
     steps:
 
@@ -74,7 +70,57 @@ jobs:
             ${{ runner.os }}-node-nhs-
 
       #
+      # Step 3
+      #
+      - name: Bump the version number
+        run: make version.bumpup
+
+
+      #
       # Step 4
+      #
+      - name: Build master
+        run: make clean build
+        env:
+          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+
+      #
+      # Step 5
+      #
+      - name: Set the commit's Git status
+        run: make github.status.success
+
+      #
+      # Step 6
+      #
+      - name: Push tag back to github
+        run: |
+          make git.update-environment-tag
+          git push --tags
+
+      #
+      # upload build for next job
+      #
+      - name: Store Artifact for Later in the Pipeline
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: target/*.tar.gz
+          if-no-files-found: error
+
+
+  ODv1Deployment:
+    name: Deploy to ODv1
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
+      CHANNEL_ID: C8QJFKBC2 # support channel
+      ENV: "uat"
+    steps:
+
+      #
       # Prepare for RD communication
       #
       - name: Configure SSH certificates
@@ -91,36 +137,21 @@ jobs:
           ssh-keyscan -H -t rsa ${{ secrets.RD_FTP }} >> ~/.ssh/known_hosts
 
       #
-      # Step 5
+      # Download the distribution artifact
       #
-      - name: Bump the version number
-        run: make version.bumpup
-
-
-      #
-      # Step 6
-      #
-      - name: Build master
-        run: make clean build
-        env:
-          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
-          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
-
+      - name: Download version artifact
+        uses: actions/download-artifact@v2
+        id: down
 
       #
-      # Step 7
+      # Upload the distribution to RD
       #
-      - name: Set the commit's Git status
-        run: make github.status.success
-
-      #
-      # Step 8
-      #
-      - name: Upload build
+      - name: Upload distribution
         run: make ondemand.upload
+        working-directory: ${{steps.download.outputs.download-path}}
 
       #
-      # Step 9
+      # Send Deployment Request
       #
       - name: Deploy request
         id: pipeline-deploy
@@ -133,15 +164,7 @@ jobs:
           RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
 
       #
-      # Step 10
-      #
-      - name: Push tag back to github
-        run: |
-          make git.update-environment-tag
-          git push --tags
-
-      #
-      # Step 11
+      # Message the progress
       #
       - name: Slack message (end message)
         uses: muinmomin/webhook-action@v1.0.0
@@ -149,3 +172,139 @@ jobs:
           url: ${{ env.SLACK_WEBHOOK }}
           data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Master is being deployed", "attachments": [{ "text" : "RunDeck is deploying. You can track progress here ${{steps.pipeline-deploy.outputs.PIPELINE_DEPLOY_URL}}", "color": "#78BE20" }] }'
 
+
+  ODv2Deployment:
+    name: Deploy to ODv2
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+      # Get API access token and verify it.
+      - name: Obtain JWT Token
+        id: jwt_token
+        run: |
+          response=$(curl -i \
+          -H "Accept: application/json; charset=utf-8" \
+          -X POST https://api.${{ secrets.HOST }}/v3/authn/access_token \
+          -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
+          token=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
+          refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
+          echo "::set-output name=token::$token"
+          echo "::set-output name=refresh::$refresh"
+        env:
+          USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+      - name: Verify JWT Token
+        id: jwt_token_verify
+        run: |
+          code=$(curl -L \
+          -H "Accept: application/json; charset=utf-8" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "::set-output name=code::$code"
+      - name: Check Response Code from Verify JWT Token
+        if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('The JWT token failed verification!')
+        env:
+          # 'CODE' is for debugging fails
+          CODE: ${{ steps.jwt_token_verify.outputs.code }}
+
+      - name: Download version artifact
+        uses: actions/download-artifact@v2
+        id: down
+
+      #Upload Build to BR Cloud
+      - name: Upload Build to BR Cloud
+        id: distribution
+        run: |
+          filelist=($(ls build/))
+          file="dist_file=@build/${filelist[0]}"
+          response=$(curl -i \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X POST https://api.${{ secrets.HOST }}/v3/distributions \
+          -F $file)
+          id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
+          echo "::set-output name=id::$id"
+        working-directory: ${{steps.download.outputs.download-path}}
+
+      #
+      # Prepare App Config Deployment Details
+      #
+      - name: Get Configuration Files Details
+        id: files
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
+          echo "::set-output name=details::${response}"
+
+      - name: Get Lastest System Properties for Envrinment
+        id: system-properties
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-system-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "::set-output name=id::${id}"
+        env:
+          TARGET: "uat"
+
+      - name: Get Lastest AWS Keys for Envrinment
+        id: aws-keys
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-aws-credentials-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "::set-output name=id::${id}"
+        env:
+          TARGET: "uat"
+
+      - name: Get Lastest IP Configuration File ID
+        id: latest-ip-whitelist
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "hippo-ipfilter-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "::set-output name=id::${id}"
+
+      - name: Request Deployment from BR Cloud
+        id: deployment
+        run: |
+          curl -i \
+          -H "Accept: application/json; charset=utf-8" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X PUT https://api.${{ secrets.HOST }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
+          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" } ] }'
+        env:
+          DISTRIBUTION: ${{ steps.distribution.outputs.id }}
+          ENVIRONMENT: "083ff91e-6ac5-4638-945c-3ee18acc40bf"
+
+      - name: Check Response Code from Request Deployment
+        if: ${{ steps.deployment.outputs.code > 202 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Response code mismatch while requesting deployment from BR Cloud!')
+
+
+      # Clean-up steps below.
+
+      # Delete JWT refresh token
+      - name: Request Deletion of JWT Refresh Access tokens
+        if: always()
+        id: jwt_token_invalidate
+        run: |
+          code=$(curl -L \
+          -H "Accept: application/json; charset=utf-8" \
+          -X DELETE https://api.${{ secrets.HOST }}/v3/authn/refresh_token \
+          -d '{ "grant_type": "refresh_token", "refresh_token": "${{ env.REFRESH }}" }' \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "::set-output name=code::$code"
+        env:
+          REFRESH:  ${{ steps.jwt_token.outputs.refresh }}
+      - name: Check Response Code from Deletion of JWT Refresh Access tokens
+        if: ${{ steps.jwt_token_invalidate.outputs.code != 200 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('The JWT Deletion of JWT Refresh Access tokens failed!')
+        env:
+          # 'CODE' is for debugging fails
+          CODE: ${{ steps.jwt_token_invalidate.outputs.code }}
