@@ -62,8 +62,7 @@ public class FencedCodeBlockNodeRendererTest {
         inOrder.verify(html).tag("div", ImmutableMap.of(
             "class", "nhsd-o-code-viewer__tab-content",
             "role", "tabpanel",
-            "aria-hidden", "true",
-            "aria-labelledby", "tab-html-content"
+            "aria-hidden", "true"
         ));
         inOrder.verify(html).tag("p", ImmutableMap.of("class", "nhsd-t-heading-s nhsd-!t-margin-3","data-hide-tab-header", ""));
         inOrder.verify(html).text(language.toUpperCase());

@@ -1,6 +1,6 @@
 {{! For model's reference see io.swagger.v3.oas.models.media.Schema and extending classes}}
 {{#assign "schemaUUID"}}{{uuid}}{{/assign}}
-<tr class="nhsd-o-schema__expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}" colspan="2">
+<tr class="nhsd-o-schema__expanded" data-schema-uuid="{{variable "schemaUUID"}}" data-indentation="{{indentation}}">
 
     {{! 'Name' column (values that don't require labels) }}
     <td style="padding-left: {{indentation weighting=1.5}}em;" class="nhsd-o-schema__name-column">
@@ -37,7 +37,7 @@
 
         {{#pattern}}<div>Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{this}}</span></div>{{/pattern}}
 
-        {{#ifNotNull multipleOf}}<div>Multiple of: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{multipleOf}}</span><div>{{/ifNotNull}}
+        {{#ifNotNull multipleOf}}<div>Multiple of: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{multipleOf}}</span></div>{{/ifNotNull}}
 
         {{#ifNotNull maximum}}
         <div>Maximum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maximum}}</span>

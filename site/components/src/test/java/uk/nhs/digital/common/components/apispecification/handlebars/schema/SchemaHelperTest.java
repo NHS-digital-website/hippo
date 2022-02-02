@@ -146,15 +146,15 @@ public class SchemaHelperTest {
         // @formatter:off
         return new Object[][]{
             // propertyName     propertyValue   propertySetter
-            {"Multiple of",      0,              (Function<Schema<?>, Schema<?>>) schema -> schema.multipleOf(ZERO)},
+            {"Multiple of",     0,              (Function<Schema<?>, Schema<?>>) schema -> schema.multipleOf(ZERO)},
             {"Maximum",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maximum(ZERO)},
             {"Minimum",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minimum(ZERO)},
-            {"Max length",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxLength(0)},
-            {"Min length",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minLength(0)},
-            {"Max items",        0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxItems(0)},
-            {"Min items",        0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minItems(0)},
-            {"Max properties",   0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxProperties(0)},
-            {"Min properties",   0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minProperties(0)},
+            {"Max length",      0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxLength(0)},
+            {"Min length",      0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minLength(0)},
+            {"Max items",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxItems(0)},
+            {"Min items",       0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minItems(0)},
+            {"Max properties",  0,              (Function<Schema<?>, Schema<?>>) schema -> schema.maxProperties(0)},
+            {"Min properties",  0,              (Function<Schema<?>, Schema<?>>) schema -> schema.minProperties(0)},
             {"Example",         0,              (Function<Schema<?>, Schema<?>>) schema -> schema.example(0)},
             {"Example",         false,          (Function<Schema<?>, Schema<?>>) schema -> schema.example(false)},
         };
