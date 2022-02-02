@@ -18,9 +18,11 @@ public class ApplicationSecretsTest {
     private Map<String, String> cache;
     private ApplicationSecrets applicationSecrets;
 
-    @Rule public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
+    @Rule
+    public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
-    @Rule public TestLoggerRule logger = TestLoggerRule.targeting(ApplicationSecrets.class, WARN);
+    @Rule
+    public TestLoggerRule logger = TestLoggerRule.targeting(ApplicationSecrets.class, WARN);
 
     @Before
     public void setUp() throws Exception {
@@ -62,4 +64,37 @@ public class ApplicationSecretsTest {
         );
     }
 
+    @Test
+    public void maskAllWhenShorterThan10() {
+        assertEquals("", ApplicationSecrets.mask(""));
+        assertEquals("*", ApplicationSecrets.mask("1"));
+        assertEquals("**********", ApplicationSecrets.mask("123456789a"));
+    }
+
+    @Test
+    public void maskAllButLast1When11Long() {
+        assertEquals("**********b", ApplicationSecrets.mask("123456789ab"));
+    }
+
+    @Test
+    public void maskAllButLast2When12Long() {
+        assertEquals("**********bc", ApplicationSecrets.mask("123456789abc"));
+    }
+
+    @Test
+    public void maskAllButLast3When13Long() {
+        assertEquals("**********bcd", ApplicationSecrets.mask("123456789abcd"));
+    }
+
+    @Test
+    public void maskAllButLast4When14Long() {
+        assertEquals("**********bcde", ApplicationSecrets.mask("123456789abcde"));
+    }
+
+    @Test
+    public void maskAllExceptLast4When15Longer() {
+        assertEquals("***********cdef", ApplicationSecrets.mask("123456789abcdef"));
+        assertEquals("************defg", ApplicationSecrets.mask("123456789abcdefg"));
+        assertEquals("*******************************wxyz", ApplicationSecrets.mask("123456789abcdefghijklmnopqrstuvwxyz"));
+    }
 }
