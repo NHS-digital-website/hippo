@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
-<#include "../heroes/hero.ftl">
+
+<#include "../../../include/imports.ftl">
 <#include "../heroes/hero-options.ftl">
+<#include "../heroes/hero.ftl">
 
 <#macro imageModule section>
     <div class="nhsd-!t-margin-bottom-6" data-uipath="website.image-module">
@@ -17,7 +19,7 @@
 				"colourBar": 1 == 0,
 				"caption": section.caption
 				}/>
-			
+
 			<#if section.imageType?contains("left")>
 				<#assign heroType = "accentedImageMirrored"/>
 			<#else>
@@ -64,7 +66,7 @@
 	                </figcaption>
 	            </#if>
             </figure>
-            
+
             <#if (section.imageType == 'Right column' || section.imageType == 'Left column') && (document.docType == "Feature" || document.docType == "Blog")>
 		            </div>
 		            <div style="padding-right: 10px;"><@hst.html hippohtml=section.text contentRewriter=brContentRewriter/></div>

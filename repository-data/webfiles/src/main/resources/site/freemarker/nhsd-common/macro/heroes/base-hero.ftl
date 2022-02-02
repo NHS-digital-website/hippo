@@ -51,13 +51,19 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
     </#if>
 
+    <#if hst.isBeanType(options.caption, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
+        <@hst.html var="htmlCaption" hippohtml=options.caption contentRewriter=brContentRewriter />
+    <#else>
+        <#assign htmlCaption = options.caption/>
+    </#if>
+
     <#assign style = ""/>
-    <#assign imgStyle = ""/>
-    <#assign inLine=""/>
+    <#assign inLine = ""/>
+    <#assign imgStyle=htmlCaption?has_content?then("height: 90%;", "height: 100%;")/>
     <#if options.inline?has_content>
     	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 35%)/2); width: 100vw;\""/>
     	<#assign style="width: 100%; margin: 0;">
-    	<#assign imgStyle="width: 100%;">
+        <#assign imgStyle=imgStyle+"width: 100%;">
     </#if>
 
     <#if options.colour?has_content>
@@ -129,14 +135,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                             </#if>
                         </picture>
                         <#if options.caption?has_content>
-
-					        <#if hst.isBeanType(options.caption, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
-					            <@hst.html var="htmlCaption" hippohtml=options.caption contentRewriter=brContentRewriter />
-					        <#else>
-					            <#assign htmlCaption = options.caption/>
-					        </#if>
-
-			            	<figcaption style="height: 10%; width: 100%; text-align: center;">
+                            <figcaption style="height: 10%; width: 100%; text-align: center;">
 				                <#if options.link?has_content>
 				                    <div class="nhsd-t-heading-s">
 				                        <a class="nhsd-a-link" href="${options.link}" data-uipath="ps.publication.image-section.link">${htmlCaption?no_esc}</a>
