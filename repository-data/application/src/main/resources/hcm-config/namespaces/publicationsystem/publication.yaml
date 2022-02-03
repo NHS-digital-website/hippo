@@ -67,6 +67,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: uk.nhs.digital.common.earlyaccess.EarlyAccessKeyPlugin
             wicket.id: ${cluster.id}.left.item
+          /publicly_accessible:
+            /cluster.options:
+              falseLabel: UPCOMING (Show in upcoming publications list only)
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: FINALISED (Full content publicly accessible)
+            caption: Publicly Accessible
+            field: publicly_accessible
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /Summary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -392,6 +403,16 @@ definitions:
             hipposysedit:validators:
             - optional
             jcr:primaryType: hipposysedit:field
+          /publicly_accessible:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:PubliclyAccessible
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
           /related_links:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -514,6 +535,7 @@ definitions:
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
           publicationsystem:KeyFacts: ''
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+          publicationsystem:PubliclyAccessible: true
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
           publicationsystem:earlyaccesskey: ''
