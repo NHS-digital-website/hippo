@@ -6,7 +6,7 @@ definitions:
         \ xmlns=\"http://www.springframework.org/schema/beans\"\r\n       xmlns:xsi=\"\
         http://www.w3.org/2001/XMLSchema-instance\"\r\n       xsi:schemaLocation=\"\
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd\"\
-        >\r\n\r\n  <bean parent=\"abstractCrispSimpleJacksonRestTemplateResourceResolver\"\
+        >\r\n\r\n  <bean id=\"googleReCaptchaResourceResolver\" parent=\"abstractCrispSimpleJacksonRestTemplateResourceResolver\"\
         \r\n        class=\"org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver\"\
         >\r\n    <property name=\"cacheEnabled\" value=\"${cache.enabled}\" />\r\n\
         \    <property name=\"baseUri\" value=\"${base.uri}\" />\r\n    <property\
