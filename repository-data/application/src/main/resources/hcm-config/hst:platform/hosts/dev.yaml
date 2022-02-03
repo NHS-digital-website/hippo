@@ -13,9 +13,6 @@ definitions:
               jcr:primaryType: hst:virtualhost
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
-        hst:scheme: https
-        hst:showcontextpath: false
-        hst:showport: false
         jcr:primaryType: hst:virtualhost
       /io:
         /nhsd:
