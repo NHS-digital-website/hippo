@@ -139,7 +139,6 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
 				                <#if options.link?has_content>
 				                    <div class="nhsd-t-heading-s">
 				                        <a class="nhsd-a-link" href="${options.link}" data-uipath="ps.publication.image-section.link">${htmlCaption?no_esc}</a>
-				                    </div>
 				                <#else>
 				                    <div class="nhsd-t-heading-s">
 				                        <span>${htmlCaption?no_esc}</span>
@@ -147,6 +146,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
 				                </#if>
 				                <#if link?has_content && !htmlCaption?has_content>
 						            </a>
+                                    </div>
 						        </#if>
 			                </figcaption>
 			            </#if>
