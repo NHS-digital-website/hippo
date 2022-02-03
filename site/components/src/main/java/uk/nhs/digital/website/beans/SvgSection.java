@@ -48,7 +48,7 @@ public class SvgSection extends HippoCompound {
             return IOUtils.toString(svgBinaryStream, StandardCharsets.UTF_8.name());
         } else {
             LOG.warn("Could not find Binary data from the SVG section of the document.");
-            return "Image not found";
+            return null;
         }
     }
 
