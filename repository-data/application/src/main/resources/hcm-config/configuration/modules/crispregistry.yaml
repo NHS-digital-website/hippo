@@ -19,7 +19,4 @@ definitions:
       crisp:propvalues:
       - 'true'
       - https://www.google.com
-      crisp:sitescopes:
-      - publicationsystem
-      - platform
       jcr:primaryType: crisp:resourceresolver
