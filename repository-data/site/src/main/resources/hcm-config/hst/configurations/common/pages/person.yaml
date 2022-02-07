@@ -4,7 +4,15 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/person:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.PersonComponent
+        hst:parameternames:
+        - brandRefreshContentRewriter
+        - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
+        hst:parametervalues:
+        - 'true'
+        - 'true'
+        - 'true'
         hst:template: person-article
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/apppage
+      hst:referencecomponent: hst:abstractpages/nhsd-homepage
       jcr:primaryType: hst:component
