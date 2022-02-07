@@ -1,12 +1,15 @@
+---
 definitions:
   config:
     /hippo:configuration/hippo:groups/health-survey-authors:
-      jcr:primaryType: hipposys:group
       hipposys:description: Health survey author users ONLY have access to documents
         in /corporate-website/publication-system/statistical/
       hipposys:securityprovider: internal
       hipposys:userroles:
-        .meta:category: system
         .meta:add-new-system-values: true
+        .meta:category: system
         type: string
-        value: [xm.cms.user, xm.content.user]
+        value:
+        - xm.cms.user
+        - xm.content.user
+      jcr:primaryType: hipposys:group
