@@ -1,5 +1,5 @@
 name: Slack Deployment Command for ODv2
-
+#Slack deployment command for ODv2 (TST,Development, CS)
 on:
   repository_dispatch:
     types:
@@ -207,6 +207,10 @@ jobs:
           result-encoding: json
           script: |
             const environments = {
+              C031HQR9Q0P: {
+                "name" : "cs",
+                "id": "dde633ee-047e-437e-a29e-1704ff9fe98a"
+              },
               C026PH4GQSH: {
                 "name": "development",
                 "id": "c033120b-291a-463c-8ba7-363fb50ea072",
