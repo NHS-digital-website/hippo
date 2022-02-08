@@ -2,13 +2,40 @@
 definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:templates:
+      /button:
+        hst:renderpath: webfile:/freemarker/common/button.ftl
+        jcr:primaryType: hst:template
+      /callToAction:
+        hst:renderpath: webfile:/freemarker/common/callToAction.ftl
+        jcr:primaryType: hst:template
+      /callToActionRich:
+        hst:renderpath: webfile:/freemarker/common/callToAction.ftl
+        jcr:primaryType: hst:template
+      /dataset:
+        hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
+        jcr:primaryType: hst:template
+      /footer:
+        hst:renderpath: webfile:/freemarker/ndrs/base-footer.ftl
+        jcr:primaryType: hst:template
+      /header-banner:
+        hst:renderpath: webfile:/freemarker/ndrs/header-banner.ftl
+        jcr:primaryType: hst:template
       /home:
         hst:renderpath: webfile:/freemarker/ndrs/home.ftl
         jcr:primaryType: hst:template
       /menu:
-        hst:renderpath: webfile:/freemarker/common/menu.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/menu.ftl
+        jcr:primaryType: hst:template
+      /navigationBlock:
+        hst:renderpath: webfile:/freemarker/ndrs/navigationBlock.ftl
         jcr:primaryType: hst:template
       /ndrs-abstract-layout:
         hst:renderpath: webfile:/freemarker/ndrs/layout/ndrs-abstract-layout.ftl
+        jcr:primaryType: hst:template
+      /ndrs-homepage:
+        hst:renderpath: webfile:/freemarker/ndrs/home.ftl
+        jcr:primaryType: hst:template
+      /nhsd-main-nav:
+        hst:renderpath: webfile:/freemarker/ndrs/nhsd-main-nav.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

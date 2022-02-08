@@ -2,6 +2,7 @@
 definitions:
   config:
     /hippo:configuration/hippo:modules/content-feed/hippo:moduleconfig/metadata:
+      enabled: false
       excludedDocumentTypes:
         operation: add
         type: string

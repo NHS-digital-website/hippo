@@ -54,6 +54,15 @@ definitions:
         - hst:pages/task
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
+      /coronavirus:
+        hst:componentconfigurationid: hst:pages/nhsd-coronavirus
+        hst:relativecontentpath: coronavirus
+        jcr:primaryType: hst:sitemapitem
+      /data:
+        hst:componentconfigurationid: hst:pages/dataset
+        hst:refId: data
+        hst:relativecontentpath: data-and-information
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/home
         hst:refId: root

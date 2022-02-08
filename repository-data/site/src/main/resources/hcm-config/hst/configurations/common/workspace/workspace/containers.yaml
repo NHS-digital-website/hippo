@@ -113,9 +113,13 @@ definitions:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-1:
+          hippo:identifier: 263939fd-a23b-4019-a970-216f426558da
+          hst:lastmodified: 2022-02-04T20:03:42.355Z
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-2:
+          hippo:identifier: ff710f98-bfbd-49a3-b5d2-96fed4585215
+          hst:lastmodified: 2022-02-04T21:15:43.592Z
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-3:

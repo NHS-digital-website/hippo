@@ -2,5 +2,43 @@
 definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:abstractpages/basepage:
+      /breadcrumb-ci-old-styling:
+        hst:referencecomponent: hst:components/breadcrumb-ci-old-styling
+        jcr:primaryType: hst:component
+      /coronavirus-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.CoronavirusBanner
+        hst:template: coronavirus-banner
+        jcr:primaryType: hst:component
+      /footer:
+        hst:template: footer
+        jcr:primaryType: hst:component
+      /main-nav:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - nhsd-main-nav
+        hst:template: nhsd-main-nav
+        jcr:primaryType: hst:component
+      /top:
+        hst:componentclassname: uk.nhs.digital.common.components.SearchBarComponent
+        hst:template: searchbar
+        jcr:primaryType: hst:component
+      /top-menu:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - main
+        hst:template: base-top-menu
+        jcr:primaryType: hst:component
       hst:template: ndrs-abstract-layout
       jcr:primaryType: hst:component
