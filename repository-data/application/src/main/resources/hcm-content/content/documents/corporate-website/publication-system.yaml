@@ -1,6 +1,6 @@
 ---
 /content/documents/corporate-website/publication-system:
-  .meta:order-before: supplementary-info
+  .meta:order-before: ndrs
   hippo:name: Publication System
   hippostd:foldertype:
   - new-statistical-publications-and-clinical-indicators-document

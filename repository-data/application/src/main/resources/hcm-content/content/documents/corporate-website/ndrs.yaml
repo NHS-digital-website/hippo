@@ -1,10 +1,547 @@
 ---
 /content/documents/corporate-website/ndrs:
+  /banners:
+    /banner:
+      /banner[1]:
+        /website:content:
+          hippostd:content: <p>The National Disease Registration Service (NDRS) collects
+            data on all cases of cancer that occur in people living in England. This
+            data supports public health, healthcare, research, and analysis</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: bd4ec2cd-feca-4da0-91ab-4de3b30e4085
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:link:
+          hippo:docbase: 943e607e-8336-4765-80f8-9cf59d041153
+          jcr:primaryType: hippo:mirror
+        /website:seoSummary:
+          hippostd:content: We help NHS organisation to manage and improve their cyber
+            security
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: Information, data and insight at your fingertips
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability: []
+        hippo:related___pathreference: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-31T10:37:29.686Z
+        hippostdpubwf:lastModificationDate: 2022-02-04T20:40:59.622Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 3c3b45f0-9cab-42ec-a4f3-df78289119f3
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:bannerdocument
+        website:title: Information, data and insight at your fingertips
+      /banner[2]:
+        /website:content:
+          hippostd:content: <p>The National Disease Registration Service (NDRS) collects
+            data on all cases of cancer that occur in people living in England. This
+            data supports public health, healthcare, research, and analysis</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: bd4ec2cd-feca-4da0-91ab-4de3b30e4085
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:link:
+          hippo:docbase: 943e607e-8336-4765-80f8-9cf59d041153
+          jcr:primaryType: hippo:mirror
+        /website:seoSummary:
+          hippostd:content: We help NHS organisation to manage and improve their cyber
+            security
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: Information, data and insight at your fingertips
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippo:related___pathreference: []
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-31T10:37:29.686Z
+        hippostdpubwf:lastModificationDate: 2022-02-04T20:40:59.519Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 3c3b45f0-9cab-42ec-a4f3-df78289119f3
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:bannerdocument
+        website:title: Information, data and insight at your fingertips
+      /banner[3]:
+        /website:content:
+          hippostd:content: <p>The National Disease Registration Service (NDRS) collects
+            data on all cases of cancer that occur in people living in England. This
+            data supports public health, healthcare, research, and analysis</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: bd4ec2cd-feca-4da0-91ab-4de3b30e4085
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:link:
+          hippo:docbase: 943e607e-8336-4765-80f8-9cf59d041153
+          jcr:primaryType: hippo:mirror
+        /website:seoSummary:
+          hippostd:content: We help NHS organisation to manage and improve their cyber
+            security
+          jcr:primaryType: hippostd:html
+        /website:seosummary:
+          hippostd:content: Information, data and insight at your fingertips
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippo:related___pathreference: []
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-31T10:37:29.686Z
+        hippostdpubwf:lastModificationDate: 2022-02-04T20:40:59.519Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-02-04T20:41:03.596Z
+        hippotranslation:id: 3c3b45f0-9cab-42ec-a4f3-df78289119f3
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:bannerdocument
+        website:title: Information, data and insight at your fingertips
+      hippo:name: cyber-data-security-banner
+      hippo:versionHistory: 0a2f8e31-d7fb-47f8-961f-8fa5e07e3aed
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /videobanner:
+      /videobanner[1]:
+        /website:introduction:
+          hippostd:content: <p><iframe allowfullscreen="" src="https://www.youtube.com/embed/PRVd30lUeAw"
+            width="640" height="360"></iframe></p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments[1]:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:relateddocuments[2]:
+          hippo:docbase: de405b7a-87a2-4117-95bf-876093e4a3d5
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Patients requiring help
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-02-02T10:56:04.689Z
+        hippostdpubwf:lastModificationDate: 2022-02-02T22:04:26.893Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: bfd9f48f-af58-478c-8d2d-c0d535a329c4
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/watch?v=PRVd30lUeAw
+        website:shortsummary: Patients requiring help Patients requiring help
+        website:title: Patients requiring help
+      /videobanner[2]:
+        /website:introduction:
+          hippostd:content: <p><iframe allowfullscreen="" src="https://www.youtube.com/embed/PRVd30lUeAw"
+            width="640" height="360"></iframe></p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments[1]:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:relateddocuments[2]:
+          hippo:docbase: de405b7a-87a2-4117-95bf-876093e4a3d5
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Patients requiring help
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-02-02T10:56:04.689Z
+        hippostdpubwf:lastModificationDate: 2022-02-02T11:15:01.959Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: bfd9f48f-af58-478c-8d2d-c0d535a329c4
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/watch?v=PRVd30lUeAw
+        website:shortsummary: Patients requiring help Patients requiring help
+        website:title: Patients requiring help
+      /videobanner[3]:
+        /website:introduction:
+          hippostd:content: <p><iframe allowfullscreen="" src="https://www.youtube.com/embed/PRVd30lUeAw"
+            width="640" height="360"></iframe></p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocuments[1]:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        /website:relateddocuments[2]:
+          hippo:docbase: de405b7a-87a2-4117-95bf-876093e4a3d5
+          jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Patients requiring help
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-02-02T10:56:04.689Z
+        hippostdpubwf:lastModificationDate: 2022-02-02T11:15:01.959Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-02-02T11:15:06.147Z
+        hippotranslation:id: bfd9f48f-af58-478c-8d2d-c0d535a329c4
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:video
+        website:externallinkbase: https://www.youtube.com/watch?v=PRVd30lUeAw
+        website:shortsummary: Patients requiring help Patients requiring help
+        website:title: Patients requiring help
+      hippo:name: VideoBanner
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Banners
+    hippostd:foldertype:
+    - new-digital-website-folder
+    - new-digital-website-document
+    hippotranslation:id: 6288e9ca-e714-411f-a8a5-7ed345c4467c
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  /cta:
+    /cta---left:
+      /cta---left[1]:
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T10:53:03.691Z
+        hippostdpubwf:lastModificationDate: 2022-02-07T12:03:27.654Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 0f95ed9b-0068-47be-9bbf-e286cc1d102c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:calltoaction
+        website:Label: See all data and publications
+        website:content: NHS Digital has responsibility for standardising, collecting
+          and publishing data and information from across the health and social care
+          system in England.
+        website:external: ''
+        website:title: Find data and information
+      /cta---left[2]:
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T10:53:03.691Z
+        hippostdpubwf:lastModificationDate: 2018-02-21T10:53:29.643Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 0f95ed9b-0068-47be-9bbf-e286cc1d102c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:calltoaction
+        website:Label: See all data and publications
+        website:content: NHS Digital has responsibility for standardising, collecting
+          and publishing data and information from across the health and social care
+          system in England.
+        website:external: ''
+        website:title: Find data and information
+      /cta---left[3]:
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T10:53:03.691Z
+        hippostdpubwf:lastModificationDate: 2018-02-21T10:53:29.643Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-02-04T09:44:30.918Z
+        hippotranslation:id: 0f95ed9b-0068-47be-9bbf-e286cc1d102c
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:calltoaction
+        website:Label: See all data and publications
+        website:content: NHS Digital has responsibility for standardising, collecting
+          and publishing data and information from across the health and social care
+          system in England.
+        website:external: ''
+        website:title: Find data and information
+      hippo:name: CTA - Left
+      hippo:versionHistory: b285a3e7-65fe-4a1a-a5a5-48f78c50f108
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /cta---right:
+      /cta---right[1]:
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T10:53:56.095Z
+        hippostdpubwf:lastModificationDate: 2018-02-21T10:53:56.095Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 3087ed8b-87dc-4f44-931d-eb1110269399
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:calltoaction
+        website:Label: View Indicator Library
+        website:content: NHS Digital publishes over a thousand indicators covering
+          quality through to population health and outcomes of treatments.
+        website:external: ''
+        website:title: Indicator library
+      /cta---right[2]:
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T10:53:56.095Z
+        hippostdpubwf:lastModificationDate: 2018-02-21T10:54:07.029Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 3087ed8b-87dc-4f44-931d-eb1110269399
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:calltoaction
+        website:Label: View Indicator Library
+        website:content: NHS Digital publishes over a thousand indicators covering
+          quality through to population health and outcomes of treatments.
+        website:external: ''
+        website:title: Indicator library
+      /cta---right[3]:
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T10:53:56.095Z
+        hippostdpubwf:lastModificationDate: 2018-02-21T10:54:07.029Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-02-04T09:44:28.862Z
+        hippotranslation:id: 3087ed8b-87dc-4f44-931d-eb1110269399
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:calltoaction
+        website:Label: View Indicator Library
+        website:content: NHS Digital publishes over a thousand indicators covering
+          quality through to population health and outcomes of treatments.
+        website:external: ''
+        website:title: Indicator library
+      hippo:name: CTA - Right
+      hippo:versionHistory: 6a32abc5-9d72-4c4d-9e21-929d89461e7a
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /how-we-look-after-your-information:
+      /how-we-look-after-your-information[1]:
+        /website:image:
+          hippo:docbase: e0d35aa0-b348-4eb4-8a8b-64a61abf70c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T11:00:51.425Z
+        hippostdpubwf:lastModificationDate: 2018-02-28T12:05:42.203Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2a5de61a-cb83-43ae-98bb-e2155c4e5c82
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:calltoaction
+        website:Label: Find out how we look after your information
+        website:content:
+          type: string
+          value: !!binary |-
+            V2UgdGFrZSBvdXIgcmVzcG9uc2liaWxpdHkgZm9yIGxvb2tpbmcgYWZ0ZXIgY2FyZSADaW5mb3JtYXRpb24gdmVyeSBzZXJpb3VzbHkuIFdlIGZvbGxvdyB0aGUgbGVnYWwgcnVsZXMsIANndWlkYW5jZSBhbmQgcHJhY3RpY2VzIGtub3duIGFzIEluZm9ybWF0aW9uIEdvdmVybmFuY2UgKElHKSAgZm9yIGJvdGggdGhlIGNvbGxlY3Rpb25zIHdlIG1ha2UgYW5kIHRoZSBJVCBzeXN0ZW1zIHdlIHByb3ZpZGUgYW5kIHJ1bi4=
+        website:external: ''
+        website:title: How we look after your information
+      /how-we-look-after-your-information[2]:
+        /website:image:
+          hippo:docbase: e0d35aa0-b348-4eb4-8a8b-64a61abf70c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T11:00:51.425Z
+        hippostdpubwf:lastModificationDate: 2018-02-28T12:13:53.600Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2a5de61a-cb83-43ae-98bb-e2155c4e5c82
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:calltoaction
+        website:Label: Find out how we look after your information
+        website:content:
+          type: string
+          value: !!binary |-
+            V2UgdGFrZSBvdXIgcmVzcG9uc2liaWxpdHkgZm9yIGxvb2tpbmcgYWZ0ZXIgY2FyZSADaW5mb3JtYXRpb24gdmVyeSBzZXJpb3VzbHkuIFdlIGZvbGxvdyB0aGUgbGVnYWwgcnVsZXMsIANndWlkYW5jZSBhbmQgcHJhY3RpY2VzIGtub3duIGFzIEluZm9ybWF0aW9uIEdvdmVybmFuY2UgKElHKSAgZm9yIGJvdGggdGhlIGNvbGxlY3Rpb25zIHdlIG1ha2UgYW5kIHRoZSBJVCBzeXN0ZW1zIHdlIHByb3ZpZGUgYW5kIHJ1bi4=
+        website:external: ''
+        website:title: How we look after your information
+      /how-we-look-after-your-information[3]:
+        /website:image:
+          hippo:docbase: e0d35aa0-b348-4eb4-8a8b-64a61abf70c2
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T11:00:51.425Z
+        hippostdpubwf:lastModificationDate: 2018-02-28T12:13:53.600Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-02-04T09:44:25.998Z
+        hippotranslation:id: 2a5de61a-cb83-43ae-98bb-e2155c4e5c82
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:calltoaction
+        website:Label: Find out how we look after your information
+        website:content:
+          type: string
+          value: !!binary |-
+            V2UgdGFrZSBvdXIgcmVzcG9uc2liaWxpdHkgZm9yIGxvb2tpbmcgYWZ0ZXIgY2FyZSADaW5mb3JtYXRpb24gdmVyeSBzZXJpb3VzbHkuIFdlIGZvbGxvdyB0aGUgbGVnYWwgcnVsZXMsIANndWlkYW5jZSBhbmQgcHJhY3RpY2VzIGtub3duIGFzIEluZm9ybWF0aW9uIEdvdmVybmFuY2UgKElHKSAgZm9yIGJvdGggdGhlIGNvbGxlY3Rpb25zIHdlIG1ha2UgYW5kIHRoZSBJVCBzeXN0ZW1zIHdlIHByb3ZpZGUgYW5kIHJ1bi4=
+        website:external: ''
+        website:title: How we look after your information
+      hippo:name: How we look after your information
+      hippo:versionHistory: 2bdb64bb-a4e9-494d-ac9d-7067d10dcaf7
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: CTA
+    hippostd:foldertype:
+    - new-digital-website-folder
+    - new-digital-website-document
+    hippotranslation:id: ef69514a-d572-40de-bbd1-79133007ff0f
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   hippo:name: NDRS
   hippostd:foldertype:
   - new-translated-folder
   - new-document
-  hippotranslation:id: c2f9c8ab-1ef7-4d12-88c1-756c2ee0c4e9
+  hippotranslation:id: c5ef319f-faaa-4a98-aa42-2bfa0c417361
   hippotranslation:locale: en
   jcr:mixinTypes:
   - hippo:named

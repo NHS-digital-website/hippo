@@ -1,0 +1,11 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/nhsd-homepage/main/service-list:
+      .meta:order-before: cardlist
+      hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListComponent
+      hst:iconpath: images/catalog/component-products-30x30.png
+      hst:label: Service List
+      hst:template: service-list
+      hst:xtype: HST.Item
+      jcr:primaryType: hst:containeritemcomponent

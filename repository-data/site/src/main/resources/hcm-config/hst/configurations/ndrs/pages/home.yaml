@@ -3,6 +3,18 @@ definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:pages/home:
       /main:
+        /main-nav:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+          hst:parameternames:
+          - selectedMenu
+          - level
+          - menu
+          hst:parametervalues:
+          - 'on'
+          - '1'
+          - nhsd-main-nav
+          hst:template: nhsd-main-nav
+          jcr:primaryType: hst:component
         hst:template: home
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/basepage
