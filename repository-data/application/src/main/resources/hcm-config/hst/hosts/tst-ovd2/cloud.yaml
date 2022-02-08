@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hst:platform/hst:hosts/tst-ovd2/cloud:
+      /bloomreach:
+        /nhsdigital:
+          /tst:
+            /hst:root:
+              hst:ismapped: false
+              hst:namedpipeline: WebApplicationInvokingPipeline
+              jcr:primaryType: hst:mount
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhost
+      hst:scheme: https
+      hst:showcontextpath: true
+      hst:showport: false
+      jcr:primaryType: hst:virtualhost
