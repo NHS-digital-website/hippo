@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/tst-ovd2:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:virtualhostgroup

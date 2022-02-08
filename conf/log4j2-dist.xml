@@ -101,10 +101,14 @@
     </Logger>
 
     <!-- Site logging -->
-    <Logger name="org.hippoecm.hst" level="warn"/>
+      <Logger name="org.hippoecm.hst" level="warn"/>
+      <Logger name="org.tuckey.web.filters.urlrewrite" level="info"/>
+      <Logger name="org.springframework.web.filter.RequestContextFilter" level="off"/>
+      <Logger name="org.springframework.util.PropertyPlaceholderHelper" level="info"/>
+      <Logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="info"/>
 
-    <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
-         can be here on level 'info' -->
+      <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
+           can be here on level 'info' -->
     <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
 
     <Logger name="freemarker" level="error">
@@ -146,8 +150,8 @@
     <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
       <!-- IP Filter logging -->
-      <Logger name="org.bloomreach.forge.ipfilter" level="trace"/>
-      <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter" level="trace"/>
+      <Logger name="org.bloomreach.forge.ipfilter" level="info"/>
+      <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter" level="info"/>
 
       <Root level="ALL">
           <AppenderRef ref="site"/>

@@ -5,9 +5,9 @@ import static org.hippoecm.hst.site.HstServices.getComponentManager;
 import freemarker.template.SimpleScalar;
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.List;
