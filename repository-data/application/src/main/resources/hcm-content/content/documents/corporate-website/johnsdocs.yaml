@@ -1,0 +1,1227 @@
+---
+/content/documents/corporate-website/johnsdocs:
+  /blog:
+    /blog[1]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: true
+        website:imageSize: false
+      /website:summary:
+        hippostd:content: <p>This is a test of the bog document with the social media
+          bar</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-05T10:43:44.543Z
+      hippostdpubwf:lastModificationDate: 2022-04-05T10:44:23.512Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 99612fce-227c-4c0a-b5a9-677eaaf282f0
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-04-04T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:seosummarytext: ''
+      website:shortsummary: short summary
+      website:title: DW-2693 Blog document
+    /blog[2]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: true
+        website:imageSize: false
+      /website:summary:
+        hippostd:content: <p>This is a test of the bog document with the social media
+          bar</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-05T10:43:44.543Z
+      hippostdpubwf:lastModificationDate: 2022-04-05T10:44:23.438Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 99612fce-227c-4c0a-b5a9-677eaaf282f0
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-04-04T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:seosummarytext: ''
+      website:shortsummary: short summary
+      website:title: DW-2693 Blog document
+    /blog[3]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: true
+        website:imageSize: false
+      /website:summary:
+        hippostd:content: <p>This is a test of the bog document with the social media
+          bar</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-05T10:43:44.543Z
+      hippostdpubwf:lastModificationDate: 2022-04-05T10:44:23.438Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-04-05T10:44:30.576Z
+      hippotranslation:id: 99612fce-227c-4c0a-b5a9-677eaaf282f0
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:blog
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-04-04T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:seosummarytext: ''
+      website:shortsummary: short summary
+      website:title: DW-2693 Blog document
+    hippo:versionHistory: f0c4b230-f07f-4ccb-b2c2-a42536c3099d
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /dw-2084-pub-hub:
+    /dw-2084-pub-hub[1]:
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Summary goes in here</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-05-13T10:18:06.006Z
+      hippostdpubwf:lastModificationDate: 2022-05-13T10:29:02.528Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 28c2e5ac-250e-4480-b2a3-b3f2545fef18
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feedhub
+      website:feedType: Series
+      website:hubType: Documents for a section
+      website:shortSummary: ''
+      website:title: DW-2084 Publcation Hub
+    /dw-2084-pub-hub[2]:
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Summary goes in here</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-05-13T10:18:06.006Z
+      hippostdpubwf:lastModificationDate: 2022-05-13T10:29:07.838Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 28c2e5ac-250e-4480-b2a3-b3f2545fef18
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:feedhub
+      website:feedType: Series
+      website:hubType: Documents for a section
+      website:shortSummary: ''
+      website:title: DW-2084 Publcation Hub
+    /dw-2084-pub-hub[3]:
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Summary goes in here</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-05-13T10:18:06.006Z
+      hippostdpubwf:lastModificationDate: 2022-05-13T10:29:07.838Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-05-13T10:29:11.119Z
+      hippotranslation:id: 28c2e5ac-250e-4480-b2a3-b3f2545fef18
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feedhub
+      website:feedType: Series
+      website:hubType: Documents for a section
+      website:shortSummary: ''
+      website:title: DW-2084 Publcation Hub
+    hippo:name: DW-2084 Pub Hub
+    hippo:versionHistory: 31edc8cf-df65-498e-a194-35140286a228
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /dw-2811-cyber-hub:
+    /dw-2811-cyber-hub[1]:
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Cyber hub feed</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-07T08:14:24.615Z
+      hippostdpubwf:lastModificationDate: 2022-04-07T08:14:24.615Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b4af82e3-890c-4230-8769-2aa45dcf4e02
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feedhub
+      website:feedType: Cyber Alerts
+      website:hubType: Site-wide documents
+      website:shortSummary: ''
+      website:title: DW-2811  CyberHub Feed
+    /dw-2811-cyber-hub[2]:
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Cyber hub feed</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-07T08:14:24.615Z
+      hippostdpubwf:lastModificationDate: 2022-04-07T08:14:51.966Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b4af82e3-890c-4230-8769-2aa45dcf4e02
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:feedhub
+      website:feedType: Cyber Alerts
+      website:hubType: Site-wide documents
+      website:shortSummary: ''
+      website:title: DW-2811  CyberHub Feed
+    /dw-2811-cyber-hub[3]:
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Cyber hub feed</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-07T08:14:24.615Z
+      hippostdpubwf:lastModificationDate: 2022-04-07T08:14:51.966Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-04-07T08:14:55.713Z
+      hippotranslation:id: b4af82e3-890c-4230-8769-2aa45dcf4e02
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feedhub
+      website:feedType: Cyber Alerts
+      website:hubType: Site-wide documents
+      website:shortSummary: ''
+      website:title: DW-2811  CyberHub Feed
+    hippo:name: DW-2811 Cyber Hub
+    hippo:versionHistory: 75415c80-46d9-442f-8554-e27dbd69024e
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /dw-2990-image-test:
+    /dw-2990-image-test[1]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: |-
+          <p>This is the back story. It comes after the image and should be central and the same width as the test above the image.</p>
+
+          <p>&nbsp;</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: 3226a5d7-56a5-405d-9523-93544edfe9be
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: <p>Speaker</p>
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: |-
+          <p>This is the lead paragraph. It is setting the standard for the central text size.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        jcr:primaryType: hippostd:html
+      /website:sections[1]:
+        /website:caption:
+          hippostd:content: <p>Yaesu FT-One HF transceiver</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: ea8044a2-9145-4846-9221-dbc10553ee06
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:text:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:ImageModule
+        website:altText: FT-One
+        website:imageType: Half width in line
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>This is the content of a section. It should be the width matching the test above the image.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Sub heading
+        website:numberedList: false
+        website:title: This is a section title
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: false
+        website:enable: false
+        website:hexagons: false
+        website:iconSize: false
+      /website:summary:
+        hippostd:content: <p>This is a document to test the image feature</p>
+        jcr:primaryType: hippostd:html
+      /website:thumbnailimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-05-24T15:53:31.078Z
+      hippostdpubwf:lastModificationDate: 2022-05-24T16:21:51.581Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c3fc69d5-d43d-4e9b-aa3a-a5f87786c56c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feature
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-05-23T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: Speaker
+      website:shortsummary: Image test document
+      website:title: Image test
+    /dw-2990-image-test[2]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: |-
+          <p>This is the back story. It comes after the image and should be central and the same width as the test above the image.</p>
+
+          <p>&nbsp;</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: 3226a5d7-56a5-405d-9523-93544edfe9be
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: <p>Speaker</p>
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: |-
+          <p>This is the lead paragraph. It is setting the standard for the central text size.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        jcr:primaryType: hippostd:html
+      /website:sections[1]:
+        /website:caption:
+          hippostd:content: <p>Yaesu FT-One HF transceiver</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: ea8044a2-9145-4846-9221-dbc10553ee06
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:text:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:ImageModule
+        website:altText: FT-One
+        website:imageType: Half width in line
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>This is the content of a section. It should be the width matching the test above the image.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Sub heading
+        website:numberedList: false
+        website:title: This is a section title
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: false
+        website:enable: false
+        website:hexagons: false
+        website:iconSize: false
+      /website:summary:
+        hippostd:content: <p>This is a document to test the image feature</p>
+        jcr:primaryType: hippostd:html
+      /website:thumbnailimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-05-24T15:53:31.078Z
+      hippostdpubwf:lastModificationDate: 2022-05-24T16:22:00.318Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c3fc69d5-d43d-4e9b-aa3a-a5f87786c56c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:feature
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-05-23T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: Speaker
+      website:shortsummary: Image test document
+      website:title: Image test
+    /dw-2990-image-test[3]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: |-
+          <p>This is the back story. It comes after the image and should be central and the same width as the test above the image.</p>
+
+          <p>&nbsp;</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: 3226a5d7-56a5-405d-9523-93544edfe9be
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: <p>Speaker</p>
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: |-
+          <p>This is the lead paragraph. It is setting the standard for the central text size.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        jcr:primaryType: hippostd:html
+      /website:sections[1]:
+        /website:caption:
+          hippostd:content: <p>Yaesu FT-One HF transceiver</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: ea8044a2-9145-4846-9221-dbc10553ee06
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:text:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:ImageModule
+        website:altText: FT-One
+        website:imageType: Half width in line
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>This is the content of a section. It should be the width matching the test above the image.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Sub heading
+        website:numberedList: false
+        website:title: This is a section title
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: false
+        website:enable: false
+        website:hexagons: false
+        website:iconSize: false
+      /website:summary:
+        hippostd:content: <p>This is a document to test the image feature</p>
+        jcr:primaryType: hippostd:html
+      /website:thumbnailimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-05-24T15:53:31.078Z
+      hippostdpubwf:lastModificationDate: 2022-05-24T16:22:00.318Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-05-24T16:22:02.904Z
+      hippotranslation:id: c3fc69d5-d43d-4e9b-aa3a-a5f87786c56c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feature
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-05-23T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: Speaker
+      website:shortsummary: Image test document
+      website:title: Image test
+    hippo:name: DW-2990 Image test
+    hippo:versionHistory: 8ff79d16-4198-4a71-8a77-0e8fe25885f1
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /feature:
+    /feature[1]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: false
+      /website:summary:
+        hippostd:content: <p>Introduction</p>
+        jcr:primaryType: hippostd:html
+      /website:thumbnailimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-05T09:56:03.985Z
+      hippostdpubwf:lastModificationDate: 2022-05-16T16:11:58.403Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: dfcaa899-c2ec-4f9d-b465-446dbdbf5eee
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feature
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-04-04T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:shortsummary: Sort Summary
+      website:title: DW-2693 Feature
+    /feature[2]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: false
+      /website:summary:
+        hippostd:content: <p>Introduction</p>
+        jcr:primaryType: hippostd:html
+      /website:thumbnailimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-05T09:56:03.985Z
+      hippostdpubwf:lastModificationDate: 2022-04-05T09:56:46.989Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: dfcaa899-c2ec-4f9d-b465-446dbdbf5eee
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:feature
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-04-04T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:shortsummary: Sort Summary
+      website:title: DW-2693 Feature
+    /feature[3]:
+      /website:authordescription:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:backstory:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimagecaption:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:leadparagraph:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: false
+      /website:summary:
+        hippostd:content: <p>Introduction</p>
+        jcr:primaryType: hippostd:html
+      /website:thumbnailimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-05T09:56:03.985Z
+      hippostdpubwf:lastModificationDate: 2022-04-05T09:56:46.989Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-04-05T09:56:52.707Z
+      hippotranslation:id: dfcaa899-c2ec-4f9d-b465-446dbdbf5eee
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feature
+      website:authorjobtitle: ''
+      website:authorname: ''
+      website:authororganisation: ''
+      website:authorrole: ''
+      website:dateofpublication: 2022-04-04T23:00:00Z
+      website:headertype: Cube header
+      website:leadimagealttext: ''
+      website:shortsummary: Sort Summary
+      website:title: DW-2693 Feature
+    hippo:versionHistory: d417d1c6-5608-43f2-82bd-c8e6aa599fb8
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /person:
+    /person[1]:
+      /website:awards:
+        /website:awardpicture:
+          hippo:docbase: d1f31202-5b37-413a-adc0-15a4b3b14592
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:award
+        website:awardingbody: ''
+        website:awardname: Best in the world
+      /website:biographies:
+        /website:profbiography:
+          hippostd:content: |-
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac aliquet nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris nec imperdiet diam. Curabitur ornare odio sollicitudin risus ultricies auctor. Morbi rutrum tellus quis condimentum dapibus. Ut maximus urna eget mi condimentum tincidunt. Etiam sagittis vehicula porta. Fusce accumsan urna sem, eu molestie arcu consequat ac. Pellentesque congue volutpat nulla et vehicula.</p>
+
+            <p>Proin et pellentesque augue, dapibus dignissim eros. Nulla sodales ipsum purus, nec dictum nisi dictum sed. Cras mollis convallis orci eu luctus. Nam accumsan sodales odio, in commodo nisl tempor non. Vestibulum bibendum lobortis dui non pellentesque. Nullam at ullamcorper sem. Morbi imperdiet purus sed malesuada euismod. Proin ut nisl ante. Integer non diam venenatis, varius neque sit amet, interdum nisl. Integer tempus sem quis sapien efficitur, at feugiat libero mollis.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:biography
+      /website:managedby:
+        hippo:docbase: c6eebf3b-d809-4863-ac04-2d420c2c17f3
+        jcr:primaryType: hippo:mirror
+      /website:manages:
+        hippo:docbase: 174f55ba-c146-42d9-a1b4-d0677e57631f
+        jcr:primaryType: hippo:mirror
+      /website:personalinfos:
+        jcr:primaryType: website:personalinfo
+        website:firstname: John
+        website:fistname: ''
+        website:gender: Male
+        website:lastname: Milne
+        website:middlenames: My lord
+        website:othergender: ''
+        website:otherhonorific: ''
+        website:otherpreferedpronouns: ''
+        website:preferredname: Master
+        website:preferredpronouns: ''
+        website:pronunciation: ''
+      /website:personimages:
+        /website:imagerightsdetails:
+          hippostd:content: <p>some details about the image</p>
+          jcr:primaryType: hippostd:html
+        /website:picture:
+          hippo:docbase: 744a5b80-1859-4198-a6f8-f654fe7b908e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:personimage
+        website:imagedistributiontagging: copyright-subject
+        website:imagesourcepermission: specific-permission
+        website:otherimagedistributiontagging: ''
+      /website:responsibilities:
+        /website:responsibleforservice[1]:
+          hippo:docbase: f4864ea5-b9e4-40f9-9070-b5b4384c7f58
+          jcr:primaryType: hippo:mirror
+        /website:responsibleforservice[2]:
+          hippo:docbase: 7e9a49be-6e82-4368-a2e0-fbb9d5b07a6f
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:responsibility
+        website:responsible:
+        - Stuff
+      /website:roles:
+        /website:boardmembership:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:role
+        website:primaryrole: ''
+        website:primaryroleorg: ''
+      /website:seosummary:
+        hippostd:content: SEO summary for this person is awsome
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: false
+      /website:socialmedia:
+        /website:othersocialmedias:
+          jcr:primaryType: website:othersocialmedia
+          website:link: https://www.facebook.com/john.milne.5855
+          website:title: Facebook
+        /website:twitterhashtags:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:socialmedia
+        website:hellomynameis: ''
+        website:linkedinlink: https://www.linkedin.com/in/john-milne-392a7331
+        website:twitteruser: mylord
+      common:FacetType: person
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-19T18:42:04.581Z
+      hippostdpubwf:lastModificationDate: 2022-07-04T15:18:07.564Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6d4db864-0b6e-4183-8151-e4045f85a99f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:person
+      website:seosummary: ''
+      website:seosummarytext: SEO summary for this person is awsome
+      website:shortsummary: Nothing is short about My Lord
+    /person[2]:
+      /website:awards:
+        /website:awardpicture:
+          hippo:docbase: d1f31202-5b37-413a-adc0-15a4b3b14592
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:award
+        website:awardingbody: ''
+        website:awardname: Best in the world
+      /website:biographies:
+        /website:profbiography:
+          hippostd:content: |-
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac aliquet nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris nec imperdiet diam. Curabitur ornare odio sollicitudin risus ultricies auctor. Morbi rutrum tellus quis condimentum dapibus. Ut maximus urna eget mi condimentum tincidunt. Etiam sagittis vehicula porta. Fusce accumsan urna sem, eu molestie arcu consequat ac. Pellentesque congue volutpat nulla et vehicula.</p>
+
+            <p>Proin et pellentesque augue, dapibus dignissim eros. Nulla sodales ipsum purus, nec dictum nisi dictum sed. Cras mollis convallis orci eu luctus. Nam accumsan sodales odio, in commodo nisl tempor non. Vestibulum bibendum lobortis dui non pellentesque. Nullam at ullamcorper sem. Morbi imperdiet purus sed malesuada euismod. Proin ut nisl ante. Integer non diam venenatis, varius neque sit amet, interdum nisl. Integer tempus sem quis sapien efficitur, at feugiat libero mollis.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:biography
+      /website:managedby:
+        hippo:docbase: c6eebf3b-d809-4863-ac04-2d420c2c17f3
+        jcr:primaryType: hippo:mirror
+      /website:manages:
+        hippo:docbase: 174f55ba-c146-42d9-a1b4-d0677e57631f
+        jcr:primaryType: hippo:mirror
+      /website:personalinfos:
+        jcr:primaryType: website:personalinfo
+        website:firstname: John
+        website:fistname: ''
+        website:gender: Male
+        website:lastname: Milne
+        website:middlenames: My lord
+        website:othergender: ''
+        website:otherhonorific: ''
+        website:otherpreferedpronouns: ''
+        website:preferredname: Master
+        website:preferredpronouns: ''
+        website:pronunciation: ''
+      /website:personimages:
+        /website:imagerightsdetails:
+          hippostd:content: <p>some details about the image</p>
+          jcr:primaryType: hippostd:html
+        /website:picture:
+          hippo:docbase: 744a5b80-1859-4198-a6f8-f654fe7b908e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:personimage
+        website:imagedistributiontagging: copyright-subject
+        website:imagesourcepermission: specific-permission
+        website:otherimagedistributiontagging: ''
+      /website:responsibilities:
+        /website:responsibleforservice[1]:
+          hippo:docbase: f4864ea5-b9e4-40f9-9070-b5b4384c7f58
+          jcr:primaryType: hippo:mirror
+        /website:responsibleforservice[2]:
+          hippo:docbase: 7e9a49be-6e82-4368-a2e0-fbb9d5b07a6f
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:responsibility
+        website:responsible:
+        - Stuff
+      /website:roles:
+        /website:boardmembership:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:role
+        website:primaryrole: ''
+        website:primaryroleorg: ''
+      /website:seosummary:
+        hippostd:content: SEO summary for this person is awsome
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: false
+      /website:socialmedia:
+        /website:othersocialmedias:
+          jcr:primaryType: website:othersocialmedia
+          website:link: https://www.facebook.com/john.milne.5855
+          website:title: Facebook
+        /website:twitterhashtags:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:socialmedia
+        website:hellomynameis: ''
+        website:linkedinlink: https://www.linkedin.com/in/john-milne-392a7331
+        website:twitteruser: mylord
+      common:FacetType: person
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-19T18:42:04.581Z
+      hippostdpubwf:lastModificationDate: 2022-07-04T11:25:41.970Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6d4db864-0b6e-4183-8151-e4045f85a99f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:person
+      website:seosummary: ''
+      website:seosummarytext: SEO summary for this person is awsome
+      website:shortsummary: Nothing is short about My Lord
+    /person[3]:
+      /website:awards:
+        /website:awardpicture:
+          hippo:docbase: d1f31202-5b37-413a-adc0-15a4b3b14592
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:award
+        website:awardingbody: ''
+        website:awardname: Best in the world
+      /website:biographies:
+        /website:profbiography:
+          hippostd:content: |-
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac aliquet nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris nec imperdiet diam. Curabitur ornare odio sollicitudin risus ultricies auctor. Morbi rutrum tellus quis condimentum dapibus. Ut maximus urna eget mi condimentum tincidunt. Etiam sagittis vehicula porta. Fusce accumsan urna sem, eu molestie arcu consequat ac. Pellentesque congue volutpat nulla et vehicula.</p>
+
+            <p>Proin et pellentesque augue, dapibus dignissim eros. Nulla sodales ipsum purus, nec dictum nisi dictum sed. Cras mollis convallis orci eu luctus. Nam accumsan sodales odio, in commodo nisl tempor non. Vestibulum bibendum lobortis dui non pellentesque. Nullam at ullamcorper sem. Morbi imperdiet purus sed malesuada euismod. Proin ut nisl ante. Integer non diam venenatis, varius neque sit amet, interdum nisl. Integer tempus sem quis sapien efficitur, at feugiat libero mollis.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:biography
+      /website:managedby:
+        hippo:docbase: c6eebf3b-d809-4863-ac04-2d420c2c17f3
+        jcr:primaryType: hippo:mirror
+      /website:manages:
+        hippo:docbase: 174f55ba-c146-42d9-a1b4-d0677e57631f
+        jcr:primaryType: hippo:mirror
+      /website:personalinfos:
+        jcr:primaryType: website:personalinfo
+        website:firstname: John
+        website:fistname: ''
+        website:gender: Male
+        website:lastname: Milne
+        website:middlenames: My lord
+        website:othergender: ''
+        website:otherhonorific: ''
+        website:otherpreferedpronouns: ''
+        website:preferredname: Master
+        website:preferredpronouns: ''
+        website:pronunciation: ''
+      /website:personimages:
+        /website:imagerightsdetails:
+          hippostd:content: <p>some details about the image</p>
+          jcr:primaryType: hippostd:html
+        /website:picture:
+          hippo:docbase: 744a5b80-1859-4198-a6f8-f654fe7b908e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:personimage
+        website:imagedistributiontagging: copyright-subject
+        website:imagesourcepermission: specific-permission
+        website:otherimagedistributiontagging: ''
+      /website:responsibilities:
+        /website:responsibleforservice[1]:
+          hippo:docbase: f4864ea5-b9e4-40f9-9070-b5b4384c7f58
+          jcr:primaryType: hippo:mirror
+        /website:responsibleforservice[2]:
+          hippo:docbase: 7e9a49be-6e82-4368-a2e0-fbb9d5b07a6f
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:responsibility
+        website:responsible:
+        - Stuff
+      /website:roles:
+        /website:boardmembership:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:role
+        website:primaryrole: ''
+        website:primaryroleorg: ''
+      /website:seosummary:
+        hippostd:content: SEO summary for this person is awsome
+        jcr:primaryType: hippostd:html
+      /website:socialMediaBar:
+        jcr:primaryType: website:socialMediaBar
+        website:direction: true
+        website:enable: true
+        website:hexagons: true
+        website:iconSize: false
+      /website:socialmedia:
+        /website:othersocialmedias:
+          jcr:primaryType: website:othersocialmedia
+          website:link: https://www.facebook.com/john.milne.5855
+          website:title: Facebook
+        /website:twitterhashtags:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:socialmedia
+        website:hellomynameis: ''
+        website:linkedinlink: https://www.linkedin.com/in/john-milne-392a7331
+        website:twitteruser: mylord
+      common:FacetType: person
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-04-19T18:42:04.581Z
+      hippostdpubwf:lastModificationDate: 2022-07-04T11:25:41.970Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-07-04T11:25:45.352Z
+      hippotranslation:id: 6d4db864-0b6e-4183-8151-e4045f85a99f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:person
+      website:seosummary: ''
+      website:seosummarytext: SEO summary for this person is awsome
+      website:shortsummary: Nothing is short about My Lord
+    hippo:versionHistory: fb688088-3a64-40da-af7c-d957be23bbb7
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 519ddb4f-c9f6-4dc3-9722-4ae8891b86ff
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

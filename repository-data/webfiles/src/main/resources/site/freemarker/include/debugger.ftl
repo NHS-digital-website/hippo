@@ -1,5 +1,4 @@
-<#ftl output_format="HTML">
-<#ftl strip_text=true />
+<#ftl output_format="HTML" strip_text=true />
 
 <#---
   @homepage    https://github.com/ratherblue/freemarker-debugger/
@@ -91,7 +90,7 @@
 
             <#if debugObject?is_number && debugObject == -1>
                 <div class="${settings.styleClassPrefix}-error">
-                    <strong>Error:</strong> Unable to parse ${debugQuery?xhtml}
+                    <strong>Error:</strong> Unable to parse ${debugQuery}
                 </div>
             <#else>
                 <@debugTable
@@ -294,18 +293,18 @@
                             <div class="${settings.styleClassPrefix}-top-link">
                                 <#list title as x>
                                     <#if x_has_next>
-                                        <a href="${x.url?xhtml}">${x.title?xhtml}</a><#t/>
+                                        <a href="${x.url}">${x.title}</a><#t/>
                                     <#else>
-                                        ${x.title?xhtml}<#t/>
+                                        ${x.title}<#t/>
                                     </#if>
                                 </#list>
                             </div>
                         <#elseif titleUrl?has_content>
-                            <a href='${titleUrl?xhtml}'>
-                                ${title?xhtml}
+                            <a href='${titleUrl}'>
+                                ${title}
                             </a>
                         <#else>
-                            ${title?xhtml}
+                            ${title}
                         </#if>
                     </th>
                 </tr>
@@ -365,7 +364,7 @@
     </#if>
 
     <tr>
-        <td class="${settings.styleClassPrefix}-col-left">${key?xhtml}</td>
+        <td class="${settings.styleClassPrefix}-col-left">${key}</td>
         <td class="${settings.styleClassPrefix}-col-right${expandedClass!}">
             <#if isComplex>
                 <@complexValue
@@ -447,8 +446,8 @@
              to string as well as another type -->
         <#elseif value?is_string>
         <#-- show full value in source -->
-            <!-- ${value?xhtml} -->
-            ${truncateString(value)?xhtml}<#-- prevent injection -->
+            <!-- ${value} -->
+            ${truncateString(value)}<#-- prevent injection -->
         </#if>
 
     <#else>
@@ -554,7 +553,7 @@
         </#if>
 
         <#if dynamic>
-            <a href='${getDebugUrl(queryParam)?xhtml}'>${staticValue}</a>
+            <a href='${getDebugUrl(queryParam)}'>${staticValue}</a>
         <#else>
             ${staticValue}
         </#if>

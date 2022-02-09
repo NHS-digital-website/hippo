@@ -19,8 +19,8 @@
 	<#assign heroOptions += {"colour": "darkBlue"}/>
 	<#assign heroType = heroOptions.image?has_content?then("image", "default")>
 	<@hero heroOptions heroType />
-	<br/>	
-	
+	<br/>
+
     <#if document.title?has_content>
         <div class="nhsd-!t-display-hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">${document.title}</span></div>
     </#if>
@@ -59,14 +59,14 @@
                             </div>
                         </div>
                         <div id="nhsd-filter-menu" class="js-filter-list">
-                        	<#if filters?has_content>
-                            <#list filters as filterOptions>
-                                <#assign filterKey = filterOptions.key />
-                                <#assign filterName = filterOptions.name />
-                                <#assign active = (filterValues[filterOptions.key])?has_content || (activeFilters?has_content && activeFilters?seq_contains(filterKey)) />
-                                <div class="nhsd-m-filter-menu-section ${active?then("nhsd-m-filter-menu-section--active", "")}" data-active-menu="${filterKey}">
-                                    <div class="nhsd-m-filter-menu-section__accordion-heading">
-                                        <button class="nhsd-m-filter-menu-section__menu-button" aria-expanded="${active?then("true", "false")}" type="button">
+                            <#if filters?has_content>
+                                <#list filters as filterOptions>
+                                    <#assign filterKey = filterOptions.key />
+                                    <#assign filterName = filterOptions.name />
+                                    <#assign active = (filterValues[filterOptions.key])?has_content || (activeFilters?has_content && activeFilters?seq_contains(filterKey)) />
+                                    <div class="nhsd-m-filter-menu-section ${active?then("nhsd-m-filter-menu-section--active", "")}" data-active-menu="${filterKey}">
+                                        <div class="nhsd-m-filter-menu-section__accordion-heading">
+                                            <button class="nhsd-m-filter-menu-section__menu-button" aria-expanded="${active?then("true", "false")}" type="button">
                                             <span class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s">
                                                 <span class="${active?then("active", "")}">
                                                     <span class="nhsd-a-icon nhsd-a-icon--size-xxs">
@@ -77,25 +77,39 @@
                                                 </span>
                                                 ${filterName}
                                             </span>
-                                        </button>
-                                        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xxs" />
+                                            </button>
+                                            <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xxs" />
 
-                                        <div class="nhsd-m-filter-menu-section__accordion-panel">
-                                            <#list filterOptions.values as filterOption, value>
-                                                <div class="nhsd-m-filter-menu-section__option-row">
+                                            <div class="nhsd-m-filter-menu-section__accordion-panel">
+                                                <#list filterOptions.values as filterOption, value>
+                                                    <div class="nhsd-m-filter-menu-section__option-row">
                                                     <span class="nhsd-a-checkbox">
                                                         <label>
-                                                            <input name="${filterKey}" type="checkbox" data-input-id="${filterKey}-${filterOption}" class="js-filter-checkbox" value="${filterOption}" ${filterValues[filterKey]?seq_contains(filterOption)?then('checked=checked', '')} />
-                                                            <span class="nhsd-a-checkbox__label nhsd-t-body-s">${filterOption} (${value})</span>
+                                                            <input name="${filterKey}" type="checkbox" data-input-id="${filterKey}-${filterOption}" class="js-filter-checkbox" value="${filterOption}"
+                                                                <#if filterValues?has_content && filterKey?has_content && filterValues[filterKey]?has_content>
+                                                                    ${filterValues[filterKey]?seq_contains(filterOption)?then('checked=checked', '')}
+                                                                </#if>
+                                                            />
+                                                            <#assign filterSize = "" />
+                                                            <#if value gt 0>
+                                                                <#assign filterSize = "(${value})" />
+                                                            </#if>
+                                                            <span class="nhsd-a-checkbox__label nhsd-t-body-s">
+                                                            <#if filterName = "Topic">
+                                                                ${topicMap[filterOption]}
+                                                            <#else>
+                                                                ${filterOption}
+                                                            </#if>
+                                                            ${filterSize}</span>
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </span>
-                                                </div>
-                                            </#list>
+                                                    </div>
+                                                </#list>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </#list>
+                                </#list>
                             </#if>
                         </div>
                         <div class="nhsd-o-filter-menu__filter-button">
@@ -104,16 +118,17 @@
                     </form>
                 </div>
             </div>
+
             <div class="nhsd-t-off-l-1 nhsd-t-col-l-8 nhsd-t-col-xs-12">
                 <div class="nhsd-m-search-bar nhsd-m-search-bar__full-width nhsd-m-search-bar__small nhsd-!t-margin-bottom-4 nhsd-!t-display-l-hide">
                     <div class="nhsd-t-form-control">
                         <input
-                                class="nhsd-t-form-input js-feedhub-query"
-                                type="text"
-                                value="${query}"
-                                autocomplete="off"
-                                placeholder="Filter search..."
-                                aria-label="Filter search..."
+                            class="nhsd-t-form-input js-feedhub-query"
+                            type="text"
+                            value="${query}"
+                            autocomplete="off"
+                            placeholder="Filter search..."
+                            aria-label="Filter search..."
                         />
                         <span class="nhsd-t-form-control__button">
                             <button class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent" type="submit" aria-label="Perform search">
@@ -128,7 +143,9 @@
                 </div>
 
                 <div class="js-filter-tags">
-                    <span class="nhsd-t-heading-s">${feed?size} result${(feed?size gt 1)?then('s', '')}</span>
+                    <#if feed??>
+                        <span class="nhsd-t-heading-s">${feed?size} result${(feed?size gt 1)?then('s', '')}</span>
+                    </#if>
                     <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s" />
 
                     <#if filterCount gt 0>
@@ -149,7 +166,11 @@
                                     </#list>
                                     <li>
                                         <a href="${filterUrl}" class="nhsd-a-tag nhsd-a-tag--closable js-filter-tag" data-filter-id="${key}-${optionValue}">
-                                            ${optionValue}
+                                            <#if topicMap[optionValue]?has_content>
+                                                ${topicMap[optionValue]}
+                                            <#else>
+                                                ${optionValue}
+                                            </#if>
                                             <span class="nhsd-a-icon nhsd-a-icon--size-xxs nhsd-a-icon--col-blue">
                                                 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
                                                     <polygon points="13.9,1 8,6.9 2.1,1 1,2.1 6.9,8 1,13.9 2.1,15 8,9.1 13.9,15 15,13.9 9.1,8 15,2.1 "/>
@@ -175,6 +196,10 @@
                                     <select form="feed-list-filter" name="sort" id="sort-by-input" class="nhsd-t-form-select-s">
                                         <option value="date-desc" ${(sort == "date-desc")?then("selected", "")}>Latest</option>
                                         <option value="date-asc" ${(sort == "date-asc")?then("selected", "")}>Oldest</option>
+                                        <#if document.contentType == "website:feedhub" >
+                                            <option value="title-desc" ${(sort == "title-desc")?then("selected", "")}>Z-A</option>
+                                            <option value="title-asc" ${(sort == "title-asc")?then("selected", "")}>A-Z</option>
+                                        </#if>
                                     </select>
                                     <span class="nhsd-t-form-control__icon">
                                         <span class="nhsd-a-icon nhsd-a-icon--size-s">

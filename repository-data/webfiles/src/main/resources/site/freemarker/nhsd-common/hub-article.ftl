@@ -15,7 +15,7 @@
     <div class="nhsd-t-grid">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12">
-                            
+
                 <h1 class="nhsd-t-heading-xxl" data-uipath="document.title">${document.title}</h1>
 
                 <#if document.summary?? && document.summary?has_content>
