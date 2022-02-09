@@ -84,7 +84,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/nhsd-common/cyber-alert-article.ftl
         jcr:primaryType: hst:template
       /cyber-alert-hub:
-        hst:renderpath: webfile:/freemarker/common/cyber-alert-hub.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/cyber-alert-hub.ftl
         jcr:primaryType: hst:template
       /cyber-alerts:
         hst:renderpath: webfile:/freemarker/common/cyber-alerts.ftl
@@ -235,6 +235,9 @@ definitions:
         jcr:primaryType: hst:template
       /nhsd-developer-hub:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage.ftl
+        jcr:primaryType: hst:template
+      /nhsd-faceted-navigation:
+        hst:renderpath: webfile:/freemarker/nhsd-common/faceted-navigation.ftl
         jcr:primaryType: hst:template
       /nhsd-homepage:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage.ftl
