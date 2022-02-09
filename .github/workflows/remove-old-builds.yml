@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Clear Builds
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  build:
+    name: Clear Builds
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      # Get API access token and verify it.
+      - name: Obtaino JWT Token
+        id: jwt_token
+        run: |
+          response=$(curl -i \
+          -H "Accept: application/json; charset=utf-8" \
+          -X POST https://api.${{ secrets.HOST }}/v3/authn/access_token \
+          -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
+          token=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
+          refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
+          echo "::set-output name=token::$token"
+          echo "::set-output name=refresh::$refresh"
+        env:
+          USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+
+      - name: Verify JWT Token
+        id: jwt_token_verify
+        run: |
+          code=$(curl -L \
+          -H "Accept: application/json; charset=utf-8" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "::set-output name=code::$code"
+
+      - name: Check Response Code from Verify JWT Token
+        if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('The JWT token failed verification!')
+        env:
+          # 'CODE' is for debugging fails
+          CODE: ${{ steps.jwt_token_verify.outputs.code }}
