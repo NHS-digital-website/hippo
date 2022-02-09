@@ -142,6 +142,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         addFilter("Year", "year", yearFilters);
+        System.out.println("XX Doing month");
 
         if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
             Map<String, Long> monthFilters = eventFeed.stream()
@@ -164,6 +165,15 @@ public class FeedHubComponent extends ContentRewriterComponent {
     }
 
     private void getCyberAlertFilters(List<HippoBean> eventFeed) throws QueryException {
+        Map<String, Long> severityFilters = eventFeed.stream()
+            .map(e -> (CyberAlert) e)
+            .map(CyberAlert::getSeverity)
+            .collect(Collectors.groupingBy(
+                Function.identity(), Collectors.counting()
+            ));
+
+        addFilter("Severity", "severity", severityFilters);
+
         Map<String, Long> yearFilters = eventFeed.stream()
             .map(e -> (CyberAlert) e)
             .map(CyberAlert::getPublishedDate)
@@ -173,6 +183,17 @@ public class FeedHubComponent extends ContentRewriterComponent {
             ));
 
         addFilter("Year", "year", yearFilters);
+        
+        if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
+            Map<String, Long> monthFilters = eventFeed.stream()
+                .map(e -> (CyberAlert) e)
+                .map(CyberAlert::getPublishedDate)
+                .map(date -> new SimpleDateFormat("MMMMM").format(date.getTime()))
+                .distinct()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+            addFilter("Month", "month", monthFilters);
+        }
 
         Map<String, Long> typeFilters = eventFeed.stream()
             .map(e -> (CyberAlert) e)
@@ -182,15 +203,6 @@ public class FeedHubComponent extends ContentRewriterComponent {
             ));
 
         addFilter("Type", "type[]", typeFilters);
-
-        Map<String, Long> severityFilters = eventFeed.stream()
-            .map(e -> (CyberAlert) e)
-            .map(CyberAlert::getSeverity)
-            .collect(Collectors.groupingBy(
-                Function.identity(), Collectors.counting()
-            ));
-
-        addFilter("Severity", "severity", severityFilters);
     }
 
     private <T extends HippoBean> List<T> getFeed(HstRequest request) throws QueryException {
@@ -199,7 +211,6 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
         HippoBean folder = feedHub.getParentBean();
         ArrayList<Constraint> constraints = new ArrayList<>();
-
         if ("Site-wide documents".equalsIgnoreCase(feedHub.getHubType())) {
             folder = RequestContextProvider.get().getSiteContentBaseBean();
 
@@ -211,7 +222,6 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
 
         String dateField = "website:publisheddatetime";
-
         Class feedClass = null;
         switch (feedHub.getFeedType()) {
             case "News":
@@ -264,6 +274,14 @@ public class FeedHubComponent extends ContentRewriterComponent {
                     cyberAlertsDateFilter.set(Calendar.DAY_OF_YEAR, 1);
 
                     constraints.add(constraint(dateField).equalTo(cyberAlertsDateFilter, DateTools.Resolution.YEAR));
+                    if (filterValues.get("month").length > 0) {
+                        Integer month = getMonth(filterValues.get("month")[0]);
+                        if (month != null) {
+                            cyberAlertsDateFilter.set(Calendar.MONTH, month);
+                            cyberAlertsDateFilter.set(Calendar.DAY_OF_MONTH, 1);
+                            constraints.add(constraint(dateField).equalTo(cyberAlertsDateFilter, DateTools.Resolution.MONTH));
+                        }
+                    }                    
                 }
 
                 if (filterValues.get("type[]").length > 0) {
@@ -274,7 +292,10 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 }
 
                 if (filterValues.get("severity").length > 0) {
-                    constraints.add(constraint("website:severity").equalTo(filterValues.get("severity")[0]));
+                    constraints.add(or(
+                        constraint("website:severity").equalTo(filterValues.get("severity")[0]),
+                        constraint("website:severitystatuschanges/website:severity").equalTo(filterValues.get("severity")[0])
+                    ));
                 }
 
                 break;

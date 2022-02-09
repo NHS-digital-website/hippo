@@ -6,14 +6,21 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/contentPixel.ftl">
-<#include "macros/header-banner.ftl">
-<#include "macro/results-list.ftl">
+<#include "macro/hubArticle.ftl">
 <#include "macro/pagination.ftl">
+<#include "macro/heroes/hero-options.ftl">
+<#include "macro/heroes/hero.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
 <article itemscope itemtype="http://schema.org/SearchResultsPage">
+	<#assign heroOptions = getHeroOptions(document) />
+	<#assign heroOptions += {"colour": "darkBlue"}/>
+	<#assign heroType = heroOptions.image?has_content?then("image", "default")>
+	<@hero heroOptions heroType />
+	<br/>	
+	
     <#if document.title?has_content>
         <div class="nhsd-!t-display-hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">${document.title}</span></div>
     </#if>
@@ -22,13 +29,11 @@
     <#-- Content Page Pixel -->
     <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-    <@headerBanner document />
-
     <div id="feedhub-content" class="nhsd-t-grid nhsd-!t-margin-bottom-6">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
                 <div class="">
-                    <form id="feed-list-filter" method="get" action="">
+                    <form id="feed-list-filter" method="get">
                         <div class="nhsd-o-filter-menu__search-bar">
                             <div class="nhsd-m-search-bar nhsd-m-search-bar__full-width nhsd-m-search-bar__small">
                                 <div class="nhsd-t-form-control">
@@ -54,6 +59,7 @@
                             </div>
                         </div>
                         <div id="nhsd-filter-menu" class="js-filter-list">
+                        	<#if filters?has_content>
                             <#list filters as filterOptions>
                                 <#assign filterKey = filterOptions.key />
                                 <#assign filterName = filterOptions.name />
@@ -62,7 +68,7 @@
                                     <div class="nhsd-m-filter-menu-section__accordion-heading">
                                         <button class="nhsd-m-filter-menu-section__menu-button" aria-expanded="${active?then("true", "false")}" type="button">
                                             <span class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s">
-                                                <span id="icon" class="${active?then("active", "")}">
+                                                <span class="${active?then("active", "")}">
                                                     <span class="nhsd-a-icon nhsd-a-icon--size-xxs">
                                                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
                                                             <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"/>
@@ -90,6 +96,7 @@
                                     </div>
                                 </div>
                             </#list>
+                            </#if>
                         </div>
                         <div class="nhsd-o-filter-menu__filter-button">
                             <button class="nhsd-a-button" type="submit"><span class="nhsd-a-button__label">Filter results</span></button>
@@ -164,7 +171,8 @@
                             <label class="nhsd-t-body nhsd-!t-col-dark-grey" for="sort-by-input">Sort by</label>
                             <div class="nhsd-t-form-group nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0">
                                 <div class="nhsd-t-form-control">
-                                    <select form="feed-list-filter" name="sort" id="sort-by-input" data-input-id="${filterKey}-${filterOption}" class="nhsd-t-form-select-s">
+                                <#-- TODO - file ${filterOption} <select form="feed-list-filter" name="sort" id="sort-by-input" data-input-id="${filterKey}-${filterOption}" class="nhsd-t-form-select-s"> -->
+                                    <select form="feed-list-filter" name="sort" id="sort-by-input" class="nhsd-t-form-select-s">
                                         <option value="date-desc" ${(sort == "date-desc")?then("selected", "")}>Latest</option>
                                         <option value="date-asc" ${(sort == "date-asc")?then("selected", "")}>Oldest</option>
                                     </select>
@@ -180,10 +188,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="js-feed-content">
                     <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s nhsd-!t-margin-bottom-6">
                     <#if feed?has_content>
-                        <@resultsList pageable.items />
+                        <@hubArticles pageable.items true/>
                     <#else>
                         No results
                     </#if>
