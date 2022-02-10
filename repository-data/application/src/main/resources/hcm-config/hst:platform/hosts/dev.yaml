@@ -5,7 +5,7 @@ definitions:
       /cloud:
         /bloomreach:
           /nhsdigital:
-            /development:
+            /cms-development:
               /hst:root:
                 hst:ismapped: false
                 hst:namedpipeline: WebApplicationInvokingPipeline
