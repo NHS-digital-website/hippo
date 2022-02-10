@@ -4,6 +4,8 @@ definitions:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:virtualhost
       hst:cdnhost: //nhs-dev.global.ssl.fastly.net
+      hst:scheme: https
+      hst:showcontextpath: true
       /nhsd:
         .meta:residual-child-node-category: content
         jcr:primaryType: hst:virtualhost
