@@ -6,7 +6,7 @@
 
 <#macro svgSection section index>
 
-    <#assign svgData = section.svgImageFromRepository>
+    <#assign svgData = section.svgXmlFromRepository>
 
     <#if svgData?? && svgData?has_content && svgData?contains("svg")>
         ${svgData?replace("</svg>", "<title>${section.altText}</title></svg>")?no_esc}
