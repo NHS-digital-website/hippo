@@ -61,7 +61,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     <#assign inLine = ""/>
     <#assign imgStyle=htmlCaption?has_content?then("height: 90%;", "height: 100%;")/>
     <#if options.inline?has_content>
-    	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 35%)/2); width: 100vw;\""/>
+    	<#assign inLine="style=\"position: relative; left: calc(-1 * (50vw - 58%)/2); width: 100vw;\""/>
     	<#assign style="width: 100%; margin: 0;">
         <#assign imgStyle=imgStyle+"width: 100%;">
     </#if>
