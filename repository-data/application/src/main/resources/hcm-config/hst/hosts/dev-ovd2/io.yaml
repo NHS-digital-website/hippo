@@ -1,15 +1,16 @@
+---
 definitions:
   config:
     /hst:platform/hst:hosts/dev-ovd2/io:
-      jcr:primaryType: hst:virtualhost
+      /nhsd:
+        /cms-development:
+          /hst:root:
+            hst:ismapped: false
+            hst:namedpipeline: WebApplicationInvokingPipeline
+            jcr:primaryType: hst:mount
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhost
       hst:scheme: https
       hst:showcontextpath: false
       hst:showport: false
-      /nhsd:
-        jcr:primaryType: hst:virtualhost
-        /cms-development:
-          jcr:primaryType: hst:virtualhost
-          /hst:root:
-            jcr:primaryType: hst:mount
-            hst:ismapped: false
-            hst:namedpipeline: WebApplicationInvokingPipeline
+      jcr:primaryType: hst:virtualhost
