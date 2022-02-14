@@ -22,7 +22,7 @@
 
                             <div class="${wrapperClassName}">
                                 <#if enableSearch>
-                                <#include "../include/search-strip.ftl">
+                                    <#include "../../include/search-strip.ftl">
                                 </#if>
                             </div>
 
@@ -37,7 +37,7 @@
                                     </span>
                                 </button>
                                 <div class="column <#if !enableSearch>column--81-25</#if> column--reset">
-                                    <div class="main-nav__menu">000
+                                    <div class="main-nav__menu">
                                         <@hst.include ref="top-menu"/>
                                     </div>
                                 </div>
