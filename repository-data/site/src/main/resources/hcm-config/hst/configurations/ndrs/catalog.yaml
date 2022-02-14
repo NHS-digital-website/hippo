@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:catalog:
+      jcr:primaryType: hst:catalog

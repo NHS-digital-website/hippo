@@ -7,9 +7,14 @@ Example use:
 <@hero getHeroOptions(document) />
 -->
 <#function getHeroOptions document isPolicy=false>
-    <#assign options = {
-    "title": document.title
-    }>
+  <#if document.title?has_content>
+        <#assign options = {
+        "title": document.title
+        }>
+        <#else>
+         <#assign options = {
+         }>
+    </#if>
     <#assign content="">
     <#if document.summary?has_content>
         <#assign content = document.summary/>
@@ -17,8 +22,16 @@ Example use:
         <#assign content = document.shortsummary/>
     <#elseif document.content?has_content>
         <#assign content = document.content/>
+    <#elseif document.richContent?has_content>
+        <#assign content = document.richContent/>
     </#if>
     <#assign options += { "summary": content }/>
+
+    <#assign categoryInfo="">
+    <#if document.categoryInfo?has_content>
+        <#assign categoryInfo = document.categoryInfo/>
+    </#if>
+    <#assign options += { "categoryInfo": categoryInfo }/>
 
     <#if document.image?has_content || document.leadImage?has_content || document.bannerImage?has_content && document.bannerImage.pageHeaderHeroModule?has_content
     || (document.publicationStyle?has_content && document.publicationStyle.bannerImage?has_content)>
@@ -87,6 +100,14 @@ Example use:
         "title": datePublishedLabel,
         "value": date
         }]/>
+    </#if>
+
+    <#if document.topics?has_content>
+        <#assign metadata += [{
+            "title": "Topics",
+            "value": document.topics,
+            "schemaOrgTag": "keywords"
+        }] />
     </#if>
 
     <#assign options += { "metaData": metadata }/>

@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Our strategy:
+  .meta:order-before: Annual report and accounts
+  hst:externallink: https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/our-strategy
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

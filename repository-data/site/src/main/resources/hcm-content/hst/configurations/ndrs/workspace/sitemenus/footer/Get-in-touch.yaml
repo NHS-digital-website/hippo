@@ -1,0 +1,5 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Get in touch:
+  .meta:order-before: Contact us
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

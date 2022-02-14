@@ -2,8 +2,6 @@ package uk.nhs.digital.apispecs;
 
 import static java.lang.String.format;
 import static java.util.Collections.emptyList;
-import static uk.nhs.digital.apispecs.ApiSpecificationPublicationService.PublicationResult.FAIL;
-import static uk.nhs.digital.apispecs.ApiSpecificationPublicationService.PublicationResult.PASS;
 
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
@@ -20,7 +18,6 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.regex.Pattern;
 import java.util.stream.Collector;
 
 
@@ -28,21 +25,16 @@ public class ApiSpecificationPublicationService {
 
     private static final Logger log = LoggerFactory.getLogger(ApiSpecificationPublicationService.class);
 
-    private static Pattern UUID_REGEX = Pattern.compile("[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}");
-
     private final ApiSpecificationImportMetadataRepository apiSpecificationImportMetadataRepository;
-    private final OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter;
     private final OpenApiSpecificationRepository remoteSpecRepository;
     private final ApiSpecificationDocumentRepository localSpecRepository;
 
     public ApiSpecificationPublicationService(final OpenApiSpecificationRepository remoteSpecRepository,
                                               final ApiSpecificationDocumentRepository localSpecRepository,
-                                              final ApiSpecificationImportMetadataRepository apiSpecificationImportMetadataRepository,
-                                              final OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter) {
+                                              final ApiSpecificationImportMetadataRepository apiSpecificationImportMetadataRepository) {
         this.remoteSpecRepository = remoteSpecRepository;
         this.localSpecRepository = localSpecRepository;
         this.apiSpecificationImportMetadataRepository = apiSpecificationImportMetadataRepository;
-        this.openApiSpecificationJsonToHtmlConverter = openApiSpecificationJsonToHtmlConverter;
     }
 
     public void syncEligibleSpecifications() {
@@ -63,7 +55,6 @@ public class ApiSpecificationPublicationService {
             .filter(specificationsPresentInBothSystems(remoteSpecsById))
             .map(toInitialSpecSyncData(remoteSpecsById, apiSpecificationImportMetadata))
             .peek(determineEligibility())
-            .peek(renderHtmlIfContentActuallyChanged())
             .peek(setLastChangeCheckInstant())
             .peek(publishSpecIfActuallyChanged())
             .collect(syncResults());
@@ -117,34 +108,6 @@ public class ApiSpecificationPublicationService {
             } catch (final Exception e) {
                 specSyncData.setError("Failed to determine whether the specification is eligible for update.", e);
             }
-        });
-    }
-
-    private Consumer<SpecificationSyncData> renderHtmlIfContentActuallyChanged() {
-        return ifSuccessfulSoFar(specSyncData -> {
-            log.debug("{} Rendering HTML: start.", specSyncData.specJcrId());
-            try {
-                if (specSyncData.eligible()) {
-
-                    log.debug("{} Rendering HTML: spec eligible; starting.", specSyncData.specJcrId());
-
-                    specSyncData.remoteSpec()
-                        .getSpecJson()
-                        .map(openApiSpecificationJsonToHtmlConverter::htmlFrom)
-                        .ifPresent(specSyncData::setHtml);
-
-                } else {
-                    log.debug("{} Rendering HTML: spec not eligible; skipping.", specSyncData.specJcrId());
-
-                    if (specSyncData.remoteSpecReportedAsUpdated()) {
-                        specSyncData.markSkipped();
-                    }
-                }
-            } catch (final Exception e) {
-                specSyncData.setError("Failed to render OAS JSON into HTML.", e);
-                log.debug("{} Rendering HTML: failed.", specSyncData.specJcrId());
-            }
-            log.debug("{} Rendering HTML: done.", specSyncData.specJcrId());
         });
     }
 
@@ -220,16 +183,6 @@ public class ApiSpecificationPublicationService {
         );
     }
 
-    public void rerenderSpecifications() {
-        log.info("Rerendering API Specifications.");
-
-        final List<ApiSpecificationDocument> cmsApiSpecificationDocuments = findCmsApiSpecifications();
-
-        final long failedSpecificationsCount = rerenderIfRenderingLogicChanged(cmsApiSpecificationDocuments);
-
-        reportRerenderingStats(failedSpecificationsCount, cmsApiSpecificationDocuments.size());
-    }
-
     private List<OpenApiSpecification> getRemoteSpecifications() {
 
         log.debug("Retrieving API Specification statuses from remote repository: start.");
@@ -261,99 +214,12 @@ public class ApiSpecificationPublicationService {
             specSyncData.remoteSpec().getSpecJson()
                 .ifPresent(localSpec::setJsonForPublishing);
 
-            localSpec.setHtmlForPublishing(specSyncData.html());
-
             localSpec.saveAndPublish();
 
             specSyncData.markPublished();
 
         } catch (final Exception e) {
             specSyncData.setError("Failed to publish.", e);
-        }
-    }
-
-    private long rerenderIfRenderingLogicChanged(final List<ApiSpecificationDocument> specsToPublish) {
-
-        final long failedSpecificationsCount = specsToPublish.stream()
-            .map(this::rerenderIfRenderingLogicChanged)
-            .filter(PublicationResult::failed)
-            .count();
-
-        return failedSpecificationsCount;
-    }
-
-    private PublicationResult rerenderIfRenderingLogicChanged(final ApiSpecificationDocument apiSpecificationDocument) {
-        try {
-            log.debug("Rerendering API Specification: {}", apiSpecificationDocument);
-
-            final String publishedHtml = apiSpecificationDocument.html().orElse("");
-            final String candidateHtml = apiSpecificationDocument.json().map(this::specHtmlFrom).orElse("");
-
-            if (renderingNotChangedIgnoringKnownVolatiles(candidateHtml, publishedHtml)) {
-                log.debug("No changes to API Specification, skipped: {}", apiSpecificationDocument.specificationId());
-                return PASS;
-            }
-
-            apiSpecificationDocument.setHtmlInPlace(candidateHtml);
-
-            apiSpecificationDocument.save();
-
-            log.info("API Specification has been rerendered: id: {}, path: {}", apiSpecificationDocument.specificationId(), apiSpecificationDocument.path());
-            return PASS;
-
-        } catch (final Exception e) {
-            log.error("Failed to rerender API Specification: " + apiSpecificationDocument, e);
-
-            return FAIL;
-        }
-    }
-
-    /**
-     * API Specification's rendered HTML contains a number of UUID
-     * values which change with every rendering. If those values
-     * are the only thing that changes across renderings, the rendered
-     * content is deemed unchanged.
-     */
-    private boolean renderingNotChangedIgnoringKnownVolatiles(final String candidateHtml, final String publishedHtml) {
-
-        final String candidateHtmlWithNoVolatiles = UUID_REGEX.matcher(candidateHtml).replaceAll("");
-        final String publishedHtmlWithNoVolatiles = UUID_REGEX.matcher(publishedHtml).replaceAll("");
-
-        return candidateHtmlWithNoVolatiles.equals(publishedHtmlWithNoVolatiles);
-    }
-
-    private String specHtmlFrom(final String openApiSpecJson) {
-        return openApiSpecificationJsonToHtmlConverter.htmlFrom(openApiSpecJson);
-    }
-
-    private void reportRerenderingStats(final long failedSpecificationsCount,
-                                        final long specificationsToPublishCount
-    ) {
-        log.info("Finished rerendering {} API specifications; successful: {}, failed: {}",
-            specificationsToPublishCount,
-            specificationsToPublishCount - failedSpecificationsCount,
-            failedSpecificationsCount
-        );
-
-        if (failedSpecificationsCount > 0) {
-            throw new RuntimeException(
-                format("Failed to rerender %d out of %d eligible specifications; see preceding logs for details.",
-                    failedSpecificationsCount,
-                    specificationsToPublishCount
-                ));
-        }
-    }
-
-    enum PublicationResult {
-        PASS,
-        FAIL;
-
-        public boolean failed() {
-            return this == FAIL;
-        }
-
-        public boolean passed() {
-            return this == PASS;
         }
     }
 }

@@ -2,4 +2,14 @@
 definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:components/forge-sitemap-index-feed:
-      .meta:delete: true
+      hst:componentclassname: org.onehippo.forge.sitemap.components.SitemapIndexFeed
+      hst:parameternames:
+      - sitemap-location-foldername
+      - assets-url-prefix
+      - additional-sitemap-file-url
+      hst:parametervalues:
+      - ${sitemap-location-foldername}
+      - ${assets-url-prefix}
+      - ${additional-sitemap-file-url}
+      hst:template: forge-sitemap-feed.ftl
+      jcr:primaryType: hst:component

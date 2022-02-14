@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.7.0</version>
+        <version>14.7.3</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -117,6 +117,11 @@
         <devzone.apispec.sync.schedule-delay-duration></devzone.apispec.sync.schedule-delay-duration>
         <devzone.apispec.sync.daily-cron-expression></devzone.apispec.sync.daily-cron-expression>
         <devzone.apispec.sync.nightly-cron-expression></devzone.apispec.sync.nightly-cron-expression>
+        <!-- Custom on-disk page caching properties -->
+        <siteCache.cacheManager.diskStorePath></siteCache.cacheManager.diskStorePath>
+        <siteCache.heavyContentPageCache.maxMegabytesLocalDisk></siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
+        <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts></siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
+        <siteCache.heavyContentPageCache.timeToIdle></siteCache.heavyContentPageCache.timeToIdle>
 
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
@@ -131,12 +136,16 @@
         <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
         <bloomreach.text-search-replace.version>2.1.0</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>5.0</forge.resetpassword.version>
-        <bloomreach.forge.sitemapv2.version>2.0.6</bloomreach.forge.sitemapv2.version>
+        <bloomreach.forge.sitemapv2.version>2.0.7</bloomreach.forge.sitemapv2.version>
 
         <!--***START temporary override of versions*** -->
         <hippo.addon-content-feed.version>14.7.8ed926d4</hippo.addon-content-feed.version>
         <!-- ***END temporary override of versions*** -->
 
+        <!-- Built-in caches use ecache v2.x.
+        Custom caching that needs durable on-disk caching uses v3.x
+        due to insufficient support for on-disk caching in v2.x. -->
+        <ehcache3.version>3.9.9</ehcache3.version>
     </properties>
 
     <repositories>
@@ -191,6 +200,27 @@
             <version>${bloomreach.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.splunk.logging</groupId>
+            <artifactId>splunk-library-javalogging</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
@@ -225,6 +255,12 @@
                 <groupId>org.onehippo.forge</groupId>
                 <artifactId>breadcrumb</artifactId>
                 <version>3.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>uk.nhs.digital</groupId>
+                <artifactId>website-toolbox</artifactId>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
@@ -315,11 +351,25 @@
                 <artifactId>mockito-core</artifactId>
                 <version>3.10.0</version>
             </dependency>
-
             <dependency>
-            <groupId>com.splunk.logging</groupId>
-            <artifactId>splunk-library-javalogging</artifactId>
-            <version>1.8.0</version>
+                <groupId>com.splunk.logging</groupId>
+                <artifactId>splunk-library-javalogging</artifactId>
+                <version>1.9.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.7</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>3.14.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okio</groupId>
+                <artifactId>okio</artifactId>
+                <version>1.17.2</version>
             </dependency>
             <dependency>
                 <groupId>org.awaitility</groupId>
@@ -333,12 +383,6 @@
                 <artifactId>logback-classic</artifactId>
                 <version>1.2.3</version>
             </dependency>
-
-            <!--<dependency>
-                <groupId>com.splunk.logging</groupId>
-                <artifactId>splunk-library-javalogging</artifactId>
-                <version>1.7.3</version>
-            </dependency>-->
 
             <dependency>
                 <groupId>com.googlecode.json-simple</groupId>
@@ -490,11 +534,6 @@
                 <version>1.26</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>2.8.7</version>
-            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
@@ -666,7 +705,13 @@
             </dependency>
 
             <dependency>
-                <groupId>com.atlassian.commonmark</groupId>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.commonmark</groupId>
                 <artifactId>commonmark</artifactId>
                 <version>${commonmark.version}</version>
             </dependency>
@@ -689,6 +734,7 @@
                 <artifactId>bloomreach-ipfilter-cms</artifactId>
                 <version>${bloomreach.forge.ipfilter.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -885,6 +931,7 @@
                 <module>site</module>
                 <module>acceptance-tests</module>
                 <module>test-resources</module>
+                <module>website-toolbox</module>
             </modules>
         </profile>
 
@@ -957,6 +1004,10 @@
                                         <file>${project.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
+                                    <!--<file>
+                                        <file>${project.basedir}/website-toolbox/target/website-toolbox-${project.version}.jar</file>
+                                        <todir>shared/lib</todir>
+                                    </file>-->
                                     <file>
                                         <file>${project.basedir}/repository-data/site-development/target/website-repository-data-site-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
@@ -966,7 +1017,7 @@
                                     <cargo.jvmargs>
                                         -Xmx1024m
                                         -Duser.timezone=Etc/UTC
-                                        -Dfile.encoding=ANSI_X3.4-1968
+                                        -Dfile.encoding=UTF-8
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
                                         -Xdebug
@@ -1028,6 +1079,11 @@
                                     <devzone.apispec.sync.schedule-delay-duration>${devzone.apispec.sync.schedule-delay-duration}</devzone.apispec.sync.schedule-delay-duration>
                                     <devzone.apispec.sync.daily-cron-expression>${devzone.apispec.sync.daily-cron-expression}</devzone.apispec.sync.daily-cron-expression>
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
+                                    <!-- Custom on-disk page caching properties -->
+                                    <siteCache.cacheManager.diskStorePath>${siteCache.cacheManager.diskStorePath}</siteCache.cacheManager.diskStorePath>
+                                    <siteCache.heavyContentPageCache.maxMegabytesLocalDisk>${siteCache.heavyContentPageCache.maxMegabytesLocalDisk}</siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
+                                    <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>${siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts}</siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
+                                    <siteCache.heavyContentPageCache.timeToIdle>${siteCache.heavyContentPageCache.timeToIdle}</siteCache.heavyContentPageCache.timeToIdle>
 
                                 </systemProperties>
                                 <dependencies>
@@ -1044,6 +1100,26 @@
                                     <dependency>
                                         <groupId>com.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-content-feed-search-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.splunk.logging</groupId>
+                                        <artifactId>splunk-library-javalogging</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.google.code.gson</groupId>
+                                        <artifactId>gson</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.squareup.okhttp3</groupId>
+                                        <artifactId>okhttp</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.squareup.okio</groupId>
+                                        <artifactId>okio</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                 </dependencies>
@@ -1136,6 +1212,26 @@
                     <artifactId>log4j-core</artifactId>
                     <scope>provided</scope>
                 </dependency>
+                <dependency>
+                    <groupId>com.splunk.logging</groupId>
+                    <artifactId>splunk-library-javalogging</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.google.code.gson</groupId>
+                    <artifactId>gson</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.squareup.okhttp3</groupId>
+                    <artifactId>okhttp</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
             <build>
                 <defaultGoal>validate</defaultGoal>
@@ -1182,6 +1278,26 @@
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-core</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.splunk.logging</groupId>
+                    <artifactId>splunk-library-javalogging</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.google.code.gson</groupId>
+                    <artifactId>gson</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.squareup.okhttp3</groupId>
+                    <artifactId>okhttp</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -1250,6 +1366,26 @@
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
+                    <groupId>com.splunk.logging</groupId>
+                    <artifactId>splunk-library-javalogging</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.google.code.gson</groupId>
+                    <artifactId>gson</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.squareup.okhttp3</groupId>
+                    <artifactId>okhttp</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
                     <scope>provided</scope>
@@ -1270,6 +1406,59 @@
                                 <configuration>
                                     <descriptors>
                                         <descriptor>${project.basedir}/src/main/assembly/on-demand-distribution.xml</descriptor>
+                                    </descriptors>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>dist-od2</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <defaultGoal>validate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>distro-assembly</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>${project.basedir}/src/main/assembly/distribution.xml</descriptor>
                                     </descriptors>
                                 </configuration>
                             </execution>

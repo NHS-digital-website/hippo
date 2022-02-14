@@ -46,6 +46,15 @@ APIGEE_PASS ?= REPLACE_WITH_ACTUAL_APIGEE_PASSWORD
 APIGEE_OTPKEY ?= REPLACE_WITH_ACTUAL_APIGEE_OTPKEY
 APIGEE_BASIC ?= ZWRnZWNsaTplZGdlY2xpc2VjcmV0
 
+# Parameters related to the custom 'heavy content' on-disk page cache
+#
+# defaultTempLocation defaults to java.io.tmpdir which,
+# in local instances resolves to target/tomcat9x/temp
+SITE_CACHE_DISK_STORE_PATH ?= defaultTempLocation
+SITE_CACHE_HEAVY_MAX_MEGABYTES_LOCAL_DISK ?= 200
+SITE_CACHE_HEAVY_PERSISTENT ?= false
+SITE_CACHE_HEAVY_TIME_TO_IDLE ?= PT24H
+
 #-Dsplunk.token=$(SPLUNK_TOKEN) \
 #	-Dsplunk.url=$(SPLUNK_URL) \
 #	-Dsplunk.hec.name=$(SPLUNK_HEC) \
@@ -58,10 +67,15 @@ MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
     -Ddevzone.apispec.sync.schedule-delay-duration=$(APIGEE_SYNC_SCHEDULE_DELAY) \
     -Ddevzone.apigee.resources.specs.all.url=$(APIGEE_SPECS_ALL_URL) \
     -Ddevzone.apigee.resources.specs.individual.url=$(APIGEE_SPECS_ONE_URL) \
-	-Ddevzone.apigee.oauth.token.url=$(APIGEE_TOKEN_URL)
+	-Ddevzone.apigee.oauth.token.url=$(APIGEE_TOKEN_URL) \
+    -DsiteCache.cacheManager.diskStorePath=$(SITE_CACHE_DISK_STORE_PATH) \
+    -DsiteCache.heavyContentPageCache.maxMegabytesLocalDisk=$(SITE_CACHE_HEAVY_MAX_MEGABYTES_LOCAL_DISK) \
+    -DsiteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts=$(SITE_CACHE_HEAVY_PERSISTENT) \
+    -DsiteCache.heavyContentPageCache.timeToIdle=$(SITE_CACHE_HEAVY_TIME_TO_IDLE)
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)
 export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)
+export GOOGLE_CAPTCHA_SITE_KEY=$(GOOGLE_RECAPTCHA_SITE_KEY)
 export GOOGLE_CAPTCHA_SECRET=$(GOOGLE_RECAPTCHA_SECRET_KEY)
 export HIPPO_MAVEN_PASSWORD
 export HIPPO_MAVEN_USERNAME

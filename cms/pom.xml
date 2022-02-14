@@ -131,11 +131,6 @@
             <artifactId>googleauth</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.splunk.logging</groupId>
-            <artifactId>splunk-library-javalogging</artifactId>
-            <version>1.9.0</version>
-        </dependency>
-        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
         </dependency>
@@ -388,6 +383,10 @@
         <dependency>
             <groupId>org.onehippo.cms7.hst.client-modules</groupId>
             <artifactId>hst-google-analytics-repository</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.digital</groupId>
+            <artifactId>website-toolbox</artifactId>
         </dependency>
     </dependencies>
     <build>

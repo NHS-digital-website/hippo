@@ -7,8 +7,7 @@
 <#assign itemsMaxCountWithJS=3/>
 
 
-<#macro latestblogs blogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs">
-
+<#macro latestblogs blogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs" centred=true>
  <#assign hasLatestBlogs = blogs?has_content && blogs?size &gt; 0 />
   <#if hasLatestBlogs>
   <div class="nhsd-o-card-list nhsd-!t-margin-bottom-4" data-max-count="${itemsMaxCount}" data-state="short">
@@ -16,7 +15,7 @@
         <#if title?has_content>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <h2 class="nhsd-t-heading-xl nhsd-t-text-align-center nhsd-!t-margin-bottom-7 nhsd-!t-margin-top-6">${title}</h2>
+                    <h2 id="${slugify(title)}" class="nhsd-t-heading-xl ${centred?then('nhsd-t-text-align-center', '')}">${title}</h2>
                 </div>
             </div>
         </#if>
@@ -28,7 +27,7 @@
                 <#else>
                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-display-hide ${idsuffix}">
                 </#if>
-                    <article class="nhsd-m-card">
+                    <article class="nhsd-m-card nhsd-!t-margin-top-1">
                     <@hst.link hippobean=latest var="link"/>
                         <a href="${link}" class="nhsd-a-box-link" onClick="logGoogleAnalyticsEvent('Link click','${fromDoctype}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" aria-label="About NHS Digital - More about what we do" title="${latest.title}" >
                             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
@@ -94,12 +93,8 @@
                 <div class="nhsd-t-col">
                     <nav class="nhsd-m-button-nav">
                     <#if idsuffix?contains("news")>
-                        <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="newsfeed"/>" >
-                        <#else>
-                        <a id="btn-view-all" onClick="toggleCards(${itemsMaxCountWithJS}, ${blogs?size}, '${idsuffix?js_string}'); return false;" class="nhsd-a-button" href="#">
-                        </#if>
-                            <span class="nhsd-a-button__label">View all news</span>
+                        <span class="nhsd-a-button__label">See all news</span>
                     <#elseif idsuffix?contains("event") >
                         <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="eventsfeed"/>">

@@ -210,6 +210,10 @@ jobs:
               C026PH4GQSH: {
                 "name": "development",
                 "id": "c033120b-291a-463c-8ba7-363fb50ea072",
+              },
+              C0323S3FW4T: {
+                "name": "tst",
+                "id": "02a04095-4e56-4893-8d9d-64a0ef3699e9"
               }
             }
             if(environments[`${process.env.CHANNEL_ID}`] === undefined) {

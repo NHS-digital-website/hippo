@@ -1,0 +1,49 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace:
+      /hst:containers:
+        /homepage:
+          /homepagecontainer1:
+            .meta:residual-child-node-category: content
+            hippo:identifier: b3faa2cf-d767-4b94-a2ca-ca038b46bd80
+            hst:label: Container1
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /homepagecontainer2:
+            .meta:residual-child-node-category: content
+            hippo:identifier: c4262d17-8685-417e-b072-d021fc1d58bd
+            hst:label: Container2
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /homepagecontainer3:
+            .meta:residual-child-node-category: content
+            hippo:identifier: c8ab895b-7df7-4217-b187-934fb6158878
+            hst:label: Container3
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /homepagecontainer4:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 885c3ad5-d875-44d2-b4af-575b64ce5882
+            hst:label: Container4
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /homepagecontainer5:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 8605de6a-1699-4aa3-b9b6-0548ec445cd6
+            hst:label: Container5
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
+        jcr:primaryType: hst:containercomponentfolder
+      /hst:sitemenus:
+        /footer:
+          .meta:residual-child-node-category: content
+          hst:lastmodified: 2021-11-11T16:01:44.972Z
+          jcr:primaryType: hst:sitemenu
+        /main:
+          .meta:residual-child-node-category: content
+          hst:lastmodified: 2020-04-23T15:25:56.929Z
+          jcr:primaryType: hst:sitemenu
+        jcr:primaryType: hst:sitemenus
+      jcr:primaryType: hst:workspace

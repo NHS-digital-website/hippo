@@ -7,10 +7,10 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">
-<#include "macro/personitem.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/shareThisPage.ftl">
 <#include "macro/heroes/hero.ftl">
+<#include "macro/shareSection.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -120,7 +120,7 @@
     </#if>
     <@hero heroOptions heroType/>
 
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8" aria-label="document-content">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasLeadParagraph>
@@ -130,13 +130,13 @@
                 </#if>
 
                 <#if hasLeadImage && hasCubeHeader>
+                    <@hst.link hippobean=document.leadImage.newsPostImageLarge2x fullyQualified=true var="leadImageLarge2x" />
+                    <meta itemprop="url" content="${leadImageLarge2x}">
                     <div class="nhsd-m-card nhsd-!t-margin-bottom-6">
                         <div class="nhsd-a-box nhsd-a-box--border-grey">
                             <div class="nhsd-m-card__image_container">
                                 <figure class="nhsd-a-image nhsd-a-image--round-top-corners">
                                     <picture class="nhsd-a-image__picture ">
-                                        <@hst.link hippobean=document.leadImage.newsPostImageLarge2x fullyQualified=true var="leadImageLarge2x" />
-                                        <meta itemprop="url" content="${leadImage}">
                                         <img src="${leadImageLarge2x}" alt="<#if hasLeadImageAltText>${document.leadImageAltText}</#if>" />
                                     </picture>
                                 </figure>
@@ -150,33 +150,27 @@
                             </#if>
                         </div>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasSectionContent>
-                    <#if !hasLeadImage>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
                     <div itemprop="articleBody">
                         <@sections document.sections></@sections>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasBackstory>
-                    <#if hasSectionContent>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
                     <div itemprop="articleBody">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6"">
                             <p class="nhsd-t-heading-m">Back story</p>
                             <div data-uipath="website.blog.backstory"><@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter /></div>
                         </div>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasContactDetails>
-                    <#if hasSectionContent && !hasBackstory>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
                     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
                             <div class="nhsd-m-contact-us__content">
@@ -187,12 +181,10 @@
                             </div>
                         </div>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <#if hasRelatedSubjects>
-                    <#if hasSectionContent && !hasBackstory && !hasContactDetails>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
                     <div class="nhsd-!t-margin-bottom-6">
                         <p class="nhsd-t-heading-xl">Related subjects</p>
                         <#list document.relatedSubjects as item>
@@ -212,51 +204,19 @@
                             </div>
                         </#list>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
                 <div class="nhsd-!t-margin-bottom-6" itemprop="articleBody">
-                    <#if hasRelatedSubjects || hasSectionContent && !hasBackstory && !hasContactDetails && !hasRelatedSubjects>
-                        <hr class="nhsd-a-horizontal-rule" />
-                    </#if>
-                    <p class="nhsd-t-heading-xl">Share this page</p>
-                    <#-- Use UTF-8 charset for URL escaping from now: -->
-                    <#setting url_escaping_charset="UTF-8">
-
-                    <div class="nhsd-t-grid nhsd-!t-margin-bottom-4 nhsd-!t-no-gutters">
-
-                        <#--  Facebook  -->
-                        <#assign facebookUrl = "http://www.facebook.com/sharer.php?u=${currentUrl?url}"/>
-                        <#assign facebookIconPath = "/images/icon/rebrand-facebook.svg" />
-                        <@shareThisPage document "Facebook" facebookUrl facebookIconPath/>
-
-
-                        <#--  Twitter  -->
-                        <#assign hashtags ='' />
-                        <#if hasTwitterHashtag>
-                            <#list document.twitterHashtag as tag>
-                                <#if tag?starts_with("#")>
-                                    <#assign hashtags = hashtags + tag?keep_after('#') + ','>
-                                <#else>
-                                    <#assign hashtags = hashtags + tag + ','>
-                                </#if>
-                            </#list>
-                        </#if>
-                        <#assign twitterUrl = "https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"/>
-                        <#assign twitterIconPath = "/images/icon/rebrand-twitter.svg" />
-                        <@shareThisPage document "Twitter" twitterUrl twitterIconPath/>
-
-                        <#--  LinkedIn  -->
-                        <#assign linkedInUrl = "http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"/>
-                        <#assign linkedInIconPath = "/images/icon/rebrand-linkedin.svg" />
-                        <@shareThisPage document "LinkedIn" linkedInUrl linkedInIconPath/>
-                    </div>
+                    <@shareSection document />
+                    <hr class="nhsd-a-horizontal-rule" />
                 </div>
 
                 <#if hasAuthors>
                     <hr class="nhsd-a-horizontal-rule" />
                     <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
                     <div class="nhsd-o-gallery">
-                        <div class="nhsd-t-grid nhsd-!t-no-gutters">
+                        <div class="nhsd-t-grid nhsd-t-grid--nested">
                             <div class="nhsd-t-row nhsd-o-gallery__items">
                                 <#list document.authors as author>
                                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-m-4">
@@ -308,13 +268,17 @@
                             </div>
                         </div>
                     </div>
+                    <hr class="nhsd-a-horizontal-rule" />
                 </#if>
 
-                <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
+                <#if document.latestBlogs?has_content>
+                <div class="grid-wrapper grid-wrapper--article nhsd-!t-margin-bottom-6">
                     <div class="grid-row">
-                        <@latestblogs document.latestBlogs></@latestblogs>
+                        <@latestblogs blogs=document.latestBlogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs" centred=false></@latestblogs>
+                        <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-top-0" />
                     </div>
                 </div>
+                </#if>
                 <div class="nhsd-!t-margin-bottom-6">
                     <@lastModified document.lastModified false></@lastModified>
                 </div>

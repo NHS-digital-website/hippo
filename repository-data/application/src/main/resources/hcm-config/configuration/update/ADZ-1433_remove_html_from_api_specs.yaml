@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/ADZ-1433_remove_html_from_api_specs:
+      hipposys:batchsize: 1
+      hipposys:description: |
+        Removes property `website:html` from existing documents of type `website:apispecification` (all variants).
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:query: /jcr:root/content/documents/corporate-website//element(*, website:apispecification)
+      hipposys:script:
+        resource: /configuration/update/ADZ-1433_remove_html_from_api_specs.groovy
+        type: string
+      hipposys:throttle: 2000
+      jcr:primaryType: hipposys:updaterinfo

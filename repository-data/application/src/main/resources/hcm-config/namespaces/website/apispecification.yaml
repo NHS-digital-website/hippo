@@ -86,27 +86,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /html:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Specification HTML content
-            field: html
-            hint: HTML content automatically generated from specification's JSON content.
-              Manually populated content will be overwritten by the next import.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /html:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:html
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            jcr:primaryType: hipposysedit:field
           /json:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -121,7 +103,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
+            hipposysedit:type: website:seoSummary
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
@@ -199,7 +181,6 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:apispecification
-          website:html: ''
           website:json: ''
           website:seosummary: ''
           website:shortsummary: ''

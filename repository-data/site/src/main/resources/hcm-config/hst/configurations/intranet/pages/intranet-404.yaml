@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/intranet-404:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.PageNotFoundComponent
+        hst:template: intranet-404
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component

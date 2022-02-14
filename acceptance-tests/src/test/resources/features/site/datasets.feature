@@ -33,8 +33,8 @@ Feature: As a consumer I need to be able to navigate to publication data sets
 
     Scenario: Dataset label displayed for dataset document type
         Given I navigate to the "bare minimum dataset" page
-        Then I should see headers:
-            | "Data set, Part of " |
+        Then I should see headers that starts with the following:
+            | "Data set," |
         And I should not see headers:
             | Publication         |
             | Series / Collection |

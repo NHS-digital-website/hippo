@@ -36,22 +36,22 @@ definitions:
         hst:renderpath: webfile:/freemarker/intranet/news.ftl
         jcr:primaryType: hst:template
       /person:
-        hst:renderpath: webfile:/freemarker/intranet/person.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/person-article.ftl
         jcr:primaryType: hst:template
       /search-results:
         hst:renderpath: webfile:/freemarker/intranet/search-results.ftl
-        jcr:primaryType: hst:template
-      /task:
-        hst:renderpath: webfile:/freemarker/intranet/task.ftl
         jcr:primaryType: hst:template
       /taskhub:
         hst:renderpath: webfile:/freemarker/intranet/task-list-article.ftl
         jcr:primaryType: hst:template
       /tasks:
-        hst:renderpath: webfile:/freemarker/intranet/tasks.ftl
+        hst:renderpath: webfile:/freemarker/intranet/task.ftl
         jcr:primaryType: hst:template
       /teams:
         hst:renderpath: webfile:/freemarker/intranet/teams.ftl
+        jcr:primaryType: hst:template
+      /video-page:
+        hst:renderpath: webfile:/freemarker/intranet/video-page.ftl
         jcr:primaryType: hst:template
       /who-we-are:
         hst:renderpath: webfile:/freemarker/intranet/who-we-are.ftl

@@ -1,9 +1,9 @@
 <#ftl output_format="HTML">
 
 <#macro intraSingleBreadcrumb title>
-<div class="nhsd-t-grid nhsd-!t-padding-0">
+<div class="nhsd-t-grid">
     <div class="nhsd-t-row">
-        <div class="nhsd-t-col nhsd-!t-padding-0">
+        <div class="nhsd-t-col">
 
         <nav class="nhsd-m-breadcrumbs" aria-label="Breadcrumb">
             <ol class="nhsd-m-breadcrumbs__list nhsd-!t-padding-top-1 nhsd-!t-padding-bottom-1">

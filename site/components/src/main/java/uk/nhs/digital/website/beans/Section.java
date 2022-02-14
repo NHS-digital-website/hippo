@@ -32,7 +32,11 @@ public class Section extends BaseCompound implements StickySection {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:headinglevel")
     public String getHeadingLevel() {
-        return getSingleProperty("website:headinglevel");
+        String headingLevel = getSingleProperty("website:headinglevel");
+        if (headingLevel == null) {
+            return "Main heading";
+        }
+        return headingLevel;
     }
 
     @JsonProperty

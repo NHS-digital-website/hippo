@@ -16,7 +16,7 @@
                 <h2>${source.title}</h2>
             </#if>
             <#if source.content??>
-                <p>${source.content}</p>
+                ${source.content}
             </#if>
         </div>
     </div>

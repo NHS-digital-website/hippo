@@ -80,7 +80,7 @@ public final class DocumentUtils {
             if (bean != null) {
                 node = bean.getNode();
             } else {
-                log.warn("No Bean found for path " + path);
+                log.info("No Bean found for path " + path);
                 return;
             }
             log.debug("Value of node is " + node);

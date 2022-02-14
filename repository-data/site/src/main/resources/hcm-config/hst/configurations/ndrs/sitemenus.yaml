@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:sitemenus:
+      jcr:primaryType: hst:sitemenus

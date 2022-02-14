@@ -5,10 +5,14 @@ import org.hippoecm.hst.content.beans.query.exceptions.*;
 import org.hippoecm.hst.content.beans.query.filter.*;
 import org.hippoecm.hst.core.component.*;
 import org.hippoecm.hst.core.parameters.*;
+import org.hippoecm.repository.util.DateTools.Resolution;
 import org.onehippo.cms7.essentials.components.*;
 import org.slf4j.*;
 import uk.nhs.digital.common.components.info.PublicationListComponentInfo;
+import uk.nhs.digital.ps.beans.Publication;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 @ParametersInfo(
@@ -34,7 +38,10 @@ public class PublicationListComponent extends EssentialsListComponent {
         query.addOrderByAscending("publicationsystem:publicationtier");
 
         try {
-            filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
+            filter.addLessOrEqualThan("publicationsystem:NominalDate",
+                GregorianCalendar.from(
+                    ZonedDateTime.now(ZoneId.of("UTC")).minusHours(Publication.HOUR_OF_PUBLIC_RELEASE)
+                        .minusMinutes(Publication.MINUTE_OF_PUBLIC_RELEASE)), Resolution.DAY);
             filter.addEqualTo("hippostd:stateSummary", "live");
             if (!componentParametersInfo.getDisplayTier3()) {
                 filter.addNotEqualTo("publicationsystem:publicationtier", "Tier 3");

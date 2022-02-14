@@ -1,4 +1,8 @@
 <#ftl output_format="HTML">
+
+<#include "../macro/metaTags.ftl">
+<@metaTags />
+
 <head>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" data-blockingmode="auto" async></script>
 
@@ -6,16 +10,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <@hst.headContributions categoryIncludes="metadata" xhtml=true />
 
     <!-- Generic meta tags -->
-    <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="intranetMeta" xhtml=true/>
+    <@hst.headContributions categoryIncludes="intranetMeta" xhtml=true/>
+
+    <#assign toolkitVersion = 'v0.130.0' />
 
     <#-- Preload fonts to improve performance -->
-    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-55Roman.woff2" />" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-56Italic.woff2" />" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-65Bold.woff2" />" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-66BoldItalic.woff2" />" as="font" type="font/woff2" crossorigin>
+    <link href="https://design-system.digital.nhs.uk/" rel="preconnect" crossorigin>
+    <link type="font/woff2" href="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
+    <link type="font/woff2" href="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
 
     <#-- Preconnect to 3rd parties to improve proformance -->
     <link rel="preconnect" href="https://in.hotjar.com" crossorigin>
@@ -32,18 +37,11 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/latest/stylesheets/nhsd-frontend.css" />
+    <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/stylesheets/nhsd-frontend.css" />
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-edge-cases.css" />" />
-    <script src="https://design-system.digital.nhs.uk/cdn/latest/scripts/nhsd-frontend.js"></script>
 
-   <#--
-    Todo once confident that all this CSS can go, come back and clean up:
-        - repository-data/webfiles/src/main/resources/site/src/scss/nhsd-intranet.scss
-        - repository-data/webfiles/src/main/resources/site/src/scss/nhsd-intranet-print.scss
-        - repository-data/webfiles/src/main/resources/site/src/scss/intranet
-    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet.css"/>" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-print.css"/>" media="print" type="text/css"/>
-    -->
+    <script src="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/scripts/nhsd-frontend.js"></script>
+    <script src="<@hst.webfile path="/dist/nhsd-intranet-priority-scripts.bundle.js"/>"></script>
 
     <#include "../scripts/intranet-header-scripts.ftl" />
 </head>

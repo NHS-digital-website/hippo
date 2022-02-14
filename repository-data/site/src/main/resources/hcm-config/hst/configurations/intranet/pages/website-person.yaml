@@ -4,7 +4,7 @@ definitions:
     /hst:hst/hst:configurations/intranet/hst:pages/website-person:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.PersonComponent
-        hst:template: person-article
+        hst:template: person
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/master
       jcr:primaryType: hst:component

@@ -1,0 +1,13 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:components/forge-sitemapv2-page-feed:
+      hst:componentclassname: org.onehippo.forge.sitemapv2.components.DefaultSitemapFeed
+      hst:parameternames:
+      - query-sortField
+      - query-primaryTypes
+      hst:parametervalues:
+      - hippostdpubwf:publicationDate
+      - website:apimaster,website:apispecification,website:blog,website:bloghub,website:businessunit,publicationsystem:dataset,website:DSCcasestudy,website:event,website:feature,website:gdprsummary,website:gdprtransparency,website:general,website:glossarylist,website:hub,publicationsystem:legacypublications,website:Linkslist,website:location,website:person,website:corporatepolicy,website:policypage,website:publishedwork,website:publishedworkchapter,website:roadmap,website:service,website:signuppage,website:supplementaryinformation,website:Update,website:video,website:visualhub
+      hst:template: forge-sitemapv2-feed.ftl
+      jcr:primaryType: hst:component

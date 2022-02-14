@@ -109,7 +109,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
+            hipposysedit:type: website:seoSummary
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field

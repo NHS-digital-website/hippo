@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/componentlist:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
+        hst:parameternames:
+        - stripTagsContentRewriter
+        hst:parametervalues:
+        - 'true'
+        hst:template: nhsd-list-article
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component

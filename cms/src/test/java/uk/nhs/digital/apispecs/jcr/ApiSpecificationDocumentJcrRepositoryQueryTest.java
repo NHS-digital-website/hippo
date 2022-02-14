@@ -17,7 +17,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.test.util.JcrTestUtils;
 import uk.nhs.digital.test.util.ReflectionTestUtils;
@@ -54,7 +53,6 @@ public class ApiSpecificationDocumentJcrRepositoryQueryTest {
 
         final String specificationIdInJcr = "api-specification-id-a";
         final Optional<String> jsonInJcr = Optional.of("{ \"json\" : \"payload A on PUBLISHED\" }");
-        final Optional<String> htmlInJcr = Optional.of("<p>API Specification A on PUBLISHED</p>");
         final Optional<Instant> lastPublicationInstantInJcr = Optional.of(Instant.parse("2020-07-08T08:37:03.915Z"));
 
         // when
@@ -69,11 +67,6 @@ public class ApiSpecificationDocumentJcrRepositoryQueryTest {
         assertThat("Document contains JSON as present on published variant in the JCR repo.",
             actualApiSpec.json(),
             is(jsonInJcr)
-        );
-
-        assertThat("Document contains HTML as present on published variant in the JCR repo.",
-            actualApiSpec.html(),
-            is(htmlInJcr)
         );
 
         assertThat("Document contains last publication instant as present on published variant in the JCR repo.",

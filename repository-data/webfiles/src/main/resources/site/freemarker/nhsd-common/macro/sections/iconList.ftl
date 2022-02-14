@@ -4,10 +4,6 @@
 
 <#macro iconList section isPreviousSectionEmphasisBox sectionCounter=1>
     <div id="${slugify(section.title)}">
-        <#if !isPreviousSectionEmphasisBox && sectionCounter != 1>
-            <hr class="nhsd-a-horizontal-rule" />
-        </#if>
-
         <div class="nhsd-o-icon-list">
             <#if section.title?has_content>
                 <#if section.headingLevel == 'Main heading'>

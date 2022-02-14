@@ -6,16 +6,23 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import uk.nhs.digital.highlighter.Highlighter;
 import uk.nhs.digital.highlighter.Language;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+
 @HippoEssentialsGenerated(internalName = "website:code")
 @Node(jcrType = "website:code")
+@XmlAccessorType(XmlAccessType.NONE)
 public class Code extends HippoCompound {
     private Language language = null;
 
+    @XmlElement(name = "sectionType")
     public String getSectionType() {
         return "code";
     }
 
     @HippoEssentialsGenerated(internalName = "website:heading")
+    @XmlElement(name = "heading")
     public String getHeading() {
         return getSingleProperty("website:heading");
     }
@@ -46,6 +53,7 @@ public class Code extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:codetext")
+    @XmlElement(name = "code")
     public String getCodetext() {
         return getSingleProperty("website:codetext");
     }
@@ -54,6 +62,7 @@ public class Code extends HippoCompound {
         return Highlighter.INSTANCE.paint(getCodetext(), getLanguage());
     }
 
+    @XmlElement(name = "language")
     public Language getLanguage() {
         if (language == null) {
             language = Language.getByKey(getCodeLanguage());

@@ -24,4 +24,11 @@
     -->
     <bean id="abstractCrispSimpleJacksonRestTemplateResourceResolver" abstract="true"/>
 
+
+    <!-- At runtime, bean 'applicationSecrets' is supplied from another context file.
+         During the test, however, we just need a dummy instance that custom-resource-resolvers.xml
+         can use to retrieve configuration settings programmed as the test itself as system properties.
+    -->
+    <bean id="applicationSecrets" class="uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJobIntegrationTest.DummyApplicationSecrets"/>
+
 </beans>

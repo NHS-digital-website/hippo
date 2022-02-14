@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Change cookie settings:
+  .meta:order-before: Careers
+  hst:externallink: javascript:Cookiebot.renew()
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem
