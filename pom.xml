@@ -449,7 +449,6 @@
                 <artifactId>hippo-repository-mockutils</artifactId>
                 <version>${bloomreach.version}</version>
             </dependency>
-
             <!-- Although we don't explicitly use these dependencies, there are conflicts
             with these libraries in our transitive dependencies so we explicitly declare them -->
             <dependency>
