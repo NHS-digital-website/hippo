@@ -359,43 +359,43 @@
 
 <#function getFacetLabel field>
     <#local labels = {
-    "xmPrimaryDocType":             "document-type",
-    "informationType":              "information-type",
-    "geographicGranularity":        "geographical-granularity",
-    "reportingLevel":               "reportingLevel",
-    "geographicCoverage":           "geographical-coverage",
-    "publishedBy":                  "publishedBy",
-    "assuredStatus":                "assuredStatus",
-    "publiclyAccessible":           "publicationStatus",
-    "year":                         "year",
-    "month":                         "month",
-    "topic":             "topic"
-    }/>
+"xmPrimaryDocType":             "document-type",
+"informationType":              "information-type",
+"geographicGranularity":        "geographical-granularity",
+"reportingLevel":               "reportingLevel",
+"geographicCoverage":           "geographical-coverage",
+"publishedBy":                  "publishedBy",
+"assuredStatus":                "assuredStatus",
+"publiclyAccessible":           "publicationStatus",
+"year":                         "year",
+"month":                         "month",
+"topic":             "topic"
+}/>
     <#return labels[field] />
 </#function>
 
 <#function getDocTypeLabel field>
     <#local labels = {
-    "website:cyberalert":                               "cyber-alerts",
-    "publicationsystem:dataset":                        "dataset",
-    "website:news":                                     "news",
-    "website:publishedworkchapter":                     "publishedworkchapter",
-    "publicationsystem:series":                         "series",
-    "website:service":                                  "service",
-    "website:gdprtransparency":                         "gdprtransparency",
-    "nationalindicatorlibrary:indicator":               "indicator",
-    "website:event":                                    "event",
-    "website:person":                                   "person",
-    "website:businessunit":                             "businessunit",
-    "website:publishedwork":                            "publishedwork",
-    "website:blog":                                     "blog",
-    "website:glossarylist":                             "glossarylist",
-    "website:roadmap":                                  "roadmap",
-    "homepage":                                         "homepage",
-    "publication":                                      "publication",
-    "website:supplementaryinformation":                 "supplementaryinformation",
-    "website:apispecification":                         "apispecification"
-    }/>
+"website:cyberalert":                               "cyber-alerts",
+"publicationsystem:dataset":                        "dataset",
+"website:news":                                     "news",
+"website:publishedworkchapter":                     "publishedworkchapter",
+"publicationsystem:series":                         "series",
+"website:service":                                  "service",
+"website:gdprtransparency":                         "gdprtransparency",
+"nationalindicatorlibrary:indicator":               "indicator",
+"website:event":                                    "event",
+"website:person":                                   "person",
+"website:businessunit":                             "businessunit",
+"website:publishedwork":                            "publishedwork",
+"website:blog":                                     "blog",
+"website:glossarylist":                             "glossarylist",
+"website:roadmap":                                  "roadmap",
+"homepage":                                         "homepage",
+"publication":                                      "publication",
+"website:supplementaryinformation":                 "supplementaryinformation",
+"website:apispecification":                         "apispecification"
+}/>
 
     <#if labels[field]??>
         <#return labels[field] />
@@ -406,153 +406,153 @@
 
 <#function getPublicationStatusLabel field>
     <#local labels = {
-    "true":                               "Published",
-    "false":                              "Upcoming"
-    }/>
+"true":                               "Published",
+"false":                              "Upcoming"
+}/>
     <#return labels[field] />
 </#function>
 
 <#function getAssuredLabel field>
     <#local labels = {
-    "true":                               "Yes",
-    "false":                              "No"
-    }/>
+"true":                               "Yes",
+"false":                              "No"
+}/>
     <#return labels[field] />
 </#function>
 
 
 <script>
     (function () {
-        var oldBrowser = window.addEventListener ? false : true;
-        var $visToggles = document.getElementsByClassName('filter-vis-toggles');
-        var $listTitleToggles = document.getElementsByClassName('filter-section__title');
+var oldBrowser = window.addEventListener ? false : true;
+var $visToggles = document.getElementsByClassName('filter-vis-toggles');
+var $listTitleToggles = document.getElementsByClassName('filter-section__title');
 
-        var vjsUtils = window.vanillaJSUtils;
+var vjsUtils = window.vanillaJSUtils;
 
-        function init() {
-            for (var i = 0; i < $visToggles.length; i++) {
-                var $visToggle = $visToggles[i];
+function init() {
+for (var i = 0; i < $visToggles.length; i++) {
+var $visToggle = $visToggles[i];
 
-                if (!oldBrowser) {
-                    $visToggle.addEventListener('click', handleVisToggleClick);
-                } else {
-                    $visToggle.attachEvent('onclick', handleVisToggleClick);
-                }
+if (!oldBrowser) {
+$visToggle.addEventListener('click', handleVisToggleClick);
+} else {
+$visToggle.attachEvent('onclick', handleVisToggleClick);
+}
             }
 
             for (var i = 0; i < $listTitleToggles.length; i++) {
-                var $listTitleToggle = $listTitleToggles[i];
+var $listTitleToggle = $listTitleToggles[i];
 
-                if ($listTitleToggle.parentNode.className.indexOf('filter-section--toggles') >= 0) {
-                    if (!oldBrowser) {
-                        $listTitleToggle.addEventListener('click', handleListTitleToggleClick);
-                    }
+if ($listTitleToggle.parentNode.className.indexOf('filter-section--toggles') >= 0) {
+if (!oldBrowser) {
+$listTitleToggle.addEventListener('click', handleListTitleToggleClick);
+}
                 }
             }
 
             if (!oldBrowser) {
-                window.addEventListener('resize', handleResize);
-            } else {
-                window.attachEvent('onresize', handleResize);
-            }
+window.addEventListener('resize', handleResize);
+} else {
+window.attachEvent('onresize', handleResize);
+}
 
             handleResize();
         }
 
         function handleResize() {
-            if (window.outerWidth < 640) {
-                collapseLists();
-            } else {
-                expandLists();
-            }
+if (window.outerWidth < 640) {
+collapseLists();
+} else {
+expandLists();
+}
         }
 
         function collapseLists() {
-            for (var i = 0; i < $listTitleToggles.length; i++) {
-                var $listTitleToggle = $listTitleToggles[i];
-                var $listTitleToggleParent = $listTitleToggle.parentNode;
+for (var i = 0; i < $listTitleToggles.length; i++) {
+var $listTitleToggle = $listTitleToggles[i];
+var $listTitleToggleParent = $listTitleToggle.parentNode;
 
-                if ($listTitleToggleParent.className.indexOf('is-open') >= 0) {
-                    toggleFilterSectionEl($listTitleToggleParent);
-                }
+if ($listTitleToggleParent.className.indexOf('is-open') >= 0) {
+toggleFilterSectionEl($listTitleToggleParent);
+}
             }
         }
 
         function expandLists() {
-            for (var i = 0; i < $listTitleToggles.length; i++) {
-                var $listTitleToggle = $listTitleToggles[i];
-                var $listTitleToggleParent = $listTitleToggle.parentNode;
+for (var i = 0; i < $listTitleToggles.length; i++) {
+var $listTitleToggle = $listTitleToggles[i];
+var $listTitleToggleParent = $listTitleToggle.parentNode;
 
-                if ($listTitleToggleParent.className.indexOf('is-open') < 0) {
-                    toggleFilterSectionEl($listTitleToggleParent);
-                }
+if ($listTitleToggleParent.className.indexOf('is-open') < 0) {
+toggleFilterSectionEl($listTitleToggleParent);
+}
             }
         }
 
         function toggleUl(ulElement) {
-            var $showToggleButton = ulElement.getElementsByClassName('filter-vis-toggle--show')[0];
-            var $hideToggleButton = ulElement.getElementsByClassName('filter-vis-toggle--hide')[0];
+var $showToggleButton = ulElement.getElementsByClassName('filter-vis-toggle--show')[0];
+var $hideToggleButton = ulElement.getElementsByClassName('filter-vis-toggle--hide')[0];
 
-            if ('full' == ulElement.dataset.state) {
-                hideListItems(ulElement);
-                ulElement.dataset.state = 'short';
+if ('full' == ulElement.dataset.state) {
+hideListItems(ulElement);
+ulElement.dataset.state = 'short';
 
-                vjsUtils.removeClass($showToggleButton, 'is-hidden');
-                vjsUtils.addClass($hideToggleButton, 'is-hidden');
-            } else {
-                showListItems(ulElement);
-                ulElement.dataset.state = 'full'
+vjsUtils.removeClass($showToggleButton, 'is-hidden');
+vjsUtils.addClass($hideToggleButton, 'is-hidden');
+} else {
+showListItems(ulElement);
+ulElement.dataset.state = 'full'
 
-                vjsUtils.addClass($showToggleButton, 'is-hidden');
-                vjsUtils.removeClass($hideToggleButton, 'is-hidden');
-            }
+vjsUtils.addClass($showToggleButton, 'is-hidden');
+vjsUtils.removeClass($hideToggleButton, 'is-hidden');
+}
         }
 
         function toggleFilterSectionEl(filterSectionElement) {
-            vjsUtils.toggleClass(filterSectionElement, 'is-open');
-        }
+vjsUtils.toggleClass(filterSectionElement, 'is-open');
+}
 
         function hideListItems(ulElement) {
-            setDisplayItems(ulElement);
-        }
+setDisplayItems(ulElement);
+}
 
         function showListItems(ulElement) {
-            setDisplayItems(ulElement, true);
-        }
+setDisplayItems(ulElement, true);
+}
 
         function setDisplayItems(ulElement, display) {
-            var listItems = ulElement.getElementsByClassName('filter-list__item');
+var listItems = ulElement.getElementsByClassName('filter-list__item');
 
-            for (var i = 0; i < listItems.length; i++) {
-                var listItem = listItems[i];
+for (var i = 0; i < listItems.length; i++) {
+var listItem = listItems[i];
 
-                if (i >= ulElement.dataset.maxCount) {
-                    if (display) {
-                        vjsUtils.removeClass(listItem, 'is-hidden');
-                    } else {
-                        vjsUtils.addClass(listItem, 'is-hidden');
-                    }
+if (i >= ulElement.dataset.maxCount) {
+if (display) {
+vjsUtils.removeClass(listItem, 'is-hidden');
+} else {
+vjsUtils.addClass(listItem, 'is-hidden');
+}
                 }
             }
         }
 
         function handleVisToggleClick(event) {
-            var ulElement = event.target.parentNode.parentNode;
+var ulElement = event.target.parentNode.parentNode;
 
-            toggleUl(ulElement);
+toggleUl(ulElement);
 
-            event.preventDefault();
-            return true;
-        }
+event.preventDefault();
+return true;
+}
 
         function handleListTitleToggleClick(event) {
-            var filterSectionElement = event.target.parentNode;
+var filterSectionElement = event.target.parentNode;
 
-            toggleFilterSectionEl(filterSectionElement);
+toggleFilterSectionEl(filterSectionElement);
 
-            event.preventDefault();
-            return true;
-        }
+event.preventDefault();
+return true;
+}
 
         init();
     }());

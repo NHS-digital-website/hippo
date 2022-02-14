@@ -1,8 +1,8 @@
 <#ftl output_format="HTML">
-<#include "../nhsd-common/macro/heroes/hero-options.ftl">
-<#include "../nhsd-common/macro/heroes/hero.ftl">
-<#include "../include/imports.ftl">
-<#include "macro/metaTags.ftl">
+<#include "./macro/heroes/hero-options.ftl">
+<#include "./macro/heroes/hero.ftl">
+<#include "./include/imports.ftl">
+<#include "./macro/metaTags.ftl">
 
 <#assign heroOptions = getHeroOptions(banner) />
 

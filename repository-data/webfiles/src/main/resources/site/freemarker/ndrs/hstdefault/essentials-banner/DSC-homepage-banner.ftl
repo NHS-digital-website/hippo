@@ -1,10 +1,10 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include "../../../freemarker/common/macro/documentHeader.ftl">
+<#include "../../macro/documentHeader.ftl">
 
 <#assign overridePageTitle>${document.title}</#assign>
 <#-- Add meta tags -->
-<#include "../../common/macro/metaTags.ftl">
+<#include "../macro/metaTags.ftl">
 <@metaTags title summary></@metaTags>
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->

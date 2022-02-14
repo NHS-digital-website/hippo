@@ -1,0 +1,54 @@
+/* Search results */
+// Heading for search results page
+.search-results-heading {
+    border-bottom: 1px solid $col-15;
+
+    .search-results-heading__title {
+        margin-bottom: $gutter * 0.5;
+        @include bold-font(36);
+    }
+
+    .search-results-heading__details {
+        @include clearfix;
+        padding-bottom: round($gutter * 0.5);
+    }
+
+    .search-results-heading__subcopy,
+    .search-results-heading__sort {
+        display: inline-block;
+        
+        @include core-font(14);
+    }
+
+    @include media(tablet) {
+        .search-results-heading__subcopy {
+            float: left;
+        }
+
+        .search-results-heading__sort {
+            float: right;
+        }
+    }
+}
+
+.search-results {
+    .cta-list {
+        margin-top: $gutter * 2;
+
+        .cta {
+            padding: $gutter * 2 0;
+
+            &:first-child {
+                padding-top: 0;
+            }
+        }
+    }
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        .cta-list {
+            .cta {
+                padding: round($gutter * 1.5) 0 0;
+            }
+        }
+    }
+}

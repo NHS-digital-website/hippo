@@ -3,7 +3,6 @@
 <#include "macro/searchTabsComponent.ftl">
 <#include "macro/siteHeader.ftl">
 <#include "macro/siteFooter.ftl">
-<#include "macro/metaTags.ftl">
 <#include "macro/component/skipLink.ftl">
 
 <!DOCTYPE html>
@@ -18,17 +17,15 @@
     <@hst.include ref="ie-banner"/>
 
     <#-- Add site header with the search bar -->
-    <@siteHeader false></@siteHeader>
+    <@siteHeader true></@siteHeader>
 
     <@hst.include ref="coronavirus-banner"/>
 
-    <#-- Add breadcrumbs -->
-    <#include "macro/pubsBreadcrumb.ftl">
-    <@pubsBreadcrumb "Search results"></@pubsBreadcrumb>
+    <@hst.include ref="breadcrumb-ci"/>
 
-    <@hst.include ref="top"/>
-
-    <@hst.include ref="main"/>
+    <main id="main-content">
+        <@hst.include ref="main" />
+    </main>
 
     <@siteFooter />
 
