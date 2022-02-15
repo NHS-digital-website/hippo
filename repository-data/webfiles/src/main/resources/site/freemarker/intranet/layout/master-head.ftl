@@ -39,7 +39,7 @@
 
     <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/stylesheets/nhsd-frontend.css" />
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-edge-cases.css" />" />
-
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-print.css"/>" media="print" type="text/css"/>
     <script src="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/scripts/nhsd-frontend.js"></script>
     <script src="<@hst.webfile path="/dist/nhsd-intranet-priority-scripts.bundle.js"/>"></script>
 
