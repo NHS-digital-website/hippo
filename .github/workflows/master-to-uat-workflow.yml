@@ -148,7 +148,6 @@ jobs:
       #
       - name: Upload distribution
         run: make ondemand.upload
-        working-directory: ${{steps.download.outputs.download-path}}
 
       #
       # Send Deployment Request
