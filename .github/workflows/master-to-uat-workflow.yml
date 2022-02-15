@@ -70,14 +70,14 @@ jobs:
             ${{ runner.os }}-node-nhs-
 
       #
-      # Step 3
+      # Step 4
       #
       - name: Bump the version number
         run: make version.bumpup
 
 
       #
-      # Step 4
+      # Step 5
       #
       - name: Build master
         run: make clean build
@@ -86,7 +86,7 @@ jobs:
           HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
 
       #
-      # Step 5
+      # Step 6
       #
       - name: Set the commit's Git status
         run: make github.status.success
@@ -141,13 +141,14 @@ jobs:
       #
       - name: Download version artifact
         uses: actions/download-artifact@v2
-        id: down
+        id: download
 
       #
       # Upload the distribution to RD
       #
       - name: Upload distribution
-        run: make ondemand.upload
+        run: echo put $(echo ls *.tar.gz | awk '{ print $2 }') /uploads/dists/$(ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)').tar.gz | sftp nhs@static.hosting.onehippo.com
+        working-directory: ${{steps.download.outputs.download-path}}
 
       #
       # Send Deployment Request
@@ -155,12 +156,19 @@ jobs:
       - name: Deploy request
         id: pipeline-deploy
         run: |
-          make ondemand.pipeline-deploy > pipeline-deploy-output.txt
+          curl -LO https://github.com/rundeck/rundeck-cli/releases/download/v1.0.25/rundeck-cli-1.0.25-all.jar
+          java -jar rundeck-cli-1.0.25-all.jar run \
+          --project nhs \
+          --job "jobs/acct/Deploy" \
+          -- \
+          -bootstrap true \
+          -distribution "$(ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)').tar.gz" > pipeline-deploy-output.txt
           echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
         env:
           RD_URL: ${{ secrets.RD_API }}
           RD_USER: ${{ secrets.RD_USER }}
           RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
+        working-directory: ${{steps.download.outputs.download-path}}
 
       #
       # Message the progress
@@ -214,7 +222,7 @@ jobs:
 
       - name: Download version artifact
         uses: actions/download-artifact@v2
-        id: down
+        id: download
 
       #Upload Build to BR Cloud
       - name: Upload Build to BR Cloud
