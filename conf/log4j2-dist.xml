@@ -147,7 +147,7 @@
 
       <!-- IP Filter logging -->
       <Logger name="org.bloomreach.forge.ipfilter" level="info"/>
-      <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter" level="info"/>
+      <!--<Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter" level="info"/>-->
 
       <Root level="ALL">
           <AppenderRef ref="site"/>
