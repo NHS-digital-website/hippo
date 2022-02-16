@@ -102,9 +102,11 @@
 
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
+    <Logger name="org.springframework.web.filter" level="info"/>
 
-    <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
-         can be here on level 'info' -->
+
+      <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
+           can be here on level 'info' -->
     <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
 
     <Logger name="freemarker" level="error">
