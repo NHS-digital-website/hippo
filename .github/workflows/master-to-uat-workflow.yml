@@ -173,13 +173,13 @@ jobs:
           --job "jobs/acct/Deploy" \
           -- \
           -bootstrap true \
-          -distribution "${{ env.DISTROBUTION }}" > pipeline-deploy-output.txt
+          -distribution "${{ env.VERSION }}.tar.gz" > pipeline-deploy-output.txt
           echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
         env:
           RD_URL: ${{ secrets.RD_API }}
           RD_USER: ${{ secrets.RD_USER }}
           RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
-          DISTROBUTION: ${{steps.details.outputs.distribution}}
+          VERSION: ${{steps.details.outputs.version}}
         working-directory: ${{steps.download.outputs.download-path}}/distribution
 
       #
