@@ -102,9 +102,8 @@
 
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
-    <Logger name="org.springframework.web.filter" level="info"/>
-    <Logger name="org.tuckey.web.filters.urlrewrite.utils.Log" level="info"/>
-      
+    <Logger name="org.tuckey.web.filters.urlrewrite" level="info"/>
+
       <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
            can be here on level 'info' -->
     <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
