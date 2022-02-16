@@ -7,7 +7,7 @@ import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.List;
