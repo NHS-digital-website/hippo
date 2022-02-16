@@ -105,7 +105,7 @@ jobs:
       - name: Store Artifact for Later in the Pipeline
         uses: actions/upload-artifact@v2
         with:
-          name: build
+          name: distribution
           path: target/*.tar.gz
           if-no-files-found: error
 
@@ -143,12 +143,23 @@ jobs:
         uses: actions/download-artifact@v2
         id: download
 
+      - name: Get artifact details
+        id: details
+        run: |
+          echo '::set-output name=distribution::'$(echo ls *.tar.gz | awk '{ print $2 }')
+          echo '::set-output name=version::'$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')
+        working-directory: ${{steps.download.outputs.download-path}}/distribution
+
       #
       # Upload the distribution to RD
       #
       - name: Upload distribution
-        run: echo put $(echo ls *.tar.gz | awk '{ print $2 }') /uploads/dists/$(ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)').tar.gz | sftp nhs@static.hosting.onehippo.com
-        working-directory: ${{steps.download.outputs.download-path}}
+        run: |
+          echo put ${{ env.DISTROBUTION }} /uploads/dists/${{ env.VERSION }}.tar.gz | sftp nhs@static.hosting.onehippo.com
+        env:
+          DISTROBUTION: ${{steps.details.outputs.distribution}}
+          VERSION: ${{steps.details.outputs.version}}
+        working-directory: ${{steps.download.outputs.download-path}}/distribution
 
       #
       # Send Deployment Request
@@ -162,13 +173,14 @@ jobs:
           --job "jobs/acct/Deploy" \
           -- \
           -bootstrap true \
-          -distribution "$(ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)').tar.gz" > pipeline-deploy-output.txt
+          -distribution "${ env.DISTROBUTION }" > pipeline-deploy-output.txt
           echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
         env:
           RD_URL: ${{ secrets.RD_API }}
           RD_USER: ${{ secrets.RD_USER }}
           RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
-        working-directory: ${{steps.download.outputs.download-path}}
+          DISTROBUTION: ${{steps.details.outputs.distribution}}
+        working-directory: ${{steps.download.outputs.download-path}}/distribution
 
       #
       # Message the progress
@@ -236,7 +248,7 @@ jobs:
           -F $file)
           id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
           echo "::set-output name=id::$id"
-        working-directory: ${{steps.download.outputs.download-path}}
+        working-directory: ${{steps.download.outputs.download-path}}/distribution
 
       #
       # Prepare App Config Deployment Details
