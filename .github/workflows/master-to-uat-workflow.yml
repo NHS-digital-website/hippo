@@ -173,7 +173,7 @@ jobs:
           --job "jobs/acct/Deploy" \
           -- \
           -bootstrap true \
-          -distribution "${ env.DISTROBUTION }" > pipeline-deploy-output.txt
+          -distribution "${{ env.DISTROBUTION }}" > pipeline-deploy-output.txt
           echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
         env:
           RD_URL: ${{ secrets.RD_API }}
@@ -240,15 +240,15 @@ jobs:
       - name: Upload Build to BR Cloud
         id: distribution
         run: |
-          filelist=($(ls build/))
-          file="dist_file=@build/${filelist[0]}"
+          filelist=($(ls distribution/))
+          file="dist_file=@distribution/${filelist[0]}"
           response=$(curl -i \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X POST https://api.${{ secrets.HOST }}/v3/distributions \
           -F $file)
           id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
           echo "::set-output name=id::$id"
-        working-directory: ${{steps.download.outputs.download-path}}/distribution
+        working-directory: ${{steps.download.outputs.download-path}}
 
       #
       # Prepare App Config Deployment Details
