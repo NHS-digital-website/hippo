@@ -260,6 +260,9 @@ definitions:
       /orgstructure:
         hst:renderpath: webfile:/freemarker/nhsd-common/orgstructure.ftl
         jcr:primaryType: hst:template
+      /patients:
+        hst:renderpath: webfile:/freemarker/common/patients.ftl
+        jcr:primaryType: hst:template
       /person-article:
         hst:renderpath: webfile:/freemarker/nhsd-common/person-article.ftl
         jcr:primaryType: hst:template
