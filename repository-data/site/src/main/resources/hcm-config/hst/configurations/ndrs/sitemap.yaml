@@ -63,7 +63,10 @@ definitions:
         hst:relativecontentpath: coronavirus
         jcr:primaryType: hst:sitemapitem
       /data:
-        hst:componentconfigurationid: hst:pages/dataset
+        /datatools:
+          hst:componentconfigurationid: hst:pages/ndrs-data-hub
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/ndrs-datatools-hub
         hst:refId: data
         hst:relativecontentpath: data-and-information
         jcr:primaryType: hst:sitemapitem
