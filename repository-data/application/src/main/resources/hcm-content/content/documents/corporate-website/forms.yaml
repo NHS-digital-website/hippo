@@ -1,9 +1,13 @@
+---
 /content/documents/corporate-website/forms:
   .meta:order-before: features
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-  jcr:uuid: 89fb4a83-ba51-4dee-bf29-fff3f4b5898f
   hippo:name: Forms
-  hippostd:foldertype: [new-enterprise-forms-document]
+  hippostd:foldertype:
+  - new-enterprise-forms-document
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

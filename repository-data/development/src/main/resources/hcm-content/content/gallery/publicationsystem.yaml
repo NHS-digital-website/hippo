@@ -1,8 +1,12 @@
+---
 /content/gallery/publicationsystem:
   .meta:order-before: fc902.jpeg
-  jcr:primaryType: hippogallery:stdImageGallery
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  jcr:uuid: 6f6e1bd0-171d-4997-8421-d0e9a5c4b0d9
   hippo:name: NHS Digital Publication System
-  hippostd:foldertype: [new-website-corporateWebsiteImageset-folder]
-  hippostd:gallerytype: ['website:corporateWebsiteImageset']
+  hippostd:foldertype:
+  - new-website-corporateWebsiteImageset-folder
+  hippostd:gallerytype:
+  - website:corporateWebsiteImageset
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippogallery:stdImageGallery

@@ -1,23 +1,16 @@
+---
 /content/documents/corporate-website/feeds:
   .meta:order-before: features
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-  jcr:uuid: 64ec27fd-9db8-499c-8803-f53eb342e6c8
-  hippo:name: Feeds
-  hippostd:foldertype: [new-translated-folder, new-document]
-  hippotranslation:id: 820f2361-e3da-45f3-ad93-4f8e189a03cf
-  hippotranslation:locale: en
   /all-blog-feed:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: d10b3837-4c01-4d93-acaf-59318be0aefa
-    hippo:name: All blog Feed
-    hippo:versionHistory: 1bce1789-4c37-4be7-b13d-25ccdff4e966
     /all-blog-feed[1]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:versionable']
-      jcr:uuid: b5b45054-3ad5-42e7-b206-8fca9850fe55
-      feed:category: ['']
+      /feed:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -30,23 +23,25 @@
       feed:sortByField: ''
       feed:title: All Blog Feed
       feed:webMaster: ''
-      hippo:availability: [preview]
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-12-02T23:17:56.591Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:18:07.230Z
       hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: feed:rss20descriptor
+    /all-blog-feed[2]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-    /all-blog-feed[2]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 01f44015-03db-4db6-a717-b3185ba3089b
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -65,17 +60,18 @@
       hippostdpubwf:creationDate: 2020-12-02T23:17:56.591Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:17:56.712Z
       hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: feed:rss20descriptor
+    /all-blog-feed[3]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-    /all-blog-feed[3]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: f4737ee9-c5e5-430f-a0f2-706aba605565
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -88,30 +84,34 @@
       feed:sortByField: ''
       feed:title: All Blog Feed
       feed:webMaster: ''
-      hippo:availability: [live]
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-12-02T23:17:56.591Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:18:07.230Z
       hippostdpubwf:lastModifiedBy: admin
       hippostdpubwf:publicationDate: 2020-12-02T23:18:09.108Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: feed:rss20descriptor
+    hippo:name: All blog Feed
+    hippo:versionHistory: 1bce1789-4c37-4be7-b13d-25ccdff4e966
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /design-matters-feed:
+    /design-matters-feed[1]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-  /design-matters-feed:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 80b49fa4-6ebd-4a30-9701-1af216b1d046
-    hippo:name: Design Matters Feed
-    hippo:versionHistory: 4c9bea81-c479-4e1a-b991-d0162911d1e2
-    /design-matters-feed[1]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:versionable']
-      jcr:uuid: 33257af2-d8fd-488e-90be-8589fbc7d234
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -124,23 +124,25 @@
       feed:sortByField: ''
       feed:title: Design Matters Feed
       feed:webMaster: ''
-      hippo:availability: [preview]
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-12-02T23:17:34.784Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:17:43.314Z
       hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: feed:rss20descriptor
+    /design-matters-feed[2]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-    /design-matters-feed[2]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 391420ca-953f-4392-9d85-50f71831a124
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -159,17 +161,18 @@
       hippostdpubwf:creationDate: 2020-12-02T23:17:34.784Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:17:34.894Z
       hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: feed:rss20descriptor
+    /design-matters-feed[3]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-    /design-matters-feed[3]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: aa7c4cb2-63a1-48a4-9338-df502702f936
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -182,30 +185,34 @@
       feed:sortByField: ''
       feed:title: Design Matters Feed
       feed:webMaster: ''
-      hippo:availability: [live]
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-12-02T23:17:34.784Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:17:43.314Z
       hippostdpubwf:lastModifiedBy: admin
       hippostdpubwf:publicationDate: 2020-12-02T23:17:45.173Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: feed:rss20descriptor
+    hippo:name: Design Matters Feed
+    hippo:versionHistory: 4c9bea81-c479-4e1a-b991-d0162911d1e2
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /tech-talk-feed:
+    /tech-talk-feed[1]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-  /tech-talk-feed:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 2bc8b4d7-560d-45d0-b3bf-9eeb6fcf0670
-    hippo:name: Tech Talk Feed
-    hippo:versionHistory: 3f10df79-43b2-4aeb-95c4-2869dd2f1183
-    /tech-talk-feed[1]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:versionable']
-      jcr:uuid: 1407a286-3a11-4583-b1f2-7ddee2d1b7f0
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -218,23 +225,25 @@
       feed:sortByField: ''
       feed:title: Tech Talk Feed
       feed:webMaster: ''
-      hippo:availability: [preview]
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-12-02T23:17:06.833Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:17:16.083Z
       hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: feed:rss20descriptor
+    /tech-talk-feed[2]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-    /tech-talk-feed[2]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 862548b6-be83-41b6-8f28-bd14f64879ad
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -253,17 +262,18 @@
       hippostdpubwf:creationDate: 2020-12-02T23:17:06.833Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:17:06.953Z
       hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: feed:rss20descriptor
+    /tech-talk-feed[3]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-    /tech-talk-feed[3]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: a28d43dc-b4f3-4f49-8f53-f26f80f6ee16
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -276,30 +286,34 @@
       feed:sortByField: ''
       feed:title: Tech Talk Feed
       feed:webMaster: ''
-      hippo:availability: [live]
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-12-02T23:17:06.833Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:17:16.083Z
       hippostdpubwf:lastModifiedBy: admin
       hippostdpubwf:publicationDate: 2020-12-02T23:17:18.640Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: feed:rss20descriptor
+    hippo:name: Tech Talk Feed
+    hippo:versionHistory: 3f10df79-43b2-4aeb-95c4-2869dd2f1183
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /transformation-blog-feed:
+    /transformation-blog-feed[1]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-  /transformation-blog-feed:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: d7ad413e-6b84-4ef1-a6e4-b6985c72e4a2
-    hippo:name: Transformation Blog Feed
-    hippo:versionHistory: 985b79f4-f303-456d-a5a4-863f566da2db
-    /transformation-blog-feed[1]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:versionable']
-      jcr:uuid: 29cca932-7aa4-43df-9696-1670aac1f973
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -312,23 +326,25 @@
       feed:sortByField: ''
       feed:title: Transformation Blog Feed
       feed:webMaster: ''
-      hippo:availability: [preview]
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-12-02T23:16:35.468Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:16:48.962Z
       hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: feed:rss20descriptor
+    /transformation-blog-feed[2]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-    /transformation-blog-feed[2]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: b7c99dde-b60e-44d2-a282-d32818c88494
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -347,17 +363,18 @@
       hippostdpubwf:creationDate: 2020-12-02T23:16:35.468Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:16:39.431Z
       hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: feed:rss20descriptor
+    /transformation-blog-feed[3]:
       /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-    /transformation-blog-feed[3]:
-      jcr:primaryType: feed:rss20descriptor
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 42f5741b-b760-49de-93b6-7a22595c33a1
-      feed:category: ['']
+        jcr:primaryType: hippogallerypicker:imagelink
+      feed:category:
+      - ''
       feed:copyright: ''
       feed:description: ''
       feed:documentType: website:blog
@@ -370,16 +387,32 @@
       feed:sortByField: ''
       feed:title: Transformation Blog Feed
       feed:webMaster: ''
-      hippo:availability: [live]
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-12-02T23:16:35.468Z
       hippostdpubwf:lastModificationDate: 2020-12-02T23:16:48.962Z
       hippostdpubwf:lastModifiedBy: admin
       hippostdpubwf:publicationDate: 2020-12-02T23:16:52.681Z
-      /feed:image:
-        jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: feed:rss20descriptor
+    hippo:name: Transformation Blog Feed
+    hippo:versionHistory: 985b79f4-f303-456d-a5a4-863f566da2db
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Feeds
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 820f2361-e3da-45f3-ad93-4f8e189a03cf
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

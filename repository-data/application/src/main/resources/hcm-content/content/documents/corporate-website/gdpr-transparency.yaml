@@ -1,8 +1,12 @@
+---
 /content/documents/corporate-website/gdpr-transparency:
   .meta:order-before: features
-  jcr:primaryType: hippofacnav:facetnavigation
   hippo:docbase: 12345678-1234-1234-1234-123456789abc
-  hippofacnav:facetnodenames: [Title Initial Letter]
-  hippofacnav:facets: ['website:titleinitialletter']
+  hippofacnav:facetnodenames:
+  - Title Initial Letter
+  hippofacnav:facets:
+  - website:titleinitialletter
   hippofacnav:limit: 500
-  hippofacnav:sortby: ['website:title']
+  hippofacnav:sortby:
+  - website:title
+  jcr:primaryType: hippofacnav:facetnavigation

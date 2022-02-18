@@ -1,9 +1,14 @@
+---
 /content/documents/corporate-website/platform:
   .meta:order-before: features
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-  jcr:uuid: 34a2f863-0d7e-471c-a451-68ef05a44b42
   hippo:name: Platform
-  hippostd:foldertype: [new-platform-folder, new-platform-document]
+  hippostd:foldertype:
+  - new-platform-folder
+  - new-platform-document
   hippotranslation:id: db5cef7f-d83c-4a84-a065-c5321b1cc667
   hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

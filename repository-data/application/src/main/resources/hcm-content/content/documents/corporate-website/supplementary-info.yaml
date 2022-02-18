@@ -1,9 +1,14 @@
+---
 /content/documents/corporate-website/supplementary-info:
   .meta:order-before: features
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-  jcr:uuid: 2c0a1665-ff3d-4a61-8de8-45c859b2ef6f
   hippo:name: Supplementary Info
-  hippostd:foldertype: [new-supplementary-info-folder, new-supplementary-info-hub-document]
+  hippostd:foldertype:
+  - new-supplementary-info-folder
+  - new-supplementary-info-hub-document
   hippotranslation:id: b882e700-3c83-411d-8ecf-c987151ce955
   hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

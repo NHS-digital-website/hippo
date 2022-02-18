@@ -1,8 +1,12 @@
+---
 /content/gallery/website:
   .meta:order-before: fc902.jpeg
-  jcr:primaryType: hippogallery:stdImageGallery
-  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  jcr:uuid: 686648e3-aed5-4bda-ae1d-5a76ebe2af62
   hippo:name: Website
-  hippostd:foldertype: [new-website-corporateWebsiteImageset-folder]
-  hippostd:gallerytype: ['website:corporateWebsiteImageset']
+  hippostd:foldertype:
+  - new-website-corporateWebsiteImageset-folder
+  hippostd:gallerytype:
+  - website:corporateWebsiteImageset
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippogallery:stdImageGallery
