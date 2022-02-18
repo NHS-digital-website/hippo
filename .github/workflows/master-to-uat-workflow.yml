@@ -6,8 +6,8 @@ on:
       - master
 
 jobs:
-  build:
-    name: Build Master
+  ODv1build:
+    name: Build Master For ODv1
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -105,14 +105,14 @@ jobs:
       - name: Store Artifact for Later in the Pipeline
         uses: actions/upload-artifact@v2
         with:
-          name: distribution
-          path: target/*.tar.gz
+          name: distribution-odv1
+          path: target/*-on-demand-distribution.tar.gz
           if-no-files-found: error
 
 
   ODv1Deployment:
     name: Deploy to ODv1
-    needs: build
+    needs: ODv1build
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
@@ -143,12 +143,15 @@ jobs:
         uses: actions/download-artifact@v2
         id: download
 
+      #
+      # Get and store the details of the download
+      #
       - name: Get artifact details
         id: details
         run: |
           echo '::set-output name=distribution::'$(echo ls *.tar.gz | awk '{ print $2 }')
-          echo '::set-output name=version::'$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')
-        working-directory: ${{steps.download.outputs.download-path}}/distribution
+          echo '::set-output name=version::'$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-on-demand-distribution.tar.gz)')
+        working-directory: ${{steps.download.outputs.download-path}}/distribution-odv1
 
       #
       # Upload the distribution to RD
@@ -159,7 +162,7 @@ jobs:
         env:
           DISTROBUTION: ${{steps.details.outputs.distribution}}
           VERSION: ${{steps.details.outputs.version}}
-        working-directory: ${{steps.download.outputs.download-path}}/distribution
+        working-directory: ${{steps.download.outputs.download-path}}/distribution-odv1
 
       #
       # Send Deployment Request
@@ -180,7 +183,7 @@ jobs:
           RD_USER: ${{ secrets.RD_USER }}
           RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
           VERSION: ${{steps.details.outputs.version}}
-        working-directory: ${{steps.download.outputs.download-path}}/distribution
+        working-directory: ${{steps.download.outputs.download-path}}/distribution-odv1
 
       #
       # Message the progress
@@ -192,13 +195,120 @@ jobs:
           data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Master is being deployed", "attachments": [{ "text" : "RunDeck is deploying. You can track progress here ${{steps.pipeline-deploy.outputs.PIPELINE_DEPLOY_URL}}", "color": "#78BE20" }] }'
 
 
+  ODv2build:
+    name: Build Master For ODv2
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+
+      #
+      # Step 1
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+
+      #
+      # Step 2
+      #
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 8
+
+      #
+      # Step 3
+      # Get the Caches
+      #
+      - name: Get cache key helper values
+        uses: actions/github-script@v4.0.2
+        id: cache-key-helper
+        with:
+          result-encoding: string
+          script: |
+            return JSON.stringify({
+              "year" : new Date().getFullYear(),
+              "rotation" : new Date().getTimezoneOffset()
+            })
+      - name: Setup cache (Maven packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-v2-maven-nhs-digital-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-v2-maven-nhs-digital-${{ env.YEAR }}-
+            ${{ runner.os }}-v2-maven-nhs-digital-
+            ${{ runner.os }}-v2-maven-nhs-
+      - name: Setup cache (Node.js packages)
+        uses: actions/cache@v2
+        env:
+          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
+          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-v2-node-nhs-digital-${{ env.YEAR }}-${{ env.ROTATION }}
+          restore-keys: |
+            ${{ runner.os }}-v2-node-nhs-digital-${{ env.YEAR }}-
+            ${{ runner.os }}-v2-node-nhs-digital-
+            ${{ runner.os }}-v2-node-nhs-
+
+      #
+      # Step 4
+      #
+      # During moving from ODv1 to ODv2 we cannot version bump twice.
+      #
+      #- name: Bump the version number
+      #  run: make version.bumpup
+
+
+      #
+      # Step 5
+      #
+      - name: Build master
+        run: make clean build-odv2
+        env:
+          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+
+      #
+      # Step 6
+      #
+      - name: Set the commit's Git status
+        run: make github.status.success
+
+      #
+      # Step 6
+      #
+      - name: Push tag back to github
+        run: |
+          make git.update-environment-tag
+          git push --tags
+
+      #
+      # upload build for next job
+      #
+      - name: Store Artifact for Later in the Pipeline
+        uses: actions/upload-artifact@v2
+        with:
+          name: distribution-odv2
+          path: target/*.tar.gz
+          if-no-files-found: error
+
   ODv2Deployment:
     name: Deploy to ODv2
-    needs: build
+    needs: ODv2build
     runs-on: ubuntu-latest
     steps:
 
+      #
       # Get API access token and verify it.
+      #
       - name: Obtain JWT Token
         id: jwt_token
         run: |
@@ -232,23 +342,53 @@ jobs:
           # 'CODE' is for debugging fails
           CODE: ${{ steps.jwt_token_verify.outputs.code }}
 
+      #
+      # Download the distribution artifact
+      #
       - name: Download version artifact
         uses: actions/download-artifact@v2
         id: download
 
-      #Upload Build to BR Cloud
+      #
+      # Get and store the details of the download
+      #
+      - name: Get artifact details
+        id: details
+        run: |
+          echo '::set-output name=distribution::'$(echo ls *.tar.gz | awk '{ print $2 }')
+          echo '::set-output name=version::'$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')
+        working-directory: ${{steps.download.outputs.download-path}}/distribution-odv2
+
+      #
+      # Upload Build to BR Cloud
+      #
       - name: Upload Build to BR Cloud
         id: distribution
         run: |
-          filelist=($(ls distribution/))
-          file="dist_file=@distribution/${filelist[0]}"
           response=$(curl -i \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X POST https://api.${{ secrets.HOST }}/v3/distributions \
-          -F $file)
+          -F "dist_file=@${{ env.DISTROBUTION }};filename=${{ env.VERSION }}.tar.gz")
           id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
           echo "::set-output name=id::$id"
-        working-directory: ${{steps.download.outputs.download-path}}
+        env:
+          DISTROBUTION: ${{steps.details.outputs.distribution}}
+          VERSION: ${{steps.details.outputs.version}}
+        working-directory: ${{steps.download.outputs.download-path}}/distribution-odv2
+
+      #
+      # Check Response
+      #
+      - name: Check Response has ID from Upload Build to BR Cloud
+        if: ${{ steps.distribution.outputs.id.length == 36 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('Upload Build to BR Cloud failed!')
+        env:
+          # For debugging
+          ID: ${{ steps.distribution.outputs.id }}
+          ID-LENGTH: ${{ steps.distribution.outputs.id.length }}
 
       #
       # Prepare App Config Deployment Details
@@ -286,21 +426,24 @@ jobs:
       - name: Request Deployment from BR Cloud
         id: deployment
         run: |
-          curl -i \
+          code=$(curl -i \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ secrets.HOST }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" } ] }'
+          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" } ] }' \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "::set-output name=code::$code"
         env:
           DISTRIBUTION: ${{ steps.distribution.outputs.id }}
           ENVIRONMENT: "083ff91e-6ac5-4638-945c-3ee18acc40bf"
 
       - name: Check Response Code from Request Deployment
-        if: ${{ steps.deployment.outputs.code > 202 }}
         uses: actions/github-script@v3
+        if: ${{ steps.deployment.outputs.code != 202 }}
         with:
-          script: |
-            core.setFailed('Response code mismatch while requesting deployment from BR Cloud!')
+          script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')
+        env:
+          CODE: ${{ steps.deployment.outputs.code }}
 
 
       # Clean-up steps below.
