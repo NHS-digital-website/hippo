@@ -1,5 +1,4 @@
 <#ftl output_format="HTML">
-
 <#macro ndrsFooterBanner>
 <div class="nhsd-t-grid">
     <div class="nhsd-t-row">

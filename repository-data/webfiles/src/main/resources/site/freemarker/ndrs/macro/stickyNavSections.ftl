@@ -3,14 +3,13 @@
 <#assign isStickySectionMainHeading="uk.nhs.digital.freemarker.indices.IsStickySectionMainHeading"?new() />
 
 <#macro stickyNavSections links title="Page contents">
-    <div class="nhsd-m-sticky-navigation nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2 nhsd-!t-margin-bottom-6">
-        <span id="sticky-nav-header" class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">${title}</span>
-        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs nhsd-!t-margin-bottom-2"/>
-
+<div class="article-section-nav-wrapper">
+    <div class="article-section-nav">
+        <h2 class="article-section-nav__title">${title}</h2>
         <#assign numberedListCount=0 />
         <#if links??>
-           <nav aria-labelledby="sticky-nav-header">
-                <ul>
+            <nav>
+                <ol class="article-section-nav__list">
                     <#list links as link>
                         <#assign label = "Scroll to '${link.title}'" />
                         <#if link["aria-label"]??>
@@ -19,19 +18,20 @@
                         <#if link.isNumberedList?? && link.isNumberedList>
                             <#assign numberedListCount++ />
                             <#assign numberedLinkTitle = numberedListCount + ". " + link.title>
-                            <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="${slugify(link.title)}">
-                                <a href="${link.url}" aria-label="${label}" title="${label}" class="nhsd-a-link">${numberedLinkTitle}</a>
+                            <li id="${link.url}_list" class="section-numbered">
+                                <a href="${link.url}" aria-label="${label}" title="${label}" id="${link.url}_link" class="nonNavActive">${numberedLinkTitle}</a>
                             </li>
                         <#else>
-                            <li class="nhsd-m-sticky-navigation__item" data-nav-content="${slugify(link.title)}">
-                                <a href="${link.url}" aria-label="${label}" title="${label}" class="nhsd-a-link">${link.title}</a>
+                            <li id="${link.url}_list">
+                                <a href="${link.url}" aria-label="${label}" title="${label}" id="${link.url}_link" class="nonNavActive">${link.title}</a>
                             </li>
                         </#if>
                     </#list>
-                </ul>
+                </ol>
             </nav>
         </#if>
     </div>
+</div>
 </#macro>
 
 <#-- Gather section nav links in a hash -->
@@ -79,8 +79,7 @@
             </#if>
         </#if>
         <#if document?? && document != "simulating_doc" && document.relatedNews?? && (!document.latestNews?? || !document.latestNews?has_content) && document.relatedNews?has_content >
-            <@fmt.message key="headers.related-news" var="relatedNewsHeader" />
-            <#assign links += [{ "url": "#" + slugify(relatedNewsHeader), "title": relatedNewsHeader }] />
+              <#assign links += [{ "url": "#related-articles-related-news-${idsuffix}", "title": 'Related news' }] />
         </#if>
         <#if options.childPages?? && options.childPages?has_content>
             <@fmt.message key="headers.further-information" var="furtherInformationHeader" />
