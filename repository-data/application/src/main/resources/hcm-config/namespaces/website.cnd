@@ -7,6 +7,9 @@
 <'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
 <'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
 
+[website:ImageModule] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated

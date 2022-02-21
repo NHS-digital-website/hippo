@@ -87,8 +87,8 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,publicationsystem:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:tableau,website:tableauLookup,website:statistics,website:navigation,website:svg,website:propertytable
-            contentPickerType: links
+            compoundList: website:section,website:ImageModule,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:tableau,website:tableauLookup,website:statistics,website:navigation,website:svg,website:propertytable,website:VideoSection
+            contentPickerType: ''
             field: sections
             hint: ''
             jcr:primaryType: frontend:plugin
