@@ -1,4 +1,5 @@
 <#ftl output_format="HTML">
+<#include "../../../include/imports.ftl">
 
 <#macro simpleHeroContent options>
     <#assign uiPath = options.uiPath?has_content?then(options.uiPath, "website.hero") />

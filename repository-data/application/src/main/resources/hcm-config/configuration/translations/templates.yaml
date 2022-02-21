@@ -146,6 +146,11 @@ definitions:
           jcr:name: Text
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:ImageModule:
+        /en:
+          jcr:name: Image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:VideoSection:
         /en:
           jcr:name: Video

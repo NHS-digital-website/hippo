@@ -205,7 +205,9 @@
                     	}/>
 	                    <@card cardProperties/>
                 	</#if>
-                    <hr class="nhsd-a-horizontal-rule" />
+                    <#if !hasRelatedSubjects && !hasSectionContent >
+                        <hr class="nhsd-a-horizontal-rule" />
+                    </#if>
                     <p class="nhsd-t-heading-xl">Share this page</p>
                     <#-- Use UTF-8 charset for URL escaping from now: -->
                     <#setting url_escaping_charset="UTF-8">

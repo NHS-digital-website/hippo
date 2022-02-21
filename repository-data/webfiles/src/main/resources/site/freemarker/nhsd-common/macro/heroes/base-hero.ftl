@@ -42,7 +42,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
     <#if heroType == "backgroundImage">
         <#assign heroClasses="nhsd-o-hero--background-image">
     <#elseif heroType == "whiteHero">
-    	<#assign heroClasses="nhsd-o-hero--image">
+        <#assign heroClasses="nhsd-o-hero--image">
         <#assign bgClass="nhsd-!t-bg-white">
         <#assign textClass += " nhsd-o-hero--dark-text nhsd-!t-col-black">
     <#elseif heroType == "image" || heroType == "blackHero">
@@ -57,6 +57,12 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses="nhsd-o-hero--image-accented">
     <#elseif heroType == "accentedImageMirrored">
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
+    </#if>
+
+    <#if hst.isBeanType(options.caption, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
+        <@hst.html var="htmlCaption" hippohtml=options.caption contentRewriter=brContentRewriter />
+    <#else>
+        <#assign htmlCaption = options.caption/>
     </#if>
 
     <#if options.colour?has_content>
@@ -135,6 +141,17 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                                 <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="" />
                             </#if>
                         </picture>
+                        <#if options.caption?has_content>
+                            <figcaption>
+                            <#if options.link?has_content>
+                                <a class="nhsd-a-link" href="${options.link}" data-uipath="ps.publication.image-section.link">
+                            </#if>
+                            ${htmlCaption?no_esc}
+                            <#if options.link?has_content>
+                                </a>
+                            </#if>
+                            </figcaption>
+                        </#if>
                     </figure>
                 </#if>
             </div>

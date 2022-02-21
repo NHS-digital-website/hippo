@@ -101,7 +101,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Highlights
-            compoundList: website:section,website:emphasisBox,website:infographic,website:VideoSections
+            compoundList: website:section,website:ImageModule,website:emphasisBox,website:infographic,website:VideoSections
             contentPickerType: links
             field: sections
             hint: ''
