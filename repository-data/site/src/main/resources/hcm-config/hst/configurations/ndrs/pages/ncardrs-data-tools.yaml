@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/ncardrs-data-tools:
+      /main:
+        hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+        hst:template: ncardrs-data-tools
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

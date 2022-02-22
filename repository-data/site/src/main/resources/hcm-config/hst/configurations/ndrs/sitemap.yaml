@@ -63,12 +63,58 @@ definitions:
         hst:relativecontentpath: coronavirus
         jcr:primaryType: hst:sitemapitem
       /data:
-        /datatools:
-          hst:componentconfigurationid: hst:pages/ndrs-data-hub
+        /ncardrs-data-sets:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/static-ui-general
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncardrs-data-sets/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/ncardsrs-data-sets
+          jcr:primaryType: hst:sitemapitem
+        /ncardrs-data-tools:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/datahub
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncardrs-data-tools/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/ncardsrs-data-tools
+          jcr:primaryType: hst:sitemapitem
+        /ncras-data-sets:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/datahub
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncras-data-sets/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/NCRAS-data-sets
+          jcr:primaryType: hst:sitemapitem
+        /ncras-data-tools:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/datahub
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncras-data-tools/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/NCRAS-data-tools
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/ndrs-datatools-hub
         hst:refId: data
         hst:relativecontentpath: data-and-information
+        jcr:primaryType: hst:sitemapitem
+      /patient:
+        hst:componentconfigurationid: hst:pages/patient
+        hst:refId: patient
+        hst:relativecontentpath: patient
         jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/home
