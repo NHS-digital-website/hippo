@@ -23,7 +23,7 @@
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${cilink}">Data and information</a>
                             <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
                         </li>
-                    <#elseif isStatisticalPublication??>
+                    <#elseif isStatisticalPublication?? && isStatisticalPublication>
                         <li class="nhsd-m-breadcrumbs__item">
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link siteMapItemRefId='data'/>">Data</a>
                             <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />

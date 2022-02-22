@@ -82,7 +82,7 @@ public class SitePage extends AbstractSitePage {
     }
 
     public WebElement findLinkWithText(String linkText) {
-        return helper.findElement(By.xpath("//a[text()='" + linkText + "']"));
+        return helper.findElement(By.xpath("//a[.='" + linkText + "']"));
     }
 
     public WebElement findElementWithUiPath(String uiPath) {

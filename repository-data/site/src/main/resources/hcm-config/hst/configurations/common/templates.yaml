@@ -93,7 +93,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/cyber-data-security-homepage.ftl
         jcr:primaryType: hst:template
       /dataset:
-        hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/dataset.ftl
         jcr:primaryType: hst:template
       /definedterms-article:
         hst:renderpath: webfile:/freemarker/common/definedterms-article.ftl

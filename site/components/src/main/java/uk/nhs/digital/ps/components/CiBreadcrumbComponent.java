@@ -4,10 +4,7 @@ import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import uk.nhs.digital.ps.beans.LegacyPublication;
-import uk.nhs.digital.ps.beans.Publication;
-import uk.nhs.digital.ps.beans.PublicationPage;
-import uk.nhs.digital.ps.beans.Series;
+import uk.nhs.digital.ps.beans.*;
 import uk.nhs.digital.ps.beans.navigation.CiBreadcrumb;
 import uk.nhs.digital.ps.beans.navigation.CiBreadcrumbProvider;
 
@@ -19,7 +16,8 @@ public class CiBreadcrumbComponent extends BaseHstComponent {
         Publication.class,
         PublicationPage.class,
         LegacyPublication.class,
-        Series.class
+        Series.class,
+        Dataset.class
     );
 
     @Override

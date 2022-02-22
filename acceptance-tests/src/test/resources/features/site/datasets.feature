@@ -66,7 +66,7 @@ Feature: As a consumer I need to be able to navigate to publication data sets
 
     Scenario: Click back to publication from data set
         Given I navigate to "publication with datasets Dataset" data set page
-        When I click on "publication with datasets" link
+        When I click on the link named "publication with datasets"
         Then I should see publication page titled "publication with datasets"
 
     Scenario: Hide dataset if publication is 'upcoming'
