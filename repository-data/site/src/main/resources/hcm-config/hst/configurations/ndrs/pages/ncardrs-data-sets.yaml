@@ -3,8 +3,14 @@ definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:pages/ncardrs-data-sets:
       /main:
+        /banner:
+          hst:referencecomponent: data/NCARDRS-data-sets/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: data/NCARDRS-data-sets/main
+          jcr:primaryType: hst:containercomponentreference
         hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
-        hst:template: ncardrs-data-sets
+        hst:template: ndrs-hub-page
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/basepage
       jcr:primaryType: hst:component

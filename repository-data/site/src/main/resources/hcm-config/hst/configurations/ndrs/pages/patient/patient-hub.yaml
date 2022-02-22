@@ -1,15 +1,14 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/ndrs/hst:pages/ncardrs-data-tools:
+    /hst:hst/hst:configurations/ndrs/hst:pages/ndrs-patient-hub:
       /main:
         /banner:
-          hst:referencecomponent: data/NCARDRS-data-tools/banner
+          hst:referencecomponent: ndrs-datatools-hub/banner
           jcr:primaryType: hst:containercomponentreference
         /main:
-          hst:referencecomponent: data/NCARDRS-data-tools/main
+          hst:referencecomponent: ndrs-datatools-hub/main
           jcr:primaryType: hst:containercomponentreference
-        hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
         hst:template: ndrs-hub-page
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/basepage

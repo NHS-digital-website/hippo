@@ -4,10 +4,10 @@ definitions:
     /hst:hst/hst:configurations/ndrs/hst:pages/ndrs-datatools-hub:
       /main:
         /banner:
-          hst:referencecomponent: ndrs-datatools-hub/banner
+          hst:referencecomponent: data/data-hub/banner
           jcr:primaryType: hst:containercomponentreference
         /main:
-          hst:referencecomponent: ndrs-datatools-hub/main
+          hst:referencecomponent: data/data-hub/main
           jcr:primaryType: hst:containercomponentreference
         hst:template: ndrs-hub-page
         jcr:primaryType: hst:component
