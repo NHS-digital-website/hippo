@@ -280,20 +280,34 @@ jobs:
       # Main steps
       - name: Download version artifact
         uses: actions/download-artifact@v2
-        id: down
+        id: download
 
+      #
+      # Get and store the details of the download
+      #
+      - name: Get artifact details
+        id: details
+        run: |
+          echo '::set-output name=distribution::'$(echo ls *.tar.gz | awk '{ print $2 }')
+          echo '::set-output name=version::'$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')
+        working-directory: ${{steps.download.outputs.download-path}}/build
+
+      #
+      # Upload Build to BR Cloud
+      #
       - name: Upload Build to BR Cloud
         id: distribution
         run: |
-          filelist=($(ls build/))
-          file="dist_file=@build/${filelist[0]}"
           response=$(curl -i \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X POST https://api.${{ secrets.HOST }}/v3/distributions \
-          -F $file)
+          -F "dist_file=@${{ env.DISTROBUTION }};filename=${{ env.VERSION }}.tar.gz")
           id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
           echo "::set-output name=id::$id"
-        working-directory: ${{steps.download.outputs.download-path}}
+        env:
+          DISTROBUTION: ${{steps.details.outputs.distribution}}
+          VERSION: ${{steps.details.outputs.version}}
+        working-directory: ${{steps.download.outputs.download-path}}/build
 
       - name: Check Response has ID from Upload Build to BR Cloud
         if: ${{ steps.distribution.outputs.id.length == 36 }}
