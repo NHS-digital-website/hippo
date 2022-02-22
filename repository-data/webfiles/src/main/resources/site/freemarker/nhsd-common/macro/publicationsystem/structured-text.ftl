@@ -8,9 +8,11 @@
         </#if>
 
         <#if element.type == "BulletList">
-            <ul><#list element.items as item>
-                <li class="nhsd-t-body" data-uipath="${uipath}">${item}</li>
-            </#list></ul>
+            <ul class="nhsd-t-list nhsd-t-list--bullet">
+                <#list element.items as item>
+                    <li data-uipath="${uipath}">${item}</li>
+                </#list>
+            </ul>
         </#if>
     </#list>
 </#macro>

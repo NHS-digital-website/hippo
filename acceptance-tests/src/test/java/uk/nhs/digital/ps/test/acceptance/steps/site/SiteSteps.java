@@ -351,9 +351,9 @@ public class SiteSteps extends AbstractSpringSteps {
             String linkText = downloadLink.get(0);
             String linkFileName = downloadLink.get(1);
 
-            WebElement downloadElement = sitePage.findElementWithTitle(linkText);
+            WebElement downloadElement = sitePage.findLinkWithText(linkText);
 
-            assertThat("I can find download link with title: " + linkText,
+            assertThat("I can find download link with text: " + linkText,
                 downloadElement, is(notNullValue()));
 
             String url = downloadElement.getAttribute("href");

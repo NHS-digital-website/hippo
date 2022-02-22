@@ -16,6 +16,5 @@
           <#local format = fileFormat + ", " />
         </#if>
     </#if>
-    <span class="block-link__meta regular">[${format}<span class="fileSize">size: <span itemprop="contentSize"><@formatFileSize bytesCount=size/></span></span>]</span>
-
+    <span class="nhsd-t-body">[${format}size: <span itemprop="contentSize"><@formatFileSize bytesCount=size/></span>]</span>
 </#macro>

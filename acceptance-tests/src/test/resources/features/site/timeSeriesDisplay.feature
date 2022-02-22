@@ -89,5 +89,5 @@ Feature: Display of publications forming a series
         Given I navigate to the "valid publication series" page
         Then I should see "Series Resources" with:
             | Google Link                          |
-            | Attachment with text\n[pdf, size: 7.2 kB] |
-            | attachment.pdf\n[pdf, size: 7.2 kB]       |
+            | Attachment with text [pdf, size: 7.2 kB] |
+            | attachment.pdf [pdf, size: 7.2 kB]       |

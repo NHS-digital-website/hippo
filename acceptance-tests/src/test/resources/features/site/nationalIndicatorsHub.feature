@@ -19,14 +19,15 @@ Feature: National Indicator hub page and sub sections
         Then I should see section "apply" with hyperlink "Application form"
         Then I should see section "apply" with hyperlink "Application guidance"
 
+    @testing2
     Scenario: IMAS downloads
         Given I navigate to the "NIL Help" page
         Then I should see page titled "How the Indicator Methodology Assurance Service (IMAS) can help you"
         And I can download following files:
     | Advice form          | Request IMAS help.docx                 |
-    | Summary Form         | Add your indicator to the library.docx |
+    | Summary form         | Add your indicator to the library.docx |
     | Application form     | Application Form.docx                  |
-    | Guidance form        | Application Guidance.docx              |
+    | Application guidance | Application Guidance.docx              |
 
     Scenario: IMAS popular topic links
         Given I navigate to the "NIL Hub" page
