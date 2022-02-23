@@ -2,6 +2,28 @@
 definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers:
+      /homepage:
+        /homepagecontainer1:
+          hst:label: HomepageContainer1
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /homepagecontainer2:
+          hst:label: HomepageContainer2
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /homepagecontainer3:
+          hst:label: HomepageContainer3
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /homepagecontainer4:
+          hst:label: HomepageContainer4
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /homepagecontainer5:
+          hst:label: HomepageContainer5
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /ncardrs-data-sets:
         /banner:
           hst:label: Banner

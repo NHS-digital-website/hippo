@@ -4,10 +4,10 @@ definitions:
     /hst:hst/hst:configurations/ndrs/hst:pages/ncardrs-data-tools:
       /main:
         /banner:
-          hst:referencecomponent: data/NCARDRS-data-tools/banner
+          hst:referencecomponent: ncardrs-data-tools/banner
           jcr:primaryType: hst:containercomponentreference
         /main:
-          hst:referencecomponent: data/NCARDRS-data-tools/main
+          hst:referencecomponent: ncardrs-data-tools/main
           jcr:primaryType: hst:containercomponentreference
         hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
         hst:template: ndrs-hub-page
