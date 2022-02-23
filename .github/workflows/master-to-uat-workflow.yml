@@ -6,8 +6,45 @@ on:
       - master
 
 jobs:
+  CalcVersion:
+    name: Update Distribution Version Number
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+
+      #
+      # Step 1
+      #
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+
+      #
+      # Step 2
+      #
+      - name: Bump the version number
+        run: make version.bumpup
+
+      #
+      # Step 3
+      #
+      - name: Set the commit's Git status
+        run: make github.status.success
+
+      #
+      # Step 4
+      #
+      - name: Push tag back to github
+        run: |
+          make git.update-environment-tag
+          git push --tags
+
+
   ODv1build:
-    name: Build Master For ODv1
+    name: Build Distribution For ODv1
+    needs: CalcVersion
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -69,15 +106,9 @@ jobs:
             ${{ runner.os }}-node-nhs-digital-
             ${{ runner.os }}-node-nhs-
 
+
       #
       # Step 4
-      #
-      - name: Bump the version number
-        run: make version.bumpup
-
-
-      #
-      # Step 5
       #
       - name: Build master
         run: make clean build
@@ -86,20 +117,7 @@ jobs:
           HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
 
       #
-      # Step 6
-      #
-      - name: Set the commit's Git status
-        run: make github.status.success
-
-      #
-      # Step 6
-      #
-      - name: Push tag back to github
-        run: |
-          make git.update-environment-tag
-          git push --tags
-
-      #
+      # 5
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
@@ -111,7 +129,7 @@ jobs:
 
 
   ODv1Deployment:
-    name: Deploy to ODv1
+    name: Deploy Distribution to ODv1 UAT
     needs: ODv1build
     runs-on: ubuntu-latest
     env:
@@ -196,7 +214,8 @@ jobs:
 
 
   ODv2build:
-    name: Build Master For ODv2
+    name: Build Distribution For ODv2
+    needs: CalcVersion
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -261,15 +280,6 @@ jobs:
       #
       # Step 4
       #
-      # During moving from ODv1 to ODv2 we cannot version bump twice.
-      #
-      #- name: Bump the version number
-      #  run: make version.bumpup
-
-
-      #
-      # Step 5
-      #
       - name: Build master
         run: make clean build-odv2
         env:
@@ -277,20 +287,7 @@ jobs:
           HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
 
       #
-      # Step 6
-      #
-      - name: Set the commit's Git status
-        run: make github.status.success
-
-      #
-      # Step 6
-      #
-      - name: Push tag back to github
-        run: |
-          make git.update-environment-tag
-          git push --tags
-
-      #
+      # 5
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
@@ -301,7 +298,7 @@ jobs:
           if-no-files-found: error
 
   ODv2Deployment:
-    name: Deploy to ODv2
+    name: Deploy Distribution to ODv2 UAT
     needs: ODv2build
     runs-on: ubuntu-latest
     steps:
