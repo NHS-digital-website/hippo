@@ -2,6 +2,16 @@
 definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers:
+      /ncardrs-data-sets:
+        /banner:
+          hst:label: Banner
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:label: Main
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /ncardrs-data-tools:
         /banner:
           hst:label: Banner
@@ -11,16 +21,16 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        /ncardrs-data-sets:
-          /banner:
-            hst:label: Banner
-            hst:xtype: hst.nomarkup
-            jcr:primaryType: hst:containercomponent
-          /main:
-            hst:label: Main
-            hst:xtype: hst.nomarkup
-            jcr:primaryType: hst:containercomponent
-          jcr:primaryType: hst:containercomponentfolder
+        jcr:primaryType: hst:containercomponentfolder
+      /ncras-data-sets:
+        /banner:
+          hst:label: Banner
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:label: Main
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /ncras-data-tools:
         /banner:
@@ -31,16 +41,6 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        /ncras-data-sets:
-          /banner:
-            hst:label: Banner
-            hst:xtype: hst.nomarkup
-            jcr:primaryType: hst:containercomponent
-          /main:
-            hst:label: Main
-            hst:xtype: hst.nomarkup
-            jcr:primaryType: hst:containercomponent
-          jcr:primaryType: hst:containercomponentfolder
         jcr:primaryType: hst:containercomponentfolder
       /ndrs-about-us-hub:
         /banner:
