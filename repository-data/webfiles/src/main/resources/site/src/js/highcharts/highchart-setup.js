@@ -66,8 +66,10 @@ export default function initHighcharts() {
             return;
         }
 
+        const chartOptions = {...window[thisChartSettings], title: undefined};
+
         if (type !== 'mapChart') {
-            Highcharts[type](`chart-${sectionId}`, window[thisChartSettings]);
+            Highcharts[type](`chart-${sectionId}`, chartOptions);
         } else {
             // Dynamically import map module
             import(/* webpackChunkName: "highcharts-map" */ 'highcharts/modules/map').then(map => {
@@ -80,14 +82,14 @@ export default function initHighcharts() {
                 if (window[thisChartSettings].chart.map === "custom/british-isles") {
                     import(/* webpackChunkName: "british-isles" */ "./maps/mapdata/british-isles.json").then(mapdata => {
                         Highcharts.maps["custom/british-isles"] = mapdata.default;
-                        Highcharts.mapChart(`chart-${sectionId}`, window[thisChartSettings]);
+                        Highcharts.mapChart(`chart-${sectionId}`, chartOptions);
                     });
                 }
 
                 if (window[thisChartSettings].chart.map === "custom/british-isles-all") {
                     import(/* webpackChunkName: "british-isles-all" */ "./maps/mapdata/british-isles-all.json").then(mapdata => {
                         Highcharts.maps["custom/british-isles-all"] = mapdata.default;
-                        Highcharts.mapChart(`chart-${sectionId}`, window[thisChartSettings]);
+                        Highcharts.mapChart(`chart-${sectionId}`, chartOptions);
                     });
                 }
 
