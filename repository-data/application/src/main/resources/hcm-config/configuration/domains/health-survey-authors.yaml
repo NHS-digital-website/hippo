@@ -1,17 +1,17 @@
----
 definitions:
   config:
     /hippo:configuration/hippo:domains/health-survey-authors:
+      jcr:primaryType: hipposys:domain
       /author:
         hipposys:groups:
-          .meta:add-new-system-values: true
           .meta:category: system
+          .meta:add-new-system-values: true
           type: string
-          value:
-          - health-survey-authors
+          value: [health-survey-authors]
         hipposys:role: author
         jcr:primaryType: hipposys:authrole
       /health-survey-images:
+        jcr:primaryType: hipposys:domainrule
         /path-by-uuid:
           hipposys:equals: true
           hipposys:facet: jcr:path
@@ -19,8 +19,8 @@ definitions:
           hipposys:type: Reference
           hipposys:value: /content/gallery
           jcr:primaryType: hipposys:facetrule
-        jcr:primaryType: hipposys:domainrule
       /pub-stats-health-survey:
+        jcr:primaryType: hipposys:domainrule
         /path-by-uuid:
           hipposys:equals: true
           hipposys:facet: jcr:path
@@ -28,14 +28,20 @@ definitions:
           hipposys:type: Reference
           hipposys:value: /content/documents/corporate-website/publication-system/statistical/health-survey-for-england
           jcr:primaryType: hipposys:facetrule
-        jcr:primaryType: hipposys:domainrule
       /readwrite:
         hipposys:groups:
-          .meta:add-new-system-values: true
           .meta:category: system
+          .meta:add-new-system-values: true
           type: string
-          value:
-          - health-survey-authors
+          value: [health-survey-authors]
         hipposys:role: readwrite
         jcr:primaryType: hipposys:authrole
-      jcr:primaryType: hipposys:domain
+      /pub-stats-health-survey-additional:
+        jcr:primaryType: hipposys:domainrule
+        /path-by-uuid:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/publication-system/statistical/health-survey-england-additional-analyses
