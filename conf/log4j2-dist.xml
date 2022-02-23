@@ -104,6 +104,8 @@
     <Logger name="org.hippoecm.hst" level="warn"/>
     <Logger name="org.tuckey.web.filters.urlrewrite" level="info"/>
     <Logger name="org.springframework.web.filter.RequestContextFilter" level="info"/>
+    <Logger name="org.springframework.util.PropertyPlaceholderHelper" level="info"/>
+    <Logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="info"/>
 
       <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
            can be here on level 'info' -->
