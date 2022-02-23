@@ -34,7 +34,7 @@ definitions:
         jcr:primaryType: hst:template
       /ndrs-abstract-layout:
         hst:renderpath: webfile:/freemarker/ndrs/layout/ndrs-abstract-layout.ftl
-        jcr:primaryType: hst:template
+        jcr:primaryType: hst:tem  plate
       /ndrs-homepage:
         hst:renderpath: webfile:/freemarker/ndrs/home.ftl
         jcr:primaryType: hst:template
