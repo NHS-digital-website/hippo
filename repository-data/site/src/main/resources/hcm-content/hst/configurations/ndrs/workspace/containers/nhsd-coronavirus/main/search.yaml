@@ -1,9 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-coronavirus/main/search:
-  .meta:order-before: callToAction
-  hst:componentclassname: uk.nhs.digital.common.components.BaseComponent
-  hst:iconpath: images/catalog/component-products-30x30.png
-  hst:label: Search
-  hst:template: searchbanner
-  hst:xtype: HST.Item
-  jcr:primaryType: hst:containeritemcomponent
