@@ -26,7 +26,9 @@
             }]/>
         </#if>
 
-        <#assign geographicCoverage = document.geographicCoverage/>
+        <#if document.geographicCoverage?has_content>
+            <#assign geographicCoverage = document.geographicCoverage/>
+        </#if>
         <#if document.parentDocument?has_content && document.parentDocument.geographicCoverage?has_content>
             <#assign geographicCoverage = document.parentDocument.geographicCoverage/>
         </#if>
