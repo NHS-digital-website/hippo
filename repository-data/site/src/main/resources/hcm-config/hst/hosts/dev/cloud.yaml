@@ -48,4 +48,6 @@ definitions:
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
         jcr:primaryType: hst:virtualhost
+      hst:scheme: https
+      hst:showcontextpath: true
       jcr:primaryType: hst:virtualhost
