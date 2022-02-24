@@ -1,6 +1,5 @@
 ---
 /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-coronavirus/main/header-banner:
-  .meta:order-before: callToAction
   hst:componentclassname: uk.nhs.digital.common.components.HeaderComponent
   hst:iconpath: images/essentials/catalog-component-icons/banner.png
   hst:label: Header
