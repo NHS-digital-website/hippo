@@ -7,7 +7,7 @@
             <span class="nhsd-t-heading-s nhsd-!t-col-white nhsd-m-checklist__header" data-uipath="website.contentblock.checklist.heading">${section.heading}</span>
         </#if>
 
-        <div class="nhsd-m-checklist__list-container <#if !section.heading?has_content>no-heading</#if>">
+        <div class="nhsd-m-checklist__list-container <#if !section.heading?has_content>nhsd-m-checklist__list-container--no-heading</#if>">
 
             <#if section.icon?trim == 'Bullet'>
             <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-!t-margin-bottom-0">
