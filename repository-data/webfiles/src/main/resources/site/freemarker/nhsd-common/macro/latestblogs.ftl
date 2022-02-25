@@ -27,7 +27,7 @@
                 <#else>
                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-display-hide ${idsuffix}">
                 </#if>
-                    <article class="nhsd-m-card nhsd-!t-margin-top-1">
+                    <div class="nhsd-m-card nhsd-!t-margin-top-1">
                     <@hst.link hippobean=latest var="link"/>
                         <a href="${link}" class="nhsd-a-box-link" onClick="logGoogleAnalyticsEvent('Link click','${fromDoctype}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" aria-label="About NHS Digital - More about what we do" title="${latest.title}" >
                             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
@@ -71,7 +71,7 @@
                                             <@fmt.formatDate value=pubtime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
                                         </#if>
                                     </span>
-                                    <h1 class="nhsd-t-heading-s">${latest.title}</h1>
+                                    <span class="nhsd-t-heading-s">${latest.title}</span>
                                     <p class="nhsd-t-body-s">${latest.shortsummary}</p>
                                 </div>
 
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         </a>
-                    </article>
+                    </div>
                 </div>
             </#list>
         </div>
