@@ -58,6 +58,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/ndrs-about-us-hub
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
+      /about-test:
+        hst:componentconfigurationid: hst:pages/ndrs-about-us-hub
+        hst:relativecontentpath: about
+        jcr:primaryType: hst:sitemapitem
       /coronavirus:
         hst:componentconfigurationid: hst:pages/nhsd-coronavirus
         hst:relativecontentpath: coronavirus
