@@ -1,0 +1,28 @@
+name: Prepare for next day deployment
+
+on:
+  schedule:
+     # Runs at 3 pm weekdays (UK time)
+    - cron: "0 15 * * 1-5"
+
+jobs:
+
+  prepare-prod-deployment:
+    name: Prepare for next day deployment
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+
+      - name: Tagging the build
+        run: |
+          make git.update-environment-tag ENV=prd VERSION=rc
+          make git.update-environment-tag ENV=rc VERSION=uat
+
+      - name: Message Slack
+        run: |
+          make notify.slack
