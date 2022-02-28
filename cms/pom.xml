@@ -37,7 +37,7 @@
             <exclusions>
                 <exclusion>
                     <groupId>org.onehippo.cms7</groupId>
-                    <artifactId>spring-boot</artifactId>
+                    <artifactId>xm-spring-boot-integration</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
