@@ -58,9 +58,17 @@ definitions:
         hst:componentconfigurationid: hst:pages/ndrs-about-us-hub
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
-      /about-test:
-        hst:componentconfigurationid: hst:pages/ndrs-about-us-hub
-        hst:relativecontentpath: about
+      /assessibility:
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:relativecontentpath: assessibility
+        jcr:primaryType: hst:sitemapitem
+      /contact:
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:componentconfigurationmappingnames:
+        - website:contact
+        hst:componentconfigurationmappingvalues:
+        - hst:pages/contact
+        hst:relativecontentpath: /contact
         jcr:primaryType: hst:sitemapitem
       /coronavirus:
         hst:componentconfigurationid: hst:pages/nhsd-coronavirus
@@ -69,7 +77,7 @@ definitions:
       /data:
         /ncardrs-data-sets:
           /_any_:
-            hst:componentconfigurationid: hst:pages/static-ui-general
+            hst:componentconfigurationid: hst:pages/article-hub
             hst:componentconfigurationmappingnames:
             - website:feedhub
             hst:componentconfigurationmappingvalues:
@@ -80,7 +88,7 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         /ncardrs-data-tools:
           /_any_:
-            hst:componentconfigurationid: hst:pages/datahub
+            hst:componentconfigurationid: hst:pages/article-hub
             hst:componentconfigurationmappingnames:
             - website:feedhub
             hst:componentconfigurationmappingvalues:
@@ -91,7 +99,7 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         /ncras-data-sets:
           /_any_:
-            hst:componentconfigurationid: hst:pages/datahub
+            hst:componentconfigurationid: hst:pages/article-hub
             hst:componentconfigurationmappingnames:
             - website:feedhub
             hst:componentconfigurationmappingvalues:
@@ -102,7 +110,7 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         /ncras-data-tools:
           /_any_:
-            hst:componentconfigurationid: hst:pages/datahub
+            hst:componentconfigurationid: hst:pages/article-hub
             hst:componentconfigurationmappingnames:
             - website:feedhub
             hst:componentconfigurationmappingvalues:
@@ -115,6 +123,70 @@ definitions:
         hst:refId: data
         hst:relativecontentpath: data-and-information
         jcr:primaryType: hst:sitemapitem
+      /news:
+        hst:componentconfigurationid: hst:pages/ndrs-about-us-hub
+        hst:relativecontentpath: about
+        jcr:primaryType: hst:sitemapitem
+      /our-work:
+        /ncardrs-partnership:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/article-hub
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncras-data-tools/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/our-work/ncardrs-partnership
+          jcr:primaryType: hst:sitemapitem
+        /ncardrs-work-programmes:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/article-hub
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncardrs-data-sets/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/our-work/ncardrs-work-programmes
+          jcr:primaryType: hst:sitemapitem
+        /ncras-partnership:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/article-hub
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncras-data-sets/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/our-work/ncras-partnership
+          jcr:primaryType: hst:sitemapitem
+        /ncras-work-programmes:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/article-hub
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncardrs-data-tools/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/our-work/ncras-work-programmes
+          jcr:primaryType: hst:sitemapitem
+        /publications-library:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/article-hub
+            hst:componentconfigurationmappingnames:
+            - website:feedhub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/feedhub
+            hst:relativecontentpath: /data/ncardrs-data-tools/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/our-work/publications-library
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/our-work/our-work-hub
+        hst:refId: data
+        hst:relativecontentpath: data-and-information
+        jcr:primaryType: hst:sitemapitem
       /patients:
         /rigth-and-privacy:
           hst:componentconfigurationid: hst:pages/rigth-and-privacy
@@ -122,6 +194,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/patients
         hst:refId: patients
         hst:relativecontentpath: patients
+        jcr:primaryType: hst:sitemapitem
+      /privacy:
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:relativecontentpath: privacy
         jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/homepage
@@ -135,5 +211,13 @@ definitions:
         hst:componentconfigurationid: hst:pages/search
         hst:refId: search
         hst:relativecontentpath: facet
+        jcr:primaryType: hst:sitemapitem
+      /terms:
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:relativecontentpath: terms
+        jcr:primaryType: hst:sitemapitem
+      /working-for-us:
+        hst:componentconfigurationid: hst:pages/working-for-us
+        hst:relativecontentpath: working-for-us
         jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap
