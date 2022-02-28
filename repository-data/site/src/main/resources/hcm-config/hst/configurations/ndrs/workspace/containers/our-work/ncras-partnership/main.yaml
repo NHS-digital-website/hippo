@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/our-work/ncras-partnership/main:
+      .meta:residual-child-node-category: content
+      hippo:identifier: d438105c-631b-4a3e-aed6-9487cd8ff335
+      hst:label: Main
+      hst:lastmodified: 2022-02-26T06:19:12.792Z
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent
