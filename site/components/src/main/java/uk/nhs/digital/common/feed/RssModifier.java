@@ -15,7 +15,6 @@ import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.repository.util.DateTools;
 import org.jdom2.Element;
-import org.jdom2.Namespace;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +24,6 @@ import uk.nhs.digital.website.beans.*;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
@@ -296,10 +294,8 @@ public class RssModifier extends RSS20Modifier {
 
     @NotNull
     private Element getImageElement(String imageUrl) {
-        String type = imageUrl.substring(imageUrl.lastIndexOf(".") + 1);
         final Element element
-            = new Element("content", Namespace.getNamespace("http://search.yahoo.com/mrss/"));
-        element.setAttribute("type", "image/" + type);
+            = new Element("thumbnail", "media", "http://search.yahoo.com/mrss/");
         element.setAttribute("url", imageUrl);
         return element;
     }
