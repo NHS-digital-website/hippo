@@ -23,7 +23,7 @@
         The below project elements are emptied/overridden as otherwise their metadata would be
         inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
 
-        DO NOT remove these tags but instead fill them in appropriately as needed.
+        DO NOT remove these tags but instead fill them in appropriately as needed
         UNLESS the inherited values are valid for your project.
     -->
     <url/>
