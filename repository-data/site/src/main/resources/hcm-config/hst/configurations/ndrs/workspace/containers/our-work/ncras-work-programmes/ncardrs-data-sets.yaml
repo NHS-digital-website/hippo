@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/our-work/ncras-work-programmes/ncardrs-data-sets:
+      /banner:
+        .meta:residual-child-node-category: content
+        hippo:identifier: 036ac0c8-7a28-4be0-8c96-2c5f2ee5a1b6
+        hst:label: Banner
+        hst:xtype: hst.nomarkup
+        jcr:primaryType: hst:containercomponent
+      /main:
+        .meta:residual-child-node-category: content
+        hippo:identifier: 30d8bb87-e1ad-489a-9115-7a0f7c43d071
+        hst:label: Main
+        hst:xtype: hst.nomarkup
+        jcr:primaryType: hst:containercomponent
+      jcr:primaryType: hst:containercomponentfolder
