@@ -23,7 +23,7 @@
         The below project elements are emptied/overridden as otherwise their metadata would be
         inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
 
-        DO NOT remove these tags but instead fill them in appropriately as needed.
+        DO NOT remove these tags but instead fill them in appropriately as needed
         UNLESS the inherited values are valid for your project.
     -->
     <url/>
@@ -437,7 +437,7 @@
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk</artifactId>
-                <version>1.11.1030</version>
+                <version>1.12.167</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
