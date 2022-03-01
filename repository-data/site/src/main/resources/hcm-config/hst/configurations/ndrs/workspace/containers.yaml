@@ -1,8 +1,8 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers:
       /homepage:
-        jcr:primaryType: hst:containercomponentfolder
         /homepagecontainer1:
           hst:label: HomepageContainer1
           hst:xtype: hst.nomarkup
@@ -23,8 +23,8 @@ definitions:
           hst:label: HomepageContainer5
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /ncardrs-data-sets:
         jcr:primaryType: hst:containercomponentfolder
+      /ncardrs-data-sets:
         /banner:
           hippo:identifier: a48a8d5c-b5e6-4f0f-bc8f-cbfaa391e34d
           hst:label: Banner
@@ -36,8 +36,8 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /ncardrs-data-tools:
         jcr:primaryType: hst:containercomponentfolder
+      /ncardrs-data-tools:
         /banner:
           hippo:identifier: fcafd0bf-361f-4139-ac51-ddecab04fa8f
           hst:label: Banner
@@ -47,13 +47,13 @@ definitions:
         /main:
           hippo:identifier: d438105c-631b-4a3e-aed6-9487cd8ff335
           hst:label: Main
+          hst:lastmodified: 2022-02-28T09:10:04.946Z
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-          hst:lastmodified: 2022-02-28T09:10:04.946Z
         /ncardrs-data-sets:
           jcr:primaryType: hst:containercomponentfolder
-      /ncras-data-sets:
         jcr:primaryType: hst:containercomponentfolder
+      /ncras-data-sets:
         /banner:
           hippo:identifier: 1d933641-1c6d-4beb-a844-39dd8d2de473
           hst:label: Banner
@@ -65,8 +65,8 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /ncras-data-tools:
         jcr:primaryType: hst:containercomponentfolder
+      /ncras-data-tools:
         /banner:
           hippo:identifier: a48a8d5c-b5e6-4f0f-bc8f-cbfaa391e34d
           hst:label: Banner
@@ -78,8 +78,8 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /ndrs-about-us-hub:
         jcr:primaryType: hst:containercomponentfolder
+      /ndrs-about-us-hub:
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -90,8 +90,8 @@ definitions:
           hst:lastmodified: 2022-02-27T17:56:51.241Z
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /ndrs-data-hub:
         jcr:primaryType: hst:containercomponentfolder
+      /ndrs-data-hub:
         /banner:
           hippo:identifier: 0f8e85b5-b3dd-48db-a6aa-10cbe0237f66
           hst:label: Banner
@@ -103,8 +103,8 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /ndrs-datatools-hub:
         jcr:primaryType: hst:containercomponentfolder
+      /ndrs-datatools-hub:
         /banner:
           hippo:identifier: 7a4bf853-c082-4bc5-87d4-064fb842fdd3
           hst:label: Banner
@@ -115,8 +115,8 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /opting-out:
         jcr:primaryType: hst:containercomponentfolder
+      /opting-out:
         /banner:
           .meta:residual-child-node-category: content
           hippo:identifier: 1d933641-1c6d-4beb-a844-39dd8d2de473
@@ -129,8 +129,8 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /our-work:
         jcr:primaryType: hst:containercomponentfolder
+      /our-work:
         /ncardrs-partnership:
           jcr:primaryType: hst:containercomponentfolder
         /ncardrs-work-programmes:
@@ -141,8 +141,8 @@ definitions:
           jcr:primaryType: hst:containercomponentfolder
         /our-work-hub:
           jcr:primaryType: hst:containercomponentfolder
-      /patients:
         jcr:primaryType: hst:containercomponentfolder
+      /patients:
         /banner:
           .meta:residual-child-node-category: content
           hippo:identifier: 1d933641-1c6d-4beb-a844-39dd8d2de473
@@ -157,8 +157,8 @@ definitions:
           hst:lastmodified: 2022-02-24T17:01:20.231Z
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /rigth-and-privacy:
         jcr:primaryType: hst:containercomponentfolder
+      /rigth-and-privacy:
         /banner:
           .meta:residual-child-node-category: content
           hippo:identifier: a48a8d5c-b5e6-4f0f-bc8f-cbfaa391e34d
@@ -172,8 +172,8 @@ definitions:
           hst:lastmodified: 2022-02-24T17:01:20.231Z
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-      /working-for-us:
         jcr:primaryType: hst:containercomponentfolder
+      /working-for-us:
         /banner:
           .meta:residual-child-node-category: content
           hippo:identifier: d13c810d-7c0e-4027-ac72-21ee29fff56d
@@ -187,3 +187,4 @@ definitions:
           hst:lastmodified: 2022-02-27T14:18:21.695Z
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
