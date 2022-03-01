@@ -1,3 +1,4 @@
+---
 /hst:hst/hst:sites/ndrs:
-  jcr:primaryType: hst:site
   hst:content: /content/documents/corporate-website/ndrs/
+  jcr:primaryType: hst:site
