@@ -69,7 +69,7 @@ public interface CardListComponentInfo {
         defaultValue = "Default",
         displayName = "Template"
         )
-    @DropDownList({"Default", "Grey", "MultiColour"})
+    @DropDownList({"Default", "Grey"})
     String getTemplate();
 
     @Parameter(name = "Card1")
