@@ -46,7 +46,7 @@ public interface HeaderComponentInfo {
         defaultValue = "Light Grey",
         displayName = "Style"
         )
-    @DropDownList({"Light Grey", "Dark Grey", "Blue","Dark Blue", "Yellow", "White" })
+    @DropDownList({"Light Grey", "Dark Grey", "Blue","Dark Blue", "Yellow"})
     String getColour();
 
     @Parameter(
