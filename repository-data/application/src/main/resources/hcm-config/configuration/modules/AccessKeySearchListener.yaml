@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/PreReleaseKeyListener:
+      hipposys:className: uk.nhs.digital.common.listeners.PreReleaseKeyListener
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module
