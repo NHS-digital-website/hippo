@@ -11,21 +11,24 @@ import org.commonmark.renderer.html.HtmlNodeRendererContext;
 import org.commonmark.renderer.html.HtmlWriter;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.powermock.api.mockito.PowerMockito;
 
 import java.util.Collections;
 import java.util.Set;
 
+@RunWith(MockitoJUnitRunner.class)
 public class FencedCodeBlockNodeRendererTest {
 
     private HtmlNodeRendererContext context;
     private FencedCodeBlockNodeRenderer renderer;
 
     @Mock
-    private HtmlWriter html = Mockito.mock(HtmlWriter.class);
+    private HtmlWriter html;
 
     @Before
     public void setUp() {

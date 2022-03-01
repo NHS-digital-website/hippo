@@ -252,6 +252,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /earlyaccesskey:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '60'
+              size: '60'
+            caption: Access Control
+            field: earlyaccesskey
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: uk.nhs.digital.common.earlyaccess.EarlyAccessKeyPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -271,6 +282,14 @@ definitions:
             hipposysedit:path: website:component
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /earlyaccesskey:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:earlyaccesskey
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /friendlyurls:
             hipposysedit:mandatory: false
@@ -554,6 +573,7 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:general
+          website:earlyaccesskey: ''
           website:gossid: 0
           website:metadata: []
           website:navigationcontroller: withNav

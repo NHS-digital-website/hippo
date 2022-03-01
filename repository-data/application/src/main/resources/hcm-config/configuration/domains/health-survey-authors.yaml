@@ -29,6 +29,15 @@ definitions:
           hipposys:value: /content/documents/corporate-website/publication-system/statistical/health-survey-for-england
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
+      /pub-stats-health-survey-additional:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/publication-system/statistical/health-survey-england-additional-analyses
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /readwrite:
         hipposys:groups:
           .meta:add-new-system-values: true
