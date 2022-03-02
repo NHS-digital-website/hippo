@@ -1,7 +1,7 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:templates:
+      jcr:primaryType: hst:templates
       /about:
         hst:renderpath: webfile:/freemarker/common/about.ftl
         jcr:primaryType: hst:template
@@ -43,9 +43,6 @@ definitions:
         jcr:primaryType: hst:template
       /data-article:
         hst:renderpath: webfile:/freemarker/ndrs/data-article.ftl
-        jcr:primaryType: hst:template
-      /dataset:
-        hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
         jcr:primaryType: hst:template
       /eventlist-main-eventlist:
         hst:renderpath: webfile:/freemarker/common/eventlist-main-eventlist.ftl
@@ -128,4 +125,15 @@ definitions:
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
-      jcr:primaryType: hst:templates
+      /social-media:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/common/social-media.ftl
+      /service-list:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/common/service-list.ftl
+      /feedlist:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/common/feedlist.ftl
+      /newslist-main-newslist:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
