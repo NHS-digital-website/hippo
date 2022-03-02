@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
 <#macro metaTags contentTitle="" contentDescription="">
-    <#assign siteTitle = "NHS Digital"/>
+    <#assign siteTitle = "NDRS"/>
     <#assign pageTitle = 'Home - ' + siteTitle />
     <#assign siteSEOSummary = "We’re the national information and technology partner to the health and social care system using digital technology to transform the NHS and social care" />
     <#assign pageSEOSummary = siteSEOSummary />

@@ -1,7 +1,7 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:templates:
-      jcr:primaryType: hst:templates
       /about:
         hst:renderpath: webfile:/freemarker/common/about.ftl
         jcr:primaryType: hst:template
@@ -50,6 +50,9 @@ definitions:
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
+      /feedlist:
+        hst:renderpath: webfile:/freemarker/common/feedlist.ftl
+        jcr:primaryType: hst:template
       /footer:
         hst:renderpath: webfile:/freemarker/ndrs/global-footer.ftl
         jcr:primaryType: hst:template
@@ -89,6 +92,9 @@ definitions:
       /ndrs-hub-page:
         hst:renderpath: webfile:/freemarker/ndrs/ndrs-hub-page.ftl
         jcr:primaryType: hst:template
+      /newslist-main-newslist:
+        hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
+        jcr:primaryType: hst:template
       /nhsd-homepage:
         hst:renderpath: webfile:/freemarker/ndrs/home.ftl
         jcr:primaryType: hst:template
@@ -116,6 +122,12 @@ definitions:
       /searchtabs:
         hst:renderpath: webfile:/freemarker/common/searchtabs.ftl
         jcr:primaryType: hst:template
+      /service-list:
+        hst:renderpath: webfile:/freemarker/common/service-list.ftl
+        jcr:primaryType: hst:template
+      /social-media:
+        hst:renderpath: webfile:/freemarker/common/social-media.ftl
+        jcr:primaryType: hst:template
       /static-ui:
         hst:renderpath: webfile:/freemarker/common/static-ui/index.ftl
         jcr:primaryType: hst:template
@@ -125,15 +137,4 @@ definitions:
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
-      /social-media:
-        jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/common/social-media.ftl
-      /service-list:
-        jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/common/service-list.ftl
-      /feedlist:
-        jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/common/feedlist.ftl
-      /newslist-main-newslist:
-        jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
+      jcr:primaryType: hst:templates
