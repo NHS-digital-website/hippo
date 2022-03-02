@@ -1,0 +1,9 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/main/white-space-component:
+  .meta:order-before: bloglist
+  hst:componentclassname: uk.nhs.digital.common.components.WhiteSpaceComponent
+  hst:iconpath: images/essentials/catalog-component-icons/spacer.png
+  hst:label: Whitespace
+  hst:template: white-space
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

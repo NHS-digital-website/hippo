@@ -1,5 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/LinkedIn:
-  hst:referencesitemapitem: social-media/linkedin
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem

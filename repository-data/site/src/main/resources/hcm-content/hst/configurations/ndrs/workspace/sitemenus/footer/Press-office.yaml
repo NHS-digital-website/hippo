@@ -1,6 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Press office:
-  .meta:order-before: Careers
-  hst:externallink: https://digital.nhs.uk/news/press-office
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem

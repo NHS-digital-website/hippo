@@ -1,12 +1,10 @@
 ---
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/main/newslist:
-  .meta:order-before: list
-  hst:componentclassname: uk.nhs.digital.common.components.LatestNewsComponent
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/main/bloglist:
+  hst:componentclassname: uk.nhs.digital.common.components.LatestBlogComponent
   hst:iconpath: images/essentials/catalog-component-icons/news-list.png
-  hst:label: News List
+  hst:label: Blog List
   hst:parameternames:
   - path
-  - hideFutureItems
   - documentDateField
   - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
   - documentTypes
@@ -16,16 +14,15 @@
   - showPagination
   - includeSubtypes
   hst:parametervalues:
-  - ''
+  - publication-system
+  - website:dateofpublication
   - 'off'
-  - website:publisheddatetime
-  - 'off'
-  - website:news
+  - website:blog
   - desc
-  - website:publisheddatetime
-  - '4'
-  - 'off'
+  - website:dateofpublication
+  - '2'
   - 'on'
-  hst:template: newslist-main-newslist
+  - 'on'
+  hst:template: homeland-bloglist
   hst:xtype: hst.item
   jcr:primaryType: hst:containeritemcomponent

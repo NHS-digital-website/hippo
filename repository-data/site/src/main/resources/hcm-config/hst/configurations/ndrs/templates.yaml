@@ -54,7 +54,10 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
       /footer:
-        hst:renderpath: webfile:/freemarker/ndrs/base-footer.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/global-footer.ftl
+        jcr:primaryType: hst:template
+      /global-footer:
+        hst:renderpath: webfile:/freemarker/ndrs/global-footer.ftl
         jcr:primaryType: hst:template
       /header-banner:
         hst:renderpath: webfile:/freemarker/ndrs/header-banner.ftl
@@ -90,7 +93,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/ndrs/ndrs-hub-page.ftl
         jcr:primaryType: hst:template
       /nhsd-homepage:
-        hst:renderpath: webfile:/freemarker/common/nhsd-homepage.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/home.ftl
         jcr:primaryType: hst:template
       /nhsd-homepage-layout:
         hst:renderpath: webfile:/freemarker/ndrs/nhsd-homepage-layout.ftl

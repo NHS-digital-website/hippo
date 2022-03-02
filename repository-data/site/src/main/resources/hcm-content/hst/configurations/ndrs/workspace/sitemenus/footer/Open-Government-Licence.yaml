@@ -1,6 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Open Government Licence:
-  .meta:order-before: Accessibility
-  hst:externallink: https://digital.nhs.uk/about-nhs-digital/terms-and-conditions
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem

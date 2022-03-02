@@ -86,6 +86,7 @@ definitions:
           /main:
             .meta:residual-child-node-category: content
             hippo:identifier: 40488be5-7431-490c-81d6-3358b8f89693
+            hst:lastmodified: 2022-03-02T11:24:14.301Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           jcr:primaryType: hst:containercomponentfolder
@@ -93,11 +94,11 @@ definitions:
       /hst:sitemenus:
         /footer:
           .meta:residual-child-node-category: content
-          hst:lastmodified: 2021-11-11T16:01:44.972Z
+          hst:lastmodified: 2022-03-02T11:22:27.570Z
           jcr:primaryType: hst:sitemenu
         /main:
           .meta:residual-child-node-category: content
-          hst:lastmodified: 2020-04-23T15:25:56.929Z
+          hst:lastmodified: 2022-03-02T11:23:42.820Z
           jcr:primaryType: hst:sitemenu
         jcr:primaryType: hst:sitemenus
       jcr:primaryType: hst:workspace
