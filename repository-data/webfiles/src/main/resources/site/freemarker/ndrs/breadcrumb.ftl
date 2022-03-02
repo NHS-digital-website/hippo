@@ -1,22 +1,47 @@
 <#ftl output_format="HTML">
-<#include "./include/imports.ftl">
+<#include "../include/imports.ftl">
+<#include "./macro/iconGenerator.ftl">
+
+<@hst.setBundle basename="publicationsystem.breadcrumbs"/>
+
+<#if ciBreadcrumb?? && ciBreadcrumb.items?size gte 1>
+    <#assign breadcrumb = ciBreadcrumb/>
+</#if>
+
 <#if breadcrumb?? && breadcrumb.items?size gte 1>
-<div class="grid-wrapper">
-    <div class="grid-row">
-        <div class="column column--reset">
-            <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb__crumb">
-                        <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link" data-text="NHS Digital">NHS Digital</a>
+<div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3">
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col">
+            <nav class="nhsd-m-breadcrumbs" aria-label="Breadcrumbs">
+                <ol class="nhsd-m-breadcrumbs__list" data-uipath="document.breadcrumbs">
+                    <li class="nhsd-m-breadcrumbs__item">
+                        <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link siteMapItemRefId='root'/>">NDRS</a>
+                        <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
                     </li>
+                    <#if breadcrumb.clinicalIndicator>
+                        <li class="nhsd-m-breadcrumbs__item">
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${cilink}">Data and information</a>
+                            <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
+                        </li>
+                    <#elseif isStatisticalPublication??>
+                        <li class="nhsd-m-breadcrumbs__item">
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link siteMapItemRefId='data'/>">Data</a>
+                            <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
+                        </li>
+                        <li class="nhsd-m-breadcrumbs__item">
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@fmt.message key="breadcrumbs.publicationLink"/>">Publications</a>
+                            <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
+                        </li>
+                    </#if>
+                    ${hstRequestContext.setAttribute("bread",breadcrumb.items[0].title)}
                     <#list breadcrumb.items as item>
-                        <li class="breadcrumb__crumb">
-                            <img src="<@hst.webfile  path="images/icon-arrow.svg"/>" alt="Right arrow icon" class="breadcrumb__sep" aria-hidden="true" />
+                        <li class="nhsd-m-breadcrumbs__item">
                             <#if !item?is_last>
-                            <@hst.link var="link" link=item.link/>
-                            <a href="${link}" class="breadcrumb__link" data-text="${item.title}">${item.title}</a>
+                                <@hst.link var="link" link=item.link/>
+                                <a class="nhsd-a-link nhsd-a-link nhsd-a-link--col-dark-grey" href="${link}" data-text="${item.title}">${item.title}</a>
+                                <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
                             <#else>
-                            <span class="breadcrumb__link breadcrumb__link--secondary" data-text="${item.title}" aria-current="page">${item.title}</span>
+                                <span class="nhsd-t-body-s" aria-current="page" data-text="${item.title}">${item.title}</span>
                             </#if>
                         </li>
                     </#list>
