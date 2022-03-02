@@ -9,8 +9,13 @@
     <#if cardProps.authorsInfo?has_content && cardProps.authorsInfo?size gt 0>
         <#assign cardClass += " nhsd-m-card--author"/>
     </#if>
-    <article class="nhsd-m-card ${cardClass} ${cardProps.cardClass?has_content?then(cardProps.cardClass, '')}">
-        <a href="${cardProps.link}" class="nhsd-a-box-link">
+
+    <#if cardProps.contentType?has_content>
+        <#assign trackingEvent = 'onclick="logGoogleAnalyticsEvent(\'Link click\', \'${cardProps.contentType}\', \'${cardProps.link}\')" onkeyup="return vjsu.onKeyUp(event)"' />
+    </#if>
+
+    <article class="nhsd-m-card ${cardClass} ${cardProps.cardClass?has_content?then(cardProps.cardClass, '')}" ${trackingEvent?has_content?then(trackingEvent?no_esc, '')}>
+        <a href="${cardProps.link}" class="nhsd-a-box-link" >
             <div class="nhsd-a-box ${cardProps.background?has_content?then("nhsd-!t-bg-" + cardProps.background, "")}">
                 <#if cardProps.image?has_content>
                     <div class="nhsd-m-card__image_container">

@@ -53,11 +53,12 @@
         "Published Work Chapter":       "uk.nhs.digital.website.beans.Publishedworkchapter",
         "Published Work":               "uk.nhs.digital.website.beans.Publishedwork",
         "Publication Page":               "uk.nhs.digital.ps.beans.PublicationPage"
-
     }/>
 
+    <#assign classNameWithoutHash = className?split("$")[0]>
+
     <#list docTypes?keys as key>
-        <#if docTypes[key] == className>
+        <#if docTypes[key] == classNameWithoutHash>
             <#local docType = key/>
             <#break>
         </#if>
