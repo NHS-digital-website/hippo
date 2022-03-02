@@ -1,6 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Looking after your data:
-  .meta:order-before: Freedom of information
-  hst:externallink: https://digital.nhs.uk/about-nhs-digital/our-work/keeping-patient-data-safe/how-we-look-after-your-health-and-care-information
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem

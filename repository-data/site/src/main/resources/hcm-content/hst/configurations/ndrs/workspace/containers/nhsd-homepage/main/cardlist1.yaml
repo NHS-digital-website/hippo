@@ -1,5 +1,5 @@
 ---
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/main/cardlist:
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/main/cardlist1:
   .meta:order-before: bloglist
   hst:componentclassname: uk.nhs.digital.common.components.CardListComponent
   hst:label: Card List
@@ -25,26 +25,26 @@
   - Card3
   - Card2
   hst:parametervalues:
-  - MultiColour
-  - ''
+  - Default
+  - Get emails on news and events
   - ''
   - ''
   - ''
   - ''
   - ''
   - 'off'
+  - All news and events
   - ''
+  - What’s going on
+  - banner/cyber-data-security-banner-copy
   - ''
+  - Get emails on news and events
   - ''
+  - banner/cyber-data-security-banner-copy
   - ''
-  - ''
-  - ''
-  - ''
-  - cyber-data-security-banner
-  - ''
-  - ''
-  - cyber-data-security-banner
-  - cyber-data-security-banner
+  - All news and events
+  - banner/cyber-data-security-banner-copy
+  - banner/cyber-data-security-banner-copy
   hst:template: cardlist
   hst:xtype: hst.item
   jcr:primaryType: hst:containeritemcomponent
