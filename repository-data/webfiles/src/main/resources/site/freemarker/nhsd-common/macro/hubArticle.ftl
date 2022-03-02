@@ -55,7 +55,8 @@
         'background': 'pale-grey',
         'authorsInfo': authors,
         'featured': feature,
-        'cardClass': 'nhsd-m-card--full-height'
+        'cardClass': 'nhsd-m-card--full-height',
+        'contentType': getDocTypeName(item.class.name)
     } />
 
 	<#-- DW-2686 if there is a thumbnail image use it else use the lead image -->
