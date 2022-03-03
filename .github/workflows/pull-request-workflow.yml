@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - master
-      - branding-trunk
       - ADZ-1195_API_specification_branding_release
 
 jobs:
@@ -21,11 +20,12 @@ jobs:
       # Step 1
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       # Step 2
       - name: Check commit message
         run: make check.commit-msg
-        continue-on-error: true
 
       # Step 3
       - name: Print Google Chrome version
