@@ -5434,6 +5434,189 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+  /news:
+    /events:
+      /clinical-pharmacy-congress:
+        /clinical-pharmacy-congress[1]:
+          /website:body:
+            hippostd:content: |-
+              <p>The Clinical Pharmacy Congress welcomes the largest gathering of clinical pharmacy professionals in Europe.&nbsp;</p>
+
+              <p>The 2018 event gave delegates the opportunity to receive the latest sector updates&nbsp;from leading speakers and network with thousands of professional peers.</p>
+            jcr:primaryType: hippostd:html
+          /website:events:
+            jcr:primaryType: website:interval
+            website:enddatetime: 2022-03-02T20:35:00Z
+            website:startdatetime: 2022-03-02T20:35:00Z
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summaryimage:
+            hippo:docbase: 66b0320b-421a-4434-8788-d6ac93a68867
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-03-02T20:33:41.413Z
+          hippostdpubwf:lastModificationDate: 2022-03-02T20:36:06.205Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 18a9e541-7ee3-410f-8a2c-845ddf21517b
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:event
+          website:booking: ''
+          website:display: false
+          website:location: ExCeL London
+          website:maplocation: ''
+          website:seosummarytext: ''
+          website:shortsummary: The Clinical Pharmacy Congress welcomes the largest
+            gathering of clinical pharmacy professionals in Europe.
+          website:title: Clinical Pharmacy Congress 2018
+          website:type: []
+        /clinical-pharmacy-congress[2]:
+          /website:body:
+            hippostd:content: |-
+              <p>The Clinical Pharmacy Congress welcomes the largest gathering of clinical pharmacy professionals in Europe.&nbsp;</p>
+
+              <p>The 2018 event gave delegates the opportunity to receive the latest sector updates&nbsp;from leading speakers and network with thousands of professional peers.</p>
+            jcr:primaryType: hippostd:html
+          /website:events:
+            jcr:primaryType: website:interval
+            website:enddatetime: 2022-03-02T20:35:00Z
+            website:startdatetime: 2022-03-02T20:35:00Z
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summaryimage:
+            hippo:docbase: 66b0320b-421a-4434-8788-d6ac93a68867
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-03-02T20:33:41.413Z
+          hippostdpubwf:lastModificationDate: 2022-03-02T20:36:05.838Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 18a9e541-7ee3-410f-8a2c-845ddf21517b
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:event
+          website:booking: ''
+          website:display: false
+          website:location: ExCeL London
+          website:maplocation: ''
+          website:seosummarytext: ''
+          website:shortsummary: The Clinical Pharmacy Congress welcomes the largest
+            gathering of clinical pharmacy professionals in Europe.
+          website:title: Clinical Pharmacy Congress 2018
+          website:type: []
+        /clinical-pharmacy-congress[3]:
+          /website:body:
+            hippostd:content: |-
+              <p>The Clinical Pharmacy Congress welcomes the largest gathering of clinical pharmacy professionals in Europe.&nbsp;</p>
+
+              <p>The 2018 event gave delegates the opportunity to receive the latest sector updates&nbsp;from leading speakers and network with thousands of professional peers.</p>
+            jcr:primaryType: hippostd:html
+          /website:events:
+            jcr:primaryType: website:interval
+            website:enddatetime: 2022-03-02T20:35:00Z
+            website:startdatetime: 2022-03-02T20:35:00Z
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summaryimage:
+            hippo:docbase: 66b0320b-421a-4434-8788-d6ac93a68867
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-03-02T20:33:41.413Z
+          hippostdpubwf:lastModificationDate: 2022-03-02T20:36:05.838Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2022-03-02T20:36:13.875Z
+          hippotranslation:id: 18a9e541-7ee3-410f-8a2c-845ddf21517b
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:event
+          website:booking: ''
+          website:display: false
+          website:location: ExCeL London
+          website:maplocation: ''
+          website:seosummarytext: ''
+          website:shortsummary: The Clinical Pharmacy Congress welcomes the largest
+            gathering of clinical pharmacy professionals in Europe.
+          website:title: Clinical Pharmacy Congress 2018
+          website:type: []
+        hippo:name: Clinical Pharmacy Congress
+        hippo:versionHistory: 40ef2080-d85c-4aac-96ec-d6f63dcf6aee
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      hippo:name: Events
+      hippostd:foldertype:
+      - new-translated-folder
+      - new-document
+      hippotranslation:id: 2f193279-e2c6-4b50-a3d6-76e36545e69c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+    hippo:name: News
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 97f8039f-30c4-4354-b4ae-a9f9b6816da6
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /privacy:
     /privacy[1]:
       /website:component:
