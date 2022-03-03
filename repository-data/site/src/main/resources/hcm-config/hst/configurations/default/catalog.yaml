@@ -12,7 +12,7 @@ definitions:
         hst:parametervalues:
         - hippo.nhsdigital@nhs.net
         - NHS Mail
-        - mail/NHSMail
+        - mail/Session
         - 'true'
     /hst:hst/hst:configurations/hst:default/hst:catalog/essentials-catalog:
       /banner:
