@@ -57,8 +57,9 @@ jobs:
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
         with:
           path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-nhs-digital-${{ env.YEAR }}-${{ env.ROTATION }}
+          key: ${{ runner.os }}-maven-nhs-digital-${{ env.YEAR }}-${{ env.ROTATION }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
+            ${{ runner.os }}-maven-nhs-digital-${{ env.YEAR }}-${{ env.ROTATION }}-
             ${{ runner.os }}-maven-nhs-digital-${{ env.YEAR }}-
             ${{ runner.os }}-maven-nhs-digital-
             ${{ runner.os }}-maven-nhs-
