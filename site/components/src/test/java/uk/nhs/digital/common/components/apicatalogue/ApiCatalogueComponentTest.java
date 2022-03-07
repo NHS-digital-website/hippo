@@ -7,10 +7,12 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
-import static org.mockito.MockitoAnnotations.openMocks;
+import static org.mockito.Mockito.never;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static uk.nhs.digital.test.TestLogger.LogAssertor.error;
+import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
 
 import com.google.common.collect.ImmutableSet;
 import org.hippoecm.hst.container.ModifiableRequestContextProvider;
@@ -23,7 +25,6 @@ import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.hippoecm.hst.mock.core.component.MockHstResponse;
 import org.hippoecm.hst.mock.core.request.MockHstRequestContext;
 import org.hippoecm.hst.site.HstServices;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,10 +34,12 @@ import org.onehippo.repository.mock.MockNode;
 import org.onehippo.repository.mock.MockSession;
 import org.powermock.core.classloader.annotations.PrepareOnlyThisForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import uk.nhs.digital.cache.Cache;
 import uk.nhs.digital.common.components.apicatalogue.filters.Filters;
 import uk.nhs.digital.common.components.apicatalogue.filters.FiltersFactory;
 import uk.nhs.digital.common.components.apicatalogue.repository.ApiCatalogueRepository;
 import uk.nhs.digital.test.TestLoggerRule;
+import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 import uk.nhs.digital.website.beans.ComponentList;
 import uk.nhs.digital.website.beans.Externallink;
 import uk.nhs.digital.website.beans.Internallink;
@@ -47,8 +50,8 @@ import java.util.Optional;
 import java.util.Set;
 
 @RunWith(PowerMockRunner.class)
-@PrepareOnlyThisForTest(ApiCatalogueContext.class)
-public class ApiCatalogueComponentTest {
+@PrepareOnlyThisForTest({ApiCatalogueContext.class, ApiCatalogueComponent.class})
+public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
 
     @Rule
     public TestLoggerRule logger = TestLoggerRule.targeting(ApiCatalogueComponent.class);
@@ -62,7 +65,6 @@ public class ApiCatalogueComponentTest {
     @Mock private ApiCatalogueRepository apiCatalogueRepository;
     @Mock private Filters expectedFiltersFromFactory;
     @Mock private FiltersFactory filtersFactory;
-    private AutoCloseable mocks;
 
     private HstContainerURL hstContainerUrl;
     private MockHstRequest request;
@@ -77,7 +79,6 @@ public class ApiCatalogueComponentTest {
 
     @Before
     public void setUp() throws Exception {
-        mocks = openMocks(this);
 
         expectedMappingYaml = "valid: 'mapping YAML'";
 
@@ -94,11 +95,6 @@ public class ApiCatalogueComponentTest {
         irrelevantResponse = new MockHstResponse();
 
         apiCatalogueComponent = new ApiCatalogueComponent();
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        mocks.close();
     }
 
     @Test

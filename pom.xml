@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.7.0</version>
+        <version>14.7.3</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -23,7 +23,7 @@
         The below project elements are emptied/overridden as otherwise their metadata would be
         inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
 
-        DO NOT remove these tags but instead fill them in appropriately as needed,
+        DO NOT remove these tags but instead fill them in appropriately as needed
         UNLESS the inherited values are valid for your project.
     -->
     <url/>
@@ -117,6 +117,11 @@
         <devzone.apispec.sync.schedule-delay-duration></devzone.apispec.sync.schedule-delay-duration>
         <devzone.apispec.sync.daily-cron-expression></devzone.apispec.sync.daily-cron-expression>
         <devzone.apispec.sync.nightly-cron-expression></devzone.apispec.sync.nightly-cron-expression>
+        <!-- Custom on-disk page caching properties -->
+        <siteCache.cacheManager.diskStorePath></siteCache.cacheManager.diskStorePath>
+        <siteCache.heavyContentPageCache.maxMegabytesLocalDisk></siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
+        <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts></siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
+        <siteCache.heavyContentPageCache.timeToIdle></siteCache.heavyContentPageCache.timeToIdle>
 
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
@@ -137,8 +142,10 @@
         <hippo.addon-content-feed.version>14.7.8ed926d4</hippo.addon-content-feed.version>
         <!-- ***END temporary override of versions*** -->
 
-        <log4j2.version>2.16.0</log4j2.version>
-
+        <!-- Built-in caches use ecache v2.x.
+        Custom caching that needs durable on-disk caching uses v3.x
+        due to insufficient support for on-disk caching in v2.x. -->
+        <ehcache3.version>3.9.9</ehcache3.version>
     </properties>
 
     <repositories>
@@ -442,7 +449,6 @@
                 <artifactId>hippo-repository-mockutils</artifactId>
                 <version>${bloomreach.version}</version>
             </dependency>
-
             <!-- Although we don't explicitly use these dependencies, there are conflicts
             with these libraries in our transitive dependencies so we explicitly declare them -->
             <dependency>
@@ -698,7 +704,13 @@
             </dependency>
 
             <dependency>
-                <groupId>com.atlassian.commonmark</groupId>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.commonmark</groupId>
                 <artifactId>commonmark</artifactId>
                 <version>${commonmark.version}</version>
             </dependency>
@@ -1004,7 +1016,7 @@
                                     <cargo.jvmargs>
                                         -Xmx1024m
                                         -Duser.timezone=Etc/UTC
-                                        -Dfile.encoding=ANSI_X3.4-1968
+                                        -Dfile.encoding=UTF-8
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
                                         -Xdebug
@@ -1066,6 +1078,11 @@
                                     <devzone.apispec.sync.schedule-delay-duration>${devzone.apispec.sync.schedule-delay-duration}</devzone.apispec.sync.schedule-delay-duration>
                                     <devzone.apispec.sync.daily-cron-expression>${devzone.apispec.sync.daily-cron-expression}</devzone.apispec.sync.daily-cron-expression>
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
+                                    <!-- Custom on-disk page caching properties -->
+                                    <siteCache.cacheManager.diskStorePath>${siteCache.cacheManager.diskStorePath}</siteCache.cacheManager.diskStorePath>
+                                    <siteCache.heavyContentPageCache.maxMegabytesLocalDisk>${siteCache.heavyContentPageCache.maxMegabytesLocalDisk}</siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
+                                    <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>${siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts}</siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
+                                    <siteCache.heavyContentPageCache.timeToIdle>${siteCache.heavyContentPageCache.timeToIdle}</siteCache.heavyContentPageCache.timeToIdle>
 
                                 </systemProperties>
                                 <dependencies>

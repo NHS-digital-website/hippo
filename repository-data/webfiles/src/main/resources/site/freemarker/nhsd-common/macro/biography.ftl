@@ -6,11 +6,11 @@
 
 <#macro biography biographies idsuffix>
     <#if document.biographies?has_content >
-        <#assign profbiography><@hst.html hippohtml=biographies.profbiography contentRewriter=gaContentRewriter/></#assign>
-        <#assign prevpositions><@hst.html hippohtml=biographies.prevpositions contentRewriter=gaContentRewriter/></#assign>
-        <#assign nonnhspositions><@hst.html hippohtml=biographies.nonnhspositions contentRewriter=gaContentRewriter/></#assign>
-        <#assign additionalbiography><@hst.html hippohtml=biographies.additionalbiography contentRewriter=gaContentRewriter/></#assign>
-        <#assign personalbiography><@hst.html hippohtml=biographies.personalbiography contentRewriter=gaContentRewriter/></#assign>
+        <#assign profbiography><@hst.html hippohtml=biographies.profbiography contentRewriter=brContentRewriter/></#assign>
+        <#assign prevpositions><@hst.html hippohtml=biographies.prevpositions contentRewriter=brContentRewriter/></#assign>
+        <#assign nonnhspositions><@hst.html hippohtml=biographies.nonnhspositions contentRewriter=brContentRewriter/></#assign>
+        <#assign additionalbiography><@hst.html hippohtml=biographies.additionalbiography contentRewriter=brContentRewriter/></#assign>
+        <#assign personalbiography><@hst.html hippohtml=biographies.personalbiography contentRewriter=brContentRewriter/></#assign>
         <#assign biographiesMap = {} />
 
         <#if profbiography?has_content>
@@ -30,13 +30,12 @@
         </#if>
 
         <#if biographiesMap?size != 0 >
-            <div id="biography-${slugify(idsuffix)}"
-                 class="biography--div article-section no-border">
-                <h2>Biography</h2>
+            <div id="biography-${slugify(idsuffix)}">
+                <h2 class="nhsd-t-heading-xl">Biography</h2>
 
                 <#if profbiography?has_content>
                     <#if biographiesMap?size != 1 >
-                        <h3>Professional biography</h3>
+                        <h3 class="nhsd-t-heading-l">Professional biography</h3>
                     </#if>
                     <div data-uipath="biographies.profbiography">
                         ${biographiesMap['profbiography']}
@@ -45,7 +44,7 @@
 
                 <#if prevpositions?has_content>
                     <#if biographiesMap?size != 1 >
-                        <h3>Previous positions / experience</h3>
+                        <h3 class="nhsd-t-heading-l">Previous positions / experience</h3>
                     </#if>
                     <div data-uipath="biographies.prevpositions">
                         ${biographiesMap['prevpositions']}
@@ -54,7 +53,7 @@
 
                 <#if nonnhspositions?has_content>
                     <#if biographiesMap?size != 1 >
-                        <h3>Non-NHS Digital positions / awards</h3>
+                        <h3 class="nhsd-t-heading-l">Non-NHS Digital positions / awards</h3>
                     </#if>
                     <div data-uipath="biographies.nonnhspositions">
                        ${biographiesMap['nonnhspositions']}
@@ -63,7 +62,7 @@
 
                 <#if additionalbiography?has_content>
                     <#if biographiesMap?size != 1 >
-                        <h3>Additional biography</h3>
+                        <h3 class="nhsd-t-heading-l">Additional biography</h3>
                     </#if>
                     <div data-uipath="biographies.additionalbiography">
                         ${biographiesMap['additionalbiography']}
@@ -72,7 +71,7 @@
 
                 <#if personalbiography?has_content>
                     <#if biographiesMap?size != 1 >
-                        <h3>Personal biography</h3>
+                        <h3 class="nhsd-t-heading-l">Personal biography</h3>
                     </#if>
                     <div data-uipath="biographies.personalbiography">
                         ${biographiesMap['personalbiography']}

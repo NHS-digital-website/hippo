@@ -20,6 +20,7 @@ import org.onehippo.forge.content.exim.core.impl.WorkflowDocumentManagerImpl;
 import org.onehippo.repository.documentworkflow.DocumentWorkflow;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import uk.nhs.digital.toolbox.exception.ExceptionUtils;
 
 import java.util.Optional;
 import javax.jcr.Node;

@@ -11,8 +11,10 @@ public class ApiSpecificationComponent extends ContentRewriterComponent {
                                          final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        Optional.ofNullable(request.getRequestContext().getContentBean()).ifPresent(document -> {
-            request.setAttribute("document", document); // for the main template
-        });
+        Optional.ofNullable(request.getRequestContext().getContentBean())
+            .ifPresent(document -> {
+                request.setAttribute("document", document);
+                request.setAttribute("path", request.getPathInfo());
+            });
     }
 }

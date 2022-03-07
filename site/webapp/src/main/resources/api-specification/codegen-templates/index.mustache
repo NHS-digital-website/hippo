@@ -1,0 +1,122 @@
+<div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
+    {{>sticky-nav}}
+</div>
+
+<div id="content" class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+
+    <!-- API Title: {{{appName}}} -->
+
+    <div id="api-description">
+        {{{markdown appDescription headingIdPrefix="api-description__" levelToNormaliseHeadingsTo=2}}}
+    </div>
+    {{#apiInfo}}
+        {{#apis}}
+            {{#assign "tryThisApiDisabled"}}{{vendorExtensions.x-spec-publication.try-this-api.disabled}}{{/assign}}
+            {{#operations}}
+                <hr class="nhsd-a-horizontal-rule">
+                {{#eq baseName 'Default'}}
+                    <h2 id="api-endpoints" class="nhsd-t-heading-xl">Endpoints</h2>
+                {{else}}
+                    <h2 id="api-{{baseName}}" class="nhsd-t-heading-xl">Endpoints: {{baseName}}</h2>
+                {{/eq}}
+                {{#operation}}
+                    {{#contents}}
+                        {{#@first}}
+                            <h3 id="api-{{baseName}}-{{nickname}}" class="nhsd-t-heading-l">{{summary}}</h3>
+
+                            <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3 nhsd-!t-padding-left-3 nhsd-!t-padding-right-3 nhsd-a-box nhsd-a-box--bg-blue nhsd-!t-margin-bottom-4">
+                                <div class="nhsd-t-row">
+                                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-9 nhsd-t-heading-s nhsd-!t-margin-bottom-0 nhsd-t-flex nhsd-t-flex--align-items-centre">
+                                        <span class="nhsd-!t-col-white nhsd-t-heading-l nhsd-t-display-contents nhsd-t-text-transform-uppercase">{{httpMethod}}</span>
+                                        <span class="nhsd-!t-col-white nhsd-t-heading-s nhsd-t-display-contents"><span class="nhsd-t-wrap-text-pre nhsd-t-overflow-wrap-text nhsd-t-display-contents">{{path}}</span></span>
+                                    </div>
+                                    {{#ifVariableIsFalse "tryThisApiDisabled"}}
+                                        {{#eq baseName 'Default'}}{{#assign "sanitizedBaseName"}}{{lower baseName}}{{/assign}}{{else}}{{#assign "sanitizedBaseName"}}{{baseName}}{{/assign}}{{/eq}}
+                                        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
+                                            <div class="nhsd-t-float-right nhsd-api-spec__try-this-api__button nhsd-t-flex nhsd-t-flex--align-items-centre">
+                                                <button class="nhsd-a-button nhsd-a-button--outline nhsd-!t-margin-bottom-0 nhsd-t-width-full" type="button"
+                                                        onclick="tryEndpointNow('/{{sanitizedBaseName}}/{{operationId}}')" disabled>
+                                                    <span class="nhsd-a-button__label">Enable Javascript to try this API</span>
+                                                    <span class="nhsd-a-icon nhsd-a-icon--size-m nhsd-!t-display-hide">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
+                                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    {{/ifVariableIsFalse}}
+                                </div>
+                            </div>
+
+                            {{{markdown notes levelToNormaliseHeadingsTo=4}}}
+
+                            {{#isAnyTrue this hasPathParams hasHeaderParams hasBodyParam hasFormParams hasQueryParams}}
+                                <h4 class="nhsd-t-heading-m">Request</h4>
+                            {{/isAnyTrue}}
+
+                            {{#hasPathParams}}
+                                {{#with pathParams}}
+                                    {{>params_table headingLevel=5 headingClass='nhsd-t-heading-s' headingText='Path parameters'}}
+                                {{/with}}
+                            {{/hasPathParams}}
+
+                            {{#hasQueryParams}}
+                                {{#with queryParams}}
+                                    {{>params_table headingLevel=5 headingClass='nhsd-t-heading-s' headingText='Query parameters'}}
+                                {{/with}}
+                            {{/hasQueryParams}}
+
+                            {{#hasHeaderParams}}
+                                {{#with headerParams}}
+                                    {{>params_table headingLevel=5 headingClass='nhsd-t-heading-s' headingText='Headers'}}
+                                {{/with}}
+                            {{/hasHeaderParams}}
+
+                            {{#hasFormParams}}
+                                {{#with formParams}}
+                                    {{>params_table headingLevel=5 headingClass='nhsd-t-heading-s' headingText='Form parameters'}}
+                                {{/with}}
+                            {{/hasFormParams}}
+
+                            {{#hasBodyParam}}
+                                <h5 class="nhsd-t-heading-s">Body</h5>
+                                {{#bodyParams}}
+                                    {{#required}}<div class="nhsd-!t-col-red">Required</div>{{/required}}
+
+                                    {{#vendorExtensions.x-body}}
+                                        {{>body_param}}
+                                    {{/vendorExtensions.x-body}}
+                                {{/bodyParams}}
+                            {{/hasBodyParam}}
+
+                            {{#responses}}
+                                {{#@first}}
+                                    <h4 class="nhsd-t-heading-m">Response</h4>
+                                {{/@first}}
+
+                                <h5 class="nhsd-t-heading-s">HTTP status: {{code}}</h5>
+                                {{{markdown message levelToNormaliseHeadingsTo=5}}}
+
+                                {{#hasHeaders}}
+                                    {{#with headers}}
+                                        {{>params_table headingLevel=6 headingClass='nhsd-t-heading-xs' headingText='Headers' response=true}}
+                                    {{/with}}
+                                {{/hasHeaders}}
+
+                                {{#vendorExtensions.x-body}}
+                                    {{#mediaTypes}}
+                                        {{#@first}}
+                                            <h6 class="nhsd-t-heading-xs">Body</h6>
+                                        {{/@first}}
+                                    {{/mediaTypes}}
+                                    {{>body_param}}
+                                {{/vendorExtensions.x-body}}
+                            {{/responses}}
+                        {{/@first}}
+                    {{/contents}}
+                {{/operation}}
+            {{/operations}}
+        {{/apis}}
+    {{/apiInfo}}
+</div>

@@ -1,5 +1,9 @@
 package uk.nhs.digital.test.util;
 
+import static org.apache.commons.io.FileUtils.readFileToString;
+
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -20,7 +24,7 @@ public class TestFileUtils {
         try {
             final File file = new File(resource.toURI());
 
-            return org.apache.commons.io.FileUtils.readFileToString(
+            return readFileToString(
                 file, StandardCharsets.UTF_8
             );
 
@@ -36,7 +40,7 @@ public class TestFileUtils {
         }
 
         try {
-            return org.apache.commons.io.FileUtils.readFileToString(
+            return readFileToString(
                 Paths.get(fileSystemPath).toFile(), StandardCharsets.UTF_8
             );
         } catch (final Exception e) {
@@ -44,16 +48,12 @@ public class TestFileUtils {
         }
     }
 
-    public static void deleteFileOrEmptyDirIfExists(final Path path) {
-        try {
-            Files.deleteIfExists(path);
-        } catch (final Exception e) {
-            throw new TestFileAccessException("Failed to delete " + path, e);
-        }
+    public static void deleteFileOrDirectoryRecursivelyQuietly(final Path path) {
+        deleteFileOrDirectoryRecursivelyQuietly(path.toFile());
     }
 
-    public static void deleteFileOrEmptyDirIfExists(final File file) {
-        deleteFileOrEmptyDirIfExists(file.toPath());
+    public static void deleteFileOrDirectoryRecursivelyQuietly(final File file) {
+        FileUtils.deleteQuietly(file);
     }
 
     public static class TestFileAccessException extends RuntimeException {

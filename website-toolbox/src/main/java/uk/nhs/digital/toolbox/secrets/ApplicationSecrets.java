@@ -45,4 +45,29 @@ public class ApplicationSecrets {
         }
         return this.cache.get(key);
     }
+
+    public static Logger getLog() {
+        return log;
+    }
+
+    /**
+     * Intended for, strictly necessary, debug logging of a secret. This returns a
+     * mostly starred-out secret (credit card receipt style redaction), where only
+     * the last four digits remain intact.
+     *
+     * Please do not log secrets if you do not need to! And always make sure they
+     * are masked.
+     *
+     * For safety, the first ten characters are always starred out, such that a
+     * secret less than ten characters will be fully starred-out. Moreover, for four characters
+     * to remain intact, the secret must have a length of at least fourteen characters.
+     *
+     * @param secret in plain text.
+     * @return A starred out secret with upto the last four characters intact.
+     */
+    public static String mask(final String secret) {
+        final int length =  secret.length();
+        final int end = length - (length - 10 <= 0 ? 0 : length - 10 >= 4 ? 4 : length - 10);
+        return secret.substring(0, end).replaceAll("(?s).", "*") + secret.substring(end);
+    }
 }

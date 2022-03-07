@@ -1,0 +1,50 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/health-survey-authors:
+      /author:
+        hipposys:groups:
+          .meta:add-new-system-values: true
+          .meta:category: system
+          type: string
+          value:
+          - health-survey-authors
+        hipposys:role: author
+        jcr:primaryType: hipposys:authrole
+      /health-survey-images:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /pub-stats-health-survey:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/publication-system/statistical/health-survey-for-england
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /pub-stats-health-survey-additional:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/publication-system/statistical/health-survey-england-additional-analyses
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /readwrite:
+        hipposys:groups:
+          .meta:add-new-system-values: true
+          .meta:category: system
+          type: string
+          value:
+          - health-survey-authors
+        hipposys:role: readwrite
+        jcr:primaryType: hipposys:authrole
+      jcr:primaryType: hipposys:domain

@@ -38,4 +38,7 @@ definitions:
       /searchbar:
         hst:renderpath: webfile:/freemarker/common/searchbar.ftl
         jcr:primaryType: hst:template
+      /team:
+        hst:renderpath: webfile:/freemarker/nhsd-common/team.ftl
+        jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

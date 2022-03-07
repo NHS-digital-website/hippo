@@ -58,7 +58,12 @@
         'cardClass': 'nhsd-m-card--full-height'
     } />
 
-    <#if item.leadImage?has_content>
+	<#-- DW-2686 if there is a thumbnail image use it else use the lead image -->
+	<#if item.thumbnailImage?has_content>
+        <#assign cardData += {
+            'image': item.thumbnailImage
+        } />
+    <#elseif item.leadImage?has_content>
         <#assign cardData += {
             'image': item.leadImage
         } />

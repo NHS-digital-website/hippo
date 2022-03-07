@@ -162,6 +162,6 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
 
         // Older parameter, deprecated in favour of showRetired,
         // retained in case it's been included in existing bookmarks.
-        showDeprecatedAndRetired,
+        showDeprecatedAndRetired
     }
 }

@@ -344,6 +344,35 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /developer:
         /api-catalogue:
+          /_any_:
+            /_index_:
+              hst:cacheable: true
+              hst:componentconfigurationmappingnames:
+              - website:service
+              - website:general
+              - website:componentlist
+              - website:apispecification
+              hst:componentconfigurationmappingvalues:
+              - hst:pages/service
+              - hst:pages/general
+              - hst:pages/componentlist
+              - hst:pages/apispecification
+              hst:relativecontentpath: ${parent}/content
+              jcr:primaryType: hst:sitemapitem
+            hst:cacheable: true
+            hst:componentconfigurationid: hst:pages/404
+            hst:componentconfigurationmappingnames:
+            - website:service
+            - website:general
+            - website:componentlist
+            - website:apispecification
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/service
+            - hst:pages/general
+            - hst:pages/componentlist
+            - hst:pages/apispecification
+            hst:relativecontentpath: ${parent}/${1}
+            jcr:primaryType: hst:sitemapitem
           /_any_.trythisapi:
             hst:componentconfigurationid: hst:pages/apitryitnow
             hst:relativecontentpath: ${parent}/${1}/content
@@ -352,6 +381,7 @@ definitions:
             hst:componentconfigurationid: hst:pages/api-catalogue
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
+          hst:cacheable: false
           hst:relativecontentpath: developer/api-catalogue
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
