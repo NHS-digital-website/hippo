@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "./arrow-icon.ftl">
+<#include "./arrow-text.ftl">
 <#macro cardItem cardProps>
     <#assign cardClass = ""/>
     <#if cardProps.featured?? && cardProps.featured && cardProps.image?has_content>
@@ -24,6 +25,13 @@
                     </div>
                 </#if>
                 <div class="nhsd-m-card__content_container">
+
+<#if cardProps.icon?has_content>
+<div class="card-icon-right">
+<@hst.link hippobean=cardProps.icon fullyQualified=true var="iconImg" />
+                                <img src="${iconImg}" alt="${cardProps.altText}" />
+</div>
+</#if>
                     <div class="nhsd-m-card__content-box">
                         <h1 class="nhsd-t-heading-s">${cardProps.title}</h1>
                         <#if cardProps.shortsummary?has_content>
@@ -31,8 +39,10 @@
                         </#if>
                     </div>
                     <div class="nhsd-m-card__button-box">
-                          <@whiteGlobalArrow></@whiteGlobalArrow>
-                      </span>
+                        <span>
+                            <@whiteGlobalArrow></@whiteGlobalArrow>
+                        </span>
+                        <span>${cardProps.label}</span>
                     </div>
                 </div>
             </div>
