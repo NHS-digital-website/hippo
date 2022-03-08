@@ -33,11 +33,15 @@ public class CardListComponent extends CommonComponent {
         String button1Url = info.getButton1Link();
         String button2Title = info.getButton2Title();
         String button2Url = info.getButton2Link();
+        String buttonIconLink = info.getButtonIconLink();
+        String buttonIconLink2 = info.getButtonIconLink2();
 
         request.setAttribute("button1Title", button1Title);
         request.setAttribute("button1Url", button1Url);
         request.setAttribute("button2Title", button2Title);
         request.setAttribute("button2Url", button2Url);
+        request.setAttribute("buttonIconLink", buttonIconLink);
+        request.setAttribute("buttonIconLink2", buttonIconLink2);
 
         List<HippoDocument> cardComponents = getCardComponents(info);
         request.setAttribute("cardList", cardComponents);
