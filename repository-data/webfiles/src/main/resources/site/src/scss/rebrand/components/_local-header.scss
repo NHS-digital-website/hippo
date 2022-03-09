@@ -1,0 +1,129 @@
+@import "../components/settings/colours";
+@import "../environment/tools/mixins/typography";
+
+div.local-header {
+  background-color: $grey-5;
+  overflow: hidden;
+  color:#353535;
+  padding: 1.6em;
+
+  .grid-row & {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+
+    @include ie-lte(8) {
+      width: auto;
+    }
+  }
+
+  /* a {
+    @include link-reverse-polarity;
+  } */
+
+  // the lobotomized owl
+  // see: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+  * + * {
+    @include element-spacing('top', 8px);
+  }
+}
+
+.local-header--secondary {
+    padding: 1.6em 0;
+    background: transparent;
+
+    .local-header__title {
+        color: $col-quaternary;
+    }
+}
+
+.local-header__return {
+//   @include link-reverse-polarity;
+  background-color: $col-primary;
+  border: $baseline-grid-unit * 0.5 solid $blue-50;
+  display: inline-block;
+  margin-bottom: $baseline-grid-unit * 4;
+  padding: $default-spacing-unit * 0.5 $default-spacing-unit;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $blue-10;
+    color: $white;
+  }
+}
+
+.local-header__title {
+    @include bold-font(36);
+    color: $white;
+    margin: 0;
+
+    &--dark {
+        color: $col-20;
+    }
+}
+
+.local-header__title-left {
+  @extend .local-header__title;
+  float: left;
+}
+
+.local-header__tag {
+    @include core-font(14);
+
+    position: relative;
+    margin: 10px 10px 30px 10px;
+    display: inline-block;
+    border-radius: 0;
+    padding: 5px 10px;
+    color: $black;
+    background: $yellow;
+    font-weight: bold;
+
+}
+
+.local-header__title-left {
+  @include bold-font(48);
+  color: $white;
+  margin: 0;
+}
+
+.local-header__intro {
+  color: $white;
+  margin-top: $baseline-grid-unit * 4;
+  max-width: $measure;
+  padding-top: $baseline-grid-unit * 4;
+  position: relative;
+
+  @include media(desktop) {
+    margin-top: $baseline-grid-unit * 8;
+    padding-top: $baseline-grid-unit * 4;
+  }
+
+  &:before {
+    background-color: $col-primary;
+    content: "";
+    display: block;
+    height: $baseline-grid-unit;
+    left: 0;
+    position: absolute;
+    top: -($baseline-grid-unit * 0.5);
+    width: 130px;
+  }
+}
+
+.local-header .article-header__label {
+    margin-top: 0;
+}
+
+.local-header .detail-list-grid .grid-row {
+    border-top: none;
+}
+
+.local-header .detail-list-grid .grid-row .column {
+    padding: 2px 0;
+}
+
+.local-header .article-header__subtitle {
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
