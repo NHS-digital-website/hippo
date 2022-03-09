@@ -35,10 +35,7 @@
 
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.requestname></@contentPixel>
-
-<article class="article article--service">
-    <div class="grid-wrapper grid-wrapper--article">
-        <div class="grid-row">
+<div class="grid-row">
             <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
                 <div class="local-header article-header article-header--detailed">
                     <div class="grid-wrapper">
@@ -66,6 +63,9 @@
                 </div>
             </div>
         </div>
+<article class="article article--service">
+    <div class="grid-wrapper grid-wrapper--article">
+
         <div class="grid-row">
             <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
