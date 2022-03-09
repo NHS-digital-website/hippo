@@ -8,7 +8,7 @@
     </#if>
 
     <#if section.heading?has_content && slug??>
-        <#assign ariaAttribute = 'aria-labelledby' />
+        <#assign ariaAttribute = 'aria-label' />
         <#assign ariaValue = slugify(slug) />
     <#else>
         <#assign ariaAttribute = 'aria-label' />
@@ -65,7 +65,7 @@
                         <p class="nhsd-t-body-s nhsd-t-word-break">${section.bodyCustom}</p>
                     </div>
                 </#if>
-                
+
             </div>
         </div>
     </div>
