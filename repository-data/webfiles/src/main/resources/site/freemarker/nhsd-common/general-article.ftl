@@ -43,8 +43,8 @@
 <#assign navStatus = document.navigationController />
 <#assign hasBannerImage = document.image?has_content />
 <#assign custom_summary = document.summary />
-<#assign promptValue =document.propmtUserOrg[0] />
-<#assign downloadPrompt = (promptValue == 'Prompt on Download' || promptValue == 'Prompt all users') />
+<#assign promptValue = document.propmtUserOrg?has_content?then(document.propmtUserOrg[0], '') />
+<#assign downloadPrompt = (promptValue?has_content && (promptValue == 'Prompt on Download' || promptValue == 'Prompt all users')) />
 
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>

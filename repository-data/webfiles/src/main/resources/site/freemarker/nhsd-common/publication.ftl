@@ -89,7 +89,9 @@
     </#if>
 
     <@hero heroOptions>
-        <#assign informationTypes = publication.informationType/>
+        <#if publication.informationType?has_content>
+            <#assign informationTypes = publication.informationType/>
+        </#if>
         <#if publication.parentDocument?has_content && publication.parentDocument.informationType?has_content>
             <#assign informationTypes = publication.parentDocument.informationType/>
         </#if>
