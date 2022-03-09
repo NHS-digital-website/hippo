@@ -74,7 +74,7 @@
 
                     <div itemscope itemtype="http://schema.org/Event">
                         <#if document.events?size gt 1 && validDate>
-                            <p class="nhsd-t-heading-s nhsd-!t-col-white">Session ${event?counter}</p>
+                            <p class="nhsd-t-heading-s">Session ${event?counter}</p>
                         </#if>
 
                         <#if validDate>

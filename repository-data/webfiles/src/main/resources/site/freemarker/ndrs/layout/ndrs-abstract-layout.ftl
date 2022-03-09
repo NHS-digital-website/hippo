@@ -4,9 +4,6 @@
 <#include "../macro/ndrsFooterBanner.ftl">
 <#include "../macro/component/skipLink.ftl">
 <#include "../breadcrumb.ftl">
-<#include "../breadcrumb-ci.ftl">
-<#include "../nhsd-breadcrumb.ftl">
-<#include "../intra-breadcrumb.ftl">
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -23,15 +20,15 @@
     <@skipLink />
     <#-- Add site header with the search bar -->
     <@globalHeader true></@globalHeader>
-    <@hst.include ref="intra-breadcrumb"/>
-    <@hst.include ref="breadcrumb"/>
+    <#-- <@hst.include ref="intra-breadcrumb"/>
     <@hst.include ref="breadcrumb-ci"/>
-    <@hst.include ref="nhsd-breadcrumb"/>
+    <@hst.include ref="nhsd-breadcrumb"/>-->
+    <@hst.include ref="breadcrumb"/>
     <main id="main-content">
         <@hst.include ref="main"/>
     </main>
     <@ndrsFooterBanner></@ndrsFooterBanner>
     <@hst.include ref="footer-menu"/>
-    <#include "../../intranet/scripts/footer-scripts.ftl" />
+        <#include "../scripts/nhsd-footer-scripts.ftl" />
 </body>
 </html>

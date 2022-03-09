@@ -7,7 +7,7 @@
             <nav aria-label="Breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb__crumb">
-                        <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link">NHS Digital</a>
+                        <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link">NDRS</a>
                     </li>
 
                     <#if title?has_content>
