@@ -21,7 +21,7 @@
     <#assign isCtaDoc = document.class.simpleName?starts_with("Calltoaction") />
     <#assign isDecorativeOnly = isCtaDoc && document.isDecorative?if_exists == "true" />
 
-    <article class="nhsd-o-case-study nhsd-o-case-study--no-label nhsd-!t-margin-bottom-9 ${isRightAlignment}">
+    <article class="nhsd-o-case-study nhsd-o-case-study--no-label nhsd-!t-margin-bottom-${bMargin} ${isRightAlignment}">
         <div class="nhsd-t-grid">
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col-xs-12">
