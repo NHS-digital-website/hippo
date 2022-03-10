@@ -9,26 +9,27 @@ a {
     // yellow background decoration.
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+    text-decoration:none;
 
     &:link {
-        color: $link-colour;
+        color:#218183;
     }
 
     &:visited {
-        color: $link-visited-colour;
+         color:#218183;
     }
 
     &:hover {
-        background: $yellow-link-hover;
-        box-shadow: 0 0 0 4px $yellow-link-hover;
-        outline: 1px solid $yellow-link-hover;
-        color: $link-hover-colour-nhs;
+        background: #87D8DD;
+//         box-shadow: 0 0 0 4px $yellow-link-hover;
+        outline: 1px solid #353535;
+         color:#218183;
         text-decoration: none;
     }
 
     &:active {
         background: $yellow-link-active;
-        box-shadow: 0 0 0 4px $yellow-link-active;
+//         box-shadow: 0 0 0 4px $yellow-link-active;
         color: $link-active-colour-nhs;
     }
 

@@ -25,13 +25,12 @@
                     </div>
                 </#if>
                 <div class="nhsd-m-card__content_container">
-
-<#if cardProps.icon?has_content>
-<div class="card-icon-right">
-<@hst.link hippobean=cardProps.icon fullyQualified=true var="iconImg" />
-                                <img src="${iconImg}" alt="${cardProps.altText}" />
-</div>
-</#if>
+                    <#if cardProps.icon?has_content>
+                    <div class="card-icon-right card-icon">
+                        <@hst.link hippobean=cardProps.icon fullyQualified=true var="iconImg" />
+                            <img src="${iconImg}" alt="${cardProps.altText}" />
+                    </div>
+                    </#if>
                     <div class="nhsd-m-card__content-box">
                         <h1 class="nhsd-t-heading-s">${cardProps.title}</h1>
                         <#if cardProps.shortsummary?has_content>
@@ -42,7 +41,7 @@
                         <span>
                             <@whiteGlobalArrow></@whiteGlobalArrow>
                         </span>
-                        <span>${cardProps.label}</span>
+                        <span class="global-arrow-text">${cardProps.label}</span>
                     </div>
                 </div>
             </div>
