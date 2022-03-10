@@ -26,3 +26,7 @@ target
 /repository-data/development/src/main/resources/hcm-config/hst/hosts-allowed.yaml
 node_modules/
 /repository-data/webfiles/src/main/resources/site/freemarker/ndrs/hstdefault/essentials-banner.properties
+/repository-data/application/src/main/resources/hcm-content/content/documents/corporate-website/ndrs/
+/repository-data/application/src/main/resources/hcm-content/
+/repository-data/application/src/main/resources/hcm-content/content/gallery/
+/repository-data/development/src/main/resources/hcm-content/content/gallery/publicationsystem/
