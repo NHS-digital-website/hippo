@@ -2,10 +2,14 @@ div.local-header {
   overflow: hidden;
   color:#353535;
   padding: 1.6em;
+   background-color: #F0F4F5;
   .grid-row & {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
+  }
+  .local-header__tag{
+    background-color:transparent;
   }
   }
 .local-header .article-header__subtitle {
@@ -29,6 +33,11 @@ div.local-header {
             color: #218183;
             font-weight: 700;
             padding: 5px 20px;
+            &:active{
+                background-color: #87d8dd;
+                box-shadow: none;
+                color: #353535;
+            }
         }
        }
     }
