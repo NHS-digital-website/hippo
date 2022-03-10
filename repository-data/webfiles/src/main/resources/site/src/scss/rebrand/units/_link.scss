@@ -13,15 +13,15 @@ a {
     box-decoration-break: clone;
     &.nhsd-a-link{
         &:link {
-                color: red;
+                color:#218183;
             }
     }
     &:link {
-        color: red;
+        color: #218183;
     }
 
     &:visited {
-        color: $link-visited-colour;
+        color: #353535;
     }
 
     &:hover {
@@ -40,7 +40,7 @@ a {
 
     &:focus {
         background: $yellow;
-        box-shadow: 0 0 0 4px $yellow;
+        box-shadow: 0 0 0 4px #87D8DD;
         color: $link-hover-colour-nhs;
         outline: 0;
     }
@@ -73,7 +73,7 @@ a.black-link {
 
         &:hover {
             text-decoration: none;
-            color: $link-hover-colour-nhs;
+            color: #87D8DD;
         }
 
         &:active {
