@@ -10,7 +10,7 @@
             <#if hasLink>
             <a href="<@hst.link hippobean=document.link />">
             </#if>
-                <div class="grid-wrapper grid-wrapper--article ">
+                <div class="grid-wrapper grid-wrapper- -article ">
                     <#if hasImage>
                     <div class="promo-banner__column">
                         <@hst.link hippobean=document.image var="imageLink" />
