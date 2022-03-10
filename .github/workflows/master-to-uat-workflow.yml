@@ -20,23 +20,29 @@ jobs:
       #
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # Need all the tags for versioning
 
       #
       # Step 2
+      #
+      - name: Fetch Tags
+        run: |
+          git tag -l | xargs git tag -d
+          git fetch -t
+
+      #
+      # Step 3
       #
       - name: Bump the version number
         run: make version.bumpup
 
       #
-      # Step 3
+      # Step 4
       #
       - name: Set the commit's Git status
         run: make github.status.success
 
       #
-      # Step 4
+      # Step 5
       #
       - name: Push tag back to github
         run: |
