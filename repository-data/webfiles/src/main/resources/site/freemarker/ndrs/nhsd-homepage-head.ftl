@@ -55,6 +55,6 @@
     <link rel="stylesheet" href="${designSystemUrl}/cdn/${toolkitVersion}/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/ndrs-frontend-edge-cases.css"/>" media="screen" type="text/css"/>
 
-    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk.css"/>" media="screen" type="text/css"/>
+<link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk.css"/>" media="screen" type="text/css"/>
     <#include "scripts/header-scripts.ftl" />
 </head>

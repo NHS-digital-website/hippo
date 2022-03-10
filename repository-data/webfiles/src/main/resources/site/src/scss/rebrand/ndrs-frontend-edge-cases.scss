@@ -7,7 +7,7 @@
 @import "components/api-specification";
 @import "components/publications";
 @import "components/ndrs-promo-banner";
-//@import "components/local-header";
+@import "components/local-header";
 @import "components/article-section-nav";
 @import "units/link";
 
@@ -818,6 +818,9 @@ strong {
       border-color: #87d8dd;
     }
   }
+}
+.nhsd-t-grid a{
+  color:#218183;
 }
 .nhsd-t-grid a:hover {
   box-shadow: 0 0 0 0;
