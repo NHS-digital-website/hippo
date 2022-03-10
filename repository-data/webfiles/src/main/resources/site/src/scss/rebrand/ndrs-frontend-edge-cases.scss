@@ -153,7 +153,24 @@ h6 {
       }
     }
   }
+.nhsd-m-card__button-box{
+    position:relative;
+    .global-arrow-text{
+        position: absolute;
+        top: 5px;
+        margin-left: 10px;
+        bottom: 0;
+    }
+}
 
+.card-icon{
+    float: right;
+    position: absolute;
+    right: 0;
+    margin: 12px 4%;
+    height: 20px;
+    width: 30px;
+}
 
 .nhsd-\!t-col-dark-blue {
   color: #003087 !important;
