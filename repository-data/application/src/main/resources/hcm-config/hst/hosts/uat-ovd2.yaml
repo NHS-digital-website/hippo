@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hst:platform/hst:hosts/uat-ovd2:
+      jcr:primaryType: hst:virtualhostgroup
