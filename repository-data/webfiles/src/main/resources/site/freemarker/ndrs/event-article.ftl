@@ -10,6 +10,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/relatedarticles.ftl">
 <#include "macro/heroes/hero.ftl">
+<#include "../common/macro/component/chapter-pagination.ftl">
 
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
@@ -104,7 +105,6 @@
             <#else>
                 <@schemaMeta "${document.title}" />
             </#if>
-
             <#-- [FTL-BEGIN] Location -->
             <div class="nhsd-o-hero__meta-data">
                 <div class="nhsd-o-hero__meta-data-item">

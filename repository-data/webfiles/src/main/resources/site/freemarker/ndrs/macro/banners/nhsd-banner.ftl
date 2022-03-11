@@ -7,7 +7,7 @@
         <#assign textClass="nhsd-!t-text-align-left">
         <#if options.colour?has_content>
             <#if options.colour == "Blue grey">
-                <#assign bgClass="nhsd-!t-bg-bright-blue-10-tint">
+                <#assign bgClass="nhsd-\!t-col-white">
             <#elseif options.colour == "Black">
                 <#assign bgClass="nhsd-!t-bg-black">
                 <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">

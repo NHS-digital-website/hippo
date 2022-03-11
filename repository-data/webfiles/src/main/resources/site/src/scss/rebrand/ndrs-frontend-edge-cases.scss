@@ -95,7 +95,7 @@ h6 {
           color: #353535;
         }
       }
-    }
+    }.nhsd-a-button,
     .nhsd-m-card {
       padding: 2rem 1rem;
     }
@@ -834,7 +834,7 @@ strong {
 .nhsd-a-button--circle-condensed{
     padding: 0.5555555556rem !important;
     color:#ffffff;
-    background-color:#1d6162 !important;
+    background-color:#218183 !important
 }
 .nhsd-a-button {
   font-family: "Arial", Helvetica, sans-serif;
@@ -853,7 +853,7 @@ strong {
 
 .nhsd-a-button--disabled .nhsd-a-icon > svg,
 .nhsd-a-button:disabled .nhsd-a-icon > svg {
-  fill: #3f525f;
+//   fill: #3f525f;
 }
 
 .nhsd-a-button:not(:disabled):not(.nhsd-a-button--disabled).js-active,
@@ -870,7 +870,7 @@ strong {
 
 .nhsd-a-button:not(.nhsd-a-button--invert):not(.nhsd-a-button--outline):not(.nhsd-a-button--start):not(.nhsd-a-button--cancel):not(.nhsd-a-button--disabled):not(:disabled):not(.nhsd-a-button--transparent),
 .nhsd-a-button:not(.nhsd-a-button--invert):not(.nhsd-a-button--outline):not(.nhsd-a-button--start):not(.nhsd-a-button--cancel):not(.nhsd-a-button--disabled):not(:disabled):visited:not(.nhsd-a-button--transparent),
- .nhsd-a-button{
+{
   color: #fff;
  background: #218183 !important;
 }
@@ -959,7 +959,7 @@ strong {
 
 .nhsd-a-button--transparent .nhsd-a-icon > svg,
 html.nhsd-no-js .nhsd-a-menu-item .nhsd-a-icon > svg {
-  fill: #353535;
+//   fill: #353535;
 }
 
 input[type="reset"].nhsd-a-button,
@@ -2815,6 +2815,7 @@ html:not(.nhsd-no-js)
 
 .tabs-nav .tabs-nav__item .tabs-link {
     font-size:20px !important;
+    color:#353535;
     a:hover{
         color:#353535;
     }
@@ -2826,7 +2827,7 @@ html:not(.nhsd-no-js)
     }
 }
 .nhsd-m-search-bar .nhsd-t-form-control__button .nhsd-a-button:hover {
-     background:#218183 !important;
+     background:#1D595A !important;
 }
 .nhsd-m-search-bar .nhsd-t-form-control__button .nhsd-a-button{
      fill:#ffffff !important;

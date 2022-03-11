@@ -20,6 +20,26 @@
     }
 }
 
+.article-header__title{
+    background:transparent!important;
+}
+.hub-box-list .hub-box:first-child {
+    margin-top: 0;
+    background-color: transparent;
+}
+.hub-box-list .hub-box{
+    border-bottom: 1px solid #CBCBCB!important;
+}
+.hub-box-list .hub-box__contents{
+    padding:0 20px 20px 0!important;
+}
+.inner-wrapper-sticky .tag-link{
+    border-radius: 40px;
+    padding: 10px 15px!important;
+    background-color: #F0F4F5!important;
+    margin-bottom: 10px;
+}
+
 .article-section-nav {
     padding-top: $default-spacing-unit;
     padding-bottom: $default-spacing-unit * 2;

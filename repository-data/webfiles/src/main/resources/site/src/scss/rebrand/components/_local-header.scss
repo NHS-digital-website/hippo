@@ -1,3 +1,7 @@
+.promo-banner .promo-banner__columns,
+div.local-header {
+  padding: 5.6em;
+}
 div.local-header {
   overflow: hidden;
   color:#353535;
@@ -8,10 +12,13 @@ div.local-header {
     margin-right: 0;
     margin-top: 0;
   }
-  .local-header__tag{
-    background-color:transparent;
+      .local-header__tag{
+        background-color:transparent;
+      }
   }
-  }
+.local-header__title{
+    color: inherit!important;
+}
 .local-header .article-header__subtitle {
     margin-top: 12px;
     margin-bottom: 0px;
