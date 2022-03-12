@@ -2,7 +2,21 @@
 @import "../../environment/tools/mixins/addons";
 @import "../../environment/tools/mixins/custom";
 
-
+a:hover {
+    background: #87D8DD!important;
+    border:none;
+    color: #353535;
+    outline:none!important;
+}
+a:active {
+    background:#87D8DD!important;
+}
+a:focus {
+    background: #87D8DD!important;
+    box-shadow: 0 0 0 4px #87D8DD!important;
+    color:  #353535!important;
+    outline: 0!important;
+}
 .nhsd-t-grid{
 a {
     @include no-tap-highlight;
@@ -28,7 +42,7 @@ a {
         background: transparent;
         box-shadow: 0 0 0 4px #000;
         outline: 1px solid #000;
-        color: #000;
+        color: #353535;
         text-decoration: none;
     }
 
@@ -86,13 +100,14 @@ a.black-link {
     }
 }
 
-.white-links--secondary {
-    a {
-        text-decoration: underline;
+    .white-links--secondary {
+        a {
+            text-decoration: underline;
 
-        &:hover {
-            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 }
-}
+
