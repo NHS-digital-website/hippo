@@ -2865,3 +2865,31 @@ html:not(.nhsd-no-js)
     background-color: #EFFBFC!important;
     border-bottom: 1px solid #D8DDE0!important;
 }
+.filter {
+    background-color: transparent!important;
+}
+.filter-section {
+    border-top: 1px solid #D8DDE0!important;
+}
+a.filter-link {
+    background-color: #F0F4F5!important;
+    border-radius: 40px!important;
+    color: #218183!important;
+    padding: 13px 23px!important;
+    border:none!important;
+    margin-bottom: 10px!important;
+    background-position: 7px 12px!important;
+   font-family: "Calibri", sans-serif !important;
+    font-size: 16px!important;
+    font-weight: 700!important;
+        background-image: none!important;
+}
+.filter-section .filter-section__title{
+    font-weight:700;
+}
+.filter-vis-toggles .filter-vis-toggle{.
+   color: #353535 !important;
+}
+.button{
+    background-color: #218183 !important;
+}
