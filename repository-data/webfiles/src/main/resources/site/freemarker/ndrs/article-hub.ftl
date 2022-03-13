@@ -13,7 +13,7 @@
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
 <#include "../common/macro/contentPixel.ftl">
-
+<#include "macro/heroes/hero.ftl">
 
 <#assign hasApiEndpointContent = document.requestname?? && document.uriaddress?? && document.summary?? />
 <#assign hasAuthnAuthsContent = document.authnauths?? && document.authnauths.content?has_content />
@@ -36,7 +36,75 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.requestname></@contentPixel>
 <div class="grid-row">
-            <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
+
+<div class="hero-inner-bg">
+<@hero {
+"title": document.title,
+"colour": "darkBlue"
+}>
+        <div class="nhsd-!t-margin-top-6">
+            <#if hasSessions>
+                <#-- [FTL-BEGIN] List of date ranges -->
+                <#list document.events as event>
+
+                    <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
+                    <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
+                    <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
+                    <#if event.enddatetime.time?date gt .now?date>
+                        <#assign hasFutureEvent = true>
+                    </#if>
+
+                    <div itemscope itemtype="http://schema.org/Event">
+                        <#if document.events?size gt 1 && validDate>
+                            <p class="nhsd-t-heading-s">Session ${event?counter}</p>
+                        </#if>
+
+                        <#if validDate>
+                            <div class="nhsd-o-hero__meta-data nhsd-!t-margin-bottom-6">
+                                <div class="nhsd-o-hero__meta-data-item">
+                                    <div class="nhsd-o-hero__meta-data-item-title">Date:</div>
+                                    <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
+                                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                        <#if comparableStartDate != comparableEndDate>
+                                            - <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                        </#if>
+                                    </div>
+                                </div>
+
+                                <div class="nhsd-o-hero__meta-data-item">
+                                    <div class="nhsd-o-hero__meta-data-item-title">Time:</div>
+                                    <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
+                                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /> to <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <@schemaMeta "${document.title}" event.startdatetime.time?date event.enddatetime.time?date_if_unknown />
+                        </#if>
+                    </div>
+                </#list>
+            <#-- [FTL-END] List of date ranges -->
+            <#else>
+                <@schemaMeta "${document.title}" />
+            </#if>
+        <!--   <div class="local-header__tag">${releasestatuses[document.releasestatus]?upper_case}</div> -->
+                  <#if document.apiMasterParent?has_content && document.apiMasterParent.title??>
+                    <p class="article-header__subtitle">
+                    This is part of
+                    <a href="<@hst.link hippobean=document.apiMasterParent/>"
+                        title="${document.apiMasterParent.title}">
+                        <span itemprop="subjectof" itemscope itemtype="https://schema.org/webapi">${document.apiMasterParent.title}</span>
+                    </a>
+                    </p>
+                </#if>
+              </div>
+            <#if hasShortsummary>
+                <div class="article-header__subtitle" data-uipath="document.shortsummary">${document.shortsummary}</div>
+            </#if>
+        </div>
+    </@hero>
+
+</div
+           <#--  <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
                 <div class="local-header article-header article-header--detailed">
                     <div class="grid-wrapper">
                         <div class="article-header__inner">
@@ -62,7 +130,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article">
 

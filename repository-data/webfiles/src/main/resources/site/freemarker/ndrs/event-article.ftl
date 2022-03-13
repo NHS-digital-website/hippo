@@ -57,6 +57,7 @@
 <#else>
 <article aria-label="Document Header">
 </#if>
+<div class="hero-inner-bg">
     <@hero {
         "title": document.title,
         "colour": "darkBlue"
@@ -122,7 +123,7 @@
             </div>
         </div>
     </@hero>
-
+</div>
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
