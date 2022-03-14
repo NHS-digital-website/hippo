@@ -831,6 +831,7 @@ strong {
 .nhsd-t-grid a:hover {
   box-shadow: 0 0 0 0;
   outline: 0;
+  color:#353535!important;
   background-color: #87d8dd;
 }
 .ndrs-icon-hover {
@@ -2795,7 +2796,7 @@ html:not(.nhsd-no-js)
   display: block;
   position: relative;
   padding: 1.222rem;
-  border-radius: 0.333rem;
+  border-radius: 0.445rem;
   color: #353535;
   background: #fff;
   transition-property: box-shadow;
@@ -2902,4 +2903,34 @@ a.filter-link {
 }
 .email-icon{
     margin: 0px 0px -3px 10px;
+}
+.nhsd-a-button {
+    font-family: "Calibri", sans-serif !important;
+    border-radius: 2.5rem!important;
+    font-size: 1rem!important;
+    font-weight: 700!important;
+    line-height: 1.31!important;
+}
+.nhsd-a-button:disabled,
+.nhsd-a-button[disabled]{
+    background-color: #E8EDEE!important;
+     color: #353535 !important;
+}
+.quote-text{
+    color:#353535!important;
+}
+.quote-box-role {
+    color: #218183;
+}
+
+.quote-box {
+    background-image: url(../images/icon/quote-green.svg)!important;
+    border-left: 1px solid #D8DDE0!important;
+    background-color: transparent!important;
+    border-left: none!important;
+    border-right: none!important;
+    border-top: none!important;
+}
+.quote-box-role {
+    margin-top: 1rem;
 }
