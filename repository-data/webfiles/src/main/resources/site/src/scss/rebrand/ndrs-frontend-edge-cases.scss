@@ -10,6 +10,7 @@
 @import "components/local-header";
 @import "components/article-section-nav";
 @import "units/link";
+@import "components/expander";
 
 // Primary NDRS blues
 // =================
@@ -53,6 +54,9 @@ h4,
 h5,
 h6 {
   font-family: "Calibri", sans-serif !important;
+}
+a:hover {
+    color: #353535!important;
 }
 .nhsd-o-global-header {
   &__search-content-box {
@@ -2968,7 +2972,7 @@ a.filter-link {
     background-image: url(../images/icon/quote-green.svg)!important;
     border-left: 1px solid #D8DDE0!important;
     background-color: transparent!important;
-    border-left: none!important;
+    border-bottom: none!important;
     border-right: none!important;
     border-top: none!important;
 }
@@ -2978,4 +2982,36 @@ a.filter-link {
 .hero-inner-bg,
 .promo-banner{
     margin-bottom: 3rem;
+}
+.article-section{
+    .article-section-with-no-heading {
+        padding-top: 0!important;
+    }
+}
+.expander.expander-most{
+    .details {
+        background-color: #ffffff;
+            .details-body{
+                padding:0;
+                td {
+                    background: #ffffff;
+                    a{
+                        &:hover {
+                            color: #353535;
+                        }
+                    }
+                }
+            }
+        }
+            .summary {
+                    color: #218183;
+                    border-bottom: solid 1px #D8DDE0;
+                    &:hover {
+                        color: #353535;
+                    }
+                    &:hover {
+                      outline: 3px solid #87D8DD;
+                       background-color: #87D8DD;
+                    }
+            }
 }
