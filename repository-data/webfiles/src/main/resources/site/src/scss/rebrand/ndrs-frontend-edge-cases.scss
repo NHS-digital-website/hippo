@@ -3003,15 +3003,30 @@ a.filter-link {
                 }
             }
         }
-            .summary {
-                    color: #218183;
-                    border-bottom: solid 1px #D8DDE0;
-                    &:hover {
-                        color: #353535;
-                    }
-                    &:hover {
-                      outline: 3px solid #87D8DD;
-                       background-color: #87D8DD;
-                    }
+        .summary {
+            color: #218183;
+            border-bottom: solid 1px #D8DDE0;
+            &:hover {
+                color: #353535;
             }
+            &:hover {
+                outline: 3px solid #87D8DD;
+                background-color: #87D8DD;
+            }
+        }
+}
+.block-link__title {
+    color: #218183;
+    font-weight: 700;
+    &:hover{
+        color:#353535;
+        border-left-color: #ffb81c;
+    }
+}
+.emphasis-box-emphasis {
+    border-left-color: #268183!important;
+    background-color: #f0f4f5!important;
+}
+.ctabtn--nhs-digital-button{
+    background-color:#218183;
 }
