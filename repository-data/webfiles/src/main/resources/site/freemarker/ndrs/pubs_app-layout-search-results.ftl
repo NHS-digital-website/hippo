@@ -19,7 +19,7 @@
 
     <#-- Add site header with the search bar -->
     <@globalHeader false></@globalHeader>
-
+<hr class="nhsd-a-horizontal-rule nhsd-!t-margin-0">
     <@hst.include ref="coronavirus-banner"/>
 
     <#-- Add breadcrumbs -->
