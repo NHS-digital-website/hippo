@@ -138,19 +138,52 @@ h6 {
     }
   .ndrs-card-item-col {
     .nhsd-m-card__content_container {
+     background: #218183;
       padding: 2rem 1rem;
     }
-    &:nth-child(2) {
+    &:nth-child(0n+5),
+    &:nth-child(1){
+      .nhsd-m-card__content_container {
+        background: #218183;
+        color: #ffffff;
+        .nhsd-t-heading-s{
+            color: #ffffff;
+        }
+        .ndrs-icon-hover path {
+            fill: #ffffff!important;
+        }
+      }
+    }
+    &:nth-child(2){
       .nhsd-m-card__content_container {
         background: #f0f4f5;
       }
     }
-  }
-
-  .ndrs-card-item-col:nth-child(3n + 0) {
-    .nhsd-m-card__content_container {
-      background: #54cbcd;
+    &:nth-child(2n+4),
+    &:nth-child(6) {
+      .nhsd-m-card__content_container {
+          background: #f0f4f5;
+      }
     }
+   &:nth-child(3n+4),
+   &:nth-child(3){
+      .nhsd-m-card__content_container {
+        background: #54cbcd;
+      }
+    }
+  }
+  .ndrs-card-item-col:nth-child(4),
+  .ndrs-card-item-col:nth-child(8){
+    .nhsd-m-card__button-box {
+      svg {
+        path {
+          fill: #ffffff;
+        }
+      }
+    }
+  }
+  .ndrs-card-item-col:nth-child(3),
+  .ndrs-card-item-col:nth-child(7) {
     .nhsd-m-card__button-box {
       svg {
         path {
@@ -159,8 +192,16 @@ h6 {
       }
     }
   }
+.ndrs-card-item-col:nth-child(4n+0) .nhsd-m-card__content_container{
+    background: #1D595A;
+     color: #ffffff;
+     .nhsd-t-heading-s{
+        color: #ffffff;
+     }
+}
 .nhsd-m-card__button-box{
-    position:relative;
+    position: relative;
+    padding: 0 1.111rem 1.111rem 1rem;
     .global-arrow-text{
         position: absolute;
         top: 5px;
@@ -879,7 +920,7 @@ strong {
 .nhsd-a-button:not(.nhsd-a-button--invert):not(.nhsd-a-button--outline):not(.nhsd-a-button--start):not(.nhsd-a-button--cancel):not(.nhsd-a-button--disabled):not(:disabled):not(.nhsd-a-button--transparent),
 .nhsd-a-button:not(.nhsd-a-button--invert):not(.nhsd-a-button--outline):not(.nhsd-a-button--start):not(.nhsd-a-button--cancel):not(.nhsd-a-button--disabled):not(:disabled):visited:not(.nhsd-a-button--transparent),
 {
-  color: #fff;
+  color: #fff !important;
  background: #218183 !important;
 }
 
@@ -2933,4 +2974,8 @@ a.filter-link {
 }
 .quote-box-role {
     margin-top: 1rem;
+}
+.hero-inner-bg,
+.promo-banner{
+    margin-bottom: 3rem;
 }
