@@ -92,18 +92,41 @@ a:hover {
   color: #353535;
   font-weight: 600;
 }
+.nhsd-o-hero {
+    .hero-banner-img{
+        height:100%;
+        margin-bottom:3rem;
+        top: 0;
+    }
+}
 #main-content {
-      .hero-inner-bg .nhsd-o-hero {
+      .hero-inner-bg {
+      position:relative;
+      .nhsd-o-hero {
         background-color: #F0F4F5 !important;
         }
+        .hero-banner-img{
+        height:100%;
+        margin-bottom:3rem;
+        top: 0;
+        }
+        }
         }
 #main-content {
+
       .nhsd-o-hero {
         background-color: #FFFFFF !important;
         p {
           color: #353535;
         }
+        .nhsd-a-digiblocks{
+
+        }
       }
+      .nhsd-\!t-bg-yellow-20-tint{
+      background-color:#F0F4F5 !important;
+      }
+
     }
     .nhsd-a-button,
     .nhsd-m-card {
@@ -118,6 +141,21 @@ a:hover {
     }
     .card-icon-right {
       float: right;
+    }
+    .gray-color-cart-list{
+    background-color: #FFFF00;
+        .ndrs-card-item-col{
+            .nhsd-m-card__content_container {
+                background-color: #F0F4F5 !important;
+                color: #353535 !important;
+                .nhsd-t-heading-s{
+                    color: #353535 !important;
+                }
+                .ndrs-icon-hover path{
+                    fill: #268183 !important;
+                }
+            }
+        }
     }
     .multi-color-cart-list {
       .ndrs-card-item-col:nth-child(1) {
@@ -140,42 +178,43 @@ a:hover {
         }
       }
     }
-  .ndrs-card-item-col {
-    .nhsd-m-card__content_container {
-     background: #218183;
-      padding: 2rem 1rem;
-    }
-    &:nth-child(0n+5),
-    &:nth-child(1){
-      .nhsd-m-card__content_container {
-        background: #218183;
-        color: #ffffff;
-        .nhsd-t-heading-s{
+      .ndrs-card-item-col {
+        .nhsd-m-card__content_container {
+         background: #218183;
+          padding: 2rem 1rem;
+        }
+        &:nth-child(0n+5),
+        &:nth-child(1){
+          .nhsd-m-card__content_container {
+            background: #218183;
             color: #ffffff;
+            .nhsd-t-heading-s{
+                color: #ffffff;
+            }
+            .ndrs-icon-hover path {
+                fill: #ffffff!important;
+            }
+          }
         }
-        .ndrs-icon-hover path {
-            fill: #ffffff!important;
+        &:nth-child(2){
+          .nhsd-m-card__content_container {
+            background: #f0f4f5;
+          }
+        }
+        &:nth-child(2n+4),
+        &:nth-child(6) {
+          .nhsd-m-card__content_container {
+              background: #f0f4f5;
+          }
+        }
+       &:nth-child(3n+4),
+       &:nth-child(3){
+          .nhsd-m-card__content_container {
+            background: #54cbcd;
+          }
         }
       }
-    }
-    &:nth-child(2){
-      .nhsd-m-card__content_container {
-        background: #f0f4f5;
-      }
-    }
-    &:nth-child(2n+4),
-    &:nth-child(6) {
-      .nhsd-m-card__content_container {
-          background: #f0f4f5;
-      }
-    }
-   &:nth-child(3n+4),
-   &:nth-child(3){
-      .nhsd-m-card__content_container {
-        background: #54cbcd;
-      }
-    }
-  }
+
   .ndrs-card-item-col:nth-child(4),
   .ndrs-card-item-col:nth-child(8){
     .nhsd-m-card__button-box {
@@ -3029,4 +3068,7 @@ a.filter-link {
 }
 .ctabtn--nhs-digital-button{
     background-color:#218183;
+}
+.article-header__subtitle {
+    font-size: 20px;
 }

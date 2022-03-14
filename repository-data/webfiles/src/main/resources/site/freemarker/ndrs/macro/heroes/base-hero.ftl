@@ -133,7 +133,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             </#if>
             <#list digiblocks as digiblock>
                 <#if digiblock == 'tr' || digiblock == 'br' || digiblock == 'bl' || digiblock == 'tl' >
-                    <div class="nhsd-a-digiblocks nhsd-a-digiblocks--pos-${digiblock} ${digiblockColorClass}">
+                    <div class="nhsd-a-digiblocks nhsd-a-digiblocks--pos-${digiblock} ${digiblockColorClass} hero-banner-img">
                             <svg width="338" height="317" viewBox="0 0 338 317" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="mask0_4770_5297" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="338" height="317">
                                 <rect width="338" height="317" fill="#C4C4C4"/>
