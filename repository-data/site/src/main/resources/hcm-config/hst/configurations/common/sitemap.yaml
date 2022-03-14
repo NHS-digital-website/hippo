@@ -346,7 +346,7 @@ definitions:
         /api-catalogue:
           /_any_:
             /_index_:
-              hst:cacheable: true
+              hst:cacheable: false
               hst:componentconfigurationmappingnames:
               - website:service
               - website:general
@@ -359,7 +359,7 @@ definitions:
               - hst:pages/apispecification
               hst:relativecontentpath: ${parent}/content
               jcr:primaryType: hst:sitemapitem
-            hst:cacheable: true
+            hst:cacheable: false
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
             - website:service
