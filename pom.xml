@@ -10,7 +10,7 @@
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
         <version>14.7.5</version>
-        <!-- Please have a look at the property section while upgrading -->
+        <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
     <name>NHS Digital Website</name>
