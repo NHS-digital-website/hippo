@@ -33,12 +33,6 @@ jobs:
       #
       # Step 3
       #
-      - name: Set the commit's Git status
-        run: make github.status.success
-
-      #
-      # Step 4
-      #
       - name: Push tag back to github
         run: |
           make git.update-environment-tag
