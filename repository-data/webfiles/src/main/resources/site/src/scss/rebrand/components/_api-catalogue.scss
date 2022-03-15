@@ -13,47 +13,12 @@
     content: "";
   }
 
-  & .checkmark.selected::after {
-    display: block;
-    position: absolute;
-    top: 8px;
-    left: 10px;
-    width: 5px;
-    height: 10px;
-    margin: 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    border: solid #3f525f;
-    border-width: 0 2px 2px 0;
-  }
-
   & .nhsd-a-checkbox {
     position: relative;
 
     & .nhsd-a-checkbox__label {
         position: relative;
         z-index: 0;
-
-        &:not(.nhsd-api-catalogue__filter-unavailable) {
-            & input[type="checkbox"] {
-                cursor: pointer;
-            }
-        }
-    }
-
-    & .nhsd-api-catalogue__filter-unavailable {
-        color: #768692;
-        cursor: not-allowed;
-
-        & input[type="checkbox"] {
-
-            box-shadow: 0 0 0 2px #e8edee;
-
-            &:hover::before {
-              display: none;
-            }
-        }
     }
 
     & input[type="checkbox"] {
@@ -72,7 +37,7 @@
 
     &:checked {
       ~ .nhsd-m-filter-menu-section__menu-button svg {
-        rotate: 180deg;
+        transform: rotate(180deg);
       }
     }
 
