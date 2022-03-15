@@ -143,7 +143,7 @@ a:hover {
       float: right;
     }
     .gray-color-cart-list{
-    background-color: #FFFF00;
+        background-color: #FFFF00;
         .ndrs-card-item-col{
             .nhsd-m-card__content_container {
                 background-color: #F0F4F5 !important;
@@ -151,8 +151,19 @@ a:hover {
                 .nhsd-t-heading-s{
                     color: #353535 !important;
                 }
-                .ndrs-icon-hover path{
-                    fill: #268183 !important;
+                .ndrs-icon-hover{
+                    path{
+                        fill: #268183 !important;
+                }
+            }
+            &:nth-child(1){
+                .nhsd-m-card__content_container{
+                    .ndrs-icon-hover{
+                        path {
+                            fill: #268183 !important;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -183,8 +194,7 @@ a:hover {
          background: #218183;
           padding: 2rem 1rem;
         }
-        &:nth-child(0n+5),
-        &:nth-child(1){
+        &:nth-child(0n+5){
           .nhsd-m-card__content_container {
             background: #218183;
             color: #ffffff;
@@ -193,6 +203,25 @@ a:hover {
             }
             .ndrs-icon-hover path {
                 fill: #ffffff!important;
+            }
+          }
+        }
+        &:nth-child(1),
+        &:nth-child(5),
+        &:nth-child(9),
+        &:nth-child(13),
+        &:nth-child(17),
+        &:nth-child(21),
+        &:nth-child(25),
+        &:nth-child(29){
+          .nhsd-m-card__content_container {
+            background: #218183;
+            color: #ffffff;
+            .nhsd-t-heading-s{
+                color: #ffffff;
+            }
+            .ndrs-icon-hover path {
+                fill: #ffffff;
             }
           }
         }
@@ -207,30 +236,41 @@ a:hover {
               background: #f0f4f5;
           }
         }
-       &:nth-child(3n+4),
-       &:nth-child(3){
+       &:nth-child(3),
+       &:nth-child(7),
+       &:nth-child(11),
+       &:nth-child(15),
+       &:nth-child(19),
+       &:nth-child(23),
+       &:nth-child(27),
+       &:nth-child(31)
+       {
           .nhsd-m-card__content_container {
             background: #54cbcd;
           }
+        .nhsd-m-card__button-box {
+          svg {
+            path {
+              fill: #000000;
+            }
+          }
+        }
         }
       }
 
   .ndrs-card-item-col:nth-child(4),
-  .ndrs-card-item-col:nth-child(8){
+  .ndrs-card-item-col:nth-child(8),
+  .ndrs-card-item-col:nth-child(12),
+  .ndrs-card-item-col:nth-child(16),
+  .ndrs-card-item-col:nth-child(20),
+  .ndrs-card-item-col:nth-child(24),
+  .ndrs-card-item-col:nth-child(28),
+  .ndrs-card-item-col:nth-child(32)
+  {
     .nhsd-m-card__button-box {
       svg {
         path {
           fill: #ffffff;
-        }
-      }
-    }
-  }
-  .ndrs-card-item-col:nth-child(3),
-  .ndrs-card-item-col:nth-child(7) {
-    .nhsd-m-card__button-box {
-      svg {
-        path {
-          fill: #000000;
         }
       }
     }
