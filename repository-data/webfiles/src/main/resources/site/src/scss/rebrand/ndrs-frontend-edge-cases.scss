@@ -175,6 +175,9 @@ a:hover {
       .ndrs-card-item-col:nth-child(1) {
         .nhsd-m-card__content_container {
           background: #218183;
+          .arrow-circle{
+            background-color: #ffffff;
+          }
         }
         .nhsd-t-heading-s,
         .nhsd-t-body-s {
@@ -220,6 +223,15 @@ a:hover {
           .nhsd-m-card__content_container {
             background: #218183;
             color: #ffffff;
+            .arrow-circle{
+                background: #ffffff;
+                background-color: #ffffff;
+                .arrow-icon-valign{
+                    path{
+                        fill:#218183;
+                    }
+                }
+            }
             .nhsd-t-heading-s{
                 color: #ffffff;
             }
@@ -233,10 +245,24 @@ a:hover {
             background: #f0f4f5;
           }
         }
-        &:nth-child(2n+4),
-        &:nth-child(6) {
+        &:nth-child(2n+4){
           .nhsd-m-card__content_container {
               background: #f0f4f5;
+            .arrow-circle{
+                background: #000000;
+                background-color: #000000;
+            }
+          }
+        }
+        &:nth-child(6),
+        &:nth-child(10),
+        &:nth-child(14){
+          .nhsd-m-card__content_container {
+              background: #f0f4f5;
+            .arrow-circle{
+                background: #268183;
+                background-color:#268183;
+            }
           }
         }
        &:nth-child(3),
@@ -246,15 +272,18 @@ a:hover {
        &:nth-child(19),
        &:nth-child(23),
        &:nth-child(27),
-       &:nth-child(31)
-       {
+       &:nth-child(31){
           .nhsd-m-card__content_container {
             background: #54cbcd;
+            .arrow-circle{
+                background: #000000;
+                background-color: #000000;
+            }
           }
         .nhsd-m-card__button-box {
           svg {
             path {
-              fill: #000000;
+//               fill: #000000;
             }
           }
         }
@@ -280,7 +309,16 @@ a:hover {
   }
 .ndrs-card-item-col:nth-child(4n+0) .nhsd-m-card__content_container{
     background: #1D595A;
-     color: #ffffff;
+    color: #ffffff;
+            .arrow-circle{
+                background: #ffffff;
+                background-color: #ffffff;
+                .arrow-icon-valign{
+                    path{
+                        fill:#1D595A;
+                    }
+                }
+            }
      .nhsd-t-heading-s{
         color: #ffffff;
      }
@@ -2255,7 +2293,15 @@ html:not(.nhsd-no-js)
   border-top: 1px solid #d5dade;
   vertical-align: top;
 }
-
+table{
+    th {
+        background-color: #F0F4F5 !important;
+    }
+    td{
+        font-size:18px;
+        font-family:Arial,sans-serif!important;
+    }
+}
 .nhsd-m-table thead {
   color: #353535;
   font-weight: 600;
@@ -2677,7 +2723,7 @@ html:not(.nhsd-no-js)
 .nhsd-t-form-input,
 .nhsd-t-form-input-m,
 .nhsd-t-form-input-s {
-  font-family: "Arial", Helvetica, sans-serif;
+  font-family: "Arial", Helvetica, sans-serif !important;
   -webkit-appearance: none;
   display: block;
   position: relative;
@@ -2697,7 +2743,7 @@ html:not(.nhsd-no-js)
 .nhsd-t-form-textarea,
 .nhsd-t-form-textarea-m,
 .nhsd-t-form-textarea-s {
-  font-family: "Arial", Helvetica, sans-serif;
+    font-family: "Arial", Helvetica, sans-serif !important;
   -webkit-appearance: none;
   display: block;
   position: relative;
@@ -2718,7 +2764,7 @@ html:not(.nhsd-no-js)
 .nhsd-t-form-select,
 .nhsd-t-form-select-m,
 .nhsd-t-form-select-s {
-  font-family: "Arial", Helvetica, sans-serif;
+    font-family: "Arial", Helvetica, sans-serif !important;
   -webkit-appearance: none;
   display: block;
   position: relative;
@@ -3098,6 +3144,9 @@ a.filter-link {
         }
 }
 .block-link{
+    &:focus{
+        border-left-color:#218183!important;
+    }
     &:hover{
         border-left: 5px solid!important;
         .block-link__title {
@@ -3142,4 +3191,37 @@ a.filter-link {
         background: #ffffff!important;
         color: #268183!important;
     }
+}
+.check-list-widget__label {
+    background-color: #268183!important;
+}
+.muted,
+.check-list-widget{
+    color: #268183!important;
+}
+
+.arrow-circle {
+    height: 30px;
+    width: 30px;
+    background-color: #268183;
+    border-radius: 50% 50%;
+    display: inline-block;
+    position: relative;
+}
+.nhsd-m-card__content_container:hover{
+    .arrow-circle{
+        border:solid 3px #87d8dd;
+            -webkit-transition-property: background-color, box-shadow, border-color;
+            transition-property: background-color, box-shadow, border-color;
+            -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    }
+}
+svg.arrow-icon-valign {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }

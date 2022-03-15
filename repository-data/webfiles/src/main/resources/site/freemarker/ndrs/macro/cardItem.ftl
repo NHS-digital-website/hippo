@@ -39,7 +39,7 @@
                     </div>
                     <div class="nhsd-m-card__button-box">
                         <span>
-                            <@whiteGlobalArrow></@whiteGlobalArrow>
+                          <@whiteGlobalArrow></@whiteGlobalArrow>
                         </span>
                         <span class="global-arrow-text">${cardProps.label}</span>
                     </div>
