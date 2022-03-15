@@ -1,6 +1,6 @@
 .promo-banner .promo-banner__columns,
 div.local-header {
-  padding: 5.6em;
+  padding: 5.6em!important;
 }
 .article-header__subtitle {
     color: #353535;
@@ -8,7 +8,7 @@ div.local-header {
 div.local-header {
   overflow: hidden;
   color:#353535;
-  padding: 1.6em;
+  padding: 5.6em!important;
    background-color: #F0F4F5;
   .grid-row & {
     margin-left: 0;
