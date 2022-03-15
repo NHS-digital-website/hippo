@@ -22,7 +22,7 @@
         <div>
                 <div class="nhsd-t-row">
                     <h2 class="nhsd-t-heading-xs">
-                            <span class="filter-head__title">Filters</span>
+                        <span class="filter-head__title">Filters</span>
                     </h2>
                     <span class="nhsd-t-body nhsd-!t-padding-left-6 nhsd-!t-margin-right-0">
                         <a class="nhsd-a-link nhsd-!t-padding-0" href="<@hst.link/>" title="Reset filters">
@@ -53,16 +53,13 @@
                                 </label>
                                 <@filterDescription responsive section.description()/>
                             </div>
-                            <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
-                            <div class="section-entries">
+                            <div class="section-entries nhsd-!t-margin-top-2">
                                 <#list section.entries as filter>
                                     <@filterTemplate filter filtersModel 0 responsive></@filterTemplate>
                                 </#list>
                             </div>
-                            <#if section.entries??>
-                                <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
-                            </#if>
                         </div>
+                        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
                     </#if>
                 </#list>
             </nav>
@@ -85,29 +82,28 @@
         <div><#-- This div is needed to add vertical spacing between checkboxes -->
         <span class="nhsd-a-checkbox">
             <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
-            <#if filter.selectable>
-                <a title="Filter by ${filter.displayName}"
-                   href="<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />"
-                   class="nhsd-a-checkbox__label nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
-                    <input type="checkbox">
-                    <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName}</span>
-                </a>
-                <span class="checkmark <#if filter.selected>selected</#if>"></span>
-            <#else>
-                <a class="nhsd-a-checkbox__label nhsd-t-body-s nhsd-api-catalogue__filter-unavailable <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
-                    <input type="checkbox" disabled>
-                    <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName}</span>
-                </a>
-                <span class="checkmark <#if filter.selected>selected</#if>"></span>
-            </#if>
+                <input onclick="window.location = '<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
+                <#if filter.selectable>
+                    <a title="Filter by ${filter.displayName}"
+                       href="<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />"
+                       class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
+                        <input type="checkbox">
+                        <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName}</span>
+                    </a>
+                <#else>
+                    <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
+                        <input type="checkbox" disabled>
+                        <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName}</span>
+                    </a>
+                </#if>
+                <div class="checkmark"></div>
             </label>
             <@filterDescription responsive filter.description()/>
         </span>
         </div>
         <#local nextLevel = indentationLevel + 1>
         <#if filter.entries?has_content>
-            <div class="filter-child-container">
-            <span class="filter-entries-edge"></span>
+            <div class="nhsd-m-filter-menu-section__option-group">
             <#list filter.entries as filter>
                 <@filterTemplate filter filtersModel nextLevel responsive></@filterTemplate>
             </#list>
