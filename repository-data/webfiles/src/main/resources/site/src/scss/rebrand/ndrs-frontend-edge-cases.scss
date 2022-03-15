@@ -158,11 +158,20 @@ a:hover {
                     path{
                         fill: #268183 !important;
                 }
+                span.arrow-circle{
+                    background-color: #268183;
+                }
             }
-            &:nth-child(1){
+            &:nth-child(1),
+             &:nth-child(2),
+              &:nth-child(3),
+               &:nth-child(4){
                 .nhsd-m-card__content_container{
+                                span.arrow-circle{
+                                    background-color: #268183;
+                                }
                     .ndrs-icon-hover{
-                        path {
+                         span.arrow-circle{
                             fill: #268183 !important;
                             }
                         }
@@ -194,7 +203,7 @@ a:hover {
           }
         }
       }
-    }
+
       .ndrs-card-item-col {
         .nhsd-m-card__content_container {
          background: #218183;
@@ -323,6 +332,9 @@ a:hover {
         color: #ffffff;
      }
 }
+}
+
+
 .nhsd-m-card__button-box{
     position: relative;
     padding: 0 1.111rem 1.111rem 1rem;
@@ -3207,10 +3219,11 @@ a.filter-link {
     border-radius: 50% 50%;
     display: inline-block;
     position: relative;
+     border:solid 3px transparent;
 }
 .nhsd-m-card__content_container:hover{
     .arrow-circle{
-        border:solid 3px #87d8dd;
+        border-color:#87d8dd;
             -webkit-transition-property: background-color, box-shadow, border-color;
             transition-property: background-color, box-shadow, border-color;
             -webkit-transition-duration: 0.2s;
@@ -3219,8 +3232,7 @@ a.filter-link {
 }
 svg.arrow-icon-valign {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 5px;
     left: 0;
     right: 0;
     margin: auto;
