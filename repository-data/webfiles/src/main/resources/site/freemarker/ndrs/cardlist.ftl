@@ -18,7 +18,7 @@
     <#assign templateClass = "nhsd-!t-bg-pale-grey-40-tint gray-color-cart-list" />
     <#assign cardColour = "" />
 </#if>
-<#if template == "MultiColour">
+<#if template == "MultiColor">
     <#assign rowClass = "multi-color-cart-list" />
 </#if>
 <#if template == "REd">
