@@ -144,6 +144,9 @@ a:hover {
     }
     .gray-color-cart-list{
         background-color: #FFFF00;
+        &.nhsd-\!t-bg-pale-grey-40-tint{
+            background-color: white!important;
+        }
         .ndrs-card-item-col{
             .nhsd-m-card__content_container {
                 background-color: #F0F4F5 !important;
@@ -3094,8 +3097,16 @@ a.filter-link {
             }
         }
 }
+.block-link{
+    &:hover{
+        border-left: 5px solid!important;
+        .block-link__title {
+            color: #353535!important;
+        }
+    }
+}
 .block-link__title {
-    color: #218183;
+    color: #218183!important;
     font-weight: 700;
     &:hover{
         color:#353535;
@@ -3107,8 +3118,28 @@ a.filter-link {
     background-color: #f0f4f5!important;
 }
 .ctabtn--nhs-digital-button{
-    background-color:#218183;
+    background-color:#218183!important;
 }
 .article-header__subtitle {
     font-size: 20px;
+}
+.navigation-tile:hover {
+    border-color: #268183!important;
+}
+
+.navigation-tile,
+.navigation-tile:link,
+.navigation-tile:visited {
+    background: #F0F4F5!important;
+    border-radius: 8px!important;
+    box-shadow: none!important;
+    &:hover {
+         border-color: #268183!important;
+     }
+}
+.navigation-tile:hover{
+     .navigation-tile__link-content {
+        background: #ffffff!important;
+        color: #268183!important;
+    }
 }
