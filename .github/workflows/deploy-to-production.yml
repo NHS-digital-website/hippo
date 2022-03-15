@@ -1,10 +1,12 @@
 name: Deploy to Production
 
-# Schedule deployment to Production
+
 on:
+  # Request Hotfix Deployment
   repository_dispatch:
     types:
       - slack-deploy-hotfix-command-odv2
+  # Schedule A Normal Deployment
   schedule:
     # Runs at 12:05 pm weekdays (UK time)
     - cron: "5 12 * * 1-5"
@@ -80,11 +82,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Fetch Tags
-        run: |
-          git tag -l | xargs git tag -d
-          git fetch -t
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
 
       - name: Tagging the build
         run: |
@@ -103,11 +103,9 @@ jobs:
       #
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Fetch Tags
-        run: |
-          git tag -l | xargs git tag -d
-          git fetch -t
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
 
       - name: Obtain file name for deployment
         id: filename
@@ -237,11 +235,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Fetch Tags
-        run: |
-          git tag -l | xargs git tag -d
-          git fetch -t
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
 
       - name: Tagging the build
         run: |

@@ -1,4 +1,4 @@
-name: Prepare for next day deployment
+name: Prepare the tags for the next production deployment
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
 jobs:
 
   prepare-prod-deployment:
-    name: Prepare for next day deployment
+    name: Prepare Tags
     runs-on: ubuntu-latest
     timeout-minutes: 85
     steps:
@@ -17,8 +17,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Need all the tags for versioning
+          ref: master
 
-      - name: Tagging the build
+      - name: Move the RC Tag
         run: |
           make git.update-environment-tag ENV=prd VERSION=rc
           make git.update-environment-tag ENV=rc VERSION=uat
