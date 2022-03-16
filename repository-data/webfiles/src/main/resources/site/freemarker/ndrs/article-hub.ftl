@@ -37,7 +37,7 @@
 <@contentPixel document.getCanonicalUUID() document.requestname></@contentPixel>
 <div class="grid-row">
 
-<div class="hero-inner-bg">
+<div class="hero-inner-bg bg-fix">
 <@hero {
 "title": document.title,
 "colour": "darkBlue"

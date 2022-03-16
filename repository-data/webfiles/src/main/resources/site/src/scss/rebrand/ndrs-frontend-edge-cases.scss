@@ -100,18 +100,24 @@ a:hover {
     }
 }
 #main-content {
-      .hero-inner-bg {
+    .hero-inner-bg {
       position:relative;
-      .nhsd-o-hero {
-        background-color: #F0F4F5 !important;
+        .nhsd-o-hero {
+            background-color: #F0F4F5 !important;
         }
         .hero-banner-img{
-        height:100%;
-        margin-bottom:3rem;
-        top: 0;
+            height:100%;
+            margin-bottom:3rem;
+            top: 0;
         }
+      &.bg-fix{
+        .hero-banner-img{
+            right: 0;
+            left: auto;
         }
-        }
+      }
+    }
+}
 #main-content {
 
       .nhsd-o-hero {
