@@ -99,6 +99,9 @@ a:hover {
         top: 0;
     }
 }
+.main-nav__menu {
+    margin-top: -20px;
+}
 #main-content {
     .hero-inner-bg {
       position:relative;
@@ -1028,11 +1031,23 @@ strong {
 }
 .nhsd-a-button {
   font-family: "Arial", Helvetica, sans-serif;
-//   padding: 0.5555555556rem 1.1111111111rem;
-  padding:.5555555556rem;
-  border: 2px solid #1d6162 !important;
+//padding: 0.5555555556rem 1.1111111111rem;
+    padding:.556rem 1.04rem !important;
+    border: 2px solid #218183 !important;
+    font-family: "Calibri", sans-serif !important;
+    border-radius:2.2230rem!important;
+    font-size: 1rem!important;
+    font-weight: 700!important;
+    line-height: 1.31!important;
+    &:hover{
+        background-color: #1D595A!important;
+    }
 }
-
+.nhsd-a-button:disabled,
+.nhsd-a-button[disabled]{
+    background-color: #E8EDEE!important;
+     color: #353535 !important;
+}
 .nhsd-a-button--disabled,
 .nhsd-a-button:disabled {
   border-color: #d5dade;
@@ -1050,7 +1065,8 @@ strong {
 .nhsd-a-button:not(:disabled):not(.nhsd-a-button--disabled):focus,
 .nhsd-a-button:not(:disabled):not(.nhsd-a-button--disabled):hover {
   box-shadow: 0 0 0 0.167rem #87D8DD!important;
-      background-color: transparent !important;
+//       background-color: transparent !important;
+    background-color: #1D595A!important;
 }
 
 .nhsd-a-button:not(:disabled):not(.nhsd-a-button--disabled):active {
@@ -1090,7 +1106,8 @@ strong {
   fill: #fff;
 }
 
-.nhsd-a-button:not(.nhsd-a-button--invert):not(.nhsd-a-button--outline):not(.nhsd-a-button--start):not(.nhsd-a-button--cancel):not(.nhsd-a-button--disabled):not(:disabled):not(:disabled):not(.nhsd-a-button--disabled):active {
+.nhsd-a-button:not(.nhsd-a-button--invert):not(.nhsd-a-button--outline):not(.nhsd-a-button--start):not(.nhsd-a-button--cancel):not(.nhsd-a-button--disabled):not(:disabled):not(:disabled):not(.nhsd-a-button--disabled):active,
+ .nhsd-a-button:not(.nhsd-a-button--invert):not(.nhsd-a-button--outline):not(.nhsd-a-button--start):not(.nhsd-a-button--cancel):not(.nhsd-a-button--disabled):not(:disabled):not(:disabled):not(.nhsd-a-button--disabled):hover{
   border-color: #1d6162 !important;
   background: #1d6162 !important;
   transition-property: none;
@@ -1131,6 +1148,7 @@ strong {
 .nhsd-a-button--outline:not(:disabled):not(.nhsd-a-button--disabled):focus,
 .nhsd-a-button--outline:not(:disabled):not(.nhsd-a-button--disabled):hover {
   border-color:#353535!important;
+  background-color: transparent!important;
 }
 
 .nhsd-a-button--outline:not(:disabled):not(.nhsd-a-button--disabled):active {
@@ -3095,18 +3113,7 @@ a.filter-link {
 .email-icon{
     margin: 0px 0px -3px 10px;
 }
-.nhsd-a-button {
-    font-family: "Calibri", sans-serif !important;
-    border-radius: 2.5rem!important;
-    font-size: 1rem!important;
-    font-weight: 700!important;
-    line-height: 1.31!important;
-}
-.nhsd-a-button:disabled,
-.nhsd-a-button[disabled]{
-    background-color: #E8EDEE!important;
-     color: #353535 !important;
-}
+
 .quote-text{
     color:#353535!important;
 }
@@ -3242,4 +3249,10 @@ svg.arrow-icon-valign {
     left: 0;
     right: 0;
     margin: auto;
+}
+.nhsd-o-case-study--no-label{
+    .nhsd-t-grid:not(.nhsd-t-grid--full-width) [class^=nhsd-t-body] {
+        font-size: 20px;
+        line-height: 1.8;
+    }
 }
