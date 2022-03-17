@@ -129,6 +129,7 @@ margin-top:0 !important;
             height:100%;
             margin-bottom:3rem;
             top: 0;
+            width:500px;
         }
       &.bg-fix{
         .hero-banner-img{
@@ -3204,8 +3205,23 @@ a.filter-link {
     border-left-color: #268183!important;
     background-color: #f0f4f5!important;
 }
+.ctabtn--div{
 .ctabtn--nhs-digital-button{
+    color:#ffffff!important;
     background-color:#218183!important;
+    border-radius: 2.223rem!important;
+    font-family: Calibri,sans-serif!important;
+    padding:.556rem 1.04rem !important;
+    font-size: 1rem!important;
+    font-weight: 700!important;
+    line-height: 1.31!important;
+    box-shadow: 0 0 0 0!important;
+    &:hover{
+        color:#ffffff!important;
+        background-color: #1d6162!important;
+        box-shadow: 0 0 0 .167rem #87d8dd!important;
+    }
+}
 }
 .article-header__subtitle {
     font-size: 20px;
@@ -3279,6 +3295,7 @@ svg.arrow-icon-valign {
     .hero-banner-img{
         right: 0;
         left: auto;
+        width: 40%;
     }
     &.data-banner-wrap{
 
@@ -3286,6 +3303,7 @@ svg.arrow-icon-valign {
     }
  }
 @media (max-width: 47.99em){
+#main-content{
  .nhsd-o-hero{
     .hero-banner-img{
                 right: 5px;
@@ -3296,7 +3314,7 @@ svg.arrow-icon-valign {
             }
         }
     }
-
+}
 @media (min-width: 1520px){
     .sticky-nav-leftfix {
         padding-left: 1.5rem;

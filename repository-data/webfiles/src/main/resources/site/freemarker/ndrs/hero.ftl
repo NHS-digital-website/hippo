@@ -3,7 +3,8 @@
 <#include "macro/metaTags.ftl">
 <#include "../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../nhsd-common/macro/heroes/hero.ftl">
-<#include "../nhsd-common/macro/banners/nhsd-banner.ftl">
+<#include "macro/banners/nhsd-banner.ftl">
+<#include "macro/banners/nhsd-banner-container.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.CallToActionRich" -->
@@ -114,6 +115,11 @@
         <#if textAlignment?has_content && textAlignment == "right">
             <#assign mirrored = true />
         </#if>
-        <@nhsdBanner heroOptions mirrored/>
+        <#if textAlignment?has_content && textAlignment == "NDRS ImageTextBanner">
+            <@nhsdBannerContainer heroOptions mirrored/>
+        </#if>
+        <#if textAlignment?has_content && textAlignment != "NDRS ImageTextBanner">
+            <@nhsdBanner heroOptions mirrored/>
+        </#if>
     </#if>
 </#if>
