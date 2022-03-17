@@ -22,7 +22,7 @@
                             </div>
                             <div class="nhsd-o-global-header__menu" id="nhsd-global-header__menu">
 <nav>
-                               <button tabindex="0" class="main-nav__burger" aria-label="Navigation menu" id="navToggle">
+                              <!-- <button tabindex="0" class="main-nav__burger" aria-label="Navigation menu" id="navToggle">
                                     <span class="main-nav__burger-button">
                                         <span class="main-nav__burger-line-group">
                                             <span class="main-nav__burger-line">&nbsp;</span>
@@ -30,7 +30,7 @@
                                             <span class="main-nav__burger-line">&nbsp;</span>
                                         </span>
                                     </span>
-                                </button>
+                                </button> -->
                                 <div class="column <#if !enableSearch>column--81-25</#if> column--reset">
                                     <div class="main-nav__menu">
                                         <@hst.include ref="top-menu"/>

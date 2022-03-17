@@ -137,7 +137,7 @@
         <div class="grid-row">
             <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
-                <div id="sticky-nav">
+                <div id="sticky-nav" class="sticky-nav-leftfix">
                     <#assign links = [] />
                     <#if document.requestname?? && document.uriaddress?? && document.summary??>
                         <#assign links += [{ "url": "#" + "Endpoint", "title": "Endpoint" }] />

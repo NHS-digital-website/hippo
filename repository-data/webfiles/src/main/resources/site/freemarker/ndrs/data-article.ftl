@@ -172,7 +172,7 @@
         <div class="grid-row">
             <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
-                <div id="sticky-nav">
+                <div id="sticky-nav" class="check">
                     <#assign links = [ {"title": "Top Of Page", "url": "#"}, {"title": "Over View", "url": "#overview"}, {"title": "Component", "url": "#component"}, {"title": "How we keep patient data safe", "url": "#"}, {"title": "How long we keep patient data", "url": "#"}, {"title": "How to access NDRS data", "url": "#"}, {"title": "Who we share patient data with", "url": "#"}] />
                     <@stickyNavSections getStickySectionNavLinks({"sections" : links}) />
                 </div>
