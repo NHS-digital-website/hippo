@@ -1,0 +1,50 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/cs-ovd2/io:
+      .meta:residual-child-node-category: content
+      /nhsd:
+        .meta:residual-child-node-category: content
+        /cs2:
+          .meta:residual-child-node-category: content
+          /content:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:virtualhost
+          /hst:root:
+            .meta:residual-child-node-category: content
+            /gdpr:
+              .meta:residual-child-node-category: content
+              hst:ismapped: false
+              hst:namedpipeline: TargetingRestApiPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            /restapi:
+              .meta:residual-child-node-category: content
+              hst:alias: restapi
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:responseheaders:
+              - 'Access-Control-Allow-Origin: https://cms-cs2.nhsd.io'
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            contentSearchEnabled: 'false'
+            hst:cacheable: false
+            hst:homepage: root
+            hst:mountpoint: /hst:hst/hst:sites/common
+            hst:responseheaders:
+            - 'Strict-Transport-Security : max-age=31536000'
+            - 'Content-Security-Policy: upgrade-insecure-requests'
+            - 'Referrer-Policy: no-referrer-when-downgrade'
+            - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+              payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+              magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+              execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+              ''none''; push ''self''; speaker *;  fullscreen *'
+            jcr:primaryType: hst:mount
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhost
+      hst:scheme: https
+      hst:showcontextpath: false
+      jcr:primaryType: hst:virtualhost
