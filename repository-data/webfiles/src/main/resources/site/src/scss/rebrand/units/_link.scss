@@ -17,10 +17,14 @@ a:focus {
     color:  #353535!important;
     outline: 0!important;
 }
+.grid-wrapper--article{
+    a{
+      text-decoration:underline;
+    }
+}
 .nhsd-t-grid{
 a {
     @include no-tap-highlight;
-
     // allow inline links to continue the
     // yellow background decoration.
     -webkit-box-decoration-break: clone;
