@@ -106,6 +106,7 @@
       <Logger name="org.springframework.web.filter.RequestContextFilter" level="off"/>
       <Logger name="org.springframework.util.PropertyPlaceholderHelper" level="info"/>
       <Logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="info"/>
+      <Logger name="org.quartz.core.QuartzSchedulerThread" level="info"/>
 
       <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
            can be here on level 'info' -->
