@@ -97,7 +97,7 @@
 
     <@hero heroOptions />
 
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8 nhsd-!t-margin-bottom-6">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
 
@@ -153,9 +153,9 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <p class="nhsd-t-heading-xl">Related pages</p>
-                    <div class="nhsd-t-grid">
+                    <div class="nhsd-t-grid nhsd-t-grid--nested nhsd-!t-margin-bottom-2">
                         <div class="nhsd-t-row">
-                            <div class="nhsd-t-col">
+                            <div class="nhsd-t-col nhsd-!t-margin-bottom-4">
                                 <#list document.relateddocuments as child>
                                     <@downloadBlockInternal child.class.name child child.title child.shortsummary />
                                 </#list>
