@@ -69,7 +69,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/ndrs/header-banner.ftl
         jcr:primaryType: hst:template
       /hero:
-        hst:renderpath: webfile:/freemarker/common/hero.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/hero.ftl
         jcr:primaryType: hst:template
       /home:
         hst:renderpath: webfile:/freemarker/ndrs/home.ftl

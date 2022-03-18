@@ -1,5 +1,305 @@
 ---
 /content/gallery/publicationsystem:
+  .meta:order-before: image_corner.svg
+  /case-study.png:
+    /case-study.png:
+      /hippogallery:original:
+        hippogallery:height: 605
+        hippogallery:width: 1103
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/original/original.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /hippogallery:thumbnail:
+        hippo:filename: case-study.png
+        hippogallery:height: 32
+        hippogallery:width: 60
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/thumbnail/thumbnail.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto:
+        hippogallery:height: 50
+        hippogallery:width: 50
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/authorPhoto/authorPhoto.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto2x:
+        hippogallery:height: 100
+        hippogallery:width: 100
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/authorPhoto2x/authorPhoto2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge:
+        hippogallery:height: 200
+        hippogallery:width: 200
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/authorPhotoLarge/authorPhotoLarge.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge2x:
+        hippogallery:height: 400
+        hippogallery:width: 400
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/authorPhotoLarge2x/authorPhotoLarge2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb:
+        hippogallery:height: 240
+        hippogallery:width: 468
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/blogIndexThumb/blogIndexThumb.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb2x:
+        hippogallery:height: 480
+        hippogallery:width: 936
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/blogIndexThumb2x/blogIndexThumb2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb:
+        hippogallery:height: 184
+        hippogallery:width: 468
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/homeBlogThumb/homeBlogThumb.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb2x:
+        hippogallery:height: 368
+        hippogallery:width: 936
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/homeBlogThumb2x/homeBlogThumb2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall:
+        hippogallery:height: 184
+        hippogallery:width: 341
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/homeBlogThumbSmall/homeBlogThumbSmall.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall2x:
+        hippogallery:height: 368
+        hippogallery:width: 682
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/homeBlogThumbSmall2x/homeBlogThumbSmall2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost:
+        hippogallery:height: 381
+        hippogallery:width: 696
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/newsFeaturedPost/newsFeaturedPost.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost2x:
+        hippogallery:height: 605
+        hippogallery:width: 1103
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/newsFeaturedPost2x/newsFeaturedPost2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage:
+        hippogallery:height: 351
+        hippogallery:width: 640
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/newsPostImage/newsPostImage.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage2x:
+        hippogallery:height: 605
+        hippogallery:width: 1103
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/newsPostImage2x/newsPostImage2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge:
+        hippogallery:height: 544
+        hippogallery:width: 992
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/newsPostImageLarge/newsPostImageLarge.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge2x:
+        hippogallery:height: 605
+        hippogallery:width: 1103
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/newsPostImageLarge2x/newsPostImageLarge2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail:
+        hippogallery:height: 84
+        hippogallery:width: 154
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/newsThumbnail/newsThumbnail.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail2x:
+        hippogallery:height: 168
+        hippogallery:width: 308
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/newsThumbnail2x/newsThumbnail2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail:
+        hippogallery:height: 337
+        hippogallery:width: 616
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/oldArticleThumbnail/oldArticleThumbnail.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail2x:
+        hippogallery:height: 605
+        hippogallery:width: 1103
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/oldArticleThumbnail2x/oldArticleThumbnail2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule:
+        hippogallery:height: 605
+        hippogallery:width: 1103
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/pageHeaderHeroModule/pageHeaderHeroModule.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule2x:
+        hippogallery:height: 605
+        hippogallery:width: 1103
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/pageHeaderHeroModule2x/pageHeaderHeroModule2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall:
+        hippogallery:height: 375
+        hippogallery:width: 375
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall2x:
+        hippogallery:height: 750
+        hippogallery:width: 750
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/pageHeaderHeroModuleSmall2x/pageHeaderHeroModuleSmall2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner:
+        hippogallery:height: 500
+        hippogallery:width: 1270
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/pageHeaderSlimBanner/pageHeaderSlimBanner.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner2x:
+        hippogallery:height: 1000
+        hippogallery:width: 2540
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/pageHeaderSlimBanner2x/pageHeaderSlimBanner2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall:
+        hippogallery:height: 205
+        hippogallery:width: 375
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall2x:
+        hippogallery:height: 411
+        hippogallery:width: 750
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/pageHeaderSlimBannerSmall2x/pageHeaderSlimBannerSmall2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:postImageSmall:
+        hippogallery:height: 188
+        hippogallery:width: 343
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/postImageSmall/postImageSmall.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      /website:postImageSmall2x:
+        hippogallery:height: 376
+        hippogallery:width: 686
+        jcr:data:
+          resource: /content/gallery/publicationsystem/case-study.png/case-study.png/postImageSmall2x/postImageSmall2x.png
+          type: binary
+        jcr:lastModified: 2022-02-20T21:47:11.379Z
+        jcr:mimeType: image/png
+        jcr:primaryType: hippogallery:image
+      hippo:availability:
+      - live
+      - preview
+      hippogallery:filename: case-study.png
+      jcr:primaryType: website:corporateWebsiteImageset
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: NHS Digital Publication System
   hippostd:foldertype:
   - new-website-corporateWebsiteImageset-folder
