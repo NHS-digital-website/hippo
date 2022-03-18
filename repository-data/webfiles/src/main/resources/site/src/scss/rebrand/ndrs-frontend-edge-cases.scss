@@ -3227,8 +3227,12 @@ a.filter-link {
 .article-header__subtitle {
     font-size: 20px;
 }
-.navigation-tile:hover {
+.navigation-tile{
     border-color: #268183!important;
+}
+
+.navigation-tile:hover {
+    border-color: #353535!important;
 }
 
 .navigation-tile,

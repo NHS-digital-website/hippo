@@ -94,7 +94,7 @@
                                         </svg>
                                     </span>
                                     <span class="footer-logo-wrap"></span>
-                                    <li style="font-size:12px;list-style:none;"><span class="footer-copy-txt" >Copyright © 2020 All rights reserved</span></li>
+                                    <li style="font-size:12px;list-style:none;"><span class="footer-copy-txt" >Copyright © 2022 All rights reserved</span></li>
                                     </ul>
                             </nav>
                         </div>
