@@ -1,0 +1,108 @@
+
+name: Remove Old Configuration Files
+
+on:
+  schedule:
+    - cron: "0 9 * * 1-5"
+
+jobs:
+  remove-old-configuration:
+    name: Remove Old Configuration Files
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      # Get API access token and verify it.
+      - name: Obtaino JWT Token
+        id: jwt_token
+        run: |
+          response=$(curl -i \
+          -H "Accept: application/json; charset=utf-8" \
+          -X POST https://api.${{ secrets.HOST }}/v3/authn/access_token \
+          -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
+          token1=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
+          refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
+          echo "::set-output name=token1::$token1"
+          echo "::set-output name=refresh::$refresh"
+
+        env:
+          USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+
+      - name: Verify JWT Token
+        id: jwt_token_verify
+        run: |
+          code=$(curl -L \
+          -H "Accept: application/json; charset=utf-8" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+          -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "::set-output name=code::$code"
+
+      - name: Check Response Code from Verify JWT Token
+        if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('The JWT token failed verification!')
+        env:
+          # 'CODE' is for debugging fails
+          CODE: ${{ steps.jwt_token_verify.outputs.code }}
+
+      - name: Get All Configuration Files
+        id: all-config-file-ids
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+          -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
+          echo "::set-output name=allConfigFiles::${response}"
+
+      - name: Get All Environment
+        id: all-envs
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+          -X GET https://api.${{ secrets.HOST }}/v3/environments)
+          availEnvs=$(echo ${response} | jq --compact-output '[.items[] | {name: .name}] | map(select(.name )) | map(.name)')
+          echo "::set-output name=allEnvs::${availEnvs}"
+          echo "Avialable Envs are " ${availEnvs}
+
+      - name: Remove Old System & AWS Files
+        run: |
+          declare -a  envList=$(echo  '${{steps.all-envs.outputs.allEnvs}}' | tr "[" "(" | tr "]" ")" | tr "," " ")
+          for value in "${envList[@]}"
+          do
+            declare -a  envSysConfigIds=$(echo '${{steps.all-config-file-ids.outputs.allConfigFiles}}' |  jq --compact-output '[.[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | reverse| map(select(.name | test("'${value}'-system"))) | map(.id)| .[3:] ' | tr "[" "(" | tr "]" ")" | tr "," " " )
+            declare -a  envAWSConfigIds=$(echo '${{steps.all-config-file-ids.outputs.allConfigFiles}}' |  jq --compact-output '[.[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | reverse| map(select(.name | test("'${value}'-aws"))) | map(.id) | .[3:]' | tr "[" "(" | tr "]" ")" | tr "," " " )
+
+            for i in "${!envSysConfigIds[@]}";
+            do
+              printf "%s\t%s\n" "$i" "${envSysConfigIds[$i]}"
+              response=$(curl \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -X DELETE https://api.${{ secrets.HOST }}/v3/appconfigfiles/${envSysConfigIds[$i]})
+              echo ${response}
+            done
+
+            for i in "${!envAWSConfigIds[@]}";
+            do
+              printf "%s\t%s\n" "$i" "${envAWSConfigIds[$i]}"
+              response=$(curl \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -X DELETE https://api.${{ secrets.HOST }}/v3/appconfigfiles/${envAWSConfigIds[$i]})
+              echo ${response}
+
+            done
+          done
+
+      - name: Remove old hippo filter files
+        run: |
+            declare -a  envHippoConfigIds=$(echo '${{steps.all-config-file-ids.outputs.allConfigFiles}}' |  jq --compact-output '[.[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | reverse| map(select(.name | test("hippo-"))) | map(.id)| .[3:] ' | tr "[" "(" | tr "]" ")" | tr "," " " )
+            for i in "${!envHippoConfigIds[@]}";
+            do
+              printf "%s\t%s\n" "$i" "${envHippoConfigIds[$i]}"
+              response=$(curl \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -X DELETE https://api.${{ secrets.HOST }}/v3/appconfigfiles/${envHippoConfigIds[$i]})
+              echo ${response}
+            done
