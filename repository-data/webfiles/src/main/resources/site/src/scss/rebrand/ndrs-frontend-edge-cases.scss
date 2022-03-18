@@ -1033,7 +1033,7 @@ strong {
   color:#218183;
 }
 .nhsd-t-grid a:hover {
-  box-shadow: 0 0 0 0;
+  box-shadow: 0 0 0 3px #87d8dd;
   outline: 0;
   color:#353535!important;
   background-color: #87d8dd;
@@ -1199,7 +1199,7 @@ input[type="submit"].nhsd-a-button {
   display: inline-block;
   width: 100%;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 0.445rem;
   color: inherit;
   box-shadow: 0 0 0 0.167rem transparent;
   transition-property: box-shadow;
@@ -3050,6 +3050,7 @@ table{
 
 .tabs-nav .tabs-nav__item .tabs-link {
     font-size:20px !important;
+    text-decoration: none!important;
     color:#353535;
     a:hover{
         color:#353535;
