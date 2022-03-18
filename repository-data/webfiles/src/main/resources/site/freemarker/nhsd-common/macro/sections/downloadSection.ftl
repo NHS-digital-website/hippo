@@ -30,12 +30,12 @@
                     <div class="nhsd-t-col">
                         <#list section.items as block>
                             <#if block.linkType??>
-                                <div ${block?is_last?then('', 'class="nhsd-!t-margin-bottom-6"')}>
+                                <div ${block?is_last?then('', 'class=nhsd-!t-margin-bottom-4')}>
                                     <#if block.linkType == "internal">
                                         <@downloadBlockInternal document.class.name block.link block.link.title block.link.shortsummary getFileExtension(block.link.name) />
                                     <#elseif block.linkType == "external">
                                         <#if getMimeTypeByExtension(getFileExtension(block.link))?has_content>
-                                            <@downloadBlockAsset document.class.name block.link "${block.title}" "${block.shortsummary}" getMimeTypeByExtension(getFileExtension(block.link)) "" true true orgPrompt=orgPrompt />
+                                            <@downloadBlockAsset document.class.name block.link "${block.title}" "${block.shortsummary}" getMimeTypeByExtension(getFileExtension(block.link)) "" true true orgPrompt />
                                         <#else>
                                             <@downloadBlockExternal document.class.name block.link "${block.title}" "${block.shortsummary}"/>
                                         </#if>
