@@ -119,7 +119,7 @@
          (default WARN) -->
         <init-param>
             <param-name>logLevel</param-name>
-            <param-value>INFO</param-value>
+            <param-value>slf4j</param-value>
         </init-param>
         <!-- you can disable status page if desired can be: true, false (default true)              -->
         <init-param>
