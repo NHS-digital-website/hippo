@@ -16,7 +16,7 @@ jobs:
   remove-old-distributions:
     name: Remove Old distribution Ids
     runs-on: ubuntu-latest
-    timeout-minutes: 85
+    timeout-minutes: 5
 
     steps:
       # Get API access token and verify it.
@@ -71,84 +71,60 @@ jobs:
           script: |
             core.setFailed('Retrival of distibution ids failed ')
 
-      - name: Get Latest NON-Prod Distribution Ids
+      - name: Get NON-Prod Distribution Ids To be Removed
+        #Retrieve all non prod distribution ids which needs to be removed
         id: latest-non-prod-distribution-ids
         run: |
-          latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | map(select(.name | test("${{env.NON_PROD_REG_EXPRESSION}}"))) | map(.id) | .[:${{env.NO_OF_DISTRIBUTION_TO_KEEP_NON_PROD}}]')
+          latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | reverse | map(select(.name | test("${{env.NON_PROD_REG_EXPRESSION}}"))) | map(.id) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_NON_PROD}}:]')
+          fileNamesNonProd=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | reverse | map(select(.name | test("${{env.NON_PROD_REG_EXPRESSION}}"))) | map(.name) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_NON_PROD}}:]')
           echo "::set-output name=latestNonProdDistIds::${latestId}"
+          echo "::set-output name=latestNonProdDistName::${fileNamesNonProd}"
 
-      - name: Get Latest Prod Distribution Ids
+      - name: Get Latest Prod Distribution Ids to be removed
+        #Retrieve all prod distribution ids which needs to be removed
         id: latest-prod-distribution-ids
         run: |
-          latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | map(select(.name | test("${{env.PROD_REG_EXPRESSION}}"))) | map(.id) | .[:${{env.NO_OF_DISTRIBUTION_TO_KEEP_PROD}}]')
+          latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date)| reverse | map(select(.name | test("${{env.PROD_REG_EXPRESSION}}"))) | map(.id) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_PROD}}:]')
+          fileNamesProd=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date)| reverse | map(select(.name | test("${{env.PROD_REG_EXPRESSION}}"))) | map(.name) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_PROD}}:]')
           echo "::set-output name=latestProdDistIds::${latestId}"
+          echo "::set-output name=latestProdDistName::${fileNamesProd}"
 
-      - name: All Non Prod Distribution Ids
-        id: all-non-prod-active-distribution-ids
-        run: |
-          distIds=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | jq --compact-output '[.items[] | {id: .id, name: .name} ] | map(select(.name | test("${{env.NON_PROD_REG_EXPRESSION}}"))) | map(.id)')
-          echo "::set-output name=allNonProdDistributionIdMap::${distIds}"
-
-      - name: All  Prod Distribution Ids
-        id: all-prod-active-distribution-ids
-        run: |
-          distIds=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | jq --compact-output '[.items[] | {id: .id, name: .name} ] | map(select(.name | test("${{env.PROD_REG_EXPRESSION}}"))) | map(.id)')
-          echo "::set-output name=allProdDistributionIdMap::${distIds}"
-
-      - name: Print Ids
+      - name: Print Names
+        #Step for logging purpose
         id: print-ids
         run: |
+          echo " All non Prod Files to be removed "+ ${{steps.latest-non-prod-distribution-ids.outputs.latestNonProdDistName}}
           echo "***********************"
-          echo " All non Prod Ids "+ ${{steps.all-non-prod-active-distribution-ids.outputs.allNonProdDistributionIdMap}}
-          echo "***********************"
-           echo " All  Prod Ids "+ ${{steps.all-prod-active-distribution-ids.outputs.allProdDistributionIdMap}}
-          echo "***********************"
-          echo " All latest Non Prod Ids "+ ${{steps.latest-non-prod-distribution-ids.outputs.latestNonProdDistIds}}
-          echo "***********************"
-          echo " All Latest Prod Ids "+ ${{steps.latest-prod-distribution-ids.outputs.latestProdDistIds}}
+          echo " All  Prod Files to be removed "+ ${{steps.latest-prod-distribution-ids.outputs.latestProdDistName}}
           echo "***********************"
 
 
       - name: Remove Old Non Prod Distribution
         run: |
-          declare -a  allDistributionIds=$(echo  '${{steps.all-non-prod-active-distribution-ids.outputs.allNonProdDistributionIdMap}}' | tr "[" "(" | tr "]" ")" | tr "," " ")
           declare -a  nonProdLatestDistIds=$(echo  '${{steps.latest-non-prod-distribution-ids.outputs.latestNonProdDistIds}}' | tr "[" "(" | tr "]" ")" | tr "," " ")
 
-          echo "allDistributionIds  Length --> "  ${#allDistributionIds[@]}
           echo "nonProdLatestDistIds  Length --> "  ${#nonProdLatestDistIds[@]}
 
-          for value in "${allDistributionIds[@]}"
-          do
-            if [[ ! " ${nonProdLatestDistIds[*]} " =~ " ${value} " ]]; then
-              code=$(curl \
+            for i in "${!nonProdLatestDistIds[@]}";
+            do
+              printf "%s\t%s\n" "$i" "${nonProdLatestDistIds[$i]}"
+              response=$(curl \
                 -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-                -X DELETE https://api.${{ secrets.HOST }}/v3/distributions/$value \
-                -o /dev/null -w '%{http_code}\n' -s)
-
-                if [ "$code" = "409" ]; then
-                   echo "Distribution id is in use "  ${value}
-                fi
-            fi
-          done
+                -X DELETE https://api.${{ secrets.HOST }}/v3/distributions/${nonProdLatestDistIds[$i]})
+              echo ${response}
+            done
 
       - name: Remove Old Prod Distribution
         run: |
-          declare -a  allDistributionIds=$(echo  '${{steps.all-prod-active-distribution-ids.outputs.allProdDistributionIdMap}}' | tr "[" "(" | tr "]" ")" | tr "," " ")
           declare -a  prodLatestDistIds=$(echo  '${{steps.latest-prod-distribution-ids.outputs.latestProdDistIds}}' | tr "[" "(" | tr "]" ")" | tr "," " ")
 
-          echo "allDistributionIds  Length --> "  ${#allDistributionIds[@]}
           echo "prodLatestDistIds  Length --> "  ${#prodLatestDistIds[@]}
 
-          for value in "${allDistributionIds[@]}"
-          do
-            if [[ ! " ${prodLatestDistIds[*]} " =~ " ${value} " ]]; then
-              code=$(curl \
+            for i in "${!prodLatestDistIds[@]}";
+            do
+              printf "%s\t%s\n" "$i" "${prodLatestDistIds[$i]}"
+              response=$(curl \
                 -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-                -X DELETE https://api.${{ secrets.HOST }}/v3/distributions/$value \
-                -o /dev/null -w '%{http_code}\n' -s)
-
-                if [ "$code" = "409" ]; then
-                   echo "Distribution id is in use "  ${value}
-                fi
-            fi
-          done
+                -X DELETE https://api.${{ secrets.HOST }}/v3/distributions/${prodLatestDistIds[$i]})
+              echo ${response}
+            done
