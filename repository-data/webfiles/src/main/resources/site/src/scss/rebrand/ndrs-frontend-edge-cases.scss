@@ -1627,8 +1627,8 @@ html:not(.nhsd-no-js) .nhsd-a-menu-item {
   margin: 0;
   padding: 0 0.5555555556rem;
   color: #353535;
-  background: #87D8DD;
-  box-shadow: inset 0 0 0 0.167rem #87d8dd;
+//   background: #87D8DD;
+//   box-shadow: inset 0 0 0 0.167rem #87d8dd;
   font-size: 17px;
   font-weight: 700;
 }
@@ -2159,8 +2159,11 @@ html:not(.nhsd-no-js) .nhsd-m-menu-bar .nhsd-a-menu-item.js-active,
 html:not(.nhsd-no-js) .nhsd-m-menu-bar .nhsd-a-menu-item:focus,
 html:not(.nhsd-no-js) .nhsd-m-menu-bar .nhsd-a-menu-item:hover {
   color: #353535;
-  background: #fef9cc;
-  box-shadow: inset 0 0 0 0.167rem #fae100;
+    background: transparent;
+    box-shadow: inset 0 0 0 0 #fae10000;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #218183;
+        box-shadow: 0 0 0 0!important;
 }
 
 html:not(.nhsd-no-js)
@@ -3307,16 +3310,49 @@ svg.arrow-icon-valign {
     height:28rem;
     }
  }
-@media (max-width: 47.99em){
+@media (max-width: 1239px){
 #main-content{
  .nhsd-o-hero{
+    .hero-banner-img{
+       right: 5px;
+       left: auto;
+       height: 300px;
+       width: 290px;
+       top: 0;
+
+            }
+        }
+    }
+}
+@media (max-width: 63.99em){
+.nhsd-o-banner.nhsd-o-banner {
+    width: auto !important;
+    flex-direction: row;
+}
+#main-content{
+ .nhsd-o-hero{
+    .hero-banner-img{
+        width:250px;
+    }
+    }
+}
+}
+@media (max-width: 1023px){
+#main-content{
+ .nhsd-o-hero{
+ &.data-banner-wrap{
+ height:auto;
+ }
     .hero-banner-img{
                 right: 5px;
                 left: auto;
                 height: 125px;
-                width: 150px;
+                width: 30%;
                 top: -31px;
             }
+        }
+        .nhsd-o-hero [class^=nhsd-t-heading]{
+            width: 70%;
         }
     }
 }
@@ -3361,4 +3397,20 @@ svg.arrow-icon-valign {
         text-decoration: underline;
     }
  }
+}
+@media (min-width: 1240px){
+    .nhsd-o-global-header__menu-content-box{
+        .nhsd-m-menu-bar{
+            display:none;
+        }
+    }
+}
+@media (max-width: 1240px){
+    .nhsd-o-global-header__menu-close-button.nhsd-o-global-header__menu-close-button{
+        margin-right: 2.277778rem;
+            margin-bottom: 1rem;
+    }
+}
+html:not(.nhsd-no-js) .nhsd-m-menu-bar .nhsd-a-menu-item {
+    border-radius: 0;
 }

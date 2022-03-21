@@ -70,7 +70,7 @@
                 </span>
               <span class="footer-logo-wrap">
                 </span>
-              <span class="footer-copy-txt">Copyright @ 2020</span>
+              <span class="footer-copy-txt">Copyright @ 2022</span>
               </ul>
             </nav>
           </div>
