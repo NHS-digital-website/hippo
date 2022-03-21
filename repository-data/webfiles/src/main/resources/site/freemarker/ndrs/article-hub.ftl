@@ -27,6 +27,7 @@
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasShortsummary = document.shortsummary?? />
 <#assign hasTopLink = document.includeTopLink?? && document.includeTopLink />
+<#assign navigationController = document.navigationController />
 
 <#assign apimethodValue = document.apimethod?upper_case />
 <#if apimethodValue??>
@@ -96,14 +97,13 @@
                     </a>
                     </p>
                 </#if>
-              </div>
             <#if hasShortsummary>
                 <div class="article-header__subtitle" data-uipath="document.shortsummary">${document.shortsummary}</div>
             </#if>
         </div>
     </@hero>
 
-</div
+</div>
            <#--  <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
                 <div class="local-header article-header article-header--detailed">
                     <div class="grid-wrapper">
@@ -133,8 +133,8 @@
         </div> -->
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article">
-
         <div class="grid-row">
+            <#if navigationController != "withoutNavWide">
             <div class="column column--one-third page-block--sticky-nav page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav" class="sticky-nav-leftfix">
@@ -164,8 +164,9 @@
                 </div>
                 <!-- end sticky-nav -->
             </div>
+            </#if>
 
-            <div class="column column--two-thirds page-block page-block--main">
+            <div class="column ${(navigationController != "withoutNavWide")?then("column--two-thirds", "column--wide-mode")} page-block page-block--main">
 
               <#if hasApiEndpointContent>
                 <div class="article-section">

@@ -98,7 +98,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses += " nhsd-o-hero--left-align"/>
     </#if>
 
-    <div class="nhsd-o-hero ${heroClasses} ${textClass} ${bgClass} ${alignClassWrap}"">
+    <div class="nhsd-o-hero ${heroClasses} ${textClass} ${bgClass} ${alignClassWrap}">
         <div class="nhsd-o-hero__content-container ${alignClass}">
             <div class="nhsd-o-hero__inner-content-container">
                 <#nested/>
@@ -134,6 +134,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                 </#if>
             </div>
         <#else>
+xxxxxx
             <#assign digiblocks = ['tr'] />
             <#if options.digiblocks?has_content>
                 <#assign digiblocks = options.digiblocks />
