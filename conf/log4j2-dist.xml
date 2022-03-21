@@ -103,7 +103,7 @@
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
     <Logger name="org.tuckey.web.filters.urlrewrite" level="info"/>
-    <Logger name="org.springframework.web.filter" level="info"/>
+    <Logger name="org.springframework.web.filter.GenericFilterBean" level="info"/>
     <Logger name="org.springframework.util.PropertyPlaceholderHelper" level="info"/>
     <Logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="info"/>
     <Logger name="org.quartz.core.QuartzSchedulerThread" level="info"/>
