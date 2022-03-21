@@ -134,7 +134,6 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                 </#if>
             </div>
         <#else>
-xxxxxx
             <#assign digiblocks = ['tr'] />
             <#if options.digiblocks?has_content>
                 <#assign digiblocks = options.digiblocks />
