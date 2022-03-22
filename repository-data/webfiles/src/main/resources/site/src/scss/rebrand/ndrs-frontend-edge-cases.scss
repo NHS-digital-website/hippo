@@ -53,7 +53,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Calibri", sans-serif !important;
+  font-family: "Calibri Bold", sans-serif !important;
 }
 a{
     text-decoration: underline;
@@ -153,7 +153,40 @@ margin-top:0 !important;
       .nhsd-\!t-bg-yellow-20-tint{
       background-color:#F0F4F5 !important;
       }
-
+      .navigation-tile:hover {
+          border-color: #87d8dd !important;
+      }
+        .statistic{
+            box-shadow: none;
+                &:hover {
+                     border-color: #87d8dd;
+                 }
+            .statistic--single-number{
+                &:hover {
+                     border-color: #87d8dd;
+                 }
+            }
+        }
+        .statistics-section--muted{
+            &.statistic--colour-1{
+                box-shadow: 0 0 0 0;
+             }
+        }
+        .statistics-section--boldtakeover {
+            background: -webkit-linear-gradient(136.01deg,#1D6162,#218183);
+            background: linear-gradient(313.99deg,#1D6162,#218183);
+        }
+        .statistics-section--boldtakeover{
+            .statistic--colour-1 {
+                background-image: -webkit-linear-gradient(34deg,#218183 9%,#1D6162);
+                background-image: linear-gradient(56deg,#218183 9%,#1D6162);
+            }
+        }
+    }
+    .eforms select,
+    .eforms input[type=color], .eforms input[type=date], .eforms input[type=datetime-local], .eforms input[type=datetime], .eforms input[type=email], .eforms input[type=month], .eforms input[type=password], .eforms input[type=search], .eforms input[type=tel], .eforms input[type=text], .eforms input[type=time], .eforms input[type=url], .eforms input[type=week], .eforms textarea {
+        border: 2px solid #268183!important;
+        font-family: "Arial", Helvetica, sans-serif !important;
     }
     .nhsd-a-button,
     .nhsd-m-card {
@@ -2120,7 +2153,11 @@ a.nhsd-a-avatar:hover .nhsd-a-image {
   margin: 0 0 0.8rem;
   color: #3f525f;
 }
-
+.emphasis-box{
+    .emphasis-box__content {
+        margin-top: 0;
+    }
+}
 .nhsd-m-emphasis-box--warning [class^="nhsd-t-body"],
 .nhsd-m-emphasis-box--warning [class^="nhsd-t-heading"] {
   color: #b30f0f;
@@ -3209,8 +3246,11 @@ a.filter-link {
     border-left-color: #268183!important;
     background-color: #f0f4f5!important;
 }
-.ctabtn--div{
-.ctabtn--nhs-digital-button{
+.ctabtn--div, .eforms-buttons{
+    &:link{
+        text-decoration: none;
+    }
+.ctabtn--nhs-digital-button, .button{
     color:#ffffff!important;
     background-color:#218183!important;
     border-radius: 2.223rem!important;
@@ -3234,9 +3274,13 @@ a.filter-link {
 .navigation-tile{
     border-color: #268183!important;
 }
-
+.navigation-tile__content{
+    .navigation-tile__link-text{
+           color: #268183;
+    }
+}
 .navigation-tile:hover {
-    border-color: #353535!important;
+    border-color: #87d8dd !important;
 }
 
 .navigation-tile,
@@ -3249,11 +3293,14 @@ a.filter-link {
          border-color: #268183!important;
      }
 }
-.navigation-tile:hover{
-     .navigation-tile__link-content {
-        background: #ffffff!important;
-        color: #268183!important;
-    }
+.navigation-tile{
+    color: #268183!important;
+    &:hover{
+          .navigation-tile__link-content {
+             background: #ffffff!important;
+             color: #268183!important;
+         }
+     }
 }
 .check-list-widget__label {
     background-color: #268183!important;
@@ -3369,7 +3416,6 @@ svg.arrow-icon-valign {
         }
     }
 }
-
 .nhsd-m-search-bar{
     button.nhsd-a-button{
         &.nhsd-a-button--circle-condensed{
@@ -3414,4 +3460,80 @@ svg.arrow-icon-valign {
 }
 html:not(.nhsd-no-js) .nhsd-m-menu-bar .nhsd-a-menu-item {
     border-radius: 0;
+}
+#CybotCookiebotDialogBodyContent{
+    padding-left:16px!important;
+}
+#CybotCookiebotDialogBodyContentTitle {
+    font-family: "Calibri", sans-serif !important;
+    color: #353535!important;
+}
+
+#CybotCookiebotDialog{
+    border: #268183 3px solid!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+    color: #353535!important!important;
+        padding: 1rem!important;
+        div{
+            font-size: 16px!important;
+            color: #353535!important;
+        }
+}
+#CybotCookiebotDialogPoweredbyLink {
+    display: none!important;
+}
+#CybotCookiebotDialogDetailBody{
+    .CybotCookiebotDialogDetailBodyContentTabsItem{
+        background-color:#ffffff!important;
+        border: 1px solid #268183!important;
+    }
+}
+#CybotCookiebotDialogDetailBodyContent{
+    border: solid #268183!important;
+    color: #353535!important;
+}
+#CybotCookiebotDialogBodyLevelButtonsSelectPane {
+    border: 1px solid #268183!important;
+    border-radius:0!important;
+}
+#CybotCookiebotDialogBodyLevelDetailsWrapper{
+    border: 1px solid #268183!important;
+    background-color:#e8edee!important;
+}
+a.CybotCookiebotDialogDetailBodyContentCookieContainerTypes:focus,
+a.CybotCookiebotDialogDetailBodyContentCookieContainerTypes:hover,
+a.CybotCookiebotDialogDetailBodyContentIABv2Tab:focus,
+a.CybotCookiebotDialogDetailBodyContentIABv2Tab:hover{
+    border: 1px solid #268183!important;
+    color: #353535!important;
+}
+.CybotCookiebotDialogDetailBodyContentCookieContainerTypes,
+.CybotCookiebotDialogDetailBodyContentIABv2Tab{
+    background-color: #EFFBFC!important;
+    border-bottom: 1px solid #268183!important;
+    border-right: 1px solid #268183!important;
+}
+
+#CybotCookiebotDialogDetailBodyContentCookieContainerTypeDetails{
+    .CybotCookiebotDialogDetailBodyContentCookieTypeTable,
+    .CybotCookiebotDialogDetailBodyContentCookieTypeTable {
+        tbody {
+            td{
+                border: 1px solid #268183!important;
+                color: #353535!important;
+            }
+        }
+        thead{
+            th{
+                background-color: #effbfc!important;
+                border: 1px solid #268183!important;
+                color: #353535!important;
+            }
+        }
+    }
+}
+a.CybotCookiebotDialogDetailBodyContentTabsItemSelected:focus,
+a.CybotCookiebotDialogDetailBodyContentTabsItemSelected:hover{
+    box-shadow: 0 0 0 0 #87d8dd !important;
 }

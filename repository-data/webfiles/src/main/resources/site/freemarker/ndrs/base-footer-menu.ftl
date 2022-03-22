@@ -65,12 +65,7 @@
                             </#if>
                             <nav class="nhsd-t-col-xs-6 nhsd-t-col-s-6 nhsd-t-col-l-3" aria-labelledby="footer-heading-1680-5070">
                                 <div class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-4" id="footer-heading-1680-5070">Working Together</div>
-                                <div><!-- Begin Constant Contact Active Forms -->
-<script> var _ctct_m = "93d2e771bce26a23dadb40486223f483"; </script>
-<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
-<!-- End Constant Contact Active Forms --> <!-- Begin Constant Contact Inline Form Code -->
-<div class="ctct-inline-form" data-form-id="71e530e6-15ff-4dc7-b0b5-99e8ce6ec3d1"></div>
-<!-- End Constant Contact Inline Form Code -->
+                                <div>
                                     <span class="footer-logo-wrap" style="text-center;">
                                         <svg class="footer-logo ndrs-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 40" width="100" height="60" aria-hidden="true" focusable="false">
                                             <path d="M39.2338 11.0517C38.0125 4.74524 32.6827 0 26.2904 0C19.898 0 14.5664 4.74524 13.3451 11.0517H39.2338Z" fill="#4AB0E5" />
