@@ -1,10 +1,10 @@
 <#ftl output_format="HTML">
 
 <#macro simpleHeroContent options>
-<div class="nhsd-o-hero__content-container data-banner-img"> <#assign uiPath = options.uiPath?has_content?then(options.uiPath, "website.hero") />
+<#assign uiPath = options.uiPath?has_content?then(options.uiPath, "website.hero") />
 
-    <#if options.introText?has_content>
-        <p class="nhsd-t-body">${options.introText?no_esc}</p>
+<#if options.introText?has_content>
+<p class="nhsd-t-body">${options.introText?no_esc}</p>
     </#if>
     <#if options.categoryInfo?has_content && !options.quote?has_content>
         <p class="nhsd-t-body">${options.categoryInfo}</p>
@@ -24,7 +24,7 @@
             <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0" data-uipath="document.summary">${options.summary}</div>
         </#if>
     </#if>
-</div>
+
     <#nested />
 
     <#if options.buttons?has_content && options.buttons?size gt 0>
