@@ -437,11 +437,3 @@ jobs:
         with:
           url: ${{ env.SLACK_WEBHOOK }}
           data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "BR ODv2 is deploying. <@${{ env.USER_ID }}> You can track progress here https://missioncontrol.${{ secrets.HOST }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details", "color": "#78BE20" }] }'
-
-
-      - name: Slack message (Always end message)
-        if: ${{ always() }}
-        uses: muinmomin/webhook-action@v1.0.0
-        with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline Finished", "attachments": [{ "text" : "End of communication. You have a great day now.",  "color": "#005EB8" }] }'
