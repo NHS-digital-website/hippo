@@ -228,9 +228,9 @@ margin-top:0 !important;
               &:nth-child(3),
                &:nth-child(4){
                 .nhsd-m-card__content_container{
-                                span.arrow-circle{
-                                    background-color: #268183;
-                                }
+                    span.arrow-circle{
+                        background-color: #268183;
+                    }
                     .ndrs-icon-hover{
                          span.arrow-circle{
                             fill: #268183 !important;
@@ -268,7 +268,7 @@ margin-top:0 !important;
       .ndrs-card-item-col {
         .nhsd-m-card__content_container {
          background: #218183;
-          padding: 2rem 1rem;
+          padding: 0 1rem;
         }
         &:nth-child(0n+5){
           .nhsd-m-card__content_container {
@@ -350,13 +350,6 @@ margin-top:0 !important;
                 background-color: #000000;
             }
           }
-        .nhsd-m-card__button-box {
-          svg {
-            path {
-//               fill: #000000;
-            }
-          }
-        }
         }
       }
 
@@ -377,22 +370,22 @@ margin-top:0 !important;
       }
     }
   }
-.ndrs-card-item-col:nth-child(4n+0) .nhsd-m-card__content_container{
-    background: #1D595A;
-    color: #ffffff;
-            .arrow-circle{
-                background: #ffffff;
-                background-color: #ffffff;
-                .arrow-icon-valign{
-                    path{
-                        fill:#1D595A;
+    .ndrs-card-item-col:nth-child(4n+0) .nhsd-m-card__content_container{
+        background: #1D595A;
+        color: #ffffff;
+                .arrow-circle{
+                    background: #ffffff;
+                    background-color: #ffffff;
+                    .arrow-icon-valign{
+                        path{
+                            fill:#1D595A;
+                        }
                     }
                 }
-            }
-     .nhsd-t-heading-s{
-        color: #ffffff;
-     }
-}
+         .nhsd-t-heading-s{
+            color: #ffffff;
+         }
+    }
 }
 
 
@@ -1081,9 +1074,20 @@ strong {
     color:#ffffff;
     background-color:#218183 !important
 }
+.nhsd-t-form-control__button{
+    .nhsd-a-button--circle-condensed{
+        &:active{
+            background-color: #ffffff!important;
+        }
+        &:focus{
+            .nhsd-a-icon > svg{
+                fill: #218183!important;
+            }
+        }
+    }
+}
 .nhsd-a-button {
-  font-family: "Arial", Helvetica, sans-serif;
-//padding: 0.5555555556rem 1.1111111111rem;
+    font-family: "Arial", Helvetica, sans-serif;
     padding:.556rem 1.04rem !important;
     border: 2px solid #218183 !important;
     font-family: "Calibri", sans-serif !important;
@@ -1108,16 +1112,10 @@ strong {
   cursor: not-allowed;
 }
 
-.nhsd-a-button--disabled .nhsd-a-icon > svg,
-.nhsd-a-button:disabled .nhsd-a-icon > svg {
-//   fill: #3f525f;
-}
-
 .nhsd-a-button:not(:disabled):not(.nhsd-a-button--disabled).js-active,
 .nhsd-a-button:not(:disabled):not(.nhsd-a-button--disabled):focus,
 .nhsd-a-button:not(:disabled):not(.nhsd-a-button--disabled):hover {
   box-shadow: 0 0 0 0.167rem #87D8DD!important;
-//       background-color: transparent !important;
     background-color: #1D595A!important;
 }
 
@@ -1216,11 +1214,6 @@ strong {
 .nhsd-a-button--transparent {
   border: 1px solid transparent;
   background: 0 0;
-}
-
-.nhsd-a-button--transparent .nhsd-a-icon > svg,
-html.nhsd-no-js .nhsd-a-menu-item .nhsd-a-icon > svg {
-//   fill: #353535;
 }
 
 input[type="reset"].nhsd-a-button,
@@ -3079,11 +3072,6 @@ table{
 .nhsd-a-box--bg-red {
   color: #fff;
 }
-
-.multi-color-cart-list {
-  .ndrs-card-item-col:nth-child(1) .nhsd-m-card__content_container {
-  }
-}
 .tabs-nav .tabs-nav__item--active a.tabs-link
 .tabs-nav .tabs-nav__item--active a.tabs-link:active{
     background: #87D8DD!important;
@@ -3258,6 +3246,7 @@ a.filter-link {
     font-family: Calibri,sans-serif!important;
     padding:.556rem 1.04rem !important;
     font-size: 1rem!important;
+    text-decoration: none;
     font-weight: 700!important;
     line-height: 1.31!important;
     box-shadow: 0 0 0 0!important;
@@ -3337,8 +3326,8 @@ svg.arrow-icon-valign {
 }
 .nhsd-o-case-study--no-label{
     .nhsd-t-grid:not(.nhsd-t-grid--full-width) [class^=nhsd-t-body] {
-        font-size: 20px;
-        line-height: 1.8;
+        font-size: 16px;
+        line-height: 1.5;
     }
 }
 
