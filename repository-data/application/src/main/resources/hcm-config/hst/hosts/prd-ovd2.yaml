@@ -1,0 +1,4 @@
+definitions:
+  config:
+    /hst:platform/hst:hosts/prd-ovd2:
+      jcr:primaryType: hst:virtualhostgroup
