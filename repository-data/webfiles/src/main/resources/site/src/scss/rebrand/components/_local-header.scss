@@ -33,6 +33,11 @@ div.local-header {
             border-bottom: 2px solid #353535;
             color: #353535!important;
           }
+         &.nhsd-o-global-header__logo{
+            &:hover{
+                margin-bottom: 1px;
+            }
+         }
      }
 }
 
