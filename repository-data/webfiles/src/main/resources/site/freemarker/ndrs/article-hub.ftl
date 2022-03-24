@@ -87,8 +87,7 @@
             <#else>
                 <@schemaMeta "${document.title}" />
             </#if>
-        <!--   <div class="local-header__tag">${releasestatuses[document.releasestatus]?upper_case}</div> -->
-                  <#if document.apiMasterParent?has_content && document.apiMasterParent.title??>
+                <#if document.apiMasterParent?has_content && document.apiMasterParent.title??>
                     <p class="article-header__subtitle">
                     This is part of
                     <a href="<@hst.link hippobean=document.apiMasterParent/>"
@@ -104,33 +103,6 @@
     </@hero>
 
 </div>
-           <#--  <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-                <div class="local-header article-header article-header--detailed">
-                    <div class="grid-wrapper">
-                        <div class="article-header__inner">
-                          <div class="column column--two-thirds page-block page-block--main">
-                              <div>
-                                  <h1 class="local-header__title-left" data-uipath="document.title" itemprop="name" itemscope itemtype="https://schema.org/webapi">${document.title}</h1>
-                                  <div class="local-header__tag">${releasestatuses[document.releasestatus]?upper_case}</div>
-                                  <#if document.apiMasterParent?has_content && document.apiMasterParent.title??>
-                                    <p class="article-header__subtitle">
-                                    This is part of
-                                    <a href="<@hst.link hippobean=document.apiMasterParent/>"
-                                        title="${document.apiMasterParent.title}">
-                                        <span itemprop="subjectof" itemscope itemtype="https://schema.org/webapi">${document.apiMasterParent.title}</span>
-                                    </a>
-                                    </p>
-                                </#if>
-                              </div>
-                            <#if hasShortsummary>
-                                <div class="article-header__subtitle" data-uipath="document.shortsummary">${document.shortsummary}</div>
-                            </#if>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
