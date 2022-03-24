@@ -5,12 +5,12 @@
 <#assign hasLink = document.link?? />
 <#assign hasImage = document.image?has_content />
 
+<div class="grid-wrapper grid-wrapper--article">
     <div class="promo-banner">
-        <div class="promo-banner__columns">
             <#if hasLink>
             <a href="<@hst.link hippobean=document.link />">
             </#if>
-                <div class="grid-wrapper grid-wrapper- -article ">
+            <div class="promo-banner__columns">
                     <#if hasImage>
                     <div class="promo-banner__column">
                         <@hst.link hippobean=document.image var="imageLink" />
