@@ -6,6 +6,7 @@
         <#local borderColor = cardProperties.border?has_content?then(cardProperties.border, "grey") />
     </#if>
 
+
     <article class="nhsd-m-card">
         <#if cardProperties.link?has_content>
             <a href="${cardProperties.link}" class="nhsd-a-box-link nhsd-a-box-link--focus-orange" ${cardProperties.title?has_content?then("aria-label=\"About NHS Digital\"", "")}>
