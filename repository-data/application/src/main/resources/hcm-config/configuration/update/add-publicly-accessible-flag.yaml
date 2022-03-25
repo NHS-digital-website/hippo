@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/add-publicly-accessible-flag:
+      hipposys:batchsize: 10
+      hipposys:description: Adds the missing publicationsystem:PubliclyAccessible
+        property to older version of Publications
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='publicationsystem:publication']//..
+      hipposys:script:
+        resource: /configuration/update/add-publicly-accessible-flag.groovy
+        type: string
+      hipposys:throttle: 500
+      jcr:primaryType: hipposys:updaterinfo
