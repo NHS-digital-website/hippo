@@ -1,8 +1,4 @@
 <#ftl output_format="HTML">
-<#include "../../include/imports.ftl">
-<@hst.setBundle basename="design-system"/>
-<@fmt.message key="design-system.url" var="designSystemUrl" />
-
 <head>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" async></script>
 
@@ -27,10 +23,11 @@
     <meta name="twitter:site" content="@NHSDigital">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
 
-    <link href="${designSystemUrl}/" rel="preconnect" crossorigin>
-    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="${designSystemUrl}/cdn/latest/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
+    <#-- Preload fonts to improve performance -->
+    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-55Roman.woff2" />" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-56Italic.woff2" />" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-65Bold.woff2" />" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-66BoldItalic.woff2" />" as="font" type="font/woff2" crossorigin>
 
     <#-- Preconnect to 3rd parties to improve proformance -->
     <link rel="preconnect" href="https://in.hotjar.com" crossorigin>
@@ -47,7 +44,12 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="${designSystemUrl}/cdn/v0.120.0/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk.css"/>" media="screen" type="text/css"/>
 
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk-print.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk-print-pdf-document.css"/>" media="print" type="text/css"/>
+
+    <#include "scripts/header-scripts.ftl" />
+
+    <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts, genericMeta, facebookMeta, twitterMeta, metadata" xhtml=true />
 </head>
