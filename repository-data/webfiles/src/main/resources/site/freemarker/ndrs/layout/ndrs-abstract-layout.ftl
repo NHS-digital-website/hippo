@@ -1,28 +1,34 @@
 <#ftl output_format="HTML">
-<#include "../../include/imports.ftl">
-<#include "../../nhsd-common/macro/component/skipLink.ftl">
+<#include "../include/imports.ftl">
+<#include "../macro/globalHeader.ftl">
+<#include "../macro/ndrsFooterBanner.ftl">
+<#include "../macro/component/skipLink.ftl">
+<#include "../breadcrumb.ftl">
 
 <!DOCTYPE html>
-<html lang="en" class="nhsd-no-js">
-    <#include "./ndrs-abstract-head.ftl">
-<body>
-    <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
-        <@skipLink />
-
-        <#-- Add IE banner -->
-        <@hst.include ref="ie-banner"/>
-
-        <@globalHeader true/>
-
-        <@hst.include ref="breadcrumb"/>
-
-        <main id="main-content">
-            <@hst.include ref= "main"/>
-        </main>
-
-        <@hst.include ref= "footer"/>
-
-    </div>
+<html lang="en" class="no-js">
+<#-- <#include "master-head.ftl"> -->
+    <#include "../nhsd-homepage-head.ftl">
+<body class="debugs">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6GJCR9"
+                height="0" width="0" style="display:none;visibility:hidden">
+        </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <@skipLink />
+    <#-- Add site header with the search bar -->
+    <@globalHeader true></@globalHeader>
+    <#-- <@hst.include ref="intra-breadcrumb"/>
+    <@hst.include ref="breadcrumb-ci"/>
+    <@hst.include ref="nhsd-breadcrumb"/>-->
+    <@hst.include ref="breadcrumb"/>
+    <main id="main-content">
+        <@hst.include ref="main"/>
+    </main>
+    <@ndrsFooterBanner></@ndrsFooterBanner>
+    <@hst.include ref="footer-menu"/>
+        <#include "../scripts/nhsd-footer-scripts.ftl" />
 </body>
 </html>
-

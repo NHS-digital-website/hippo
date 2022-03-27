@@ -11,59 +11,40 @@
 .nhsd-o-global-header__search,
 .nhsd-o-global-header__menu,
 .nhsd-a-button,
-.nhsd-m-download-card__image-box,
-._hj-1Fv4C__Feedback__container,
-{
-    display: none !important;
+.nhsd-m-download-card__image-box {
+  display: none !important;
 }
 
-@page  {
-    size: portrait A4;
-}
 // Increase contrasts, remove backgrounds
 * {
-    color: black !important;
-    background: white !important;
-    border-color: black !important;
+  color: #000000 !important;
+  background: none !important;
+  border-color: #000000 !important;
 }
 .nhsd-m-logo-link {
-    border-color: transparent !important;
-}
-
-div[class*="nhsd-o-hero"]
-{
-    color: transparent !important;
-    background: transparent !important;
-    border-color: transparent !important;
-}
-
-// this is not being picked up?
-.nhsd-a-box--border-yellow
-{
-    border-color: black;
-}
-
-p, dt, dd, hr
-{
-    color: black !important;
+  border-color: transparent !important;
 }
 
 // Use full page width
-.nhsd-t-grid, [class*="nhsd-t-col-"], .nhsd-t-heading, .nhsd-t-body {
-    max-width: 100% !important;
-    width: 100% !important;
+.nhsd-t-grid,
+[class*="nhsd-t-col-"],
+.nhsd-t-heading,
+.nhsd-t-body {
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 // Don't page break on these components
-.nhsd-a-image, .nhsd-a-box, .nhsd-m-card {
-    display: block !important;
-    page-break-inside: avoid;
+.nhsd-a-image,
+.nhsd-a-box,
+.nhsd-m-card {
+  display: block !important;
+  page-break-inside: avoid;
 }
 
 // Fix issues with unsupported display types (flex)
-div, img, article {
-    display: block !important;
-    color: black !important;
-    background: white !important;
-    border-color: black !important;
+div,
+img,
+article {
+  display: block !important;
 }
