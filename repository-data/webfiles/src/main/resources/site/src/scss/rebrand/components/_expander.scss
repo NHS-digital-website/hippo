@@ -1,7 +1,7 @@
-.grid-row{
+.grid-row {
   .expander {
     .details-body {
-        tr{
+      tr {
         &:nth-child(even) {
           background-color: #f2f2f2;
         }
@@ -14,14 +14,14 @@
       }
 
       th {
-                background: #F0F4F5;
+        background: #f0f4f5;
       }
 
       td {
         background: transparent;
-                a{
-                &:hover{
-                    color:#353535;
+        a {
+          &:hover {
+            color: #353535;
           }
         }
       }
@@ -40,12 +40,12 @@
 
     &.expander-most {
       details {
-                background-color:#ffffff;
+        background-color: #ffffff;
         summary {
           font-size: 18px;
           display: block;
           padding: 24px;
-                    background-color: #F0F4F5;
+          background-color: #f0f4f5;
           &:after {
             display: none;
           }
@@ -54,7 +54,7 @@
             outline: none;
           }
 
-                    &:hover                 {
+          &:hover {
             outline: 3px solid #268183;
             background-color: #effbfc;
           }
@@ -72,15 +72,15 @@
             background-position: 0 center;
             background-image: url("../images/icon/expander-plus-icon-ndrs.svg") !important;
             padding: 8px 8px 8px 38px;
-                        color:#218183;
-                        font-weight:700;
+            color: #218183;
+            font-weight: 700;
           }
         }
 
         &[open] {
           summary {
             span {
-                            background-image: url("../images/icon/expander-minus-icon-ndrs.svg") !important;
+              background-image: url("../images/icon/expander-minus-icon-ndrs.svg") !important;
             }
           }
         }
@@ -97,7 +97,7 @@
       details {
         summary {
           color: #218183;
-                        border-bottom: solid 1px #D8DDE0;
+          border-bottom: solid 1px #d8dde0;
 
           span {
             color: #218183;
@@ -110,14 +110,13 @@
 
           &:hover {
             color: #353535;
-                          outline: 3px solid #87D8DD;
-                           background-color: #87D8DD;
+            outline: 3px solid #87d8dd;
+            background-color: #87d8dd;
           }
 
           &::before {
             content: "► ";
           }
-
 
           &::-webkit-details-marker {
             display: none;

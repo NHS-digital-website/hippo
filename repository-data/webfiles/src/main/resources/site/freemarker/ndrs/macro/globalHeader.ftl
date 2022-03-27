@@ -1,4 +1,4 @@
-460<#ftl output_format="HTML">
+<#ftl output_format="HTML">
 <#include "./ndrsLogo.ftl">
 <#include "./iconGenerator.ftl">
 
