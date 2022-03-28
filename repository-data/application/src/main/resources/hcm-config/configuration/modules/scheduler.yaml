@@ -9,7 +9,7 @@ definitions:
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup/hipposched:triggers/bi-hourly:
       hipposched:cronExpression: 0 0/30 * * * ?
       hipposched:enabled: true
-      hipposched:nextFireTime: 2021-06-30T15:00:00Z
+      hipposched:nextFireTime: 2022-03-28T20:30:00Z
       jcr:mixinTypes:
       - hippo:lockable
       - mix:lockable

@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/ncardrs-data-sets:
+      /main:
+        /banner:
+          hst:referencecomponent: ncardrs-data-sets/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: ncardrs-data-sets/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+        hst:template: ndrs-hub-page
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

@@ -1,0 +1,92 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/our-work:
+      /main:
+        /banner:
+          hst:referencecomponent: patients/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: patients/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: ndrs-hub-page
+        jcr:primaryType: hst:component
+      /ncardrs-partnership:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/ncardrs-partnership/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/ncardrs-partnership/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      /ncardrs-work-programmes:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/ncardrs-work-programmes/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/ncardrs-work-programmes/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      /ncras-partnership:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/ncras-partnership/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/ncras-partnership/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      /ncras-work-programmes:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/ncras-work-programmes/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/ncras-work-programmes/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      /our-work-hub:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/our-work-hub/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/our-work-hub/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      /publications-library:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/our-work-hub/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/our-work-hub/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

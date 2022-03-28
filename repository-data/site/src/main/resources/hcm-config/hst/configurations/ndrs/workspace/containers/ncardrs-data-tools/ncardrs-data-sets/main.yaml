@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/ncardrs-data-tools/ncardrs-data-sets/main:
+      .meta:residual-child-node-category: content
+      hippo:identifier: 30d8bb87-e1ad-489a-9115-7a0f7c43d071
+      hst:label: Main
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent

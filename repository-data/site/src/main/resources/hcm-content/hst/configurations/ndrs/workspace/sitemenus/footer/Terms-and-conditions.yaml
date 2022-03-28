@@ -1,6 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Terms and conditions:
-  .meta:order-before: Looking after your data
-  hst:externallink: https://digital.nhs.uk/about-nhs-digital/terms-and-conditions
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem

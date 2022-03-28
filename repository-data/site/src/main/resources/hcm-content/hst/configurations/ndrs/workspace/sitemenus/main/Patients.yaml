@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/main/Patients:
+  .meta:order-before: About
+  hst:referencesitemapitem: coronavirus
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

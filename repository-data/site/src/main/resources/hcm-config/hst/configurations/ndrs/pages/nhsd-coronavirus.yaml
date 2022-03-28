@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/nhsd-coronavirus:
+      /main:
+        /banner:
+          hst:referencecomponent: nhsd-coronavirus/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: nhsd-coronavirus/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: ndrs-homepage
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

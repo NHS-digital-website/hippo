@@ -1,0 +1,15 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/ncras-data-sets/banner/caseStudy:
+  hst:componentclassname: uk.nhs.digital.common.components.CaseStudyComponent
+  hst:label: Case study
+  hst:parameternames:
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - document
+  - alignment
+  hst:parametervalues:
+  - 'off'
+  - cta/cta---right
+  - left
+  hst:template: case-study
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

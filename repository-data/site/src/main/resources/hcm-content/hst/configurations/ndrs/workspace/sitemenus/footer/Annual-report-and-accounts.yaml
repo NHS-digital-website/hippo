@@ -1,6 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Annual report and accounts:
-  .meta:order-before: Accessibility
-  hst:externallink: https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-s-annual-reports-and-accounts
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem
