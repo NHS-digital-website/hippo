@@ -1,0 +1,16 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/working-for-us/banner/banner:
+  hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsDocumentComponent
+  hst:iconpath: images/essentials/catalog-component-icons/banner.png
+  hst:label: Banner
+  hst:parameternames:
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - document
+  - org.hippoecm.hst.core.component.template
+  hst:parametervalues:
+  - 'off'
+  - cyber-data-security-banner
+  - webfile:/freemarker/hstdefault/essentials-banner.ftl
+  hst:template: essentials-banner
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

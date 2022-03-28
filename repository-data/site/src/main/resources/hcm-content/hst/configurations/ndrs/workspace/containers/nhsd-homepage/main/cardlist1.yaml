@@ -1,0 +1,50 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/main/cardlist1:
+  .meta:order-before: bloglist
+  hst:componentclassname: uk.nhs.digital.common.components.CardListComponent
+  hst:label: Card List
+  hst:parameternames:
+  - template
+  - button2Link
+  - Card10
+  - Card11
+  - Card12
+  - Card9
+  - Card8
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - button1Title
+  - Card5
+  - header
+  - Card4
+  - Card7
+  - button2Title
+  - Card6
+  - Card1
+  - introduction
+  - button1Link
+  - Card3
+  - Card2
+  hst:parametervalues:
+  - Default
+  - Get emails on news and events
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - 'off'
+  - All news and events
+  - ''
+  - What’s going on
+  - banner/cyber-data-security-banner-copy
+  - ''
+  - Get emails on news and events
+  - ''
+  - banner/cyber-data-security-banner-copy
+  - ''
+  - All news and events
+  - banner/cyber-data-security-banner-copy
+  - banner/cyber-data-security-banner-copy
+  hst:template: cardlist
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

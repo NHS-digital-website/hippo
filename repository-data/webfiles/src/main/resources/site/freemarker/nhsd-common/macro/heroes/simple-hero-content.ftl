@@ -2,10 +2,10 @@
 <#include "../../../include/imports.ftl">
 
 <#macro simpleHeroContent options>
-    <#assign uiPath = options.uiPath?has_content?then(options.uiPath, "website.hero") />
+<#assign uiPath = options.uiPath?has_content?then(options.uiPath, "website.hero") />
 
-    <#if options.introText?has_content>
-        <p class="nhsd-t-body">${options.introText?no_esc}</p>
+<#if options.introText?has_content>
+<p class="nhsd-t-body">${options.introText?no_esc}</p>
     </#if>
     <#if options.categoryInfo?has_content && !options.quote?has_content>
         <p class="nhsd-t-body">${options.categoryInfo}</p>

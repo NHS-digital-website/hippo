@@ -1,6 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Twitter:
-  .meta:order-before: Facebook
-  hst:referencesitemapitem: social-media/twitter
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem

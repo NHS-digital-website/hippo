@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/dataset:
+      /main:
+        hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+        hst:template: dataset
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

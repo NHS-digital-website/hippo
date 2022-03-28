@@ -13,11 +13,11 @@ import org.hippoecm.hst.core.parameters.*;
     ),
     @FieldGroup(
         titleKey = "Navigation Button 1",
-        value = {"button1Title", "button1Link"}
+        value = {"button1Title", "button1Link", "buttonIconLink"}
     ),
     @FieldGroup(
         titleKey = "Navigation Button 2",
-        value = {"button2Title", "button2Link"}
+        value = {"button2Title", "button2Link", "buttonIconLink2"}
     ),
     @FieldGroup(
         titleKey = "Document",
@@ -64,12 +64,24 @@ public interface CardListComponentInfo {
     String getButton2Link();
 
     @Parameter(
+        name = "buttonIconLink",
+        displayName = "get image link"
+    )
+    String getButtonIconLink();
+
+    @Parameter(
+        name = "buttonIconLink2",
+        displayName = "get image link2"
+    )
+    String getButtonIconLink2();
+
+    @Parameter(
         name = "template",
         required = false,
         defaultValue = "Default",
         displayName = "Template"
         )
-    @DropDownList({"Default", "Grey"})
+    @DropDownList({"Default", "Grey", "MultiColor"})
     String getTemplate();
 
     @Parameter(name = "Card1")

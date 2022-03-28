@@ -1,0 +1,7 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/our-work/ncardrs-partnership/main/cardlist1:
+  hst:componentclassname: uk.nhs.digital.common.components.CardListComponent
+  hst:label: Card List
+  hst:template: cardlist
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

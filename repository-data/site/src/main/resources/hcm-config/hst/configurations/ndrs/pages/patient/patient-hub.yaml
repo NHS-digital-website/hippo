@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/ndrs-patient-hub:
+      /main:
+        /banner:
+          hst:referencecomponent: ndrs-datatools-hub/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: ndrs-datatools-hub/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: ndrs-hub-page
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

@@ -1,5 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Accessibility:
-  hst:externallink: https://digital.nhs.uk/about-nhs-digital/accessibility
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem

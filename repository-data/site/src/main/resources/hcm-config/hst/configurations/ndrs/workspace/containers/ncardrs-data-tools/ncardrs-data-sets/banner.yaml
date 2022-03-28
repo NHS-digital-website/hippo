@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/ncardrs-data-tools/ncardrs-data-sets/banner:
+      .meta:residual-child-node-category: content
+      hippo:identifier: 036ac0c8-7a28-4be0-8c96-2c5f2ee5a1b6
+      hst:label: Banner
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent

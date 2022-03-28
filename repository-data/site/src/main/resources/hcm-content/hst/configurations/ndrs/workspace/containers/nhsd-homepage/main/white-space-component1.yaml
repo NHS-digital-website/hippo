@@ -1,0 +1,15 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/main/white-space-component1:
+  .meta:order-before: caseStudy
+  hst:componentclassname: uk.nhs.digital.common.components.WhiteSpaceComponent
+  hst:iconpath: images/essentials/catalog-component-icons/spacer.png
+  hst:label: Whitespace
+  hst:parameternames:
+  - size
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  hst:parametervalues:
+  - Extra Large
+  - 'off'
+  hst:template: white-space
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

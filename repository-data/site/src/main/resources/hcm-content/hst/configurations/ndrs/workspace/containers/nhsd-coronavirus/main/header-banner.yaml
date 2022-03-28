@@ -1,0 +1,30 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-coronavirus/main/header-banner:
+  hst:componentclassname: uk.nhs.digital.common.components.HeaderComponent
+  hst:iconpath: images/essentials/catalog-component-icons/banner.png
+  hst:label: Header
+  hst:parameternames:
+  - button2url
+  - colour
+  - button1text
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - banner
+  - digiblockposition
+  - button2text
+  - alignment
+  - height
+  - button1url
+  hst:parametervalues:
+  - asd
+  - Blue
+  - adas
+  - 'off'
+  - banners/banner
+  - Left & Right
+  - asd
+  - Centre
+  - Always tall
+  - asd
+  hst:template: header-banner
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent
