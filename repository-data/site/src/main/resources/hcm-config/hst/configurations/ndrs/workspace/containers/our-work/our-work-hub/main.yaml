@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/our-work/our-work-hub/main:
+      .meta:residual-child-node-category: content
+      hippo:identifier: b21c1278-fc56-4e05-81d9-6e88cc726517
+      hst:label: Main
+      hst:lastmodified: 2022-03-29T21:46:17.778Z
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent

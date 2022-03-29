@@ -1,6 +1,0 @@
----
-/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/footer/Our business plan:
-  .meta:order-before: News and events
-  hst:externallink: https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-business-plan-2018--19
-  hst:repobased: false
-  jcr:primaryType: hst:sitemenuitem

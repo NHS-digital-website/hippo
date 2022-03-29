@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/our-work/ncras-work-programme/banner:
+      .meta:residual-child-node-category: content
+      hippo:identifier: fcafd0bf-361f-4139-ac51-ddecab04fa8f
+      hst:label: Banner
+      hst:lastmodified: 2022-03-29T21:46:17.778Z
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent
