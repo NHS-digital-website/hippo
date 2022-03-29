@@ -158,6 +158,11 @@ a:hover {
     .nhsd-a-digiblocks {
     }
   }
+  .tall_banner{
+      .nhsd-\!t-bg-yellow-20-tint {
+            background-color: #ffffff !important;
+        }
+    }
   .nhsd-\!t-bg-yellow-20-tint {
     background-color: #f0f4f5 !important;
   }
@@ -3255,29 +3260,33 @@ a.filter-link {
   border-left-color: #268183 !important;
   background-color: #f0f4f5 !important;
 }
-.ctabtn--div,
-.eforms-buttons {
-  &:link {
-    text-decoration: none;
-  }
-  .ctabtn--nhs-digital-button,
-  .button {
-    color: #ffffff !important;
-    background-color: #218183 !important;
-    border-radius: 2.223rem !important;
-    font-family: Calibri, sans-serif !important;
-    padding: 0.556rem 1.04rem !important;
-    font-size: 1rem !important;
-    text-decoration: none;
-    font-weight: 700 !important;
-    line-height: 1.31 !important;
-    box-shadow: 0 0 0 0 !important;
-    &:hover {
-      color: #ffffff !important;
-      background-color: #1d6162 !important;
-      box-shadow: 0 0 0 0.167rem #87d8dd !important;
+#main-content{
+    .grid-wrapper--article{
+        .ctabtn--div,
+        .eforms-buttons {
+            &:link {
+                text-decoration: none;
+            }
+        .ctabtn--nhs-digital-button,
+        .button {
+            color: #ffffff !important;
+            background-color: #218183 !important;
+            border-radius: 2.223rem !important;
+            font-family: Calibri, sans-serif !important;
+            padding: 0.556rem 1.04rem !important;
+            font-size: 1rem !important;
+            text-decoration: none;
+            font-weight: 700 !important;
+            line-height: 1.31 !important;
+            box-shadow: 0 0 0 0 !important;
+                &:hover {
+                    color: #ffffff !important;
+                    background-color: #1d6162 !important;
+                    box-shadow: 0 0 0 0.167rem #87d8dd !important;
+                }
+            }
+        }
     }
-  }
 }
 .article-header__subtitle {
   font-size: 20px;
@@ -3367,6 +3376,13 @@ svg.arrow-icon-valign {
   &.data-banner-wrap {
     height: 28rem;
   }
+}
+.tall_banner{
+    .nhsd-o-hero {
+      &.data-banner-wrap {
+        height: 32rem;
+      }
+    }
 }
 @media (max-width: 1239px) {
   #main-content {

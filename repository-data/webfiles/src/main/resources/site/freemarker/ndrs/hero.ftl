@@ -42,8 +42,8 @@
         <#assign headingLevel = 2/>
     </#if>
     <#assign heroOptions += {
-        "headingLevel": headingLevel
-    }/>
+"headingLevel": headingLevel
+}/>
 
     <#if document.internal?has_content || document.external?has_content || document.link?has_content>
         <#if document.internal?has_content>
@@ -60,66 +60,49 @@
         <#if linkLabel?has_content>
             <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
             <#assign button = {
-                "text": linkLabel,
-                "src": link,
-                "srText": document.external?has_content?then(srOnlyLinkText, '')
-            }/>
+"text": linkLabel,
+"src": link,
+"srText": document.external?has_content?then(srOnlyLinkText, '')
+}/>
             <#assign heroOptions += {
-                "buttons": [button]
-            }/>
+"buttons": [button]
+}/>
         </#if>
     </#if>
 
     <#if document.videoUri?has_content>
         <#assign heroOptions += {
-            "video": "${document.videoUri}&rel=0&enablejsapi=1"
-        }/>
+"video": "${document.videoUri}&rel=0&enablejsapi=1"
+}/>
     </#if>
 
     <#if document.quote?has_content>
         <#assign heroOptions += {
-        "quote": "${document.quote}"
-        }/>
+"quote": "${document.quote}"
+}/>
     </#if>
 
     <#if displayColourBar?has_content>
         <#assign heroOptions += {
-            "colourBar": displayColourBar
-        }/>
+"colourBar": displayColourBar
+}/>
     </#if>
 
     <#if colour?has_content>
         <#assign heroOptions += {
-        "colour": colour
-        }/>
+"colour": colour
+}/>
     </#if>
 
-    <#if isHero>
-        <#assign heroType = "accentedImage" />
-        <#if textAlignment?has_content && textAlignment == "right">
-            <#assign heroType = "accentedImageMirrored" />
-        </#if>
-        <#if isCTARich>
-            <#assign heroOptions += {
-            "isCTARich": true
-            }/>
-        </#if>
-        <#if document.quote?has_content>
-            <#assign heroOptions += {
-            "isTall": isHero
-            }/>
-        </#if>
-        <@hero heroOptions heroType/>
-    <#else>
-        <#assign mirrored = false />
-        <#if textAlignment?has_content && textAlignment == "right">
-            <#assign mirrored = true />
-        </#if>
-        <#if textAlignment?has_content && textAlignment == "NDRS ImageTextBanner">
-            <@nhsdBannerContainer heroOptions mirrored/>
-        </#if>
-        <#if textAlignment?has_content && textAlignment != "NDRS ImageTextBanner">
-            <@nhsdBanner heroOptions mirrored/>
-        </#if>
+    <#assign mirrored = false />
+    <#if textAlignment?has_content && textAlignment == "right">
+        <#assign mirrored = true />
     </#if>
+    <#if textAlignment?has_content && textAlignment == "NDRS ImageTextBanner">
+        <div class="${(size == "tall")?then("tall_banner","")}"><@nhsdBannerContainer heroOptions mirrored/></div>
+    </#if>
+    <#if textAlignment?has_content && textAlignment != "NDRS ImageTextBanner">
+        <@nhsdBanner heroOptions mirrored/>
+    </#if>
+
 </#if>
