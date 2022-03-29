@@ -173,7 +173,12 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     public boolean isPubliclyAccessible() {
-        return !getBeforePublicationDate() || isCorrectAccessKey();
+        return !getBeforePublicationDate() || isCorrectAccessKey() || isInternalViewAccess();
+    }
+
+    private boolean isInternalViewAccess() {
+        String servletPath = RequestContextProvider.get().getServletRequest().getServletPath();
+        return servletPath != null && servletPath.equalsIgnoreCase("/_cmsinternal");
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.RELATED_LINKS)
