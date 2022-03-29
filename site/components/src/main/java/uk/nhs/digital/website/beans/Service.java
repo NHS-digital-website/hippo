@@ -84,4 +84,8 @@ public class Service extends CommonFieldsBean {
     public boolean getNoIndexControl() {
         return getSingleProperty("website:noindexcontrol");
     }
+
+    public String getEarlyAccessKey() {
+        return getSingleProperty("website:earlyaccesskey");
+    }
 }

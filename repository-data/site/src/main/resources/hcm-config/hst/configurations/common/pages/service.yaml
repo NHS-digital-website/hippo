@@ -12,7 +12,7 @@ definitions:
         /toptasks-top:
           hst:referencecomponent: servicepage/servicepage-top
           jcr:primaryType: hst:containercomponentreference
-        hst:componentclassname: uk.nhs.digital.common.components.DocumentChildComponent
+        hst:componentclassname: uk.nhs.digital.common.components.ServiceArticleComponent
         hst:parameternames:
         - brandRefreshContentRewriter
         - stripTagsContentRewriter
