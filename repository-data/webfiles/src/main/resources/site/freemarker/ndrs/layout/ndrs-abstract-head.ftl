@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <@hst.setBundle basename="design-system"/>
-
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
@@ -53,6 +52,3 @@
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" media="screen" type="text/css"/>
 
 </head>
-<#--Remove-->
-<h3>Header</h3>
-<#--Remove-->

@@ -1,0 +1,41 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:abstractpages/nhsd-homepage:
+      /breadcrumb:
+        hst:referencecomponent: hst:components/nhsd-breadcrumb
+        jcr:primaryType: hst:component
+      /footer:
+        /footer-col-1:
+          hst:referencecomponent: nhsd-homepage/footer-col-1
+          jcr:primaryType: hst:containercomponentreference
+        /footer-col-2:
+          hst:referencecomponent: nhsd-homepage/footer-col-2
+          jcr:primaryType: hst:containercomponentreference
+        /footer-col-3:
+          hst:referencecomponent: nhsd-homepage/footer-col-3
+          jcr:primaryType: hst:containercomponentreference
+        /footer-col-4:
+          hst:referencecomponent: nhsd-homepage/footer-col-4
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: global-footer
+        jcr:primaryType: hst:component
+      /ie-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.IeBanner
+        hst:template: nhsd-ie-banner
+        jcr:primaryType: hst:component
+      /main-nav:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - nhsd-main-nav
+        hst:template: nhsd-main-nav
+        jcr:primaryType: hst:component
+      hst:componentclassname: uk.nhs.digital.common.components.MetaTagsComponent
+      hst:template: ndrs-homepage
+      jcr:primaryType: hst:component

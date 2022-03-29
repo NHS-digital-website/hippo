@@ -1,0 +1,63 @@
+.promo-banner .promo-banner__columns,
+div.local-header {
+  padding: 5.6em !important;
+}
+.article-header__subtitle {
+  color: #353535;
+}
+div.local-header {
+  overflow: hidden;
+  color: #353535;
+  padding: 5.6em !important;
+  background-color: #f0f4f5;
+  .grid-row & {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
+  .local-header__tag {
+    background-color: transparent;
+  }
+}
+.local-header__title {
+  color: inherit !important;
+}
+.local-header .article-header__subtitle {
+  margin-top: 12px;
+  margin-bottom: 0px;
+}
+#nhsd-global-header {
+  .nhsd-t-grid {
+    a {
+      &:hover {
+        border-bottom: 2px solid #353535;
+        color: #353535 !important;
+      }
+      &.nhsd-o-global-header__logo {
+        &:hover {
+          margin-bottom: 1px;
+        }
+      }
+    }
+  }
+
+  .main-nav__menu {
+    .list {
+      li {
+        margin: 0 1rem;
+        a {
+          color: #218183;
+          font-weight: 700;
+          padding: 5px 20px;
+          text-decoration: none !important;
+          box-shadow: 0 0 0 0px #ffffff !important;
+          &:active {
+            background-color: #87d8dd;
+            box-shadow: none;
+            color: #353535;
+          }
+        }
+      }
+    }
+  }
+}

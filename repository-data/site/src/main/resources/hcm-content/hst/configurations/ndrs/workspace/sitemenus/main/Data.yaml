@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/main/Data:
+  .meta:order-before: About
+  hst:referencesitemapitem: data
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

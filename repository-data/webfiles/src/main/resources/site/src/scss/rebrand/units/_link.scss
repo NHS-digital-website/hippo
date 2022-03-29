@@ -1,0 +1,116 @@
+@import "../components/settings/_colours.scss";
+@import "../../environment/tools/mixins/addons";
+@import "../../environment/tools/mixins/custom";
+
+a:hover {
+  background: #87d8dd !important;
+  border: none;
+  color: #353535 !important;
+  outline: none !important;
+}
+a:active {
+  background: #87d8dd !important;
+}
+a:focus {
+  background: #87d8dd !important;
+  box-shadow: 0 0 0 4px #87d8dd !important;
+  color: #353535 !important;
+  outline: 0 !important;
+}
+.grid-wrapper--article {
+  a {
+    text-decoration: underline;
+  }
+}
+.nhsd-t-grid {
+  a {
+    @include no-tap-highlight;
+    // allow inline links to continue the
+    // yellow background decoration.
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    &.nhsd-a-link {
+      &:link {
+        color: #218183;
+      }
+    }
+    &:link {
+      color: #218183;
+    }
+
+    &:visited {
+      color: #353535;
+    }
+
+    &:hover {
+      background: transparent;
+      box-shadow: 0 0 0 4px #000;
+      outline: 1px solid #000;
+      //         color: #353535 !important;
+      text-decoration: none;
+    }
+
+    &:active {
+      background: $yellow-link-active;
+      box-shadow: 0 0 0 4px $yellow-link-active;
+      color: $link-active-colour-nhs;
+    }
+
+    &:focus {
+      background: $yellow;
+      box-shadow: 0 0 0 4px #87d8dd;
+      color: $link-hover-colour-nhs;
+      outline: 0;
+    }
+  }
+
+  a.black-link {
+    &:link {
+      color: $col-16;
+    }
+
+    &:visited {
+      color: $col-16;
+    }
+  }
+
+  .link--reverse-polarity {
+    @include link-reverse-polarity;
+  }
+
+  .white-links {
+    a {
+      text-decoration: none;
+
+      &:link,
+      &:visited,
+      &:hover,
+      &:focus {
+        color: $col-septenary;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: #87d8dd;
+      }
+
+      &:active {
+        color: $link-active-colour-nhs;
+      }
+      &:focus {
+        color: $link-hover-colour-nhs;
+        outline: 3px solid $focus-colour;
+      }
+    }
+  }
+
+  .white-links--secondary {
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

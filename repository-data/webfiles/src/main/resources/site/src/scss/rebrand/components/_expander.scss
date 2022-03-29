@@ -1,0 +1,145 @@
+.grid-row {
+  .expander {
+    .details-body {
+      tr {
+        &:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+      }
+      th,
+      td {
+        background: #ffffff;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+      }
+
+      th {
+        background: #f0f4f5;
+      }
+
+      td {
+        background: transparent;
+        a {
+          &:hover {
+            color: #353535;
+          }
+        }
+      }
+      .notes-for-editors {
+        margin-bottom: 1em;
+      }
+    }
+
+    .no-details & {
+      details:not([open]) {
+        .details-body {
+          display: none;
+        }
+      }
+    }
+
+    &.expander-most {
+      details {
+        background-color: #ffffff;
+        summary {
+          font-size: 18px;
+          display: block;
+          padding: 24px;
+          background-color: #f0f4f5;
+          &:after {
+            display: none;
+          }
+
+          &:focus {
+            outline: none;
+          }
+
+          &:hover {
+            outline: 3px solid #268183;
+            background-color: #effbfc;
+          }
+
+          &::-webkit-details-marker {
+            display: none;
+          }
+
+          &::marker {
+            display: none;
+          }
+
+          span {
+            background-repeat: no-repeat;
+            background-position: 0 center;
+            background-image: url("../images/icon/expander-plus-icon-ndrs.svg") !important;
+            padding: 8px 8px 8px 38px;
+            color: #218183;
+            font-weight: 700;
+          }
+        }
+
+        &[open] {
+          summary {
+            span {
+              background-image: url("../images/icon/expander-minus-icon-ndrs.svg") !important;
+            }
+          }
+        }
+
+        .details-body {
+          padding: 0;
+        }
+      }
+    }
+
+    &.expander-some {
+      padding: 0 2px 0 0;
+
+      details {
+        summary {
+          color: #218183;
+          border-bottom: solid 1px #d8dde0;
+
+          span {
+            color: #218183;
+            font-weight: 700;
+          }
+
+          &:focus {
+            outline: none;
+          }
+
+          &:hover {
+            color: #353535;
+            outline: 3px solid #87d8dd;
+            background-color: #87d8dd;
+          }
+
+          &::before {
+            content: "► ";
+          }
+
+          &::-webkit-details-marker {
+            display: none;
+          }
+
+          &::marker {
+            display: none;
+          }
+          &:first-of-type {
+            list-style-type: none;
+          }
+        }
+
+        &[open] summary::before {
+          content: "▼ ";
+        }
+
+        .details-body {
+          border-left: 4px solid;
+          margin-top: 3px;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
