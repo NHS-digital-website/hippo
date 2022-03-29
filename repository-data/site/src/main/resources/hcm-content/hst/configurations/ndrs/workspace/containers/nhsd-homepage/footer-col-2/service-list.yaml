@@ -1,0 +1,8 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/footer-col-2/service-list:
+  hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListComponent
+  hst:iconpath: images/catalog/component-products-30x30.png
+  hst:label: Service List
+  hst:template: service-list
+  hst:xtype: HST.Item
+  jcr:primaryType: hst:containeritemcomponent

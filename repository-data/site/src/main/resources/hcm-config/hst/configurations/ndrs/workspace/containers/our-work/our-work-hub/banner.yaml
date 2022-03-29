@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/our-work/our-work-hub/banner:
+      .meta:residual-child-node-category: content
+      hippo:identifier: 0f8e85b5-b3dd-48db-a6aa-10cbe0237f66
+      hst:label: Banner
+      hst:lastmodified: 2022-03-29T21:46:17.778Z
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent

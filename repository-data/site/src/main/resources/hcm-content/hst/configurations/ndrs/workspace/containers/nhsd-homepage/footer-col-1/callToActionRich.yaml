@@ -1,0 +1,15 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/nhsd-homepage/footer-col-1/callToActionRich:
+  hst:componentclassname: uk.nhs.digital.common.components.CallToActionComponent
+  hst:label: Call To Action
+  hst:parameternames:
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - document
+  - org.hippoecm.hst.core.component.template
+  hst:parametervalues:
+  - 'off'
+  - cta/cta---right
+  - webfile:/freemarker/common/callToAction/emphasis-box-red.ftl
+  hst:template: callToAction
+  hst:xtype: HST.Item
+  jcr:primaryType: hst:containeritemcomponent

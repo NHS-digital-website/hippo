@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/working-for-us:
+      /main:
+        /banner:
+          hst:referencecomponent: working-for-us/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: working-for-us/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: ndrs-hub-page
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

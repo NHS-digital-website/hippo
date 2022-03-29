@@ -3,35 +3,178 @@ definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:workspace:
       /hst:containers:
+        /data:
+          /data-outputs:
+            jcr:primaryType: hst:containercomponentfolder
+          /data-sets:
+            jcr:primaryType: hst:containercomponentfolder
+          /data-stories:
+            jcr:primaryType: hst:containercomponentfolder
+          /ndrs-data-hub:
+            jcr:primaryType: hst:containercomponentfolder
+          jcr:primaryType: hst:containercomponentfolder
         /homepage:
+          /footer-col-1:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 263939fd-a23b-4019-a970-216f426558da
+            hst:lastmodified: 2022-02-04T20:03:42.355Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
           /homepagecontainer1:
             .meta:residual-child-node-category: content
             hippo:identifier: b3faa2cf-d767-4b94-a2ca-ca038b46bd80
-            hst:label: Container1
+            hst:label: HomepageContainer1
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /homepagecontainer2:
             .meta:residual-child-node-category: content
             hippo:identifier: c4262d17-8685-417e-b072-d021fc1d58bd
-            hst:label: Container2
+            hst:label: HomepageContainer2
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /homepagecontainer3:
             .meta:residual-child-node-category: content
             hippo:identifier: c8ab895b-7df7-4217-b187-934fb6158878
-            hst:label: Container3
+            hst:label: HomepageContainer3
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /homepagecontainer4:
             .meta:residual-child-node-category: content
             hippo:identifier: 885c3ad5-d875-44d2-b4af-575b64ce5882
-            hst:label: Container4
+            hst:label: HomepageContainer4
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           /homepagecontainer5:
             .meta:residual-child-node-category: content
             hippo:identifier: 8605de6a-1699-4aa3-b9b6-0548ec445cd6
-            hst:label: Container5
+            hst:label: HomepageContainer5
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
+        /ndrs-about-us-hub:
+          /banner:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 3b08858e-f834-406d-b749-6257a6a36246
+            hst:label: Banner
+            hst:lastmodified: 2022-03-29T21:23:40.194Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /main:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 00027994-2130-4d54-ad4d-bd63a6915f8b
+            hst:label: Main
+            hst:lastmodified: 2022-03-29T21:44:14.892Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
+        /nhsd-homepage:
+          /banner:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 4297e760-cfc9-4e08-b297-af948e252111
+            hst:label: Banner
+            hst:lastmodified: 2022-03-29T21:23:40.194Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /footer-col-1:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 263939fd-a23b-4019-a970-216f426558da
+            hst:lastmodified: 2022-02-04T20:03:42.355Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /footer-col-2:
+            .meta:residual-child-node-category: content
+            hippo:identifier: ecf7ca31-c5fb-41e3-bcd8-a77d5e78d29d
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /footer-col-3:
+            .meta:residual-child-node-category: content
+            hippo:identifier: cf3f214d-69aa-4988-a163-13553f5f22ed
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /footer-col-4:
+            .meta:residual-child-node-category: content
+            hippo:identifier: d98489ab-caf8-4eae-94dc-39d5c95281de
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /main:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 40488be5-7431-490c-81d6-3358b8f89693
+            hst:lastmodified: 2022-03-29T21:44:14.892Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
+        /our-work:
+          /ncardrs-partnerships:
+            jcr:primaryType: hst:containercomponentfolder
+          /ncardrs-work-programme:
+            jcr:primaryType: hst:containercomponentfolder
+          /ncras-partnerships:
+            jcr:primaryType: hst:containercomponentfolder
+          /ncras-work-programme:
+            jcr:primaryType: hst:containercomponentfolder
+          /our-work-hub:
+            jcr:primaryType: hst:containercomponentfolder
+          jcr:primaryType: hst:containercomponentfolder
+        /patients:
+          /banner:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 1d933641-1c6d-4beb-a844-39dd8d2de473
+            hst:label: Banner
+            hst:lastmodified: 2022-02-24T17:01:20.231Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /main:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 949df42a-684a-4d27-9931-e20cc53e61e5
+            hst:label: Main
+            hst:lastmodified: 2022-03-29T21:46:17.778Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
+        /rigth-and-privacy:
+          /banner:
+            .meta:residual-child-node-category: content
+            hippo:identifier: a48a8d5c-b5e6-4f0f-bc8f-cbfaa391e34d
+            hst:label: Banner
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /main:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 2121a72b-fe03-49ed-9c42-52e2fce965d4
+            hst:label: Main
+            hst:lastmodified: 2022-03-01T16:14:36.759Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
+        /terms:
+          /banner:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 3b08858e-f834-406d-b749-6257a6a36246
+            hst:label: Banner
+            hst:lastmodified: 2022-03-29T21:23:40.194Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /main:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 00027994-2130-4d54-ad4d-bd63a6915f8b
+            hst:label: Main
+            hst:lastmodified: 2022-03-29T21:44:14.892Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
+        /working-for-us:
+          /banner:
+            .meta:residual-child-node-category: content
+            hippo:identifier: d13c810d-7c0e-4027-ac72-21ee29fff56d
+            hst:label: Banner
+            hst:lastmodified: 2022-03-29T21:36:41.200Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /main:
+            .meta:residual-child-node-category: content
+            hippo:identifier: ca271a6f-a389-4057-8aa4-267e0c44a593
+            hst:label: Main
+            hst:lastmodified: 2022-03-29T21:46:17.778Z
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           jcr:primaryType: hst:containercomponentfolder
@@ -39,11 +182,11 @@ definitions:
       /hst:sitemenus:
         /footer:
           .meta:residual-child-node-category: content
-          hst:lastmodified: 2021-11-11T16:01:44.972Z
+          hst:lastmodified: 2022-03-29T21:37:30.847Z
           jcr:primaryType: hst:sitemenu
         /main:
           .meta:residual-child-node-category: content
-          hst:lastmodified: 2020-04-23T15:25:56.929Z
+          hst:lastmodified: 2022-03-02T11:23:42.820Z
           jcr:primaryType: hst:sitemenu
         jcr:primaryType: hst:sitemenus
       jcr:primaryType: hst:workspace

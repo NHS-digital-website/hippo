@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/data/data-stories/main:
+      .meta:residual-child-node-category: content
+      hippo:identifier: 2121a72b-fe03-49ed-9c42-52e2fce965d4
+      hst:label: Main
+      hst:lastmodified: 2022-03-29T21:46:17.778Z
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent
