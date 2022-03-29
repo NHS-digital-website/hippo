@@ -41,9 +41,7 @@
     <#if hstRequestContext.getAttribute("headerPresent")?if_exists>
         <#assign headingLevel = 2/>
     </#if>
-    <#assign heroOptions += {
-"headingLevel": headingLevel
-}/>
+    <#assign heroOptions += {"headingLevel": headingLevel}/>
 
     <#if document.internal?has_content || document.external?has_content || document.link?has_content>
         <#if document.internal?has_content>
@@ -60,38 +58,28 @@
         <#if linkLabel?has_content>
             <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
             <#assign button = {
-"text": linkLabel,
-"src": link,
-"srText": document.external?has_content?then(srOnlyLinkText, '')
-}/>
-            <#assign heroOptions += {
-"buttons": [button]
-}/>
+                "text": linkLabel,
+                "src": link,
+                "srText": document.external?has_content?then(srOnlyLinkText, '')
+            }/>
+            <#assign heroOptions += {"buttons": [button]}/>
         </#if>
     </#if>
 
     <#if document.videoUri?has_content>
-        <#assign heroOptions += {
-"video": "${document.videoUri}&rel=0&enablejsapi=1"
-}/>
+        <#assign heroOptions += { "video": "${document.videoUri}&rel=0&enablejsapi=1" }/>
     </#if>
 
     <#if document.quote?has_content>
-        <#assign heroOptions += {
-"quote": "${document.quote}"
-}/>
+        <#assign heroOptions += {"quote": "${document.quote}"}/>
     </#if>
 
     <#if displayColourBar?has_content>
-        <#assign heroOptions += {
-"colourBar": displayColourBar
-}/>
+        <#assign heroOptions += {"colourBar": displayColourBar}/>
     </#if>
 
     <#if colour?has_content>
-        <#assign heroOptions += {
-"colour": colour
-}/>
+        <#assign heroOptions += {"colour": colour}/>
     </#if>
 
     <#assign mirrored = false />
