@@ -14,7 +14,7 @@
     <!-- Generic meta tags -->
     <@hst.headContributions categoryIncludes="intranetMeta" xhtml=true/>
 
-    <#assign toolkitVersion = 'v0.130.0' />
+    <#assign toolkitVersion = 'v0.139.0' />
 
     <#-- Preload fonts to improve performance -->
     <link href="https://design-system.digital.nhs.uk/" rel="preconnect" crossorigin>
@@ -37,6 +37,8 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
+    <@hst.setBundle basename="design-system"/>
+    <@fmt.message key="design-system.url" var="designSystemUrl" />
     <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/stylesheets/nhsd-frontend.css" />
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-edge-cases.css" />" />
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-print.css"/>" media="print" type="text/css"/>

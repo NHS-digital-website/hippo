@@ -21,5 +21,11 @@ export default function debounce(func, wait, immediate) {
         timeout = setTimeout(later, wait);
 
         if (callNow) func.apply(context, args);
+
+        return {
+            cancel: () => {
+                clearTimeout(timeout);
+            }
+        }
     };
 };

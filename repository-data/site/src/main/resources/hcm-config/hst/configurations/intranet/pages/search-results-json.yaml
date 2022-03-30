@@ -1,14 +1,16 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/intranet/hst:pages/search-results:
+    /hst:hst/hst:configurations/intranet/hst:pages/search-results-json:
       /main:
         hst:componentclassname: uk.nhs.digital.intranet.components.SearchPageComponent
         hst:parameternames:
         - peopleApiLimit
+        - jsonResponse
         hst:parametervalues:
         - '200'
-        hst:template: search-results
+        - 'true'
+        hst:template: search-results-api
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/master
+      hst:referencecomponent: hst:abstractpages/json-response
       jcr:primaryType: hst:component

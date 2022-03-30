@@ -4,8 +4,10 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNull;
 
 import org.junit.Test;
+import org.mockito.Mock;
 import uk.nhs.digital.intranet.json.User;
 import uk.nhs.digital.intranet.model.Person;
+import uk.nhs.digital.intranet.provider.GraphProvider;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,6 +15,8 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class PersonFactoryTest {
+    @Mock
+    private GraphProvider graphProvider;
 
     private static final String DEPT = "IT";
     private static final String BUSINESS_PHONE = "07777777777";
@@ -23,7 +27,7 @@ public class PersonFactoryTest {
     private static final String OFFICE = "UK";
     private static final String USER_PRINCIPAL_NAME_FORMAT = "%s.user.principal";
     private static final String PHOTO = "base-64-photo";
-    private final PersonFactory personFactory = new PersonFactory();
+    private final PersonFactory personFactory = new PersonFactory(graphProvider);
 
     @Test
     public void createsPersonFromUserAndPhoto() {
@@ -61,9 +65,9 @@ public class PersonFactoryTest {
 
     @Test
     public void createsPersonListFromUserList() {
-        final User user1 = getUser("user1", null);
-        final User user2 = getUser("user2", null);
-        final User user3 = getUser("user3", null);
+        final User user1 = getUser("user1", "user1@email.com");
+        final User user2 = getUser("user2", "user2@email.com");
+        final User user3 = getUser("user3", "user3@email.com");
         final List<User> users = Arrays.asList(user1, user2, user3);
 
         final List<Person> persons = personFactory.createPersons(users);
@@ -73,11 +77,11 @@ public class PersonFactoryTest {
             assertEquals(users.get(index).getDisplayName(), persons.get(index).getDisplayName());
             assertEquals(users.get(index).getDepartment(), persons.get(index).getDepartment());
             assertEquals(users.get(index).getId(), persons.get(index).getId());
-            assertNull(persons.get(index).getBusinessPhones());
-            assertNull(persons.get(index).getEmail());
-            assertNull(persons.get(index).getPhoneNumber());
-            assertNull(persons.get(index).getJobRole());
-            assertNull(persons.get(index).getOfficeLocation());
+            assertEquals(users.get(index).getBusinessPhones(), persons.get(index).getBusinessPhones());
+            assertEquals(users.get(index).getMail(), persons.get(index).getEmail());
+            assertEquals(users.get(index).getMobilePhone(), persons.get(index).getPhoneNumber());
+            assertEquals(users.get(index).getJobTitle(), persons.get(index).getJobRole());
+            assertEquals(users.get(index).getOfficeLocation(), persons.get(index).getOfficeLocation());
             assertNull(persons.get(index).getPhoto());
         });
     }
