@@ -12,8 +12,11 @@
 <#macro downloadSection section mainHeadingLevel=2 orgPrompt=false>
     <#assign hasLinks = section.items?? && section.items?size gt 0 />
 
-    <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')} nhsd-!t-margin-bottom-6">
-
+    <#if section.heading?has_content>
+        <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')} nhsd-!t-margin-bottom-6">
+    <#else>
+        <div class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')} nhsd-!t-margin-bottom-6">
+    </#if>
         <#if section.headingLevel == 'Main heading'>
             <h2 class="nhsd-t-heading-xl" data-uipath="website.contentblock.download.title">${section.heading}</h2>
         <#else>
