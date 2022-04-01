@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-2885 Remove Empty Chart Tags:
+      hipposys:batchsize: 10
+      hipposys:description: Removes empty tags from the chart section.
+      hipposys:dryrun: true
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:path: /
+      hipposys:script:
+        resource: /configuration/update/DW-2885-Remove-Empty-Chart-Img.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
