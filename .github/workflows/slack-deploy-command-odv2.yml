@@ -218,6 +218,10 @@ jobs:
               C0323S3FW4T: {
                 "name": "tst",
                 "id": "02a04095-4e56-4893-8d9d-64a0ef3699e9"
+              },
+              C03AADPJJRY: {
+                "name": "training",
+                "id": "374d6efc-bc9f-476c-bd9f-a3b1653d845a"
               }
             }
             if(environments[`${process.env.CHANNEL_ID}`] === undefined) {
