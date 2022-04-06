@@ -147,14 +147,6 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /SocialMediaBar:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:SocialMediaBar
-            hipposysedit:primary: false
-            hipposysedit:type: website:SocialMediaBar
-            jcr:primaryType: hipposysedit:field
           /awards:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true

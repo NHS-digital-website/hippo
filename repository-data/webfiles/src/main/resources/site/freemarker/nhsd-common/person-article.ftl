@@ -75,10 +75,6 @@
 						</#list>
 					</#if>
 
-					<#if document.socialmedias?has_content>
-						<@socialMediaBar 1/>
-					</#if>
-
                   	<#if document.biographies?has_content>
                     	<@biography document.biographies idsuffix/>
                   	</#if>

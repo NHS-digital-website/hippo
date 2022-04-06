@@ -59,10 +59,12 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses="nhsd-o-hero--image-accented nhsd-o-hero--image-accented-mirrored">
     </#if>
 
-    <#if hst.isBeanType(options.caption, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
-        <@hst.html var="htmlCaption" hippohtml=options.caption contentRewriter=brContentRewriter />
-    <#else>
-        <#assign htmlCaption = options.caption/>
+    <#if options.caption?has_content>
+        <#if hst.isBeanType(options.caption, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
+            <@hst.html var="htmlCaption" hippohtml=options.caption contentRewriter=brContentRewriter />
+        <#else>
+            <#assign htmlCaption = options.caption/>
+        </#if>
     </#if>
 
     <#if options.colour?has_content>
