@@ -1,4 +1,4 @@
-package uk.nhs.digital.common.earlyaccess;
+package uk.nhs.digital.common.earlyaccesskey;
 
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.repository.api.HippoNode;
@@ -22,6 +22,7 @@ public class ProcessSearch {
     private static final String CORPORATE_SITE_ROOT_PATH = "/content/documents/corporate-website";
     private static final String GENERAL_DOC_TYPE = "website:general";
     private static final String SERVICE_DOC_TYPE = "website:service";
+    private static final String PUBLISHED_WORK_DOC_TYPE = "website:publishedwork";
 
     /**
      * Checks if pre-release key is active and if so, hides the content from the search.
@@ -37,7 +38,10 @@ public class ProcessSearch {
                 while (nodeIterator.hasNext()) {
                     Node node = nodeIterator.nextNode();
                     if (node.getPath().contains(CORPORATE_SITE_ROOT_PATH)
-                        && node.getPrimaryNodeType().getName().equals(GENERAL_DOC_TYPE) || node.getPrimaryNodeType().getName().equals(SERVICE_DOC_TYPE)) {
+                        && node.getPrimaryNodeType().getName().matches(""
+                        + GENERAL_DOC_TYPE + "|" + ""
+                        + SERVICE_DOC_TYPE + "|" + ""
+                        + PUBLISHED_WORK_DOC_TYPE + "")) {
                         if (StringUtils.isNotBlank(node.getProperty(EARLY_ACCESS_KEY).getString())) {
                             LOGGER.debug("early access key is set, hiding document from search");
                             node.setProperty(SEARCHABLE_FLAG, false);

@@ -4,7 +4,7 @@ import org.onehippo.cms7.services.eventbus.HippoEventListenerRegistry;
 import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.onehippo.repository.modules.DaemonModule;
-import uk.nhs.digital.common.earlyaccess.ProcessSearch;
+import uk.nhs.digital.common.earlyaccesskey.ProcessSearch;
 
 import javax.jcr.Session;
 

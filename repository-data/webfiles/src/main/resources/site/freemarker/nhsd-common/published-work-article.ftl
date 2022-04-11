@@ -33,6 +33,8 @@
 <#assign button = "" />
 <#assign buttonText = "" />
 
+<#assign earlyAccessKey = hstRequest.request.getParameter("key")!"">
+
 <#-- Fall back to Blue Banner if no publication style is defined -->
 <#if document.publicationStyle??>
     <#assign publicationStyle = document.publicationStyle />
@@ -263,7 +265,7 @@
                                     <li class="">
                                 </#if>
                                 <a class="nhsd-a-link"
-                                   href="${chapter.link}"
+                                   href="${chapter.link}?key=${earlyAccessKey}"
                                    onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                    title="${chapter.title}"
                                 >
@@ -281,7 +283,7 @@
                                         <li class="">
                                     </#if>
                                     <a class="nhsd-a-link"
-                                       href="${chapter.link}"
+                                       href="${chapter.link}?key=${earlyAccessKey}"
                                        onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                        title="${chapter.title}"
                                     >

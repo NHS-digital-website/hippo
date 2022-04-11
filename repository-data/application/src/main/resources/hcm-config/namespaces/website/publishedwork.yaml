@@ -299,6 +299,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /earlyaccesskey:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '60'
+              size: '60'
+            caption: Access Control
+            field: earlyaccesskey
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: uk.nhs.digital.common.earlyaccesskey.EarlyAccessKeyPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -353,6 +364,14 @@ definitions:
             hipposysedit:type: Date
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /earlyaccesskey:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:earlyaccesskey
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /friendlyurls:
             hipposysedit:mandatory: false
@@ -629,6 +648,7 @@ definitions:
           website:button: jumptocontent
           website:coverageEnd: 0001-01-01T12:00:00Z
           website:coverageStart: 0001-01-01T12:00:00Z
+          website:earlyaccesskey: ''
           website:geographicCoverage: []
           website:geographicGranularity: []
           website:highlightsTitle: Highlights

@@ -34,6 +34,8 @@
 
 <#assign renderNav = sectionTitlesFound gt 1 />
 
+<#assign earlyAccessKey = hstRequest.request.getParameter("key")!"">
+
 <#if hasChapters>
     <#assign documents = [] />
 
@@ -175,7 +177,7 @@
                                     <li class="">
                                 </#if>
                                 <a class="nhsd-a-link"
-                                   href="${chapter.link}"
+                                   href="${chapter.link}?key=${earlyAccessKey}"
                                    onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                    title="${chapter.title}"
                                 >
@@ -193,7 +195,7 @@
                                         <li class="">
                                     </#if>
                                     <a class="nhsd-a-link"
-                                       href="${chapter.link}"
+                                       href="${chapter.link}?key=${earlyAccessKey}"
                                        onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                        title="${chapter.title}"
                                     >

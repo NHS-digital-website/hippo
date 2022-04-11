@@ -65,7 +65,7 @@ definitions:
             field: earlyaccesskey
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: uk.nhs.digital.common.earlyaccess.EarlyAccessKeyPlugin
+            plugin.class: uk.nhs.digital.common.earlyaccesskey.EarlyAccessKeyPlugin
             wicket.id: ${cluster.id}.left.item
           /publicly_accessible:
             /cluster.options:
