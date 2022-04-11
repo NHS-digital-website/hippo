@@ -274,7 +274,7 @@ definitions:
             field: earlyaccesskey
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: uk.nhs.digital.common.earlyaccess.EarlyAccessKeyPlugin
+            plugin.class: uk.nhs.digital.common.earlyaccesskey.EarlyAccessKeyPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:

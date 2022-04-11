@@ -122,4 +122,9 @@ public class Publishedwork extends CommonFieldsBean implements Paginated {
     public Pagination paginate() {
         return new Pagination(null, getLinks().stream().findFirst().map(i -> new IndexPageImpl(i.getDisplayName(), i)).orElse(null));
     }
+
+    public String getEarlyAccessKey() {
+        return getSingleProperty("website:earlyaccesskey");
+    }
+
 }

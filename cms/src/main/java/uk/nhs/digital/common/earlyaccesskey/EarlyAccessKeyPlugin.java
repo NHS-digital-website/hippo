@@ -1,4 +1,4 @@
-package uk.nhs.digital.common.earlyaccess;
+package uk.nhs.digital.common.earlyaccesskey;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.wicket.Component;
