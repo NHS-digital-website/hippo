@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hst:platform/hst:hosts/training-ovd2/io:
+      jcr:primaryType: hst:virtualhost
+      hst:scheme: https
+      hst:showcontextpath: true
+      hst:showport: false
+      /nhsd:
+        jcr:primaryType: hst:virtualhost
+        /cms-training:
+          jcr:primaryType: hst:virtualhost
+          /hst:root:
+            jcr:primaryType: hst:mount
+            hst:ismapped: false
+            hst:namedpipeline: WebApplicationInvokingPipeline

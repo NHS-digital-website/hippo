@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hst:platform/hst:hosts/training-ovd2/cloud:
+      jcr:primaryType: hst:virtualhost
+      hst:scheme: https
+      hst:showcontextpath: true
+      hst:showport: false
+      /bloomreach:
+        jcr:primaryType: hst:virtualhost
+        /nhsdigital:
+          jcr:primaryType: hst:virtualhost
+          /training:
+            jcr:primaryType: hst:virtualhost
+            /hst:root:
+              jcr:primaryType: hst:mount
+              hst:ismapped: false
+              hst:namedpipeline: WebApplicationInvokingPipeline
