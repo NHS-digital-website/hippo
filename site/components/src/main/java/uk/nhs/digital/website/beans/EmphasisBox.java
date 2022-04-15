@@ -6,9 +6,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.svg.SvgProvider;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE)
@@ -51,6 +53,11 @@ public class EmphasisBox extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:image")
     public CorporateWebsiteImageset getImage() {
         return getLinkedBean("website:image", CorporateWebsiteImageset.class);
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getImage();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 
 }

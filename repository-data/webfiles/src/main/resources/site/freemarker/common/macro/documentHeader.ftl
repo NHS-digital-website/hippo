@@ -3,17 +3,20 @@
 <#include "../../include/imports.ftl">
 <#include "headerMetadata.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro documentHeader document doctype header_icon_arg='' title="" summary="" topics="" hasSchemaOrg=true metadata={} downloadPDF=false>
 
     <#assign custom_title = title />
     <!-- checking whether simulating doc in order to avoid console errors from NewsHub and EventHub docs -->
-    <#if ! custom_title?has_content && document != "simulating_doc"  >
+    <#if !custom_title?has_content && document != "simulating_doc"  >
       <#assign custom_title = document.title />
     </#if>
 
     <#assign custom_summary = summary />
     <#assign hasDocumentSummary = false />
-    <#if ! custom_summary?has_content && document != "simulating_doc"  >
+    <#if !custom_summary?has_content && document != "simulating_doc"  >
       <#assign hasDocumentSummary = document.summary?? && document.summary.content?has_content />
       <#if hasDocumentSummary >
         <#assign custom_summary = document.summary />
@@ -24,12 +27,12 @@
     <#assign hasPageIcon = document != "simulating_doc" && document.pageIcon?? && document.pageIcon?has_content />
 
     <#assign headerIcon = header_icon_arg>
-    <#if ! header_icon_arg?has_content>
+    <#if !header_icon_arg?has_content>
       <#if hasBannerControls && document.bannercontrols.icon?has_content>
         <#assign headerIcon = document.bannercontrols.icon />
       <#elseif hasPageIcon>
         <#assign headerIcon = document.pageIcon />
-      </#if>
+     </#if>
     </#if>
 
     <#assign hasFinalPageIcon = headerIcon?has_content />
@@ -118,11 +121,13 @@
                                   <#if image?ends_with("svg")>
                                       <#assign colour = 'ffcd60'>
                                       <#if hasBannerControls && document.bannercontrols.iconcolor?has_content>
-                                        <#assign colour = document.bannercontrols.iconcolor?replace("#","")>
+                                          <#assign colour = document.bannercontrols.iconcolor?replace("#","")>
                                       </#if>
-                                      <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                                      <#assign imageUrl += "?colour=${colour}" />
-                                      <img src="${imageUrl}" alt="${custom_title}" aria-hidden="true" />
+                                      <#if custom_title?? && custom_title?has_content>
+                                          <img src="data:image/svg+xml;base64,${base64(colour(document.bannercontrols.svgXmlFromRepository, colour))}" alt="${custom_title}" aria-hidden="true" />
+                                      <#else>
+                                          <img src="data:image/svg+xml;base64,${base64(colour(document.bannercontrols.svgXmlFromRepository, colour))}" aria-hidden="true" />
+                                      </#if>
                                   <#else>
                                       <img src="${image}" alt="${custom_title}" aria-hidden="true" />
                                   </#if>

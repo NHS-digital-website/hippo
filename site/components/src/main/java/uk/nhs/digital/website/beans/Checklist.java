@@ -6,9 +6,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.svg.SvgProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,11 @@ public class Checklist extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:customicon")
     public CorporateWebsiteImageset getCustomicon() {
         return getLinkedBean("website:customicon", CorporateWebsiteImageset.class);
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getCustomicon();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 
     @JsonProperty("listentries")

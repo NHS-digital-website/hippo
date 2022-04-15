@@ -4,6 +4,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.svg.SvgProvider;
 
 import java.util.List;
 
@@ -23,6 +24,11 @@ public class VisualHub extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:icon")
     public CorporateWebsiteImageset getIcon() {
         return getLinkedBean("website:icon", CorporateWebsiteImageset.class);
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getIcon();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 
     @HippoEssentialsGenerated(internalName = "website:primarysectionvisualhub")

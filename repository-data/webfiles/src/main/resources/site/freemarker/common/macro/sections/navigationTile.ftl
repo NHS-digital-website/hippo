@@ -1,5 +1,8 @@
 <#ftl output_format="HTML">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.NavigationTile" -->
 
 <#macro linkDestination link>
@@ -22,7 +25,7 @@
         <#if (tile.image.original)??>
             <@hst.link hippobean=tile.image.original fullyQualified=true var="imageLink" />
             <#if (imageLink?ends_with("svg") && imageType == 'icon')>
-                <img src="${imageLink?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8"
+                <img src="data:image/svg+xml;base64,${base64(colour(tile.svgXmlFromRepository, "005eb8"))}"
                      alt="${tile.title}"
                      class="navigation-tile__image navigation-tile__image--icon"/>
             <#else>

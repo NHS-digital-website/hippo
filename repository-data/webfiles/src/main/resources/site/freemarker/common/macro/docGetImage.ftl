@@ -2,6 +2,7 @@
 
 <#function getImageData doc>
     <#local image = '' />
+    <#local icon = '' />
     <#local alttext = '' />
 
     <#if (doc.leadimagesection)?has_content && (doc.leadimagesection.leadImage)?has_content>
