@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "./iconGenerator.ftl">
+<#include "../../common/macro/svgMacro.ftl">
 
 <#macro navigationBlockSmall item id colourVariant isDarkMolecule isYellowLink hasHeading>
     <#assign hasTitle = item.title?has_content />
@@ -30,23 +31,22 @@
                 </#if>
                 <div class="nhsd-a-icon nhsd-a-icon--size-xxl nhsd-m-card__icon" aria-hidden="true">
                     <@hst.link hippobean=item.icon var="image"/>
-                    <#assign imgDescription = item.icon.description />
 
                     <#if hasImage>
-                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">
-                            <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                            <#if image?ends_with("svg")>
-                                <#assign lightTxt = "FFFFFF" />
-                                <#assign darkTxt = "231F20" />
-                                <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
+                        <#if item.icon.description?? && item.icon.description?has_content>
+                            <#assign imgDescription = item.icon.description />
+                            <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
+                        </#if>
 
-                                <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                                <#assign imageUrl += "?colour=${colour}" />
-                                <image x="4" y="4" width="8" height="8" href="${imageUrl}"/>
+                        <#if image?ends_with("svg")>
+                            <#if altText?? && altText?has_content>
+                                <@svgWithAltText svgString=item.svgXmlFromRepository altText=altText/>
                             <#else>
-                                <image x="4" y="4" width="8" height="8" href="${image}"/>
+                                <@svgWithoutAltText svgString=item.svgXmlFromRepository/>
                             </#if>
-                        </svg>
+                        <#else>
+                            <img src="${image}" alt="${altText}">
+                        </#if>
                     <#else>
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">
                             <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
