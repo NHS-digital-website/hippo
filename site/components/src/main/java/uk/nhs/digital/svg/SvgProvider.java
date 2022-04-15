@@ -7,11 +7,11 @@ import org.onehippo.repository.util.JcrConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 public class SvgProvider {
 
@@ -31,7 +31,7 @@ public class SvgProvider {
                 LOG.warn("Could not find Binary data from the SVG section of the document.");
                 return null;
             }
-        } catch (RepositoryException | IOException exception){
+        } catch (RepositoryException | IOException exception) {
             LOG.error("Unknown exception occurred while trying to retrieve SVG from repository.", exception);
             return null;
         }

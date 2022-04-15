@@ -5,9 +5,6 @@ import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.*;
 import uk.nhs.digital.svg.SvgProvider;
 
-import javax.jcr.RepositoryException;
-import java.io.IOException;
-
 @HippoEssentialsGenerated(internalName = "website:calltoaction")
 @Node(jcrType = "website:calltoaction")
 public class Calltoaction extends BaseDocument {

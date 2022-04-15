@@ -1,11 +1,13 @@
 package uk.nhs.digital.svg.colour;
 
-import uk.nhs.digital.svg.SvgProvider;
 
 import static java.text.MessageFormat.format;
 
+import uk.nhs.digital.svg.SvgProvider;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 /**
  * @deprecated
