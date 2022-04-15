@@ -6,9 +6,6 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.svg.SvgProvider;
 
-import java.io.IOException;
-import javax.jcr.RepositoryException;
-
 
 @HippoEssentialsGenerated(internalName = "website:svg")
 @Node(jcrType = "website:svg")
@@ -28,7 +25,7 @@ public class SvgSection extends HippoCompound {
         return getLinkedBean("website:link", CorporateWebsiteImageset.class);
     }
 
-    public String getSvgXmlFromRepository() throws RepositoryException, IOException {
+    public String getSvgXmlFromRepository() {
         HippoBean imageBean = getLink();
         return SvgProvider.getSvgXmlFromBean(imageBean);
     }

@@ -1,7 +1,5 @@
 package uk.nhs.digital.intranet.beans;
 
-import static org.apache.commons.collections.IteratorUtils.toList;
-
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -16,12 +14,15 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import uk.nhs.digital.intranet.enums.SearchResultType;
 import uk.nhs.digital.intranet.model.IntranetSearchResult;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
+import uk.nhs.digital.svg.SvgProvider;
 import uk.nhs.digital.website.beans.BannerControl;
 import uk.nhs.digital.website.beans.PriorityAction;
 import uk.nhs.digital.website.beans.Team;
 
 import java.util.Calendar;
 import java.util.List;
+
+import static org.apache.commons.collections.IteratorUtils.toList;
 
 @Node(jcrType = "intranet:task")
 public class Task extends BaseDocument implements IntranetSearchResult {
@@ -77,7 +78,7 @@ public class Task extends BaseDocument implements IntranetSearchResult {
     }
 
     private <T extends HippoBean> List<T> getRelatedDocuments(String property,
-        Class<T> beanClass) throws HstComponentException, QueryException {
+                                                              Class<T> beanClass) throws HstComponentException, QueryException {
 
         final HstRequestContext context = RequestContextProvider.get();
 
@@ -91,6 +92,11 @@ public class Task extends BaseDocument implements IntranetSearchResult {
     @HippoEssentialsGenerated(internalName = "intranet:linkicon")
     public HippoGalleryImageSet getLinkIcon() {
         return getLinkedBean("intranet:linkicon", HippoGalleryImageSet.class);
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getLinkIcon();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 
     @HippoEssentialsGenerated(internalName = "intranet:icon")

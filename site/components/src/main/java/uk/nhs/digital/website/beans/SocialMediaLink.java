@@ -6,9 +6,6 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.svg.SvgProvider;
 
-import javax.jcr.RepositoryException;
-import java.io.IOException;
-
 @Node(jcrType = "website:socialmedialink")
 public class SocialMediaLink extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:linkname")
@@ -31,7 +28,7 @@ public class SocialMediaLink extends CommonFieldsBean {
         return getLinkedBean("website:linkicon", HippoGalleryImageSet.class);
     }
 
-    public String getSvgXmlFromRepository() throws RepositoryException, IOException {
+    public String getSvgXmlFromRepository() {
         HippoBean imageBean = getLinkIcon();
         return SvgProvider.getSvgXmlFromBean(imageBean);
     }
