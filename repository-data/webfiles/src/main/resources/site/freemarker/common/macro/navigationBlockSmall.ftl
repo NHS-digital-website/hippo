@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "./iconGenerator.ftl">
+<#include "svgMacro.ftl">
 
 <#macro navigationBlockSmall item id colourVariant isDarkMolecule isYellowLink hasHeading>
     <#assign hasTitle = item.title?has_content />
@@ -37,13 +38,11 @@
                                 <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
 
                                 <#if image?ends_with("svg")>
-                                    <#assign lightTxt = "FFFFFF" />
-                                    <#assign darkTxt = "231F20" />
-                                    <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
-
-                                    <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                                    <#assign imageUrl += "?colour=${colour}" />
-                                    <img src="${imageUrl}" alt="${altText}">
+                                    <#if altText?? && altText?has_content>
+                                        <@svgWithAltText svgString=item.svgXmlFromRepository altText=altText/>
+                                    <#else>
+                                        <@svgWithoutAltText svgString=item.svgXmlFromRepository/>
+                                    </#if>
                                 <#else>
                                     <img src="${image}" alt="${altText}">
                                 </#if>
