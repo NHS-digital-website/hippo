@@ -5,6 +5,7 @@ import static java.text.MessageFormat.format;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.svg.ProxyDispatcher;
+import uk.nhs.digital.svg.SvgProvider;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +16,12 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @deprecated
+ * For future SVG usage, this class should not be used. Please upload svg images on the repository.
+ * <p> Use {@link SvgProvider#getSvgXmlFromBean(org.hippoecm.hst.content.beans.standard.HippoBean)} instead.
+ */
+@Deprecated
 public class SvgColourMagicServlet extends ProxyDispatcher {
 
     private static final Logger log = LoggerFactory.getLogger(SvgColourMagicServlet.class);
