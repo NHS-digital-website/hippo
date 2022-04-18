@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hst:platform/hst:hosts/training-odv2:
+      jcr:primaryType: hst:virtualhostgroup
