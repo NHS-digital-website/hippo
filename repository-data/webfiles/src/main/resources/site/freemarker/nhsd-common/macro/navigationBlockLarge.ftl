@@ -23,7 +23,7 @@
         </#if>
         <div class="nhsd-a-box nhsd-a-box--bg-${colVarWithYellowCheck}">
             <div class="nhsd-m-nav-block__content-box">
-                <div class="nhsd-a-icon nhsd-a-icon--size-xxl" aria-hidden="true">
+                <div class="nhsd-a-icon nhsd-a-icon--size-xxxl" aria-hidden="true">
                     <@hst.link hippobean=item.icon var="image"/>
                     <#assign imgDescription = item.icon.description />
 
@@ -37,15 +37,15 @@
 
                                 <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
                                 <#assign imageUrl += "?colour=${colour}" />
-                                <image x="4" y="4" width="8" height="8" href="${imageUrl}"/>
+                                <image x="1" y="1" width="14" height="14" href="${imageUrl}"/>
                             <#else>
-                                <image x="4" y="4" width="8" height="8" href="${image}"/>
+                                <image x="3.5" y="3.5" width="9" height="9" href="${image}"/>
                             </#if>
                         </svg>
                     <#else>
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">
                             <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16"  width="42%" height="42%" x="29%" y="29%">
+                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16" width="66%" height="66%" x="17%" y="17%">
                                 <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
                             </svg>
                         </svg>

@@ -22,22 +22,24 @@
                                 <#if item?index%2 == 1 && (size lte 2 || size%4 == 0 || size%3 == 0)>
                                     <#assign boxModifier = "bg-blue"/>
                                 </#if>
-                                <div class="nhsd-a-box nhsd-a-box--${boxModifier}">
-                                    <div class="nhsd-m-card__content-box">
-                                        <#assign nomimaldate = item.getNominalPublicationDate()/>
-                                        <#if !nomimaldate.isRestricted()>
-                                            <#assign pubdate = nomimaldate.dayOfMonth + " " + nomimaldate.month +" "+ nomimaldate.year?c/>
-                                        </#if>
-                                        <span class="nhsd-m-card__date"><time class="cta__meta" datetime="${pubdate?date?iso_utc}">${pubdate?date}</time></span>
-                                        <h1 class="nhsd-t-heading-s">${item.title}</h1>
-                                    </div>
+                                <div class="nhsd-latest-publications-a-box nhsd-a-box nhsd-a-box--${boxModifier}">
+                                    <div class="nhsd-m-card__content_container">
+                                        <div class="nhsd-m-card__content-box">
+                                            <#assign nomimaldate = item.getNominalPublicationDate()/>
+                                            <#if !nomimaldate.isRestricted()>
+                                                <#assign pubdate = nomimaldate.dayOfMonth + " " + nomimaldate.month +" "+ nomimaldate.year?c/>
+                                            </#if>
+                                            <span class="nhsd-m-card__date"><time class="cta__meta" datetime="${pubdate?date?iso_utc}">${pubdate?date}</time></span>
+                                            <h1 class="nhsd-t-heading-s">${item.title}</h1>
+                                        </div>
 
-                                    <div class="nhsd-m-card__button-box">
-                                        <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow">
-                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                                <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                            </svg>
-                                        </span>
+                                        <div class="nhsd-m-card__button-box">
+                                            <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow">
+                                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                    <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                                </svg>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
