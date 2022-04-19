@@ -24,8 +24,7 @@ public class SvgProvider {
         try {
             if (hasBinaryData(imageTypeSvgBean.getNode())) {
                 LOG.debug("Fetching binary data from {}.", imageTypeSvgBean.getParentBean().getParentBean().getName());
-                InputStream svgBinaryStream = null;
-                svgBinaryStream = imageTypeSvgBean.getNode().getProperty(JcrConstants.JCR_DATA).getBinary().getStream();
+                InputStream svgBinaryStream = imageTypeSvgBean.getNode().getProperty(JcrConstants.JCR_DATA).getBinary().getStream();
                 return IOUtils.toString(svgBinaryStream, StandardCharsets.UTF_8.name());
             } else {
                 LOG.warn("Could not find Binary data from the SVG section of the document.");
