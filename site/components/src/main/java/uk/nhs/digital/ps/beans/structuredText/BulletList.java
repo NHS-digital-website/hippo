@@ -2,20 +2,35 @@ package uk.nhs.digital.ps.beans.structuredText;
 
 import static java.util.stream.Collectors.toList;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class BulletList extends Element {
 
-    protected String rawText;
+    private final String rawText;
+    private final List<String> items;
 
-    protected List<String> items = new ArrayList<>();
-
-    public BulletList(String text) {
+    public BulletList(final String text) {
         super(BulletList.class.getSimpleName());
         this.rawText = text;
-        parse();
+        this.items = splitTheBulletedList(this.rawText);
+    }
+
+    private List<String> splitTheBulletedList(final String rawText) {
+        return Arrays.asList(rawText
+            // Split the bulleted list
+            .split("(?m)^\\s*?[*\\-]")
+        ).stream()
+            // Don't worry about empty elements
+            .filter(s -> !s.isEmpty())
+            // Join the lines in each split
+            .map(s -> s.replaceAll("\n+", " "))
+            // Reduce multiple spaces to one
+            .map(s -> s.replaceAll("\\s+", " "))
+            // Trim the ends
+            .map(s -> s.trim())
+            // And return a list
+            .collect(toList());
     }
 
     public List<String> getItems() {
@@ -24,19 +39,6 @@ public class BulletList extends Element {
 
     public String toString() {
         return rawText;
-    }
-
-    protected void parse() {
-        items = Arrays.asList(rawText
-            .trim()
-            .split("(?m)\n?^ *[*-] +"));
-
-        items = items.stream()
-            // remove empty elements
-            .filter(s -> !s.isEmpty())
-            // remove single new line
-            .map(s -> s.replaceAll("(\\s+\\n+\\s*|\\s*\\n+\\s+)", " "))
-            .collect(toList());
     }
 
     public static boolean match(final String text) {
