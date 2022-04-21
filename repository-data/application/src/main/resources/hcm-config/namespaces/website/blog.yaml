@@ -196,14 +196,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /backstory:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Back story
-            field: backstory
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
+          /backstory: null
           /casestudycategories:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -332,8 +325,6 @@ definitions:
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
           /contactdetails:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:contactdetails
             hipposysedit:primary: false
