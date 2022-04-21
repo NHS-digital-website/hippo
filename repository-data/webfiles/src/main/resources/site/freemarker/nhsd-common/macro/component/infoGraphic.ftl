@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../../include/imports.ftl">
+<#include "../../../common/macro/svgMacro.ftl">
 
 <#macro infoGraphic graphic>
 
@@ -21,7 +22,11 @@
                 <#if imagePath?ends_with("svg")>
                     <div class="nhsd-m-infographic__icon-box">
                         <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                            <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="" />
+                            <#if altText?? && altText?has_content>
+                                <@svgWithAltText svgString=graphic.svgXmlFromRepository altText=altText/>
+                            <#else>
+                                <@svgWithoutAltText svgString=graphic.svgXmlFromRepository/>
+                            </#if>
                         </span>
                     </div>
                 <#else>

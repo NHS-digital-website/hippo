@@ -1,5 +1,7 @@
 <#ftl output_format="HTML">
 
+<#include "../../../common/macro/svgMacro.ftl">
+
 <#macro checklist section>
 
     <div class="nhsd-m-checklist nhsd-!t-margin-bottom-6">
@@ -39,7 +41,7 @@
                                 <@hst.link hippobean=section.customicon.original fullyQualified=true var="leadImage" />
                                 <span class="nhsd-a-icon nhsd-a-icon--size-xs">
                                     <#if leadImage?ends_with("svg")>
-                                        <img src="${leadImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="Custom image" />
+                                        <@svgWithAltText svgString=section.svgXmlFromRepository altText="Custom image"/>
                                     <#else>
                                         <img src="${leadImage}" alt="Custom image" />
                                     </#if>

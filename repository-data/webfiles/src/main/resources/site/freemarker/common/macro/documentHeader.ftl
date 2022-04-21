@@ -2,6 +2,7 @@
 
 <#include "../../include/imports.ftl">
 <#include "headerMetadata.ftl">
+<#include "../../common/macro/svgMacro.ftl">
 
 <#macro documentHeader document doctype header_icon_arg='' title="" summary="" topics="" hasSchemaOrg=true metadata={} downloadPDF=false>
 
@@ -24,7 +25,7 @@
     <#assign hasPageIcon = document != "simulating_doc" && document.pageIcon?? && document.pageIcon?has_content />
 
     <#assign headerIcon = header_icon_arg>
-    <#if ! header_icon_arg?has_content>
+    <#if !header_icon_arg?has_content>
       <#if hasBannerControls && document.bannercontrols.icon?has_content>
         <#assign headerIcon = document.bannercontrols.icon />
       <#elseif hasPageIcon>
@@ -116,13 +117,11 @@
                                   <#-- ex. Service case - image from HippoGalleryImageSet -->
                                   <@hst.link hippobean=headerIcon.original fullyQualified=true var="image" />
                                   <#if image?ends_with("svg")>
-                                      <#assign colour = 'ffcd60'>
-                                      <#if hasBannerControls && document.bannercontrols.iconcolor?has_content>
-                                        <#assign colour = document.bannercontrols.iconcolor?replace("#","")>
+                                      <#if custom_title?? && custom_title?has_content>
+                                          <@svgWithAltText svgString=document.bannercontrols.svgXmlFromRepository altText=custom_title/>
+                                      <#else>
+                                          <@svgWithoutAltText svgString=document.bannercontrols.svgXmlFromRepository/>
                                       </#if>
-                                      <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                                      <#assign imageUrl += "?colour=${colour}" />
-                                      <img src="${imageUrl}" alt="${custom_title}" aria-hidden="true" />
                                   <#else>
                                       <img src="${image}" alt="${custom_title}" aria-hidden="true" />
                                   </#if>

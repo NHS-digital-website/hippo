@@ -1,5 +1,7 @@
 <#ftl output_format="HTML">
 
+<#include "../../common/macro/svgMacro.ftl">
+
 <#macro visualhubBox link>
 
     <#if link.title??>
@@ -37,8 +39,12 @@
                             <#if (link.icon.original)??>
                                 <@hst.link var="icon" hippobean=link.icon.original fullyQualified=true />
                                 <#if icon?ends_with("svg")>
-                                    <img src="${icon?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="${title}" class="visual-hub-box-content-img" />
-                                        <#else>
+                                    <#if title?? && title?has_content>
+                                        <@svgWithAltText svgString=link.svgXmlFromRepository altText=title/>
+                                    <#else>
+                                        <@svgWithoutAltText svgString=link.svgXmlFromRepository/>
+                                    </#if>
+                                <#else>
                                     <img src="${icon}" alt="${title}" class="visual-hub-box-content-img" />
                                 </#if>
                             </#if>

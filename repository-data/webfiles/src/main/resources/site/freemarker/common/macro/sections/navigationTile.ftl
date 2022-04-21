@@ -1,5 +1,8 @@
 <#ftl output_format="HTML">
 
+
+<#include "../../macro/svgMacro.ftl">
+
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.NavigationTile" -->
 
 <#macro linkDestination link>
@@ -22,9 +25,11 @@
         <#if (tile.image.original)??>
             <@hst.link hippobean=tile.image.original fullyQualified=true var="imageLink" />
             <#if (imageLink?ends_with("svg") && imageType == 'icon')>
-                <img src="${imageLink?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8"
-                     alt="${tile.title}"
-                     class="navigation-tile__image navigation-tile__image--icon"/>
+                <#if tile.title?? && tile.title?has_content>
+                    <@svgWithAltText svgString=tile.svgXmlFromRepository altText=tile.title/>
+                <#else>
+                    <@svgWithoutAltText svgString=tile.svgXmlFromRepository/>
+                </#if>
             <#else>
                 <img src="${imageLink}" alt="${tile.title}" class="navigation-tile__image"/>
             </#if>

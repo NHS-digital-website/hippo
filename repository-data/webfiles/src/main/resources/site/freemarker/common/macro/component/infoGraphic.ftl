@@ -1,16 +1,10 @@
 <#ftl output_format="HTML">
 <#include "../../../include/imports.ftl">
+<#include "../../macro/svgMacro.ftl">
 
 <#macro infoGraphic graphic>
 <#assign selectedColour = "" />
 <#assign selectedColour = graphic.colour?trim />
-<#if selectedColour == "Blue">
-  <#assign colourClass = "ffcd60" />
-<#elseif selectedColour == "White">
-  <#assign colourClass = "005EB8" />
-<#elseif selectedColour == "Light blue">
-  <#assign colourClass = "005EB8" />
-</#if>
 
 
   <div class="infographic-div">
@@ -19,7 +13,7 @@
         <#if (imagePath)??>
             <div class="infographic__icon">
                 <#if imagePath?ends_with("svg")>
-                    <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=${colourClass}" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
+                    <@svgWithAltText svgString=graphic.svgXmlFromRepository altText="Image for infographic ${graphic.headline}"/>
                 <#else>
                     <img aria-hidden="true" src="${imagePath}" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
                 </#if>

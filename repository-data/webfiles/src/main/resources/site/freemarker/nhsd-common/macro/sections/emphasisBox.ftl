@@ -1,5 +1,8 @@
 <#ftl output_format="HTML">
 
+<#include "../../../common/macro/svgMacro.ftl">
+
+
 <#macro emphasisBox section>
     <#if section?is_string >
       <#assign slug = 'emphasis-' + section.emphasisType + '-' + section?keep_after('@') />
@@ -43,7 +46,11 @@
                         <picture class="nhsd-a-image__picture">
                             <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
                             <#if iconImage?ends_with("svg")>
-                                <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="${section.heading}" style="object-fit:fill" />
+                                <#if section.heading?? && section.heading?has_content>
+                                    <@svgWithAltText svgString=section.svgXmlFromRepository altText=section.heading/>
+                                <#else>
+                                    <@svgWithoutAltText svgString=section.svgXmlFromRepository/>
+                                </#if>
                             <#else>
                                 <img src="${iconImage}" alt="${section.heading}" style="object-fit:contain" />
                             </#if>

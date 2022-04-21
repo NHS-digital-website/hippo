@@ -1,5 +1,7 @@
 <#ftl output_format="HTML">
 
+<#include "../../../common/macro/svgMacro.ftl">
+
 <#macro iconListItemWithLink iconListItem>
 
     <article class="nhsd-m-icon-list-item nhsd-!t-margin-bottom-6">
@@ -13,7 +15,11 @@
                 <span class="nhsd-a-icon nhsd-a-icon--size-xl" style="min-width:36px;min-height:36px;">
                     <@hst.link hippobean=iconListItem.image.original fullyQualified=true var="iconImage" />
                     <#if iconImage?ends_with("svg")>
-                        <img aria-hidden="true"  src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="${section.title}" width="100" height="100" />
+                        <#if section.title?? && section.title?has_content>
+                            <@svgWithAltText svgString=iconListItem.svgXmlFromRepository altText=section.title/>
+                        <#else>
+                            <@svgWithoutAltText svgString=iconListItem.svgXmlFromRepository/>
+                        </#if>
                     <#else>
                         <img aria-hidden="true" src="${iconImage}" alt="${section.title}" width="100" height="100" />
                     </#if>

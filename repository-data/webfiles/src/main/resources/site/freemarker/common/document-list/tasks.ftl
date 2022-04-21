@@ -2,6 +2,8 @@
 <#include "../../common/macro/component/actionLink.ftl">
 <#include "../../common/macro/svgIcons.ftl">
 <#include "../../include/imports.ftl">
+<#include "../../common/macro/svgMacro.ftl">
+
 <#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="task" type="uk.nhs.digital.intranet.beans.Task" -->
 
@@ -16,9 +18,6 @@
             <#list pageable.items as task>
 
                 <@hst.link hippobean=task.bannercontrols.icon fullyQualified=true var="image" />
-                <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                <#assign imageHoverUrl =  imageUrl + "?colour=00000" />
-                <#assign imageUrl += "?colour=005EB8" />
 
                 <li class="intra-task-grid-item">
                     <article class="intra-task-grid-task">
@@ -28,12 +27,13 @@
                         <a href="<@hst.link hippobean=task/>"
                            class="intra-task-grid-task__link">
                             <div class="intra-task-grid-task__icon">
-                                <#if task.bannercontrols??>
-                                    <img src="${imageUrl}"
-                                         alt="${task.title} icon" aria-hidden="true">
-                                    <img src="${imageHoverUrl}"
-                                         alt="${task.title} icon" aria-hidden="true">
+                            <#if image?ends_with("svg")>
+                                <#if task.title?? && task.title?has_content>
+                                    <@svgWithAltText svgString=task.svgXmlFromRepository altText=task.title/>
+                                <#else>
+                                    <@svgWithoutAltText svgString=task.svgXmlFromRepository/>
                                 </#if>
+                            </#if>
                             </div>
                             <h1 class="intra-task-grid-task__title">${task.title}</h1>
                         </a>

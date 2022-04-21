@@ -1,5 +1,8 @@
 <#ftl output_format="HTML">
 
+<#include "../../macro/svgMacro.ftl">
+
+
 <#macro checklist section>
     <#assign widgetClass = 'check-list-widget' />
     <#if section.heading?has_content>
@@ -26,8 +29,7 @@
                     <#elseif section.icon?trim == 'Custom' && section.customicon?has_content>
                         <@hst.link hippobean=section.customicon.original fullyQualified=true var="leadImage" />
                         <#if leadImage?ends_with("svg")>
-                            <img src="${leadImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8"
-                                 alt="Custom image" class="check-list-widget-icon"/>
+                            <@svgWithAltText svgString=section.svgXmlFromRepository altText="custom image"/>
                         <#else>
                             <img src="${leadImage}" alt="Custom image"
                                  class="check-list-widget-icon"/>
