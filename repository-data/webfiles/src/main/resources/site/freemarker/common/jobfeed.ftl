@@ -28,9 +28,9 @@
                                     <div class="nhsd-a-box nhsd-a-box--${boxModifier}">
                                         <div class="nhsd-m-card__content_container">
                                             <div class="nhsd-m-card__content-box">
-                                                <h1 class="nhsd-t-heading-xl">${item.title}</h1>
-                                                <h2 class="nhsd-t-heading-s">${item.location}</h2>
-                                                <h2 class="nhsd-t-heading-s">${item.salary}</h2>
+                                                <h1 class="nhsd-t-heading-s">${item.title}</h1>
+                                                <p class="nhsd-t-body">${item.location}</p>
+                                                <p class="nhsd-t-body">${item.salary}</p>
                                             </div>
 
                                             <div class="nhsd-m-card__button-box">
