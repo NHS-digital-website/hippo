@@ -432,7 +432,7 @@
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.testing.jcr-mock</artifactId>
-                <version>1.5.2</version>
+                <version>1.5.4</version>
             </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
