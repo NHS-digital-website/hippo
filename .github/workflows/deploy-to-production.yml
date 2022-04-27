@@ -27,7 +27,7 @@ jobs:
     steps:
       # Validate that the command is called from deployment-od2-prod
       - name: Checking source
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         env:
           CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
         if: ${{ env.CHANNEL_ID !='C0353KHFXNJ' }}
@@ -40,7 +40,7 @@ jobs:
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
       #
       - name: Validate Origin
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         env:
           AGENT: ${{ github.event.client_payload.integrity.agent }}
           BODY: ${{ github.event.client_payload.integrity.body }}
@@ -143,7 +143,7 @@ jobs:
           echo "::set-output name=code::$code"
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT token failed verification!')
@@ -191,7 +191,7 @@ jobs:
 
       - name: Distribution Ids Retrival failed
         if: ${{steps.all-distribution-id.outputs.respLength < 4}}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('Retrival of distibution ids failed ')
@@ -219,7 +219,7 @@ jobs:
           ENVIRONMENT: ${{ env.PROD_ENV_ID }}
 
       - name: Check Response Code from Request Deployment
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         if: ${{ steps.deployment.outputs.code != 202 }}
         with:
           script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')

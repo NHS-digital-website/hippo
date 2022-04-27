@@ -48,7 +48,7 @@ jobs:
 
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT token failed verification!')
@@ -66,7 +66,7 @@ jobs:
 
       - name: Distribution Ids Retrival failed
         if: ${{ contains(steps.all-distribution-id.response ,'401') }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('Retrival of distibution ids failed ')

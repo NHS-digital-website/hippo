@@ -71,7 +71,7 @@ jobs:
       # Get the Caches
       #
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         id: cache-key-helper
         with:
           result-encoding: string
@@ -245,7 +245,7 @@ jobs:
       # Get the Caches
       #
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         id: cache-key-helper
         with:
           result-encoding: string
@@ -333,7 +333,7 @@ jobs:
           echo "::set-output name=code::$code"
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT token failed verification!')
@@ -380,7 +380,7 @@ jobs:
       #
       - name: Check Response has ID from Upload Build to BR Cloud
         if: ${{ steps.distribution.outputs.id.length == 36 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('Upload Build to BR Cloud failed!')
@@ -437,7 +437,7 @@ jobs:
           ENVIRONMENT: "083ff91e-6ac5-4638-945c-3ee18acc40bf"
 
       - name: Check Response Code from Request Deployment
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         if: ${{ steps.deployment.outputs.code != 202 }}
         with:
           script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')
@@ -462,7 +462,7 @@ jobs:
           REFRESH:  ${{ steps.jwt_token.outputs.refresh }}
       - name: Check Response Code from Deletion of JWT Refresh Access tokens
         if: ${{ steps.jwt_token_invalidate.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT Deletion of JWT Refresh Access tokens failed!')
