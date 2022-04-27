@@ -81,7 +81,7 @@ jobs:
               "rotation" : new Date().getTimezoneOffset()
             })
       - name: Setup cache (Maven packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
@@ -93,7 +93,7 @@ jobs:
             ${{ runner.os }}-maven-nhs-digital-
             ${{ runner.os }}-maven-nhs-
       - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
@@ -255,7 +255,7 @@ jobs:
               "rotation" : new Date().getTimezoneOffset()
             })
       - name: Setup cache (Maven packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
@@ -267,7 +267,7 @@ jobs:
             ${{ runner.os }}-v2-maven-nhs-digital-
             ${{ runner.os }}-v2-maven-nhs-
       - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
