@@ -12,9 +12,9 @@ on:
     - cron: "5 12 * * 1-5"
 
 env:
-  #To be replaced by Prod Env Id (atm UAT)
-  PROD_ENV_ID: "083ff91e-6ac5-4638-945c-3ee18acc40bf"
-  TARGET: "prod"
+  #Prod Env Id
+  PROD_ENV_ID: "91d6f394-c2ed-40aa-bc8d-3b29e2aaa645"
+  TARGET: "production"
 jobs:
 
   integrity:
