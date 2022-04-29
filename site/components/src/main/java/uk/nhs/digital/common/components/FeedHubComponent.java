@@ -26,17 +26,13 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FeedHubComponent extends ContentRewriterComponent {
-    List<Map> filters;
-    Map<String, String[]> filterValues;
-    String queryText;
-    String sort;
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
 
-        filters = new ArrayList<>();
-        filterValues = new HashMap<>();
+        List<Map> filters = new ArrayList<>();
+        Map<String, String[]> filterValues = new HashMap<>();
 
         String[] yearParams = getPublicRequestParameters(request, "year");
         filterValues.put("year", yearParams);
@@ -51,13 +47,13 @@ public class FeedHubComponent extends ContentRewriterComponent {
             .filter(value -> value.length > 0).count();
         request.setAttribute("filterCount", filterCount);
 
-        queryText = getPublicRequestParameter(request, "query");
+        String queryText = getPublicRequestParameter(request, "query");
         if (queryText == null) {
             queryText = "";
         }
         request.setAttribute("query", queryText);
 
-        sort = getPublicRequestParameter(request, "sort");
+        String sort = getPublicRequestParameter(request, "sort");
         if (sort == null) {
             sort = "date-desc";
         }
@@ -70,7 +66,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
 
         try {
-            List<HippoBean> feed = getFeed(request);
+            List<HippoBean> feed = getFeed(request, filterValues, queryText, sort);
             request.setAttribute("feed", feed);
             Pageable<HippoBean> pagedFeed = pageResults(feed, request);
             request.setAttribute("pageable", pagedFeed);
@@ -80,16 +76,16 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
             switch (feedHub.getFeedType()) {
                 case "News":
-                    getNewsFilters(feed);
+                    getNewsFilters(feed, filters);
                     break;
                 case "Supplementary information":
-                    getSupInfoFilters(feed);
+                    getSupInfoFilters(feed, filters, filterValues);
                     break;
                 case "Events":
-                    getEventFilters(feed);
+                    getEventFilters(feed, filters, filterValues);
                     break;
                 case "Cyber Alerts":
-                    getCyberAlertFilters(feed);
+                    getCyberAlertFilters(feed, filters, filterValues);
                     break;
                 default:
             }
@@ -99,7 +95,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
     }
 
-    private void getNewsFilters(List<HippoBean> newsFeed) throws QueryException {
+    private void getNewsFilters(List<HippoBean> newsFeed, List<Map> filters) throws QueryException {
         Map<String, Long> yearFilters = newsFeed.stream()
             .map(e -> (News) e)
             .map(News::getPublisheddatetime)
@@ -108,17 +104,17 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Year", "year", yearFilters);
+        addFilter("Year", "year", yearFilters, filters);
     }
 
-    private void getSupInfoFilters(List<HippoBean> supInfoFeed) throws QueryException {
+    private void getSupInfoFilters(List<HippoBean> supInfoFeed, List<Map> filters, Map<String, String[]> filterValues) throws QueryException {
         Map<String, Long> yearFilters = supInfoFeed.stream()
             .map(e -> (SupplementaryInformation) e)
             .map(SupplementaryInformation::getPublishedDate)
             .map(e -> e != null ? String.valueOf(e.get(Calendar.YEAR)) : "Unknown")
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        addFilter("Year", "year", yearFilters);
+        addFilter("Year", "year", yearFilters, filters);
 
         if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
             Map<String, Long> monthFilters = supInfoFeed.stream()
@@ -128,11 +124,11 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 .map(e -> new SimpleDateFormat("MMMMM").format(e.getTime()))
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-            addFilter("Month", "month", monthFilters);
+            addFilter("Month", "month", monthFilters, filters);
         }
     }
 
-    private void getEventFilters(List<HippoBean> eventFeed) throws QueryException {
+    private void getEventFilters(List<HippoBean> eventFeed, List<Map> filters, Map<String, String[]> filterValues) throws QueryException {
         Map<String, Long> yearFilters = eventFeed.stream()
             .map(e -> (Event) e)
             .flatMap(e -> e.getEvents().parallelStream()
@@ -141,8 +137,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 .distinct())
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        addFilter("Year", "year", yearFilters);
-        System.out.println("XX Doing month");
+        addFilter("Year", "year", yearFilters, filters);
 
         if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
             Map<String, Long> monthFilters = eventFeed.stream()
@@ -153,7 +148,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                     .distinct())
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-            addFilter("Month", "month", monthFilters);
+            addFilter("Month", "month", monthFilters, filters);
         }
 
         Map<String, Long> typeFilters = eventFeed.stream()
@@ -161,19 +156,10 @@ public class FeedHubComponent extends ContentRewriterComponent {
             .flatMap(e -> Arrays.stream(e.getType()))
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        addFilter("Type", "type[]", typeFilters);
+        addFilter("Type", "type[]", typeFilters, filters);
     }
 
-    private void getCyberAlertFilters(List<HippoBean> eventFeed) throws QueryException {
-        Map<String, Long> severityFilters = eventFeed.stream()
-            .map(e -> (CyberAlert) e)
-            .map(CyberAlert::getSeverity)
-            .collect(Collectors.groupingBy(
-                Function.identity(), Collectors.counting()
-            ));
-
-        addFilter("Severity", "severity", severityFilters);
-
+    private void getCyberAlertFilters(List<HippoBean> eventFeed, List<Map> filters, Map<String, String[]> filterValues) throws QueryException {
         Map<String, Long> yearFilters = eventFeed.stream()
             .map(e -> (CyberAlert) e)
             .map(CyberAlert::getPublishedDate)
@@ -182,8 +168,8 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Year", "year", yearFilters);
-        
+        addFilter("Year", "year", yearFilters, filters);
+
         if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
             Map<String, Long> monthFilters = eventFeed.stream()
                 .map(e -> (CyberAlert) e)
@@ -192,7 +178,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 .distinct()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-            addFilter("Month", "month", monthFilters);
+            addFilter("Month", "month", monthFilters, filters);
         }
 
         Map<String, Long> typeFilters = eventFeed.stream()
@@ -202,15 +188,25 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Type", "type[]", typeFilters);
+        addFilter("Type", "type[]", typeFilters, filters);
+
+        Map<String, Long> severityFilters = eventFeed.stream()
+            .map(e -> (CyberAlert) e)
+            .map(CyberAlert::getSeverity)
+            .collect(Collectors.groupingBy(
+                Function.identity(), Collectors.counting()
+            ));
+
+        addFilter("Severity", "severity", severityFilters, filters);
     }
 
-    private <T extends HippoBean> List<T> getFeed(HstRequest request) throws QueryException {
+    private <T extends HippoBean> List<T> getFeed(HstRequest request, Map<String, String[]> filterValues, String queryText, String sort) throws QueryException {
         final HstRequestContext context = request.getRequestContext();
         FeedHub feedHub = (FeedHub) context.getContentBean();
 
         HippoBean folder = feedHub.getParentBean();
         ArrayList<Constraint> constraints = new ArrayList<>();
+
         if ("Site-wide documents".equalsIgnoreCase(feedHub.getHubType())) {
             folder = RequestContextProvider.get().getSiteContentBaseBean();
 
@@ -222,6 +218,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
 
         String dateField = "website:publisheddatetime";
+
         Class feedClass = null;
         switch (feedHub.getFeedType()) {
             case "News":
@@ -281,7 +278,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                             cyberAlertsDateFilter.set(Calendar.DAY_OF_MONTH, 1);
                             constraints.add(constraint(dateField).equalTo(cyberAlertsDateFilter, DateTools.Resolution.MONTH));
                         }
-                    }                    
+                    }
                 }
 
                 if (filterValues.get("type[]").length > 0) {
@@ -371,7 +368,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         return null;
     }
 
-    private void addFilter(String filterName, String filterKey, Map<String, Long> filterValues) {
+    private void addFilter(String filterName, String filterKey, Map<String, Long> filterValues, List<Map> filters) {
         if (filterValues.size() == 0) {
             return;
         }
