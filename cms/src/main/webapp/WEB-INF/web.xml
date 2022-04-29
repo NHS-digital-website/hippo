@@ -255,21 +255,6 @@
         <url-pattern>/ws/*</url-pattern>
     </servlet-mapping>
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>CMS</web-resource-name>
-            <url-pattern>/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>everybody</role-name>
-        </auth-constraint>
-    </security-constraint>
-
-    <security-role>
-        <description>Default role of Hippo CMS</description>
-        <role-name>everybody</role-name>
-    </security-role>
-
     <!-- Timeout in minutes -->
     <session-config>
         <session-timeout>10</session-timeout>
