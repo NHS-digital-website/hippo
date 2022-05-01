@@ -120,7 +120,7 @@ jobs:
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: distribution-odv1
           path: target/*-on-demand-distribution.tar.gz
@@ -293,7 +293,7 @@ jobs:
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: distribution-odv2
           path: target/*.tar.gz
