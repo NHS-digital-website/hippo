@@ -61,7 +61,7 @@ jobs:
       # Step 2
       #
       - name: Set up JDK 8
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
           java-version: 8
@@ -235,7 +235,7 @@ jobs:
       # Step 2
       #
       - name: Set up JDK 8
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
           java-version: 8
