@@ -13,6 +13,8 @@
   - website:severity
   hippofacnav:filters:
   - jcr:primaryType=website:cyberalert
+  hippofacnav:limit:
+  - 100
   hippofacnav:sortby:
   - publicationsystem:NominalDate
   hippofacnav:sortorder:
