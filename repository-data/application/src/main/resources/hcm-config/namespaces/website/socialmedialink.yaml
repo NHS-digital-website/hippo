@@ -74,6 +74,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /isForFooter:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Is this for the footer social media?
+            field: isForFooter
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -158,6 +167,14 @@ definitions:
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /isForFooter:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:isForFooter
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
           /linkicon:
             hipposysedit:mandatory: false
@@ -266,15 +283,14 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
-          - hippostd:publishableSummary
-          - hippostd:relaxed
           - hippostd:taggable
-          - hippostdpubwf:document
-          - hippotaxonomy:classifiable
           - hippotranslation:translated
           - mix:referenceable
+          - hippotaxonomy:classifiable
+          - hippostd:relaxed
           jcr:primaryType: nt:unstructured
           website:icon: ''
+          website:isForFooter: false
           website:linkname: ''
           website:nhsdigitalurl: ''
           website:notes: ''
