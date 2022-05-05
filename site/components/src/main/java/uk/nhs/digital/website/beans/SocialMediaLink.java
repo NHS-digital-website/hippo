@@ -35,4 +35,9 @@ public class SocialMediaLink extends CommonFieldsBean {
     public String getIcon() {
         return getSingleProperty("website:icon");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:isForFooter")
+    public boolean getIsForFooter() {
+        return getSingleProperty("website:isForFooter");
+    }
 }
