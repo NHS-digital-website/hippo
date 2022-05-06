@@ -1,6 +1,11 @@
 package uk.nhs.digital.arc.factory;
 
-import uk.nhs.digital.arc.json.*;
+import uk.nhs.digital.arc.json.ArcDoctype;
+import uk.nhs.digital.arc.json.Archive;
+import uk.nhs.digital.arc.json.Dataset;
+import uk.nhs.digital.arc.json.Publication;
+import uk.nhs.digital.arc.json.PublicationPage;
+import uk.nhs.digital.arc.json.Series;
 
 public class JsonClassFactory {
     public static Class<? extends ArcDoctype> getJsonDataClassFromDocumentType(final String documentType) throws Exception {

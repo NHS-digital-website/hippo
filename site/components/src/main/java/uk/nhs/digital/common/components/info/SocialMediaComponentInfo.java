@@ -5,12 +5,11 @@ import org.hippoecm.hst.core.parameters.FieldGroupList;
 import org.hippoecm.hst.core.parameters.JcrPath;
 import org.hippoecm.hst.core.parameters.Parameter;
 
-@FieldGroupList({@FieldGroup(
-    value = {"title"}
-    ), @FieldGroup(
-    titleKey = "Social Media Documents",
-    value = {"social1", "social2", "social3", "social4", "social5", "social6", "social7", "social8", "social9", "social10"}
-)})
+@FieldGroupList({@FieldGroup(value = {"title"}),
+    @FieldGroup(
+        titleKey = "Social Media Documents",
+        value = {"social1", "social2", "social3", "social4", "social5", "social6", "social7", "social8", "social9", "social10"}
+    )})
 public interface SocialMediaComponentInfo {
     @Parameter(
         name = "title",

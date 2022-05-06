@@ -14,7 +14,6 @@ import com.amazonaws.services.s3.model.Permission;
 import com.amazonaws.services.s3.model.SetObjectTaggingRequest;
 import com.amazonaws.services.s3.model.Tag;
 import com.amazonaws.services.s3.model.UploadPartRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

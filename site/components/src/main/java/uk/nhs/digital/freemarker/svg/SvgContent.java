@@ -3,7 +3,6 @@ package uk.nhs.digital.freemarker.svg;
 import uk.nhs.digital.svg.SvgProvider;
 
 import java.util.Base64;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 

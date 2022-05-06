@@ -2,8 +2,10 @@ package uk.nhs.digital.externalstorage.s3;
 
 import static java.text.MessageFormat.format;
 import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.externalstorage.s3.S3TransfersReportingTracker.TransferEvent.*;
-import static uk.nhs.digital.externalstorage.s3.S3TransfersReportingTracker.TransferType.*;
+import static uk.nhs.digital.externalstorage.s3.S3TransfersReportingTracker.TransferEvent.SCHEDULING;
+import static uk.nhs.digital.externalstorage.s3.S3TransfersReportingTracker.TransferEvent.STARTING;
+import static uk.nhs.digital.externalstorage.s3.S3TransfersReportingTracker.TransferType.DOWNLOAD;
+import static uk.nhs.digital.externalstorage.s3.S3TransfersReportingTracker.TransferType.UPLOAD;
 
 import org.apache.commons.lang3.time.StopWatch;
 import org.slf4j.Logger;
@@ -19,6 +21,7 @@ import java.util.concurrent.TimeUnit;
  * performing the transfers.
  * </p>
  */
+@SuppressWarnings("PMD.TooManyStaticImports")
 public class S3TransfersReportingTracker {
 
     private final Logger log = getLogger(S3TransfersReportingTracker.class);

@@ -2,7 +2,7 @@ package uk.nhs.digital.intranet.components;
 
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import uk.nhs.digital.common.components.*;
+import uk.nhs.digital.common.components.ContentRewriterComponent;
 
 public class TaskComponent extends ContentRewriterComponent {
 

@@ -3,24 +3,19 @@ package uk.nhs.digital.arc.process;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-import org.apache.tika.io.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-
 import uk.nhs.digital.arc.storage.ArcStorageManager;
 import uk.nhs.digital.arc.util.FilePathData;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringReader;
-
-import javax.jcr.Session;
+import java.nio.charset.Charset;
 
 public class ManifestProcessorTest {
 
@@ -128,7 +123,7 @@ public class ManifestProcessorTest {
             .contains("... parsed OK"));
     }
 
-    private InputStream getInputStreamForFileExists() {
+    private InputStream getInputStreamForFileExists() throws IOException {
         String json = "{"
             + "\"doctype_REQ\": \"PublicationSystem:Publication\","
             + "\"summary_REQ\": \"This is summary text\","
@@ -137,6 +132,6 @@ public class ManifestProcessorTest {
             + "\"publically_accessible_REQ\": \"true\""
             + "}";
 
-        return IOUtils.toInputStream(json);
+        return IOUtils.toInputStream(json, Charset.forName("UTF-8"));
     }
 }

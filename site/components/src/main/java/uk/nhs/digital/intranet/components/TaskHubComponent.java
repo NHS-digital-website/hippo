@@ -2,7 +2,7 @@ package uk.nhs.digital.intranet.components;
 
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import uk.nhs.digital.common.components.*;
+import uk.nhs.digital.common.components.ContentRewriterComponent;
 import uk.nhs.digital.intranet.beans.Task;
 import uk.nhs.digital.website.beans.ComponentList;
 import uk.nhs.digital.website.beans.Internallink;

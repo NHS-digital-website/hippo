@@ -3,7 +3,6 @@ package uk.nhs.digital.intranet.rest.stub;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;

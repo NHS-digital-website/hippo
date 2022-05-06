@@ -10,7 +10,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomByteArray;
@@ -134,7 +134,7 @@ public class S3ConnectorValveTest {
         then(s3Connector).should().download(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
         downloadTaskArgumentCaptor.getValue().accept(s3File); // ensures that the download task actually gets called
 
-        verifyZeroInteractions(s3Connector);
+        verifyNoMoreInteractions(s3Connector);
         then(response).should().setStatus(HttpServletResponse.SC_FORBIDDEN);
     }
 

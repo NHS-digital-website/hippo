@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.arc.process.ManifestProcessor;
 
 import java.io.IOException;
-
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 

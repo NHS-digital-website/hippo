@@ -112,7 +112,7 @@ public class MockJcrRepoProvider {
     private static List<Map<String, Object>> parseYaml(final String fileClassPath) {
 
         final Yaml parser = new Yaml();
-        try (final InputStream fixtureYamlFileInputStream =
+        try (InputStream fixtureYamlFileInputStream =
                  MockJcrRepoProvider.class.getResourceAsStream(fileClassPath)) {
 
             if (fixtureYamlFileInputStream == null) {

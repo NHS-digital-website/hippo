@@ -4,7 +4,6 @@ import com.onehippo.cms7.eforms.hst.behaviors.*;
 import com.onehippo.cms7.eforms.hst.components.*;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
 import com.onehippo.cms7.eforms.hst.model.Form;
-
 import org.hippoecm.hst.component.support.forms.FormMap;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;

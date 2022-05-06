@@ -4,8 +4,9 @@ import org.hippoecm.hst.content.beans.standard.*;
 import org.hippoecm.hst.core.component.*;
 import org.hippoecm.hst.core.request.*;
 import org.slf4j.*;
-import uk.nhs.digital.common.components.*;
-import uk.nhs.digital.ps.beans.*;
+import uk.nhs.digital.common.components.ContentRewriterComponent;
+import uk.nhs.digital.ps.beans.LegacyPublication;
+import uk.nhs.digital.ps.beans.Publication;
 
 public class LegacyPublicationComponent extends ContentRewriterComponent {
 

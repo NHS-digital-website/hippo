@@ -13,7 +13,6 @@ import uk.nhs.digital.arc.transformer.abs.AbstractSectionTransformer;
 import uk.nhs.digital.arc.util.FilePathData;
 
 import java.io.IOException;
-
 import javax.jcr.Session;
 
 public class PubSysImagesectionTransformer extends AbstractSectionTransformer {

@@ -19,7 +19,7 @@ public class UrlGeneratorDirective implements TemplateDirectiveModel {
 
         final String baseUrl = ((SimpleScalar) parameters.get(Param.baseUrl.name())).getAsString();
         final boolean showRetired = ((TemplateBooleanModel) parameters.get(Param.showRetired.name())).getAsBoolean();
-        final TemplateSequenceModel filtersModelWrapper = ((SimpleSequence) parameters.get(Param.filters.name()));
+        final TemplateSequenceModel filtersModelWrapper = (SimpleSequence) parameters.get(Param.filters.name());
 
         final Map<String, List<String>> params = new LinkedHashMap<>();
 

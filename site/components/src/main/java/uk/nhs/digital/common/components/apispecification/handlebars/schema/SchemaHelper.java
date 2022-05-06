@@ -10,7 +10,12 @@ import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.github.jknack.handlebars.io.FileTemplateLoader;
 import com.github.jknack.handlebars.io.TemplateLoader;
 import io.swagger.v3.oas.models.media.Schema;
-import uk.nhs.digital.common.components.apispecification.handlebars.*;
+import uk.nhs.digital.common.components.apispecification.handlebars.BorderHelper;
+import uk.nhs.digital.common.components.apispecification.handlebars.EnumHelper;
+import uk.nhs.digital.common.components.apispecification.handlebars.IfNotNullHelper;
+import uk.nhs.digital.common.components.apispecification.handlebars.MarkdownHelper;
+import uk.nhs.digital.common.components.apispecification.handlebars.UuidHelper;
+import uk.nhs.digital.common.components.apispecification.handlebars.VariableValueHelper;
 
 import java.io.File;
 import java.io.IOException;

@@ -66,6 +66,6 @@ public class ListAttributeProviderTest {
         listAttributeProvider.setAttributes(nodeOtherThanTable, "tagName is ignored", attributes);
 
         // then
-        then(attributes).shouldHaveZeroInteractions();
+        then(attributes).shouldHaveNoMoreInteractions();
     }
 }

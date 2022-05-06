@@ -113,6 +113,6 @@ public class FilePathData {
 
     @Override
     public int hashCode() {
-        return ((filePath == null) ? 0 : filePath.hashCode());
+        return (filePath == null) ? 0 : filePath.hashCode();
     }
 }

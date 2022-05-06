@@ -1,6 +1,5 @@
 package uk.nhs.digital.website.beans;
 
-
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.query.HstQuery;

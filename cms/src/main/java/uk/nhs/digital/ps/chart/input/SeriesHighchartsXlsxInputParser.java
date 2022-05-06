@@ -1,7 +1,12 @@
 package uk.nhs.digital.ps.chart.input;
 
 import static java.util.Collections.singletonList;
-import static uk.nhs.digital.ps.chart.ChartType.*;
+import static uk.nhs.digital.ps.chart.ChartType.BAR;
+import static uk.nhs.digital.ps.chart.ChartType.COLUMN;
+import static uk.nhs.digital.ps.chart.ChartType.LINE;
+import static uk.nhs.digital.ps.chart.ChartType.PIE;
+import static uk.nhs.digital.ps.chart.ChartType.STACKED_BAR;
+import static uk.nhs.digital.ps.chart.ChartType.STACKED_COLUMN;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -19,6 +24,7 @@ import java.io.IOException;
 import java.util.*;
 import javax.jcr.RepositoryException;
 
+@SuppressWarnings("PMD.TooManyStaticImports")
 public class SeriesHighchartsXlsxInputParser extends AbstractHighchartsXlsxInputParser {
 
     private static final int CATEGORIES_INDEX = 0;

@@ -76,7 +76,7 @@ public abstract class AbstractHighchartsXlsxInputParser implements SpecialisedHi
     protected XSSFWorkbook readXssfWorkbook(final Binary inputFileContent)
         throws IOException, RepositoryException {
 
-        try (final InputStream is = inputFileContent.getStream()) {
+        try (InputStream is = inputFileContent.getStream()) {
             return new XSSFWorkbook(is);
         }
     }

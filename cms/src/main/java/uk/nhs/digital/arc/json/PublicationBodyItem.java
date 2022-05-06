@@ -6,7 +6,26 @@ import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemChartSection;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemImagesection;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemMapsection;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemTextsection;
-import uk.nhs.digital.arc.json.website.*;
+import uk.nhs.digital.arc.json.website.WebsiteAssetlink;
+import uk.nhs.digital.arc.json.website.WebsiteChecklist;
+import uk.nhs.digital.arc.json.website.WebsiteCtabutton;
+import uk.nhs.digital.arc.json.website.WebsiteDownload;
+import uk.nhs.digital.arc.json.website.WebsiteDynamicChartSection;
+import uk.nhs.digital.arc.json.website.WebsiteEmphasis;
+import uk.nhs.digital.arc.json.website.WebsiteExpander;
+import uk.nhs.digital.arc.json.website.WebsiteExternalLink;
+import uk.nhs.digital.arc.json.website.WebsiteGalleryItem;
+import uk.nhs.digital.arc.json.website.WebsiteGallerySection;
+import uk.nhs.digital.arc.json.website.WebsiteIconList;
+import uk.nhs.digital.arc.json.website.WebsiteIconListItem;
+import uk.nhs.digital.arc.json.website.WebsiteInfographic;
+import uk.nhs.digital.arc.json.website.WebsiteInternalLink;
+import uk.nhs.digital.arc.json.website.WebsiteNavigation;
+import uk.nhs.digital.arc.json.website.WebsiteNavigationtile;
+import uk.nhs.digital.arc.json.website.WebsiteSection;
+import uk.nhs.digital.arc.json.website.WebsiteStatistics;
+import uk.nhs.digital.arc.json.website.WebsiteStatisticsFeedItem;
+import uk.nhs.digital.arc.json.website.WebsiteTableau;
 
 /**
  * This class maps all the sub-types that we might expect to load in the body element of a publication page

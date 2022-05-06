@@ -37,7 +37,8 @@ public class SubscriptionResource {
         return instance;
     }
 
-    private SubscriptionResource() {}
+    private SubscriptionResource() {
+    }
 
     public String subscribe(final String emailAddress, final List<String> topicCodes) {
         final Subscriber subscriber = SubscriberFactory.create(emailAddress, topicCodes);

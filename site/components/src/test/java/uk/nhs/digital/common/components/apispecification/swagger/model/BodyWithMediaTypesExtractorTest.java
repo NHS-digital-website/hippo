@@ -2,7 +2,6 @@ package uk.nhs.digital.common.components.apispecification.swagger.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 

@@ -9,9 +9,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
+//import java.util.concurrent.TimeUnit;
 
 /**
  * Manages WebDriver (the client component of the WebDriver).
@@ -77,12 +78,14 @@ public class WebDriverProvider {
         chromeOptions.addArguments("window-size=1920,1080");
 
         log.info("Configuring WebDriver to run in {} mode.", isHeadlessMode ? "headless" : "full, graphical");
+
         if (isHeadlessMode) {
             chromeOptions.addArguments("--headless");
         }
 
         chromeOptions.addArguments("--host-resolver-rules=MAP consent.cookiebot.com 127.0.0.1");
 
+        log.info("Using WebDriver url '{}'.", webDriverServiceProvider.getUrl());
         webDriver = new RemoteWebDriver(webDriverServiceProvider.getUrl(), chromeOptions);
     }
 
@@ -128,7 +131,7 @@ public class WebDriverProvider {
 
         final ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
 
-        chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.MINUTES);
+        chromeDriver.manage().timeouts().implicitlyWait(Duration.ofMinutes(5));
 
         return chromeDriver;
     }

@@ -16,7 +16,6 @@ import org.wicketstuff.js.ext.util.ExtClass;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;

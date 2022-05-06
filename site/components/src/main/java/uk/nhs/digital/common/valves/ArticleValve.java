@@ -4,8 +4,6 @@ import org.hippoecm.hst.content.beans.query.*;
 import org.hippoecm.hst.content.beans.query.exceptions.*;
 import org.hippoecm.hst.content.beans.query.filter.*;
 import org.hippoecm.hst.core.request.*;
-import org.slf4j.*;
-
 
 public class ArticleValve extends AbstractDocumentIdValve {
 
