@@ -102,6 +102,7 @@
         <!-- Set to 1 for testing (once 1 event is queued, it's considered a batch).
         In production, start with a setting of "10" and adjust as necessary. -->
         <splunk.batch.size.count>1</splunk.batch.size.count>
+        <splunk.version>1.9.0</splunk.version>
 
         <externalstorage.aws.bucket></externalstorage.aws.bucket>
         <externalstorage.aws.region></externalstorage.aws.region>
@@ -146,6 +147,83 @@
         Custom caching that needs durable on-disk caching uses v3.x
         due to insufficient support for on-disk caching in v2.x. -->
         <ehcache3.version>3.9.9</ehcache3.version>
+
+        <!--
+        Consult https://chromedriver.chromium.org/downloads
+        to find the right ChromeDriver version to use with the current browser version,
+        -->
+        <chromedriver.version>100.0.4896.60</chromedriver.version>
+
+        <annotation-api.version>1.3.2</annotation-api.version>
+        <aspectweaver.version>1.9.6</aspectweaver.version>
+        <awaitility.version>4.1.0</awaitility.version>
+        <aws-java-sdk.version>1.11.1030</aws-java-sdk.version>
+        <aws.sdk-bom.version>2.16.1</aws.sdk-bom.version>
+        <batik.version>1.14</batik.version>
+        <commons-codec.version>1.15</commons-codec.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-configuration.version>1.10</commons-configuration.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <commons-io.version>2.8.0</commons-io.version>
+        <commons-pool.version>1.6</commons-pool.version>
+        <commons.version>3.12.0</commons.version>
+        <content-exim.version>4.0.1</content-exim.version>
+        <cucumber.version>1.2.5</cucumber.version>
+        <directory-maven.version>1.0</directory-maven.version>
+        <easymock.version>4.3</easymock.version>
+        <findbugs.version>3.0.2</findbugs.version>
+        <gmavenplus.version>1.12.1</gmavenplus.version>
+        <googleauth.version>1.5.0</googleauth.version>
+        <groovy.version>3.0.8</groovy.version>
+        <gson.version>2.8.7</gson.version>
+        <hamcrest.version>2.2</hamcrest.version>
+        <hamcrest.version>2.2</hamcrest.version>
+        <handlebars.version>4.2.0</handlebars.version>
+        <hippo.forge.breadcrumb.version>3.0.0</hippo.forge.breadcrumb.version>
+        <httpclient.version>4.5.13</httpclient.version>
+        <httpcore.version>4.4.14</httpcore.version>
+        <jackson-coreutils.version>1.8</jackson-coreutils.version>
+        <jackson-dataformat-xml.version>2.11.2</jackson-dataformat-xml.version>
+        <javax.mail.version>1.4.7</javax.mail.version>
+        <jcr-mock.version>1.5.2</jcr-mock.version>
+        <joda-time.version>2.10.10</joda-time.version>
+        <json-simple.verison>1.1.1</json-simple.verison>
+        <json.version>20180813</json.version>
+        <jsp-api.version>2.2</jsp-api.version>
+        <junit-dataprovider.version>1.13.1</junit-dataprovider.version>
+        <junit.version>4.13.2</junit.version>
+        <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
+        <logback.version>1.2.3</logback.version>
+        <maven-chckstyle.version>3.0.0</maven-chckstyle.version>
+        <maven-enforcer.version>3.0.0-M3</maven-enforcer.version>
+        <maven-failsafe.version>2.22.2</maven-failsafe.version>
+        <maven-frontend.version>1.12.0</maven-frontend.version>
+        <maven-jxr.version>2.5</maven-jxr.version>
+        <maven-pmd.version>3.8</maven-pmd.version>
+        <maven-resources.version>3.2.0</maven-resources.version>
+        <maven-surefire.version>2.22.2</maven-surefire.version>
+        <mokito.version>3.10.0</mokito.version>
+        <objenesis.version>3.2</objenesis.version>
+        <okhttp.version>3.14.3</okhttp.version>
+        <okio.version>1.17.2</okio.version>
+        <plexus-component.version>2.1.0</plexus-component.version>
+        <plexus-utils.version>3.3.0</plexus-utils.version>
+        <powermock.version>2.0.9</powermock.version>
+        <selenium.version>3.141.59</selenium.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <snakeyaml.version>1.28</snakeyaml.version>
+        <spring.version>5.1.15.RELEASE</spring.version>
+        <swagger-codegen.version>1.0.26</swagger-codegen.version>
+        <swagger-core.version>1.6.1</swagger-core.version>
+        <system-rules.version>1.19.0</system-rules.version>
+        <taglibs-standard.version>1.2.5</taglibs-standard.version>
+        <tika-core.version>1.26</tika-core.version>
+        <versions-maven.version>2.8.1</versions-maven.version>
+        <webdriverextensions-maven.version>3.2.0</webdriverextensions-maven.version>
+        <wiremock.version>2.28.0</wiremock.version>
+        <woodstox.version>4.2.1</woodstox.version>
+        <xalan.version>2.7.2</xalan.version>
+        <xml-apis.version>2.0.2</xml-apis.version>
     </properties>
 
     <repositories>
@@ -240,7 +318,7 @@
             <dependency>
                 <groupId>javax.mail</groupId>
                 <artifactId>mail</artifactId>
-                <version>1.4.7</version>
+                <version>${javax.mail.version}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -254,7 +332,7 @@
             <dependency>
                 <groupId>org.onehippo.forge</groupId>
                 <artifactId>breadcrumb</artifactId>
-                <version>3.0.0</version>
+                <version>${hippo.forge.breadcrumb.version}</version>
             </dependency>
 
             <dependency>
@@ -266,7 +344,7 @@
             <dependency>
                 <groupId>javax.servlet.jsp</groupId>
                 <artifactId>jsp-api</artifactId>
-                <version>2.2</version>
+                <version>${jsp-api.version}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -274,27 +352,27 @@
             <dependency>
                 <groupId>org.apache.taglibs</groupId>
                 <artifactId>taglibs-standard-spec</artifactId>
-                <version>1.2.5</version>
+                <version>${taglibs-standard.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.taglibs</groupId>
                 <artifactId>taglibs-standard-impl</artifactId>
-                <version>1.2.5</version>
+                <version>${taglibs-standard.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
             <dependency>
                 <groupId>xalan</groupId>
                 <artifactId>xalan</artifactId>
-                <version>2.7.2</version>
+                <version>${xalan.version}</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>xalan</groupId>
                 <artifactId>serializer</artifactId>
-                <version>2.7.2</version>
+                <version>${xalan.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
@@ -308,141 +386,141 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.13.2</version>
+                <version>${junit.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.easymock</groupId>
                 <artifactId>easymock</artifactId>
-                <version>4.3</version>
+                <version>${easymock.version}</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-module-junit4</artifactId>
-                <version>2.0.9</version>
+                <version>${powermock.version}</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-api-mockito2</artifactId>
-                <version>2.0.9</version>
+                <version>${powermock.version}</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>com.tngtech.java</groupId>
                 <artifactId>junit-dataprovider</artifactId>
-                <version>1.13.1</version>
+                <version>${junit-dataprovider.version}</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest-library</artifactId>
-                <version>2.2</version>
+                <version>${hamcrest.version}</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>3.10.0</version>
+                <version>${mokito.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.splunk.logging</groupId>
                 <artifactId>splunk-library-javalogging</artifactId>
-                <version>1.9.0</version>
+                <version>${splunk.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
-                <version>2.8.7</version>
+                <version>${gson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
-                <version>3.14.3</version>
+                <version>${okhttp.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.squareup.okio</groupId>
                 <artifactId>okio</artifactId>
-                <version>1.17.2</version>
+                <version>${okio.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.awaitility</groupId>
                 <artifactId>awaitility</artifactId>
-                <version>4.1.0</version>
+                <version>${awaitility.version}</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.2.3</version>
+                <version>${logback.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.googlecode.json-simple</groupId>
                 <artifactId>json-simple</artifactId>
-                <version>1.1.1</version>
+                <version>${json-simple.verison}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.12.0</version>
+                <version>${commons.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>io.swagger.codegen.v3</groupId>
                 <artifactId>swagger-codegen-generators</artifactId>
-                <version>1.0.26</version>
+                <version>${swagger-codegen.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-core</artifactId>
-                <version>1.6.1</version>
+                <version>${swagger-core.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.jknack</groupId>
                 <artifactId>handlebars-helpers</artifactId>
-                <version>4.2.0</version>
+                <version>${handlebars.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.warrenstrange</groupId>
                 <artifactId>googleauth</artifactId>
-                <version>1.5.0</version>
+                <version>${googleauth.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-ext</artifactId>
-                <version>1.7.30</version>
+                <version>${slf4j.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.github.fge</groupId>
                 <artifactId>jackson-coreutils</artifactId>
-                <version>1.8</version>
+                <version>${jackson-coreutils.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.testing.jcr-mock</artifactId>
-                <version>1.5.2</version>
+                <version>${jcr-mock.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk</artifactId>
-                <version>1.11.1030</version>
+                <version>${aws-java-sdk.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-xml</artifactId>
-                <version>2.11.2</version>
+                <version>${jackson-dataformat-xml.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.onehippo.cms7</groupId>
@@ -454,12 +532,12 @@
             <dependency>
                 <groupId>xml-apis</groupId>
                 <artifactId>xml-apis</artifactId>
-                <version>2.0.2</version>
+                <version>${xml-apis.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.15</version>
+                <version>${commons-codec.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -489,64 +567,64 @@
             <dependency>
                 <groupId>com.github.tomakehurst</groupId>
                 <artifactId>wiremock-jre8</artifactId>
-                <version>2.28.0</version>
+                <version>${wiremock.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
-                <version>1.4</version>
+                <version>${commons-fileupload.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
-                <version>3.0.2</version>
+                <version>${findbugs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.5.13</version>
+                <version>${httpclient.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
-                <version>4.4.14</version>
+                <version>${httpcore.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.plexus</groupId>
                 <artifactId>plexus-utils</artifactId>
-                <version>3.3.0</version>
+                <version>${plexus-utils.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.plexus</groupId>
                 <artifactId>plexus-component-annotations</artifactId>
-                <version>2.1.0</version>
+                <version>${plexus-component.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.8.0</version>
+                <version>${commons-io.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.tika</groupId>
                 <artifactId>tika-core</artifactId>
-                <version>1.26</version>
+                <version>${tika-core.version}</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
-                <version>4.4</version>
+                <version>${commons-collections4.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.annotation</groupId>
                 <artifactId>javax.annotation-api</artifactId>
-                <version>1.3.2</version>
+                <version>${annotation-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.woodstox</groupId>
                 <artifactId>stax2-api</artifactId>
-                <version>4.2.1</version>
+                <version>${woodstox.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -592,17 +670,17 @@
             <dependency>
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
-                <version>2.10.10</version>
+                <version>${joda-time.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.json</groupId>
                 <artifactId>json</artifactId>
-                <version>20180813</version>
+                <version>${json.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-pool</groupId>
                 <artifactId>commons-pool</artifactId>
-                <version>1.6</version>
+                <version>${commons-pool.version}</version>
             </dependency>
             <dependency>
                 <groupId>net.bytebuddy</groupId>
@@ -611,22 +689,22 @@
             <dependency>
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest-core</artifactId>
-                <version>2.2</version>
+                <version>${hamcrest.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest</artifactId>
-                <version>2.2</version>
+                <version>${hamcrest.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.objenesis</groupId>
                 <artifactId>objenesis</artifactId>
-                <version>3.2</version>
+                <version>${objenesis.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
-                <version>1.28</version>
+                <version>${snakeyaml.version}</version>
             </dependency>
 
             <!--
@@ -635,7 +713,7 @@
             <dependency>
                 <groupId>org.onehippo.forge.content-exim</groupId>
                 <artifactId>content-exim-core</artifactId>
-                <version>4.0.1</version>
+                <version>${content-exim.version}</version>
             </dependency>
 
             <dependency>
@@ -689,12 +767,12 @@
             <dependency>
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
-                <version>1.9.6</version>
+                <version>${aspectweaver.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-configuration</groupId>
                 <artifactId>commons-configuration</artifactId>
-                <version>1.10</version>
+                <version>${commons-configuration.version}</version>
             </dependency>
 
             <dependency>
@@ -747,7 +825,7 @@
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
+                    <version>${lifecycle-mapping.version}</version>
                     <configuration>
                         <lifecycleMappingMetadata>
                             <pluginExecutions>
@@ -771,7 +849,7 @@
                 <plugin>
                     <groupId>org.codehaus.gmavenplus</groupId>
                     <artifactId>gmavenplus-plugin</artifactId>
-                    <version>1.12.1</version>
+                    <version>${gmavenplus.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -798,7 +876,7 @@
             <plugin>
                 <groupId>org.commonjava.maven.plugins</groupId>
                 <artifactId>directory-maven-plugin</artifactId>
-                <version>1.0</version>
+                <version>${directory-maven.version}</version>
                 <executions>
                     <execution>
                         <id>directories</id>
@@ -815,7 +893,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>2.8.1</version>
+                <version>${versions-maven.version}</version>
                 <configuration>
                     <rulesUri>file://${project.basedir}/conf/maven-version-rules.xml</rulesUri>
                 </configuration>
@@ -824,7 +902,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>${maven-chckstyle.version}</version>
 
                 <executions>
                     <execution>
@@ -849,7 +927,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.8</version>
+                <version>${maven-pmd.version}</version>
 
                 <executions>
                     <execution>
@@ -875,7 +953,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.0.0-M3</version>
+                <version>${maven-enforcer.version}</version>
                 <executions>
                     <execution>
                         <phase>verify</phase>
@@ -906,7 +984,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.5</version>
+                <version>${maven-jxr.version}</version>
             </plugin>
         </plugins>
     </reporting>

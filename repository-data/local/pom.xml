@@ -20,12 +20,12 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>1.28</version>
+            <version>${snakeyaml.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy</artifactId>
-            <version>3.0.8</version>
+            <version>${groovy.version}</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
@@ -84,12 +84,12 @@
                     <dependency>
                         <groupId>org.yaml</groupId>
                         <artifactId>snakeyaml</artifactId>
-                        <version>1.28</version>
+                        <version>${snakeyaml.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>org.codehaus.groovy</groupId>
                         <artifactId>groovy</artifactId>
-                        <version>3.0.8</version>
+                        <version>${groovy.version}</version>
                         <scope>runtime</scope>
                     </dependency>
                 </dependencies>
