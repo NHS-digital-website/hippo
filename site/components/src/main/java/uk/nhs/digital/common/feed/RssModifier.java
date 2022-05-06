@@ -24,10 +24,6 @@ import uk.nhs.digital.website.beans.*;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.Session;
-import javax.jcr.query.Query;
 
 public class RssModifier extends RSS20Modifier {
     private static final Logger LOGGER = LoggerFactory.getLogger(RssModifier.class);
@@ -41,6 +37,7 @@ public class RssModifier extends RSS20Modifier {
     public void modifyHstQuery(final HstRequestContext context, final HstQuery query, final RSS20FeedDescriptor descriptor) {
         try {
             String strQuery = query.getQueryAsString(true);
+
             if (strQuery.contains("jcr:primaryType=\'website:news\'")) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.add(Calendar.MONTH, -3);
@@ -71,45 +68,18 @@ public class RssModifier extends RSS20Modifier {
 
     @Override
     public void modifyEntry(final HstRequestContext context, final Item entry, final HippoBean bean) {
-        String scope = "";
-        String requestPath = null;
         SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
         SimpleDateFormat lastUpdatedDateFormat = new SimpleDateFormat("dd MMM yyyy");
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         if (bean instanceof Blog) {
-            try {
-                requestPath = context.getBaseURL().getRequestPath();
-
-                final String statement = "/jcr:root/content/documents/corporate-website/feeds//*[@jcr:primaryType='feed:rss20descriptor']";
-                Session session = context.getSession();
-                final Query q = session.getWorkspace().getQueryManager()
-                    .createQuery(statement, Query.XPATH);
-
-                final NodeIterator nodes = q.execute().getNodes();
-                while (nodes.hasNext()) {
-                    Node node = nodes.nextNode();
-
-                    scope = node.getProperty("feed:scope").getString();
-                    if (requestPath.contains("/" + scope)) {
-                        break;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
             final Blog blogBean = (Blog) bean;
             final Date lastUpdated = blogBean.getLastModified();
 
             if (lastUpdated != null) {
                 HstLink hstLink = context.getHstLinkCreator().create(bean, context);
-                String blogPath = bean.getPath();
-                if (hstLink != null
-                    && (StringUtils.isNotBlank(scope)
-                    && blogPath.contains("/" + scope))
-                    || requestPath.contains("all-blog")
-                ) {
+                if (hstLink != null) {
+
                     List<Element> foreignMarkup = entry.getForeignMarkup();
 
                     foreignMarkup.add(getElement("title", blogBean.getTitle()));
