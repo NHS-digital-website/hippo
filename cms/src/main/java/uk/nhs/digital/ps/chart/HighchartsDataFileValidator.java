@@ -11,7 +11,6 @@ import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
 
 import java.util.Optional;
-
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 

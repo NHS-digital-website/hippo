@@ -1,8 +1,10 @@
 package uk.nhs.digital.apispecs.jcr;
 
-
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.JcrNodeUtils.*;
+import static uk.nhs.digital.JcrNodeUtils.getMultipleInstantPropertyQuietly;
+import static uk.nhs.digital.JcrNodeUtils.getMultipleStringPropertyQuietly;
+import static uk.nhs.digital.JcrNodeUtils.setMultipleInstantPropertyQuietly;
+import static uk.nhs.digital.JcrNodeUtils.setMultipleStringPropertyQuietly;
 import static uk.nhs.digital.apispecs.ApiSpecificationImportMetadata.Item.metadataItem;
 import static uk.nhs.digital.toolbox.exception.ExceptionUtils.wrapCheckedException;
 
@@ -22,6 +24,7 @@ import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 import javax.jcr.query.QueryResult;
 
+@SuppressWarnings("PMD.TooManyStaticImports")
 public class ApiSpecificationImportImportMetadataJcrRepository implements ApiSpecificationImportMetadataRepository {
 
     private static final Logger log = LoggerFactory.getLogger(ApiSpecificationImportImportMetadataJcrRepository.class);

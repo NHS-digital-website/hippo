@@ -3,7 +3,7 @@ package uk.nhs.digital.ps.beans;
 import org.hippoecm.hst.content.beans.*;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.*;
-import uk.nhs.digital.externalstorage.beans.*;
+import uk.nhs.digital.externalstorage.beans.Resource;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:extattachment")
 @Node(jcrType = "publicationsystem:extattachment")

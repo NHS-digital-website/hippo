@@ -14,7 +14,6 @@ import uk.nhs.digital.arc.util.HighchartsInputConversionForArc;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import javax.jcr.Binary;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;

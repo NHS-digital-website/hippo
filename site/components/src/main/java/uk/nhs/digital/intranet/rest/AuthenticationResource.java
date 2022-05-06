@@ -1,6 +1,5 @@
 package uk.nhs.digital.intranet.rest;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.intranet.model.AccessToken;
@@ -9,7 +8,6 @@ import uk.nhs.digital.intranet.provider.AuthorizationProvider;
 import uk.nhs.digital.intranet.provider.CookieProvider;
 
 import java.io.IOException;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;

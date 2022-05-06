@@ -19,7 +19,10 @@
         <module name="FileTabCharacter">
             <property name="eachLine" value="true"/>
         </module>
-
+    <module name="LineLength">
+        <property name="max" value="180"/>
+        <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+    </module>
     <module name="TreeWalker">
         <module name="OuterTypeFilename"/>
         <module name="IllegalTokenText">
@@ -32,10 +35,7 @@
             <property name="allowByTailComment" value="true"/>
             <property name="allowNonPrintableEscapes" value="true"/>
         </module>
-        <module name="LineLength">
-            <property name="max" value="180"/>
-            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-        </module>
+
         <!-- <module name="AvoidStarImport"/> -->
         <module name="OneTopLevelClass"/>
         <module name="NoLineWrap"/>
@@ -44,9 +44,6 @@
             <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
         </module>
         <module name="NeedBraces"/>
-        <module name="LeftCurly">
-            <property name="maxLineLength" value="100"/>
-        </module>
         <module name="RightCurly"/>
         <module name="RightCurly">
             <property name="option" value="alone"/>

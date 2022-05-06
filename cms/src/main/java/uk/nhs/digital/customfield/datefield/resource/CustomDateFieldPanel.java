@@ -2,7 +2,6 @@ package uk.nhs.digital.customfield.datefield.resource;
 
 import com.onehippo.cms7.eforms.cms.model.AbstractFieldModel;
 import com.onehippo.cms7.eforms.cms.panels.AbstractFieldPanel;
-
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.form.TextField;
 

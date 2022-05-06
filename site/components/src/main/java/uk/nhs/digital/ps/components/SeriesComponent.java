@@ -2,7 +2,9 @@ package uk.nhs.digital.ps.components;
 
 import static org.apache.commons.collections.IteratorUtils.toList;
 import static org.springframework.util.CollectionUtils.isEmpty;
-import static uk.nhs.digital.ps.components.HippoComponentHelper.*;
+import static uk.nhs.digital.ps.components.HippoComponentHelper.reportDisplayError;
+import static uk.nhs.digital.ps.components.HippoComponentHelper.reportInvalidInvocation;
+import static uk.nhs.digital.ps.components.HippoComponentHelper.reportInvalidTarget;
 
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -17,12 +19,18 @@ import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.common.components.*;
-import uk.nhs.digital.ps.beans.*;
+import uk.nhs.digital.common.components.ContentRewriterComponent;
+import uk.nhs.digital.ps.beans.LegacyPublication;
+import uk.nhs.digital.ps.beans.Pair;
+import uk.nhs.digital.ps.beans.Publication;
+import uk.nhs.digital.ps.beans.PublicationBase;
+import uk.nhs.digital.ps.beans.Series;
+import uk.nhs.digital.ps.beans.SeriesReplaces;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("PMD.TooManyStaticImports")
 public class SeriesComponent extends ContentRewriterComponent {
 
     private static final Logger log = LoggerFactory.getLogger(SeriesComponent.class);

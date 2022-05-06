@@ -50,6 +50,6 @@ public class HyperlinkAttributeProviderTest {
         hyperlinkAttributeProvider.setAttributes(nodeOtherThanLink, "tagName is ignored", attributes);
 
         // then
-        then(attributes).shouldHaveZeroInteractions();
+        then(attributes).shouldHaveNoMoreInteractions();
     }
 }

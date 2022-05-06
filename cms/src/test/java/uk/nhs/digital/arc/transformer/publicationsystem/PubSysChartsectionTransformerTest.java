@@ -19,7 +19,6 @@ import uk.nhs.digital.arc.storage.S3StorageManager;
 import uk.nhs.digital.arc.util.FilePathData;
 
 import java.io.InputStream;
-
 import javax.jcr.Session;
 
 public class PubSysChartsectionTransformerTest {

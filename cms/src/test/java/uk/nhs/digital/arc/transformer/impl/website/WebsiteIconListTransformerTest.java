@@ -20,7 +20,6 @@ import uk.nhs.digital.arc.transformer.abs.AbstractSectionTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;

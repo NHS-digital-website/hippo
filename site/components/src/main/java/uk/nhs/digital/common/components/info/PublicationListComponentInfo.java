@@ -3,10 +3,7 @@ package uk.nhs.digital.common.components.info;
 import org.hippoecm.hst.core.parameters.*;
 import org.onehippo.cms7.essentials.components.info.*;
 
-@FieldGroupList({@FieldGroup(
-    titleKey = "Buttons",
-    value = {"viewAllUrl", "viewUpcoming"}
-)})
+@FieldGroupList({@FieldGroup(titleKey = "Buttons", value = {"viewAllUrl", "viewUpcoming"})})
 public interface PublicationListComponentInfo extends EssentialsListComponentInfo {
     @Parameter(
         name = "viewAllUrl",

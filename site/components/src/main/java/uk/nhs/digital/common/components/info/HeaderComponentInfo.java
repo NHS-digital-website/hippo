@@ -1,6 +1,5 @@
 package uk.nhs.digital.common.components.info;
 
-
 import org.hippoecm.hst.core.parameters.*;
 
 @FieldGroupList({@FieldGroup(
@@ -17,7 +16,7 @@ import org.hippoecm.hst.core.parameters.*;
     @FieldGroup(
     titleKey = "Button 2",
     value = {"button2text", "button2url"}
-)})
+    )})
 public interface HeaderComponentInfo {
     @Parameter(
         name = "banner",

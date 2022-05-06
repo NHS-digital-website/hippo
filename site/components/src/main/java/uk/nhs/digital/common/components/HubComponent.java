@@ -2,7 +2,7 @@ package uk.nhs.digital.common.components;
 
 import org.hippoecm.hst.content.beans.standard.*;
 import org.hippoecm.hst.core.component.*;
-import uk.nhs.digital.website.beans.*;
+import uk.nhs.digital.website.beans.Hub;
 
 import java.util.*;
 

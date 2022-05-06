@@ -2,7 +2,7 @@ package uk.nhs.digital.externalstorage.modules;
 
 import static java.lang.System.getProperty;
 import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.externalstorage.modules.S3ConnectorServiceRegistrationModuleParams.*;
+import static uk.nhs.digital.externalstorage.modules.S3ConnectorServiceRegistrationModuleParams.extractParameters;
 
 import com.amazonaws.auth.*;
 import com.amazonaws.client.builder.AwsClientBuilder;
@@ -12,7 +12,6 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.repository.modules.AbstractReconfigurableDaemonModule;
 import org.onehippo.repository.modules.ProvidesService;
-
 import org.slf4j.Logger;
 import uk.nhs.digital.externalstorage.s3.*;
 

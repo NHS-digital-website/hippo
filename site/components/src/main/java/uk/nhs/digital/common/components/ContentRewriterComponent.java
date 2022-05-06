@@ -2,7 +2,10 @@ package uk.nhs.digital.common.components;
 
 import org.hippoecm.hst.core.component.*;
 import org.onehippo.cms7.essentials.components.*;
-import uk.nhs.digital.common.contentrewriters.*;
+import uk.nhs.digital.common.contentrewriters.BrandRefreshContentRewriter;
+import uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter;
+import uk.nhs.digital.common.contentrewriters.StripTagsContentRewriter;
+import uk.nhs.digital.common.contentrewriters.StripTagsWithLinksContentRewriter;
 
 /**
  * A centralised component for injecting ContentRewriters into FTLs that are manageable

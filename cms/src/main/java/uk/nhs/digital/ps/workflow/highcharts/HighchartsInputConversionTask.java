@@ -1,18 +1,22 @@
 package uk.nhs.digital.ps.workflow.highcharts;
 
-import static uk.nhs.digital.ps.PublicationSystemConstants.*;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_CHART;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_MAP;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_CONFIG;
 
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
-import uk.nhs.digital.ps.chart.*;
+import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
 import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
 
 import java.util.Iterator;
-import javax.jcr.*;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
 
 public class HighchartsInputConversionTask extends AbstractDocumentTask {
 

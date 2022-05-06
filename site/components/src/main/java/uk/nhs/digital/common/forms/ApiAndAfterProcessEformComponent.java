@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.forms.behavior.SubscriptionBehavior;
 
 import java.util.Map;
-
 import javax.servlet.http.HttpServletResponse;
 
 public class ApiAndAfterProcessEformComponent extends EformComponent {

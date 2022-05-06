@@ -9,7 +9,6 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import uk.nhs.digital.website.beans.SupplementaryInformation;
 import uk.nhs.digital.website.beans.Update;
 
@@ -17,7 +16,6 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.jcr.Node;
 
 public final class DocumentUtils {

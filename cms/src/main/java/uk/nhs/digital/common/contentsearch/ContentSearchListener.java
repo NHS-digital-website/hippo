@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Calendar;
 import java.util.Locale;
-
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -64,8 +63,7 @@ public class ContentSearchListener implements DaemonModule {
                     }
                 }
             }
-        } catch (
-            RepositoryException e) {
+        } catch (RepositoryException e) {
             LOGGER.warn("An error occurred while handling the post publish event", e);
         }
     }

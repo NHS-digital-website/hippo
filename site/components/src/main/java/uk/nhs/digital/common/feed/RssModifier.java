@@ -19,7 +19,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
-import uk.nhs.digital.website.beans.*;
+import uk.nhs.digital.website.beans.Blog;
+import uk.nhs.digital.website.beans.ContactDetail;
+import uk.nhs.digital.website.beans.CyberAlert;
+import uk.nhs.digital.website.beans.EmphasisBox;
+import uk.nhs.digital.website.beans.Expander;
+import uk.nhs.digital.website.beans.Infographic;
+import uk.nhs.digital.website.beans.LeadImageSection;
+import uk.nhs.digital.website.beans.News;
+import uk.nhs.digital.website.beans.Person;
+import uk.nhs.digital.website.beans.Quote;
+import uk.nhs.digital.website.beans.Section;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -143,7 +153,7 @@ public class RssModifier extends RSS20Modifier {
                 author = contactDetail.getName();
                 emailAddress = contactDetail.getEmailaddress();
             }
-            foreignMarkup.add(getElement("author", (emailAddress + " (" + author + ")")));
+            foreignMarkup.add(getElement("author", emailAddress + " (" + author + ")"));
             StringBuilder content = new StringBuilder();
             for (HippoBean sre : newsBean.getSections()) {
                 String tempContent = new String();

@@ -9,7 +9,10 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
 import uk.nhs.digital.ps.chart.ChartType;
-import uk.nhs.digital.ps.chart.model.*;
+import uk.nhs.digital.ps.chart.model.HighchartsModel;
+import uk.nhs.digital.ps.chart.model.Point;
+import uk.nhs.digital.ps.chart.model.Series;
+import uk.nhs.digital.ps.chart.model.Tooltip;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,8 +49,7 @@ public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInpu
         chartData.getSeries().put(0, series);
 
         // If Funnel plot selected and file has more than 1 sheet (funnel definition)
-        // get the funnel plot data on sheet 2 which should comprise
-        // of control limits (lower and upper) for the funnel lines
+        // get the funnel plot data on sheet 2 which should comprise control limits (lower and upper) for the funnel lines
         if (chartType.equals(FUNNEL_PLOT)) {
 
             series = getControlLimitSeries(workbook, 1, chartData);

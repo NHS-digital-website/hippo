@@ -22,7 +22,6 @@ import uk.nhs.digital.arc.process.ManifestProcessor;
 import uk.nhs.digital.externalstorage.workflow.AbstractExternalFileTask;
 
 import java.io.IOException;
-
 import javax.jcr.RepositoryException;
 
 /**

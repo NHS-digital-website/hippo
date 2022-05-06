@@ -2,7 +2,8 @@ package uk.nhs.digital.apispecs.model;
 
 import static org.hippoecm.repository.util.WorkflowUtils.Variant.DRAFT;
 import static org.hippoecm.repository.util.WorkflowUtils.Variant.PUBLISHED;
-import static uk.nhs.digital.apispecs.model.ApiSpecificationDocument.Properties.*;
+import static uk.nhs.digital.apispecs.model.ApiSpecificationDocument.Properties.JSON;
+import static uk.nhs.digital.apispecs.model.ApiSpecificationDocument.Properties.SPECIFICATION_ID;
 
 import uk.nhs.digital.apispecs.jcr.JcrDocumentLifecycleSupport;
 

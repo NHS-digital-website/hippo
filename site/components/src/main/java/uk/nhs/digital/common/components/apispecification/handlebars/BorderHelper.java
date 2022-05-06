@@ -1,6 +1,5 @@
 package uk.nhs.digital.common.components.apispecification.handlebars;
 
-
 import com.github.jknack.handlebars.Handlebars.SafeString;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;

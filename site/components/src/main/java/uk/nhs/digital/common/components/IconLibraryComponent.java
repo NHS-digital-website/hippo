@@ -1,6 +1,7 @@
 package uk.nhs.digital.common.components;
 
-import static uk.nhs.digital.svg.library.NodeToIconConverter.*;
+import static uk.nhs.digital.svg.library.NodeToIconConverter.convert;
+import static uk.nhs.digital.svg.library.NodeToIconConverter.urlPathFinder;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstComponentException;

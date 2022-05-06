@@ -135,9 +135,9 @@
         <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
         <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>
 
-        <bloomreach.inference-engine.version>4.0.0</bloomreach.inference-engine.version>
+        <bloomreach.inference-engine.version>4.1.0</bloomreach.inference-engine.version>
 
-        <commonmark.version>0.17.0</commonmark.version>
+        <commonmark.version>0.18.2</commonmark.version>
 
         <hystrix-javanica.version>1.5.18</hystrix-javanica.version>
         <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
@@ -161,72 +161,73 @@
         <chromedriver.version>102.0.5005.61</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
-        <aspectweaver.version>1.9.6</aspectweaver.version>
-        <awaitility.version>4.1.0</awaitility.version>
-        <aws-java-sdk.version>1.11.1030</aws-java-sdk.version>
+        <aspectweaver.version>1.9.9.1</aspectweaver.version>
+        <awaitility.version>4.2.0</awaitility.version>
+        <aws-java-sdk.version>1.12.218</aws-java-sdk.version>
         <aws.sdk-bom.version>2.16.1</aws.sdk-bom.version>
         <batik.version>1.14</batik.version>
         <commons-codec.version>1.15</commons-codec.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-configuration.version>1.10</commons-configuration.version>
         <commons-fileupload.version>1.4</commons-fileupload.version>
-        <commons-io.version>2.8.0</commons-io.version>
+        <commons-io.version>2.11.0</commons-io.version>
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
         <content-exim.version>4.0.1</content-exim.version>
-        <cucumber.version>1.2.5</cucumber.version>
+        <cucumber.version>1.2.6</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
         <findbugs.version>3.0.2</findbugs.version>
-        <gmavenplus.version>1.12.1</gmavenplus.version>
+        <gmavenplus.version>1.13.1</gmavenplus.version>
         <googleauth.version>1.5.0</googleauth.version>
-        <groovy.version>3.0.8</groovy.version>
-        <gson.version>2.8.7</gson.version>
+        <groovy.version>3.0.9</groovy.version>
+        <gson.version>2.9.0</gson.version>
         <hamcrest.version>2.2</hamcrest.version>
         <hamcrest.version>2.2</hamcrest.version>
-        <handlebars.version>4.2.0</handlebars.version>
+        <handlebars.version>4.3.0</handlebars.version>
         <hippo.forge.breadcrumb.version>3.0.0</hippo.forge.breadcrumb.version>
         <httpclient.version>4.5.13</httpclient.version>
-        <httpcore.version>4.4.14</httpcore.version>
+        <httpcore.version>4.4.15</httpcore.version>
         <jackson-coreutils.version>1.8</jackson-coreutils.version>
-        <jackson-dataformat-xml.version>2.11.2</jackson-dataformat-xml.version>
+        <jackson-dataformat-xml.version>2.13.2</jackson-dataformat-xml.version>
         <javax.mail.version>1.4.7</javax.mail.version>
-        <jcr-mock.version>1.5.2</jcr-mock.version>
-        <joda-time.version>2.10.10</joda-time.version>
+        <jcr-mock.version>1.6.0</jcr-mock.version>
+        <joda-time.version>2.10.14</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
-        <json.version>20180813</json.version>
+        <json.version>20220320</json.version>
         <jsp-api.version>2.2</jsp-api.version>
         <junit-dataprovider.version>1.13.1</junit-dataprovider.version>
         <junit.version>4.13.2</junit.version>
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
-        <logback.version>1.2.3</logback.version>
-        <maven-chckstyle.version>3.0.0</maven-chckstyle.version>
-        <maven-enforcer.version>3.0.0-M3</maven-enforcer.version>
-        <maven-failsafe.version>2.22.2</maven-failsafe.version>
-        <maven-frontend.version>1.12.0</maven-frontend.version>
-        <maven-jxr.version>2.5</maven-jxr.version>
-        <maven-pmd.version>3.8</maven-pmd.version>
+        <log4j.version>2.17.2</log4j.version>
+        <logback.version>1.2.11</logback.version>
+        <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
+        <maven-enforcer.version>3.0.0</maven-enforcer.version>
+        <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
+        <maven-frontend.version>1.12.1</maven-frontend.version>
+        <maven-jxr.version>3.2.0</maven-jxr.version>
+        <maven-pmd.version>3.16.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
-        <maven-surefire.version>2.22.2</maven-surefire.version>
-        <mokito.version>3.10.0</mokito.version>
+        <maven-surefire.version>3.0.0-M6</maven-surefire.version>
+        <mokito.version>3.12.4</mokito.version>
         <objenesis.version>3.2</objenesis.version>
-        <okhttp.version>3.14.3</okhttp.version>
-        <okio.version>1.17.2</okio.version>
+        <okhttp.version>4.9.3</okhttp.version>
+        <okio.version>3.1.0</okio.version>
         <plexus-component.version>2.1.0</plexus-component.version>
-        <plexus-utils.version>3.3.0</plexus-utils.version>
+        <plexus-utils.version>3.4.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
-        <selenium.version>3.141.59</selenium.version>
-        <slf4j.version>1.7.30</slf4j.version>
-        <snakeyaml.version>1.28</snakeyaml.version>
+        <selenium.version>4.1.1</selenium.version>
+        <slf4j.version>1.7.36</slf4j.version>
+        <snakeyaml.version>1.30</snakeyaml.version>
         <spring.version>5.3.22</spring.version>
-        <swagger-codegen.version>1.0.26</swagger-codegen.version>
-        <swagger-core.version>1.6.1</swagger-core.version>
+        <swagger-codegen.version>1.0.32</swagger-codegen.version>
+        <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
         <taglibs-standard.version>1.2.5</taglibs-standard.version>
-        <tika-core.version>1.26</tika-core.version>
-        <versions-maven.version>2.8.1</versions-maven.version>
-        <webdriverextensions-maven.version>3.2.0</webdriverextensions-maven.version>
-        <wiremock.version>2.28.0</wiremock.version>
+        <tika-core.version>1.28.2</tika-core.version>
+        <versions-maven.version>2.10.0</versions-maven.version>
+        <webdriverextensions-maven.version>3.3.0</webdriverextensions-maven.version>
+        <wiremock.version>2.33.2</wiremock.version>
         <woodstox.version>4.2.1</woodstox.version>
         <xalan.version>2.7.2</xalan.version>
         <xml-apis.version>2.0.2</xml-apis.version>

@@ -9,14 +9,12 @@ import com.onehippo.cms7.eforms.hst.daterules.DateRule;
 import com.onehippo.cms7.eforms.hst.util.DateRuleUtil;
 import com.onehippo.cms7.eforms.hst.util.EformsConstants;
 import com.onehippo.cms7.eforms.hst.validation.rules.DateFormatRule;
-
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-
 
 /**
  * This class represents a fork of the existing one since the initial value needs to

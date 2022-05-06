@@ -20,7 +20,6 @@ import uk.nhs.digital.website.beans.CyberAlert;
 import uk.nhs.digital.website.beans.ThreatIdDate;
 import uk.nhs.digital.website.beans.ThreatIds;
 
-
 import java.io.IOException;
 import java.util.*;
 import javax.jcr.Node;
@@ -34,7 +33,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
-
 
 /**
  * @version "$Id$"

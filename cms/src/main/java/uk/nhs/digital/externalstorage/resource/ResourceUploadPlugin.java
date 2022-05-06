@@ -22,7 +22,6 @@ import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.s3.S3ObjectMetadata;
 
 import java.util.Calendar;
-
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 

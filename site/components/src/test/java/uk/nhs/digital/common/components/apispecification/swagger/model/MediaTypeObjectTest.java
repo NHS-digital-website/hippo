@@ -50,12 +50,14 @@ public class MediaTypeObjectTest {
         assertThat("First example object comes is a value from the internal map",
             actualExample1, sameInstance(expectedExample1)
         );
+
         verifyNoInteractions(actualExample1);
 
         final ExampleObject actualExample2 = actualExamples.get(1);
         assertThat("Second example object comes is a value from the internal map",
             actualExample2, sameInstance(expectedExample2)
         );
+
         verifyNoInteractions(actualExample2);
     }
 }

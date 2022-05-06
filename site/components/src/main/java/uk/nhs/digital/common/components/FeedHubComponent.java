@@ -17,7 +17,12 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
-import uk.nhs.digital.website.beans.*;
+import uk.nhs.digital.website.beans.CyberAlert;
+import uk.nhs.digital.website.beans.Event;
+import uk.nhs.digital.website.beans.FeedHub;
+import uk.nhs.digital.website.beans.Interval;
+import uk.nhs.digital.website.beans.News;
+import uk.nhs.digital.website.beans.SupplementaryInformation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
