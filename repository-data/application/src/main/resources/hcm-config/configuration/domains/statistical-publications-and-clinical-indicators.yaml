@@ -12,6 +12,15 @@ definitions:
         - statistical-publications-and-clinical-indicators-editor
         hipposys:role: editor
         jcr:primaryType: hipposys:authrole
+      /icon-images:
+        /path-to-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/icons
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /organisation-structure-documents:
         /path-by-uuid:
           hipposys:equals: true
