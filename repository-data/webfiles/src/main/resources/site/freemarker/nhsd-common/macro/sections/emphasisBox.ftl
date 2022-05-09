@@ -2,6 +2,8 @@
 
 <#include "../../../common/macro/svgMacro.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#macro emphasisBox section>
     <#if section?is_string >
@@ -46,11 +48,7 @@
                         <picture class="nhsd-a-image__picture">
                             <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
                             <#if iconImage?ends_with("svg")>
-                                <#if section.heading?? && section.heading?has_content>
-                                    <@svgWithAltText svgString=section.svgXmlFromRepository altText=section.heading/>
-                                <#else>
-                                    <@svgWithoutAltText svgString=section.svgXmlFromRepository/>
-                                </#if>
+                                <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "231f20"))}" alt="${section.heading}" style="object-fit:fill" />
                             <#else>
                                 <img src="${iconImage}" alt="${section.heading}" style="object-fit:contain" />
                             </#if>
