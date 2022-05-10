@@ -15,6 +15,7 @@ public class CookieProvider {
         Cookie cookie = new Cookie(cookieName, "");
         cookie.setPath(COOKIE_PATH);
         cookie.setMaxAge(0);
+        cookie.setHttpOnly(true);
         return cookie;
     }
 
@@ -33,6 +34,7 @@ public class CookieProvider {
         final Cookie accessTokenCookie = new Cookie(Constants.ACCESS_TOKEN_COOKIE_NAME, encodedAccessToken);
         accessTokenCookie.setPath(COOKIE_PATH);
         accessTokenCookie.setMaxAge(TTL);
+        accessTokenCookie.setHttpOnly(true);
         return accessTokenCookie;
     }
 
@@ -40,6 +42,7 @@ public class CookieProvider {
         final Cookie refreshTokenCookie = new Cookie(Constants.REFRESH_TOKEN_COOKIE_NAME, accessToken.getRefreshToken());
         refreshTokenCookie.setPath(COOKIE_PATH);
         refreshTokenCookie.setMaxAge(TTL);
+        refreshTokenCookie.setHttpOnly(true);
         return refreshTokenCookie;
     }
 }
