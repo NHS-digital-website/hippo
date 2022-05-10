@@ -5,6 +5,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.warrenstrange.googleauth.IGoogleAuthenticator;
 import org.apache.commons.lang3.RandomUtils;
@@ -39,7 +40,7 @@ public class ApigeeAccessTokenRequestOneTimePasswordEnhancerTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
 
         testOtpKey = randomString();
         testBasicAuthToken = randomString();

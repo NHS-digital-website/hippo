@@ -10,6 +10,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_CONFIG;
 import static uk.nhs.digital.ps.chart.ChartType.AREA_MAP;
 import static uk.nhs.digital.ps.chart.MapSource.BRITISH_ISLES_COUNTIES;
@@ -62,7 +63,7 @@ public class HighchartsInputConversionTaskTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
 
         workflowSession = MockJcr.newSession();
 

@@ -2,6 +2,7 @@ package uk.nhs.digital.common.components.apispecification.commonmark;
 
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.commonmark.node.BulletList;
 import org.commonmark.node.Code;
@@ -24,7 +25,7 @@ public class ListAttributeProviderTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
     }
 
     @Test

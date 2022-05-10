@@ -19,13 +19,14 @@ import uk.nhs.digital.intranet.json.TokenResponse;
 import uk.nhs.digital.intranet.model.AccessToken;
 import uk.nhs.digital.intranet.model.exception.AuthorizationException;
 import uk.nhs.digital.intranet.provider.impl.MicrosoftGraphAuthorizationProvider;
+import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MicrosoftGraphAuthorizationProviderTest {
+public class MicrosoftGraphAuthorizationProviderTest extends MockitoSessionTestBase {
 
     private static final String APP_ID = "app_id";
     private static final String CLIENT_SECRET = "secret";

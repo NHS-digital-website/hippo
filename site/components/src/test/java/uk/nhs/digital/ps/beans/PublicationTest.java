@@ -11,6 +11,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.ps.beans.PublicationBase.EARLY_ACCESS_KEY_QUERY_PARAM;
 import static uk.nhs.digital.ps.beans.RestrictableDateTest.assertRestrictableDate;
 
@@ -94,7 +95,7 @@ public class PublicationTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
         beanProperties.clear();
 
         final Calendar calendar = Calendar.getInstance();

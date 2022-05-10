@@ -3,6 +3,7 @@ package uk.nhs.digital.common.components.apispecification.commonmark;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.times;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.google.common.collect.ImmutableMap;
 import org.commonmark.node.FencedCodeBlock;
@@ -17,12 +18,13 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.powermock.api.mockito.PowerMockito;
+import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 import java.util.Collections;
 import java.util.Set;
 
 @RunWith(MockitoJUnitRunner.class)
-public class FencedCodeBlockNodeRendererTest {
+public class FencedCodeBlockNodeRendererTest extends MockitoSessionTestBase {
 
     private HtmlNodeRendererContext context;
     private FencedCodeBlockNodeRenderer renderer;
