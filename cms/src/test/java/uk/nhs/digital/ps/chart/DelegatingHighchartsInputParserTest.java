@@ -5,6 +5,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +27,7 @@ public class DelegatingHighchartsInputParserTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
 
         delegatingHighchartsInputParser = new DelegatingHighchartsInputParser(
             seriesHighchartsXlsxInputParser,

@@ -12,12 +12,13 @@ import uk.nhs.digital.intranet.model.AccessToken;
 import uk.nhs.digital.intranet.model.exception.AuthorizationException;
 import uk.nhs.digital.intranet.provider.AuthorizationProvider;
 import uk.nhs.digital.intranet.provider.CookieProvider;
+import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 @RunWith(MockitoJUnitRunner.class)
-public class AuthenticationResourceTest {
+public class AuthenticationResourceTest extends MockitoSessionTestBase {
 
     private static final String AUTHORIZATION_CODE = "auth_code";
     private static final String REDIRECT_URI = "http://redirect.uri/home";

@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.hippoecm.repository.impl.NodeDecorator;
 import org.junit.Before;
@@ -38,7 +39,7 @@ public class AttachmentFieldValidatorTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
 
         attachmentFieldValidator = new AttachmentFieldValidator();
     }

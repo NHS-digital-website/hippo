@@ -11,6 +11,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.externalstorage.workflow.externalFilePublish.ExternalFilePublishTask.TAG_EARLY_ACCESS_KEY;
 import static uk.nhs.digital.externalstorage.workflow.externalFilePublish.ExternalFilePublishTask.TAG_PUBLICATION_DATE;
 
@@ -72,7 +73,7 @@ public class ExternalFilePublishTaskTest {
 
     @Before
     public void setUp() throws RepositoryException {
-        initMocks(this);
+        openMocks(this);
 
         Repository repository = MockJcr.newRepository();
         session = repository.login();

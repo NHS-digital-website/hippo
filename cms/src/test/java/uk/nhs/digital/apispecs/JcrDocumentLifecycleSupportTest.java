@@ -8,6 +8,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static org.powermock.api.mockito.PowerMockito.*;
 
 import org.hippoecm.repository.api.Document;
@@ -50,7 +51,7 @@ public class JcrDocumentLifecycleSupportTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
 
         given(documentHandleNode.isNodeType("hippo:handle")).willReturn(true);
         given(documentHandleNode.getSession()).willReturn(session);

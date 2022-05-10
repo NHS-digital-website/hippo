@@ -17,9 +17,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import uk.nhs.digital.common.components.apispecification.commonmark.CommonmarkMarkdownConverter;
+import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CodegenParameterExampleHtmlRendererTest {
+public class CodegenParameterExampleHtmlRendererTest extends MockitoSessionTestBase {
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
 

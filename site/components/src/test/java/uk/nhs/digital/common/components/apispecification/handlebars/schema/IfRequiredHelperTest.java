@@ -7,6 +7,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
 
@@ -34,7 +35,7 @@ public class IfRequiredHelperTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
     }
 
     @Test

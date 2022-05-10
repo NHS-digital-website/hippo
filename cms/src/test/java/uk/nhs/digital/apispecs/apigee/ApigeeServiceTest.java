@@ -7,6 +7,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -38,7 +39,7 @@ public class ApigeeServiceTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
 
         apigeeService = new ApigeeService(
             broker,
