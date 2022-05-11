@@ -28,12 +28,11 @@
 
     <#assign headerIcon = header_icon_arg>
     <#if !header_icon_arg?has_content>
-        <#assign colour = 'ffcd60'>
-        <#if hasBannerControls && document.bannercontrols.iconcolor?has_content>
-            <#assign colour = document.bannercontrols.iconcolor?replace("#","")>
-        </#if>
-        <img src="data:image/svg+xml;base64,${base64(colour(document.bannercontrols.svgXmlFromRepository, colour))}" alt="${custom_title}" aria-hidden="true" />
-    </#if>
+      <#if hasBannerControls && document.bannercontrols.icon?has_content>
+        <#assign headerIcon = document.bannercontrols.icon />
+      <#elseif hasPageIcon>
+        <#assign headerIcon = document.pageIcon />
+     </#if>
 
     <#assign hasFinalPageIcon = headerIcon?has_content />
     <#assign hasTopics = topics?has_content />
@@ -119,11 +118,11 @@
                                   <#-- ex. Service case - image from HippoGalleryImageSet -->
                                   <@hst.link hippobean=headerIcon.original fullyQualified=true var="image" />
                                   <#if image?ends_with("svg")>
-                                      <#if custom_title?? && custom_title?has_content>
-                                          <@svgWithAltText svgString=document.bannercontrols.svgXmlFromRepository altText=custom_title/>
-                                      <#else>
-                                          <@svgWithoutAltText svgString=document.bannercontrols.svgXmlFromRepository/>
+                                      <#assign colour = 'ffcd60'>
+                                      <#if hasBannerControls && document.bannercontrols.iconcolor?has_content>
+                                          <#assign colour = document.bannercontrols.iconcolor?replace("#","")>
                                       </#if>
+                                      <img src="data:image/svg+xml;base64,${base64(colour(document.bannercontrols.svgXmlFromRepository, colour))}" alt="${custom_title}" aria-hidden="true" />
                                   <#else>
                                       <img src="${image}" alt="${custom_title}" aria-hidden="true" />
                                   </#if>
