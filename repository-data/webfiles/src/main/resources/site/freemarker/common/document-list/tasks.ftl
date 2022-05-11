@@ -2,7 +2,9 @@
 <#include "../../common/macro/component/actionLink.ftl">
 <#include "../../common/macro/svgIcons.ftl">
 <#include "../../include/imports.ftl">
-<#include "../../common/macro/svgMacro.ftl">
+
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="task" type="uk.nhs.digital.intranet.beans.Task" -->
@@ -17,8 +19,6 @@
         <ul class="intra-task-grid">
             <#list pageable.items as task>
 
-                <@hst.link hippobean=task.bannercontrols.icon fullyQualified=true var="image" />
-
                 <li class="intra-task-grid-item">
                     <article class="intra-task-grid-task">
                         <div style="position:relative">
@@ -27,12 +27,12 @@
                         <a href="<@hst.link hippobean=task/>"
                            class="intra-task-grid-task__link">
                             <div class="intra-task-grid-task__icon">
-                            <#if image?ends_with("svg")>
-                                <#if task.title?? && task.title?has_content>
-                                    <@svgWithAltText svgString=task.svgXmlFromRepository altText=task.title/>
-                                <#else>
-                                    <@svgWithoutAltText svgString=task.svgXmlFromRepository/>
-                                </#if>
+                                task.svgXmlFromRepositor
+                                <#if task.bannercontrols??>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "005EB8"))}"
+                                         alt="${task.title} icon" aria-hidden="true">
+                                    <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "000000"))}"
+                                         alt="${task.title} icon" aria-hidden="true">
                             </#if>
                             </div>
                             <h1 class="intra-task-grid-task__title">${task.title}</h1>
