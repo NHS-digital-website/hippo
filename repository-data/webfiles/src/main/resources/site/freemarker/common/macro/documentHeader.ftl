@@ -2,19 +2,21 @@
 
 <#include "../../include/imports.ftl">
 <#include "headerMetadata.ftl">
-<#include "../../common/macro/svgMacro.ftl">
+
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#macro documentHeader document doctype header_icon_arg='' title="" summary="" topics="" hasSchemaOrg=true metadata={} downloadPDF=false>
 
     <#assign custom_title = title />
     <!-- checking whether simulating doc in order to avoid console errors from NewsHub and EventHub docs -->
-    <#if ! custom_title?has_content && document != "simulating_doc"  >
+    <#if !custom_title?has_content && document != "simulating_doc"  >
       <#assign custom_title = document.title />
     </#if>
 
     <#assign custom_summary = summary />
     <#assign hasDocumentSummary = false />
-    <#if ! custom_summary?has_content && document != "simulating_doc"  >
+    <#if !custom_summary?has_content && document != "simulating_doc"  >
       <#assign hasDocumentSummary = document.summary?? && document.summary.content?has_content />
       <#if hasDocumentSummary >
         <#assign custom_summary = document.summary />
@@ -26,11 +28,11 @@
 
     <#assign headerIcon = header_icon_arg>
     <#if !header_icon_arg?has_content>
-      <#if hasBannerControls && document.bannercontrols.icon?has_content>
-        <#assign headerIcon = document.bannercontrols.icon />
-      <#elseif hasPageIcon>
-        <#assign headerIcon = document.pageIcon />
-      </#if>
+        <#assign colour = 'ffcd60'>
+        <#if hasBannerControls && document.bannercontrols.iconcolor?has_content>
+            <#assign colour = document.bannercontrols.iconcolor?replace("#","")>
+        </#if>
+        <img src="data:image/svg+xml;base64,${base64(colour(document.bannercontrols.svgXmlFromRepository, colour))}" alt="${custom_title}" aria-hidden="true" />
     </#if>
 
     <#assign hasFinalPageIcon = headerIcon?has_content />
