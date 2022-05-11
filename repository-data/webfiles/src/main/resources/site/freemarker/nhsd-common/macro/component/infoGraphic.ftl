@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../../../include/imports.ftl">
-<#include "../../../common/macro/svgMacro.ftl">
+
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#macro infoGraphic graphic>
 
@@ -14,7 +16,6 @@
         <#assign selectedColour = "Yellow" />
     </#if>
 
-
     <div class="nhsd-m-infographic nhsd-!t-margin-bottom-6">
         <div class="nhsd-a-box nhsd-a-box--bg-light-${slugify(selectedColour)}">
             <@hst.link hippobean=graphic.icon var="imagePath" />
@@ -22,11 +23,7 @@
                 <#if imagePath?ends_with("svg")>
                     <div class="nhsd-m-infographic__icon-box">
                         <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                            <#if altText?? && altText?has_content>
-                                <@svgWithAltText svgString=graphic.svgXmlFromRepository altText=altText/>
-                            <#else>
-                                <@svgWithoutAltText svgString=graphic.svgXmlFromRepository/>
-                            </#if>
+                            <img src="data:image/svg+xml;base64,${base64(colour(graphic.svgXmlFromRepository, "231f20"))}" alt="" />
                         </span>
                     </div>
                 <#else>
