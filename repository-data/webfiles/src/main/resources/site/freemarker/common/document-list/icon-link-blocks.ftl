@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include "../../common/macro/svgMacro.ftl">
+
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <@hst.setBundle basename="homepage.website.labels"/>
 
 <#list pageable.items>
@@ -11,16 +14,9 @@
                     <#if showIcon && (item.pageIcon)?has_content>
                         <@hst.link hippobean=item.pageIcon.original fullyQualified=true var="image" />
                         <#if image?ends_with("svg")>
-                            <#if item.icon.description?? && item.icon.description?has_content>
-                                <#assign imgDescription = item.icon.description />
-                                <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
-                            </#if>
-
-                            <#if altText?? && altText?has_content>
-                                <@svgWithAltText svgString=item.svgXmlFromRepository altText=altText/>
-                            <#else>
-                                <@svgWithoutAltText svgString=item.svgXmlFromRepository/>
-                            </#if>
+                            <div class="icon-link-block__icon">
+                                <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, "000000"))}" alt="" aria-hidden="true"/>
+                            </div>
                         <#else>
                             <img src="${image}" alt="" aria-hidden="true"/>
                         </#if>
