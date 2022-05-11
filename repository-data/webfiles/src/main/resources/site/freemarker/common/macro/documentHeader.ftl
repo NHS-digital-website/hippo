@@ -33,6 +33,7 @@
       <#elseif hasPageIcon>
         <#assign headerIcon = document.pageIcon />
      </#if>
+    </#if>
 
     <#assign hasFinalPageIcon = headerIcon?has_content />
     <#assign hasTopics = topics?has_content />
