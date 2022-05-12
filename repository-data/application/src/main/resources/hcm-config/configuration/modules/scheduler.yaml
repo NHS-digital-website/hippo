@@ -9,10 +9,25 @@ definitions:
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup/hipposched:triggers/bi-hourly:
       hipposched:cronExpression: 0 0/30 * * * ?
       hipposched:enabled: true
-      hipposched:nextFireTime: 2021-06-30T15:00:00Z
+      hipposched:nextFireTime: 2022-05-12T11:00:00Z
       jcr:mixinTypes:
       - hippo:lockable
       - mix:lockable
       jcr:primaryType: hipposched:crontrigger
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup/hipposched:triggers/nightly:
       .meta:delete: true
+    /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/PublicationFlagChange:
+      /hipposched:triggers:
+        /daily925:
+          hipposched:cronExpression: 0 25 8-9 * * ?
+          hipposched:enabled: true
+          hipposched:nextFireTime: 2022-05-13T08:25:00Z
+          jcr:mixinTypes:
+          - mix:lockable
+          jcr:primaryType: hipposched:crontrigger
+        jcr:primaryType: hipposched:triggers
+      hipposched:attributeNames: []
+      hipposched:attributeValues: []
+      hipposched:enabled: true
+      hipposched:repositoryJobClass: uk.nhs.digital.ps.PublicationAccessibilityUpdateJob
+      jcr:primaryType: hipposched:repositoryjob
