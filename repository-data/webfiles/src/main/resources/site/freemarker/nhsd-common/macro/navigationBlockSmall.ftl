@@ -43,6 +43,8 @@
                                 <#assign darkTxt = "231F20" />
                                 <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
                                 <image x="4" y="4" width="8" height="8" href="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}"/>
+                            <#else>
+                                <image x="4" y="4" width="8" height="8" href="${image}"/>
                             </#if>
                         </svg>
                     <#else>
