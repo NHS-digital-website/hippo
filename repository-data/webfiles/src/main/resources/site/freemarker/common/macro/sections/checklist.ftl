@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 
-<#include "../../macro/svgMacro.ftl">
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 
 <#macro checklist section>
@@ -29,7 +30,8 @@
                     <#elseif section.icon?trim == 'Custom' && section.customicon?has_content>
                         <@hst.link hippobean=section.customicon.original fullyQualified=true var="leadImage" />
                         <#if leadImage?ends_with("svg")>
-                            <@svgWithAltText svgString=section.svgXmlFromRepository altText="custom image"/>
+                            <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "005eb8"))}"
+                                 alt="Custom image" class="check-list-widget-icon"/>
                         <#else>
                             <img src="${leadImage}" alt="Custom image"
                                  class="check-list-widget-icon"/>
