@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "../common/macro/svgMacro.ftl">
+
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#-- @ftlvariable name="socialMedia" type="uk.nhs.digital.website.beans.SocialMedia" -->
 
@@ -35,9 +37,9 @@
                                 </svg>
                                 <#if linkIcon?ends_with("svg")>
                                     <#if altText?? && altText?has_content>
-                                        <@svgWithAltText svgString=socialmediaItem.svgXmlFromRepository altText=altText/>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(socialmediaItem.svgXmlFromRepository, "3f525f"))}" alt="${altText}" aria-hidden="true">
                                     <#else>
-                                        <@svgWithoutAltText svgString=socialmediaItem.svgXmlFromRepository/>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(socialmediaItem.svgXmlFromRepository, "3f525f"))}" aria-hidden="true">
                                     </#if>
                                 <#else>
                                     <img src="${linkIcon}" alt="${altText}" aria-hidden="true">
