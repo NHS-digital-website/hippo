@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 
-<#include "../../common/macro/svgMacro.ftl">
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#macro visualhubBox link>
 
@@ -33,11 +34,7 @@
                  <#if (link.icon.original)??>
                      <@hst.link var="icon" hippobean=link.icon.original fullyQualified=true />
                      <#if icon?ends_with("svg")>
-                         <#if title?? && title?has_content>
-                             <@svgWithAltText svgString=link.svgXmlFromRepository altText=title/>
-                         <#else>
-                             <@svgWithoutAltText svgString=link.svgXmlFromRepository/>
-                         </#if>
+                         <img src="data:image/svg+xml;base64,${base64(colour(link.svgXmlFromRepository, "005eb8"))}" alt="${title}" class="visual-hub-box-content-img" />
                     <#else>
                         <img src="${icon}" alt="${title}" class="visual-hub-box-content-img" />
                     </#if>
