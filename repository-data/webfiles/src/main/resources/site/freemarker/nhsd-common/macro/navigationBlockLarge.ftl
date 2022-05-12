@@ -28,10 +28,6 @@
             <div class="nhsd-m-nav-block__content-box">
                 <div class="nhsd-a-icon nhsd-a-icon--size-xxl" aria-hidden="true">
                     <#if hasIcon>
-                        <#if item.icon.description?? && item.icon.description?has_content>
-                            <#assign imgDescription = item.icon.description />
-                            <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
-                        </#if>
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">
                             <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
                             <#if image?ends_with("svg")>
