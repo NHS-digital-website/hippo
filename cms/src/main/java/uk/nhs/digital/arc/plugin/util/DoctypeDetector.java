@@ -40,7 +40,7 @@ public class DoctypeDetector {
                     && isLocation(node);
             }
         } catch (RepositoryException e) {
-            LOGGER.error("Repository error such as a bad value, bad location or general access problem", e);
+            LOGGER.debug("Repository error such as a bad value, bad location or general access problem", e);
         }
         return false;
     }
