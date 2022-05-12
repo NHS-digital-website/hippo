@@ -1,7 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "./digiBlock.ftl">
-<#include "svgMacro.ftl">
+
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
@@ -30,6 +32,7 @@
                         <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
                             <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
                                 <picture class="nhsd-a-image__picture">
+
                                     <@hst.link hippobean=item.icon var="image"/>
 
                                     <#if item.icon.description?? && item.icon.description?has_content>
@@ -38,11 +41,10 @@
                                     </#if>
 
                                     <#if image?ends_with("svg")>
-                                        <#if altText?? && altText?has_content>
-                                            <@svgWithAltText svgString=item.svgXmlFromRepository altText=altText/>
-                                        <#else>
-                                            <@svgWithoutAltText svgString=item.svgXmlFromRepository/>
-                                        </#if>
+                                        <#assign lightTxt = "FFFFFF" />
+                                        <#assign darkTxt = "231F20" />
+                                        <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}" alt="${altText}">
                                     <#else>
                                         <img src="${image}" alt="${altText}">
                                     </#if>
