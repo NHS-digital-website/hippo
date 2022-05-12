@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 
-<#include "../../../common/macro/svgMacro.ftl">
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#macro iconListItemWithLink iconListItem>
 
@@ -16,9 +17,9 @@
                     <@hst.link hippobean=iconListItem.image.original fullyQualified=true var="iconImage" />
                     <#if iconImage?ends_with("svg")>
                         <#if section.title?? && section.title?has_content>
-                            <@svgWithAltText svgString=iconListItem.svgXmlFromRepository altText=section.title/>
+                            <img aria-hidden="true"  src="data:image/svg+xml;base64,${base64(colour(iconListItem.svgXmlFromRepository, "231f20"))}" alt="${section.title}" width="100" height="100" />
                         <#else>
-                            <@svgWithoutAltText svgString=iconListItem.svgXmlFromRepository/>
+                            <img aria-hidden="true"  src="data:image/svg+xml;base64,${base64(colour(iconListItem.svgXmlFromRepository, "231f20"))}" width="100" height="100" />
                         </#if>
                     <#else>
                         <img aria-hidden="true" src="${iconImage}" alt="${section.title}" width="100" height="100" />
