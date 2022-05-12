@@ -1,7 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include "../../common/macro/svgMacro.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#macro tabTiles options>
     <#if options??>
@@ -41,9 +42,9 @@
                                 <@hst.link var="icon" hippobean=options.icon.original fullyQualified=true />
                                 <#if icon?ends_with("svg") && options.svgXmlFromRepository?? && options.svgXmlFromRepository?has_content>
                                     <#if title?? && title?has_content>
-                                        <@svgWithAltText svgString=options.svgXmlFromRepository altText=title/>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(options.svgXmlFromRepository, "231f20"))}" alt="${title}" />
                                     <#else>
-                                        <@svgWithoutAltText svgString=options.svgXmlFromRepository/>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(options.svgXmlFromRepository, "231f20"))}" />
                                     </#if>
                                 <#else>
                                     <img src="${icon}" alt="${title}" />
