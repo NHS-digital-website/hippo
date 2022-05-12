@@ -36,10 +36,9 @@
                         <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
                             <picture class="nhsd-a-image__picture">
                                 <@hst.link hippobean=item.icon var="image"/>
-                                <#if item.icon.description?? && item.icon.description?has_content>
-                                    <#assign imgDescription = item.icon.description />
-                                    <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
-                                </#if>
+                                <#assign imgDescription = item.icon.description />
+                                <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
+
                                 <#if image?ends_with("svg")>
                                     <#assign lightTxt = "FFFFFF" />
                                     <#assign darkTxt = "231F20" />
