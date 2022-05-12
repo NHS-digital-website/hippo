@@ -27,8 +27,6 @@
         <div class="nhsd-a-box nhsd-a-box--bg-${colVarWithYellowCheck}">
             <div class="nhsd-m-nav-block__content-box">
                 <div class="nhsd-a-icon nhsd-a-icon--size-xxl" aria-hidden="true">
-                    <@hst.link hippobean=item.icon var="image"/>
-
                     <#if hasIcon>
                         <#if item.icon.description?? && item.icon.description?has_content>
                             <#assign imgDescription = item.icon.description />
@@ -40,9 +38,10 @@
                                 <#assign lightTxt = "FFFFFF" />
                                 <#assign darkTxt = "231F20" />
                                 <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
-                                <img href="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}" x="4" y="4" width="8" height="8" />
+                                <image href="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}" x="4" y="4" width="8" height="8" />
                             <#else>
-                                <img src="${image}" alt="${altText}">
+                                <@hst.link hippobean=item.icon var="image"/>
+                                <image x="4" y="4" width="8" height="8" href="${image}"/>
                             </#if>
                         </svg>
                     <#else>
