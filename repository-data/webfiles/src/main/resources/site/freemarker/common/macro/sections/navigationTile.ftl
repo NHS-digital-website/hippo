@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
-
-<#include "../../macro/svgMacro.ftl">
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.NavigationTile" -->
 
@@ -25,11 +25,9 @@
         <#if (tile.image.original)??>
             <@hst.link hippobean=tile.image.original fullyQualified=true var="imageLink" />
             <#if (imageLink?ends_with("svg") && imageType == 'icon')>
-                <#if tile.title?? && tile.title?has_content>
-                    <@svgWithAltText svgString=tile.svgXmlFromRepository altText=tile.title/>
-                <#else>
-                    <@svgWithoutAltText svgString=tile.svgXmlFromRepository/>
-                </#if>
+                <img src="data:image/svg+xml;base64,${base64(colour(tile.svgXmlFromRepository, "005eb8"))}"
+                     alt="${tile.title}"
+                     class="navigation-tile__image navigation-tile__image--icon"/>
             <#else>
                 <img src="${imageLink}" alt="${tile.title}" class="navigation-tile__image"/>
             </#if>
