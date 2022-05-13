@@ -48,8 +48,10 @@ public class SvgColourMagicServlet extends ProxyDispatcher {
                     inputStream.close();
                     outputStream.flush();
                 });
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            } catch (IOException ioe) {
+                log.error("IOException: ", ioe);
+            } catch (RuntimeException re) {
+                log.error("RuntimeException: ", re);
             }
             asyncContext.complete();
         }).start();
