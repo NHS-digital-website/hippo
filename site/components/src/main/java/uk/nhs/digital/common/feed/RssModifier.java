@@ -56,7 +56,7 @@ public class RssModifier extends RSS20Modifier {
                 calendar.add(Calendar.MONTH, -1);
                 Filter filter = query.createFilter();
                 try {
-                    filter.addGreaterOrEqualThan("publicationsystem:NominalDate", calendar, DateTools.Resolution.DAY);
+                    filter.addLessOrEqualThan("publicationsystem:NominalDate", calendar, DateTools.Resolution.DAY);
                     filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
 
                     query.setFilter(filter);
@@ -214,7 +214,7 @@ public class RssModifier extends RSS20Modifier {
             foreignMarkup.add(getElement("link", urlNews));
 
             String tempUrl = urlNews.substring(0, urlNews.indexOf(context.getBaseURL().getHostName()));
-            String finalUrl = tempUrl + context.getBaseURL().getHostName() + context.getBaseURL().getContextPath() + context.getHstLinkCreator().getBinariesPrefix();
+            String finalUrl = tempUrl + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
             final LeadImageSection leadimagesection = newsBean.getLeadimagesection();
             if (leadimagesection != null && leadimagesection.getLeadImage() != null) {
                 String imageUrl = finalUrl + leadimagesection.getLeadImage().getCanonicalHandlePath();
@@ -253,7 +253,7 @@ public class RssModifier extends RSS20Modifier {
                 foreignMarkup.add(getElement("link", url));
 
                 String tempUrl1 = url.substring(0, url.indexOf(context.getBaseURL().getHostName()));
-                String finalUrl = tempUrl1 + context.getBaseURL().getHostName() + context.getBaseURL().getContextPath() + context.getHstLinkCreator().getBinariesPrefix();
+                String finalUrl = tempUrl1 + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
                 for (Infographic test : publicationBean.getKeyFactInfographics()) {
                     if (test.getIcon() != null) {
                         foreignMarkup.add(getImageElement(finalUrl + test.getIcon().getCanonicalHandlePath()));
