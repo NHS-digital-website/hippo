@@ -25,9 +25,9 @@
     <#elseif type == 'plus' >
         <#return '+' />
     <#elseif type == 'millions' >
-        <#return 'm' />
+        <#return ' million' />
     <#elseif type == 'billions' >
-        <#return 'b' />
+        <#return ' billion' />
     <#elseif type == 'thousands' >
         <#return 'k' />
     <#elseif type == 'times' >
