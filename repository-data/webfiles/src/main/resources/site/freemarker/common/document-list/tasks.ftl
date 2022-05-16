@@ -27,12 +27,9 @@
                         <a href="<@hst.link hippobean=task/>"
                            class="intra-task-grid-task__link">
                             <div class="intra-task-grid-task__icon">
-                                task.svgXmlFromRepositor
                                 <#if task.bannercontrols??>
-                                    <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "005EB8"))}"
-                                         alt="${task.title} icon" aria-hidden="true">
-                                    <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "000000"))}"
-                                         alt="${task.title} icon" aria-hidden="true">
+                                    <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "005EB8"))}" alt="${task.title} icon" aria-hidden="true">
+                                    <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "000000"))}" alt="${task.title} icon" aria-hidden="true">
                             </#if>
                             </div>
                             <h1 class="intra-task-grid-task__title">${task.title}</h1>
