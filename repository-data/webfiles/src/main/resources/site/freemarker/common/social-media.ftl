@@ -41,7 +41,7 @@
                                 <img src="${iconFetchLink}" alt="${socialmediaItem.linkName}">
                             </span>
                             <span class="nhsd-a-icon nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey" style="display: inline-block; vertical-align: top">
-                               <a href="${socialmediaItem.nhsDigitalUrl}">${socialmediaItem.linkName}</a>
+                               <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${socialmediaItem.nhsDigitalUrl}" target="_blank" rel="external">${socialmediaItem.linkName}</a>
                            </span>
                     </li>
                 </ul>
