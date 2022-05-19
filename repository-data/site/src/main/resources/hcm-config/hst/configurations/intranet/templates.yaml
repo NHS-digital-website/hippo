@@ -11,9 +11,6 @@ definitions:
       /collaborate:
         hst:renderpath: webfile:/freemarker/intranet/collaborate.ftl
         jcr:primaryType: hst:template
-      /document-list:
-        hst:renderpath: webfile:/freemarker/intranet/document-list.ftl
-        jcr:primaryType: hst:template
       /home:
         hst:renderpath: webfile:/freemarker/intranet/home.ftl
         jcr:primaryType: hst:template
