@@ -97,12 +97,12 @@ public class RssModifier extends RSS20Modifier {
                             } else {
                                 strPerson.append(contactdetails.getEmailaddress());
                             }
-                            strPerson.append(" (" + contactdetails.getName() + ")");
+                            strPerson.append(" (").append(contactdetails.getName()).append(")");
                         }
                     } else {
                         strPerson.append(emailAddress);
                         if (StringUtils.isNotBlank(blogBean.getAuthorName())) {
-                            strPerson.append(" (" + blogBean.getAuthorName() + ")");
+                            strPerson.append(" (").append(blogBean.getAuthorName()).append(")");
                         } else {
                             strPerson.append("(NHS Digital)");
                         }
@@ -279,7 +279,7 @@ public class RssModifier extends RSS20Modifier {
         if (newsBean.getRelateddocuments() != null && newsBean.getRelateddocuments().size() > 0) {
             for (HippoBean bean : newsBean.getRelateddocuments()) {
                 if (bean.getSingleProperty("website:title") != null) {
-                    category.append("," + bean.getSingleProperty("website:title").toString());
+                    category.append(",").append(bean.getSingleProperty("website:title").toString());
                 }
             }
 
@@ -288,7 +288,7 @@ public class RssModifier extends RSS20Modifier {
             for (HippoBean tempBean : newsBean.getPeoplementioned()) {
                 Person person = (Person) tempBean;
                 if (person.getPersonalinfos() != null) {
-                    category.append("," + person.getPersonalinfos().getFirstname());
+                    category.append(",").append(person.getPersonalinfos().getFirstname());
                 }
             }
         }
