@@ -85,25 +85,28 @@
                         <#assign itemLink = item.items[0] />
 
                         <#if itemLink.linkType == "internal">
-                            <@hst.link hippobean=itemLink.link var="linkVar" />
+                            <@hst.link hippobean=itemLink.link var="internalLink" />
                             <#assign title = itemLink.link.title />
+                            <#assign link = internalLink />
                         <#elseif itemLink.linkType == "external">
-                            <#assign linkVar = itemLink.link />
+
+                            <#assign externalLink = itemLink.link />
+                            <#assign link = externalLink />
                             <#assign title = itemLink.title />
                             <#assign external = true />
                         </#if>
-                        <#assign link = linkVar />
+
                     <#elseif item.internal?has_content>
                         <#assign title = item.label />
-                        <@hst.link hippobean=item.internal var="linkVar" />
-                        <#assign link = linkVar />
+                        <@hst.link hippobean=item.internal var="internalLink" />
+                        <#assign link = internalLink />
                     <#elseif item.external?has_content>
                         <#assign title = item.label />
-                        <#assign link = item.external />
+                        <#assign externalLink = item.external />
                         <#assign external = true />
+                        <#assign link = externalLink />
                     </#if>
-
-                    <#if link?has_content && title?has_content>
+                    <#if link?has_content && title?has_content >
                         <#assign graphicBlockOptions += {
                             "link": {
                                 "title": title,
