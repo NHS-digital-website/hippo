@@ -40,7 +40,11 @@
                             <#if (link.icon.original)??>
                                 <@hst.link var="icon" hippobean=link.icon.original fullyQualified=true />
                                 <#if icon?ends_with("svg")>
-                                    <img src="data:image/svg+xml;base64,${base64(colour(link.svgXmlFromRepository, "231f20"))}" alt="${title}" class="visual-hub-box-content-img" />
+                                     <#if title?? && title?has_content>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(link.svgXmlFromRepository, "231f20"))}" alt="${title}" class="visual-hub-box-content-img" />
+                                    <#else>
+                                         <img src="data:image/svg+xml;base64,${base64(colour(link.svgXmlFromRepository, "231f20"))}" class="visual-hub-box-content-img" />
+                                    </#if>
                                 <#else>
                                     <img src="${icon}" alt="${title}" class="visual-hub-box-content-img" />
                                 </#if>

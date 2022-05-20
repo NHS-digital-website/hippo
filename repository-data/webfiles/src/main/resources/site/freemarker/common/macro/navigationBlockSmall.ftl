@@ -43,7 +43,11 @@
                                     <#assign lightTxt = "FFFFFF" />
                                     <#assign darkTxt = "231F20" />
                                     <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
-                                    <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}" alt="${altText}">
+                                    <#if altText?? && altText?has_content>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}" alt="${altText}">
+                                    <#else>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}">
+                                    </#if>
                                 <#else>
                                     <img src="${image}" alt="${altText}">
                                 </#if>

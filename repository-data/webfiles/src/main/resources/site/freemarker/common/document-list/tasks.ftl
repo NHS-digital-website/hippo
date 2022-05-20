@@ -28,9 +28,12 @@
                            class="intra-task-grid-task__link">
                             <div class="intra-task-grid-task__icon">
                                 <#if task.bannercontrols??>
-                                    <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "005EB8"))}" alt="${task.title} icon" aria-hidden="true">
-                                    <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "000000"))}" alt="${task.title} icon" aria-hidden="true">
-                            </#if>
+                                    <#if task.title?? && task.title?has_content>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "005EB8"))}" alt="${task.title} icon" aria-hidden="true">
+                                    <#else>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "000000"))}" aria-hidden="true">
+                                    </#if>
+                                </#if>
                             </div>
                             <h1 class="intra-task-grid-task__title">${task.title}</h1>
                         </a>

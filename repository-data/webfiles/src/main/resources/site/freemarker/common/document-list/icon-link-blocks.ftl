@@ -15,7 +15,16 @@
                         <@hst.link hippobean=item.pageIcon.original fullyQualified=true var="image" />
                         <#if image?ends_with("svg")>
                             <div class="icon-link-block__icon">
-                                <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, "000000"))}" alt="" aria-hidden="true"/>
+                                <#if item.icon.description?? && item.icon.description?has_content>
+                                    <#assign imgDescription = item.icon.description />
+                                    <#assign altText = imgDescription?has_content?then(imgDescription, "image of ${id}") />
+                                </#if>
+
+                                 <#if altText?? && altText?has_content>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, "000000"))}" alt="${altText}" aria-hidden="true"/>
+                                 <#else>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, "000000"))}" alt="" aria-hidden="true"/>
+                                 </#if>
                             </div>
                         <#else>
                             <img src="${image}" alt="" aria-hidden="true"/>

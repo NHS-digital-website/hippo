@@ -123,7 +123,11 @@
                                       <#if hasBannerControls && document.bannercontrols.iconcolor?has_content>
                                           <#assign colour = document.bannercontrols.iconcolor?replace("#","")>
                                       </#if>
-                                      <img src="data:image/svg+xml;base64,${base64(colour(document.bannercontrols.svgXmlFromRepository, colour))}" alt="${custom_title}" aria-hidden="true" />
+                                      <#if custom_title?? && custom_title?has_content>
+                                          <img src="data:image/svg+xml;base64,${base64(colour(document.bannercontrols.svgXmlFromRepository, colour))}" alt="${custom_title}" aria-hidden="true" />
+                                      <#else>
+                                          <img src="data:image/svg+xml;base64,${base64(colour(document.bannercontrols.svgXmlFromRepository, colour))}" aria-hidden="true" />
+                                      </#if>
                                   <#else>
                                       <img src="${image}" alt="${custom_title}" aria-hidden="true" />
                                   </#if>

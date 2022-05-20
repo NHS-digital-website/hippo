@@ -32,7 +32,11 @@
             <div class="emphasis-box__image">
                 <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
                 <#if iconImage?ends_with("svg")>
-                    <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "005eb8"))}" alt="${section.heading}" width="100" height="100" />
+                    <#if section.heading?? && section.heading?has_content>
+                        <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "005eb8"))}" alt="${section.heading}" width="100" height="100" />
+                    <#else>
+                        <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "005eb8"))}" width="100" height="100" />
+                    </#if>
                 <#else>
                     <img src="${iconImage}" alt="${section.heading}" width="100" height="100" />
                 </#if>

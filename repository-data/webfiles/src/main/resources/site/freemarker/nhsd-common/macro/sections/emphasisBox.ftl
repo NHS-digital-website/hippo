@@ -48,7 +48,11 @@
                         <picture class="nhsd-a-image__picture">
                             <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
                             <#if iconImage?ends_with("svg")>
-                                <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "231f20"))}" alt="${section.heading}" style="object-fit:fill" />
+                                <#if section.heading?? && section.heading?has_content>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "231f20"))}" alt="${section.heading}" style="object-fit:fill" />
+                                <#else>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "231f20"))}" style="object-fit:fill" />
+                                </#if>
                             <#else>
                                 <img src="${iconImage}" alt="${section.heading}" style="object-fit:contain" />
                             </#if>
