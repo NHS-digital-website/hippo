@@ -80,8 +80,7 @@ public class TypeAnyHelper implements Helper<Object> {
     static boolean modelIsOfIgnoredType(final Object model, final Options options) {
         return Optional.ofNullable(options.hash(HASH_PARAM_IGNORE_CLASS))
             .map(String::valueOf)
-            .map(TypeAnyHelper::classForName)
-            .filter(classToIgnore -> classToIgnore.isInstance(model))
+            .filter(classToIgnore -> classToIgnore.equals(model.getClass().getName()))
             .isPresent();
     }
 
@@ -97,14 +96,6 @@ public class TypeAnyHelper implements Helper<Object> {
         }
 
         return false;
-    }
-
-    private static Class<?> classForName(final String classToIgnoreName) {
-        try {
-            return TypeAnyHelper.class.getClassLoader().loadClass(classToIgnoreName);
-        } catch (final Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private Options.Buffer appendRenderingTo(final CharSequence rendering, final Options.Buffer buffer) throws IOException {
