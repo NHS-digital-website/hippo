@@ -139,7 +139,7 @@ public class TypeAnyHelperTest {
     public void rendersEmptyString_forModelOfIgnoredType() throws IOException {
 
         // given
-        final String typeToIgnoreName = "java.util.Map";
+        final String typeToIgnoreName = "java.util.HashMap";
         //noinspection rawtypes
         final Map modelOfIgnoredType = new HashMap();
 
