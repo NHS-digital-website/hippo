@@ -98,7 +98,7 @@
         summary {
           color: #218183;
           border-bottom: solid 1px #d8dde0;
-
+          padding: 4px;
           span {
             color: #218183;
             font-weight: 700;
@@ -110,8 +110,12 @@
 
           &:hover {
             color: #353535;
-            outline: 3px solid #87d8dd;
+            outline: 3px solid #87d8dd00;
             background-color: #87d8dd;
+
+            span {
+                color: #353535;
+            }
           }
 
           &::before {
@@ -135,9 +139,12 @@
         }
 
         .details-body {
-          border-left: 4px solid;
+          border-left: none;
           margin-top: 3px;
           padding: 0;
+          table{
+            margin-bottom: 20px 0;
+          }
         }
       }
     }

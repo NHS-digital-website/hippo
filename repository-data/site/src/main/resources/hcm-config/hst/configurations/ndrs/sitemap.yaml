@@ -187,7 +187,7 @@ definitions:
           hst:componentconfigurationid: hst:pages/latestevents
           hst:refId: eventsfeed
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/ndrs-about-us-hub
+        hst:componentconfigurationid: hst:pages/article-hub
         hst:relativecontentpath: news
         jcr:primaryType: hst:sitemapitem
       /our-work:

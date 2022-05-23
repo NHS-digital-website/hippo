@@ -25,6 +25,7 @@
     .promo-banner__column + .promo-banner__column {
       .promo-banner__contents {
         max-width: 100%;
+        max-width: 100%;
       }
     }
   }
@@ -48,23 +49,37 @@
 }
 
 .promo-banner-lightup {
+    margin-bottom: -80px;
   a {
     text-decoration: none;
 
     &:hover {
       .promo-banner__columns-lightup {
-        background-color: #000000;
+        background-color: #ffffff!important;
       }
     }
   }
 
   .promo-banner__title-lightup {
+    font-weight: 400!important;
+    padding: .1777777778rem .433333333rem .018rem;
+    color: #fff;
+    background: #218183;
+    font-size: .778rem!important;
+    width: auto;
+    margin-bottom: 0;
+    line-height: 21px!important;
+    letter-spacing: -.0166rem;
+    float: left;
+    margin-right: 10px;
   }
 
   .promo-banner__columns-lightup {
     width: 100%;
-    background-color: #000000;
-
+    background-color: #ffffff!important;
+    text-align: center;
+    color:#353535;
+    padding: .8rem;
     .promo-banner__column-lightup-left {
       display: inline-block;
       position: relative;
@@ -77,7 +92,7 @@
       display: inline-block;
       position: relative;
       float: left;
-      width: 75%;
+      width: 100%!important;
       height: 100%;
     }
 
@@ -102,6 +117,13 @@
   }
 
   .promo-banner__contents-lightup {
-    color: red;
+    padding:0!important;
+    p{
+     display: block;
+     float: left;
+     font-size: 16px;
+     letter-spacing: .01rem;
+     color:#353535 !important;
+    }
   }
 }
