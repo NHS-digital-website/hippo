@@ -131,7 +131,10 @@ public class BorderHelper implements Helper<Object> {
 
     private boolean currentModelHasChildren(ContextModelsStack contextModelsStack) {
         if (contextModelsStack.currentModel().orElse(EMPTY_SCHEMA) instanceof ArrayList) {
-            return !((ArrayList) contextModelsStack.currentModel().get()).isEmpty();
+            Optional<Object> contextModelStackCurrentModel = contextModelsStack.currentModel();
+            if (contextModelStackCurrentModel.isPresent()) {
+                return !((ArrayList) contextModelStackCurrentModel.get()).isEmpty();
+            }
         }
 
         final Schema<?> currentModel = asSchema(contextModelsStack.currentModel());
