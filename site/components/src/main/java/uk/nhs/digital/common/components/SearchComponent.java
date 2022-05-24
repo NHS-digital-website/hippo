@@ -246,40 +246,31 @@ public class SearchComponent extends CommonComponent {
                 queryBuilder = appendFilter(queryBuilder, XM_PRIMARY_DOC_TYPE, getAnyParameter(request, XM_PRIMARY_DOC_TYPE));
             }
         }
-        if (getAnyParameter(request, GEOGRAPHIC_COVERAGE) != null) {
-            queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_COVERAGE, getAnyParameter(request, GEOGRAPHIC_COVERAGE));
-        }
-        if (getAnyParameter(request, INFORMATION_TYPE) != null) {
-            queryBuilder = appendFilter(queryBuilder, INFORMATION_TYPE, getAnyParameter(request, INFORMATION_TYPE));
-        }
-        if (getAnyParameter(request, GEOGRAPHIC_GRANULARITY) != null) {
-            queryBuilder = appendFilter(queryBuilder, GEOGRAPHIC_GRANULARITY, getAnyParameter(request, INFORMATION_TYPE));
-        }
-        if (getAnyParameter(request, PUBLISHED_BY) != null) {
-            queryBuilder = appendFilter(queryBuilder, PUBLISHED_BY, getAnyParameter(request, PUBLISHED_BY));
-        }
-        if (getAnyParameter(request, REPORTING_LEVEL) != null) {
-            queryBuilder = appendFilter(queryBuilder, REPORTING_LEVEL, getAnyParameter(request, REPORTING_LEVEL));
-        }
-        if (getAnyParameter(request, ASSURED_STATUS) != null) {
-            queryBuilder = appendFilter(queryBuilder, ASSURED_STATUS, getAnyParameter(request, ASSURED_STATUS));
-        }
-        if (getAnyParameter(request, PUBLICLY_ACCESSIBLE) != null) {
-            queryBuilder = appendFilter(queryBuilder, PUBLICLY_ACCESSIBLE, getAnyParameter(request, PUBLICLY_ACCESSIBLE));
-        }
+        queryBuilder = getQueryBuilder(request, queryBuilder, GEOGRAPHIC_COVERAGE);
+        queryBuilder = getQueryBuilder(request, queryBuilder, INFORMATION_TYPE);
+        queryBuilder = getQueryBuilder(request, queryBuilder, GEOGRAPHIC_GRANULARITY);
+        queryBuilder = getQueryBuilder(request, queryBuilder, PUBLISHED_BY);
+        queryBuilder = getQueryBuilder(request, queryBuilder, REPORTING_LEVEL);
+        queryBuilder = getQueryBuilder(request, queryBuilder, ASSURED_STATUS);
+        queryBuilder = getQueryBuilder(request, queryBuilder, PUBLICLY_ACCESSIBLE);
+        queryBuilder = getQueryBuilder(request, queryBuilder, YEAR);
+        queryBuilder = getQueryBuilder(request, queryBuilder, SEARCH_TAB);
+
         if (getAnyParameter(request, MONTH) != null && getAnyParameter(request, YEAR) != null) {
             queryBuilder = appendFilter(queryBuilder, MONTH, getAnyParameter(request, MONTH));
         }
-        if (getAnyParameter(request, YEAR) != null) {
-            queryBuilder = appendFilter(queryBuilder, YEAR, getAnyParameter(request, YEAR));
-        }
-        if (getAnyParameter(request, SEARCH_TAB) != null) {
-            queryBuilder = appendFilter(queryBuilder, SEARCH_TAB, getAnyParameter(request, SEARCH_TAB));
-        }
+
         if (getAnyParameter(request, TAXONOMY_TOPIC) != null && !getAnyParameter(request, TAXONOMY_TOPIC).equals("root")) {
             queryBuilder = appendFilter(queryBuilder, TAXONOMY_CLASSIFICATION_FIELD, getAnyParameter(request, TAXONOMY_TOPIC));
         }
 
+        return queryBuilder;
+    }
+
+    private QueryBuilder getQueryBuilder(HstRequest request, QueryBuilder queryBuilder, String geographicCoverage) {
+        if (getAnyParameter(request, geographicCoverage) != null) {
+            queryBuilder = appendFilter(queryBuilder, geographicCoverage, getAnyParameter(request, geographicCoverage));
+        }
         return queryBuilder;
     }
 
@@ -534,18 +525,11 @@ public class SearchComponent extends CommonComponent {
     private void reorderFacets(Map<String, Object> facetFields) {
         LinkedHashMap<String, Object> orderedFacets = new LinkedHashMap<>();
 
-        if (facetFields.get(XM_PRIMARY_DOC_TYPE) != null) {
-            orderedFacets.put(XM_PRIMARY_DOC_TYPE, facetFields.get(XM_PRIMARY_DOC_TYPE));
-        }
-        if (facetFields.get(YEAR) != null) {
-            orderedFacets.put(YEAR, facetFields.get(YEAR));
-        }
-        if (facetFields.get(MONTH) != null) {
-            orderedFacets.put(MONTH, facetFields.get(MONTH));
-        }
-        if (facetFields.get(TAXONOMY_CLASSIFICATION_FIELD) != null) {
-            orderedFacets.put(TAXONOMY_CLASSIFICATION_FIELD, facetFields.get(TAXONOMY_CLASSIFICATION_FIELD));
-        }
+        addFacetFields(facetFields, orderedFacets, XM_PRIMARY_DOC_TYPE);
+        addFacetFields(facetFields, orderedFacets, YEAR);
+        addFacetFields(facetFields, orderedFacets, MONTH);
+        addFacetFields(facetFields, orderedFacets, TAXONOMY_CLASSIFICATION_FIELD);
+        
         //Add remaining facets
         for (Map.Entry<String, Object> facetEntry : facetFields.entrySet()) {
             if (!orderedFacets.containsKey(facetEntry.getKey())) {
@@ -554,6 +538,12 @@ public class SearchComponent extends CommonComponent {
         }
         facetFields.clear();
         facetFields.putAll(orderedFacets);
+    }
+
+    private void addFacetFields(Map<String, Object> facetFields, LinkedHashMap<String, Object> orderedFacets, String fieldName) {
+        if (facetFields.get(fieldName) != null) {
+            orderedFacets.put(fieldName, facetFields.get(fieldName));
+        }
     }
 
     private void configureFacetResetUrl(HstRequest request, StringBuffer resetBaseUrl, String queryString) {
@@ -682,13 +672,17 @@ public class SearchComponent extends CommonComponent {
             }
         }
 
+        addEntry(groupCount, countArray, "homepage", entry);
+    }
+
+    private void addEntry(int groupCount, List<Integer> countArray, String homepage, ArrayList<Object> entry) {
         if (groupCount > 0) {
             countArray.add(groupCount);
             Collections.sort(countArray);
             Collections.reverse(countArray);
             LinkedHashMap<String, Object> groupedEntry = new LinkedHashMap<>();
             groupedEntry.put(FACET_ATTRIBUTE_COUNT, groupCount);
-            groupedEntry.put(FACET_ATTRIBUTE_NAME, "homepage");
+            groupedEntry.put(FACET_ATTRIBUTE_NAME, homepage);
             entry.add(countArray.indexOf(groupCount), groupedEntry);
         }
     }
@@ -706,15 +700,7 @@ public class SearchComponent extends CommonComponent {
             }
         }
 
-        if (groupCount > 0) {
-            countArray.add(groupCount);
-            Collections.sort(countArray);
-            Collections.reverse(countArray);
-            LinkedHashMap<String, Object> groupedEntry = new LinkedHashMap<>();
-            groupedEntry.put(FACET_ATTRIBUTE_COUNT, groupCount);
-            groupedEntry.put(FACET_ATTRIBUTE_NAME, "publication");
-            entry.add(countArray.indexOf(groupCount), groupedEntry);
-        }
+        addEntry(groupCount, countArray, "publication", entry);
     }
 
     private boolean removeDocType(LinkedHashMap<String, Object> facetField) {

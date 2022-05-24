@@ -19,24 +19,16 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         Document document = Jsoup.parse(html, "", Parser.xmlParser());
 
         // normal
-        if (document.select("p").first() != null) {
-            document.select("p").attr("class", "nhsd-t-body");
-        }
+        docSelect(document, "p", "nhsd-t-body");
 
         // heading 2
-        if (document.select("h2").first() != null) {
-            document.select("h2").attr("class", "nhsd-t-heading-xl");
-        }
+        docSelect(document, "h2", "nhsd-t-heading-xl");
 
         // heading 3
-        if (document.select("h3").first() != null) {
-            document.select("h3").attr("class", "nhsd-t-heading-l");
-        }
+        docSelect(document, "h3", "nhsd-t-heading-l");
 
         // heading 4
-        if (document.select("h4").first() != null) {
-            document.select("h4").attr("class", "nhsd-t-heading-m");
-        }
+        docSelect(document, "h4", "nhsd-t-heading-m");
 
         // code
         if (document.select("code").first() != null) {
@@ -45,19 +37,13 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         }
 
         // numbered list
-        if (document.select("ol").first() != null) {
-            document.select("ol").attr("class", "nhsd-t-list nhsd-t-list--number");
-        }
+        docSelect(document, "ol", "nhsd-t-list nhsd-t-list--number");
 
         // bullet point list
-        if (document.select("ul").first() != null) {
-            document.select("ul").attr("class", "nhsd-t-list nhsd-t-list--bullet");
-        }
+        docSelect(document, "ul", "nhsd-t-list nhsd-t-list--bullet");
 
         // external link
-        if (document.select("a").first() != null) {
-            document.select("a").attr("class", "nhsd-a-link");
-        }
+        docSelect(document, "a", "nhsd-a-link");
 
         // image
         if (document.select("img").first() != null) {
@@ -69,14 +55,14 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
             });
 
             document.select("img")
-                    .wrap("<span class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale\"><picture class=\"nhsd-a-image__picture\"></picture></span>");
+                .wrap("<span class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale\"><picture class=\"nhsd-a-image__picture\"></picture></span>");
         }
 
         // table
         if (document.select("table").first() != null) {
             document.select("table")
-                    .wrap("<div class=\"nhsd-m-table nhsd-t-body\"></div>")
-                    .attr("data-responsive", "");
+                .wrap("<div class=\"nhsd-m-table nhsd-t-body\"></div>")
+                .attr("data-responsive", "");
 
             for (Element table : document.select("table")) {
                 if (table.select("th").first() != null) {
@@ -99,5 +85,11 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         }
 
         return String.valueOf(document);
+    }
+
+    private void docSelect(Document document, String p, String attributeValue) {
+        if (document.select(p).first() != null) {
+            document.select(p).attr("class", attributeValue);
+        }
     }
 }
