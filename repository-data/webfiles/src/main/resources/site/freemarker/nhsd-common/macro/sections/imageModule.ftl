@@ -39,7 +39,11 @@
         <@hero heroOptions heroType />
         <div class="nhsd-t-grid">
         <div class="nhsd-t-row">
-        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+        <#if document?? && document.navigationController == "withoutNavWide">
+            <div class="nhsd-t-col-xs-12">
+        <#else>
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+        </#if>
     <#else>
         <#assign figureStyle = "width: 100%;"/>
         <#assign imageStyle = "width: 100%"/>
@@ -76,7 +80,11 @@
             <div style="clear: both;"/> <#-- clear float so the next section does not wrap around the image -->
             <div class="nhsd-t-grid">
             <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <#if document?? && document.navigationController == "withoutNavWide">
+                <div class="nhsd-t-col-xs-12">
+            <#else>
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            </#if>
         </#if>
     </#if>
 </#macro>
