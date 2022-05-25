@@ -7,11 +7,6 @@ definitions:
           hst:componentclassname: uk.nhs.digital.common.components.FacetComponent
           hst:template: facets
           jcr:primaryType: hst:component
-        /tabs:
-          hst:componentclassname: uk.nhs.digital.common.components.SearchTabsComponent
-          hst:suppresswastemessage: true
-          hst:template: searchtabs
-          jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
         hst:parameternames:
         - pageSize
