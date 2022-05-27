@@ -210,7 +210,7 @@
         <plexus-utils.version>3.3.0</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
         <selenium.version>3.141.59</selenium.version>
-        <slf4j.version>1.7.30</slf4j.version>
+        <slf4j.version>1.7.36</slf4j.version>
         <snakeyaml.version>1.28</snakeyaml.version>
         <spring.version>5.1.15.RELEASE</spring.version>
         <swagger-codegen.version>1.0.26</swagger-codegen.version>
