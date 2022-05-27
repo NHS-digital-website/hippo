@@ -195,7 +195,7 @@
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
         <logback.version>1.2.3</logback.version>
         <maven-chckstyle.version>3.0.0</maven-chckstyle.version>
-        <maven-enforcer.version>3.0.0-M3</maven-enforcer.version>
+        <maven-enforcer.version>3.0.0</maven-enforcer.version>
         <maven-failsafe.version>2.22.2</maven-failsafe.version>
         <maven-frontend.version>1.12.0</maven-frontend.version>
         <maven-jxr.version>2.5</maven-jxr.version>
