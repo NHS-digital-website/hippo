@@ -131,8 +131,13 @@ public class FeedListComponent extends EssentialsListComponent {
      */
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query) throws QueryException {
-
-        return componentHelper.executeQuery(request, paramInfo, query);
+        final FeedListComponentInfo info = getComponentParametersInfo(request);
+        final String documentTypes = info.getDocumentTypes();
+        if (documentTypes.equals("website:event")) {
+            return componentHelper.executeQuery(request, paramInfo, query);
+        } else {
+            return super.executeQuery(request, paramInfo, query);
+        }
     }
 
     @Override
