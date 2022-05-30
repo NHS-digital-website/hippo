@@ -44,9 +44,9 @@
         <#if hasPrimaryButton || hasSecondaryButton>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <nav class="nhsd-m-button-nav">
+                    <nav class="nhsd-m-button-nav nhsd-t-flex--justify-content-centre">
                         <#if hasPrimaryButton>
-                            <a class="nhsd-a-button" href="${buttonDestination}">
+                            <a class="nhsd-a-button " href="${buttonDestination}">
                                 <span class="nhsd-a-button__label">${buttonText}</span>
                                 <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                             </a>
