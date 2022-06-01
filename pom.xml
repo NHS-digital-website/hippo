@@ -202,7 +202,7 @@
         <maven-pmd.version>3.8</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
         <maven-surefire.version>2.22.2</maven-surefire.version>
-        <mokito.version>3.10.0</mokito.version>
+        <mokito.version>4.6.0</mokito.version>
         <objenesis.version>3.2</objenesis.version>
         <okhttp.version>3.14.3</okhttp.version>
         <okio.version>1.17.2</okio.version>
