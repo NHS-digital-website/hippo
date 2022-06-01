@@ -1,16 +1,30 @@
 package uk.nhs.digital.common.contentrewriters;
 
 import org.hippoecm.hst.configuration.hosting.*;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.request.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.nhs.digital.website.beans.CustomizedAssetSet;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+
 
 public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter {
+
+    private static Logger LOGGER = LoggerFactory.getLogger(BrandRefreshContentRewriter.class);
 
     public String rewrite(String html, Node hippoHtmlNode, HstRequestContext requestContext, Mount targetMount) {
 
@@ -43,7 +57,33 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         docSelect(document, "ul", "nhsd-t-list nhsd-t-list--bullet");
 
         // external link
-        docSelect(document, "a", "nhsd-a-link");
+        if (document.select("a").first() != null) {
+            document.select("a").attr("class", "nhsd-a-link");
+            List<Element> lsElements = document.select("a").stream().filter(a -> a.attr("href").contains("/binaries/content/assets")).collect(Collectors.toList());
+
+            for (Element ele : lsElements) {
+                LOGGER.debug("Element " + ele);
+                try {
+                    String assetPath = ele.attr("href");
+                    String assetQueryPath = assetPath.substring(assetPath.indexOf("/content"));
+                    QueryManager jcrQueryManager = requestContext.getSession().getWorkspace().getQueryManager();
+                    Query jcrQuery = jcrQueryManager.createQuery("/jcr:root" + assetQueryPath, "xpath");
+                    QueryResult queryResult = jcrQuery.execute();
+                    NodeIterator nodes = queryResult.getNodes();
+                    CustomizedAssetSet hp = (CustomizedAssetSet) requestContext
+                        .getQueryManager()
+                        .createQuery(nodes.nextNode(),
+                            CustomizedAssetSet.class).execute().getHippoBeans().next();
+                    if (hp.getArchiveMaterial()) {
+                        ele.attr("rel", "archived");
+                        ele.text(ele.text() + " [Archive Content]");
+                    }
+                } catch (RepositoryException | QueryException e) {
+                    LOGGER.error(" Error updating Asset link ", e);
+                }
+
+            }
+        }
 
         // image
         if (document.select("img").first() != null) {

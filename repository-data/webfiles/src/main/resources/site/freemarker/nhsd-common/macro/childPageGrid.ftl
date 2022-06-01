@@ -27,7 +27,7 @@
                                         <@downloadBlockExternal document.class.name childPage.link "${childPage.title}" "${childPage.shortsummary}" />
                                     </#if>
                                 <#elseif childPage.linkType == "asset">
-                                    <@downloadBlockAsset document.class.name childPage.link childPage.title "" childPage.link.asset.mimeType childPage.link.asset.getLength() />
+                                    <@downloadBlockAsset document.class.name childPage.link childPage.title "" childPage.link.asset.mimeType childPage.link.asset.getLength() false false false childPage.link.archiveMaterial/>
                                 </#if>
                             <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
                                 <@typeSpan "internal" />
