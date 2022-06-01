@@ -12,6 +12,7 @@
     <#assign hasTitle = item.title?has_content />
     <#assign hasContent = item.content?has_content />
     <#assign hasIcon = item.icon?has_content />
+    <#assign hasImage = item.image?has_content />
     <#assign hasLink = item.external?has_content || item.internal?has_content />
     <#assign hasLabel = item.label?has_content />
     <#assign colVarWithYellowCheck = (colourVariant == yellow)?then("light-yellow", colourVariant) />
@@ -39,6 +40,14 @@
                                 <@hst.link hippobean=item.icon var="image"/>
                                 <image x="4" y="4" width="8" height="8" href="${image}"/>
                             </#if>
+                        </svg>
+                    <#elseif hasImage>
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">
+                            <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16"  width="42%" height="42%" x="29%" y="29%">
+                                <@hst.link hippobean=item.image var="image"/>
+                                <image x="4" y="4" width="8" height="8" href="${image}"/>
+                            </svg>
                         </svg>
                     <#else>
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">
