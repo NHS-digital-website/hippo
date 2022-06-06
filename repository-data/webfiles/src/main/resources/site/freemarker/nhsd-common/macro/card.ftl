@@ -61,6 +61,9 @@
                         <#if cardProperties.title?has_content>
                             <h2 class="nhsd-t-heading-s">${cardProperties.title}</h2>
                         </#if>
+                        <#if cardProperties.shortsummary?has_content>
+                            <p class="nhsd-t-body-s">${cardProperties.shortsummary}</p>
+                        </#if>
 
                         <#if cardProperties.icon?has_content>
                             <#if cardProperties.icon == "link">
@@ -134,5 +137,62 @@
         <#if cardProperties.link?has_content>
             </a>
         </#if>
+        <#if cardProperties.authorsInfo?has_content && cardProperties.authorsInfo?size gt 0>
+            <@authorSection cardProperties.authorsInfo />
+        </#if>
     </article>
+</#macro>
+
+<#macro authorSection authors>
+    <div class="nhsd-m-card__author">
+        <#if authors?size == 1>
+            <#assign author = authors[0] />
+            <div class="nhsd-m-author">
+                <#if author.image?has_content>
+                    <@hst.link hippobean=author.image.authorPhoto2x fullyQualified=true var="authorImage" />
+                    <div class="nhsd-a-avatar" title="${author.name}" aria-label="${author.name}">
+                        <figure class="nhsd-a-image nhsd-a-image--cover" aria-hidden="true">
+                            <picture class="nhsd-a-image__picture">
+                                <img itemprop="image"
+                                     class="bloghub__item__content__author__img"
+                                     src="${authorImage}"
+                                     alt="${author.name}"/>
+                            </picture>
+                        </figure>
+                    </div>
+                </#if>
+
+                <div class="nhsd-m-author__details">
+                    <#if author.link?has_content>
+                        <a href="${author.link}" class="nhsd-a-link nhsd-t-body-s">${author.name}</a>
+                    <#elseif author.name?has_content>
+                        <span class="nhsd-t-heading-xs nhsd-!t-margin-0 nhsd-!t-col-black">${author.name}</span>
+                    </#if>
+                    <p class="nhsd-t-body-s nhsd-!t-margin-top-2 nhsd-!t-margin-bottom-0 nhsd-!t-col-black">
+                        <#if author.role?has_content>${author.role}</#if><#if author.role?has_content>, ${author.org}</#if>
+                    </p>
+                </div>
+            </div>
+        <#elseif authors?size gt 1>
+            <div class="nhsd-m-avatar-list nhsd-!t-margin-right-2">
+                <#list authors as author>
+                    <#if author.image?has_content>
+                        <@hst.link hippobean=author.image.authorPhoto2x fullyQualified=true var="authorImage" />
+                        <a href="${author.link}" class="nhsd-a-avatar" title="${author.name}" aria-label="${author.name}">
+                            <figure class="nhsd-a-image nhsd-a-image--cover" aria-hidden="true">
+                                <picture class="nhsd-a-image__picture">
+                                    <img itemprop="image"
+                                         class="bloghub__item__content__author__img"
+                                         src="${authorImage}"
+                                         alt="${author.name}"/>
+                                </picture>
+                            </figure>
+                        </a>
+                    <#else>
+                        <a href="${author.link}" class="nhsd-a-avatar nhsd-a-avatar--initials" title="${author.name}" aria-label="${author.name}">${author.initials}</a>
+                    </#if>
+                </#list>
+            </div>
+        </#if>
+    </div>
 </#macro>
