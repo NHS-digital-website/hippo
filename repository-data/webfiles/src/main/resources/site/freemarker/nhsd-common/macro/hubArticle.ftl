@@ -62,14 +62,14 @@
         'cardClass': 'nhsd-m-card--full-height',
         'contentType': getDocTypeName(item.class.name)
     } />
-    
+
     <#if hst.isBeanType(item, 'uk.nhs.digital.website.beans.CyberAlert')>
     	<#assign tag1 = {'text': item.threatId}/>
     	<#assign tag2 = {'text': item.severity, 'colour': 'nhsd-a-tag--bg-light-red'}/>
     	<#assign cardData += {
     		'background': 'white',
     		'tags': [tag1, tag2],
-    		'threat', item.threatType,
+    		'threat': item.threatType,
     		'lastModified': item.lastModified,
     		'publishedDate': item.publishedDate
     	} />
@@ -78,11 +78,13 @@
     <#-- DW-2686 if there is a thumbnail image use it else use the lead image -->
     <#if item.thumbnailImage?has_content>
         <#assign cardData += {
-            'image': item.thumbnailImage
+            'image': item.thumbnailImage,
+            'altText': ""
         } />
     <#elseif item.leadImage?has_content>
         <#assign cardData += {
-            'image': item.leadImage
+            'image': item.leadImage,
+            'altText': item.leadImageAltText
         } />
     </#if>
 

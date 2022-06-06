@@ -6,14 +6,38 @@
         <#local borderColor = cardProperties.border?has_content?then(cardProperties.border, "grey") />
     </#if>
 
-    <article class="nhsd-m-card">
-   		<@fmt.formatDate value=cardProperties.publishedDate.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="publishedDate" />
-        <@fmt.formatDate value=cardProperties.lastModified type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="lastModifiedDate" />
+    <#assign cardClass = ""/>
+    <#if cardProperties.featured?? && cardProperties.featured && cardProperties.image?has_content>
+        <#assign cardClass = "nhsd-m-card--image-position-adjacent nhsd-m-card--full-height"/>
+    </#if>
+    <#if cardProperties.authorsInfo?has_content && cardProperties.authorsInfo?size gt 0>
+        <#assign cardClass += " nhsd-m-card--author"/>
+    </#if>
+
+    <#if cardProperties.contentType?has_content>
+        <#assign trackingEvent = 'onclick="logGoogleAnalyticsEvent(\'Link click\', \'${cardProperties.contentType}\', \'${cardProperties.link}\')" onkeyup="return vjsu.onKeyUp(event)"' />
+    </#if>
+
+    <article class="nhsd-m-card ${cardClass}">
+        <#if cardProperties.publishedDate?has_content>
+   		    <@fmt.formatDate value=cardProperties.publishedDate.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="publishedDate" />
+            <@fmt.formatDate value=cardProperties.lastModified type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="lastModifiedDate" />
+        </#if>
 
         <#if cardProperties.link?has_content>
             <a href="${cardProperties.link}" class="nhsd-a-box-link nhsd-a-box-link--focus-orange" ${cardProperties.title?has_content?then("aria-label='About NHS Digital'", "")?no_esc}>
         </#if>
             <div class="nhsd-a-box nhsd-a-box--bg-${bgColor} ${borderColor?has_content?then("nhsd-a-box--border-" + borderColor, "")}">
+                <#if cardProperties.image?has_content>
+                    <div class="nhsd-m-card__image_container">
+                        <figure class="nhsd-a-image ${cardProperties.imageClass?has_content?then(cardProperties.imageClass, '')}">
+                            <picture class="nhsd-a-image__picture">
+                                <@hst.link hippobean=cardProperties.image.newsPostImageLarge fullyQualified=true var="leadImage" />
+                                <img src="${leadImage}" alt="${cardProperties.altText}" />
+                            </picture>
+                        </figure>
+                    </div>
+                </#if>
                 <div class="nhsd-m-card__content_container">
                     <div class="nhsd-m-card__content-box">
                         <#if cardProperties.tags?? && cardProperties.tags?size gt 0>
@@ -31,8 +55,8 @@
                             </div>
                         </#if>
 
-                        <#if cardProperties.date?has_content>
-                            <h2 class="nhsd-m-card__date">${cardProperties.date}</h2>
+                        <#if publishedDate?has_content>
+                            <h2 class="nhsd-m-card__date">${publishedDate} (updated ${lastModifiedDate})</h2>
                         </#if>
                         <#if cardProperties.title?has_content>
                             <h2 class="nhsd-t-heading-s">${cardProperties.title}</h2>
@@ -76,7 +100,7 @@
                         <#if cardProperties.bullets?has_content>
                             </ul>
                         </#if>
-                        
+
                         <#if cardProperties.threat?has_content>
                         	<div class="nhsd-t-body-s" style="margin-top: 1.1111111111rem;">
                         		<span class="nhsd-a-tag--bg-light-grey">
