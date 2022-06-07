@@ -496,7 +496,7 @@ public class ApiSpecificationPublicationServiceTest {
     private OpenApiSpecification remoteSpecWith(final String specificationId, final String lastModifiedInstant) {
 
         final OpenApiSpecification remoteApiSpecification = new OpenApiSpecification(specificationId, lastModifiedInstant);
-        remoteApiSpecification.setApigeeService(apigeeService);
+        remoteApiSpecification.setService(apigeeService);
 
         return remoteApiSpecification;
     }

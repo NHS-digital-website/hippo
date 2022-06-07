@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.apigee;
+package uk.nhs.digital.apispecs.services;
 
 import static java.util.Collections.unmodifiableList;
 import static java.util.stream.Collectors.toList;
@@ -83,7 +83,7 @@ public class ApigeeService implements OpenApiSpecificationRepository {
                 .map(resource, OpenApiSpecifications.class)
                 .getContents()
                 .stream()
-                    .peek(openApiSpecification -> openApiSpecification.setApigeeService(this))
+                .peek(openApiSpecification -> openApiSpecification.setService(this))
                 .collect(toList())
         );
 

@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.apigee;
+package uk.nhs.digital.apispecs.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import uk.nhs.digital.apispecs.model.OpenApiSpecification;

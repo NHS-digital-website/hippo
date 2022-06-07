@@ -9,9 +9,10 @@ import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
-import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationImportImportMetadataJcrRepository;
+import uk.nhs.digital.apispecs.services.ApigeeService;
+import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
 
 import java.util.Optional;
 import javax.jcr.Session;

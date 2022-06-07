@@ -30,7 +30,7 @@ public class OpenApiSpecification {
         return Instant.parse(modified);
     }
 
-    public void setApigeeService(final OpenApiSpecificationRepository openApiSpecificationRepository) {
+    public void setService(final OpenApiSpecificationRepository openApiSpecificationRepository) {
         specJsonSupplier = () -> openApiSpecificationRepository.apiSpecificationJsonForSpecId(getId());
     }
 

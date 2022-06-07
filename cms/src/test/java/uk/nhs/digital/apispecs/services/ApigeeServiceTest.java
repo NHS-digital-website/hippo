@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.apigee;
+package uk.nhs.digital.apispecs.services;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.*;

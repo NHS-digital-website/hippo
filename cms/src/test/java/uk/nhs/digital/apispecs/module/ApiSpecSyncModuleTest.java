@@ -37,7 +37,7 @@ import javax.jcr.Session;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({HippoServiceRegistry.class})
 @PowerMockIgnore({"org.awaitility.*", "java.util.concurrent.*"})
-public class ApiSpecSyncFromApigeeModuleTest {
+public class ApiSpecSyncModuleTest {
 
     public static final String DAILY_JOB_NAME = "apiSpecSyncFromApigee";
     public static final String JOB_GROUP_NAME = "devzone";
@@ -49,7 +49,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
     private ArgumentCaptor<RepositoryJobInfo> jobInfoArgCaptor = ArgumentCaptor.forClass(RepositoryJobInfo.class);
     private ArgumentCaptor<RepositoryJobTrigger> jobTriggerArgCaptor = ArgumentCaptor.forClass(RepositoryJobTrigger.class);
 
-    private final ApiSpecSyncFromApigeeModule apiSpecSyncFromApigeeModule = new ApiSpecSyncFromApigeeModule();
+    private final ApiSpecSyncModule apiSpecSyncModule = new ApiSpecSyncModule();
 
     @Before
     public void setUp() {
@@ -75,7 +75,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
         System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT0.5S");
 
         // when
-        apiSpecSyncFromApigeeModule.initialize(session);
+        apiSpecSyncModule.initialize(session);
 
         // then
         with()
@@ -115,7 +115,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
         System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT1S");
 
         // when
-        apiSpecSyncFromApigeeModule.initialize(session);
+        apiSpecSyncModule.initialize(session);
 
         // then
         with()
@@ -135,7 +135,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
         System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT0.5S");
 
         // when
-        apiSpecSyncFromApigeeModule.initialize(session);
+        apiSpecSyncModule.initialize(session);
 
         // then
         with()
@@ -154,7 +154,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
         given(scheduler.checkExists(any(), any())).willReturn(true);
 
         // when
-        apiSpecSyncFromApigeeModule.shutdown();
+        apiSpecSyncModule.shutdown();
 
         // then
         then(scheduler).should().checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME);
@@ -168,7 +168,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
         given(scheduler.checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME)).willReturn(false);
 
         // when
-        apiSpecSyncFromApigeeModule.shutdown();
+        apiSpecSyncModule.shutdown();
 
         // then
         then(scheduler).should(never()).deleteJob(any(), any());
