@@ -1,0 +1,34 @@
+---
+# Folder
+- path: /content/documents/corporate-website/api-specifications-location-a
+  primaryType: hippo:folder
+# Api specification document
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+    website:json: '{ "spec" : "in CMS" }'
+    website:specification_id: test-proxygen-spec
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[2]
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+    website:specification_id: test-proxygen-spec
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[3]
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: published
+    website:specification_id: test-proxygen-spec
+    hippostdpubwf:publicationDate: '2022-06-07T14:25:35+00:00'
+
+# Root API Specifications metadata node under module config node
+- path: /hippo:configuration/hippo:modules/api-specification-sync/hippo:moduleconfig/api-specification-metadata
+  primaryType: hipposys:moduleconfig
+  properties:
+    website:apiSpecHandleNodeIds: []
+    website:lastChangeCheckInstants: []

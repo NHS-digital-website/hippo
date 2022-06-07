@@ -44,7 +44,8 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Specification Id
             field: specification_id
-            hint: Binds the document in CMS to the actual API specification in Apigee.
+            hint: Binds the document in CMS to the actual API specification in Apigee
+              or Proxygen.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -81,8 +82,9 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Specification JSON content
             field: json
-            hint: JSON content automatically imported from specification Apigee. Manually
-              populated content will be overwritten by the next import.
+            hint: JSON content automatically imported from specifications in Apigee
+              or Proxygen. Manually populated content will be overwritten by the next
+              import.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field

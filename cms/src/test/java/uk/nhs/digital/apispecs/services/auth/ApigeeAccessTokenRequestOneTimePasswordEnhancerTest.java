@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.apigee.auth;
+package uk.nhs.digital.apispecs.services.auth;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;

@@ -461,7 +461,8 @@
                                     <devzone.apigee.resources.specs.individual.url>${devzone.apigee.resources.specs.individual.url}</devzone.apigee.resources.specs.individual.url>
                                     <!-- Apigee API specifications sync schedule properties -->
                                     <devzone.apispec.sync.schedule-delay-duration>${devzone.apispec.sync.schedule-delay-duration}</devzone.apispec.sync.schedule-delay-duration>
-                                    <devzone.apispec.sync.daily-cron-expression>${devzone.apispec.sync.daily-cron-expression}</devzone.apispec.sync.daily-cron-expression>
+                                    <devzone.apispec.sync.apigee.daily-cron-expression>${devzone.apispec.sync.apigee.daily-cron-expression}</devzone.apispec.sync.apigee.daily-cron-expression>
+                                    <devzone.apispec.sync.proxygen.daily-cron-expression>${devzone.apispec.sync.proxygen.daily-cron-expression}</devzone.apispec.sync.proxygen.daily-cron-expression>
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
                                 </systemProperties>
 

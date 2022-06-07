@@ -10,7 +10,6 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
@@ -29,6 +28,7 @@ import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob;
+import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromProxygenJob;
 
 import java.util.List;
 import javax.jcr.RepositoryException;
@@ -37,9 +37,10 @@ import javax.jcr.Session;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({HippoServiceRegistry.class})
 @PowerMockIgnore({"org.awaitility.*", "java.util.concurrent.*"})
-public class ApiSpecSyncFromApigeeModuleTest {
+public class ApiSpecSyncModuleTest {
 
-    public static final String DAILY_JOB_NAME = "apiSpecSyncFromApigee";
+    public static final String DAILY_APIGEE_JOB_NAME = "apiSpecSyncFromApigee";
+    public static final String DAILY_PROXYGEN_JOB_NAME = "apiSpecSyncFromProxygen";
     public static final String JOB_GROUP_NAME = "devzone";
     private static final String TRIGGER_NAME = "cronTrigger";
 
@@ -49,7 +50,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
     private ArgumentCaptor<RepositoryJobInfo> jobInfoArgCaptor = ArgumentCaptor.forClass(RepositoryJobInfo.class);
     private ArgumentCaptor<RepositoryJobTrigger> jobTriggerArgCaptor = ArgumentCaptor.forClass(RepositoryJobTrigger.class);
 
-    private final ApiSpecSyncFromApigeeModule apiSpecSyncFromApigeeModule = new ApiSpecSyncFromApigeeModule();
+    private final ApiSpecSyncModule apiSpecSyncModule = new ApiSpecSyncModule();
 
     @Before
     public void setUp() {
@@ -71,11 +72,12 @@ public class ApiSpecSyncFromApigeeModuleTest {
         // given
         final String expectedDailyCronExpression = "0 0/10 * ? * *";
 
-        System.setProperty("devzone.apispec.sync.daily-cron-expression", expectedDailyCronExpression);
+        System.setProperty("devzone.apispec.sync.apigee.daily-cron-expression", expectedDailyCronExpression);
+        System.setProperty("devzone.apispec.sync.proxygen.daily-cron-expression", expectedDailyCronExpression);
         System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT0.5S");
 
         // when
-        apiSpecSyncFromApigeeModule.initialize(session);
+        apiSpecSyncModule.initialize(session);
 
         // then
         with()
@@ -83,27 +85,39 @@ public class ApiSpecSyncFromApigeeModuleTest {
             .await()
             .atMost(5, SECONDS)
             .untilAsserted(() ->
-                then(scheduler).should(times(1)).scheduleJob(any(), any())
+                then(scheduler).should(times(2)).scheduleJob(any(), any())
             );
 
-        then(scheduler).should(times(1)).scheduleJob(
+        then(scheduler).should(times(2)).scheduleJob(
             jobInfoArgCaptor.capture(),
             jobTriggerArgCaptor.capture()
         );
 
         final List<RepositoryJobInfo> actualJobInfos = jobInfoArgCaptor.getAllValues();
 
-        final RepositoryJobInfo dailyJobInfo = actualJobInfos.get(0);
-        assertThat("Daily job is scheduled with correct group.", dailyJobInfo.getGroup(), is(JOB_GROUP_NAME));
-        assertThat("Daily job is scheduled with correct name.", dailyJobInfo.getName(), is(DAILY_JOB_NAME));
-        assertThat("Daily job is scheduled with correct class.", dailyJobInfo.getJobClass(), is(ApiSpecSyncFromApigeeJob.class));
+        final RepositoryJobInfo dailyApigeeJobInfo = actualJobInfos.get(0);
+        assertThat("Daily Apigee job is scheduled with correct group.", dailyApigeeJobInfo.getGroup(), is(JOB_GROUP_NAME));
+        assertThat("Daily Apigee job is scheduled with correct name.", dailyApigeeJobInfo.getName(), is(DAILY_APIGEE_JOB_NAME));
+        assertThat("Daily Apigee job is scheduled with correct class.", dailyApigeeJobInfo.getJobClass(), is(ApiSpecSyncFromApigeeJob.class));
+
+        final RepositoryJobInfo dailyProxygenJobInfo = actualJobInfos.get(1);
+        assertThat("Daily Proxygen job is scheduled with correct group.", dailyProxygenJobInfo.getGroup(), is(JOB_GROUP_NAME));
+        assertThat("Daily Proxygen job is scheduled with correct name.", dailyProxygenJobInfo.getName(), is(DAILY_PROXYGEN_JOB_NAME));
+        assertThat("Daily Proxygen job is scheduled with correct class.", dailyProxygenJobInfo.getJobClass(), is(ApiSpecSyncFromProxygenJob.class));
 
         final List<RepositoryJobTrigger> actualJobTriggers = jobTriggerArgCaptor.getAllValues();
 
-        final RepositoryJobTrigger dailyJobTrigger = actualJobTriggers.get(0);
-        assertThat("Daily job is scheduled as a cron job.", dailyJobTrigger, instanceOf(RepositoryJobCronTrigger.class));
-        assertThat("Daily job is scheduled with correct trigger name", dailyJobTrigger.getName(), is(TRIGGER_NAME));
-        assertThat("Daily job is scheduled with correct cron expression", ((RepositoryJobCronTrigger)dailyJobTrigger).getCronExpression(), is(expectedDailyCronExpression));
+        final RepositoryJobTrigger dailyApigeeJobTrigger = actualJobTriggers.get(0);
+        assertThat("Daily Apigee job is scheduled as a cron job.", dailyApigeeJobTrigger, instanceOf(RepositoryJobCronTrigger.class));
+        assertThat("Daily Apigee job is scheduled with correct trigger name", dailyApigeeJobTrigger.getName(), is(TRIGGER_NAME));
+        assertThat("Daily Apigee job is scheduled with correct cron expression",
+            ((RepositoryJobCronTrigger) dailyApigeeJobTrigger).getCronExpression(), is(expectedDailyCronExpression));
+
+        final RepositoryJobTrigger dailyProxygenJobTrigger = actualJobTriggers.get(1);
+        assertThat("Daily Proxygen job is scheduled as a cron job.", dailyProxygenJobTrigger, instanceOf(RepositoryJobCronTrigger.class));
+        assertThat("Daily Proxygen job is scheduled with correct trigger name", dailyProxygenJobTrigger.getName(), is(TRIGGER_NAME));
+        assertThat("Daily Proxygen job is scheduled with correct cron expression",
+            ((RepositoryJobCronTrigger) dailyProxygenJobTrigger).getCronExpression(), is(expectedDailyCronExpression));
     }
 
     @Test
@@ -115,7 +129,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
         System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT1S");
 
         // when
-        apiSpecSyncFromApigeeModule.initialize(session);
+        apiSpecSyncModule.initialize(session);
 
         // then
         with()
@@ -123,8 +137,10 @@ public class ApiSpecSyncFromApigeeModuleTest {
             .await()
             .atMost(5, SECONDS)
             .untilAsserted(() -> {
-                then(scheduler).should().checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME);
-                then(scheduler).should().deleteJob(DAILY_JOB_NAME, JOB_GROUP_NAME);
+                then(scheduler).should().checkExists(DAILY_APIGEE_JOB_NAME, JOB_GROUP_NAME);
+                then(scheduler).should().checkExists(DAILY_PROXYGEN_JOB_NAME, JOB_GROUP_NAME);
+                then(scheduler).should().deleteJob(DAILY_APIGEE_JOB_NAME, JOB_GROUP_NAME);
+                then(scheduler).should().deleteJob(DAILY_PROXYGEN_JOB_NAME, JOB_GROUP_NAME);
             });
     }
 
@@ -135,7 +151,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
         System.setProperty("devzone.apispec.sync.schedule-delay-duration", "PT0.5S");
 
         // when
-        apiSpecSyncFromApigeeModule.initialize(session);
+        apiSpecSyncModule.initialize(session);
 
         // then
         with()
@@ -154,28 +170,32 @@ public class ApiSpecSyncFromApigeeModuleTest {
         given(scheduler.checkExists(any(), any())).willReturn(true);
 
         // when
-        apiSpecSyncFromApigeeModule.shutdown();
+        apiSpecSyncModule.shutdown();
 
         // then
-        then(scheduler).should().checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME);
-        then(scheduler).should().deleteJob(DAILY_JOB_NAME, JOB_GROUP_NAME);
+        then(scheduler).should().checkExists(DAILY_APIGEE_JOB_NAME, JOB_GROUP_NAME);
+        then(scheduler).should().checkExists(DAILY_PROXYGEN_JOB_NAME, JOB_GROUP_NAME);
+        then(scheduler).should().deleteJob(DAILY_APIGEE_JOB_NAME, JOB_GROUP_NAME);
+        then(scheduler).should().deleteJob(DAILY_PROXYGEN_JOB_NAME, JOB_GROUP_NAME);
     }
 
     @Test
     public void shutdown_doesNothing_whenNoMatchingJobsPreviouslyScheduled() throws RepositoryException {
 
         // given
-        given(scheduler.checkExists(DAILY_JOB_NAME, JOB_GROUP_NAME)).willReturn(false);
+        given(scheduler.checkExists(DAILY_APIGEE_JOB_NAME, JOB_GROUP_NAME)).willReturn(false);
+        given(scheduler.checkExists(DAILY_PROXYGEN_JOB_NAME, JOB_GROUP_NAME)).willReturn(false);
 
         // when
-        apiSpecSyncFromApigeeModule.shutdown();
+        apiSpecSyncModule.shutdown();
 
         // then
         then(scheduler).should(never()).deleteJob(any(), any());
     }
 
     private void unsetSystemProperties() {
-        System.getProperties().remove("devzone.apispec.sync.daily-cron-expression");
+        System.getProperties().remove("devzone.apispec.sync.apigee.daily-cron-expression");
+        System.getProperties().remove("devzone.apispec.sync.proxygen.daily-cron-expression");
         System.getProperties().remove("devzone.apispec.sync.schedule-delay-duration");
     }
 }

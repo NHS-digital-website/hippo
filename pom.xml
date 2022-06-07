@@ -114,9 +114,15 @@
         <devzone.apigee.oauth.token.url></devzone.apigee.oauth.token.url>
         <devzone.apigee.resources.specs.all.url></devzone.apigee.resources.specs.all.url>
         <devzone.apigee.resources.specs.individual.url ></devzone.apigee.resources.specs.individual.url>
-        <!-- Apigee API specifications sync schedule properties -->
+        <!-- Proxygen authentication config properties -->
+        <devzone.proxygen.oauth.token.url></devzone.proxygen.oauth.token.url>
+        <devzone.proxygen.oauth.aud.url></devzone.proxygen.oauth.aud.url>
+        <devzone.proxygen.resources.specs.all.url></devzone.proxygen.resources.specs.all.url>
+        <devzone.proxygen.resources.specs.individual.url ></devzone.proxygen.resources.specs.individual.url>
+        <!-- API specifications sync schedule properties -->
         <devzone.apispec.sync.schedule-delay-duration></devzone.apispec.sync.schedule-delay-duration>
-        <devzone.apispec.sync.daily-cron-expression></devzone.apispec.sync.daily-cron-expression>
+        <devzone.apispec.sync.apigee.daily-cron-expression></devzone.apispec.sync.apigee.daily-cron-expression>
+        <devzone.apispec.sync.proxygen.daily-cron-expression></devzone.apispec.sync.proxygen.daily-cron-expression>
         <devzone.apispec.sync.nightly-cron-expression></devzone.apispec.sync.nightly-cron-expression>
         <!-- Custom on-disk page caching properties -->
         <siteCache.cacheManager.diskStorePath></siteCache.cacheManager.diskStorePath>
@@ -903,7 +909,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${maven-chckstyle.version}</version>
-
                 <executions>
                     <execution>
                         <id>validate</id>
@@ -1152,9 +1157,15 @@
                                     <devzone.apigee.oauth.token.url>${devzone.apigee.oauth.token.url}</devzone.apigee.oauth.token.url>
                                     <devzone.apigee.resources.specs.all.url>${devzone.apigee.resources.specs.all.url}</devzone.apigee.resources.specs.all.url>
                                     <devzone.apigee.resources.specs.individual.url>${devzone.apigee.resources.specs.individual.url}</devzone.apigee.resources.specs.individual.url>
-                                    <!-- Apigee API specifications sync schedule properties -->
+                                    <!-- Proxygen access config -->
+                                    <devzone.proxygen.oauth.token.url>${devzone.proxygen.oauth.token.url}</devzone.proxygen.oauth.token.url>
+                                    <devzone.proxygen.oauth.aud.url>${devzone.proxygen.oauth.aud.url}</devzone.proxygen.oauth.aud.url>
+                                    <devzone.proxygen.resources.specs.all.url>${devzone.proxygen.resources.specs.all.url}</devzone.proxygen.resources.specs.all.url>
+                                    <devzone.proxygen.resources.specs.individual.url>${devzone.proxygen.resources.specs.individual.url}</devzone.proxygen.resources.specs.individual.url>
+                                    <!-- API specifications sync schedule properties -->
                                     <devzone.apispec.sync.schedule-delay-duration>${devzone.apispec.sync.schedule-delay-duration}</devzone.apispec.sync.schedule-delay-duration>
-                                    <devzone.apispec.sync.daily-cron-expression>${devzone.apispec.sync.daily-cron-expression}</devzone.apispec.sync.daily-cron-expression>
+                                    <devzone.apispec.sync.apigee.daily-cron-expression>${devzone.apispec.sync.apigee.daily-cron-expression}</devzone.apispec.sync.apigee.daily-cron-expression>
+                                    <devzone.apispec.sync.proxygen.daily-cron-expression>${devzone.apispec.sync.proxygen.daily-cron-expression}</devzone.apispec.sync.proxygen.daily-cron-expression>
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
                                     <!-- Custom on-disk page caching properties -->
                                     <siteCache.cacheManager.diskStorePath>${siteCache.cacheManager.diskStorePath}</siteCache.cacheManager.diskStorePath>

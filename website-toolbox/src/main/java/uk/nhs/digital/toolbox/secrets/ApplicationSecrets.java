@@ -6,6 +6,9 @@ import static org.slf4j.LoggerFactory.getLogger;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Objects;
 
@@ -39,11 +42,26 @@ public class ApplicationSecrets {
                 } else {
                     this.cache.put(key, System.getenv(key));
                 }
+            } else if (StringUtils.isNotBlank(getFromFile(key))) {
+                this.cache.put(key, getFromFile(key));
             } else {
-                log.warn("The key/value (or address of a remote value) for '" + key + "', should be set as a Java Property or an Environment variable.");
+                log.warn("The key/value (or address of a remote value) for '"
+                    + key
+                    + "', should be set as a Java Property or an Environment variable or a file in {catalina.base}/conf.");
             }
         }
+
         return this.cache.get(key);
+    }
+
+    public String getFromFile(final String filename) {
+        String baseDir = getProperty("catalina.base");
+        try {
+            String data = new String(Files.readAllBytes(Paths.get(baseDir, "conf", filename)));
+            return data;
+        } catch (IOException e) {
+            return null;
+        }
     }
 
     public static Logger getLog() {

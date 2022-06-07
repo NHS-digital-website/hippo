@@ -1,7 +1,5 @@
-package uk.nhs.digital.apispecs.apigee;
+package uk.nhs.digital.apispecs.services;
 
-import static java.util.Collections.unmodifiableList;
-import static java.util.stream.Collectors.toList;
 
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
@@ -16,21 +14,25 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class ApigeeService implements OpenApiSpecificationRepository {
 
-    private static final Logger log = LoggerFactory.getLogger(ApigeeService.class);
+public abstract class RemoteSpecService implements OpenApiSpecificationRepository {
 
-    private static final String RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API = "apigeeManagementApi";
+    private static final Logger log = LoggerFactory.getLogger(RemoteSpecService.class);
+
+    private final String serviceName = getClass().getSimpleName();
 
     private final ResourceServiceBroker resourceServiceBroker;
+    private final String resourceNamespace;
     private final String allSpecUrl;
     private final String singleSpecUrl;
 
-    public ApigeeService(final ResourceServiceBroker resourceServiceBroker,
-                         final String allSpecUrl,
-                         final String singleSpecUrl
+    public RemoteSpecService(final ResourceServiceBroker resourceServiceBroker,
+                             final String resourceNamespace,
+                             final String allSpecUrl,
+                             final String singleSpecUrl
     ) {
         this.resourceServiceBroker = resourceServiceBroker;
+        this.resourceNamespace = resourceNamespace;
         this.allSpecUrl = allSpecUrl;
         this.singleSpecUrl = singleSpecUrl;
     }
@@ -38,34 +40,32 @@ public class ApigeeService implements OpenApiSpecificationRepository {
     @Override
     public List<OpenApiSpecification> apiSpecificationStatuses() throws OpenApiSpecificationRepositoryException {
 
-        log.debug("Retrieving list of available specifications.");
+        log.debug("Retrieving list of available specifications from {}.", serviceName);
 
         return throwServiceExceptionOnFailure(() -> {
 
                 final Resource resource = resourceAt(allSpecUrl);
 
-                return apigeeApiSpecificationsStatusesFrom(resource);
+                return apiSpecificationsStatusesFrom(resource);
             },
-            "Failed to retrieve list of available specifications."
+            "Failed to retrieve list of available specifications from {0}.", serviceName
         );
     }
 
     @Override
     public String apiSpecificationJsonForSpecId(final String specificationId) throws OpenApiSpecificationRepositoryException {
 
-        log.debug("Retrieving specification with id {}.", specificationId);
+        log.debug("Retrieving specification from {} with id {}.", serviceName, specificationId);
 
         return throwServiceExceptionOnFailure(() -> {
 
-                final String singleSpecUrl = urlForSingleSpecification(specificationId);
+            final String singleSpecUrl = urlForSingleSpecification(specificationId);
 
-                final Resource resource = resourceAt(singleSpecUrl);
+            final Resource resource = resourceAt(singleSpecUrl);
 
-                return apigeeApiSpecificationJsonFrom(resource);
+            return apiSpecificationJsonFrom(resource);
 
-            },
-            "Failed to retrieve specification with id {0}.", specificationId
-        );
+        }, "Failed to retrieve specification from {0} with id {1}.", serviceName, specificationId);
     }
 
     private String urlForSingleSpecification(final String specificationId) {
@@ -73,26 +73,12 @@ public class ApigeeService implements OpenApiSpecificationRepository {
     }
 
     private Resource resourceAt(final String url) {
-        return resourceServiceBroker.resolve(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API, url);
+        return resourceServiceBroker.resolve(resourceNamespace, url);
     }
 
-    private List<OpenApiSpecification> apigeeApiSpecificationsStatusesFrom(final Resource resource) {
-        final List<OpenApiSpecification> remoteApiSpecifications = unmodifiableList(
-            resourceServiceBroker
-                .getResourceBeanMapper(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API)
-                .map(resource, OpenApiSpecifications.class)
-                .getContents()
-                .stream()
-                    .peek(openApiSpecification -> openApiSpecification.setApigeeService(this))
-                .collect(toList())
-        );
+    abstract List<OpenApiSpecification> apiSpecificationsStatusesFrom(final Resource resource);
 
-        log.debug("Found {} specifications.", remoteApiSpecifications.size());
-
-        return remoteApiSpecifications;
-    }
-
-    private String apigeeApiSpecificationJsonFrom(final Resource resource) {
+    private String apiSpecificationJsonFrom(final Resource resource) {
         return resource.getNodeData().toString();
     }
 
