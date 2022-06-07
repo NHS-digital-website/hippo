@@ -150,8 +150,21 @@
   }
 }
 
+$tag-colours: (
+  "light-amber": #ffedc5,
+  "light-purple": #dcbdfc,
+  "light-yellow": #fef9cc,
+);
+
 .nhsd-a-tag {
     white-space: nowrap;
+    &--bg {
+      @each $colourKey, $colourValue in $tag-colours {
+        &#{-$colourKey} {
+          background-color: $colourValue;
+        }
+      }
+    }
 }
 
 .filter-entries-edge {
