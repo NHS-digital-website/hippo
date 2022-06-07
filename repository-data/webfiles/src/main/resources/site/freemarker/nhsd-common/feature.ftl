@@ -145,16 +145,15 @@
     <#elseif document.headertype?has_content && document.headertype == "Black background" />
         <#assign heroType = "blackBackground"/>
         <#assign heroOptions += {"colour": "Black"}>
-        <#assign heroOptions += {"image": {"src": leadImageBlogIndexThumb@2x, "alt": document.leadImageAltText}}>
     </#if>
     <@hero heroOptions heroType />
-    
+
     <@socialMediaBar props />
 
     <div itemprop="articleBody">
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-coll-m-8 nhs-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
                 <#if hasLeadParagraph>
                     <div class="nhsd-t-heading-m" data-uipath="website.feature.leadparagraph">
                         <@hst.html hippohtml=document.leadParagraph contentRewriter=brContentRewriter/>
