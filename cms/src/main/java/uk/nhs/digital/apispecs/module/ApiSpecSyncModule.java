@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.exception.ApiCatalogueJobException;
 import uk.nhs.digital.apispecs.exception.ApiCatalogueModuleException;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob;
+import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromProxygenJob;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -26,9 +27,8 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 @RequiresService(types = { RepositoryScheduler.class } )
-public class ApiSpecSyncFromApigeeModule implements DaemonModule {
-
-    private static final Logger log = LoggerFactory.getLogger(ApiSpecSyncFromApigeeModule.class);
+public class ApiSpecSyncModule implements DaemonModule {
+    private static final Logger log = LoggerFactory.getLogger(ApiSpecSyncModule.class);
 
     // See JavaDoc of java.time.Duration.parse for format.
     private static final String SCHEDULING_DELAY_DEFAULT_VALUE = "PT45M";
@@ -147,10 +147,15 @@ public class ApiSpecSyncFromApigeeModule implements DaemonModule {
 
     enum ScheduledJobs {
 
-        DAILY(
+        DAILY_APIGEE_JOB(
             "apiSpecSyncFromApigee",
             ApiSpecSyncFromApigeeJob.class,
-            "devzone.apispec.sync.daily-cron-expression"
+            "devzone.apispec.sync.apigee.daily-cron-expression"
+        ),
+        DAILY_PROXYGEN_JOB(
+            "apiSpecSyncFromProxygen",
+            ApiSpecSyncFromProxygenJob.class,
+            "devzone.apispec.sync.proxygen.daily-cron-expression"
         );
 
         private final String jobName;

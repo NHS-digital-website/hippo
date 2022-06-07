@@ -5,6 +5,8 @@ import uk.nhs.digital.apispecs.OpenApiSpecificationRepository;
 
 import java.beans.ConstructorProperties;
 import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -27,10 +29,12 @@ public class OpenApiSpecification {
     }
 
     public Instant getModified() {
-        return Instant.parse(modified);
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ISO_DATE_TIME;
+        TemporalAccessor accessor = timeFormatter.parse(modified);
+        return Instant.from(accessor);
     }
 
-    public void setApigeeService(final OpenApiSpecificationRepository openApiSpecificationRepository) {
+    public void setService(final OpenApiSpecificationRepository openApiSpecificationRepository) {
         specJsonSupplier = () -> openApiSpecificationRepository.apiSpecificationJsonForSpecId(getId());
     }
 

@@ -1,6 +1,7 @@
 package uk.nhs.digital.apispecs;
 
 import static ch.qos.logback.classic.Level.INFO;
+import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
@@ -121,7 +122,8 @@ public class ApiSpecificationPublicationServiceTest {
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 0"),
+            info(format("API Specifications found: in CMS: 1, in %s: 1, updated in %s and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
+                    apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName())),
             info("Synchronised API Specification with id 248569 at /content/docs/248569")
         );
     }
@@ -173,7 +175,8 @@ public class ApiSpecificationPublicationServiceTest {
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 0"),
+            info(format("API Specifications found: in CMS: 1, in %s: 1, updated in %s and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
+                apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName())),
             info("Synchronised API Specification with id 248569 at /content/docs/248569")
         );
     }
@@ -226,7 +229,8 @@ public class ApiSpecificationPublicationServiceTest {
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0")
+            info(format("API Specifications found: in CMS: 1, in %s: 1, updated in %s and eligible to publish in CMS: 0, synced: 0, failed to sync: 0",
+                apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName()))
         );
     }
 
@@ -271,7 +275,8 @@ public class ApiSpecificationPublicationServiceTest {
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0")
+            info(format("API Specifications found: in CMS: 1, in %s: 1, updated in %s and eligible to publish in CMS: 0, synced: 0, failed to sync: 0",
+                apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName()))
         );
     }
 
@@ -314,7 +319,8 @@ public class ApiSpecificationPublicationServiceTest {
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 0")
+            info(format("API Specifications found: in CMS: 1, in %s: 1, updated in %s and eligible to publish in CMS: 0, synced: 0, failed to sync: 0",
+                apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName()))
         );
     }
 
@@ -360,7 +366,8 @@ public class ApiSpecificationPublicationServiceTest {
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 1, in Apigee: 1, updated in Apigee and eligible to publish in CMS: 0, synced: 0, failed to sync: 1"),
+            info(format("API Specifications found: in CMS: 1, in %s: 1, updated in %s and eligible to publish in CMS: 0, synced: 0, failed to sync: 1",
+                apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName())),
             error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
                 .withException("Failed to determine whether the specification is eligible for update.")
                 .withCause("Failed to retrieve remote spec.")
@@ -436,7 +443,8 @@ public class ApiSpecificationPublicationServiceTest {
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
-            info("API Specifications found: in CMS: 2, in Apigee: 2, updated in Apigee and eligible to publish in CMS: 1, synced: 1, failed to sync: 1"),
+            info(format("API Specifications found: in CMS: 2, in %s: 2, updated in %s and eligible to publish in CMS: 1, synced: 1, failed to sync: 1",
+                    apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName())),
             info("Synchronised API Specification with id 965842 at /content/docs/965842"),
             error("Failed to synchronise API Specification with id 248569 at /content/docs/248569")
                 .withException("Failed to determine whether the specification is eligible for update.")
@@ -496,7 +504,7 @@ public class ApiSpecificationPublicationServiceTest {
     private OpenApiSpecification remoteSpecWith(final String specificationId, final String lastModifiedInstant) {
 
         final OpenApiSpecification remoteApiSpecification = new OpenApiSpecification(specificationId, lastModifiedInstant);
-        remoteApiSpecification.setApigeeService(apigeeService);
+        remoteApiSpecification.setService(apigeeService);
 
         return remoteApiSpecification;
     }

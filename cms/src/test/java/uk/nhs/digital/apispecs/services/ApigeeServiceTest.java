@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.apigee;
+package uk.nhs.digital.apispecs.services;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.*;
@@ -82,7 +82,7 @@ public class ApigeeServiceTest {
         given(broker.resolve(any(), any())).willThrow(collaboratorException);
 
         expectedException.expect(OpenApiSpecificationRepositoryException.class);
-        expectedException.expectMessage("Failed to retrieve list of available specifications.");
+        expectedException.expectMessage("Failed to retrieve list of available specifications from ApigeeService.");
         expectedException.expectCause(sameInstance(collaboratorException));
 
         // when
@@ -125,7 +125,7 @@ public class ApigeeServiceTest {
         final String anySpecificationId = "123456";
 
         expectedException.expect(OpenApiSpecificationRepositoryException.class);
-        expectedException.expectMessage("Failed to retrieve specification with id " + anySpecificationId + ".");
+        expectedException.expectMessage("Failed to retrieve specification from ApigeeService with id " + anySpecificationId + ".");
         expectedException.expectCause(sameInstance(collaboratorException));
 
         // when

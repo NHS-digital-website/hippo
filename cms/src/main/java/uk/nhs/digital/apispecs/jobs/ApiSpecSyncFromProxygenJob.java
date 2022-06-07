@@ -8,54 +8,55 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationImportImportMetadataJcrRepository;
-import uk.nhs.digital.apispecs.services.ApigeeService;
+import uk.nhs.digital.apispecs.services.ProxygenService;
 
 import java.util.Optional;
 import javax.jcr.Session;
 
-public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiSpecSyncFromApigeeJob.class);
+public class ApiSpecSyncFromProxygenJob implements RepositoryJob {
+
+    private static final Logger log = LoggerFactory.getLogger(ApiSpecSyncFromProxygenJob.class);
 
     // @formatter:off
-    private static final String APIGEE_ALL_SPEC_URL    = "devzone.apigee.resources.specs.all.url";
-    private static final String APIGEE_SINGLE_SPEC_URL = "devzone.apigee.resources.specs.individual.url";
+    private static final String PROXYGEN_ALL_SPEC_URL    = "devzone.proxygen.resources.specs.all.url";
+    private static final String PROXYGEN_SINGLE_SPEC_URL = "devzone.proxygen.resources.specs.individual.url";
     // @formatter:on
 
     @Override
     public void execute(final RepositoryJobExecutionContext context) {
 
-        log.debug("API Specifications sync from Apigee: start.");
+        log.debug("API Specifications sync from Proxygen: start.");
 
         Session session = null;
 
         try {
-            final String apigeeAllSpecUrl = JobUtils.requireParameter(APIGEE_ALL_SPEC_URL, System.getProperty(APIGEE_ALL_SPEC_URL));
-            final String apigeeSingleSpecUrl = JobUtils.requireParameter(APIGEE_SINGLE_SPEC_URL, System.getProperty(APIGEE_SINGLE_SPEC_URL));
+            final String proxygenAllSpecUrl = JobUtils.requireParameter(PROXYGEN_ALL_SPEC_URL, System.getProperty(PROXYGEN_ALL_SPEC_URL));
+            final String proxygenSingleSpecUrl = JobUtils.requireParameter(PROXYGEN_SINGLE_SPEC_URL, System.getProperty(PROXYGEN_SINGLE_SPEC_URL));
 
             final ResourceServiceBroker resourceServiceBroker = JobUtils.resourceServiceBroker();
 
-            final ApigeeService apigeeService = new ApigeeService(
+            final ProxygenService proxygenService = new ProxygenService(
                 resourceServiceBroker,
-                apigeeAllSpecUrl,
-                apigeeSingleSpecUrl
+                proxygenAllSpecUrl,
+                proxygenSingleSpecUrl
             );
 
             session = context.createSystemSession();
 
             final ApiSpecificationPublicationService apiSpecificationPublicationService =
                 new ApiSpecificationPublicationService(
-                    apigeeService,
+                    proxygenService,
                     new ApiSpecificationDocumentJcrRepository(session),
                     new ApiSpecificationImportImportMetadataJcrRepository(session)
                 );
 
             apiSpecificationPublicationService.syncEligibleSpecifications();
 
-            log.debug("API Specifications sync from Apigee: done.");
+            log.debug("API Specifications sync from proxygen: done.");
 
         } catch (final Exception ex) {
-            log.error("Failed to sync specifications from Apigee.", ex);
+            log.error("Failed to sync specifications from proxygen.", ex);
         } finally {
             Optional.ofNullable(session).ifPresent(Session::logout);
         }

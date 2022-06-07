@@ -55,12 +55,16 @@ public class ApplicationSecretsTest {
 
     @Test
     public void missingKeysAreLoggedByApplicationSecrets() {
+        String key = "GOOGLE_CAPTCHA_SECRET";
+
         // Then look for something that does not exist
-        applicationSecrets.getValue("GOOGLE_CAPTCHA_SECRET");
+        applicationSecrets.getValue(key);
 
         // And make sure the missing key was logged
         logger.shouldReceive(
-            warn("The key/value (or address of a remote value) for 'GOOGLE_CAPTCHA_SECRET', should be set as a Java Property or an Environment variable.")
+            warn("The key/value (or address of a remote value) for '"
+                + key
+                + "', should be set as a Java Property or an Environment variable or a file in {catalina.base}/conf.")
         );
     }
 

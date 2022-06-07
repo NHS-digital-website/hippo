@@ -156,6 +156,11 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         given(System.getenv(PARAM_APIGEE_OAUTH_PASSWORD)).willReturn(OAUTH_PASSWORD);
         given(System.getenv(PARAM_APIGEE_OAUTH_BASICAUTHTOKEN)).willReturn(OAUTH_BASIC_AUTH_TOKEN);
         given(System.getenv(PARAM_APIGEE_OAUTH_OTPKEY)).willReturn(OAUTH_OTP_KEY);
+
+        // This config is required to create the proxygenApi bean in custom-resource-resolvers
+        given(System.getenv("proxygenMachineUser.key")).willReturn("privateKey");
+        given(System.getenv("DEVZONE_PROXYGEN_OAUTH_CLIENT_ID")).willReturn("clientId");
+        given(System.getenv("devzone.proxygen.oauth.aud.url")).willReturn("audUrl");
     }
 
     private void crispApiConfiguredForOAuth2() {
@@ -357,6 +362,10 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         public String getValue(final String propertyName) {
             return Optional.ofNullable(System.getProperty(propertyName))
                 .orElse(System.getenv(propertyName));
+        }
+
+        public String getFromFile(final String propertyName) {
+            return getValue(propertyName);
         }
     }
 }

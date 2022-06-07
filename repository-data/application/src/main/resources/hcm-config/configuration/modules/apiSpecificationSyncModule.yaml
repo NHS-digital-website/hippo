@@ -8,6 +8,6 @@ definitions:
           website:apiSpecHandleNodeIds: []
           website:lastChangeCheckInstants: []
         jcr:primaryType: hipposys:moduleconfig
-      hipposys:className: uk.nhs.digital.apispecs.module.ApiSpecSyncFromApigeeModule
+      hipposys:className: uk.nhs.digital.apispecs.module.ApiSpecSyncModule
       hipposys:cmsonly: true
       jcr:primaryType: hipposys:module

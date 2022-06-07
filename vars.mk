@@ -32,12 +32,13 @@ REPO_PATH ?=
 # Both cron expression variables below will need to have a property set in the system to
 # enable the scheduled jobs in a local CMS instance. In order to keep this out of version
 # control, we recommend setting both variables in env.mk as needed, e.g.
-# 	APIGEE_SYNC_CRON = 0 0/2 * ? * *
+# 	API_SPEC_APIGEE_SYNC_CRON = 0 0/2 * ? * *
 # 	APIGEE_RERENDER_CRON = 0 1/1 * ? * *
 
-APIGEE_SYNC_CRON ?=
-APIGEE_RERENDER_CRON ?=
-APIGEE_SYNC_SCHEDULE_DELAY ?= PT90S
+API_SPEC_APIGEE_SYNC_CRON ?=
+API_SPEC_PROXYGEN_SYNC_CRON ?=
+API_SPEC_RERENDER_CRON ?=
+API_SPEC_SYNC_SCHEDULE_DELAY ?= PT90S
 APIGEE_TOKEN_URL ?= https://login.apigee.com/oauth/token
 APIGEE_SPECS_ALL_URL ?= https://apigee.com/dapi/api/organizations/nhsd-nonprod/specs/folder/home
 APIGEE_SPECS_ONE_URL ?= https://apigee.com/dapi/api/organizations/nhsd-nonprod/specs/doc/{specificationId}/content
@@ -55,6 +56,13 @@ SITE_CACHE_HEAVY_MAX_MEGABYTES_LOCAL_DISK ?= 200
 SITE_CACHE_HEAVY_PERSISTENT ?= false
 SITE_CACHE_HEAVY_TIME_TO_IDLE ?= PT24H
 
+PROXYGEN_TOKEN_URL ?= https://identity.ptl.api.platform.nhs.uk/auth/realms/api-producers/protocol/openid-connect/token
+PROXYGEN_AUDIENCE_URL ?= https://identity.ptl.api.platform.nhs.uk/auth/realms/api-producers
+PROXYGEN_SPECS_ALL_URL ?= https://proxygen.ptl.api.platform.nhs.uk/specs
+PROXYGEN_SPECS_ONE_URL ?= https://proxygen.ptl.api.platform.nhs.uk/apis/{specificationId}/spec
+PROXYGEN_CLIENT_ID ?= REPLACE_WITH_ACTUAL_PROXYGEN_CLIENT_ID
+PROXYGEN_PRIVATE_KEY ?= REPLACE_WITH_ACTUAL_PROXYGEN_PRIVATE_KEY
+
 #-Dsplunk.token=$(SPLUNK_TOKEN) \
 #	-Dsplunk.url=$(SPLUNK_URL) \
 #	-Dsplunk.hec.name=$(SPLUNK_HEC) \
@@ -62,16 +70,21 @@ SITE_CACHE_HEAVY_TIME_TO_IDLE ?= PT24H
 MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Dexternalstorage.aws.region=$(S3_REGION) \
 	-Dspring.profiles.active=local \
-    "-Ddevzone.apispec.sync.daily-cron-expression=$(APIGEE_SYNC_CRON)" \
-    "-Ddevzone.apispec.sync.nightly-cron-expression=$(APIGEE_RERENDER_CRON)" \
-    -Ddevzone.apispec.sync.schedule-delay-duration=$(APIGEE_SYNC_SCHEDULE_DELAY) \
+    "-Ddevzone.apispec.sync.apigee.daily-cron-expression=$(API_SPEC_APIGEE_SYNC_CRON)" \
+    "-Ddevzone.apispec.sync.proxygen.daily-cron-expression=$(API_SPEC_PROXYGEN_SYNC_CRON)" \
+    "-Ddevzone.apispec.sync.nightly-cron-expression=$(API_SPEC_RERENDER_CRON)" \
+    -Ddevzone.apispec.sync.schedule-delay-duration=$(API_SPEC_SYNC_SCHEDULE_DELAY) \
     -Ddevzone.apigee.resources.specs.all.url=$(APIGEE_SPECS_ALL_URL) \
     -Ddevzone.apigee.resources.specs.individual.url=$(APIGEE_SPECS_ONE_URL) \
 	-Ddevzone.apigee.oauth.token.url=$(APIGEE_TOKEN_URL) \
     -DsiteCache.cacheManager.diskStorePath=$(SITE_CACHE_DISK_STORE_PATH) \
     -DsiteCache.heavyContentPageCache.maxMegabytesLocalDisk=$(SITE_CACHE_HEAVY_MAX_MEGABYTES_LOCAL_DISK) \
     -DsiteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts=$(SITE_CACHE_HEAVY_PERSISTENT) \
-    -DsiteCache.heavyContentPageCache.timeToIdle=$(SITE_CACHE_HEAVY_TIME_TO_IDLE)
+    -DsiteCache.heavyContentPageCache.timeToIdle=$(SITE_CACHE_HEAVY_TIME_TO_IDLE) \
+	-Ddevzone.proxygen.resources.specs.all.url=$(PROXYGEN_SPECS_ALL_URL) \
+	-Ddevzone.proxygen.resources.specs.individual.url=$(PROXYGEN_SPECS_ONE_URL) \
+	-Ddevzone.proxygen.oauth.token.url=$(PROXYGEN_TOKEN_URL) \
+	-Ddevzone.proxygen.oauth.aud.url=$(PROXYGEN_AUDIENCE_URL)
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)
 export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)
@@ -83,3 +96,5 @@ export DEVZONE_APIGEE_OAUTH_USERNAME=$(APIGEE_USER)
 export DEVZONE_APIGEE_OAUTH_PASSWORD=$(APIGEE_PASS)
 export DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN=$(APIGEE_BASIC)
 export DEVZONE_APIGEE_OAUTH_OTPKEY=$(APIGEE_OTPKEY)
+export DEVZONE_PROXYGEN_OAUTH_CLIENT_ID=$(PROXYGEN_CLIENT_ID)
+export DEVZONE_PROXYGEN_OAUTH_PRIVATE_KEY=$(PROXYGEN_PRIVATE_KEY)

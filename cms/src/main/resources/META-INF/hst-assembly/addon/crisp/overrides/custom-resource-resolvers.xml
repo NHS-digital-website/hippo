@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <import resource="classpath:META-INF/hst-assembly/addon/crisp/overrides/application-secrets.xml"/>
 
@@ -31,7 +32,7 @@
                 <property name="accessTokenProvider">
                     <bean class="org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordAccessTokenProvider">
                         <property name="tokenRequestEnhancer">
-                            <bean class="uk.nhs.digital.apispecs.apigee.auth.ApigeeAccessTokenRequestOneTimePasswordEnhancer">
+                            <bean class="uk.nhs.digital.apispecs.services.auth.ApigeeAccessTokenRequestOneTimePasswordEnhancer">
                                 <constructor-arg>
                                     <bean class="com.warrenstrange.googleauth.GoogleAuthenticator"/>
                                 </constructor-arg>
@@ -40,6 +41,36 @@
                                 <constructor-arg>
                                     <bean class="java.time.Clock" factory-method="systemDefaultZone"/>
                                 </constructor-arg>
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="proxygenApi"
+          parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
+          class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
+        <property name="cacheEnabled" value="false"/>
+        <property name="restTemplate">
+            <bean class="org.springframework.security.oauth2.client.OAuth2RestTemplate">
+                <constructor-arg>
+                    <bean class="org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails">
+                        <property name="clientAuthenticationScheme" value="form"/>
+                        <property name="grantType" value="client_credentials"/>
+                        <property name="accessTokenUri" value="#{applicationSecrets.getValue('devzone.proxygen.oauth.token.url')}"/>
+                    </bean>
+                </constructor-arg>
+
+                <property name="accessTokenProvider">
+                    <bean class="org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsAccessTokenProvider">
+                        <property name="authenticationHandler">
+                            <bean class="uk.nhs.digital.apispecs.services.auth.ProxygenJwtClientAuthenticationHandler">
+                                <constructor-arg value="#{applicationSecrets.getFromFile('proxygenMachineUser.key')}"/>
+                                <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_PROXYGEN_OAUTH_CLIENT_ID')}"/>
+                                <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.aud.url')}"/>
                             </bean>
                         </property>
                     </bean>

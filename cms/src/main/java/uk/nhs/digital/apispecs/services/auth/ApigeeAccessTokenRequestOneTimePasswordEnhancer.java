@@ -1,4 +1,4 @@
-package uk.nhs.digital.apispecs.apigee.auth;
+package uk.nhs.digital.apispecs.services.auth;
 
 import com.warrenstrange.googleauth.IGoogleAuthenticator;
 import org.apache.commons.lang3.Validate;
