@@ -45,7 +45,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
         <#assign heroClasses="nhsd-o-hero--image">
         <#assign bgClass="nhsd-!t-bg-white">
         <#assign textClass += " nhsd-o-hero--dark-text nhsd-!t-col-black">
-    <#elseif heroType == "image" || heroType == "blackHero">
+    <#elseif heroType == "image" || heroType == "blackHero" || heroType == "blackBackground">
         <#assign heroClasses="nhsd-o-hero--image">
         <#assign bgClass="nhsd-!t-bg-grad-black">
         <#assign textClass += " nhsd-o-hero--light-text nhsd-!t-col-white">
