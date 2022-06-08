@@ -84,9 +84,10 @@ public class ProxygenService implements OpenApiSpecificationRepository {
         final List<OpenApiSpecification> remoteApiSpecifications = unmodifiableList(
             resourceServiceBroker
                 .getResourceBeanMapper(RESOURCE_NAMESPACE_PROXYGEN_MANAGEMENT_API)
-                .map(resource, OpenApiSpecifications.class)
+                .map(resource, ProxygenOpenApiSpecifications.class)
                 .getContents()
                 .stream()
+                .map(proxygenOpenApiSpecification -> new OpenApiSpecification(proxygenOpenApiSpecification.getSpecId(), proxygenOpenApiSpecification.getLastModifiedString()))
                 .peek(openApiSpecification -> openApiSpecification.setService(this))
                 .collect(toList())
         );

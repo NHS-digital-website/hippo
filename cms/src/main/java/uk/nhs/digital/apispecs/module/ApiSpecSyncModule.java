@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.exception.ApiCatalogueJobException;
 import uk.nhs.digital.apispecs.exception.ApiCatalogueModuleException;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob;
+import uk.nhs.digital.apispecs.jobs.ApiSpecRerenderJob;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromProxygenJob;
 
 import java.time.Duration;
