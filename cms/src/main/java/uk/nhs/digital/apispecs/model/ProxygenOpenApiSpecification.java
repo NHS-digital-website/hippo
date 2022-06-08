@@ -33,7 +33,9 @@ public class ProxygenOpenApiSpecification {
         return Instant.parse(lastModified);
     }
 
-    public String getLastModifiedString() { return lastModified; }
+    public String getLastModifiedString() {
+        return lastModified;
+    }
 
     public void setService(final OpenApiSpecificationRepository openApiSpecificationRepository) {
         lazySpecJsonSupplier = () -> openApiSpecificationRepository.apiSpecificationJsonForSpecId(getSpecId());
