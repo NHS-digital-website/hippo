@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-                           http://www.springframework.org/schema/util
-                           http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <import resource="classpath:META-INF/hst-assembly/addon/crisp/overrides/application-secrets.xml"/>
 
@@ -70,24 +67,6 @@
                         <property name="clientSecret" value="${DEVZONE_PROXYGEN_OAUTH_CLIENT_SECRET}"/>
                     </bean>
                 </constructor-arg>
-
-                <constructor-arg>
-                    <bean class="org.springframework.security.oauth2.client.DefaultOAuth2ClientContext">
-                        <constructor-arg>
-                            <bean class="org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest"/>
-                        </constructor-arg>
-                    </bean>
-                </constructor-arg>
-
-                <property name="accessTokenProvider">
-                    <bean class="org.springframework.security.oauth2.client.token.AccessTokenProviderChain">
-                        <constructor-arg>
-                            <util:list>
-                                <bean class="org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordAccessTokenProvider"/>
-                            </util:list>
-                        </constructor-arg>
-                    </bean>
-                </property>
             </bean>
         </property>
     </bean>

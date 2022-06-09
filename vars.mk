@@ -57,7 +57,7 @@ SITE_CACHE_HEAVY_TIME_TO_IDLE ?= PT24H
 
 PROXYGEN_TOKEN_URL ?= https://identity.ptl.api.platform.nhs.uk/auth/realms/api-producers/protocol/openid-connect/token
 PROXYGEN_SPECS_ALL_URL ?= https://proxygen.ptl.api.platform.nhs.uk/specs
-PROXYGEN_SPECS_ONE_URL ?= https://proxygen.ptl.api.platform.nhs.uk/apis/{api_name}/spec
+PROXYGEN_SPECS_ONE_URL ?= https://proxygen.ptl.api.platform.nhs.uk/apis/{specificationId}/spec
 PROXYGEN_USER ?= REPLACE_WITH_ACTUAL_PROXYGEN_USERNAME
 PROXYGEN_PASS ?= REPLACE_WITH_ACTUAL_PROXYGEN_PASSWORD
 PROXYGEN_CLIENT_ID ?= REPLACE_WITH_ACTUAL_PROXYGEN_CLIENT_ID

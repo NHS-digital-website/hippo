@@ -154,7 +154,7 @@ public class ApiSpecificationPublicationService {
     private void reportPublicationStatusFor(final int localSpecsCount, final int remoteSpecsCount, final SyncResults syncResults) {
 
         log.info(
-            "API Specifications found: in CMS: {}, in Apigee: {}, updated in Apigee and eligible to publish in CMS: {}, synced: {}, failed to sync: {}",
+            "API Specifications found: in CMS: {}, in remote: {}, updated in remote and eligible to publish in CMS: {}, synced: {}, failed to sync: {}",
             localSpecsCount, remoteSpecsCount, syncResults.eligible().size(), syncResults.published().size(), syncResults.failed().size()
         );
 
