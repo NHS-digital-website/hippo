@@ -87,6 +87,20 @@
 
                 <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' false />
 
+                <h2 class="nhsd-t-heading-xl" data-uipath="website.contentblock.section.title">DataViz Charts</h2>
+
+                <div class="nhsd-t-grid nhsd-t-grid--nested nhsd-!t-margin-bottom-6">
+                    <div class="nhsd-t-row">
+                        <div class="nhsd-t-col-m-12 nhsd-t-col-l-6 nhsd-!t-margin-bottom-6" id="viz1"></div>
+                        <div class="nhsd-t-col-m-12 nhsd-t-col-l-6 nhsd-!t-margin-bottom-6" id="viz2"></div>
+                        <div class="nhsd-t-col-m-12 nhsd-t-col-l-6 nhsd-!t-margin-bottom-6" id="viz3"></div>
+                        <div class="nhsd-t-col-m-12 nhsd-t-col-l-6 nhsd-!t-margin-bottom-6" id="viz4"></div>
+                        <div class="nhsd-t-col-m-12 nhsd-t-col-l-12 nhsd-!t-margin-bottom-6" id="viz5"></div>
+                        <div class="nhsd-t-col-m-12 nhsd-t-col-l-6 nhsd-!t-margin-bottom-6" id="viz6"></div>
+                        <div class="nhsd-t-col-m-12 nhsd-t-col-l-6 nhsd-!t-margin-bottom-6" id="viz7"></div>
+                    </div>
+                </div>
+
                 <#if hasSectionContent>
                     <@sections sections=document.sections orgPrompt=downloadPrompt></@sections>
                 </#if>
