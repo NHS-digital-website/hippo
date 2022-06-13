@@ -89,14 +89,12 @@ definitions:
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
           /imagedistributiontagging:
-            hipposysedit:mandatory: true
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:imagedistributiontagging
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           /imagerightsdetails:
             hipposysedit:mandatory: false
@@ -149,6 +147,12 @@ definitions:
           /website:imagerightsdetails:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:picture:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:personimage
           website:imagedistributiontagging: ''
           website:imagesourcepermission: ''

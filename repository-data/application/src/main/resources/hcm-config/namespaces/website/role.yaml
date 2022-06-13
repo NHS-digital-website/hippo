@@ -62,7 +62,7 @@ definitions:
               last.visited.enabled: true
               nodetypes:
               - website:organisation
-            caption: Primary role organization
+            caption: Primary role organisation
             field: primaryroleorgpicker
             hint: One or more organisations the person is associated with
             jcr:primaryType: frontend:plugin
@@ -71,7 +71,7 @@ definitions:
           /primaryroleorg:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Manual primary role organization (only use if organisation not
+            caption: Manual primary role organisation (only use if organisation not
               available)
             field: primaryroleorg
             hint: One or more organisations the person is associated with
