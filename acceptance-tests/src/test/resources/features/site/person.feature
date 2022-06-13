@@ -7,7 +7,6 @@ Feature: Person Pages
         Then I should see the following:
             | Professional biography text           |
         And I should see headers:
-            | Biography                    |
             | Responsibilities                   |
 
     Scenario: Display John Doe's Person Pages
@@ -17,14 +16,13 @@ Feature: Person Pages
         Then I should see the following:
             | Professional biography text           |
         And I should see headers:
-            | Biography                    |
             | Responsibilities                   |
         But I should not see headers:
+            | Biography                    |
             | Awards                             |
 
     Scenario: Display Cynthia Barker's Person Pages
     The page should not show the corresponding biography sub-heading of a given
     biography field when only one field is given.
         Then I should not see headers:
-            | Biography                    |
             | Responsibilities                   |

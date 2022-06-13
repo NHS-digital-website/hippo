@@ -273,7 +273,6 @@
                 </div>
 
                 <#if hasAuthors>
-                    <hr class="nhsd-a-horizontal-rule" />
                     <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
                     <div class="nhsd-o-gallery">
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
@@ -304,12 +303,10 @@
                                                             <div class="nhsd-m-card__content-box">
                                                                 <h1 class="nhsd-t-heading-s">${author.title}</h1>
                                                                 <span class="nhsd-m-card__date">
-                                                                    <#if author.roles?has_content >
+                                                                    <#if author.roles.firstprimaryrole?has_content >
                                                                         ${author.roles.firstprimaryrole}, ${author.roles.primaryroleorg}
                                                                     </#if>
                                                                 </span>
-                                                                <#assign profbiography><@hst.html hippohtml=author.biographies.profbiography contentRewriter=brContentRewriter/></#assign>
-                                                                ${profbiography}
                                                                 <div class="nhsd-m-card__button-box">
                                                                     <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
