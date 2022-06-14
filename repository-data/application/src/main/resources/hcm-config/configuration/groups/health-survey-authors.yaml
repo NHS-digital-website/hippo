@@ -11,5 +11,6 @@ definitions:
         type: string
         value:
         - xm.cms.user
+        - xm.channel.viewer
         - xm.content.user
       jcr:primaryType: hipposys:group
