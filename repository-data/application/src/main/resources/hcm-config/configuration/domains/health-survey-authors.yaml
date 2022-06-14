@@ -11,6 +11,15 @@ definitions:
           - health-survey-authors
         hipposys:role: author
         jcr:primaryType: hipposys:authrole
+      /child-measurement-programme:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/publication-system/statistical/national-child-measurement-programme/2020-21-school-year
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /health-survey-images:
         /path-by-uuid:
           hipposys:equals: true
