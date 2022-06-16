@@ -422,6 +422,12 @@ jobs:
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "hippo-ipfilter-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "::set-output name=id::${id}"
 
+      - name: Get latest Email SMTP properties File
+        id: brc-mail-smtp
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "brc-mail-smtp-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "::set-output name=id::${id}"
+
       - name: Request Deployment from BR Cloud
         id: deployment
         run: |
@@ -429,7 +435,7 @@ jobs:
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ secrets.HOST }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" } ] }' \
+          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }' \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "::set-output name=code::$code"
         env:
