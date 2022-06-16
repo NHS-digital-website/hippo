@@ -1,19 +1,18 @@
 package uk.nhs.digital.apispecs.jcr;
 
-import static java.lang.String.format;
 import static java.util.Collections.unmodifiableList;
 import static java.util.stream.Collectors.toList;
 import static uk.nhs.digital.JcrNodeUtils.streamOf;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.apispecs.ApiSpecificationDocumentRepository;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 
 import java.util.List;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
-import javax.jcr.query.Query;
 import javax.jcr.query.QueryResult;
 
 public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDocumentRepository {
@@ -60,19 +59,6 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
 
     private QueryResult findApiSpecificationsHandleNodes() {
 
-        return executeJcrXpathQueryForQueryResult(session, QUERY_APISPEC_HANDLE_NODES_IN_WEBSITE_DOCS_FOLDER);
-    }
-
-    public static QueryResult executeJcrXpathQueryForQueryResult(final Session session, final String queryStatement) {
-        try {
-            return session
-                .getWorkspace()
-                .getQueryManager()
-                .createQuery(queryStatement, Query.XPATH)
-                .execute();
-
-        } catch (final Exception e) {
-            throw new RuntimeException(format("Failed to execute query %s.", queryStatement), e);
-        }
+        return JcrQueryHelper.executeJcrXpathQuery(session, QUERY_APISPEC_HANDLE_NODES_IN_WEBSITE_DOCS_FOLDER);
     }
 }
