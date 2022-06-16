@@ -14,6 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="max-image-preview:large">
+    <meta name="google-site-verification" content="A554JTOAgNpNy7A-cUEEi2MkZR_ml-30-xNDYK7NOZQ" />
     <@hst.headContributions categoryIncludes="metadata" xhtml=true />
 
     <!-- Generic meta tags -->
