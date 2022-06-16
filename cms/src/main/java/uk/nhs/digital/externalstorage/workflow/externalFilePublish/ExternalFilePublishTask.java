@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
 import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.workflow.AbstractExternalFileTask;
+import uk.nhs.digital.externalstorage.workflow.externalFileIsPublished.ExternalFileIsPublishedCheck;
 import uk.nhs.digital.ps.PublicationSystemConstants;
 
 import java.time.Clock;
@@ -43,7 +44,7 @@ public class ExternalFilePublishTask extends AbstractExternalFileTask {
     protected void processResourceNodes(final PooledS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException {
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
-        if (isPublication(variantNode)) {
+        if (ExternalFileIsPublishedCheck.isPublication(variantNode)) {
             // if publishing publication we need to check "PUBLICLY ACCESSIBLE" flag, and also update all datasets
             setResourcePermissionOnPublication(s3Connector, resourceNodes);
         } else if (isDataset(variantNode)) {
@@ -178,10 +179,5 @@ public class ExternalFilePublishTask extends AbstractExternalFileTask {
 
     private boolean isDataset(Node variantNode) throws RepositoryException {
         return  variantNode.isNodeType(PublicationSystemConstants.NODE_TYPE_DATASET);
-    }
-
-    private boolean isPublication(Node variantNode) throws RepositoryException {
-        return variantNode.isNodeType(PublicationSystemConstants.NODE_TYPE_PUBLICATION)
-            || variantNode.isNodeType(PublicationSystemConstants.NODE_TYPE_LEGACY_PUBLICATION);
     }
 }
