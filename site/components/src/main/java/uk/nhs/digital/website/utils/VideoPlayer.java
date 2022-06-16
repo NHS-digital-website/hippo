@@ -19,18 +19,13 @@ public class VideoPlayer {
                 + "(?<query>\\S+)?$",
             Pattern.CASE_INSENSITIVE | Pattern.MULTILINE
         );
-
-        // Regex adapted from https://regexr.com/393r3 - named groups added
+        
         vimeoTest = Pattern.compile(
-            "(?:<iframe [^>]*src=\")?"
-                + "(?:https?:\\/\\/"
-                + "(?:[\\w]+\\.)*vimeo\\.com"
-                + "(?:[\\/\\w:]*(?:\\/videos)?)?\\/"
-                + "(?<videoID>[0-9]+)[^\\s]*)\"?"
-                + "(?:[^>]*><\\/iframe>)?"
-                + "(?:<p>.*<\\/p>)?",
-            Pattern.CASE_INSENSITIVE | Pattern.MULTILINE
-        );
+            "^(?:<iframe[^>]+?src=\")?"
+                + "(?:https?)?:\\/\\/"
+                + "(?:[\\w]+?\\.)*?vimeo\\.com"
+                + "(?:[\\/\\w:]+)?\\/(?<videoID>[0-9]+)",
+            Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE | Pattern.MULTILINE);
     }
 
     public static String getVideoUrl(String videoUri) {
