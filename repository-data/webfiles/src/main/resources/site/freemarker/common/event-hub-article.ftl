@@ -42,11 +42,10 @@
         <#assign links += [{ "key" : key, "title": key }] />
     </#list>
 
-    <#return links />
+    <#return links?sort_by("key") />
 </#function>
 
 <article class="article article--latest-events">
-
 
     <#assign header_title><@fmt.message key="headers.hub-title" /></#assign>
     <#assign header_summary><@fmt.message key="texts.hub-intro" /></#assign>

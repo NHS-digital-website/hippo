@@ -31,6 +31,7 @@ import java.util.*;
 public class EventsComponent extends EssentialsEventsComponent {
 
     private static Logger log = LoggerFactory.getLogger(EventsComponent.class);
+    private ComponentHelper componentHelper = new ComponentHelper();
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -47,7 +48,6 @@ public class EventsComponent extends EssentialsEventsComponent {
         String[] selectedTypes = getPublicRequestParameters(request, "type");
         request.setAttribute("selectedTypes", Arrays.asList(selectedTypes));
         request.setAttribute("selectedYear", DocumentUtils.findYearOrDefault(getSelectedYear(request), Calendar.getInstance().get(Calendar.YEAR)));
-        ComponentHelper componentHelper = new ComponentHelper();
         request.setAttribute("years", componentHelper.years());
     }
 
@@ -102,8 +102,14 @@ public class EventsComponent extends EssentialsEventsComponent {
 
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query) throws QueryException {
-        ComponentHelper componentHelper = new ComponentHelper();
-        return componentHelper.executeQuery(request, paramInfo, query);
+        int pageSize = this.getPageSize(request, paramInfo);
+        int page = this.getCurrentPage(request);
+        query.setLimit(pageSize);
+        query.setOffset((page - 1) * pageSize);
+        this.applyExcludeScopes(request, query, paramInfo);
+        this.buildAndApplyFilters(request, query);
+
+        return ComponentHelper.executeQuery(request, paramInfo, query, page, pageSize, this);
     }
 
     @Override
@@ -113,5 +119,21 @@ public class EventsComponent extends EssentialsEventsComponent {
         //if the componentPageSize hasn't been defined, then use the component param info
         return NumberUtils.isCreatable(compononentPageSize)
             ? Integer.parseInt(compononentPageSize) : super.getPageSize(request, paramInfo);
+    }
+
+    @Override
+    public EventsComponentInfo getComponentParametersInfo(HstRequest request) {
+        EventsComponentInfo ret = super.getComponentParametersInfo(request);
+        return ret;
+    }
+
+    @Override
+    public Filter createQueryFilter(HstRequest request, HstQuery hstQuery) throws FilterException {
+        return super.createQueryFilter(request, hstQuery);
+    }
+
+    @Override
+    public void applyAndFilters(HstQuery hstQuery, List<BaseFilter> filters) throws FilterException {
+        super.applyAndFilters(hstQuery, filters);
     }
 }

@@ -38,19 +38,14 @@ import javax.jcr.query.QueryResult;
 public class ComponentHelper extends EssentialsListComponent {
     private static final Logger log = LoggerFactory.getLogger(FeedListComponent.class);
 
-    protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query) throws QueryException {
-        int pageSize = this.getPageSize(request, paramInfo);
-        int page = this.getCurrentPage(request);
-        query.setLimit(pageSize);
-        query.setOffset((page - 1) * pageSize);
-        this.applyExcludeScopes(request, query, paramInfo);
-        this.buildAndApplyFilters(request, query);
+    protected static <T extends EssentialsListComponentInfo> Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query,
+        int page, int pageSize, Object component) throws QueryException {
 
         try {
             // the query coming from the component is manually extended since it needs to consider intervals
             String eventQueryString = query.getQueryAsString(true);
             // appending the query containing filters the on the interval compound
-            String queryString = eventQueryString + addIntervalFilter(request);
+            String queryString = eventQueryString + addIntervalFilter(request, component);
 
             HstRequestContext requestContext = request.getRequestContext();
             QueryManager jcrQueryManager = requestContext.getSession().getWorkspace().getQueryManager();
@@ -74,7 +69,12 @@ public class ComponentHelper extends EssentialsListComponent {
                 }
             }
 
-            return this.getPageableFactory().createPageable(parentNodes, page, pageSize);
+            if (component instanceof EventsComponent) {
+                return ((EventsComponent) component).getPageableFactory().createPageable(parentNodes, page, pageSize);
+            } else if (component instanceof FeedListComponent) {
+                return ((FeedListComponent) component).getPageableFactory().createPageable(parentNodes, page, pageSize);
+            }
+            return null;
         } catch (RepositoryException repositoryEx) {
             throw new QueryException(repositoryEx.getMessage());
         } catch (ObjectBeanManagerException converterEx) {
@@ -82,17 +82,15 @@ public class ComponentHelper extends EssentialsListComponent {
         }
     }
 
-    protected String addIntervalFilter(final HstRequest request) {
-
-        Object paramInfoType = getComponentParametersInfo(request);
+    protected static String addIntervalFilter(final HstRequest request, Object component) {
         String dateField = null;
         boolean hidePastEvents = false;
-        if (paramInfoType instanceof FeedListComponentInfo) {
-            FeedListComponentInfo paramInfo = getComponentParametersInfo(request);
+        if (component instanceof FeedListComponent) {
+            FeedListComponentInfo paramInfo = ((FeedListComponent)component).getComponentParametersInfo(request);
             dateField = paramInfo.getDocumentDateField();
             hidePastEvents = paramInfo.getHidePastEvents();
-        } else if (paramInfoType instanceof EventsComponentInfo) {
-            EventsComponentInfo paramInfo = getComponentParametersInfo(request);
+        } else if (component instanceof EventsComponent) {
+            EventsComponentInfo paramInfo = ((EventsComponent)component).getComponentParametersInfo(request);
             dateField = paramInfo.getDocumentDateField();
             hidePastEvents = paramInfo.getHidePastEvents();
         }
@@ -106,9 +104,9 @@ public class ComponentHelper extends EssentialsListComponent {
 
                 List<BaseFilter> filters = new ArrayList<>();
                 //adding the interval date range constraint
-                addIntervalConstraint(filters, hstQuery, dateField, request);
+                addIntervalConstraint(filters, hstQuery, dateField, request, component);
 
-                if (hidePastEvents && paramInfoType instanceof FeedListComponentInfo) {
+                if (hidePastEvents && component instanceof FeedListComponentInfo) {
                     try {
                         final Filter filter = hstQuery.createFilter();
                         filter.addGreaterOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.DAY);
@@ -118,12 +116,21 @@ public class ComponentHelper extends EssentialsListComponent {
                     }
                 }
 
-                final Filter queryFilter = createQueryFilter(request, hstQuery);
+                final Filter queryFilter;
+                if (component instanceof FeedListComponentInfo) {
+                    queryFilter = ((FeedListComponent)component).createQueryFilter(request, hstQuery);
+                } else {
+                    queryFilter = ((EventsComponent)component).createQueryFilter(request, hstQuery);
+                }
                 if (queryFilter != null) {
                     filters.add(queryFilter);
                 }
                 //appling the filters on the hstQuery object
-                applyAndFilters(hstQuery, filters);
+                if (component instanceof FeedListComponent) {
+                    ((FeedListComponent)component).applyAndFilters(hstQuery, filters);
+                } else {
+                    ((EventsComponent)component).applyAndFilters(hstQuery, filters);
+                }
 
                 // Apply sort
                 if (hidePastEvents) {
@@ -149,20 +156,28 @@ public class ComponentHelper extends EssentialsListComponent {
         return "";
     }
 
-    protected void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request) throws FilterException {
+    protected static void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request, Object comp) throws FilterException {
         Calendar calendar = Calendar.getInstance();
-        int year = Integer.parseInt(DocumentUtils.findYearOrDefault(getSelectedYear(request), calendar.get(Calendar.YEAR)));
+        int year = Integer.parseInt(DocumentUtils.findYearOrDefault(getSelectedYear(request, comp), calendar.get(Calendar.YEAR)));
         final Filter filter = hstQuery.createFilter();
         calendar.set(Calendar.YEAR, year);
         filter.addBetween(dateField, calendar, calendar, DateTools.Resolution.YEAR);
         filters.add(filter);
     }
 
-    protected String getSelectedYear(HstRequest request) {
-        return getPublicRequestParameter(request, "year");
+    protected static String getSelectedYear(HstRequest request, Object comp) {
+        final String ret;
+
+        if (comp instanceof EventsComponent) {
+            ret = ((EventsComponent)comp).getPublicRequestParameter(request, "year");
+        } else {
+            ret = ((FeedListComponent)comp).getPublicRequestParameter(request, "year");
+        }
+
+        return ret;
     }
 
-    public Map<String, Long> years() {
+    public static Map<String, Long> years() {
         try {
             return StreamSupport.stream(Spliterators.spliteratorUnknownSize(DocumentUtils.documentsQuery(Event.class), Spliterator.ORDERED), true)
                 .filter(e -> ((Event) e).getDisplay())
