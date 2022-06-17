@@ -133,8 +133,16 @@ public class FeedListComponent extends EssentialsListComponent {
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query) throws QueryException {
         final FeedListComponentInfo info = getComponentParametersInfo(request);
         final String documentTypes = info.getDocumentTypes();
+
+        int pageSize = this.getPageSize(request, paramInfo);
+        int page = this.getCurrentPage(request);
+        query.setLimit(pageSize);
+        query.setOffset((page - 1) * pageSize);
+        this.applyExcludeScopes(request, query, paramInfo);
+        this.buildAndApplyFilters(request, query);
+
         if (documentTypes.equals("website:event")) {
-            return componentHelper.executeQuery(request, paramInfo, query);
+            return componentHelper.executeQuery(request, paramInfo, query, page, pageSize,this);
         } else {
             return super.executeQuery(request, paramInfo, query);
         }
@@ -179,6 +187,22 @@ public class FeedListComponent extends EssentialsListComponent {
         request.setAttribute("buttonDestination", buttonDestination);
         request.setAttribute("secondaryButtonText", secondaryButtonText);
         request.setAttribute("secondaryButtonDestination", secondaryButtonDestination);
+    }
+
+    @Override
+    public FeedListComponentInfo getComponentParametersInfo(HstRequest request) {
+        FeedListComponentInfo ret = super.getComponentParametersInfo(request);
+        return ret;
+    }
+
+    @Override
+    public Filter createQueryFilter(HstRequest request, HstQuery hstQuery) throws FilterException {
+        return super.createQueryFilter(request, hstQuery);
+    }
+
+    @Override
+    public void applyAndFilters(HstQuery hstQuery, List<BaseFilter> filters) throws FilterException {
+        super.applyAndFilters(hstQuery, filters);
     }
 }
 // resume CPD analysis - CPD-ON
