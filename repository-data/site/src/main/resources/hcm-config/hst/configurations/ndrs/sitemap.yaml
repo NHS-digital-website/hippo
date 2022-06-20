@@ -16,8 +16,9 @@ definitions:
           - website:video
           - website:componentlist
           - intranet:task
+          - website:signup
           hst:componentconfigurationmappingvalues:
-          - hst:pages/general
+          - hst:pages/article-hub
           - hst:pages/event
           - hst:pages/location
           - hst:pages/blog
@@ -27,6 +28,7 @@ definitions:
           - hst:pages/video
           - hst:pages/componentlist
           - hst:pages/task
+          - hst:pages/sign-up
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -41,8 +43,9 @@ definitions:
         - website:video
         - website:componentlist
         - intranet:task
+        - website:signup
         hst:componentconfigurationmappingvalues:
-        - hst:pages/general
+        - hst:pages/article-hub
         - hst:pages/event
         - hst:pages/location
         - hst:pages/blog
@@ -52,6 +55,7 @@ definitions:
         - hst:pages/video
         - hst:pages/componentlist
         - hst:pages/task
+        - hst:pages/sign-up
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -174,6 +178,26 @@ definitions:
         hst:refId: data
         hst:relativecontentpath: data
         jcr:primaryType: hst:sitemapitem
+      /forms:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/form-mail
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        /_index_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:hub
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/hub
+          hst:relativecontentpath: ${parent}/forms
+          jcr:primaryType: hst:sitemapitem
+        /email-subscription:
+          hst:componentconfigurationid: hst:pages/form-api
+          hst:relativecontentpath: ${parent}/email-subscription
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:relativecontentpath: forms
+        jcr:primaryType: hst:sitemapitem
       /news:
         /events:
           /_any_:
@@ -238,19 +262,6 @@ definitions:
         hst:componentconfigurationid: hst:pages/our-work
         hst:refId: ourwork
         hst:relativecontentpath: our-work
-        jcr:primaryType: hst:sitemapitem
-      /patients:
-        /_any_:
-          hst:componentconfigurationid: hst:pages/article-hub
-          hst:componentconfigurationmappingnames:
-          - website:feedhub
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/feedhub
-          hst:relativecontentpath: /patients/${1}
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/patients
-        hst:refId: patients
-        hst:relativecontentpath: patients
         jcr:primaryType: hst:sitemapitem
       /privacy:
         hst:componentconfigurationid: hst:pages/article-hub
