@@ -30,5 +30,8 @@
     <@ndrsFooterBanner></@ndrsFooterBanner>
     <@hst.include ref="footer-menu"/>
         <#include "../scripts/nhsd-footer-scripts.ftl" />
+
+    <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
+
 </body>
 </html>

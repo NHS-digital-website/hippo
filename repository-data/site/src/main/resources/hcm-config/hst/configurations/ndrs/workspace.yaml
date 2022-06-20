@@ -146,6 +146,15 @@ definitions:
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           jcr:primaryType: hst:containercomponentfolder
+        /sign-up:
+          /form:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 1a003fff-cd2a-48dd-96d0-aa1ae9d147e3
+            hst:label: Form
+            hst:lastmodified: 2022-06-20T13:41:16.461Z
+            hst:xtype: hst.vbox
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
         /terms:
           /banner:
             .meta:residual-child-node-category: content
