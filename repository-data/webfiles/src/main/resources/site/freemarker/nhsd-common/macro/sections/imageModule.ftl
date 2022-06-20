@@ -39,14 +39,14 @@
         <@hero heroOptions heroType />
         <div class="nhsd-t-grid">
         <div class="nhsd-t-row">
-        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-coll-m-8 nhs-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
     <#else>
         <#assign figureStyle = "width: 100%;"/>
         <#assign imageStyle = "width: 100%"/>
 
          <#if section.imageType == 'Half width in line'>
-             <#assign figureStyle = "float: left;"/>
-             <#assign imageStyle = "float: left;"/>
+             <#assign figureStyle = "float: left; width: 50%"/>
+             <#assign imageStyle = ""/>
          <#elseif section.imageType == 'Full width'>
              </div></div></div>
          <#elseif section.imageType == 'Right column' && (document.docType == "Feature" || document.docType == "Blog")>
@@ -72,11 +72,11 @@
              </div>
              <div style="width: 50%; float: left; padding-left: 10px;"><@hst.html hippohtml=section.text contentRewriter=brContentRewriter/></div>
         </#if>
-        <#if section.imageType != 'In line'>
-            <div style="clear: both;"/> <#-- clear float so the next section does not wrap around the image -->
+        <div style="clear: both; width: 100%"/> <#-- clear float so the next section does not wrap around the image -->
+        <#if section.imageType != 'Half width in line' && section.imageType != 'In line'>
             <div class="nhsd-t-grid">
             <div class="nhsd-t-row">
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-coll-m-8 nhs-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
         </#if>
     </#if>
 </#macro>
