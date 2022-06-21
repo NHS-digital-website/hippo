@@ -154,6 +154,7 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
                     );
                 }
             } catch (final InterruptedException ie) {
+                Thread.currentThread().interrupt();
                 throw new RuntimeException("Interrupted when shutting down S3 " + s3Operation + "executor service.",
                     ie);
             }

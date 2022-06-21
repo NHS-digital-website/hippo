@@ -155,15 +155,23 @@ public class SearchComponent extends CommonComponent {
                     buildAndExecuteHstSearch(request, paramInfo);
                 }
             } catch (InterruptedException | ExecutionException | TimeoutException | RuntimeException ex) {
+                boolean interrupted = false;
                 if (queryResponseFuture != null) {
                     queryResponseFuture.cancel(true);
                 }
                 if (ex instanceof InterruptedException || ex instanceof ExecutionException || ex instanceof TimeoutException) {
+                    if (ex instanceof InterruptedException) {
+                        interrupted = true;
+                    }
                     LOGGER.error("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, falling back to HST search");
                 } else {
                     LOGGER.error("Content Search runtime exception occurred, falling back to HST search ", ex);
                 }
                 buildAndExecuteHstSearch(request, paramInfo);
+
+                if (interrupted) {
+                    Thread.currentThread().interrupt();
+                }
             }
         } else {
             buildAndExecuteHstSearch(request, paramInfo);
@@ -529,7 +537,7 @@ public class SearchComponent extends CommonComponent {
         addFacetFields(facetFields, orderedFacets, YEAR);
         addFacetFields(facetFields, orderedFacets, MONTH);
         addFacetFields(facetFields, orderedFacets, TAXONOMY_CLASSIFICATION_FIELD);
-        
+
         //Add remaining facets
         for (Map.Entry<String, Object> facetEntry : facetFields.entrySet()) {
             if (!orderedFacets.containsKey(facetEntry.getKey())) {
