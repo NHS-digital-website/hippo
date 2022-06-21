@@ -66,6 +66,13 @@ export default function initHighcharts() {
             return;
         }
 
+        const chartContainer = document.querySelector(`#chart-${sectionId}`);
+        if (chartContainer) {
+            chartContainer.classList.remove('nhsd-!t-display-hide');
+        }
+        const noScriptCharts = document.querySelectorAll('.js-no-script-chart');
+        Array.from(noScriptCharts).forEach(chart => chart.classList.add('nhsd-!t-display-hide'));
+
         if (type !== 'mapChart') {
             Highcharts[type](`chart-${sectionId}`, window[thisChartSettings]);
         } else {
