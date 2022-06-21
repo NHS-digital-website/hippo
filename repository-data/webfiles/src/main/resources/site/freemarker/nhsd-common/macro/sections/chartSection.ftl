@@ -8,9 +8,10 @@
     <#local linkText>${downloadDataFileHeader} ${section.title}</#local>
 
     <div class="nhsd-!t-margin-bottom-6" data-uipath="ps.publication.chart-section">
-        <div class="nhsd-!t-margin-bottom-2" id="chart-${section.uniqueId}" style="width:100%; height:${size}px;">
+        <div class="nhsd-!t-margin-bottom-2 nhsd-!t-display-hide" id="chart-${section.uniqueId}" style="width:100%; height:${size}px;">
             <span class="css-loader"></span>
         </div>
+        <div class="nhsd-!t-margin-bottom-2 js-no-script-chart"><img src="${section.imageUrl}" alt="${section.title}" class="nhsd-a-image" /></div>
 
         <#if section.dataFile?has_content>
             <#local dataFile=section.dataFile>
