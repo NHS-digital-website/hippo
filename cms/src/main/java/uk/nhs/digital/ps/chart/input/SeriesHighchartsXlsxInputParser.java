@@ -4,6 +4,7 @@ import static java.util.Collections.singletonList;
 import static uk.nhs.digital.ps.chart.ChartType.*;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -43,7 +44,9 @@ public class SeriesHighchartsXlsxInputParser extends AbstractHighchartsXlsxInput
         Row header = rowIterator.next();
         for (int i = 1; i < header.getLastCellNum(); i++) {
             Cell cell = header.getCell(i);
-            indexedSeries.put(i, new Series(getStringValue(cell)));
+            if (cell.getCellType() != CellType.BLANK) {
+                indexedSeries.put(i, new Series(getStringValue(cell)));
+            }
         }
 
         // Get the data
@@ -52,10 +55,12 @@ public class SeriesHighchartsXlsxInputParser extends AbstractHighchartsXlsxInput
             String category = getStringValue(row.getCell(CATEGORIES_INDEX));
             categories.add(category);
 
-            for (int i = 1; i < row.getLastCellNum(); i++) {
+            for (int i = 1; i < indexedSeries.size() + 1; i++) {
                 Cell cell = row.getCell(i);
+                Optional<Double> cellValue = getDoubleValue(cell);
                 indexedSeries.computeIfAbsent(i, key -> new Series(""))
-                    .add(new Point(category, getDoubleValue(cell)));
+                    .add(cell != null && cell.getCellType() != CellType.BLANK
+                        ? new Point(category, cellValue.isPresent() ? cellValue.get() : null) : new Point(category, null));
             }
         });
 

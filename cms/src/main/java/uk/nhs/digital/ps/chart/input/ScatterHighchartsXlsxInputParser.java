@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Optional;
 import javax.jcr.RepositoryException;
 
 public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInputParser {
@@ -85,7 +86,10 @@ public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInpu
             Cell x = row.getCell(1);
             Cell y = row.getCell(2);
 
-            series.add(new Point(pointName, getDoubleValue(x), getDoubleValue(y)));
+            Optional<Double> xValue = getDoubleValue(x);
+            Optional<Double> yValue = getDoubleValue(y);
+
+            series.add(new Point(pointName, xValue.isPresent() ? xValue.get() : null, yValue.isPresent() ? yValue.get() : null));
         });
 
         return series;
@@ -111,8 +115,11 @@ public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInpu
 
             Cell x = row.getCell(0);
             Cell y = row.getCell(yCellNum);
+            Optional<Double> xValue = getDoubleValue(x);
+            Optional<Double> yValue = getDoubleValue(y);
 
-            controlLimitSeries.add(new Point("", getDoubleValue(x), getDoubleValue(y)));
+            controlLimitSeries.add(new Point("",
+                xValue.isPresent() ? xValue.get() : null, yValue.isPresent() ? yValue.get() : null));
         });
 
         return controlLimitSeries;
