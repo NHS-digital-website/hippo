@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "./macro/globalHeader.ftl">
+<#include "../nhsd-common/macro/globalHeader.ftl">
 <#include "../nhsd-common/macro/component/skipLink.ftl">
 
 <!DOCTYPE html>

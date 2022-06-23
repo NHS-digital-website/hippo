@@ -31,6 +31,10 @@ $burger-piece-height: 3px;
         right: 0;
         z-index: 100;
 
+        &-button {
+            display: inline;
+        }
+
         &::-moz-focus-inner {
             border: none;
         }
@@ -123,17 +127,15 @@ $burger-piece-height: 3px;
     border-bottom: 1px solid $col-primary;
 
     &__logo {
-        position: relative;
-        display: inline-block;
-        max-width: 89px;
-        width: 72px;
-        max-height: 69px;
         height: auto;
-        margin: 0 0 10px;
-
+        vertical-align: top;
+        fill: #005bbb;
     }
 
     &-a__logo {
+        display: inline-block;
+        padding-bottom: 12px;
+
         &:hover,
         &:active,
         &:focus {
@@ -144,6 +146,10 @@ $burger-piece-height: 3px;
         &:focus {
             outline: 3px solid $focus-colour;
         }
+    }
+
+    .main-nav__burger-button {
+        display: none;
     }
 
     &--without-search {
@@ -249,6 +255,45 @@ $burger-piece-height: 3px;
 
         .main-nav__burger {
             top: 6px;
+        }
+    }
+
+    &--black {
+        border-bottom: 2rem solid #231f20;
+        padding-bottom: 10px;
+
+        a:link {
+            color: #231f20;
+        }
+
+        .site-header__logo {
+            fill: #231f20;
+        }
+
+        .main-nav__burger-line {
+            background: #231f20 !important;
+        }
+
+        .search-strip{
+            &__input {
+                border-color: #231f20 !important;
+            }
+
+            &__button {
+                background: #231f20 !important;
+            }
+        }
+
+        &.site-header--with-search {
+            .main-nav__burger {
+                color: #FFFFFF !important;
+                background: #231f20 !important;
+                border-color: #231f20 !important;
+
+                .main-nav__burger-line {
+                    background: #FFFFFF !important;
+                }
+            }
         }
     }
 }
