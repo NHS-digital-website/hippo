@@ -16,21 +16,27 @@
         <#assign borderColour = 'blue' />
     </#if>
 
-    <div class="nhsd-m-emphasis-box-wide nhsd-m-emphasis-box--${emphasisType} nhsd-!t-margin-bottom-6" role="complementary" aria-labelledby="callout-box-heading-${calloutBoxId}">
+    <div class="nhsd-m-emphasis-box nhsd-m-emphasis-box--wide nhsd-m-emphasis-box--${emphasisType} nhsd-!t-margin-bottom-6"
+         role="complementary" aria-labelledby="callout-box-heading-${calloutBoxId}"
+         xmlns="http://www.w3.org/1999/html">
         <div class="nhsd-a-box nhsd-a-box--border-${borderColour}">
             <div class="nhsd-m-emphasis-box__icon-box">
-                <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
+                <span class="nhsd-a-icon nhsd-a-icon--size-xxxl">
                     <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
                         <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 180 180" width="62%" height="62%" x="14%" y="14%">
                             <#if emphasisType == "important">
-                                <path d="M124.4,161.7h-8.5L114,82.3h12.1ZM114,174.4h12.1V187H114Z" transform="translate(-11.47 -26.48)"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="72%" height="72%" x="14%" y="14%">
+                                    <path d="M 7.3247844,11.545141 7.1559222,0.40326992 H 8.8440778 L 8.6752156,11.545141 H 7.3246603 Z M 7.1559222,15.59673 v -2.02577 h 1.6881556 v 2.02577 z" />
+                                </svg>
                             <#elseif emphasisType == "warning">
-                                <path d="M111.4,178a13.28,13.28,0,0,1,1-5.21,12.72,12.72,0,0,1,2.82-4.27,13,13,0,0,1,4.27-2.82,13.91,13.91,0,0,1,10.42,0,12.85,12.85,0,0,1,7.09,7.09,13.91,13.91,0,0,1,0,10.42,12.85,12.85,0,0,1-7.09,7.09,13.91,13.91,0,0,1-10.42,0,13,13,0,0,1-4.27-2.82,12.72,12.72,0,0,1-2.82-4.27A13.28,13.28,0,0,1,111.4,178Zm24.17-21.42H113.86V71.29h21.71Z" transform="translate(-16.03 -23.97)"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="72%" height="72%" x="14%" y="14%">
+                                    <path d="M 7.3247844,11.545141 7.1559222,0.40326992 H 8.8440778 L 8.6752156,11.545141 H 7.3246603 Z M 7.1559222,15.59673 v -2.02577 h 1.6881556 v 2.02577 z" />
+                                </svg>
                             <#elseif emphasisType == "emphasis">
-                                <path d="M120.6,145h4.6c-3,6.2-7,11.7-11.8,16.6c-4.9,4.9-9.5,7.2-14.1,7.2c-3,0-5.7-1.1-7.9-3.3c-2.2-2.1-3.4-5.3-3.4-9.5c0-3.4,1.8-9.9,5.4-19.6l11-29.3c2.6-6.8,3.8-11,3.8-12.5c0-1.3-0.3-2.2-0.9-2.9c-0.7-0.7-1.6-0.9-2.8-0.9c-2.5,0-5.5,2-8.9,5.8c-3.4,3.9-5.9,7.4-7.2,10.5h-4.6c3.6-7,7.5-12.5,12.1-16.6c4.6-4.1,8.8-6,12.6-6c3,0,5.5,1.1,7.4,3c2,2.1,2.9,4.7,2.9,8.2c0,3.4-1.7,9.6-5.1,18.7l-9.2,25c-3.4,9.1-5.1,14.7-5.1,17.1c0,1.8,0.4,3.3,1.1,4.2c0.8,0.9,1.8,1.4,3.3,1.4C108.7,161.9,114.2,156.3,120.6,145z M113.5,42c0-2.4,0.8-4.3,2.5-5.9s3.6-2.5,5.9-2.5c2.4,0,4.3,0.8,5.9,2.5c1.6,1.7,2.5,3.6,2.5,5.9c0,2.4-0.8,4.3-2.5,5.9c-1.6,1.7-3.6,2.5-5.9,2.5s-4.3-0.8-5.9-2.5C114.3,46.2,113.5,44.2,113.5,42z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="72%" height="72%" x="14%" y="14%">
+                                        <path d="M 8.0222943,0.10083332 C 9.0514482,0.0663166 9.8914825,1.1101201 9.7047927,2.108221 9.5845017,3.1166803 8.4669092,3.8629536 7.4951342,3.514078 6.4729725,3.2246191 5.9550564,1.9242715 6.4820495,1.0059055 6.7739153,0.44421952 7.3926681,0.09194504 8.0222943,0.10083332 Z M 10.30676,15.151259 c -1.5379202,0 -3.0758382,0 -4.61376,0 0,-0.373285 0,-0.746569 0,-1.119856 0.3881923,0 0.7763847,0 1.1645814,0 0,-2.508405 0,-5.0168103 0,-7.5252148 -0.3881967,0 -0.7763891,0 -1.1645814,0 0,-0.3881913 0,-0.776388 0,-1.1645812 1.1646166,0 2.329233,0 3.4938494,0 0,2.89658 0,5.793159 0,8.689742 0.3732885,0 0.7465717,0 1.1198576,0 1.9e-5,0.373301 4.4e-5,0.746606 4.4e-5,1.11991 z"></path>
+                                </svg>
                             </#if>
-                        </svg>
                     </svg>
                 </span>
             </div>

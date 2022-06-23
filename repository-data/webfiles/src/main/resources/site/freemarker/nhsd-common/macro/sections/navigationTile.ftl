@@ -27,20 +27,19 @@
         <a class="nhsd-a-box-link" href="<@linkDestination link />" aria-label="${tile.title} - ${tile.actionDescription}">
             <div class="nhsd-a-box nhsd-a-box--bg-${blockColour} nhsd-!t-padding-6">
                 <div class="nhsd-m-nav-block__content-box">
-                    <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-
-                        <#if (tile.image.original)??>
+                    <#if (tile.image.original)??>
+                        <span class="nhsd-a-icon nhsd-a-icon--size-xxxl">
                             <@hst.link hippobean=tile.image.original fullyQualified=true var="imageLink" />
                             <#if (imageLink?ends_with("svg") && imageType == 'icon')>
                                 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
                                 <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                                <image href="data:image/svg+xml;base64,${base64(colour(tile.svgXmlFromRepository, "231f20"))}" x="4" y="4" width="8" height="8" />
+                                <image href="data:image/svg+xml;base64,${base64(colour(tile.svgXmlFromRepository, "231f20"))}" x="3" y="3" width="10" height="10" />
                                 </svg>
                             <#else>
                                 <img src="${imageLink}" alt="${tile.title}"/>
                             </#if>
-                        </#if>
-                    </span>
+                        </span>
+                    </#if>
 
                     <p class="nhsd-t-heading-xl nhsd-t-word-break">${tile.title}</p>
 
