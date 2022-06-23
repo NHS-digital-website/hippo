@@ -1,9 +1,10 @@
 <#ftl output_format="HTML">
+<@hst.setBundle basename="op.london.bridge"/>
+<@fmt.message key="enable-black-site-features" var="blackSite" />
 
 <#macro nhsdLogo>
-    <svg class="nhsd-a-logo"
-         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" width="80" height="60" aria-hidden="true" focusable="false">
-        <rect fill="#005BBB" x="0" width="80" height="32.1"></rect>
+    <svg class="nhsd-a-logo ${(blackSite == "true")?then("nhsd-a-logo--black", "")}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" width="80" height="60" aria-hidden="true" focusable="false">
+        <rect x="0" width="80" height="32.1"></rect>
         <path fill="#FFFFFF" d="M76.9,3.8L75.2,9c-1.3-0.6-3.2-1.2-5.7-1.2c-2.8,0-5,0.4-5,2.5c0,3.7,10.1,2.3,10.1,10.2c0,7.1-6.7,9-12.7,9c-2.7,0-5.8-0.6-8-1.3l1.6-5.3c1.4,0.9,4.1,1.5,6.4,1.5c2.2,0,5.5-0.4,5.5-3.1c0-4.2-10.1-2.6-10.1-9.9c0-6.7,5.9-8.7,11.6-8.7C72.1,2.7,75.1,3,76.9,3.8"></path>
         <polygon fill="#FFFFFF" points="56.9,3.1 51.5,29 44.5,29 46.8,17.9 38.6,17.9 36.3,29 29.3,29 34.7,3.1 41.7,3.1 39.6,13 47.8,13 49.9,3.1   "></polygon>
         <polygon fill="#FFFFFF" points="32.1,3.1 26.6,29 18,29 12.5,11.1 12.5,11.1 8.8,29 2.3,29 7.8,3.1 16.5,3.1 21.8,21 21.9,21 25.6,3.1  "></polygon>

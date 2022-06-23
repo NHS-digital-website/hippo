@@ -31,7 +31,7 @@
     <meta name="twitter:site" content="@NHSDigital">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
 
-    <#assign toolkitVersion = 'v0.154.0' />
+    <#assign toolkitVersion = 'v0.156.0' />
 
     <link href="${designSystemUrl}/" rel="preconnect" crossorigin>
     <link type="font/woff2" href="${designSystemUrl}/cdn/${toolkitVersion}/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>

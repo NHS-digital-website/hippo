@@ -6,6 +6,9 @@
 <@fmt.message key="text.close-menu" var="closeMenu" />
 <@fmt.message key="text.close-search" var="closeSearch" />
 
+<@hst.setBundle basename="op.london.bridge"/>
+<@fmt.message key="enable-black-site-features" var="blackSite" />
+
 <#macro globalHeader enableHr>
     <header id="header">
         <div class="nhsd-o-global-header" id="nhsd-global-header">
@@ -37,10 +40,10 @@
                                 </div>
                             </div>
                             <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed nhsd-m-button-nav--non-responsive nhsd-o-global-header__button-nav">
-                                <a class="nhsd-a-button nhsd-a-button--circle" id="nhsd-global-header__search-button" aria-label="Open search" aria-controls="nhsd-global-header__search" aria-expanded="false" href="${searchLink}">
+                                <a class="nhsd-a-button nhsd-a-button--circle ${(blackSite == "true")?then("nhsd-!t-bg-black nhsd-!t-border-black", "")}" id="nhsd-global-header__search-button" aria-label="Open search" aria-controls="nhsd-global-header__search" aria-expanded="false" href="${searchLink}">
                                     <@buildInlineSvg "search" "s"/>
                                 </a>
-                                <button class="nhsd-a-button nhsd-o-global-header__menu-button" id="nhsd-global-header__menu-button" type="button" aria-controls="nhsd-global-header__menu" aria-expanded="false">
+                                <button class="nhsd-a-button nhsd-o-global-header__menu-button ${(blackSite == "true")?then("nhsd-!t-bg-black nhsd-!t-border-black", "")}" id="nhsd-global-header__menu-button" type="button" aria-controls="nhsd-global-header__menu" aria-expanded="false">
                                     <span class="nhsd-a-button__label">Menu</span>
                                     <span class="nhsd-a-icon nhsd-a-icon--size-s">
                                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
@@ -87,7 +90,7 @@
                 </div>
             </div>
             <#if enableHr>
-                <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-0">
+                <hr class="nhsd-a-horizontal-rule ${(blackSite == "true")?then("nhsd-a-horizontal-rule--black-band", "")} nhsd-!t-margin-0">
             </#if>
         </div>
     </header>

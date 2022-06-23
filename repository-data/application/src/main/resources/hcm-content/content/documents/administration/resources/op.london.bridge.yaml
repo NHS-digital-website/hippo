@@ -1,0 +1,63 @@
+---
+/content/documents/administration/resources/op.london.bridge:
+  /op.london.bridge[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-06-28T00:00:00Z
+    hippostdpubwf:lastModificationDate: 2022-06-28T00:00:00Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Toggle for black site features ("true" to enable)
+    resourcebundle:id: op.london.bridge
+    resourcebundle:keys:
+    - enable-black-site-features
+    resourcebundle:messages:
+    - 'false'
+  /op.london.bridge[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-06-28T00:00:00Z
+    hippostdpubwf:lastModificationDate: 2022-06-28T00:00:00Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Toggle for black site features ("true" to enable)
+    resourcebundle:id: op.london.bridge
+    resourcebundle:keys:
+    - enable-black-site-features
+    resourcebundle:messages:
+    - 'false'
+  /op.london.bridge[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-06-28T00:00:00Z
+    hippostdpubwf:lastModificationDate: 2022-06-28T00:00:00Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-06-28T00:00:00Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Toggle for black site features ("true" to enable)
+    resourcebundle:id: op.london.bridge
+    resourcebundle:keys:
+    - enable-black-site-features
+    resourcebundle:messages:
+    - 'false'
+  hippo:name: Operation London Bridge
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
