@@ -58,7 +58,7 @@
         <#list document.tileSections as tileSection>
             <#if slugify(tileSection.tileSectionHeading) == area>
                 <div class="nhsd-o-card-list">
-                    <div class="nhsd-t-grid">
+                    <div class="nhsd-t-grid nhsd-t-grid--nested">
                         <div class="nhsd-t-row nhsd-o-card-list__items" role="tabpanel">
                             <#list tileSection.tileSectionLinks as links>
                                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">

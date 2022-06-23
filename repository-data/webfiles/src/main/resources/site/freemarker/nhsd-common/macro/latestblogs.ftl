@@ -55,32 +55,34 @@
                                     </figure>
                                 </#if>
 
-                                <div class="nhsd-m-card__content-box">
-                                    <#if latest.authors?? && latest.authors?has_content>
-                                        By <#list latest.authors as author>${author.title}<#sep>, </#list>.
-                                    </#if>
-                                    <span class="nhsd-m-card__date">
-                                        <#assign pubtime = '' />
-                                        <#if latest.dateOfPublication?has_content>
-                                            <#assign pubtime = latest.dateOfPublication.time />
-                                        <#elseif latest.publisheddatetime?has_content>
-                                            <#assign pubtime = latest.publisheddatetime.time />
+                                <div class="nhsd-m-card__content_container">
+                                    <div class="nhsd-m-card__content-box">
+                                        <#if latest.authors?? && latest.authors?has_content>
+                                            By <#list latest.authors as author>${author.title}<#sep>, </#list>.
                                         </#if>
+                                        <span class="nhsd-m-card__date">
+                                            <#assign pubtime = '' />
+                                            <#if latest.dateOfPublication?has_content>
+                                                <#assign pubtime = latest.dateOfPublication.time />
+                                            <#elseif latest.publisheddatetime?has_content>
+                                                <#assign pubtime = latest.publisheddatetime.time />
+                                            </#if>
 
-                                        <#if ! pubtime?is_string >
-                                            <@fmt.formatDate value=pubtime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
-                                        </#if>
-                                    </span>
-                                    <span class="nhsd-t-heading-s">${latest.title}</span>
-                                    <p class="nhsd-t-body-s">${latest.shortsummary}</p>
-                                </div>
+                                            <#if ! pubtime?is_string >
+                                                <@fmt.formatDate value=pubtime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                            </#if>
+                                        </span>
+                                        <span class="nhsd-t-heading-s">${latest.title}</span>
+                                        <p class="nhsd-t-body-s">${latest.shortsummary}</p>
+                                    </div>
 
-                                <div class="nhsd-m-card__button-box">
-                                    <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
-                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                        </svg>
-                                    </span>
+                                    <div class="nhsd-m-card__button-box">
+                                        <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
+                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </a>
