@@ -20,7 +20,7 @@
                     <div class="promo-banner__graphics" style="${style}"></div>
                 </div>
                 </#if>
-                
+
                 <div class="promo-banner__column">
                     <div class="promo-banner__contents">
                         <#if document.title??>

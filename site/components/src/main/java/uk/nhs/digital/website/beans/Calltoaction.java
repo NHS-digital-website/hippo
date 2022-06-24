@@ -62,4 +62,9 @@ public class Calltoaction extends BaseDocument {
         HippoBean imageBean = getIcon();
         return SvgProvider.getSvgXmlFromBean(imageBean);
     }
+
+    public String getSvgXmlFromRepositoryImage() {
+        HippoBean imageBean = getImage();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
+    }
 }
