@@ -33,6 +33,7 @@
                 </#if>
                 <span class="nhsd-t-heading-l ${textClass}">${options.title}</span>
                 <#if options.summary?has_content>
+                    <#if !uiPath?? > <#assign uiPath=""/> </#if>
                     <div class="nhsd-t-heading-s nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0 ${textClass}" data-uipath="${uiPath}.summary">
                         <#if hst.isBeanType(content, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
                             <@hst.html hippohtml=options.summary contentRewriter=stripTagsContentRewriter />

@@ -25,7 +25,6 @@
             <div class="nhsd-m-nav-block__content-box">
                 <div class="nhsd-a-icon nhsd-a-icon--size-xxxl" aria-hidden="true">
                     <@hst.link hippobean=item.icon var="image"/>
-                    <#assign imgDescription = item.icon.description />
 
                     <#if hasIcon>
                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">

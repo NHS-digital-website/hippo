@@ -68,7 +68,13 @@ public final class DocumentUtils {
      * @param request         HttpRequest
      * @param commonComponent CommonComponent
      */
+    static boolean tagsSet = false;
+
     public static void setMetaTags(HstRequest request, CommonComponent commonComponent) {
+        if (tagsSet) {
+            log.debug("metaTags already set");
+            return;
+        }
 
         log.debug("Request Path info " + request.getPathInfo());
         String seoSummary = null;
@@ -84,8 +90,8 @@ public final class DocumentUtils {
                 return;
             }
             log.debug("Value of node is " + node);
-            if (node.hasProperty("website:seosummarytext")) {
-                seoSummary = node.getProperty("website:seosummarytext").getValue().getString();
+            if (node.hasNode("website:seosummary") && node.getNode("website:seosummary").hasProperty("{http://www.onehippo.org/jcr/hippostd/nt/2.0}content")) {
+                seoSummary = node.getNode("website:seosummary").getProperty("{http://www.onehippo.org/jcr/hippostd/nt/2.0}content").getValue().getString();
             } else {
                 seoSummary = node.getProperty("website:shortsummary").getValue().getString();
             }
@@ -94,6 +100,7 @@ public final class DocumentUtils {
             log.debug("Value of summary  is " + seoSummary);
             request.setAttribute("title", title);
             request.setAttribute("summary", seoSummary);
+            tagsSet = true;
         } catch (Exception ex) {
             log.error("Exception reading values ", ex);
         }
