@@ -1,7 +1,5 @@
 <#ftl output_format="HTML">
 
-<#import "../../include/debugger.ftl" as debug>
-
 <#macro metaTags contentTitle="" contentDescription="">
     <#assign siteTitle = "NHS Digital"/>
     <#assign pageTitle = 'Home - ' + siteTitle />
@@ -60,9 +58,6 @@
         <#assign defaultTwitterImage = defaultMetaImage />
     </#if>
 
-    XXXX-pageTitle=${pageTitle}-XXXX<br/>
-    XXXX-pageSEOSummary=${pageSEOSummary}-XXXX<br/>
-
     <#-- Generic meta tags -->
     <@hst.headContribution keyHint="metaTitle" category="genericMeta">
         <title>${pageTitle}</title>
@@ -70,7 +65,7 @@
     <@hst.headContribution keyHint="metaTitle2" category="genericMeta">
         <meta name="title" content="${pageTitle}" />
     </@hst.headContribution>
-    <@hst.headContribution category="genericMeta">
+    <@hst.headContribution keyHint="metaDescription" category="genericMeta">
         <meta name="description" content="${pageSEOSummary}" />
     </@hst.headContribution>
 

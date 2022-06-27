@@ -68,14 +68,8 @@ public final class DocumentUtils {
      * @param request         HttpRequest
      * @param commonComponent CommonComponent
      */
-    static boolean tagsSet = false;
 
     public static void setMetaTags(HstRequest request, CommonComponent commonComponent) {
-        if (tagsSet) {
-            log.debug("metaTags already set");
-            return;
-        }
-
         log.debug("Request Path info " + request.getPathInfo());
         String seoSummary = null;
         String title = null;
@@ -100,7 +94,6 @@ public final class DocumentUtils {
             log.debug("Value of summary  is " + seoSummary);
             request.setAttribute("title", title);
             request.setAttribute("summary", seoSummary);
-            tagsSet = true;
         } catch (Exception ex) {
             log.error("Exception reading values ", ex);
         }
