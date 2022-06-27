@@ -31,4 +31,11 @@ public interface CaseStudyComponentInfo {
         )
     @DropDownList({"left", "right"})
     String getTextAlignment();
+
+    @Parameter(
+        name = "bmargin",
+        defaultValue = "9",
+        displayName = "Margin Bottom"
+        )
+    String getTextBMargin();
 }

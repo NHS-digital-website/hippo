@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.chart;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.hippoecm.repository.impl.NodeDecorator;
 import org.junit.After;
@@ -48,7 +49,7 @@ public class HighchartsDataFileValidatorTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
 
         HippoServiceRegistry.register(highchartsInputParser, HighchartsInputParser.class);
         HippoServiceRegistry.register(highchartsJcrNodeReader, HighchartsJcrNodeReader.class);

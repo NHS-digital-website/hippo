@@ -24,6 +24,8 @@
 <#include "macro/heroes/hero.ftl">
 <#include "macro/heroes/hero-options.ftl">
 
+<#include "macro/socialMediaBar.ftl">
+
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
@@ -73,6 +75,17 @@
 						<#list document.roles.primaryroles as role>
 							${role}<br/>
 						</#list>
+					</#if>
+
+					<#if document.socialmedia?has_content>                    
+                        <#assign props = {
+                            "bar": document.socialMediaBar,
+                            "twitterHashtag": (document.twitterHashtag)!"",
+                            "title": document.title,
+                            "shortsummary": document.shortsummary,
+                            "socialmedias": document.socialmedia
+                        } />
+						<@socialMediaBar props 1/>
 					</#if>
 
                   	<#if document.biographies?has_content>

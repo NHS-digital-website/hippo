@@ -5,19 +5,20 @@ import static com.onehippo.cms7.eforms.hst.validation.rules.LuhnRule.MESSAGE_KEY
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
 import com.onehippo.cms7.eforms.hst.validation.rules.BaseRule;
 import com.onehippo.cms7.eforms.hst.validation.rules.RuleType;
-import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 
 import java.util.Map;
+import java.util.Optional;
 
 public class PostcodeRule extends BaseRule {
     @Override
     public boolean validate(Map<String, String[]> map) {
-        String postcode = map.get(map.keySet().stream().findFirst().get())[0];
         String postcodeUrl = null;
-        if (StringUtils.isNotBlank(postcode)) {
+        Optional<String> optionalMapKeySet = map.keySet().stream().findFirst();
+        if (optionalMapKeySet.isPresent()) {
+            String postcode = map.get(optionalMapKeySet.get())[0];
             if (postcode.length() >= 5) {
                 postcodeUrl = postcode.replaceAll("\\s+", "").toUpperCase();
                 postcodeUrl = postcodeUrl.substring(0, postcodeUrl.length() - 3) + "/" + postcodeUrl.substring(postcodeUrl.length() - 3);

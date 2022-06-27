@@ -10,6 +10,9 @@
 [website:ImageModule] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:socialMediaBar] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated

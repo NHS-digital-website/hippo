@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/ArcListener:
+      hipposys:className: uk.nhs.digital.arc.daemon.ArcListener
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module

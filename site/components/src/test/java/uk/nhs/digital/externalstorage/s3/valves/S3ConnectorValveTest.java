@@ -12,6 +12,7 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomByteArray;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomInt;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomString;
@@ -61,7 +62,7 @@ public class S3ConnectorValveTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
 
         // set up prerequsites for a happy path; error cases will re-set appropriate mocks to suit their needs:
 

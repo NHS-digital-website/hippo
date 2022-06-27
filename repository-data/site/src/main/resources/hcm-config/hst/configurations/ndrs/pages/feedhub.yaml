@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/feedhub:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.FeedHubComponent
+        hst:template: feedhub
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/nhsd-apppage
+      jcr:primaryType: hst:component

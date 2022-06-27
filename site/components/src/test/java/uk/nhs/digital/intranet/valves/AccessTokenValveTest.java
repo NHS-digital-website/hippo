@@ -16,13 +16,14 @@ import uk.nhs.digital.intranet.provider.AuthorizationProvider;
 import uk.nhs.digital.intranet.provider.CookieProvider;
 import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
 import uk.nhs.digital.intranet.utils.Constants;
+import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RunWith(MockitoJUnitRunner.class)
-public class AccessTokenValveTest {
+public class AccessTokenValveTest extends MockitoSessionTestBase {
 
     private static final String ENCODED_COOKIE_VALUE = "encoded_cookie_value";
     private static final String REFRESH_TOKEN = "refresh_token";

@@ -69,7 +69,7 @@
         {{/valueOfTypeAny}}
 
         {{^enum}}
-        {{#valueOfTypeAny example ignoreClass="java.util.Map"}}
+        {{#valueOfTypeAny example ignoreClass="java.util.HashMap"}}
             <div>Example: <pre><code>{{prettyJson example}}</code></pre></div>
         {{else}}
             <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{sanitiseTypeAny example}}</span></div>

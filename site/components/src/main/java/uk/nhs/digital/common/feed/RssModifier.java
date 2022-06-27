@@ -24,10 +24,6 @@ import uk.nhs.digital.website.beans.*;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.Session;
-import javax.jcr.query.Query;
 
 public class RssModifier extends RSS20Modifier {
     private static final Logger LOGGER = LoggerFactory.getLogger(RssModifier.class);
@@ -41,6 +37,7 @@ public class RssModifier extends RSS20Modifier {
     public void modifyHstQuery(final HstRequestContext context, final HstQuery query, final RSS20FeedDescriptor descriptor) {
         try {
             String strQuery = query.getQueryAsString(true);
+
             if (strQuery.contains("jcr:primaryType=\'website:news\'")) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.add(Calendar.MONTH, -3);
@@ -56,7 +53,7 @@ public class RssModifier extends RSS20Modifier {
                 calendar.add(Calendar.MONTH, -1);
                 Filter filter = query.createFilter();
                 try {
-                    filter.addGreaterOrEqualThan("publicationsystem:NominalDate", calendar, DateTools.Resolution.DAY);
+                    filter.addLessOrEqualThan("publicationsystem:NominalDate", calendar, DateTools.Resolution.DAY);
                     filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
 
                     query.setFilter(filter);
@@ -71,45 +68,18 @@ public class RssModifier extends RSS20Modifier {
 
     @Override
     public void modifyEntry(final HstRequestContext context, final Item entry, final HippoBean bean) {
-        String scope = "";
-        String requestPath = null;
         SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
         SimpleDateFormat lastUpdatedDateFormat = new SimpleDateFormat("dd MMM yyyy");
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         if (bean instanceof Blog) {
-            try {
-                requestPath = context.getBaseURL().getRequestPath();
-
-                final String statement = "/jcr:root/content/documents/corporate-website/feeds//*[@jcr:primaryType='feed:rss20descriptor']";
-                Session session = context.getSession();
-                final Query q = session.getWorkspace().getQueryManager()
-                    .createQuery(statement, Query.XPATH);
-
-                final NodeIterator nodes = q.execute().getNodes();
-                while (nodes.hasNext()) {
-                    Node node = nodes.nextNode();
-
-                    scope = node.getProperty("feed:scope").getString();
-                    if (requestPath.contains("/" + scope)) {
-                        break;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
             final Blog blogBean = (Blog) bean;
             final Date lastUpdated = blogBean.getLastModified();
 
             if (lastUpdated != null) {
                 HstLink hstLink = context.getHstLinkCreator().create(bean, context);
-                String blogPath = bean.getPath();
-                if (hstLink != null
-                    && (StringUtils.isNotBlank(scope)
-                    && blogPath.contains("/" + scope))
-                    || requestPath.contains("all-blog")
-                ) {
+                if (hstLink != null) {
+
                     List<Element> foreignMarkup = entry.getForeignMarkup();
 
                     foreignMarkup.add(getElement("title", blogBean.getTitle()));
@@ -127,12 +97,12 @@ public class RssModifier extends RSS20Modifier {
                             } else {
                                 strPerson.append(contactdetails.getEmailaddress());
                             }
-                            strPerson.append(" (" + contactdetails.getName() + ")");
+                            strPerson.append(" (").append(contactdetails.getName()).append(")");
                         }
                     } else {
                         strPerson.append(emailAddress);
                         if (StringUtils.isNotBlank(blogBean.getAuthorName())) {
-                            strPerson.append(" (" + blogBean.getAuthorName() + ")");
+                            strPerson.append(" (").append(blogBean.getAuthorName()).append(")");
                         } else {
                             strPerson.append("(NHS Digital)");
                         }
@@ -214,7 +184,7 @@ public class RssModifier extends RSS20Modifier {
             foreignMarkup.add(getElement("link", urlNews));
 
             String tempUrl = urlNews.substring(0, urlNews.indexOf(context.getBaseURL().getHostName()));
-            String finalUrl = tempUrl + context.getBaseURL().getHostName() + context.getBaseURL().getContextPath() + context.getHstLinkCreator().getBinariesPrefix();
+            String finalUrl = tempUrl + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
             final LeadImageSection leadimagesection = newsBean.getLeadimagesection();
             if (leadimagesection != null && leadimagesection.getLeadImage() != null) {
                 String imageUrl = finalUrl + leadimagesection.getLeadImage().getCanonicalHandlePath();
@@ -253,7 +223,7 @@ public class RssModifier extends RSS20Modifier {
                 foreignMarkup.add(getElement("link", url));
 
                 String tempUrl1 = url.substring(0, url.indexOf(context.getBaseURL().getHostName()));
-                String finalUrl = tempUrl1 + context.getBaseURL().getHostName() + context.getBaseURL().getContextPath() + context.getHstLinkCreator().getBinariesPrefix();
+                String finalUrl = tempUrl1 + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
                 for (Infographic test : publicationBean.getKeyFactInfographics()) {
                     if (test.getIcon() != null) {
                         foreignMarkup.add(getImageElement(finalUrl + test.getIcon().getCanonicalHandlePath()));
@@ -309,7 +279,7 @@ public class RssModifier extends RSS20Modifier {
         if (newsBean.getRelateddocuments() != null && newsBean.getRelateddocuments().size() > 0) {
             for (HippoBean bean : newsBean.getRelateddocuments()) {
                 if (bean.getSingleProperty("website:title") != null) {
-                    category.append("," + bean.getSingleProperty("website:title").toString());
+                    category.append(",").append(bean.getSingleProperty("website:title").toString());
                 }
             }
 
@@ -318,7 +288,7 @@ public class RssModifier extends RSS20Modifier {
             for (HippoBean tempBean : newsBean.getPeoplementioned()) {
                 Person person = (Person) tempBean;
                 if (person.getPersonalinfos() != null) {
-                    category.append("," + person.getPersonalinfos().getFirstname());
+                    category.append(",").append(person.getPersonalinfos().getFirstname());
                 }
             }
         }

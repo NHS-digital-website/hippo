@@ -20,40 +20,48 @@ public class IconDownloadServlet extends ProxyDispatcher {
     private static final Logger log = LoggerFactory.getLogger(IconDownloadServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         String type = request.getParameter("type");
         String colour = request.getParameter("colour");
         String name = request.getParameter("name");
 
-        if (type == null
-            || type.isEmpty()
-            || colour == null
-            || colour.isEmpty()
-            || name == null
-            || name.isEmpty()
-        ) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing query parameter in {type, colour, name}");
-            return;
+        try {
+            if (type == null
+                || type.isEmpty()
+                || colour == null
+                || colour.isEmpty()
+                || name == null
+                || name.isEmpty()
+            ) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing query parameter in {type, colour, name}");
+                return;
+            }
+            String url = url(request, NhsDigitalColours.fromString(colour));
+
+            log.debug(String.format("IconDownloadServlet will proxy %s", url));
+
+            int r = proxy(request, response, new URL(url), (in, out) -> {
+                if (type.equalsIgnoreCase("png")) {
+                    response.setHeader("Content-Disposition", contentDisposition(type, colour, name));
+                    try (OutputStream png = response.getOutputStream()) {
+                        new PNGTranscoder().transcode(new TranscoderInput(in), new TranscoderOutput(png));
+                    } catch (TranscoderException e) {
+                        log.error("IconDownloadServlet Transcoder error", e);
+                    }
+                } else {
+                    response.setHeader("Content-Disposition", contentDisposition(type, colour, name));
+                    try {
+                        forwardBody(in, out);
+                    } catch (IOException ioe) {
+                        log.error("IOException: ", ioe);
+                    }
+                }
+            });
+            log.debug(String.format("IconDownloadServlet got a %d response from %s", r, url));
+        } catch (IOException ioe) {
+            log.error("IOException: ", ioe);
         }
 
-        String url = url(request, NhsDigitalColours.fromString(colour));
-
-        log.debug(String.format("IconDownloadServlet will proxy %s", url));
-
-        int r = proxy(request, response, new URL(url), (in, out) -> {
-            if (type.equalsIgnoreCase("png")) {
-                response.setHeader("Content-Disposition", contentDisposition(type, colour, name));
-                try (OutputStream png = response.getOutputStream()) {
-                    new PNGTranscoder().transcode(new TranscoderInput(in), new TranscoderOutput(png));
-                } catch (TranscoderException e) {
-                    log.error("IconDownloadServlet Transcoder error", e);
-                }
-            } else {
-                response.setHeader("Content-Disposition", contentDisposition(type, colour, name));
-                forwardBody(in, out);
-            }
-        });
-
-        log.debug(String.format("IconDownloadServlet got a %d response from %s", r, url));
     }
 
     private static String url(HttpServletRequest request, NhsDigitalColours colour) {

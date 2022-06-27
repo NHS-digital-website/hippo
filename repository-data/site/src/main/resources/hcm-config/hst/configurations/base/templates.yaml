@@ -29,6 +29,9 @@ definitions:
       /nhsd-breadcrumb:
         hst:renderpath: webfile:/freemarker/common/nhsd-breadcrumb.ftl
         jcr:primaryType: hst:template
+      /nhsd-breadcrumb-nofilternames:
+        hst:renderpath: webfile:/freemarker/nhsd-common/nhsd-breadcrumb-nofilternames.ftl
+        jcr:primaryType: hst:template
       /nhsd-homepage-layout:
         hst:renderpath: webfile:/freemarker/common/nhsd-homepage-layout.ftl
         jcr:primaryType: hst:template

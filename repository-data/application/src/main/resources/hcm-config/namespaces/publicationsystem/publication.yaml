@@ -89,6 +89,16 @@ definitions:
             wicket.css:
             - document-summary
             wicket.id: ${cluster.id}.left.item
+          /manifestLocation:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Manifest location
+            field: manifestLocation
+            hint: Provide a fully qualified location for the manifest file, but only
+              if you are creating a report automatically
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /seosummary:
             caption: SEO Summary
             field: seosummary
@@ -375,6 +385,16 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
+          /manifestLocation:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:manifestLocation
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
           /month:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -539,6 +559,7 @@ definitions:
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
           publicationsystem:earlyaccesskey: ''
+          publicationsystem:manifestLocation: ''
           publicationsystem:publicationtier: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

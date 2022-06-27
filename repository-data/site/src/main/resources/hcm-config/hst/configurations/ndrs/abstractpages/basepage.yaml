@@ -2,5 +2,62 @@
 definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:abstractpages/basepage:
+      /breadcrumb:
+        hst:referencecomponent: hst:components/nhsd-breadcrumb
+        jcr:primaryType: hst:component
+      /breadcrumb-ci-old-styling:
+        hst:referencecomponent: hst:components/breadcrumb-ci-old-styling
+        jcr:primaryType: hst:component
+      /coronavirus-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.CoronavirusBanner
+        hst:template: coronavirus-banner
+        jcr:primaryType: hst:component
+      /footer:
+        hst:template: footer
+        jcr:primaryType: hst:component
+      /footer-menu:
+        hst:componentclassname: uk.nhs.digital.intranet.components.IntranetEssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - footer
+        hst:template: base-footer-menu
+        jcr:primaryType: hst:component
+      /ie-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.IeBanner
+        hst:template: nhsd-ie-banner
+        jcr:primaryType: hst:component
+      /main-nav:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - main
+        hst:template: nhsd-main-nav
+        jcr:primaryType: hst:component
+      /top:
+        hst:componentclassname: uk.nhs.digital.common.components.SearchBarComponent
+        hst:template: searchbar
+        jcr:primaryType: hst:component
+      /top-menu:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - main
+        hst:template: base-top-menu
+        jcr:primaryType: hst:component
       hst:template: ndrs-abstract-layout
       jcr:primaryType: hst:component

@@ -1,0 +1,115 @@
+// Primary NHS blues
+// =================
+$blue: #005eb8;
+$blue-50: #76adda;
+$blue-10: #e6eff8;
+$dark-blue: #003087;
+$bright-blue: #0072ce;
+$accessible-blue: #004da8;
+
+// NHS greyscale
+// =============
+// This is an 5 step greyscale
+// Uses NHS brand colours as a foundation for the first 2 steps
+// and adds three modified greys
+$black: #231f20;
+$grey-1: #425563;
+$grey-2: #768692;
+$grey-3: #aeb7bd;
+$grey-4: #d8dde0;
+$grey-5: #f0f4f5;
+$grey-6: #666666;
+$grey-7: #cbcbcb;
+$grey-8: #282b2e;
+$grey-9: #687784;
+$grey-10: #dee2e5;
+$white: #fff;
+
+// Secondary colours
+// =================
+$dark-green: #006747;
+$green: #007f3b; // modified to comply with WCAG contrast with white
+$light-green: #78be20;
+
+$red: #da291c;
+$red-50: #e3968a;
+$red-10: #f5e6e4;
+
+$yellow: #ffb81c;
+$yellow-50: #fada8b;
+$yellow-10: #fdf2d5;
+$yellow-link-hover: #ffcd60;
+$yellow-link-active: #ffbf33;
+
+// Implementation-unspecific colour names
+// =====================
+$col-primary: #005eb8; // NHS blue
+$col-secondary: #4c92d9; // Light blue
+$col-tertiary: #d4efff; // Air blue
+$col-quaternary: #425563; // Charcoal grey
+$col-quinary: #666666; // Dark grey
+$col-senary: #cbcbcb; // Light grey
+$col-septenary: #ffffff; // White
+$col-octonary: #ffb81c; // Yellow
+$col-nonary: #da291c; // Red
+$col-denary: #00386e; // Dark blue
+$col-undenary: #003087; // Mid dark blue
+$col-duodenary: #f4f5f7; // Lighter grey
+$col-tridenary: #e5eff8; // Light blue
+$col-14: #334451; // Dark grey
+$col-15: #dfe2e4; // Light grey #2
+$col-16: #000000; // Black
+$col-17: #ffe8b4; // Alert Yellow
+$col-18: #768692; // Blue-ish light grey
+$col-19: #422c88; // Purple lightup banner theme
+$col-20: #212b32; // Dark gray (almost black)
+$col-21: #374047; // Dark gray (a bit lighter than col-20)
+$col-22: #f9fafb; // Light (almost white)
+$col-23: #8a1538; // Burgundy
+$col-24: #fae100; // Light Yellow
+$col-25: #330072; // Purple
+$col-26: #0072ce; // Blue
+$col-27: #7c2855; // Pink
+$col-28: #fdf399; // Very Light Yellow (lighter than col-24)
+
+// Semantic colour names
+// =====================
+$nhs-blue: $col-primary;
+$emergency-services-red: $red;
+
+$link-colour: $col-primary;
+$link-reverse-polarity: $col-quinary;
+
+$link-visited-colour: $dark-blue;
+$link-visited-reverse-polarity: $col-quinary;
+
+$link-hover-colour: $col-secondary;
+$link-hover-colour-nhs: $col-20;
+$link-hover-reverse-polarity: $col-tertiary;
+
+$link-active-colour: $col-secondary;
+$link-active-colour-nhs: $col-21;
+$link-active-reverse-polarity: $col-tertiary;
+
+$focus-colour: $col-octonary;
+
+// dyslexic colour theme
+// =====================
+$background-colour: $grey-5;
+$text-colour: #212b32;
+$muted-colour: $col-quaternary;
+$section-dividers: #b3bbc1;
+
+// update box colour themes
+// =====================
+$col-information-border: #4c90ce;
+$col-information-background: #d4e4f3;
+
+$col-important-border: #fecb59;
+$col-important-background: #fff1cc;
+
+$col-critical-border: #af1224;
+$col-critical-background: #af1224;
+
+$col-grey-border: #dfe2e5;
+$col-grey-background: #98a4ad;

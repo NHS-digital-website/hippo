@@ -37,4 +37,10 @@ public class Feature extends CaseStudyAndBlogBase implements IntranetSearchResul
     public CorporateWebsiteImageset getThumbnailImage() {
         return getLinkedBean("website:thumbnailimage", CorporateWebsiteImageset.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "website:socialMediaBar")
+    public SocialMediaBar getSocialMediaBar() {
+        return getBean("website:socialMediaBar", SocialMediaBar.class);
+    }
 }
+

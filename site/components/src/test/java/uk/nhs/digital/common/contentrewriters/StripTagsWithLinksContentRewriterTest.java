@@ -3,6 +3,7 @@ package uk.nhs.digital.common.contentrewriters;
 import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter.getHtmlCleaner;
 
 import org.hippoecm.hst.configuration.hosting.Mount;
@@ -31,7 +32,7 @@ public class StripTagsWithLinksContentRewriterTest {
 
     @Before
     public void setUp() throws ObjectBeanManagerException {
-        initMocks(this);
+        openMocks(this);
 
         given(requestContext.getContentBeansTool()).willReturn(contentBeansTool);
         given(requestContext.getContentBean()).willReturn(hippoBean);

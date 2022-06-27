@@ -6,6 +6,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
@@ -40,8 +41,7 @@ public class TypeAnyHelperTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
-
+        openMocks(this);
         options = OptionsStub.with(buffer);
     }
 
@@ -139,7 +139,7 @@ public class TypeAnyHelperTest {
     public void rendersEmptyString_forModelOfIgnoredType() throws IOException {
 
         // given
-        final String typeToIgnoreName = "java.util.Map";
+        final String typeToIgnoreName = "java.util.HashMap";
         //noinspection rawtypes
         final Map modelOfIgnoredType = new HashMap();
 

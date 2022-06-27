@@ -24,7 +24,7 @@
                 <dl class="nhsd-o-hero__meta-data">
                     <#list options["metaData"] as metaDataItem>
                         <#if heroType == "default" || ((heroType == "whiteHero" || heroType == "blackHero" || heroType == "blackBackground") && metaDataItem.title != "Authors")>
-                            <#assign schemaOrgTagAttr = data.schemaOrgTag?has_content?then('itemprop=${metaDataItem.schemaOrgTag}','') />
+                            <#assign schemaOrgTagAttr = metaDataItem.schemaOrgTag?has_content?then('itemprop=${metaDataItem.schemaOrgTag}','') />
                             <div class="nhsd-o-hero__meta-data-item">
                                 <dt class="nhsd-o-hero__meta-data-item-title">${metaDataItem.title?ends_with(":")?then(metaDataItem.title, metaDataItem.title + ":")}</dt>
                                 <dd class="nhsd-o-hero__meta-data-item-description" ${schemaOrgTagAttr} data-uipath="${uiPath}.${slugify(metaDataItem["title"]?trim?replace(':', ''))}">

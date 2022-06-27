@@ -30,11 +30,36 @@ public interface PooledS3Connector {
 
     /**
      * Instantly triggers copying of given S3 file by delegating the call directly to
+     * {@linkplain uk.nhs.digital.externalstorage.s3.S3SdkConnector#copyFileFromOtherBucket} method.
+     *
+     * @return Reference of the newly created copy.
+     */
+    S3ObjectMetadata copyFileFromOtherBucket(final String sourceObjectPath, final String sourceBucketName, final String fileName);
+
+    /**
+     * Instantly triggers copying of given S3 file by delegating the call directly to
      * {@linkplain uk.nhs.digital.externalstorage.s3.S3SdkConnector#copyFile} method.
      *
      * @return Reference of the newly created copy.
      */
     S3ObjectMetadata copyFile(String sourceS3FileReference, String fileName);
+
+    /**
+     * Determine whether an Object exists in a nominated bucket using
+     * the {@linkplain uk.nhs.digital.externalstorage.s3.S3SdkConnector#doesObjectExist} method.
+     * @param otherBucket is any bucket you want to check (subject to IAM etc)
+     * @param objectPath is the location of the object you want to check
+     * @return indication of success or failure
+     */
+    boolean doesObjectExist(String otherBucket, String objectPath);
+
+    /**
+     * Determine whether an object exists in the target bucket used for uploading large files
+     * usingthe {@linkplain uk.nhs.digital.externalstorage.s3.S3SdkConnector#doesObjectExist} method.
+     * @param objectPath the location of the object that you want to check
+     * @return an indicator of whether the object exists or not
+     */
+    boolean doesObjectExist(String objectPath);
 
     /**
      * <p>
@@ -55,7 +80,16 @@ public interface PooledS3Connector {
      * </ul>
      * </p>
      *
+     * @param namedBucket is the name of a bucket within which the object will exist
      * @param s3FileReference  S3 file key.
+     * @param downloadConsumer Callback to execute once the download actually gets initiated
+     *                         and the download input stream becomes available.
+     */
+    void download(String namedBucket, String s3FileReference, Consumer<S3File> downloadConsumer);
+
+    /**
+     * Shortcut method to enable use of the default bucket when accessing objects
+     * @param s3FileReference S3 file key
      * @param downloadConsumer Callback to execute once the download actually gets initiated
      *                         and the download input stream becomes available.
      */

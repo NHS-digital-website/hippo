@@ -1,0 +1,13 @@
+{
+    "_comment": "Test data",
+
+    "document_base": "report-folder",
+
+    "pages": [
+        {
+            "document_type": "publicationsystem:publication",
+            "page_name": "content",
+            "page_ref": "file-not-exist.json"
+        }
+    ]
+}

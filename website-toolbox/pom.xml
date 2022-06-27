@@ -15,10 +15,6 @@
     <artifactId>website-toolbox</artifactId>
     <version>${revision}</version>
 
-    <properties>
-        <aws.java.sdk.version>2.16.1</aws.java.sdk.version>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <!-- V2 for secrets -->
@@ -35,7 +31,7 @@
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>ssm</artifactId>
-            <version>${aws.java.sdk.version}</version>
+            <version>${aws.sdk-bom.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -44,7 +40,7 @@
         <dependency>
             <groupId>com.github.stefanbirkner</groupId>
             <artifactId>system-rules</artifactId>
-            <version>1.19.0</version>
+            <version>${system-rules.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

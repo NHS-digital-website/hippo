@@ -36,13 +36,14 @@ import uk.nhs.digital.intranet.model.exception.ProviderCommunicationException;
 import uk.nhs.digital.intranet.provider.BloomreachSearchProvider;
 import uk.nhs.digital.intranet.provider.impl.GraphProviderImpl;
 import uk.nhs.digital.intranet.utils.Constants;
+import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
-public class SearchPageComponentTest {
+public class SearchPageComponentTest extends MockitoSessionTestBase {
 
     private static final String REQUEST_ATTR_QUERY = "query";
 

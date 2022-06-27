@@ -54,7 +54,7 @@ if (!isDev) {
 }
 
 task("build-css", function processScss() {
-    return src([`./${paths.scss}/*.scss`, `./${paths.scss}/rebrand/*.scss`], {sourcemaps: isDev})
+    return src([`./${paths.scss}/*.scss`, `./${paths.scss}/rebrand/*.scss`, `./${paths.scss}/ndrs/*.scss`], {sourcemaps: isDev})
         .pipe(sass().on("error", sass.logError))
         .pipe(postcss(postCssPlugins))
         .pipe(dest(`./${paths.dist}`, {sourcemaps: isDev ? '.' : false}))
@@ -69,11 +69,13 @@ task("build-js", function gulpScripts() {
 
     return src([
         `${paths.js}/nhsd-priority-scripts.js`,
-        `${paths.js}/nhsd-scripts.js`,
         `${paths.js}/nhsd-frontend-scripts.js`,
-        `${paths.js}/intranet-scripts.js`,
+        `${paths.js}/nhsd-scripts.js`,
+        `${paths.js}/ndrs-priority-scripts.js`,
+        `${paths.js}/ndrs-frontend-scripts.js`,
         `${paths.js}/nhsd-intranet-priority-scripts.js`,
         `${paths.js}/nhsd-intranet-scripts.js`,
+        `${paths.js}/intranet-scripts.js`,
     ])
         .pipe(named())
         .pipe(
@@ -117,7 +119,7 @@ task('watch', function (done) {
         ]
     });
 
-    watch([`${paths.scss}/**/*.scss`, `./${paths.scss}/rebrand/*.scss`], series('build-css'));
+    watch([`${paths.scss}/**/*.scss`, `./${paths.scss}/rebrand/*.scss`, `./${paths.scss}/ndrs/*.scss`], series('build-css'));
     watch(`${paths.js}/**/*.js`, series('script-watch'));
     done();
 });

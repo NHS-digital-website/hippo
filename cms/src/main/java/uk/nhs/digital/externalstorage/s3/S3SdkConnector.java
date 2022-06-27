@@ -84,11 +84,16 @@ public class S3SdkConnector implements S3Connector {
 
     @Override
     public S3ObjectMetadata copyFile(final String sourceObjectPath, final String fileName) {
-        reportAction("Copying S3 resource {}", sourceObjectPath);
+        return copyFileFromOtherBucket(sourceObjectPath, bucketName, fileName);
+    }
+
+    @Override
+    public S3ObjectMetadata copyFileFromOtherBucket(final String sourceObjectPath, final String sourceBucketName, final String fileName) {
+        reportAction("Copying S3 resource {} from bucket {}", sourceObjectPath, sourceBucketName);
 
         final String targetObjectPath = s3ObjectKeyGenerator.generateObjectKey(fileName);
 
-        s3.copyObject(bucketName, sourceObjectPath, bucketName, targetObjectPath);
+        s3.copyObject(sourceBucketName, sourceObjectPath, bucketName, targetObjectPath);
 
         final ObjectMetadata targetObjectMetadata = s3.getObjectMetadata(bucketName, targetObjectPath);
 
@@ -137,7 +142,7 @@ public class S3SdkConnector implements S3Connector {
 
     @Override
     public S3File downloadFile(String objectPath) {
-        reportAction("Downloading S3 resource {}", objectPath);
+        reportAction("Downloading S3 resource {} from bucket {}", objectPath, bucketName);
 
         final S3FileProxy s3FileProxy = new S3FileProxy(s3.getObject(bucketName, objectPath));
 
@@ -146,6 +151,27 @@ public class S3SdkConnector implements S3Connector {
         reportAction("Retrieved S3 resource metatada {}", objectPath);
 
         return s3FileProxy;
+    }
+
+    @Override
+    public S3File downloadFileFromNamedBucket(String namedBucket, String objectPath) {
+        reportAction("Downloading S3 resource {} from an alternate bucket {}", objectPath, namedBucket);
+
+        final S3FileProxy s3FileProxy = new S3FileProxy(s3.getObject(namedBucket, objectPath));
+
+        reportAction("Retrieved S3 resource metatada {}", objectPath);
+
+        return s3FileProxy;
+    }
+
+    @Override
+    public boolean doesObjectExist(String otherBucket, String objectPath) {
+        return s3.doesObjectExist(otherBucket, objectPath);
+    }
+
+    @Override
+    public boolean doesObjectExist(String objectPath) {
+        return doesObjectExist(bucketName, objectPath);
     }
 
     private List<PartETag> uploadParts(final InputStream fileStream,
@@ -187,6 +213,11 @@ public class S3SdkConnector implements S3Connector {
         reportAction("Uploaded {} bytes in {} parts for {}", processedBytesCount, currentPartNumber, objectKey);
 
         return partETags;
+    }
+
+    @Override
+    public String getBucketName() {
+        return bucketName;
     }
 
     private void reportAction(final String messageTemplate, final Object... args) {

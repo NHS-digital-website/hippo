@@ -64,6 +64,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /socialMediaBar:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: socialMediaBar
+            field: socialMediaBar
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /shortsummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -258,6 +267,14 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /socialMediaBar:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:socialMediaBar
+            hipposysedit:primary: false
+            hipposysedit:type: website:socialMediaBar
+            jcr:primaryType: hipposysedit:field
           /socialmedia:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -284,6 +301,12 @@ definitions:
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:socialMediaBar:
+            jcr:primaryType: website:socialMediaBar
+            website:direction: false
+            website:enable: false
+            website:hexagons: false
+            website:iconSize: false
           /website:socialmedia:
             /website:twitterhashtags:
               hippostd:content: ''

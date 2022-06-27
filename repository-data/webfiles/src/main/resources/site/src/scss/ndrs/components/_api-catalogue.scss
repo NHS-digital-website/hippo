@@ -1,0 +1,187 @@
+.nhsd-api-catalogue {
+
+  &__scrollable-component {
+    overflow-y: auto;
+    max-height: 87.5vh;
+  }
+
+  & .checkmark {
+    pointer-events: none;
+  }
+
+  & .checkmark::after {
+    content: "";
+  }
+
+  & .checkmark.selected::after {
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 5px;
+    height: 10px;
+    margin: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border: solid #3f525f;
+    border-width: 0 2px 2px 0;
+  }
+
+  & .nhsd-a-checkbox {
+    position: relative;
+
+    & .nhsd-a-checkbox__label {
+        position: relative;
+        z-index: 0;
+
+        &:not(.nhsd-api-catalogue__filter-unavailable) {
+            & input[type="checkbox"] {
+                cursor: pointer;
+            }
+        }
+    }
+
+    & .nhsd-api-catalogue__filter-unavailable {
+        color: #768692;
+        cursor: not-allowed;
+
+        & input[type="checkbox"] {
+
+            box-shadow: 0 0 0 2px #e8edee;
+
+            &:hover::before {
+              display: none;
+            }
+        }
+    }
+
+    & input[type="checkbox"] {
+        pointer-events: none;
+    }
+  }
+
+  & .section-entries {
+    & div:not(:last-of-type) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  input.section-folder {
+    display:none;
+
+    &:checked {
+      ~ .nhsd-m-filter-menu-section__menu-button svg {
+        rotate: 180deg;
+      }
+    }
+
+    &:not(:checked) {
+
+      ~ .section-entries,
+      ~ hr:first-of-type {
+        display: none;
+      }
+    }
+  }
+
+  & a.nhsd-a-checkbox__label {
+    text-decoration: none;
+    color: #3f525f;
+  }
+
+  & .nhsd-m-filter-menu-section__menu-button {
+    padding: 0;
+  }
+
+  & .filter-description {
+    display: none;
+
+    // Negative top margin creates overlap with preceding filter label
+    // to eliminate the gap between the two, so that the 'hover' status
+    // is not lost when moving cursor between these elements.
+    margin: -1px 0 0 0;
+
+    padding: 8px 0 0 0;
+    font-size: 0.888rem;
+    line-height: 1.35em;
+    cursor: text;
+
+    p:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  & .filter-category-label__described:hover ~ .filter-description,
+  & .filter-label__described:hover ~ .filter-description,
+  .filter-description:hover {
+    display: block;
+  }
+
+  & .filter-category-label,
+  & .filter-label {
+
+    &__described {
+      // Required to better support on hover events
+      // when the line wraps.
+      display: inline-block;
+
+      // The above 'display: inline-block;' increases the size of the highlighted
+      // box; this property restores it.
+      line-height: 22.4px;
+
+
+      .filter-category-label__text,
+      .filter-label__text {
+        border-bottom: dashed #005bbb 2px;
+        padding-bottom: 2px;
+      }
+    }
+  }
+
+  & .nhsd-m-filter-menu-section__menu-button:hover .filter-category-label__text {
+    // In Chrome, in certain zoom factors the dashed underline doesn't always
+    // align with the black underline of the highlight, so we simply disable it.
+    border-bottom-style: none;
+  }
+
+  & .filter-category-label {
+    cursor: pointer;
+  }
+}
+
+.nhsd-a-tag {
+    white-space: nowrap;
+}
+
+.filter-entries-edge {
+    position: absolute;
+    margin-left: -1em;
+    top: 9px;
+    bottom: 0px;
+    width: 3.75px;
+    content: "";
+    background-color: #d5dade;
+
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        width: 3.75px;
+        height: 3.75px;
+        background: #d5dade;
+        border-radius: 50%;
+    }
+
+    &::before {
+        top: -2.5px;
+    }
+
+    &::after {
+        bottom: -2.5px;
+    }
+}
+
+.filter-child-container {
+    margin-left: 1em;
+    position: relative;
+}

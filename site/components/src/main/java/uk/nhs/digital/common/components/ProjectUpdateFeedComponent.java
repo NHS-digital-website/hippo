@@ -52,18 +52,21 @@ public class ProjectUpdateFeedComponent extends EssentialsListComponent {
 
         if (document != null) {
             request.setAttribute("document", document);
-        }
 
-        try {
-            List<ProjectUpdate> unfilteredResults = toList(
-                HstQueryBuilder.create(document.getParentBean())
-                    .ofTypes(ProjectUpdate.class).build().execute()
-                    .getHippoBeans());
-            request.setAttribute("organisations", organisations(unfilteredResults));
-            request.setAttribute("updateTypes", types(unfilteredResults));
-            request.setAttribute("years", years(unfilteredResults));
-        } catch (QueryException e) {
-            log.error("Query for filter generation failed: {}", e.getMessage());
+            try {
+                HippoBean parentBean = document.getParentBean();
+                if (parentBean != null) {
+                    List<ProjectUpdate> unfilteredResults = toList(
+                        HstQueryBuilder.create(parentBean)
+                            .ofTypes(ProjectUpdate.class).build().execute()
+                            .getHippoBeans());
+                    request.setAttribute("organisations", organisations(unfilteredResults));
+                    request.setAttribute("updateTypes", types(unfilteredResults));
+                    request.setAttribute("years", years(unfilteredResults));
+                }
+            } catch (QueryException e) {
+                log.error("Query for filter generation failed: {}", e.getMessage());
+            }
         }
         request.setAttribute("selectedOrganisation", getSelectedOrganisationTitle(request));
         request.setAttribute("selectedUpdateType", getSelectedUpdateType(request));

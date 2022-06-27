@@ -2,11 +2,18 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/cyberalerthub:
+      /breadcrumb:
+        hst:parameternames:
+        - filterValues
+        hst:parametervalues:
+        - year,month,threat type,severity
+        hst:referencecomponent: hst:components/nhsd-breadcrumb-nofilternames
+        jcr:primaryType: hst:component
       /main:
         /filters:
           hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsFacetsComponent
           hst:suppresswastemessage: true
-          hst:template: faceted-navigation
+          hst:template: nhsd-faceted-navigation
           jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.CyberAlertsHubComponent
         hst:parameternames:
@@ -19,5 +26,5 @@ definitions:
         - hippostdpubwf:publicationDate
         hst:template: cyber-alert-hub
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/apppage
+      hst:referencecomponent: hst:abstractpages/nhsd-apppage
       jcr:primaryType: hst:component

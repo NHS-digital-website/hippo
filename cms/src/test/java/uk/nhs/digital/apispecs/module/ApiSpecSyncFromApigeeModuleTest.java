@@ -11,6 +11,7 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
 import org.junit.After;
@@ -52,7 +53,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
 
         mockStatic(HippoServiceRegistry.class);
         given(HippoServiceRegistry.getService(RepositoryScheduler.class)).willReturn(scheduler);
