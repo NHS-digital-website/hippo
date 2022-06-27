@@ -67,19 +67,11 @@
                                     <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
                                 </svg>
                                 <#if linkIcon?ends_with("svg")>
-<<<<<<< HEAD
-                                    <#assign colour = "3f525f" />
-                                    <#assign imageUrl = '${linkIcon?replace("/binaries", "/svg-magic/binaries")}' />
-                                    <#assign imageUrl += "?colour=${colour}" />
-                                    <img src="${imageUrl}" alt="${altText}"
-                                         aria-hidden="true">
-=======
                                     <#if altText?? && altText?has_content>
                                         <img src="data:image/svg+xml;base64,${base64(colour(socialmediaItem.svgXmlFromRepository, "3f525f"))}" alt="${altText}" aria-hidden="true">
                                     <#else>
                                         <img src="data:image/svg+xml;base64,${base64(colour(socialmediaItem.svgXmlFromRepository, "3f525f"))}" aria-hidden="true">
                                     </#if>
->>>>>>> bd0591dca... [DW-2887] Refactored remaining instances of svg magic to method 3
                                 <#else>
                                     <img src="${linkIcon}" alt="${altText}"
                                          aria-hidden="true">
