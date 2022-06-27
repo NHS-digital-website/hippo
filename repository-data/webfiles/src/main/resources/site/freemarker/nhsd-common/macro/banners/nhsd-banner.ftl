@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../heroes/quote-hero-content.ftl">
+
 <#macro nhsdBanner options mirrored = false>
     <div class="nhsd-o-banner ${mirrored?then("nhsd-o-banner--mirrored", "")}">
         <#assign bgClass="">

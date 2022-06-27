@@ -3,6 +3,9 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
 
@@ -12,6 +15,7 @@
     <#assign hasTitle = document.title?has_content />
     <#assign hasContent = document.content?has_content />
     <#assign hasImage = document.image?has_content />
+    <#assign hasIcon = document.icon?has_content />
     <#assign hasLink = (document.external?has_content || document.internal?has_content) && document.label?has_content />
 
     <div class="nhsd-t-grid">
@@ -27,6 +31,21 @@
                                             <picture class="nhsd-a-image__picture">
                                                 <@hst.link hippobean=document.image var="image"/>
                                                 <img src="${image}" alt="${document.title}">
+                                            </picture>
+                                        </figure>
+                                    </div>
+                                </div>
+                            <#elseif hasIcon>
+                                <div class="nhsd-m-emphasis-box__icon-box">
+                                    <div class="nhsd-a-icon nhsd-a-icon--size-xxl">
+                                        <figure class="nhsd-a-image nhsd-a-image--square" aria-hidden="true">
+                                            <picture class="nhsd-a-image__picture">
+                                                <@hst.link hippobean=document.icon var="icon"/>
+                                                <#if icon?ends_with("svg")>
+                                                    <img src="data:image/svg+xml;base64,${base64(colour(document.svgXmlFromRepository, "b30f0f"))}" aria-hidden="true" />
+                                                <#else>
+                                                    <img src="${icon}">
+                                                </#if>
                                             </picture>
                                         </figure>
                                     </div>

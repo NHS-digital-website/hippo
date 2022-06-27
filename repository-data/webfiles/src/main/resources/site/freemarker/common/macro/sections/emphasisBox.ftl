@@ -1,5 +1,8 @@
 <#ftl output_format="HTML">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro emphasisBox section>
     <#if section?is_string >
       <#assign slug = 'emphasis-' + section.emphasisType + '-' + section?keep_after('@') />
@@ -29,7 +32,11 @@
             <div class="emphasis-box__image">
                 <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
                 <#if iconImage?ends_with("svg")>
-                    <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="${section.heading}" width="100" height="100" />
+                    <#if section.heading?? && section.heading?has_content>
+                        <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "005eb8"))}" alt="${section.heading}" width="100" height="100" />
+                    <#else>
+                        <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "005eb8"))}" width="100" height="100" />
+                    </#if>
                 <#else>
                     <img src="${iconImage}" alt="${section.heading}" width="100" height="100" />
                 </#if>
