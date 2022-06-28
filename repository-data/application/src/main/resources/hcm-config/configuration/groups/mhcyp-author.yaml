@@ -1,0 +1,22 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/mhcyp-author:
+      hipposys:description: 'MHCYP author users ONLY have access to documents in:
+        /corporate-website/publication-system/statistical/mental-health-of-children-and-young-people-in-england/2022-follow-up-to-the-2017-survey'
+      hipposys:members:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        operation: override
+        type: string
+        value: []
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.cms.user
+        - xm.content.user
+        - xm.channel.viewer
+      jcr:primaryType: hipposys:group
