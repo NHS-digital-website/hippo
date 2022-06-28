@@ -36,7 +36,27 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
-	<#-- Use UTF-8 charset for URL escaping from now: -->
+
+    <#if document?? && document.seosummary?? && document.seosummary?has_content>
+        <#noautoesc>
+            <!-- strip HTML tags -->
+            <#assign tempSEOSummary =  document.seosummary.content?replace('<[^>]+>','','r') />
+            <#if tempSEOSummary?has_content>
+                <#assign pageSEOSummary = tempSEOSummary />
+            </#if>
+        </#noautoesc>
+    </#if>
+    <meta itemprop="copyrightHolder" content="NHS Digital">
+    <meta itemprop="description" content="${pageSEOSummary}">
+    <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
+    <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="NHS Digital">
+        <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />" />
+        </span>
+    </div>
+
+    <#-- Use UTF-8 charset for URL escaping from now: -->
     <#setting url_escaping_charset="UTF-8">
 
     <#--  Facebook  -->
@@ -75,15 +95,15 @@
     <#assign metaData = [] />
     <#if hasAuthors>
         <#assign authorValue>
-            <div class="nhsd-!t-margin-bottom-1">
+            <div class="nhsd-!t-margin-bottom-1" itemprop="creator" itemscope itemtype="https://schema.org/Person">
                 <#list document.authors as author>
                     <@hst.link hippobean=author var="authorLink" />
                     <div>
                         <a class="nhsd-a-link"
                            href="${authorLink}"
                            onClick="${getOnClickMethodCall(document.class.name, authorLink)}"
-                        >
-                            ${author.title}
+                        itemprop="url">
+                            <span itemprop="name">${author.title}</span>
                         </a>
                         <#if author.roles??>
                             <#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if>
@@ -109,16 +129,19 @@
         <@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="dateOfPublication" />
         <#assign metaData += [{
             "title": "Date",
-            "value": dateOfPublication
+            "value": dateOfPublication,
+            "schemaOrgTag": "datePublished"
         }] />
     </#if>
     <#if hasTopics>
+
         <#assign topics>
             <#list document.topics as tag>${tag}<#sep>, </#list>
         </#assign>
         <#assign metaData += [{
             "title": "Topic${(document.topics?size gt 1)?then('s','')}",
-            "value": topics
+            "value": topics,
+            "schemaOrgTag": "keywords"
         }] />
     </#if>
     <#if hasBlogCategories>
@@ -130,7 +153,7 @@
             "value": categories
         }] />
     </#if>
- 
+
     <#assign heroOptions = {
         "introTags": ["Blog"],
         "title": document.title,
@@ -144,7 +167,8 @@
         <#assign heroOptions += {
             "image": {
                 "src": bannerImage,
-                "alt": document.leadImageAltText
+                "alt": document.leadImageAltText,
+                "schemaOrgTag": "image"
             }
         }/>
     </#if>
@@ -154,7 +178,7 @@
         <#assign heroType = "backgroundImage" />
     </#if>
     <@hero heroOptions heroType/>
-    
+
     <@socialMediaBar props />
 
     <div itemprop="articleBody">
@@ -170,7 +194,7 @@
                 <#if hasLeadImage && hasCubeHeader>
                     <div class="nhsd-m-card nhsd-!t-margin-bottom-6">
                         <div class="nhsd-a-box nhsd-a-box--border-grey">
-                            <div class="nhsd-m-card__image_container">
+                            <div class="nhsd-m-card__image_container" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                 <figure class="nhsd-a-image nhsd-a-image--round-top-corners">
                                     <picture class="nhsd-a-image__picture ">
                                         <@hst.link hippobean=document.leadImage.newsPostImageLarge2x fullyQualified=true var="leadImageLarge2x" />
@@ -222,10 +246,11 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div class="nhsd-!t-margin-bottom-6">
-                        <p class="nhsd-t-heading-xl">Related subjects</p>
+                        <p class="nhsd-t-heading-xl" >Related subjects</p>
                         <#list document.relatedSubjects as item>
                             <@hst.link hippobean=item var="relatedSubjectLink"/>
-                            <div class="nhsd-!t-margin-bottom-1" itemprop="isBasedOn" itemscope itemtype="http://schema.org/Product">
+                            <div class="nhsd-!t-margin-bottom-1" itemprop="about" itemscope itemtype="http://schema.org/CreativeWork">
+                                <meta itemprop="name" content="${item.title}"/>
                                 <a itemprop="url"
                                    class="nhsd-a-link"
                                    href="${relatedSubjectLink}"
