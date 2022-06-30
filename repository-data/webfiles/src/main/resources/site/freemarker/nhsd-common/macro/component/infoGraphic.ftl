@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../../../include/imports.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro infoGraphic graphic>
 
     <#assign selectedColour = "" />
@@ -21,7 +24,7 @@
                 <#if imagePath?ends_with("svg")>
                     <div class="nhsd-m-infographic__icon-box">
                         <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-                            <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="" />
+                            <img src="data:image/svg+xml;base64,${base64(colour(graphic.svgXmlFromRepository, "231f20"))}" alt="" />
                         </span>
                     </div>
                 <#else>

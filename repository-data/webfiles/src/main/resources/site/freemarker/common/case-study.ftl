@@ -4,6 +4,9 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.CallToActionRich" -->
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
 
@@ -17,6 +20,7 @@
     <#assign hasContent = document.content?has_content />
     <#assign hasRichContent = document.richContent?has_content />
     <#assign hasImage = document.image?has_content />
+    <#assign hasIcon = document.icon?has_content />
     <#assign hasLink = (document.external?has_content || document.internal?has_content) && document.label?has_content />
     <#assign isCtaDoc = document.class.simpleName?starts_with("Calltoaction") />
     <#assign isDecorativeOnly = isCtaDoc && document.isDecorative?if_exists == "true" />
@@ -36,11 +40,18 @@
                                     <h2 class="nhsd-t-heading-xl nhsd-!t-margin-bottom-3">${document.title}</h2>
                                 </#if>
                                 <figure class="nhsd-a-image">
-                                    <picture class="nhsd-a-image__picture">
+                                    <picture class="nhsd-a-image__picture" style="background-color: #e8edee">
                                         <#if hasImage>
                                             <@hst.link hippobean=document.image var="image" />
                                             <#assign altText = (isCtaDoc && document.altText?has_content)?then(document.altText, document.title) />
                                             <img src="${image}" alt="<#if !isDecorativeOnly>${altText}</#if>">
+                                        <#elseif hasIcon>
+                                            <@hst.link hippobean=document.icon var="icon" />
+                                            <#if icon?ends_with("svg")>
+                                                <img src="data:image/svg+xml;base64,${base64(colour(document.svgXmlFromRepository, "231f20"))}" aria-hidden="true" />
+                                            <#else>
+                                                <img src="${icon}">
+                                            </#if>
                                         <#else>
                                             <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="<#if !isDecorativeOnly>${document.title}</#if>">
                                         </#if>

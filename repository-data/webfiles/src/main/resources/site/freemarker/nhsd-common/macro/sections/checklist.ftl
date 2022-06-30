@@ -1,5 +1,8 @@
 <#ftl output_format="HTML">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro checklist section>
 
     <div class="nhsd-m-checklist nhsd-!t-margin-bottom-6">
@@ -39,7 +42,7 @@
                                 <@hst.link hippobean=section.customicon.original fullyQualified=true var="leadImage" />
                                 <span class="nhsd-a-icon nhsd-a-icon--size-xs">
                                     <#if leadImage?ends_with("svg")>
-                                        <img src="${leadImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="Custom image" />
+                                        <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "005eb8"))}" alt="Custom image" />
                                     <#else>
                                         <img src="${leadImage}" alt="Custom image" />
                                     </#if>
