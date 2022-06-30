@@ -16,6 +16,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import uk.nhs.digital.intranet.enums.SearchResultType;
 import uk.nhs.digital.intranet.model.IntranetSearchResult;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
+import uk.nhs.digital.svg.SvgProvider;
 import uk.nhs.digital.website.beans.BannerControl;
 import uk.nhs.digital.website.beans.PriorityAction;
 import uk.nhs.digital.website.beans.Team;
@@ -111,5 +112,10 @@ public class Task extends BaseDocument implements IntranetSearchResult {
     @Override
     public String getSearchResultType() {
         return SearchResultType.TASK.getValue();
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getLinkIcon();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 }

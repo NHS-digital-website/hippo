@@ -1,15 +1,18 @@
 <#ftl output_format="HTML">
 <#include "../../../include/imports.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro infoGraphic graphic>
 <#assign selectedColour = "" />
 <#assign selectedColour = graphic.colour?trim />
 <#if selectedColour == "Blue">
-  <#assign colourClass = "ffcd60" />
+    <#assign colourClass = "ffcd60" />
 <#elseif selectedColour == "White">
-  <#assign colourClass = "005EB8" />
+    <#assign colourClass = "005EB8" />
 <#elseif selectedColour == "Light blue">
-  <#assign colourClass = "005EB8" />
+    <#assign colourClass = "005EB8" />
 </#if>
 
 
@@ -19,7 +22,7 @@
         <#if (imagePath)??>
             <div class="infographic__icon">
                 <#if imagePath?ends_with("svg")>
-                    <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=${colourClass}" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
+                    <img src="data:image/svg+xml;base64,${base64(colour(graphic.svgXmlFromRepository, colourClass))}" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
                 <#else>
                     <img aria-hidden="true" src="${imagePath}" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
                 </#if>

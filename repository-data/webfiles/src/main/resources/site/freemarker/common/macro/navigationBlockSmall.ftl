@@ -2,6 +2,9 @@
 <#include "../../include/imports.ftl">
 <#include "./iconGenerator.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro navigationBlockSmall item id colourVariant isDarkMolecule isYellowLink hasHeading>
     <#assign hasTitle = item.title?has_content />
     <#assign hasContent = item.content?has_content />
@@ -41,9 +44,11 @@
                                     <#assign darkTxt = "231F20" />
                                     <#assign colour = isDarkMolecule?has_content?then(lightTxt, darkTxt)/>
 
-                                    <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                                    <#assign imageUrl += "?colour=${colour}" />
-                                    <img src="${imageUrl}" alt="${altText}">
+                                    <#if altText?? && altText?has_content>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}" alt="${altText}">
+                                    <#else>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, colour))}">
+                                    </#if>
                                 <#else>
                                     <img src="${image}" alt="${altText}">
                                 </#if>

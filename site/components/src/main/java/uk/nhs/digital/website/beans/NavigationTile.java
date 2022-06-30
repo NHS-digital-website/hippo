@@ -4,6 +4,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.svg.SvgProvider;
 
 import java.util.List;
 
@@ -38,5 +39,10 @@ public class NavigationTile extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:items")
     public List<HippoBean> getLink() {
         return getChildBeansByName("website:items");
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getImage();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 }

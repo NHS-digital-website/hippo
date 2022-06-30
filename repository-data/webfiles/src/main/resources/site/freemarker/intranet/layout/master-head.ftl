@@ -15,7 +15,7 @@
     <!-- Generic meta tags -->
     <@hst.headContributions categoryIncludes="intranetMeta" xhtml=true/>
 
-    <#assign toolkitVersion = 'v0.130.0' />
+    <#assign toolkitVersion = 'v0.153.0' />
 
     <#-- Preload fonts to improve performance -->
     <link href="https://design-system.digital.nhs.uk/" rel="preconnect" crossorigin>

@@ -1,8 +1,10 @@
 package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.svg.SvgProvider;
 
 @Node(jcrType = "website:socialmedialink")
 public class SocialMediaLink extends CommonFieldsBean {
@@ -39,5 +41,10 @@ public class SocialMediaLink extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:isForFooter")
     public boolean getIsForFooter() {
         return getSingleProperty("website:isForFooter");
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getLinkIcon();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 }

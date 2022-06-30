@@ -3,6 +3,7 @@ package uk.nhs.digital.website.beans;
 import org.hippoecm.hst.content.beans.*;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.*;
+import uk.nhs.digital.svg.SvgProvider;
 
 @HippoEssentialsGenerated(internalName = "website:calltoaction")
 @Node(jcrType = "website:calltoaction")
@@ -55,5 +56,15 @@ public class Calltoaction extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:icon")
     public CorporateWebsiteImageset getIcon() {
         return getLinkedBean("website:icon", CorporateWebsiteImageset.class);
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getIcon();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
+    }
+
+    public String getSvgXmlFromRepositoryImage() {
+        HippoBean imageBean = getImage();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 }

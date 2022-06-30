@@ -18,7 +18,7 @@
     <@hst.link hippobean=document.image fullyQualified=true var="bannerImage" />
     <div class="banner-image banner-image--short article-header"
          aria-label="Document Header"
-         style="background-image: url(${bannerImage});">
+         style="background-image: url(${bannerImage}); background-repeat: no-repeat">
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
             <div class="article-header--with-icon">
                 <div class="grid-wrapper">

@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro tabTiles options>
     <#if options??>
         <#if options.title??>
@@ -11,9 +14,9 @@
         </#if>
 
         <#if options.linkType == "internal">
-            <#assign title = options.link.title>
+            <#assign title = options.link.title />
         <#elseif options.linkType == "external">
-            <#assign summary = options.shortsummary>
+            <#assign summary = options.shortsummary />
         </#if>
 
         <article class="nhsd-m-card nhsd-m-card--with-icon">
@@ -48,12 +51,15 @@
                                         <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
                                     </svg>
                                     <@hst.link var="icon" hippobean=options.icon.original fullyQualified=true />
-                                        <#if icon?ends_with("svg")>
-                                            <img src="${icon?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="${title}" />
-                                            <#else>
-                                            <img src="${icon}" alt="${title}" />
+                                    <#if icon?ends_with("svg") && options.svgXmlFromRepository?? && options.svgXmlFromRepository?has_content>
+                                        <#if title?? && title?has_content>
+                                            <img src="data:image/svg+xml;base64,${base64(colour(options.svgXmlFromRepository, "231f20"))}" alt="${title}" />
+                                        <#else>
+                                            <img src="data:image/svg+xml;base64,${base64(colour(options.svgXmlFromRepository, "231f20"))}" />
                                         </#if>
-
+                                    <#else>
+                                        <img src="${icon}" alt="${title}" />
+                                    </#if>
                                 </span>
                             </#if>
                         </div>

@@ -1,5 +1,8 @@
 <#ftl output_format="HTML">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro iconList section mainHeadingLevel=2 >
     <div id="${slugify(section.title)}" class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines')}">
         <#if section.title?has_content>
@@ -25,7 +28,11 @@
                     <div class="iconList__icon">
                         <@hst.link hippobean=iconListItem.image.original fullyQualified=true var="iconImage" />
                         <#if iconImage?ends_with("svg")>
-                            <img class="iconList__icon__img" aria-hidden="true"  src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005EB8" alt="${section.title}" width="100" height="100" />
+                            <#if section.title?? && section.title?has_content>
+                                <img class="iconList__icon__img" aria-hidden="true"  src="data:image/svg+xml;base64,${base64(colour(iconListItem.svgXmlFromRepository, "005EB8"))}" alt="${section.title}" width="100" height="100" />
+                            <#else>
+                                <img class="iconList__icon__img" aria-hidden="true"  src="data:image/svg+xml;base64,${base64(colour(iconListItem.svgXmlFromRepository, "005EB8"))}" width="100" height="100" />
+                            </#if>
                         <#else>
                             <img class="iconList__icon__img" aria-hidden="true" src="${iconImage}" alt="${section.title}" width="100" height="100" />
                         </#if>
