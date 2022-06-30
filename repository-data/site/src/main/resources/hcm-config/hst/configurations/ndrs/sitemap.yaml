@@ -263,6 +263,11 @@ definitions:
         hst:refId: ourwork
         hst:relativecontentpath: our-work
         jcr:primaryType: hst:sitemapitem
+      /patients:
+        hst:componentconfigurationid: hst:pages/patients
+        hst:refId: patients
+        hst:relativecontentpath: patients
+        jcr:primaryType: hst:sitemapitem
       /privacy:
         hst:componentconfigurationid: hst:pages/article-hub
         hst:relativecontentpath: privacy
