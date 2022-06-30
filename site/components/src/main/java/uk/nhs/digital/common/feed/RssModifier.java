@@ -49,13 +49,9 @@ public class RssModifier extends RSS20Modifier {
                     exception.printStackTrace();
                 }
             } else if (strQuery.contains("jcr:primaryType=\'publicationsystem:publication\'")) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.add(Calendar.MONTH, -1);
                 Filter filter = query.createFilter();
                 try {
-                    filter.addLessOrEqualThan("publicationsystem:NominalDate", calendar, DateTools.Resolution.DAY);
                     filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
-
                     query.setFilter(filter);
                 } catch (final FilterException exception) {
                     exception.printStackTrace();
