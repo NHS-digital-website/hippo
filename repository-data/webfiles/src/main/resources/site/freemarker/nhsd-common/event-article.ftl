@@ -21,7 +21,7 @@
     <meta itemprop="name" content="${title}">
     <link itemprop="url" href="${getDocumentUrl()}" />
     <meta itemprop="description" content="${document.seosummary.content?replace('<[^>]+>','','r')}">
-<#--    <meta itemprop="location" content="${document.location}">-->
+    <meta itemprop="location" content="${document.location}">
 
     <#if startTimeData?has_content && startTimeData?is_date>
         <@fmt.formatDate value=startTimeData type="date" pattern="yyyy-MM-dd" var="startDate" timeZone="${getTimeZone()}" />
@@ -108,7 +108,7 @@
             <#-- [FTL-BEGIN] Location -->
             <div class="nhsd-o-hero__meta-data">
                 <div class="nhsd-o-hero__meta-data-item">
-                    <div itemprop="location" itemscope itemtype="https://schema.org/Text" class="nhsd-o-hero__meta-data-item-title">Location:</div>
+                    <div class="nhsd-o-hero__meta-data-item-title">Location:</div>
                     <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
                         <span>${document.location}</span>
                         <#if document.maplocation?has_content>
