@@ -1,11 +1,6 @@
 <#ftl output_format="HTML">
-<#import "../../include/debugger.ftl" as debug>
 
 <#macro metaTags contentTitle="" contentDescription="">
-    <@debug.debug debugObject=document depth=1 />
-    XXX${contentTitle}XX<br/>
-    XXX${contentDescription}XX<br/>
-
     <#assign siteTitle = "NHS Digital"/>
     <#assign pageTitle = 'Home - ' + siteTitle />
     <#assign siteSEOSummary = "We’re the national information and technology partner to the health and social care system using digital technology to transform the NHS and social care" />
@@ -35,9 +30,6 @@
     <#if contentDescription?? && contentDescription?has_content>
         <#assign pageSEOSummary = contentDescription?replace('<[^>]+>','','r') />
     </#if>
-
-    XXX${contentDescription}XX<br/>
-    ZZZ${pageSEOSummary}ZZ<br/>
 
     <#-- lead image to replace default (field name must be leadImage - see blog and general types -->
     <#if document?? && document.socialmediaimages?? && document.socialmediaimages?has_content &&
