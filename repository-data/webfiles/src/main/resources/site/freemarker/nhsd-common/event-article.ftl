@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Event" -->
-<#-- @ftlvariable name="event" type="uk.nhs.digital.website.beans.Interval" -->
+<#-- @ftlvariable name="event" type="uk.nhs.digital.website.beans.EventSchema -->
 
 <#include "../include/imports.ftl">
 <#include "macro/contentPixel.ftl">
@@ -15,31 +15,6 @@
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
 
 <@metaTags></@metaTags>
-
-<#macro schemaMeta title startTimeData = '' endTimeData = ''>
-    <#-- [BEGIN] Schema microdata -->
-    <meta itemprop="name" content="${title}">
-    <link itemprop="url" href="${getDocumentUrl()}" />
-    <meta itemprop="description" content="${document.seosummary.content?replace('<[^>]+>','','r')}">
-    <meta itemprop="location" content="${document.location}">
-
-    <#if startTimeData?has_content && startTimeData?is_date>
-        <@fmt.formatDate value=startTimeData type="date" pattern="yyyy-MM-dd" var="startDate" timeZone="${getTimeZone()}" />
-        <@fmt.formatDate value=startTimeData type="time" pattern="HH:mm:ss" var="startDateTime" timeZone="${getTimeZone()}" />
-        <meta itemprop="startDate" content="${startDate}T${startDateTime}">
-    </#if>
-
-    <#if endTimeData?has_content && endTimeData?is_date>
-        <@fmt.formatDate value=endTimeData type="date" pattern="yyyy-MM-dd" var="endDate" timeZone="${getTimeZone()}" />
-        <@fmt.formatDate value=endTimeData type="time" pattern="HH:mm:ss" var="endDateTime" timeZone="${getTimeZone()}" />
-        <meta itemprop="endDate" content="${endDate}T${endDateTime}">
-    </#if>
-
-    <#if summaryImage??>
-        <meta itemprop="image" content="${summaryImage}">
-    </#if>
-    <#-- [END] Schema microdata -->
-</#macro>
 
 <#assign hasSessions = document.events?size gte 1 />
 <#assign hasFutureEvent = false>
@@ -59,12 +34,41 @@
     <@hero {
         "title": document.title,
         "colour": "darkBlue"
-    }>
+    }>`
         <div class="nhsd-!t-margin-top-6">
+            <#list document.eventSchema as event>
+                LESLEY HIT MARKER ${event.eventstatustype}
+               <script type="application/ld+json">
+                   {
+                       "@context": "https://schema.org",
+                       "@type": "Event",
+                       "eventStatus": "https://schema.org/${event.eventstatustype}",
+                       "location": {
+                           "@type": "Place",
+                           "address": {
+                               "@type": "PostalAddress",
+                               "addressLocality": "${event.addresslocality}",
+                               "addressRegion": "${event.addressregion}",
+                               "postalCode": "80209",
+                               "streetAddress": "7 S. Broadway"
+                           },
+                           "name": "The Hi-Dive"
+                       },
+                       "name": "Typhoon with Radiation City",
+                       "offers": {
+                           "@type": "Offer",
+                           "price": "13.00",
+                           "priceCurrency": "USD",
+                           "url": "http://www.ticketfly.com/purchase/309433"
+                       },
+                       "startDate": "2013-09-14T21:30"
+                   }
+               </script>
+            </#list>
+
             <#if hasSessions>
                 <#-- [FTL-BEGIN] List of date ranges -->
                 <#list document.events as event>
-
                     <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
                     <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
                     <#assign validDate = (comparableStartDate?? && comparableEndDate??) />

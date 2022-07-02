@@ -1,70 +1,24 @@
----
 /content/documents/corporate-website/news:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 0f3406bf-9d17-425a-944a-e10ebcb111e4
+  hippo:name: News
+  hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+  hippotranslation:id: c0c0facf-0411-44eb-97bf-21e45e7b0baa
+  hippotranslation:locale: en
   /content2:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 64d3412d-e565-455e-bf65-1c125217a917
+    hippo:name: New and events hub
+    hippo:versionHistory: e9fe8cf6-c80b-4d77-8043-17b14a3db40f
     /content2[1]:
-      /website:bannercontrols:
-        /website:icon:
-          hippo:docbase: 855d362a-a83b-4ab3-9dd0-7dd4f678de69
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
-        jcr:primaryType: website:bannercontrol
-        website:backgroundcolor: ''
-        website:fontcolor: ''
-        website:icon: Bullet
-        website:iconcolor: ''
-      /website:contactdetails:
-        hippostd:content: <p>Monotonectally extend exceptional schemas with high-payoff
-          experiences. Enthusiastically extend future-proof e-tailers without adaptive
-          products. Authoritatively integrate.</p>
-        jcr:primaryType: hippostd:html
-      /website:ctabutton:
-        /website:items:
-          jcr:primaryType: website:externallink
-          website:link: https://google.co.uk
-          website:shortsummary: Summary
-          website:title: Title
-        jcr:primaryType: website:ctabutton
-        website:alignment: Left
-        website:buttontype: NHS Digital button
-        website:title: Sign up
-      /website:sections:
-        /website:html:
-          hippostd:content: |-
-            <p>Uniquely productize error-free internal or "organic" sources and plug-and-play leadership. Appropriately promote go forward potentialities through low-risk high-yield partnerships. Phosfluorescently customize viral process improvements for interactive catalysts for change. Dynamically supply turnkey services before sticky best practices. Rapidiously enhance enabled processes through virtual best practices.</p>
-
-            <p>Continually redefine error-free web-readiness rather than robust products. Interactively architect progressive resources via inexpensive applications. Objectively productize client-centered e-commerce rather than world-class mindshare. Synergistically transition revolutionary deliverables before value-added ROI. Proactively supply client-based.</p>
-          jcr:primaryType: hippostd:html
-        jcr:primaryType: website:section
-        website:headinglevel: Main heading
-        website:numberedList: false
-        website:title: Section
-        website:type: ''
-      /website:seosummary:
-        hippostd:content: Phosfluorescently reconceptualize cutting-edge methodologies
-          vis-a-vis premier manufactured products. Credibly generate proactive data
-          via client-based interfaces. Efficiently.
-        jcr:primaryType: hippostd:html
-      /website:socialmedia:
-        /website:othersocialmedias:
-          jcr:primaryType: website:othersocialmedia
-          website:link: https://www.facebook.com/NHSDigitalOfficial/
-          website:title: Facebook
-        /website:twitterhashtags:
-          hippostd:content: <p>NHSDigital</p>
-          jcr:primaryType: hippostd:html
-        jcr:primaryType: website:socialmedia
-        website:hellomynameis: ''
-        website:linkedinlink: https://www.linkedin.com/company/nhs-digital/
-        website:twitteruser: NHSDigital
-      /website:summary:
-        hippostd:content: <p>Find all the latest news and events related content.</p>
-        jcr:primaryType: hippostd:html
+      jcr:primaryType: website:hubnewsandevents
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 7586d4fb-5074-46fd-aee0-ae433bb4d5a3
       common:searchRank: 5
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-08-12T12:15:24.132Z
@@ -72,80 +26,78 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 174fb4fc-2d51-4316-b468-158cf90175dd
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:versionable
-      jcr:primaryType: website:hubnewsandevents
-      jcr:uuid: 7586d4fb-5074-46fd-aee0-ae433bb4d5a3
       website:shortsummary: Phosfluorescently reconceptualize cutting-edge methodologies
         vis-a-vis premier manufactured products. Credibly generate proactive data
         via client-based interfaces. Efficiently.
       website:signupsummary: To sign-up to our email news and updates, click on the
         button below and fill in the simple form on the following page.
       website:title: News and Events
-    /content2[2]:
       /website:bannercontrols:
-        /website:icon:
-          hippo:docbase: 855d362a-a83b-4ab3-9dd0-7dd4f678de69
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         jcr:primaryType: website:bannercontrol
         website:backgroundcolor: ''
         website:fontcolor: ''
         website:icon: Bullet
         website:iconcolor: ''
+        /website:icon:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 855d362a-a83b-4ab3-9dd0-7dd4f678de69
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /website:contactdetails:
+        jcr:primaryType: hippostd:html
         hippostd:content: <p>Monotonectally extend exceptional schemas with high-payoff
           experiences. Enthusiastically extend future-proof e-tailers without adaptive
           products. Authoritatively integrate.</p>
-        jcr:primaryType: hippostd:html
       /website:ctabutton:
+        jcr:primaryType: website:ctabutton
+        website:alignment: Left
+        website:buttontype: NHS Digital button
+        website:title: Sign up
         /website:items:
           jcr:primaryType: website:externallink
           website:link: https://google.co.uk
           website:shortsummary: Summary
           website:title: Title
-        jcr:primaryType: website:ctabutton
-        website:alignment: Left
-        website:buttontype: NHS Digital button
-        website:title: Sign up
       /website:sections:
-        /website:html:
-          hippostd:content: |-
-            <p>Uniquely productize error-free internal or "organic" sources and plug-and-play leadership. Appropriately promote go forward potentialities through low-risk high-yield partnerships. Phosfluorescently customize viral process improvements for interactive catalysts for change. Dynamically supply turnkey services before sticky best practices. Rapidiously enhance enabled processes through virtual best practices.</p>
-
-            <p>Continually redefine error-free web-readiness rather than robust products. Interactively architect progressive resources via inexpensive applications. Objectively productize client-centered e-commerce rather than world-class mindshare. Synergistically transition revolutionary deliverables before value-added ROI. Proactively supply client-based.</p>
-          jcr:primaryType: hippostd:html
         jcr:primaryType: website:section
         website:headinglevel: Main heading
         website:numberedList: false
         website:title: Section
         website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Uniquely productize error-free internal or "organic" sources and plug-and-play leadership. Appropriately promote go forward potentialities through low-risk high-yield partnerships. Phosfluorescently customize viral process improvements for interactive catalysts for change. Dynamically supply turnkey services before sticky best practices. Rapidiously enhance enabled processes through virtual best practices.</p>
+
+            <p>Continually redefine error-free web-readiness rather than robust products. Interactively architect progressive resources via inexpensive applications. Objectively productize client-centered e-commerce rather than world-class mindshare. Synergistically transition revolutionary deliverables before value-added ROI. Proactively supply client-based.</p>
       /website:seosummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: Phosfluorescently reconceptualize cutting-edge methodologies
           vis-a-vis premier manufactured products. Credibly generate proactive data
           via client-based interfaces. Efficiently.
-        jcr:primaryType: hippostd:html
       /website:socialmedia:
+        jcr:primaryType: website:socialmedia
+        website:hellomynameis: ''
+        website:linkedinlink: https://www.linkedin.com/company/nhs-digital/
+        website:twitteruser: NHSDigital
         /website:othersocialmedias:
           jcr:primaryType: website:othersocialmedia
           website:link: https://www.facebook.com/NHSDigitalOfficial/
           website:title: Facebook
         /website:twitterhashtags:
-          hippostd:content: <p>NHSDigital</p>
           jcr:primaryType: hippostd:html
-        jcr:primaryType: website:socialmedia
-        website:hellomynameis: ''
-        website:linkedinlink: https://www.linkedin.com/company/nhs-digital/
-        website:twitteruser: NHSDigital
+          hippostd:content: <p>NHSDigital</p>
       /website:summary:
-        hippostd:content: <p>Find all the latest news and events related content.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>Find all the latest news and events related content.</p>
+    /content2[2]:
+      jcr:primaryType: website:hubnewsandevents
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 833f3293-09e5-44fa-8c4a-25e42f0a328e
       common:searchRank: 5
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-08-12T12:15:24.132Z
@@ -154,92 +106,125 @@
       hippostdpubwf:publicationDate: 2020-08-13T14:01:04.723Z
       hippotranslation:id: 174fb4fc-2d51-4316-b468-158cf90175dd
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:hubnewsandevents
-      jcr:uuid: 833f3293-09e5-44fa-8c4a-25e42f0a328e
       website:shortsummary: Phosfluorescently reconceptualize cutting-edge methodologies
         vis-a-vis premier manufactured products. Credibly generate proactive data
         via client-based interfaces. Efficiently.
       website:signupsummary: To sign-up to our email news and updates, click on the
         button below and fill in the simple form on the following page.
       website:title: News and Events
-    hippo:name: New and events hub
-    hippo:versionHistory: e9fe8cf6-c80b-4d77-8043-17b14a3db40f
-    jcr:mixinTypes:
-    - hippo:named
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-    jcr:uuid: 64d3412d-e565-455e-bf65-1c125217a917
-  /events:
-    /clinical-risk-management-training-foundation-course---15-october-2019:
-      /clinical-risk-management-training-foundation-course---15-october-2019[1]:
-        /website:body:
-          hippostd:content: |-
-            <p>This is a one-day, classroom based workshop, designed to help achieve understanding of how to apply clinical risk management theory into working practice. The Foundation Course provides the knowledge and tools to achieve compliance with the <a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a> and empower clinical safety officers to sign off and approve safety documentation.</p>
-
-            <p>This course is also suitable for non-clinicians that support the compliance to the <a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>.</p>
-
-            <p>&nbsp;</p>
-          jcr:primaryType: hippostd:html
-        /website:events:
-          jcr:primaryType: website:interval
-          website:enddatetime: 2019-10-15T16:30:00Z
-          website:startdatetime: 2019-10-15T09:00:00Z
-        /website:friendlyurls:
-          jcr:primaryType: website:friendlyurls
-          website:alternativeurls: []
-          website:destination: ''
-        /website:seosummary:
-          hippostd:content: This is a one-day, classroom based workshop, designed
-            to help achieve understanding of how to apply clinical risk management
-            theory into working practice.
-          jcr:primaryType: hippostd:html
-        /website:summaryimage:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:bannercontrols:
+        jcr:primaryType: website:bannercontrol
+        website:backgroundcolor: ''
+        website:fontcolor: ''
+        website:icon: Bullet
+        website:iconcolor: ''
+        /website:icon:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 855d362a-a83b-4ab3-9dd0-7dd4f678de69
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /website:contactdetails:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Monotonectally extend exceptional schemas with high-payoff
+          experiences. Enthusiastically extend future-proof e-tailers without adaptive
+          products. Authoritatively integrate.</p>
+      /website:ctabutton:
+        jcr:primaryType: website:ctabutton
+        website:alignment: Left
+        website:buttontype: NHS Digital button
+        website:title: Sign up
+        /website:items:
+          jcr:primaryType: website:externallink
+          website:link: https://google.co.uk
+          website:shortsummary: Summary
+          website:title: Title
+      /website:sections:
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Section
+        website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Uniquely productize error-free internal or "organic" sources and plug-and-play leadership. Appropriately promote go forward potentialities through low-risk high-yield partnerships. Phosfluorescently customize viral process improvements for interactive catalysts for change. Dynamically supply turnkey services before sticky best practices. Rapidiously enhance enabled processes through virtual best practices.</p>
+
+            <p>Continually redefine error-free web-readiness rather than robust products. Interactively architect progressive resources via inexpensive applications. Objectively productize client-centered e-commerce rather than world-class mindshare. Synergistically transition revolutionary deliverables before value-added ROI. Proactively supply client-based.</p>
+      /website:seosummary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: Phosfluorescently reconceptualize cutting-edge methodologies
+          vis-a-vis premier manufactured products. Credibly generate proactive data
+          via client-based interfaces. Efficiently.
+      /website:socialmedia:
+        jcr:primaryType: website:socialmedia
+        website:hellomynameis: ''
+        website:linkedinlink: https://www.linkedin.com/company/nhs-digital/
+        website:twitteruser: NHSDigital
+        /website:othersocialmedias:
+          jcr:primaryType: website:othersocialmedia
+          website:link: https://www.facebook.com/NHSDigitalOfficial/
+          website:title: Facebook
+        /website:twitterhashtags:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>NHSDigital</p>
+      /website:summary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Find all the latest news and events related content.</p>
+  /events:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 8f56ee78-a2e2-45a0-85ab-d625c1c3e33c
+    hippo:name: Events
+    hippostd:foldertype: [new-digital-website-document, new-digital-website-folder]
+    hippotranslation:id: b10f3733-7985-4a58-b982-a23746340a40
+    hippotranslation:locale: en
+    /clinical-risk-management-training-foundation-course---15-october-2019:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 4dcd4a3d-47c8-4049-8d44-17134cf29c2f
+      hippo:name: Clinical Risk Management training Foundation course - 15 October
+        2019
+      hippo:versionHistory: 505fb964-5d2d-4cbc-a3e5-0db35ad20e1f
+      /clinical-risk-management-training-foundation-course---15-october-2019[1]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+        jcr:uuid: d5fc0692-3220-4ab4-9ff8-c1517b6eb239
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-29T13:25:18.954Z
-        hippostdpubwf:lastModificationDate: 2018-12-20T16:28:03.903Z
-        hippostdpubwf:lastModifiedBy: christopher.cox2
+        hippostdpubwf:lastModificationDate: 2022-07-01T17:14:51.751Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: a07fcf35-5e79-4175-8f17-21abee7c9170
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:versionable
-        jcr:primaryType: website:event
-        jcr:uuid: d5fc0692-3220-4ab4-9ff8-c1517b6eb239
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: Leeds
         website:maplocation: ''
+        website:seosummarytext: This is a one-day, classroom based workshop, designed
+          to help achieve understanding of how to apply clinical risk management theory
+          into working practice.
         website:shortsummary: This is a one-day, classroom based workshop, designed
           to help achieve understanding of how to apply clinical risk management theory
           into working practice.
         website:title: Clinical Risk Management Training Foundation Course - 15 October
           2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-      /clinical-risk-management-training-foundation-course---15-october-2019[2]:
+        website:type: [digital-health, healthcare-profession, social-care]
         /website:body:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p>This is a one-day, classroom based workshop, designed to help achieve understanding of how to apply clinical risk management theory into working practice. The Foundation Course provides the knowledge and tools to achieve compliance with the <a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a> and empower clinical safety officers to sign off and approve safety documentation.</p>
 
             <p>This course is also suitable for non-clinicians that support the compliance to the <a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>.</p>
 
             <p>&nbsp;</p>
-          jcr:primaryType: hippostd:html
+        /website:eventSchema:
+          jcr:primaryType: website:eventSchema
+          website:eventstatustype: EventScheduled
         /website:events:
           jcr:primaryType: website:interval
           website:enddatetime: 2019-10-15T16:30:00Z
@@ -249,53 +234,55 @@
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: This is a one-day, classroom based workshop, designed
             to help achieve understanding of how to apply clinical risk management
             theory into working practice.
-          jcr:primaryType: hippostd:html
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /clinical-risk-management-training-foundation-course---15-october-2019[2]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 49ac1b09-d2a5-43dd-a262-528d73cab06f
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
+        hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-29T13:25:18.954Z
-        hippostdpubwf:lastModificationDate: 2018-12-20T16:27:55.950Z
-        hippostdpubwf:lastModifiedBy: christopher.cox2
+        hippostdpubwf:lastModificationDate: 2022-07-01T17:14:51.813Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: a07fcf35-5e79-4175-8f17-21abee7c9170
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:event
-        jcr:uuid: 49ac1b09-d2a5-43dd-a262-528d73cab06f
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: Leeds
         website:maplocation: ''
+        website:seosummarytext: This is a one-day, classroom based workshop, designed
+          to help achieve understanding of how to apply clinical risk management theory
+          into working practice.
         website:shortsummary: This is a one-day, classroom based workshop, designed
           to help achieve understanding of how to apply clinical risk management theory
           into working practice.
         website:title: Clinical Risk Management Training Foundation Course - 15 October
           2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-      /clinical-risk-management-training-foundation-course---15-october-2019[3]:
+        website:type: [digital-health, healthcare-profession, social-care]
         /website:body:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p>This is a one-day, classroom based workshop, designed to help achieve understanding of how to apply clinical risk management theory into working practice. The Foundation Course provides the knowledge and tools to achieve compliance with the <a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a> and empower clinical safety officers to sign off and approve safety documentation.</p>
 
             <p>This course is also suitable for non-clinicians that support the compliance to the <a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>.</p>
 
             <p>&nbsp;</p>
-          jcr:primaryType: hippostd:html
+        /website:eventSchema:
+          jcr:primaryType: website:eventSchema
+          website:eventstatustype: EventScheduled
         /website:events:
           jcr:primaryType: website:interval
           website:enddatetime: 2019-10-15T16:30:00Z
@@ -305,88 +292,87 @@
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: This is a one-day, classroom based workshop, designed
             to help achieve understanding of how to apply clinical risk management
             theory into working practice.
-          jcr:primaryType: hippostd:html
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /clinical-risk-management-training-foundation-course---15-october-2019[3]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 337d4136-15ee-41af-9dfc-dc9593892d29
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
+        hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-29T13:25:18.954Z
-        hippostdpubwf:lastModificationDate: 2018-12-20T16:28:03.903Z
-        hippostdpubwf:lastModifiedBy: christopher.cox2
-        hippostdpubwf:publicationDate: 2018-12-20T16:28:06.212Z
+        hippostdpubwf:lastModificationDate: 2022-07-01T17:14:51.751Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-07-01T17:14:54.937Z
         hippotranslation:id: a07fcf35-5e79-4175-8f17-21abee7c9170
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:event
-        jcr:uuid: 337d4136-15ee-41af-9dfc-dc9593892d29
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: Leeds
         website:maplocation: ''
+        website:seosummarytext: This is a one-day, classroom based workshop, designed
+          to help achieve understanding of how to apply clinical risk management theory
+          into working practice.
         website:shortsummary: This is a one-day, classroom based workshop, designed
           to help achieve understanding of how to apply clinical risk management theory
           into working practice.
         website:title: Clinical Risk Management Training Foundation Course - 15 October
           2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-      hippo:name: Clinical Risk Management training Foundation course - 15 October
-        2019
-      jcr:mixinTypes:
-      - hippo:named
-      - mix:referenceable
-      jcr:primaryType: hippo:handle
-      jcr:uuid: 4dcd4a3d-47c8-4049-8d44-17134cf29c2f
-    /clinical-risk-management-training-foundation-course---20-july-2019:
-      /clinical-risk-management-training-foundation-course---20-july-2019[1]:
+        website:type: [digital-health, healthcare-profession, social-care]
         /website:body:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <p>This is a one-day, classroom based workshop, designed to help achieve understanding of how to apply clinical risk management theory into working practice. The Foundation Course provides the knowledge and tools to achieve compliance with the&nbsp;<a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>&nbsp;and empower clinical safety officers to sign off and approve safety documentation.</p>
+            <p>This is a one-day, classroom based workshop, designed to help achieve understanding of how to apply clinical risk management theory into working practice. The Foundation Course provides the knowledge and tools to achieve compliance with the <a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a> and empower clinical safety officers to sign off and approve safety documentation.</p>
 
-            <p>This course is also suitable for non-clinicians that support the compliance to the&nbsp;<a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>.</p>
-
-            <p>*This event is now FULL*</p>
+            <p>This course is also suitable for non-clinicians that support the compliance to the <a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>.</p>
 
             <p>&nbsp;</p>
-          jcr:primaryType: hippostd:html
+        /website:eventSchema:
+          jcr:primaryType: website:eventSchema
+          website:eventstatustype: EventScheduled
         /website:events:
           jcr:primaryType: website:interval
-          website:enddatetime: 2019-07-20T16:30:00Z
-          website:startdatetime: 2019-07-20T09:00:00Z
+          website:enddatetime: 2019-10-15T16:30:00Z
+          website:startdatetime: 2019-10-15T09:00:00Z
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: This is a one-day, classroom based workshop, designed
             to help achieve understanding of how to apply clinical risk management
             theory into working practice.
-          jcr:primaryType: hippostd:html
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+    /clinical-risk-management-training-foundation-course---20-july-2019:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: dcf17f44-3f16-41c9-9920-10245912369c
+      hippo:name: Clinical Risk Management training Foundation course - 20 July 2019
+      /clinical-risk-management-training-foundation-course---20-july-2019[1]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+        jcr:uuid: 3b872398-bf51-411b-ada3-1cff97615654
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
         hippostd:state: unpublished
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-29T13:25:18.954Z
@@ -394,11 +380,6 @@
         hippostdpubwf:lastModifiedBy: christopher.cox2
         hippotranslation:id: c01224fe-a1ae-46bb-b1d4-f7ccc6ee8473
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:versionable
-        jcr:primaryType: website:event
-        jcr:uuid: 3b872398-bf51-411b-ada3-1cff97615654
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: London
@@ -408,12 +389,9 @@
           into working practice.
         website:title: Clinical Risk Management Training Foundation Course - 20 July
           2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-      /clinical-risk-management-training-foundation-course---20-july-2019[2]:
+        website:type: [digital-health, healthcare-profession, social-care]
         /website:body:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p>This is a one-day, classroom based workshop, designed to help achieve understanding of how to apply clinical risk management theory into working practice. The Foundation Course provides the knowledge and tools to achieve compliance with the&nbsp;<a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>&nbsp;and empower clinical safety officers to sign off and approve safety documentation.</p>
 
@@ -422,7 +400,6 @@
             <p>*This event is now FULL*</p>
 
             <p>&nbsp;</p>
-          jcr:primaryType: hippostd:html
         /website:events:
           jcr:primaryType: website:interval
           website:enddatetime: 2019-07-20T16:30:00Z
@@ -432,16 +409,20 @@
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: This is a one-day, classroom based workshop, designed
             to help achieve understanding of how to apply clinical risk management
             theory into working practice.
-          jcr:primaryType: hippostd:html
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /clinical-risk-management-training-foundation-course---20-july-2019[2]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 798f1efd-4e9b-43e5-a3d7-c53a424f533d
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
@@ -452,11 +433,6 @@
         hippostdpubwf:lastModifiedBy: christopher.cox2
         hippotranslation:id: c01224fe-a1ae-46bb-b1d4-f7ccc6ee8473
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:event
-        jcr:uuid: 798f1efd-4e9b-43e5-a3d7-c53a424f533d
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: London
@@ -466,12 +442,9 @@
           into working practice.
         website:title: Clinical Risk Management Training Foundation Course - 20 July
           2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-      /clinical-risk-management-training-foundation-course---20-july-2019[3]:
+        website:type: [digital-health, healthcare-profession, social-care]
         /website:body:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p>This is a one-day, classroom based workshop, designed to help achieve understanding of how to apply clinical risk management theory into working practice. The Foundation Course provides the knowledge and tools to achieve compliance with the&nbsp;<a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>&nbsp;and empower clinical safety officers to sign off and approve safety documentation.</p>
 
@@ -480,7 +453,6 @@
             <p>*This event is now FULL*</p>
 
             <p>&nbsp;</p>
-          jcr:primaryType: hippostd:html
         /website:events:
           jcr:primaryType: website:interval
           website:enddatetime: 2019-07-20T16:30:00Z
@@ -490,20 +462,23 @@
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: This is a one-day, classroom based workshop, designed
             to help achieve understanding of how to apply clinical risk management
             theory into working practice.
-          jcr:primaryType: hippostd:html
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /clinical-risk-management-training-foundation-course---20-july-2019[3]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: de9e0920-4348-4d63-a15a-0db4866b6018
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-29T13:25:18.954Z
@@ -512,11 +487,6 @@
         hippostdpubwf:publicationDate: 2018-12-20T16:28:22.331Z
         hippotranslation:id: c01224fe-a1ae-46bb-b1d4-f7ccc6ee8473
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:event
-        jcr:uuid: de9e0920-4348-4d63-a15a-0db4866b6018
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: London
@@ -526,65 +496,45 @@
           into working practice.
         website:title: Clinical Risk Management Training Foundation Course - 20 July
           2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-      hippo:name: Clinical Risk Management training Foundation course - 20 July 2019
-      jcr:mixinTypes:
-      - hippo:named
-      - mix:referenceable
-      jcr:primaryType: hippo:handle
-      jcr:uuid: dcf17f44-3f16-41c9-9920-10245912369c
-    /clinical-safety-community-of-interest-18-september-2018:
-      /clinical-safety-community-of-interest-18-september-2018[1]:
+        website:type: [digital-health, healthcare-profession, social-care]
         /website:body:
-          /cerner-sept-2018.pdf:
-            hippo:docbase: e1e0b269-c1d0-4a2e-b3f7-2ab335850c3a
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /jonathan-waldheim-phe.pdf:
-            hippo:docbase: 689963b4-5805-4c7f-a87f-4f88fc2ed6cd
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /marta-ugarte--moorefiled-eye-hospital.pdf:
-            hippo:docbase: 5bbcd6d9-7238-4d00-b0f6-e912f8eb9e82
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          hippostd:content: |-
-            <h3>Learning materials from this event</h3>
-
-            <p><a href="http:">Operational clinical safety process - Dean Mawson</a></p>
-
-            <p><a href="cerner-sept-2018.pdf">Cerner - Clive Tomsett</a></p>
-
-            <p><a href="jonathan-waldheim-phe.pdf">Public Health England - Jonathan Waldheim</a></p>
-
-            <p><a href="marta-ugarte--moorefiled-eye-hospital.pdf">Moorfields Eye Hospital - Marta Ugarte</a></p>
           jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>This is a one-day, classroom based workshop, designed to help achieve understanding of how to apply clinical risk management theory into working practice. The Foundation Course provides the knowledge and tools to achieve compliance with the&nbsp;<a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>&nbsp;and empower clinical safety officers to sign off and approve safety documentation.</p>
+
+            <p>This course is also suitable for non-clinicians that support the compliance to the&nbsp;<a href="https://digital.nhs.uk/services/solution-assurance/the-clinical-safety-team/clinical-risk-management-standards">safety standards</a>.</p>
+
+            <p>*This event is now FULL*</p>
+
+            <p>&nbsp;</p>
         /website:events:
           jcr:primaryType: website:interval
-          website:enddatetime: 2018-09-18T16:00:00Z
-          website:startdatetime: 2018-09-18T08:00:00Z
+          website:enddatetime: 2019-07-20T16:30:00Z
+          website:startdatetime: 2019-07-20T09:00:00Z
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
-          hippostd:content: ''
           jcr:primaryType: hippostd:html
+          hippostd:content: This is a one-day, classroom based workshop, designed
+            to help achieve understanding of how to apply clinical risk management
+            theory into working practice.
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+    /clinical-safety-community-of-interest-18-september-2018:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: b53054cc-a8ca-46d9-95d8-1926389dea15
+      hippo:name: Clinical Safety Community of Interest 18 September 2018
+      /clinical-safety-community-of-interest-18-september-2018[1]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 0633c212-f1b1-4e63-89d7-13c95dca2b5d
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
@@ -595,41 +545,15 @@
         hippostdpubwf:lastModifiedBy: christopher.cox2
         hippotranslation:id: 7190e91c-4220-49db-9e71-347ceab416f8
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:event
-        jcr:uuid: 0633c212-f1b1-4e63-89d7-13c95dca2b5d
         website:booking: ''
         website:display: false
         website:location: 1 Trevelyan Square, Boar Lane, Leeds, LS1 6AE
         website:maplocation: https://www.google.co.uk/maps/place/1+Trevelyan+Square,+Leeds+LS1+6AE/@53.794973,-1.5436822,16.75z/data=!4m5!3m4!1s0x48795c1925027091:0x522d0a5723affa6f!8m2!3d53.795292!4d-1.5436844
         website:shortsummary: ''
         website:title: Clinical Safety Community of Interest 18 September 2018
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - technology-suppliers
-      /clinical-safety-community-of-interest-18-september-2018[2]:
+        website:type: [digital-health, healthcare-profession, technology-suppliers]
         /website:body:
-          /cerner-sept-2018.pdf:
-            hippo:docbase: e1e0b269-c1d0-4a2e-b3f7-2ab335850c3a
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /jonathan-waldheim-phe.pdf:
-            hippo:docbase: 689963b4-5805-4c7f-a87f-4f88fc2ed6cd
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /marta-ugarte--moorefiled-eye-hospital.pdf:
-            hippo:docbase: 5bbcd6d9-7238-4d00-b0f6-e912f8eb9e82
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <h3>Learning materials from this event</h3>
 
@@ -640,7 +564,24 @@
             <p><a href="jonathan-waldheim-phe.pdf">Public Health England - Jonathan Waldheim</a></p>
 
             <p><a href="marta-ugarte--moorefiled-eye-hospital.pdf">Moorfields Eye Hospital - Marta Ugarte</a></p>
-          jcr:primaryType: hippostd:html
+          /cerner-sept-2018.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: e1e0b269-c1d0-4a2e-b3f7-2ab335850c3a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /jonathan-waldheim-phe.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 689963b4-5805-4c7f-a87f-4f88fc2ed6cd
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /marta-ugarte--moorefiled-eye-hospital.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 5bbcd6d9-7238-4d00-b0f6-e912f8eb9e82
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
         /website:events:
           jcr:primaryType: website:interval
           website:enddatetime: 2018-09-18T16:00:00Z
@@ -650,18 +591,21 @@
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
-          hippostd:content: ''
           jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /clinical-safety-community-of-interest-18-september-2018[2]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+        jcr:uuid: e46b684f-d0a5-4569-9e22-a90730925505
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
         hippostd:state: unpublished
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-27T14:08:08.017Z
@@ -669,41 +613,15 @@
         hippostdpubwf:lastModifiedBy: christopher.cox2
         hippotranslation:id: 7190e91c-4220-49db-9e71-347ceab416f8
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:versionable
-        jcr:primaryType: website:event
-        jcr:uuid: e46b684f-d0a5-4569-9e22-a90730925505
         website:booking: ''
         website:display: false
         website:location: 1 Trevelyan Square, Boar Lane, Leeds, LS1 6AE
         website:maplocation: https://www.google.co.uk/maps/place/1+Trevelyan+Square,+Leeds+LS1+6AE/@53.794973,-1.5436822,16.75z/data=!4m5!3m4!1s0x48795c1925027091:0x522d0a5723affa6f!8m2!3d53.795292!4d-1.5436844
         website:shortsummary: ''
         website:title: Clinical Safety Community of Interest 18 September 2018
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - technology-suppliers
-      /clinical-safety-community-of-interest-18-september-2018[3]:
+        website:type: [digital-health, healthcare-profession, technology-suppliers]
         /website:body:
-          /cerner-sept-2018.pdf:
-            hippo:docbase: e1e0b269-c1d0-4a2e-b3f7-2ab335850c3a
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /jonathan-waldheim-phe.pdf:
-            hippo:docbase: 689963b4-5805-4c7f-a87f-4f88fc2ed6cd
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /marta-ugarte--moorefiled-eye-hospital.pdf:
-            hippo:docbase: 5bbcd6d9-7238-4d00-b0f6-e912f8eb9e82
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <h3>Learning materials from this event</h3>
 
@@ -714,7 +632,24 @@
             <p><a href="jonathan-waldheim-phe.pdf">Public Health England - Jonathan Waldheim</a></p>
 
             <p><a href="marta-ugarte--moorefiled-eye-hospital.pdf">Moorfields Eye Hospital - Marta Ugarte</a></p>
-          jcr:primaryType: hippostd:html
+          /cerner-sept-2018.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: e1e0b269-c1d0-4a2e-b3f7-2ab335850c3a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /jonathan-waldheim-phe.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 689963b4-5805-4c7f-a87f-4f88fc2ed6cd
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /marta-ugarte--moorefiled-eye-hospital.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 5bbcd6d9-7238-4d00-b0f6-e912f8eb9e82
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
         /website:events:
           jcr:primaryType: website:interval
           website:enddatetime: 2018-09-18T16:00:00Z
@@ -724,18 +659,21 @@
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
-          hippostd:content: ''
           jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /clinical-safety-community-of-interest-18-september-2018[3]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 7e055f25-5a6a-4cd8-9c3d-8059055bba26
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-27T14:08:08.017Z
@@ -744,80 +682,72 @@
         hippostdpubwf:publicationDate: 2018-11-29T14:53:17.198Z
         hippotranslation:id: 7190e91c-4220-49db-9e71-347ceab416f8
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:event
-        jcr:uuid: 7e055f25-5a6a-4cd8-9c3d-8059055bba26
         website:booking: ''
         website:display: false
         website:location: 1 Trevelyan Square, Boar Lane, Leeds, LS1 6AE
         website:maplocation: https://www.google.co.uk/maps/place/1+Trevelyan+Square,+Leeds+LS1+6AE/@53.794973,-1.5436822,16.75z/data=!4m5!3m4!1s0x48795c1925027091:0x522d0a5723affa6f!8m2!3d53.795292!4d-1.5436844
         website:shortsummary: ''
         website:title: Clinical Safety Community of Interest 18 September 2018
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - technology-suppliers
-      hippo:name: Clinical Safety Community of Interest 18 September 2018
-      jcr:mixinTypes:
-      - hippo:named
-      - mix:referenceable
-      jcr:primaryType: hippo:handle
-      jcr:uuid: b53054cc-a8ca-46d9-95d8-1926389dea15
-    /clinical-safety-community-of-interest-course---14-may-2019:
-      /clinical-safety-community-of-interest-course---14-may-2019[1]:
+        website:type: [digital-health, healthcare-profession, technology-suppliers]
         /website:body:
-          hippostd:content: |-
-            <p>The Clinical Safety Community of Interest Course, previously known as the Revalidation Course, contains:</p>
-
-            <ul>
-             <li>a stronger emphasis on sharing best practice and networking</li>
-             <li>case studies presented by members of the clinical safety community</li>
-             <li>recent developments in health IT, including a key speaker where possible</li>
-            </ul>
-
-            <p>There will also be a recap of the key requirements outlined in DCB0129 and DCB0160</p>
-
-            <p>These changes to the course are based on feedback and learning needs analysis.</p>
-
-            <p>This course is for both clinicians and non-clinicians. Clinicians attending this course will be issued with 6.5 CPD points.</p>
-
-            <h3>Key speaker</h3>
-
-            <p>TBC</p>
-
-            <h3>Case study 1</h3>
-
-            <p>TBC</p>
-
-            <h3>Case study 2</h3>
-
-            <p>TBC</p>
           jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h3>Learning materials from this event</h3>
+
+            <p><a href="http:">Operational clinical safety process - Dean Mawson</a></p>
+
+            <p><a href="cerner-sept-2018.pdf">Cerner - Clive Tomsett</a></p>
+
+            <p><a href="jonathan-waldheim-phe.pdf">Public Health England - Jonathan Waldheim</a></p>
+
+            <p><a href="marta-ugarte--moorefiled-eye-hospital.pdf">Moorfields Eye Hospital - Marta Ugarte</a></p>
+          /cerner-sept-2018.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: e1e0b269-c1d0-4a2e-b3f7-2ab335850c3a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /jonathan-waldheim-phe.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 689963b4-5805-4c7f-a87f-4f88fc2ed6cd
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /marta-ugarte--moorefiled-eye-hospital.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 5bbcd6d9-7238-4d00-b0f6-e912f8eb9e82
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
         /website:events:
           jcr:primaryType: website:interval
-          website:enddatetime: 2019-05-14T15:30:00Z
-          website:startdatetime: 2019-05-14T08:30:00Z
+          website:enddatetime: 2018-09-18T16:00:00Z
+          website:startdatetime: 2018-09-18T08:00:00Z
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
-          hippostd:content: Previously known as the Revalidation Course. This course
-            is for both clinicians and non-clinicians. Clinicians attending this course
-            will be issued with 6.5 CPD points.
           jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+    /clinical-safety-community-of-interest-course---14-may-2019:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 6329c657-7736-472f-9551-fde1b49380ad
+      hippo:name: Clinical Safety Community of Interest Course - 14 May 2019
+      /clinical-safety-community-of-interest-course---14-may-2019[1]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+        jcr:uuid: 9321601c-639a-4cf7-a4b4-fa4ccbd7037f
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
         hippostd:state: unpublished
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-29T12:28:52.329Z
@@ -825,11 +755,6 @@
         hippostdpubwf:lastModifiedBy: christopher.cox2
         hippotranslation:id: a5b53369-780b-4fbc-85e1-b94f3f696d30
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:versionable
-        jcr:primaryType: website:event
-        jcr:uuid: 9321601c-639a-4cf7-a4b4-fa4ccbd7037f
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: London
@@ -838,13 +763,9 @@
           is for both clinicians and non-clinicians. Clinicians attending this course
           will be issued with 6.5 CPD points.
         website:title: Clinical Safety Community of Interest Course - 14 May 2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-        - technology-suppliers
-      /clinical-safety-community-of-interest-course---14-may-2019[2]:
+        website:type: [digital-health, healthcare-profession, social-care, technology-suppliers]
         /website:body:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p>The Clinical Safety Community of Interest Course, previously known as the Revalidation Course, contains:</p>
 
@@ -871,7 +792,6 @@
             <h3>Case study 2</h3>
 
             <p>TBC</p>
-          jcr:primaryType: hippostd:html
         /website:events:
           jcr:primaryType: website:interval
           website:enddatetime: 2019-05-14T15:30:00Z
@@ -881,16 +801,20 @@
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: Previously known as the Revalidation Course. This course
             is for both clinicians and non-clinicians. Clinicians attending this course
             will be issued with 6.5 CPD points.
-          jcr:primaryType: hippostd:html
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /clinical-safety-community-of-interest-course---14-may-2019[2]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: ad724d54-802b-46f0-86ac-f1db1b9b2ee0
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
@@ -901,11 +825,6 @@
         hippostdpubwf:lastModifiedBy: christopher.cox2
         hippotranslation:id: a5b53369-780b-4fbc-85e1-b94f3f696d30
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:event
-        jcr:uuid: ad724d54-802b-46f0-86ac-f1db1b9b2ee0
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: London
@@ -914,13 +833,9 @@
           is for both clinicians and non-clinicians. Clinicians attending this course
           will be issued with 6.5 CPD points.
         website:title: Clinical Safety Community of Interest Course - 14 May 2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-        - technology-suppliers
-      /clinical-safety-community-of-interest-course---14-may-2019[3]:
+        website:type: [digital-health, healthcare-profession, social-care, technology-suppliers]
         /website:body:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p>The Clinical Safety Community of Interest Course, previously known as the Revalidation Course, contains:</p>
 
@@ -947,7 +862,6 @@
             <h3>Case study 2</h3>
 
             <p>TBC</p>
-          jcr:primaryType: hippostd:html
         /website:events:
           jcr:primaryType: website:interval
           website:enddatetime: 2019-05-14T15:30:00Z
@@ -957,20 +871,23 @@
           website:alternativeurls: []
           website:destination: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: Previously known as the Revalidation Course. This course
             is for both clinicians and non-clinicians. Clinicians attending this course
             will be issued with 6.5 CPD points.
-          jcr:primaryType: hippostd:html
         /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
+      /clinical-safety-community-of-interest-course---14-may-2019[3]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: b18a5801-7225-42c6-b1b3-a13f4a8bb3d1
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: christopher.cox2
         hippostdpubwf:creationDate: 2018-11-29T12:28:52.329Z
@@ -979,11 +896,6 @@
         hippostdpubwf:publicationDate: 2018-12-20T16:31:25.519Z
         hippotranslation:id: a5b53369-780b-4fbc-85e1-b94f3f696d30
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:event
-        jcr:uuid: b18a5801-7225-42c6-b1b3-a13f4a8bb3d1
         website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
         website:display: true
         website:location: London
@@ -992,223 +904,63 @@
           is for both clinicians and non-clinicians. Clinicians attending this course
           will be issued with 6.5 CPD points.
         website:title: Clinical Safety Community of Interest Course - 14 May 2019
-        website:type:
-        - digital-health
-        - healthcare-profession
-        - social-care
-        - technology-suppliers
-      hippo:name: Clinical Safety Community of Interest Course - 14 May 2019
-      jcr:mixinTypes:
-      - hippo:named
-      - mix:referenceable
-      jcr:primaryType: hippo:handle
-      jcr:uuid: 6329c657-7736-472f-9551-fde1b49380ad
-    /content:
-      /content[1]:
+        website:type: [digital-health, healthcare-profession, social-care, technology-suppliers]
         /website:body:
-          /best-practice-annual-conference-and-exhibition:
-            hippo:docbase: 8adfe46a-71e1-442e-bdbc-0b6c4c8f175b
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /clinical-pharmacy-congress:
-            hippo:docbase: d77d85b0-78c1-4670-bf78-01f2c9d2a6ac
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /digital-healthcare-show:
-            hippo:docbase: 2a900902-9207-4cd8-9a56-93cf01e1efc4
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /emis-national-user-group:
-            hippo:docbase: 973a9328-adb5-4397-879f-a6dc04e57d0f
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /innovation-in-medicine-2018-royal-college-of-physicians-rcp-annual-conference:
-            hippo:docbase: f5865cd6-5e6f-4d44-bb08-2beff0d3c963
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /kings-fund-digital-health-and-care-congress-2018:
-            hippo:docbase: 89ff6747-81e7-4d28-8d46-95fa39ca7b83
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /local-government-association-annual-conference:
-            hippo:docbase: 4c5040fc-e305-4174-9b4e-0a18b794e26e
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /national-children-and-adult-services-conference-2018:
-            hippo:docbase: ec168c51-df9b-483e-b019-babbe7f89b63
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-communications-conference-2018:
-            hippo:docbase: 06520ab7-2577-404a-9cc4-58ae83cd42b6
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-confederation-conference-2018:
-            hippo:docbase: 2a693def-f51d-4dbd-a6ce-8a23b7afef80
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-expo:
-            hippo:docbase: 054621a0-0c0f-4ee4-8d3c-27cf413f11ec
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /royal-college-of-gps-annual-primary-care-conference-2018:
-            hippo:docbase: 98153ef1-cfde-4e15-99dc-5353985bc418
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /the-pharmacy-show:
-            hippo:docbase: 49afd161-6e8a-4a76-aa39-fe10d1f34877
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /uk-e-health-week:
-            hippo:docbase: 9715b0cc-4df3-4e35-8184-bfc40a740bfa
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /uk-health-show:
-            hippo:docbase: 44492724-547d-4561-8eff-bc37d0150cbe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <h2><strong>Come and see us at</strong>:</h2>
+            <p>The Clinical Safety Community of Interest Course, previously known as the Revalidation Course, contains:</p>
 
-            <table border="1" cellpadding="1" cellspacing="1" style="width:500px">
-             <thead>
-              <tr>
-               <th scope="col">Date</th>
-               <th scope="col">Event</th>
-               <th scope="col">Location</th>
-              </tr>
-             </thead>
-             <tbody>
-              <tr>
-               <td>27-28 April 2018</td>
-               <td><a href="clinical-pharmacy-congress">Clinical Pharmacy Congress</a></td>
-               <td>ExCeL London</td>
-              </tr>
-              <tr>
-               <td>12 June 2018</td>
-               <td><a href="nhs-communications-conference-2018">NHS Communications Conference</a></td>
-               <td>Manchester Central Convention Complex</td>
-              </tr>
-              <tr>
-               <td>15-16 May 2018</td>
-               <td><a href="uk-e-health-week">UK e-Health week</a></td>
-               <td>Olympia, London</td>
-              </tr>
-              <tr>
-               <td>13-14 June 2018</td>
-               <td><a href="nhs-confederation-conference-2018">NHS Confederation Conference</a></td>
-               <td>Manchester Central Convention Complex</td>
-              </tr>
-              <tr>
-               <td>25-26 June 2018</td>
-               <td><a href="innovation-in-medicine-2018-royal-college-of-physicians-rcp-annual-conference">Royal College of Physicians Annual Conference</a></td>
-               <td>ExCeL London</td>
-              </tr>
-              <tr>
-               <td>27-28 June 2018</td>
-               <td><a href="digital-healthcare-show">HEALTH PLUS CARE at the Digital Healthcare Show</a></td>
-               <td>ExCeL London</td>
-              </tr>
-              <tr>
-               <td>3-5 July 2018</td>
-               <td><a href="local-government-association-annual-conference">Local Government Association annual conference</a></td>
-               <td>ICC, Birmingham</td>
-              </tr>
-              <tr>
-               <td>10-11 July 2018</td>
-               <td><a href="kings-fund-digital-health-and-care-congress-2018">The King's Fund digital health and care congress</a></td>
-               <td>The King's Fund, London</td>
-              </tr>
-              <tr>
-               <td>5-6 September 2018</td>
-               <td><a href="nhs-expo">NHS Expo 2018</a></td>
-               <td>Manchester Central Convention Complex</td>
-              </tr>
-              <tr>
-               <td>5-7 September 2018</td>
-               <td><a href="emis-national-user-group">Emis NUG Annual Conference 2018</a></td>
-               <td>Hilton Birmingham Metropole</td>
-              </tr>
-              <tr>
-               <td>25-26 September 2018</td>
-               <td><a href="uk-health-show">UK Health Show</a></td>
-               <td>ExCeL London</td>
-              </tr>
-              <tr>
-               <td>4-6 October 2018</td>
-               <td><a href="royal-college-of-gps-annual-primary-care-conference-2018">Royal College of GPs Annual Primary Care Conference and Exhibition 2018</a></td>
-               <td>SEC, Glasgow</td>
-              </tr>
-              <tr>
-               <td>7-8 October 2018</td>
-               <td><a href="the-pharmacy-show">The Pharmacy Show</a></td>
-               <td>NEC, Birmingham</td>
-              </tr>
-              <tr>
-               <td>17-18 October 2018</td>
-               <td><a href="best-practice-annual-conference-and-exhibition">The Best Practice Annual Conference&nbsp;</a></td>
-               <td>NEC, Birmingham</td>
-              </tr>
-              <tr>
-               <td>14-16 November 2018</td>
-               <td><a href="national-children-and-adult-services-conference-2018">The National Children and Adult Services Conference 2018</a></td>
-               <td>Manchester Central Convention Complex</td>
-              </tr>
-             </tbody>
-            </table>
+            <ul>
+             <li>a stronger emphasis on sharing best practice and networking</li>
+             <li>case studies presented by members of the clinical safety community</li>
+             <li>recent developments in health IT, including a key speaker where possible</li>
+            </ul>
 
-            <h2>Contact the events team</h2>
+            <p>There will also be a recap of the key requirements outlined in DCB0129 and DCB0160</p>
 
-            <p>The NHS Digital events team would love to hear your feedback.&nbsp; &nbsp;You can contact them by email at&nbsp;<a href="mailto:externalcomms.nhsdigital@nhs.net?subject=NHS%20Digital%20Events">externalcomms.nhsdigital@nhs.net</a></p>
-          jcr:primaryType: hippostd:html
-        /website:component:
-          hippostd:content: ''
-          jcr:primaryType: hippostd:html
+            <p>These changes to the course are based on feedback and learning needs analysis.</p>
+
+            <p>This course is for both clinicians and non-clinicians. Clinicians attending this course will be issued with 6.5 CPD points.</p>
+
+            <h3>Key speaker</h3>
+
+            <p>TBC</p>
+
+            <h3>Case study 1</h3>
+
+            <p>TBC</p>
+
+            <h3>Case study 2</h3>
+
+            <p>TBC</p>
+        /website:events:
+          jcr:primaryType: website:interval
+          website:enddatetime: 2019-05-14T15:30:00Z
+          website:startdatetime: 2019-05-14T08:30:00Z
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
-        /website:items:
-          /website:link:
-            hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
+          website:destination: ''
         /website:seosummary:
-          hippostd:content: NHS Digital hosts meetings, conferences, seminars and
-            workshops, and our staff attend health events nationwide.
           jcr:primaryType: hippostd:html
-        /website:summary:
-          hippostd:content: <p>Welcome to our events area. Find out where you are
-            likely to see us over the coming months and read about all our events.</p>
-          jcr:primaryType: hippostd:html
+          hippostd:content: Previously known as the Revalidation Course. This course
+            is for both clinicians and non-clinicians. Clinicians attending this course
+            will be issued with 6.5 CPD points.
+        /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 8e62c402-f9e5-4081-a4c7-911cdc826295
+      hippo:name: Events
+      /content[1]:
+        jcr:primaryType: website:hub
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 78982a41-f93b-4e4e-8ebb-a679dc05c5da
         common:searchRank: 5
         common:searchable: true
         hippo:availability: []
@@ -1219,107 +971,13 @@
         hippostdpubwf:lastModifiedBy: david.gold1
         hippotranslation:id: 6b58d597-cce0-4685-b46c-4e7396284a2e
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:versionable
-        jcr:primaryType: website:hub
-        jcr:uuid: 78982a41-f93b-4e4e-8ebb-a679dc05c5da
         website:gossid: 329
         website:listtitle: ''
         website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
           workshops, and our staff attend health events nationwide.
         website:title: Events
-      /content[2]:
         /website:body:
-          /best-practice-annual-conference-and-exhibition:
-            hippo:docbase: 8adfe46a-71e1-442e-bdbc-0b6c4c8f175b
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /clinical-pharmacy-congress:
-            hippo:docbase: d77d85b0-78c1-4670-bf78-01f2c9d2a6ac
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /digital-healthcare-show:
-            hippo:docbase: 2a900902-9207-4cd8-9a56-93cf01e1efc4
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /emis-national-user-group:
-            hippo:docbase: 973a9328-adb5-4397-879f-a6dc04e57d0f
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /innovation-in-medicine-2018-royal-college-of-physicians-rcp-annual-conference:
-            hippo:docbase: f5865cd6-5e6f-4d44-bb08-2beff0d3c963
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /kings-fund-digital-health-and-care-congress-2018:
-            hippo:docbase: 89ff6747-81e7-4d28-8d46-95fa39ca7b83
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /local-government-association-annual-conference:
-            hippo:docbase: 4c5040fc-e305-4174-9b4e-0a18b794e26e
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /national-children-and-adult-services-conference-2018:
-            hippo:docbase: ec168c51-df9b-483e-b019-babbe7f89b63
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-communications-conference-2018:
-            hippo:docbase: 06520ab7-2577-404a-9cc4-58ae83cd42b6
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-confederation-conference-2018:
-            hippo:docbase: 2a693def-f51d-4dbd-a6ce-8a23b7afef80
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-expo:
-            hippo:docbase: 054621a0-0c0f-4ee4-8d3c-27cf413f11ec
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /royal-college-of-gps-annual-primary-care-conference-2018:
-            hippo:docbase: 98153ef1-cfde-4e15-99dc-5353985bc418
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /the-pharmacy-show:
-            hippo:docbase: 49afd161-6e8a-4a76-aa39-fe10d1f34877
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /uk-e-health-week:
-            hippo:docbase: 9715b0cc-4df3-4e35-8184-bfc40a740bfa
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /uk-health-show:
-            hippo:docbase: 44492724-547d-4561-8eff-bc37d0150cbe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <h2><strong>Come and see us at</strong>:</h2>
 
@@ -1413,30 +1071,122 @@
             <h2>Contact the events team</h2>
 
             <p>The NHS Digital events team would love to hear your feedback.&nbsp; &nbsp;You can contact them by email at&nbsp;<a href="mailto:externalcomms.nhsdigital@nhs.net?subject=NHS%20Digital%20Events">externalcomms.nhsdigital@nhs.net</a></p>
-          jcr:primaryType: hippostd:html
+          /best-practice-annual-conference-and-exhibition:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 8adfe46a-71e1-442e-bdbc-0b6c4c8f175b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /clinical-pharmacy-congress:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: d77d85b0-78c1-4670-bf78-01f2c9d2a6ac
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /digital-healthcare-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2a900902-9207-4cd8-9a56-93cf01e1efc4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /emis-national-user-group:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 973a9328-adb5-4397-879f-a6dc04e57d0f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /innovation-in-medicine-2018-royal-college-of-physicians-rcp-annual-conference:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: f5865cd6-5e6f-4d44-bb08-2beff0d3c963
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /kings-fund-digital-health-and-care-congress-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 89ff6747-81e7-4d28-8d46-95fa39ca7b83
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /local-government-association-annual-conference:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 4c5040fc-e305-4174-9b4e-0a18b794e26e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /national-children-and-adult-services-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: ec168c51-df9b-483e-b019-babbe7f89b63
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-communications-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 06520ab7-2577-404a-9cc4-58ae83cd42b6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-confederation-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2a693def-f51d-4dbd-a6ce-8a23b7afef80
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-expo:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 054621a0-0c0f-4ee4-8d3c-27cf413f11ec
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /royal-college-of-gps-annual-primary-care-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 98153ef1-cfde-4e15-99dc-5353985bc418
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /the-pharmacy-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 49afd161-6e8a-4a76-aa39-fe10d1f34877
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /uk-e-health-week:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 9715b0cc-4df3-4e35-8184-bfc40a740bfa
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /uk-health-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 44492724-547d-4561-8eff-bc37d0150cbe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
         /website:component:
-          hippostd:content: ''
           jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
         /website:items:
-          /website:link:
-            hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: NHS Digital hosts meetings, conferences, seminars and
             workshops, and our staff attend health events nationwide.
-          jcr:primaryType: hippostd:html
         /website:summary:
+          jcr:primaryType: hippostd:html
           hippostd:content: <p>Welcome to our events area. Find out where you are
             likely to see us over the coming months and read about all our events.</p>
-          jcr:primaryType: hippostd:html
+      /content[2]:
+        jcr:primaryType: website:hub
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 847188ac-f72a-45d3-a615-c8a9f1ef415a
         common:searchRank: 5
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2018-04-11T16:09:28.737Z
@@ -1444,107 +1194,13 @@
         hippostdpubwf:lastModifiedBy: david.gold1
         hippotranslation:id: 6b58d597-cce0-4685-b46c-4e7396284a2e
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:versionable
-        jcr:primaryType: website:hub
-        jcr:uuid: 847188ac-f72a-45d3-a615-c8a9f1ef415a
         website:gossid: 329
         website:listtitle: ''
         website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
           workshops, and our staff attend health events nationwide.
         website:title: Events
-      /content[3]:
         /website:body:
-          /best-practice-annual-conference-and-exhibition:
-            hippo:docbase: 8adfe46a-71e1-442e-bdbc-0b6c4c8f175b
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /clinical-pharmacy-congress:
-            hippo:docbase: d77d85b0-78c1-4670-bf78-01f2c9d2a6ac
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /digital-healthcare-show:
-            hippo:docbase: 2a900902-9207-4cd8-9a56-93cf01e1efc4
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /emis-national-user-group:
-            hippo:docbase: 973a9328-adb5-4397-879f-a6dc04e57d0f
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /innovation-in-medicine-2018-royal-college-of-physicians-rcp-annual-conference:
-            hippo:docbase: f5865cd6-5e6f-4d44-bb08-2beff0d3c963
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /kings-fund-digital-health-and-care-congress-2018:
-            hippo:docbase: 89ff6747-81e7-4d28-8d46-95fa39ca7b83
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /local-government-association-annual-conference:
-            hippo:docbase: 4c5040fc-e305-4174-9b4e-0a18b794e26e
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /national-children-and-adult-services-conference-2018:
-            hippo:docbase: ec168c51-df9b-483e-b019-babbe7f89b63
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-communications-conference-2018:
-            hippo:docbase: 06520ab7-2577-404a-9cc4-58ae83cd42b6
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-confederation-conference-2018:
-            hippo:docbase: 2a693def-f51d-4dbd-a6ce-8a23b7afef80
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /nhs-expo:
-            hippo:docbase: 054621a0-0c0f-4ee4-8d3c-27cf413f11ec
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /royal-college-of-gps-annual-primary-care-conference-2018:
-            hippo:docbase: 98153ef1-cfde-4e15-99dc-5353985bc418
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /the-pharmacy-show:
-            hippo:docbase: 49afd161-6e8a-4a76-aa39-fe10d1f34877
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /uk-e-health-week:
-            hippo:docbase: 9715b0cc-4df3-4e35-8184-bfc40a740bfa
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
-          /uk-health-show:
-            hippo:docbase: 44492724-547d-4561-8eff-bc37d0150cbe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippo:facetselect
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <h2><strong>Come and see us at</strong>:</h2>
 
@@ -1638,30 +1294,122 @@
             <h2>Contact the events team</h2>
 
             <p>The NHS Digital events team would love to hear your feedback.&nbsp; &nbsp;You can contact them by email at&nbsp;<a href="mailto:externalcomms.nhsdigital@nhs.net?subject=NHS%20Digital%20Events">externalcomms.nhsdigital@nhs.net</a></p>
-          jcr:primaryType: hippostd:html
+          /best-practice-annual-conference-and-exhibition:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 8adfe46a-71e1-442e-bdbc-0b6c4c8f175b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /clinical-pharmacy-congress:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: d77d85b0-78c1-4670-bf78-01f2c9d2a6ac
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /digital-healthcare-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2a900902-9207-4cd8-9a56-93cf01e1efc4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /emis-national-user-group:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 973a9328-adb5-4397-879f-a6dc04e57d0f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /innovation-in-medicine-2018-royal-college-of-physicians-rcp-annual-conference:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: f5865cd6-5e6f-4d44-bb08-2beff0d3c963
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /kings-fund-digital-health-and-care-congress-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 89ff6747-81e7-4d28-8d46-95fa39ca7b83
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /local-government-association-annual-conference:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 4c5040fc-e305-4174-9b4e-0a18b794e26e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /national-children-and-adult-services-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: ec168c51-df9b-483e-b019-babbe7f89b63
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-communications-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 06520ab7-2577-404a-9cc4-58ae83cd42b6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-confederation-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2a693def-f51d-4dbd-a6ce-8a23b7afef80
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-expo:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 054621a0-0c0f-4ee4-8d3c-27cf413f11ec
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /royal-college-of-gps-annual-primary-care-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 98153ef1-cfde-4e15-99dc-5353985bc418
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /the-pharmacy-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 49afd161-6e8a-4a76-aa39-fe10d1f34877
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /uk-e-health-week:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 9715b0cc-4df3-4e35-8184-bfc40a740bfa
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /uk-health-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 44492724-547d-4561-8eff-bc37d0150cbe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
         /website:component:
-          hippostd:content: ''
           jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
         /website:items:
-          /website:link:
-            hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: NHS Digital hosts meetings, conferences, seminars and
             workshops, and our staff attend health events nationwide.
-          jcr:primaryType: hippostd:html
         /website:summary:
+          jcr:primaryType: hippostd:html
           hippostd:content: <p>Welcome to our events area. Find out where you are
             likely to see us over the coming months and read about all our events.</p>
-          jcr:primaryType: hippostd:html
+      /content[3]:
+        jcr:primaryType: website:hub
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 95df7833-d33d-4b4f-91c8-af9d24c2cede
         common:searchRank: 5
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2018-04-11T16:09:28.737Z
@@ -1670,42 +1418,360 @@
         hippostdpubwf:publicationDate: 2018-09-13T06:30:58.013Z
         hippotranslation:id: 6b58d597-cce0-4685-b46c-4e7396284a2e
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: website:hub
-        jcr:uuid: 95df7833-d33d-4b4f-91c8-af9d24c2cede
         website:gossid: 329
         website:listtitle: ''
         website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
           workshops, and our staff attend health events nationwide.
         website:title: Events
-      hippo:name: Events
-      jcr:mixinTypes:
-      - hippo:named
-      - mix:referenceable
+        /website:body:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2><strong>Come and see us at</strong>:</h2>
+
+            <table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+             <thead>
+              <tr>
+               <th scope="col">Date</th>
+               <th scope="col">Event</th>
+               <th scope="col">Location</th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td>27-28 April 2018</td>
+               <td><a href="clinical-pharmacy-congress">Clinical Pharmacy Congress</a></td>
+               <td>ExCeL London</td>
+              </tr>
+              <tr>
+               <td>12 June 2018</td>
+               <td><a href="nhs-communications-conference-2018">NHS Communications Conference</a></td>
+               <td>Manchester Central Convention Complex</td>
+              </tr>
+              <tr>
+               <td>15-16 May 2018</td>
+               <td><a href="uk-e-health-week">UK e-Health week</a></td>
+               <td>Olympia, London</td>
+              </tr>
+              <tr>
+               <td>13-14 June 2018</td>
+               <td><a href="nhs-confederation-conference-2018">NHS Confederation Conference</a></td>
+               <td>Manchester Central Convention Complex</td>
+              </tr>
+              <tr>
+               <td>25-26 June 2018</td>
+               <td><a href="innovation-in-medicine-2018-royal-college-of-physicians-rcp-annual-conference">Royal College of Physicians Annual Conference</a></td>
+               <td>ExCeL London</td>
+              </tr>
+              <tr>
+               <td>27-28 June 2018</td>
+               <td><a href="digital-healthcare-show">HEALTH PLUS CARE at the Digital Healthcare Show</a></td>
+               <td>ExCeL London</td>
+              </tr>
+              <tr>
+               <td>3-5 July 2018</td>
+               <td><a href="local-government-association-annual-conference">Local Government Association annual conference</a></td>
+               <td>ICC, Birmingham</td>
+              </tr>
+              <tr>
+               <td>10-11 July 2018</td>
+               <td><a href="kings-fund-digital-health-and-care-congress-2018">The King's Fund digital health and care congress</a></td>
+               <td>The King's Fund, London</td>
+              </tr>
+              <tr>
+               <td>5-6 September 2018</td>
+               <td><a href="nhs-expo">NHS Expo 2018</a></td>
+               <td>Manchester Central Convention Complex</td>
+              </tr>
+              <tr>
+               <td>5-7 September 2018</td>
+               <td><a href="emis-national-user-group">Emis NUG Annual Conference 2018</a></td>
+               <td>Hilton Birmingham Metropole</td>
+              </tr>
+              <tr>
+               <td>25-26 September 2018</td>
+               <td><a href="uk-health-show">UK Health Show</a></td>
+               <td>ExCeL London</td>
+              </tr>
+              <tr>
+               <td>4-6 October 2018</td>
+               <td><a href="royal-college-of-gps-annual-primary-care-conference-2018">Royal College of GPs Annual Primary Care Conference and Exhibition 2018</a></td>
+               <td>SEC, Glasgow</td>
+              </tr>
+              <tr>
+               <td>7-8 October 2018</td>
+               <td><a href="the-pharmacy-show">The Pharmacy Show</a></td>
+               <td>NEC, Birmingham</td>
+              </tr>
+              <tr>
+               <td>17-18 October 2018</td>
+               <td><a href="best-practice-annual-conference-and-exhibition">The Best Practice Annual Conference&nbsp;</a></td>
+               <td>NEC, Birmingham</td>
+              </tr>
+              <tr>
+               <td>14-16 November 2018</td>
+               <td><a href="national-children-and-adult-services-conference-2018">The National Children and Adult Services Conference 2018</a></td>
+               <td>Manchester Central Convention Complex</td>
+              </tr>
+             </tbody>
+            </table>
+
+            <h2>Contact the events team</h2>
+
+            <p>The NHS Digital events team would love to hear your feedback.&nbsp; &nbsp;You can contact them by email at&nbsp;<a href="mailto:externalcomms.nhsdigital@nhs.net?subject=NHS%20Digital%20Events">externalcomms.nhsdigital@nhs.net</a></p>
+          /best-practice-annual-conference-and-exhibition:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 8adfe46a-71e1-442e-bdbc-0b6c4c8f175b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /clinical-pharmacy-congress:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: d77d85b0-78c1-4670-bf78-01f2c9d2a6ac
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /digital-healthcare-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2a900902-9207-4cd8-9a56-93cf01e1efc4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /emis-national-user-group:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 973a9328-adb5-4397-879f-a6dc04e57d0f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /innovation-in-medicine-2018-royal-college-of-physicians-rcp-annual-conference:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: f5865cd6-5e6f-4d44-bb08-2beff0d3c963
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /kings-fund-digital-health-and-care-congress-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 89ff6747-81e7-4d28-8d46-95fa39ca7b83
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /local-government-association-annual-conference:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 4c5040fc-e305-4174-9b4e-0a18b794e26e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /national-children-and-adult-services-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: ec168c51-df9b-483e-b019-babbe7f89b63
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-communications-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 06520ab7-2577-404a-9cc4-58ae83cd42b6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-confederation-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2a693def-f51d-4dbd-a6ce-8a23b7afef80
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /nhs-expo:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 054621a0-0c0f-4ee4-8d3c-27cf413f11ec
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /royal-college-of-gps-annual-primary-care-conference-2018:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 98153ef1-cfde-4e15-99dc-5353985bc418
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /the-pharmacy-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 49afd161-6e8a-4a76-aa39-fe10d1f34877
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /uk-e-health-week:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 9715b0cc-4df3-4e35-8184-bfc40a740bfa
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /uk-health-show:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 44492724-547d-4561-8eff-bc37d0150cbe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /website:component:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+        /website:items:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
+        /website:seosummary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: NHS Digital hosts meetings, conferences, seminars and
+            workshops, and our staff attend health events nationwide.
+        /website:summary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Welcome to our events area. Find out where you are
+            likely to see us over the coming months and read about all our events.</p>
+    /lesley-event:
       jcr:primaryType: hippo:handle
-      jcr:uuid: 8e62c402-f9e5-4081-a4c7-911cdc826295
-    hippo:name: Events
-    hippostd:foldertype:
-    - new-digital-website-document
-    - new-digital-website-folder
-    hippotranslation:id: b10f3733-7985-4a58-b982-a23746340a40
-    hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippo:named
-    - hippotranslation:translated
-    - mix:versionable
-    jcr:primaryType: hippostd:folder
-    jcr:uuid: 8f56ee78-a2e2-45a0-85ab-d625c1c3e33c
-  hippo:name: News
-  hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
-  hippotranslation:id: c0c0facf-0411-44eb-97bf-21e45e7b0baa
-  hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
-  jcr:uuid: 0f3406bf-9d17-425a-944a-e10ebcb111e4
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 9d4a7598-c3d7-46bc-9693-e5b2bddf1a08
+      hippo:name: lesley event
+      hippo:versionHistory: 45096834-f610-4295-852a-36ee6ce3fbd7
+      /lesley-event[1]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 9a07e705-35a5-4894-a9d4-ad5a3dba128b
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-07-01T17:40:18.262Z
+        hippostdpubwf:lastModificationDate: 2022-07-02T10:43:37.709Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 0657c1e4-5a3f-42cf-8595-be18ba2fadd0
+        hippotranslation:locale: en
+        website:booking: ''
+        website:display: false
+        website:location: over there
+        website:maplocation: ''
+        website:seosummarytext: something to writesomething to writesomething to writesomething
+          to writesomething to writesomething to writesomething to writesomething
+          to writesomething to writesomething to writesomething to writesomething
+          to writesomething to writesomething to write
+        website:shortsummary: ''
+        website:title: lesley event
+        website:type: []
+        /website:eventSchema:
+          jcr:primaryType: website:eventSchema
+          website:addresslocality: Quite Local
+          website:addressregion: Down South
+          website:eventstatustype: EventScheduled
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:seosummary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: something to writesomething to writesomething to writesomething
+            to writesomething to writesomething to writesomething to writesomething
+            to writesomething to writesomething to writesomething to writesomething
+            to writesomething to writesomething to write
+        /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /lesley-event[2]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: ad61078b-f114-4eaa-9400-e0e9fdc83f04
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-07-01T17:40:18.262Z
+        hippostdpubwf:lastModificationDate: 2022-07-02T10:43:37.636Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 0657c1e4-5a3f-42cf-8595-be18ba2fadd0
+        hippotranslation:locale: en
+        website:booking: ''
+        website:display: false
+        website:location: over there
+        website:maplocation: ''
+        website:seosummarytext: something to writesomething to writesomething to writesomething
+          to writesomething to writesomething to writesomething to writesomething
+          to writesomething to writesomething to writesomething to writesomething
+          to writesomething to writesomething to write
+        website:shortsummary: ''
+        website:title: lesley event
+        website:type: []
+        /website:eventSchema:
+          jcr:primaryType: website:eventSchema
+          website:addresslocality: Quite Local
+          website:addressregion: Down South
+          website:eventstatustype: EventScheduled
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:seosummary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: something to writesomething to writesomething to writesomething
+            to writesomething to writesomething to writesomething to writesomething
+            to writesomething to writesomething to writesomething to writesomething
+            to writesomething to writesomething to write
+        /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /lesley-event[3]:
+        jcr:primaryType: website:event
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 1e4ce212-9d95-45ea-9c94-1de5ef7c6f6c
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-07-01T17:40:18.262Z
+        hippostdpubwf:lastModificationDate: 2022-07-02T10:43:37.636Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-07-02T10:43:44.100Z
+        hippotranslation:id: 0657c1e4-5a3f-42cf-8595-be18ba2fadd0
+        hippotranslation:locale: en
+        website:booking: ''
+        website:display: false
+        website:location: over there
+        website:maplocation: ''
+        website:seosummarytext: something to writesomething to writesomething to writesomething
+          to writesomething to writesomething to writesomething to writesomething
+          to writesomething to writesomething to writesomething to writesomething
+          to writesomething to writesomething to write
+        website:shortsummary: ''
+        website:title: lesley event
+        website:type: []
+        /website:eventSchema:
+          jcr:primaryType: website:eventSchema
+          website:addresslocality: Quite Local
+          website:addressregion: Down South
+          website:eventstatustype: EventScheduled
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:seosummary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: something to writesomething to writesomething to writesomething
+            to writesomething to writesomething to writesomething to writesomething
+            to writesomething to writesomething to writesomething to writesomething
+            to writesomething to writesomething to write
+        /website:summaryimage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []

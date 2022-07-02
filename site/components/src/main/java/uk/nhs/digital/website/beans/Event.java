@@ -79,4 +79,10 @@ public class Event extends BaseDocument {
     public List<Interval> getEvents() {
         return getChildBeansByName("website:events", Interval.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "website:eventSchema")
+    public List<EventSchema> getEventSchema() {
+        return getChildBeansByName("website:eventSchema", EventSchema.class);
+    }
+
 }
