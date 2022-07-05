@@ -20,4 +20,13 @@ definitions:
           hipposys:value: /content/documents/corporate-website/publication-system/statistical/mental-health-of-children-and-young-people-in-england/2022-follow-up-to-the-2017-survey
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
+      /pubs-stats-mhcyp-images:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       jcr:primaryType: hipposys:domain
