@@ -28,10 +28,24 @@ definitions:
               hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/ndrs
               jcr:primaryType: hst:mount
+            /preview:
+              .meta:residual-child-node-category: content
+              hst:type: preview
+              jcr:primaryType: hst:mount
             /restapi:
               hst:alias: restapi
               hst:ismapped: false
               hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            /sitemorse:
+              .meta:residual-child-node-category: content
+              hst:alias: sitemorse
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:responseheaders:
+              - 'Access-Control-Allow-Origin: https://bloomreach.github.io'
               hst:types:
               - rest
               jcr:primaryType: hst:mount

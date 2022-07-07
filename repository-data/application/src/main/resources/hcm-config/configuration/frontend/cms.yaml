@@ -346,3 +346,9 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/hippo-targeting/experience-optimizer-perspective:
       targeting.rest.url: /_targeting
       update.default.on: true
+    /hippo:configuration/hippo:frontend/cms/ui-extensions/sitemorse:
+      frontend:config: '{"sitemorseUrl":"http://localhost:8080/site/sitemorse","previewMountName":"preview","sitemorseToken":"provided"}'
+      frontend:displayName: Sitemorse
+      frontend:extensionPoint: channel.page.tools
+      frontend:url: https://bloomreach.github.io/ui-extensions/samples/sitemorse/
+      jcr:primaryType: frontend:uiExtension

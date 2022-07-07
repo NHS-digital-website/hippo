@@ -21,6 +21,15 @@
             <artifactId>commonmark</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-annotation_1.1_spec</artifactId>
+            <version>1.0.1</version>
+            <!-- NOTE: You should use 'provided' instead of 'compile'
+                 when your application container provides
+                 javax.annotation.security package. -->
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>org.commonmark</groupId>
             <artifactId>commonmark-ext-gfm-tables</artifactId>
         </dependency>
