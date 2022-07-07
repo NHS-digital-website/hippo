@@ -20,23 +20,22 @@ public class SitemorseResource extends org.hippoecm.hst.jaxrs.services.AbstractR
 
     private static final Logger LOG = LoggerFactory.getLogger(SitemorseResource.class);
 
-    private final static String SITEMORSE_API_TOKEN = ((ApplicationSecrets) getComponentManager().getComponent("applicationSecrets")).getValue("SITEMORSE_API_TOKEN");
-
-
     @GET
     public String get(@QueryParam("url") String url, @QueryParam("token") String token) {
 
         try {
-            if(StringUtils.isBlank(SITEMORSE_API_TOKEN)){
+            final String sitemorseToken = ((ApplicationSecrets) getComponentManager().getComponent("applicationSecrets")).getValue("SITEMORSE_API_TOKEN");
+
+            if (StringUtils.isBlank(sitemorseToken)) {
                 LOG.warn("Sitemorse API key is empty or could not be retrieved");
                 return null;
             }
 
-            SciClient client = new SciClient(SITEMORSE_API_TOKEN);
+            SciClient client = new SciClient(sitemorseToken);
             client.setExtendedResponse(true);
             return client.performTest(url);
         } catch (SciException e) {
-            LOG.warn("Exception occured in Sitemorse SCI client: ", e);
+            LOG.warn("Exception occurred in Sitemorse SCI client: ", e);
         }
         return null;
     }
