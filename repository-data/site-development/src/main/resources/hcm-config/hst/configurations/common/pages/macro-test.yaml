@@ -1,0 +1,11 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/macro-test:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.MacroTestComponent
+        hst:template: macro-test-page
+        jcr:primaryType: hst:component
+      hst:cacheable: false
+      hst:referencecomponent: hst:abstractpages/macro-test-layout
+      jcr:primaryType: hst:component

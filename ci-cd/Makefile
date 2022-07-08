@@ -66,7 +66,16 @@ test.unit:
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
 		-Dcucumber.options="src/test/resources/features/site" \
-		-Pacceptance-test-hippo,acceptance-test
+		-Pacceptance-test-hippo,acceptance-test,playwrite-test
+
+## Run acceptance tests against already running server (`make serve`)
+test.site-running:
+	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Dcucumber.options="src/test/resources/features/site" \
+		-Pacceptance-test,playwrite-test
+
+test.update-screenshots:
+	cd ../acceptance-tests/src/test/node && npm run update-screenshots
 
 ## Run tests for cms only, without development data
 test.cms:
