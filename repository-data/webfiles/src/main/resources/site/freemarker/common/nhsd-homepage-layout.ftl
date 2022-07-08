@@ -8,8 +8,6 @@
     <#include "./nhsd-homepage-head.ftl">
 <body>
     <div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-no-gutters">
-        <@skipLink />
-
         <#-- Add IE banner -->
         <@hst.include ref="ie-banner"/>
 
