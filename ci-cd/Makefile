@@ -62,11 +62,29 @@ test.unit:
 	mvn package $(MVN_OPTS) -DskipTests --quiet
 	mvn test $(MVN_OPTS) --quiet
 
+test.playwright:
+	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Pacceptance-test-hippo,playwrite-test
+
+test.playwright-running:
+	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Pplaywrite-test
+
 ## Run BDD tests for "site" only.
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
 		-Dcucumber.options="src/test/resources/features/site" \
 		-Pacceptance-test-hippo,acceptance-test
+
+test.playwright-java:
+	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Dcucumber.options="src/test/resources/features/site --tags @playwright" \
+		-Pacceptance-test-hippo,acceptance-test
+
+test.playwright-java-running:
+	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Dcucumber.options="src/test/resources/features/site --tags @playwright" \
+		-Pacceptance-test
 
 ## Run tests for cms only, without development data
 test.cms:

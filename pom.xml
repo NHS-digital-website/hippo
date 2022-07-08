@@ -169,6 +169,7 @@
         <commons.version>3.12.0</commons.version>
         <content-exim.version>4.0.1</content-exim.version>
         <cucumber.version>1.2.5</cucumber.version>
+        <playwright.version>1.22.0</playwright.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
         <findbugs.version>3.0.2</findbugs.version>
