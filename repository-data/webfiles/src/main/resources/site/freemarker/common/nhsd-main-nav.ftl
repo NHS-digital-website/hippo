@@ -9,7 +9,7 @@
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
 
 <#if menu??>
-    <nav class="nhsd-m-menu-bar">
+    <nav class="nhsd-m-menu-bar" aria-label="Site navigation">
         <#if menu.siteMenuItems??>
             <#list menu.siteMenuItems as item>
                 <#assign activeClass = (item.selected || item.expanded)?then("js-active", "") />

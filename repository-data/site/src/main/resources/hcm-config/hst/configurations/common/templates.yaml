@@ -212,6 +212,12 @@ definitions:
       /location-article:
         hst:renderpath: webfile:/freemarker/common/location-article.ftl
         jcr:primaryType: hst:template
+      /macro-test-layout:
+        hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-layout.ftl
+        jcr:primaryType: hst:template
+      /macro-test-page:
+        hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-page.ftl
+        jcr:primaryType: hst:template
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
         jcr:primaryType: hst:template
