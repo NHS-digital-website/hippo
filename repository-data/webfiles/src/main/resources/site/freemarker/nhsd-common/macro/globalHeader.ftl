@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "./nhsdLogo.ftl">
 <#include "./iconGenerator.ftl">
+<#include "./component/skipLink.ftl">
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.close-menu" var="closeMenu" />
@@ -11,12 +12,12 @@
 
 <#macro globalHeader enableHr>
     <header id="header">
+        <@skipLink />
         <div class="nhsd-o-global-header" id="nhsd-global-header">
             <div class="nhsd-t-grid">
                 <div class="nhsd-t-row">
                     <div class="nhsd-t-col">
                         <div class="nhsd-o-global-header__content-box">
-                            <div class="nhsd-o-global-header__background"></div>
                             <#-- Logo -->
                             <div class="nhsd-o-global-header__logo-container">
                                 <a class="nhsd-m-logo-link nhsd-o-global-header__logo" id="nhsd-global-header__logo" href="<@hst.link siteMapItemRefId='root'/>" aria-label="NHS Digital home">

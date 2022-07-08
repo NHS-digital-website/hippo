@@ -18,6 +18,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.ServicePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.common.SearchPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
+import uk.nhs.digital.ps.test.acceptance.playwright.PlaywrightProvider;
 import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverServiceProvider;
@@ -103,6 +104,11 @@ public class AcceptanceTestConfiguration {
     @Bean(initMethod = "initialise", destroyMethod = "dispose")
     public WebDriverServiceProvider webDriverServiceProvider() {
         return new WebDriverServiceProvider();
+    }
+
+    @Bean
+    public PlaywrightProvider playwrightProvider() {
+        return new PlaywrightProvider();
     }
 
     @Bean
