@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/base/hst:abstractpages/macro-test-layout:
+      hst:componentclassname: uk.nhs.digital.common.components.MetaTagsComponent
+      hst:template: macro-test-layout
+      jcr:primaryType: hst:component

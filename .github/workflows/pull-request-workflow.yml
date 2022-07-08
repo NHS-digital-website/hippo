@@ -84,8 +84,9 @@ jobs:
 
       # Step 7
       - name: Test Project
-        run: make test.site
+        run: make test.site CI=true
 
+      # Step 8
       # Notify via Slack that the PR's 'build and test' failed
       - name: "Send fail message"
         if: failure()
@@ -111,3 +112,40 @@ jobs:
           SLACK_TITLE: PR Request 'build and test' succeeded
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_FOOTER: 'The Web Team are awesome!'
+
+      # Step 9
+      # Store test results as an artifact
+      - name: "Upload cucumber report"
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cucumber-report
+          path: |
+            acceptance-tests/src/test/node/cucumber-report.html
+
+      # Step 10
+      # Read test summary
+      - name: Read test summary
+        if: always()
+        id: testsummary
+        run: |
+          SUMMARY=$(cat acceptance-tests/src/test/node/cucumber-summary.txt)
+          SUMMARY="${SUMMARY//'%'/'%25'}"
+          SUMMARY="${SUMMARY//$'\n'/'%0A'}"
+          SUMMARY="${SUMMARY//$'\r'/'%0D'}"
+          echo "::set-output name=summary::$SUMMARY"
+
+      # Step 11
+      # Add comment to PR with test results
+      - name: "Added PR comment"
+        if: ${{ always() && steps.testsummary.outcome == 'success' }}
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `**Test Results** \n ${{steps.testsummary.outputs.summary}}`
+            })

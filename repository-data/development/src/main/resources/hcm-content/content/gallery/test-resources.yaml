@@ -1,0 +1,310 @@
+---
+/content/gallery/test-resources:
+  /fibre.jpg:
+    /fibre.jpg:
+      /hippogallery:original:
+        hippogallery:height: 800
+        hippogallery:width: 1200
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/original/original.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /hippogallery:thumbnail:
+        hippo:filename: fibre.jpg
+        hippogallery:height: 40
+        hippogallery:width: 60
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/thumbnail/thumbnail.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto:
+        hippogallery:height: 50
+        hippogallery:width: 50
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/authorPhoto/authorPhoto.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhoto2x:
+        hippogallery:height: 100
+        hippogallery:width: 100
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/authorPhoto2x/authorPhoto2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge:
+        hippogallery:height: 200
+        hippogallery:width: 200
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/authorPhotoLarge/authorPhotoLarge.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:authorPhotoLarge2x:
+        hippogallery:height: 400
+        hippogallery:width: 400
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/authorPhotoLarge2x/authorPhotoLarge2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb:
+        hippogallery:height: 240
+        hippogallery:width: 468
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/blogIndexThumb/blogIndexThumb.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:blogIndexThumb2x:
+        hippogallery:height: 480
+        hippogallery:width: 936
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/blogIndexThumb2x/blogIndexThumb2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb:
+        hippogallery:height: 184
+        hippogallery:width: 468
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/homeBlogThumb/homeBlogThumb.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumb2x:
+        hippogallery:height: 368
+        hippogallery:width: 936
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/homeBlogThumb2x/homeBlogThumb2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall:
+        hippogallery:height: 184
+        hippogallery:width: 341
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:homeBlogThumbSmall2x:
+        hippogallery:height: 368
+        hippogallery:width: 682
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/homeBlogThumbSmall2x/homeBlogThumbSmall2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost:
+        hippogallery:height: 463
+        hippogallery:width: 696
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/newsFeaturedPost/newsFeaturedPost.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsFeaturedPost2x:
+        hippogallery:height: 800
+        hippogallery:width: 1200
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/newsFeaturedPost2x/newsFeaturedPost2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage:
+        hippogallery:height: 426
+        hippogallery:width: 640
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/newsPostImage/newsPostImage.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImage2x:
+        hippogallery:height: 800
+        hippogallery:width: 1200
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/newsPostImage2x/newsPostImage2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge:
+        hippogallery:height: 661
+        hippogallery:width: 992
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/newsPostImageLarge/newsPostImageLarge.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsPostImageLarge2x:
+        hippogallery:height: 800
+        hippogallery:width: 1200
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/newsPostImageLarge2x/newsPostImageLarge2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail:
+        hippogallery:height: 102
+        hippogallery:width: 154
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/newsThumbnail/newsThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:newsThumbnail2x:
+        hippogallery:height: 205
+        hippogallery:width: 308
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/newsThumbnail2x/newsThumbnail2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail:
+        hippogallery:height: 410
+        hippogallery:width: 616
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/oldArticleThumbnail/oldArticleThumbnail.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:oldArticleThumbnail2x:
+        hippogallery:height: 800
+        hippogallery:width: 1200
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/oldArticleThumbnail2x/oldArticleThumbnail2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule:
+        hippogallery:height: 800
+        hippogallery:width: 1200
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModule2x:
+        hippogallery:height: 800
+        hippogallery:width: 1200
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/pageHeaderHeroModule2x/pageHeaderHeroModule2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall:
+        hippogallery:height: 375
+        hippogallery:width: 375
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderHeroModuleSmall2x:
+        hippogallery:height: 750
+        hippogallery:width: 750
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/pageHeaderHeroModuleSmall2x/pageHeaderHeroModuleSmall2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner:
+        hippogallery:height: 500
+        hippogallery:width: 1270
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBanner2x:
+        hippogallery:height: 1000
+        hippogallery:width: 2540
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/pageHeaderSlimBanner2x/pageHeaderSlimBanner2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall:
+        hippogallery:height: 250
+        hippogallery:width: 375
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:pageHeaderSlimBannerSmall2x:
+        hippogallery:height: 500
+        hippogallery:width: 750
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/pageHeaderSlimBannerSmall2x/pageHeaderSlimBannerSmall2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:postImageSmall:
+        hippogallery:height: 228
+        hippogallery:width: 343
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/postImageSmall/postImageSmall.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      /website:postImageSmall2x:
+        hippogallery:height: 457
+        hippogallery:width: 686
+        jcr:data:
+          resource: test-resources/fibre.jpg/fibre.jpg/postImageSmall2x/postImageSmall2x.jpg
+          type: binary
+        jcr:lastModified: 2022-09-01T09:21:43.409Z
+        jcr:mimeType: image/jpeg
+        jcr:primaryType: hippogallery:image
+      hippo:availability:
+      - live
+      - preview
+      hippogallery:filename: fibre.jpg
+      jcr:primaryType: website:corporateWebsiteImageset
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: test resources
+  hippostd:foldertype:
+  - new-website-corporateWebsiteImageset-folder
+  hippostd:gallerytype:
+  - website:corporateWebsiteImageset
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippogallery:stdImageGallery

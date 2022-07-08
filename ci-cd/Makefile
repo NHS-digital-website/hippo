@@ -13,6 +13,13 @@ VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*" || echo $(VERS
 VERSION_BASE ?= $(shell cat "$(PWD)/../.version")
 SLACK_HOOK_URL ?=
 
+CI ?= false
+
+PLAYWRIGHT_PROFILE = playwright-test
+ifeq ($(CI),true)
+PLAYWRIGHT_PROFILE = playwright-install,playwright-test
+endif
+
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
 
@@ -66,7 +73,17 @@ test.unit:
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
 		-Dcucumber.options="src/test/resources/features/site" \
-		-Pacceptance-test-hippo,acceptance-test
+		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
+
+## Run acceptance tests against already running server (`make serve`)
+test.site-running:
+	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Dcucumber.options="src/test/resources/features/site" \
+		-Pacceptance-test,$(PLAYWRIGHT_PROFILE)
+
+# Updates snapshots for all tests tagged @snapshot
+test.update-snapshots:
+	cd ../acceptance-tests/src/test/node && npm run update-snapshots
 
 ## Run tests for cms only, without development data
 test.cms:
