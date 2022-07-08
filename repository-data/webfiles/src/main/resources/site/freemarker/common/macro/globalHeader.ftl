@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "./nhsdLogo.ftl">
 <#include "./iconGenerator.ftl">
+<#include "./component/skipLink.ftl">
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.close-menu" var="closeMenu" />
@@ -8,6 +9,7 @@
 
 <#macro globalHeader enableHr>
     <header id="header">
+        <@skipLink />
         <div class="nhsd-o-global-header" id="nhsd-global-header">
             <div class="nhsd-t-grid">
                 <div class="nhsd-t-row">
