@@ -13,7 +13,6 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSetBean;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.hippoecm.repository.util.DateTools;
 import org.jdom2.Element;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -22,8 +21,14 @@ import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 import uk.nhs.digital.website.beans.*;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.imageio.ImageIO;
+
 
 public class RssModifier extends RSS20Modifier {
     private static final Logger LOGGER = LoggerFactory.getLogger(RssModifier.class);
@@ -38,17 +43,7 @@ public class RssModifier extends RSS20Modifier {
         try {
             String strQuery = query.getQueryAsString(true);
 
-            if (strQuery.contains("jcr:primaryType=\'website:news\'")) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.add(Calendar.MONTH, -3);
-                Filter filter = query.createFilter();
-                try {
-                    filter.addGreaterOrEqualThan("website:publisheddatetime", calendar, DateTools.Resolution.DAY);
-                    query.setFilter(filter);
-                } catch (final FilterException exception) {
-                    exception.printStackTrace();
-                }
-            } else if (strQuery.contains("jcr:primaryType=\'publicationsystem:publication\'")) {
+            if (strQuery.contains("jcr:primaryType=\'publicationsystem:publication\'")) {
                 Filter filter = query.createFilter();
                 try {
                     filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
@@ -261,9 +256,30 @@ public class RssModifier extends RSS20Modifier {
     @NotNull
     private Element getImageElement(String imageUrl) {
         final Element element
-            = new Element("thumbnail", "media", "http://search.yahoo.com/mrss/");
+            = new Element("content", "media", "http://search.yahoo.com/mrss/");
         element.setAttribute("url", imageUrl);
+        addImageProperties(imageUrl, element);
+
         return element;
+    }
+
+    private void addImageProperties(String imageUrl, Element element) {
+        String contentType = null;
+        URL url;
+        try {
+            url = new URL(imageUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            contentType = connection.getContentType();
+            element.setAttribute("type", contentType.substring(0, contentType.indexOf(";")));
+            BufferedImage bufferedImage = ImageIO.read(url);
+            if (bufferedImage != null) {
+                element.setAttribute("height", String.valueOf(bufferedImage.getHeight()));
+                element.setAttribute("width", String.valueOf(bufferedImage.getWidth()));
+            }
+            element.setAttribute("expression", "full");
+        } catch (IOException e) {
+            LOGGER.error("Image can not read ", e);
+        }
     }
 
     private String getNewsCategory(News newsBean) {
