@@ -148,7 +148,9 @@ public abstract class PublicationBase extends BaseDocument {
                 .orElse(null);
         }
 
-        cal.set(nominalPublicationDate.getYear(), nominalPublicationDate.getMonth().getValue() - 1, nominalPublicationDate.getDayOfMonth(), 0, 0);
+        if (nominalPublicationDate != null) {
+            cal.set(nominalPublicationDate.getYear(), nominalPublicationDate.getMonth().getValue() - 1, nominalPublicationDate.getDayOfMonth(), 0, 0);
+        }
         return cal.getTime();
     }
 

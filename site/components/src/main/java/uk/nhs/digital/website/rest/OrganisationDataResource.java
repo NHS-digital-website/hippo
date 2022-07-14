@@ -31,7 +31,7 @@ import javax.ws.rs.core.MediaType;
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED})
 @Path("/orgname/")
 public class OrganisationDataResource extends BaseRestResource {
-    private static final Logger log = LoggerFactory.getLogger(CyberAlertResource.class);
+    private static final Logger log = LoggerFactory.getLogger(OrganisationDataResource.class);
     private List<OdsOrganisation> odsResults = null;
 
     @GET

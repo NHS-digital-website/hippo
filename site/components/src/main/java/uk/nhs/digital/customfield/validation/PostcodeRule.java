@@ -19,7 +19,7 @@ public class PostcodeRule extends BaseRule {
         Optional<String> optionalMapKeySet = map.keySet().stream().findFirst();
         if (optionalMapKeySet.isPresent()) {
             String postcode = map.get(optionalMapKeySet.get())[0];
-            if (postcode.length() >= 5) {
+            if (postcode != null && postcode.length() >= 5) {
                 postcodeUrl = postcode.replaceAll("\\s+", "").toUpperCase();
                 postcodeUrl = postcodeUrl.substring(0, postcodeUrl.length() - 3) + "/" + postcodeUrl.substring(postcodeUrl.length() - 3);
                 ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());

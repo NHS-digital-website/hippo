@@ -69,11 +69,13 @@ task("build-js", function gulpScripts() {
 
     return src([
         `${paths.js}/nhsd-priority-scripts.js`,
-        `${paths.js}/nhsd-scripts.js`,
         `${paths.js}/nhsd-frontend-scripts.js`,
-        `${paths.js}/intranet-scripts.js`,
+        `${paths.js}/nhsd-scripts.js`,
+        `${paths.js}/ndrs-priority-scripts.js`,
+        `${paths.js}/ndrs-frontend-scripts.js`,
         `${paths.js}/nhsd-intranet-priority-scripts.js`,
         `${paths.js}/nhsd-intranet-scripts.js`,
+        `${paths.js}/intranet-scripts.js`,
     ])
         .pipe(named())
         .pipe(

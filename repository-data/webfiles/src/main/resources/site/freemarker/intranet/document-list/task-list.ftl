@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 
 <#include "../../include/imports.ftl">
+<#include "../../common/macro/svgMacro.ftl">
 
 <#assign getRemoteSvg="uk.nhs.digital.freemarker.svg.SvgFromUrl"?new() />
 
@@ -33,7 +34,11 @@
                                         <span class="nhsd-a-icon nhsd-a-icon--size-m nhsd-a-icon--col-white">
                                             <#if task.icon == "other" >
                                                 <@hst.link hippobean=task.linkIcon var="iconLink" />
-                                                <img style="width: auto" src="${iconLink}">
+                                                <#if iconLink?contains(".svg")>
+                                                    <@svgWithoutAltText svgString=task.svgXmlFromRepository/>
+                                                <#else>
+                                                    <img style="width: auto" src="${iconLink}">
+                                                </#if>
                                             <#else>
                                                 <#assign svg = getRemoteSvg(task.icon) />
                                                 ${svg.data?replace('<svg ', '<svg style="width: auto" ')?no_esc}

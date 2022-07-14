@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/form-api:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.forms.ApiAndAfterProcessEformComponent
+        hst:parameternames:
+        - behaviors
+        - eforms-use-freemarker
+        hst:parametervalues:
+        - com.onehippo.cms7.eforms.hst.behaviors.FormIntroBehavior
+        - 'true'
+        hst:resourcetemplate: eforms-validation-default
+        hst:template: eforms.default
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

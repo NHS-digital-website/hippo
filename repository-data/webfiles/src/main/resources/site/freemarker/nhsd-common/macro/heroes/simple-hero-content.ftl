@@ -12,7 +12,7 @@
     </#if>
     <#if options.title?has_content>
         <#assign heroHeadingLevel = headingLevel?has_content?then(headingLevel, 1) />
-        <h${heroHeadingLevel} class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-0" data-uipath="document.title">${options.title}</h${heroHeadingLevel}>
+        <h${heroHeadingLevel} class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-0" data-uipath="document.title" itemprop="name">${options.title}</h${heroHeadingLevel}>
     </#if>
 
     <#if options.summary?has_content>

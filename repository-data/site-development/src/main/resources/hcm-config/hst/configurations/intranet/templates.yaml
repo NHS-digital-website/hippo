@@ -23,9 +23,6 @@ definitions:
       /cyber-alerts:
         hst:renderpath: webfile:/freemarker/common/cyber-alerts.ftl
         jcr:primaryType: hst:template
-      /document-list:
-        hst:renderpath: webfile:/freemarker/common/document-list.ftl
-        jcr:primaryType: hst:template
       /eventlist-main-eventlist:
         hst:renderpath: webfile:/freemarker/common/eventlist-main-eventlist.ftl
         jcr:primaryType: hst:template

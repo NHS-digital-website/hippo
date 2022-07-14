@@ -2,6 +2,10 @@
 <#include "../../common/macro/component/actionLink.ftl">
 <#include "../../common/macro/svgIcons.ftl">
 <#include "../../include/imports.ftl">
+
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="task" type="uk.nhs.digital.intranet.beans.Task" -->
 
@@ -15,11 +19,6 @@
         <ul class="intra-task-grid">
             <#list pageable.items as task>
 
-                <@hst.link hippobean=task.bannercontrols.icon fullyQualified=true var="image" />
-                <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
-                <#assign imageHoverUrl =  imageUrl + "?colour=00000" />
-                <#assign imageUrl += "?colour=005EB8" />
-
                 <li class="intra-task-grid-item">
                     <article class="intra-task-grid-task">
                         <div style="position:relative">
@@ -29,10 +28,11 @@
                            class="intra-task-grid-task__link">
                             <div class="intra-task-grid-task__icon">
                                 <#if task.bannercontrols??>
-                                    <img src="${imageUrl}"
-                                         alt="${task.title} icon" aria-hidden="true">
-                                    <img src="${imageHoverUrl}"
-                                         alt="${task.title} icon" aria-hidden="true">
+                                    <#if task.title?? && task.title?has_content>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "005EB8"))}" alt="${task.title} icon" aria-hidden="true">
+                                    <#else>
+                                        <img src="data:image/svg+xml;base64,${base64(colour(task.svgXmlFromRepository, "000000"))}" aria-hidden="true">
+                                    </#if>
                                 </#if>
                             </div>
                             <h1 class="intra-task-grid-task__title">${task.title}</h1>

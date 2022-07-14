@@ -8,6 +8,7 @@
 <#assign getRemoteSvg="uk.nhs.digital.freemarker.svg.SvgFromUrl"?new() />
 
 <#include "../include/imports.ftl">
+<#include "macro/svgMacro.ftl">
 
 <#if menu??>
     <footer class="nhsd-o-global-footer" id="footer">
@@ -31,7 +32,11 @@
                                             <span class="nhsd-a-icon nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey">
                                                 <#if socialMediaLink.icon == "other" >
                                                     <@hst.link hippobean=socialMediaLink.linkIcon var="iconLink" />
-                                                    <img src="${iconLink}">
+                                                    <#if iconLink?contains(".svg")>
+                                                        <@svgWithoutAltText svgString=socialMediaLink.svgXmlFromRepository/>
+                                                    <#else>
+                                                        <img src="${iconLink}">
+                                                    </#if>
                                                 <#else>
                                                     <#assign svg = getRemoteSvg(socialMediaLink.icon) />
                                                     ${svg.data?no_esc}

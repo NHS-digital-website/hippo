@@ -19,7 +19,7 @@
                     </li>
                 </#list>
                 </ol>
-                <#if !expandYearsTags && selectedIndex lt 10 && links?size gt 10>
+                <#if expandYearsTags?? && !expandYearsTags && selectedIndex lt 10 && links?size gt 10>
                     <a href="?expandYearsTags=true${affix}" class="expand-tags-link">Show more years</a>
                 </#if>
             </nav>

@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro cardItem cardProps>
     <#assign cardClass = ""/>
     <#if cardProps.featured?? && cardProps.featured && cardProps.image?has_content>
@@ -23,6 +26,18 @@
                             <picture class="nhsd-a-image__picture">
                                 <@hst.link hippobean=cardProps.image.newsPostImageLarge fullyQualified=true var="leadImage" />
                                 <img src="${leadImage}" alt="${cardProps.altText}" />
+                            </picture>
+                        </figure>
+                    </div>
+                <#elseif cardProps.svgXmlFromRepository?has_content>
+                    <div class="nhsd-m-card__image_container">
+                        <figure class="nhsd-a-image ${cardProps.imageClass?has_content?then(cardProps.imageClass, '')}">
+                            <picture class="nhsd-a-image__picture">
+                                <#if cardProps.altText?? && cardProps.altText?has_content>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(cardProps.svgXmlFromRepository, "005EB8"))}" alt="${cardProps.altText} icon" aria-hidden="true">
+                                <#else>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(cardProps.svgXmlFromRepository, "000000"))}" aria-hidden="true">
+                                </#if>
                             </picture>
                         </figure>
                     </div>
