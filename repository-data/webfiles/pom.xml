@@ -80,7 +80,7 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v14.15.4</nodeVersion>
+                            <nodeVersion>v14.17.3</nodeVersion>
                         </configuration>
                     </execution>
                     <execution>
