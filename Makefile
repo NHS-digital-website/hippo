@@ -106,3 +106,6 @@ env.mk:
 
 frontend:
 	cd repository-data/webfiles && npm install && NODE_ENV=development npm start
+
+lint-frontend:
+	cd repository-data/webfiles && npm run lint-fix
