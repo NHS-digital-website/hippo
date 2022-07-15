@@ -1,5 +1,6 @@
-const isDev = process.env.NODE_ENV && process.env.NODE_ENV === "development";
-const isProd = process.env.NODE_ENV && process.env.NODE_ENV === "production";
+// const ESLintPlugin = require('eslint-webpack-plugin');
+
+const isDev = process.env.NODE_ENV && process.env.NODE_ENV === 'development';
 
 const webpackDefaultConfig = {
     mode: 'production',
@@ -13,8 +14,10 @@ const webpackDefaultConfig = {
                 test: require.resolve('jquery'),
                 use: [{
                     loader: 'expose-loader',
-                    options: '$'
-                }]
+                    options: {
+                        exposes: ['$', 'jQuery'],
+                    },
+                }],
             },
             {
                 test: /\.m?js$/,
@@ -22,24 +25,34 @@ const webpackDefaultConfig = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-            }
+                        presets: ['@babel/preset-env'],
+                    },
+                },
+            },
         ],
+    },
+    optimization: {
+        chunkIds: 'named',
+        splitChunks: {
+            chunks() {
+                return false;
+            },
+        },
     },
     externals: {
         nhsd: 'nhsd',
     },
-}
+    // Webpack eslint plugin to be enabled once all js lint errors have been fixed
+    // plugins: [new ESLintPlugin()],
+};
 
 const webpackDevConfig = {
     mode: 'development',
-    devtool: 'source-map'
-}
+    devtool: 'source-map',
+};
 
-const webpackConfig = isDev ?
-    ({ ...webpackDefaultConfig, ...webpackDevConfig}) :
-    ({ ...webpackDefaultConfig});
+const webpackConfig = isDev
+    ? ({ ...webpackDefaultConfig, ...webpackDevConfig })
+    : ({ ...webpackDefaultConfig });
 
 module.exports = webpackConfig;
