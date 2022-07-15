@@ -2,10 +2,10 @@
  * Simple ajax page loader
  */
 
-export default function(url, elementsToUpdate, data = null) {
-    let options = {
+export default function (url, elementsToUpdate, data = null) {
+    const options = {
         method: 'GET',
-    }
+    };
 
     if (data !== null) {
         options.method = 'POST';
@@ -13,14 +13,14 @@ export default function(url, elementsToUpdate, data = null) {
     }
 
     return fetch(url, options)
-        .then(response => response.text())
-        .then(content => {
-            const doc = new DOMParser().parseFromString(content, "text/html");
+        .then((response) => response.text())
+        .then((content) => {
+            const doc = new DOMParser().parseFromString(content, 'text/html');
 
             if (!Array.isArray(elementsToUpdate)) {
                 elementsToUpdate = [elementsToUpdate];
             }
-            elementsToUpdate.forEach(classToUpdate => {
+            elementsToUpdate.forEach((classToUpdate) => {
                 const newContent = doc.querySelector(classToUpdate);
                 const contentEl = document.querySelector(classToUpdate);
 
