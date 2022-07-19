@@ -223,7 +223,11 @@
         "xlsx":"application/vnd.ms-excel",
         "doc":"application/msword",
         "docx":"application/msword",
-        "xml":"text/xml"
+        "xml":"text/xml",
+        "exe":"application/x-dosexec",
+        "gz":"application/gzip",
+        "msi":"application/x-ms-installer",
+        "inf":"application/inf"
     }/>
 
     <#return (knownExtensions[extension?lower_case]??)?then(knownExtensions[extension?lower_case], "") />
@@ -271,7 +275,13 @@
     "application/vnd.openxmlformats-officedocument.wordprocessingml.template": "doc",
 
     "text/xml": "xml",
-    "application/xml": "xml"
+    "application/xml": "xml",
+
+    "application/x-dosexec":"exe",
+    "application/gzip":"gz",
+    "application/x-ms-installer":"msi",
+    "application/inf":"inf"
+
     }/>
 
     <#return (mimeTypes[mimeType?lower_case]??)?then(mimeTypes[mimeType], "") />

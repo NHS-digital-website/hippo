@@ -18,6 +18,7 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
       extension.mimetype.allowed.mappings:
       - .csv,text/csv
+      - .exe,application/x-dosexec
       extensions.allowed:
       - doc
       - docx
@@ -44,6 +45,10 @@ definitions:
       - odt
       - odp
       - ods
+      - exe
+      - gz
+      - msi
+      - inf
       jcr:primaryType: frontend:plugin
       max.file.size: 3000M
       plugin.class: org.hippoecm.frontend.plugins.yui.upload.validation.AssetUploadValidationPlugin
