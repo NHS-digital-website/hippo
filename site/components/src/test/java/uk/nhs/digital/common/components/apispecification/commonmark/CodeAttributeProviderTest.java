@@ -1,7 +1,6 @@
 package uk.nhs.digital.common.components.apispecification.commonmark;
 
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.commonmark.ext.gfm.tables.TableBlock;
@@ -50,6 +49,6 @@ public class CodeAttributeProviderTest {
         codeAttributeProvider.setAttributes(nodeOtherThanCode, "tagName is ignored", attributes);
 
         // then
-        then(attributes).shouldHaveZeroInteractions();
+        then(attributes).shouldHaveNoMoreInteractions();
     }
 }

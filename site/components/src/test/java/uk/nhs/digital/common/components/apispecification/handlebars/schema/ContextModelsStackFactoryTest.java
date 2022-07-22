@@ -1,8 +1,8 @@
 package uk.nhs.digital.common.components.apispecification.handlebars.schema;
 
 import static java.util.Collections.singletonList;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -28,15 +28,9 @@ public class ContextModelsStackFactoryTest {
         final ContextModelsStack actualContextModelsStack = contextStackFactory.from(context);
 
         // then
-        assertThat("An instance of the models' stack was produced.",
-            actualContextModelsStack,
-            is(notNullValue())
-        );
-
-        assertThat("Current model reported by the models' stack is that of the context given to the factory.",
-            actualContextModelsStack.currentModel().orElse(null),
-            is(sameInstance(expectedModel))
-        );
+        assertNotNull("An instance of the models' stack was produced.", actualContextModelsStack);
+        assertEquals("Current model reported by the models' stack is that of the context given to the factory.",
+            actualContextModelsStack.currentModel().orElse(null), expectedModel);
     }
 
     private Context contextWith(final Object model) {
