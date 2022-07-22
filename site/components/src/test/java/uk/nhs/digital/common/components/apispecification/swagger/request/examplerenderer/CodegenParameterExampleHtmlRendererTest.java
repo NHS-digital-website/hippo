@@ -2,17 +2,15 @@ package uk.nhs.digital.common.components.apispecification.swagger.request.exampl
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import io.swagger.codegen.v3.CodegenParameter;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -22,9 +20,8 @@ import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 @RunWith(MockitoJUnitRunner.class)
 public class CodegenParameterExampleHtmlRendererTest extends MockitoSessionTestBase {
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
-
-    @Mock private CommonmarkMarkdownConverter markdownConverter;
+    @Mock
+    private CommonmarkMarkdownConverter markdownConverter;
 
     private CodegenParameterExampleHtmlRenderer codegenParameterExampleHtmlRenderer;
 
@@ -136,19 +133,16 @@ public class CodegenParameterExampleHtmlRendererTest extends MockitoSessionTestB
         );
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void throwsException_withUnderlyingCause_onFailureToProcessCodegenParameter() {
 
         // given
         final String invalidParameterJsonDefinition = "{ invalid JSON }";
         final CodegenParameter codegenParameter = codegenParameterWith(invalidParameterJsonDefinition);
 
-        this.expectedException.expectMessage("Failed to generate HTML for examples from JSON schema: " + invalidParameterJsonDefinition);
-        this.expectedException.expectCause(instanceOf(JsonParseException.class));
-
         // when
         codegenParameterExampleHtmlRenderer.htmlForExampleValueOf(codegenParameter.getJsonSchema());
-
+        fail("Failed to generate HTML for examples from JSON schema: " + invalidParameterJsonDefinition);
         // then
         // expectations set up in 'given' are satisfied
     }

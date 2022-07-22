@@ -7,7 +7,7 @@ import static java.util.stream.IntStream.rangeClosed;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThrows;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.common.components.apispecification.CommonmarkMarkdownConverterTest.Levels.levels;
 import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
@@ -44,7 +44,7 @@ public class CommonmarkMarkdownConverterTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
 
         commonmarkMarkdownConverter = new CommonmarkMarkdownConverter();
     }
