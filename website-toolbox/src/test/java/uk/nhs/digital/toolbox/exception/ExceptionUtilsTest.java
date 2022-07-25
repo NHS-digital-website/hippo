@@ -2,17 +2,13 @@ package uk.nhs.digital.toolbox.exception;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.sameInstance;
+import static org.junit.Assert.fail;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import uk.nhs.digital.toolbox.exception.ExceptionUtils;
 
 public class ExceptionUtilsTest {
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
-
-    @Test
+    @Test(expected = ExceptionUtils.UncheckedWrappingException.class)
     public void wrapCheckedException_rethrowsSuppliersCheckedExceptionAsUncheckedException() {
 
         // given
@@ -22,17 +18,15 @@ public class ExceptionUtilsTest {
             throw checkedExceptionThrownBySupplier;
         };
 
-        expectedException.expect(ExceptionUtils.UncheckedWrappingException.class);
-        expectedException.expectCause(sameInstance(checkedExceptionThrownBySupplier));
-
         // when
         ExceptionUtils.wrapCheckedException(checkedExceptionThrowingSupplier);
+        fail("Exception thrown " + sameInstance(checkedExceptionThrownBySupplier));
 
         // then
         // expectations set up in 'given' are satisfied
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void wrapCheckedException_rethrowsSuppliersOriginalUncheckedException() {
 
         // given
@@ -42,10 +36,10 @@ public class ExceptionUtilsTest {
             throw uncheckedExceptionThrownBySupplier;
         };
 
-        expectedException.expect(sameInstance(uncheckedExceptionThrownBySupplier));
-
         // when
         ExceptionUtils.wrapCheckedException(checkedExceptionThrowingSupplier);
+
+        fail("Exception thrown " + sameInstance(uncheckedExceptionThrownBySupplier));
 
         // then
         // expectations set up in 'given' are satisfied
@@ -70,7 +64,7 @@ public class ExceptionUtilsTest {
         );
     }
 
-    @Test
+    @Test(expected = ExceptionUtils.UncheckedWrappingException.class)
     public void wrapCheckedException_rethrowsConsumersCheckedExceptionAsUncheckedException() {
 
         // given
@@ -80,17 +74,15 @@ public class ExceptionUtilsTest {
             throw checkedExceptionThrownByConsumer;
         };
 
-        expectedException.expect(ExceptionUtils.UncheckedWrappingException.class);
-        expectedException.expectCause(sameInstance(checkedExceptionThrownByConsumer));
-
         // when
         ExceptionUtils.wrapCheckedException(checkedExceptionThrowingConsumer);
+        fail("Exception thrown " + sameInstance(checkedExceptionThrownByConsumer));
 
         // then
         // expectations set up in 'given' are satisfied
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void wrapCheckedException_rethrowsConsumersOriginalUncheckedException() {
 
         // given
@@ -100,10 +92,9 @@ public class ExceptionUtilsTest {
             throw uncheckedExceptionThrownByConsumer;
         };
 
-        expectedException.expect(sameInstance(uncheckedExceptionThrownByConsumer));
-
         // when
         ExceptionUtils.wrapCheckedException(checkedExceptionThrowingConsumer);
+        fail("Exception thrown " + sameInstance(uncheckedExceptionThrownByConsumer));
 
         // then
         // expectations set up in 'given' are satisfied
