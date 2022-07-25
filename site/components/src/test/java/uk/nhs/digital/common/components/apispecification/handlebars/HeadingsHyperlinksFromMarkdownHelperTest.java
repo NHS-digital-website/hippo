@@ -8,8 +8,7 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
@@ -171,7 +170,7 @@ public class HeadingsHyperlinksFromMarkdownHelperTest {
         final Options.Buffer actualBuffer = helper.apply(markdownWithNoEligibleHeadings, options);
 
         // then
-        verifyZeroInteractions(buffer);
+        verifyNoInteractions(buffer);
 
         assertThat("Invokes main template block with details of extracted headers.",
             options.actualMainBlockTemplateParameters(),

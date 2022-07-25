@@ -1,12 +1,14 @@
 package uk.nhs.digital.ps.chart;
 
 import static org.hamcrest.CoreMatchers.sameInstance;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -20,10 +22,14 @@ public class DelegatingHighchartsInputParserTest {
 
     private DelegatingHighchartsInputParser delegatingHighchartsInputParser;
 
-    @Mock private SeriesHighchartsXlsxInputParser seriesHighchartsXlsxInputParser;
-    @Mock private ScatterHighchartsXlsxInputParser scatterHighchartsXlsxParser;
-    @Mock private HighchartsModel expectedSeriesChart;
-    @Mock private HighchartsParameters chartConfig;
+    @Mock
+    private SeriesHighchartsXlsxInputParser seriesHighchartsXlsxInputParser;
+    @Mock
+    private ScatterHighchartsXlsxInputParser scatterHighchartsXlsxParser;
+    @Mock
+    private HighchartsModel expectedSeriesChart;
+    @Mock
+    private HighchartsParameters chartConfig;
 
     @Before
     public void setUp() {
@@ -47,9 +53,9 @@ public class DelegatingHighchartsInputParserTest {
         AbstractHighchartsModel actualChart = delegatingHighchartsInputParser.parse(chartConfig);
 
         // then
-        assertThat("Returns value received from specialised parser", actualChart,
-            sameInstance(expectedSeriesChart));
-        verifyZeroInteractions(expectedSeriesChart);
+        assertEquals("Returns value received from specialised parser", actualChart,
+            expectedSeriesChart);
+        verifyNoInteractions(expectedSeriesChart);
     }
 
     @Test
@@ -64,8 +70,8 @@ public class DelegatingHighchartsInputParserTest {
         AbstractHighchartsModel actualChart = delegatingHighchartsInputParser.parse(chartConfig);
 
         // then
-        assertThat("Returns value received from specialised parser", actualChart,
-            sameInstance(expectedSeriesChart));
-        verifyZeroInteractions(expectedSeriesChart);
+        assertEquals("Returns value received from specialised parser", actualChart,
+            expectedSeriesChart);
+        verifyNoInteractions(expectedSeriesChart);
     }
 }

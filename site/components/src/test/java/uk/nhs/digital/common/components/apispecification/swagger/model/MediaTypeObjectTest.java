@@ -3,8 +3,7 @@ package uk.nhs.digital.common.components.apispecification.swagger.model;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.*;
 import static uk.nhs.digital.test.util.AssertionUtils.assertClassHasFieldWithAnnotationWithAttributeValue;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -51,12 +50,12 @@ public class MediaTypeObjectTest {
         assertThat("First example object comes is a value from the internal map",
             actualExample1, sameInstance(expectedExample1)
         );
-        verifyZeroInteractions(actualExample1);
+        verifyNoInteractions(actualExample1);
 
         final ExampleObject actualExample2 = actualExamples.get(1);
         assertThat("Second example object comes is a value from the internal map",
             actualExample2, sameInstance(expectedExample2)
         );
-        verifyZeroInteractions(actualExample2);
+        verifyNoInteractions(actualExample2);
     }
 }
