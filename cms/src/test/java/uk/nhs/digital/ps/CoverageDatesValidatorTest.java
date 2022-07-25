@@ -10,7 +10,6 @@ import static org.mockito.MockitoAnnotations.openMocks;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
@@ -25,10 +24,7 @@ public class CoverageDatesValidatorTest {
     private static final String HIPPO_COVERAGE_START_PROPERTY_NAME = "publicationsystem:CoverageStart";
     private static final String HIPPO_COVERAGE_END_PROPERTY_NAME = "publicationsystem:CoverageEnd";
     private static final String HIPPO_NOMINAL_DATE_PROPERTY_NAME = "publicationsystem:NominalDate";
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
+    
     @Mock
     private ValidationContext validationContext;
 

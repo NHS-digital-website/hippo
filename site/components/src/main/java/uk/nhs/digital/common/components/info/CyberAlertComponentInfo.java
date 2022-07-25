@@ -8,7 +8,7 @@ public interface CyberAlertComponentInfo {
         name = "Number to Display",
         required = true,
         defaultValue = "3",
-        description = "Number of alerts to display"
+        displayName = "Number of alerts to display"
     )
     int getNumberOfAlertsToDisplay();
 

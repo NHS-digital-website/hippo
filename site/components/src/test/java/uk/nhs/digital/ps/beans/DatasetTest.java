@@ -3,14 +3,13 @@ package uk.nhs.digital.ps.beans;
 import static java.util.Arrays.asList;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -58,18 +57,29 @@ public class DatasetTest {
     private static final String RELATED_LINKS_PROPERTY_KEY = "publicationsystem:RelatedLinks";
     private static final String RESOURCE_LINKS_PROPERTY_KEY = "publicationsystem:ResourceLinks";
 
-    @Mock private JCRValueProvider valueProvider;
-    @Mock private Node node;
-    @Mock private NodeIterator nodeIterator;
-    @Mock private ObjectConverter objectConverter;
-    @Mock private Node folderNode;
-    @Mock private HippoFolder folder;
-    @Mock private Publication publication;
+    @Mock
+    private JCRValueProvider valueProvider;
+    @Mock
+    private Node node;
+    @Mock
+    private NodeIterator nodeIterator;
+    @Mock
+    private ObjectConverter objectConverter;
+    @Mock
+    private Node folderNode;
+    @Mock
+    private HippoFolder folder;
+    @Mock
+    private Publication publication;
 
-    @Mock private HstRequestContext requestContext;
-    @Mock private HstQueryBuilder queryBuilder;
-    @Mock private HstQuery query;
-    @Mock private HstQueryResult queryResult;
+    @Mock
+    private HstRequestContext requestContext;
+    @Mock
+    private HstQueryBuilder queryBuilder;
+    @Mock
+    private HstQuery query;
+    @Mock
+    private HstQueryResult queryResult;
 
     private final Map<String, Object> beanProperties = new HashMap<>();
     private Dataset dataset;
@@ -135,7 +145,6 @@ public class DatasetTest {
                 startsWith("Property is not available when parent publication is flagged as 'not publicly accessible':")
             );
         } catch (final Exception exception) {
-            System.out.println(exception.getMessage());
             throw new Error("Failed to test '" + forbiddenGetter + " because of an error;"
                 + " see stack trace below for details.", exception
             );

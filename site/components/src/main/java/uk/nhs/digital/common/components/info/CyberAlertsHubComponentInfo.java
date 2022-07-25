@@ -10,7 +10,7 @@ public interface CyberAlertsHubComponentInfo extends EssentialsListComponentInfo
         name = "pageSize",
         required = true,
         defaultValue = "10",
-        description = "Nr of items per page"
+        displayName = "Nr of items per page"
         )
     int getPageSize();
 
