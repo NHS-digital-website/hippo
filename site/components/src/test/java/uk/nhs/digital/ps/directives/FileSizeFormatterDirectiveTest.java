@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.directives;
 
+import static org.junit.Assert.fail;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -10,9 +11,7 @@ import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import freemarker.core.Environment;
 import freemarker.template.*;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
 import java.io.Writer;
@@ -26,21 +25,16 @@ public class FileSizeFormatterDirectiveTest {
 
     private FileSizeFormatterDirective fileSizeFormatterDirective;
 
-    private Template template;
-    private Configuration configuration;
     private Environment environment;
     private TemplateModel[] loopVariables;
     private TemplateDirectiveBody body;
     private Map<String, SimpleNumber> parameters;
     private Writer writer;
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
     @Before
     public void setUp() throws Exception {
-        template = mock(Template.class);
-        configuration = mock(Configuration.class);
+        Template template = mock(Template.class);
+        Configuration configuration = mock(Configuration.class);
         Version version = new Version("2.3.28");
         given(template.getConfiguration()).willReturn(configuration);
         given(configuration.getIncompatibleImprovements()).willReturn(version);
@@ -100,18 +94,16 @@ public class FileSizeFormatterDirectiveTest {
         verify(writer).append(expectedOutput);
     }
 
-    @Test
+    @Test(expected = TemplateException.class)
     public void reportsErrorOnMissingRequriedParameter() throws Exception {
 
         // given
         parameters.remove(BYTES_COUNT_PARAM_NAME);
 
-        expectedException.expect(TemplateException.class);
-        expectedException.expectMessage("Required parameter 'bytesCount' was not provided to template uk.nhs.digital"
-            + ".ps.directives.FileSizeFormatterDirective.");
-
         // when
         fileSizeFormatterDirective.execute(environment, parameters, loopVariables, body);
+        fail("Required parameter 'bytesCount' was not provided to template uk.nhs.digital"
+            + ".ps.directives.FileSizeFormatterDirective.");
 
         // then
         // the framework asserts expected exception

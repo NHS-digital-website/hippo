@@ -7,7 +7,6 @@ import static org.hippoecm.repository.HippoStdNodeType.NT_FOLDER;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.externalstorage.ExternalStorageConstants.*;
 
@@ -32,7 +31,6 @@ public class ExternalFileCopyTaskTest {
     @Mock private WorkflowContext workflowContext;
     @Mock private PooledS3Connector s3Connector;
 
-    private Repository repository;
     private Session workflowSession;
 
     private ExternalFileCopyTask externalFileCopyTask;
@@ -41,7 +39,7 @@ public class ExternalFileCopyTaskTest {
     public void setUp() throws Exception {
         openMocks(this);
 
-        repository = MockJcr.newRepository();
+        Repository repository = MockJcr.newRepository();
         workflowSession = repository.login();
 
         externalFileCopyTask = new ExternalFileCopyTask();

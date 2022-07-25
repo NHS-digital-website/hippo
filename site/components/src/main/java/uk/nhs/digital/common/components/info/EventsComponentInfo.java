@@ -9,7 +9,7 @@ public interface EventsComponentInfo extends EssentialsEventsComponentInfo {
         name = "pageSize",
         required = true,
         defaultValue = "2",
-        description = "Nr of items per page"
+        displayName = "Nr of items per page"
         )
     int getPageSize();
 
@@ -52,7 +52,7 @@ public interface EventsComponentInfo extends EssentialsEventsComponentInfo {
         name = "sortOrder",
         required = false,
         defaultValue = "asc",
-        description = "Order results ascending or descending"
+        displayName = "Order results ascending or descending"
         )
     @DropDownList({"asc", "desc"})
     String getSortOrder();

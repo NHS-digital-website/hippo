@@ -13,13 +13,11 @@ import java.io.IOException;
 public class PlainTextStatisticHttpRequestInterceptor implements ClientHttpRequestInterceptor {
 
     @Override
-    public @NotNull ClientHttpResponse intercept(@NotNull HttpRequest request, byte @NotNull [] body, ClientHttpRequestExecution execution) throws IOException {
+    public @NotNull ClientHttpResponse intercept(@NotNull HttpRequest request, @NotNull byte [] body, ClientHttpRequestExecution execution) throws IOException {
         ClientHttpResponse response = execution.execute(request, body);
         MediaType contentType = execution.execute(request, body).getHeaders().getContentType();
-        if (contentType != null) {
-            if (contentType.getType().equalsIgnoreCase("text")) {
-                return new TextResponseWrapper(response, (String number) -> String.format("{ \"number\" : \"%s\" }", number));
-            }
+        if (contentType != null && contentType.getType().equalsIgnoreCase("text")) {
+            return new TextResponseWrapper(response, (String number) -> String.format("{ \"number\" : \"%s\" }", number));
         }
         return response;
     }

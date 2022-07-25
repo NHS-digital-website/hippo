@@ -10,7 +10,6 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.externalstorage.workflow.externalFilePublish.ExternalFilePublishTask.TAG_EARLY_ACCESS_KEY;
 import static uk.nhs.digital.externalstorage.workflow.externalFilePublish.ExternalFilePublishTask.TAG_PUBLICATION_DATE;
@@ -290,16 +289,11 @@ public class ExternalFilePublishTaskTest {
     }
 
     private Node getRandomDocumentType() throws RepositoryException {
-        Node randomTypeVariant = rootNode.addNode("test-document", "lorem:ipsum");
-
-        return randomTypeVariant;
+        return rootNode.addNode("test-document", "lorem:ipsum");
     }
 
     private Node getDataset() throws RepositoryException {
-        Node datasetVariant = rootNode
-            .addNode("test-document", PublicationSystemConstants.NODE_TYPE_DATASET);
-
-        return datasetVariant;
+        return rootNode.addNode("test-document", PublicationSystemConstants.NODE_TYPE_DATASET);
     }
 
     private void executeTask(Node document, ExternalFilePublishTask task)
