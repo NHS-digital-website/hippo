@@ -200,7 +200,7 @@ version.pprint:
 ## Ensure that commit message contains JIRA id
 check.commit-msg:
 	@git log -n1 --no-merges --pretty=%B > $(PWD)/.commit-msg
-	@head -n1 $(PWD)/.commit-msg | grep -E "^\[[A-Z]+-[0-9]+\]" || (echo "Missing JIRA id in the coomit message. Expecitng '[ABC-123] ...' but got" && cat .commit-msg && exit 1)
+	@head -n1 $(PWD)/.commit-msg | grep -E "^\[[A-Z]+-[0-9]+\]" || (echo "Missing JIRA id in the commit message. Expecting '[ABC-123] ...' but got" && cat .commit-msg && exit 1)
 	python $(PWD)/../.git-local/hooks/commit-msg $(PWD)/.commit-msg
 	@rm $(PWD)/.commit-msg
 
@@ -208,7 +208,7 @@ check.commit-msg:
 check.yaml:
 	cd .. && make format-yaml
 	@if git status | grep ".yaml" | grep "modified"; then \
-		echo "Modified yaml files found. Run 'make format-yaml' before submiting pull request."; \
+		echo "Modified yaml files found. Run 'make format-yaml' before submitting pull request."; \
 		exit 1; \
 	else \
 		echo "No YAML changes."; \
