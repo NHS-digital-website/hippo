@@ -25,6 +25,7 @@ jobs:
 
       # Step 2
       - name: Check commit message
+        if: ${{ github.actor != 'dependabot[bot]' }}
         run: make check.commit-msg
 
       # Step 3
