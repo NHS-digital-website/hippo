@@ -1,22 +1,17 @@
 package uk.nhs.digital.common.components.apispecification.swagger.model;
 
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import static uk.nhs.digital.test.util.ReflectionTestUtils.setField;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.google.common.collect.ImmutableMap;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import java.util.Optional;
 
 public class BodyWithMediaTypesExtractorTest {
-
-    @Rule public ExpectedException expectedException = ExpectedException.none();
 
     final BodyWithMediaTypesExtractor bodyWithMediaTypesExtractor = new BodyWithMediaTypesExtractor();
 
@@ -33,25 +28,16 @@ public class BodyWithMediaTypesExtractorTest {
             bodyWithMediaTypesExtractor.bodyObjectFromJsonSchema(parameterJsonDefinition, "<element type>");
 
         // then
-        assertThat("Returns a value.",
-            actualBodyObject.isPresent(),
-            is(true)
-        );
+        assertTrue("Returns a value.", actualBodyObject.isPresent());
 
-        assertThat("Returns RequestBody model matching the structure defined in JSON.",
-            actualBodyObject.get(),
-            is(expectedCompleteBodyWithMediaTypeObjects)
-        );
+        assertEquals("Returns RequestBody model matching the structure defined in JSON.", actualBodyObject.get(), expectedCompleteBodyWithMediaTypeObjects);
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void throwsException_withUnderlyingCause_onFailureToProcessCodegenParameter() {
 
         // given
         final String invalidParameterJsonDefinition = "{ invalid JSON }";
-
-        expectedException.expectMessage("Failed to extract body model of <element type>");
-        expectedException.expectCause(instanceOf(JsonParseException.class));
 
         // when
         bodyWithMediaTypesExtractor.bodyObjectFromJsonSchema(invalidParameterJsonDefinition, "<element type>");
