@@ -3,10 +3,10 @@ package uk.nhs.digital.common.components.apispecification.handlebars.schema;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.sameInstance;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
@@ -15,17 +15,13 @@ import com.github.jknack.handlebars.Options;
 import io.swagger.v3.oas.models.media.ObjectSchema;
 import io.swagger.v3.oas.models.media.Schema;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub;
 
 import java.io.IOException;
 
 public class IfRequiredHelperTest {
-
-    @Rule public ExpectedException expectedException = ExpectedException.none();
 
     @Mock private Options.Buffer buffer;
 
@@ -143,16 +139,12 @@ public class IfRequiredHelperTest {
         then(actualBuffer).should().append(TEMPLATE_CONTENT_FROM_INVERSE_BLOCK);
     }
 
-    @Test
+    @Test (expected = RuntimeException.class)
     public void throwsException_onAnyFailure() throws IOException {
 
         // given
         final RuntimeException expectedCause = new RuntimeException();
         given(buffer.append(any())).willThrow(expectedCause);
-
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage("Failed to render 'required' status.");
-        expectedException.expectCause(sameInstance(expectedCause));
 
         final Schema<?> irrelevantModel = new ObjectSchema();
 
@@ -160,6 +152,7 @@ public class IfRequiredHelperTest {
 
         // when
         ifRequiredHelper.apply(irrelevantModel, options);
+        fail("Failed to render 'required' status.");
 
         // then
         // expectations in 'given' are satisfied

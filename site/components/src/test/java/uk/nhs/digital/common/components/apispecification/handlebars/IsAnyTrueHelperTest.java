@@ -1,11 +1,10 @@
 package uk.nhs.digital.common.components.apispecification.handlebars;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.sameInstance;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
@@ -23,7 +22,7 @@ public class IsAnyTrueHelperTest {
 
     @Mock private Options.Buffer buffer;
 
-    private String item = "some-item";
+    private final String item = "some-item";
 
     @Before
     public void setUp() throws Exception {
