@@ -1,7 +1,6 @@
 package uk.nhs.digital.common.components.apispecification.commonmark;
 
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.commonmark.ext.gfm.tables.TableBlock;
@@ -19,7 +18,7 @@ public class HyperlinkAttributeProviderTest {
     @Mock
     private Map<String, String> attributes;
 
-    private HyperlinkAttributeProvider hyperlinkAttributeProvider = new HyperlinkAttributeProvider();
+    private final HyperlinkAttributeProvider hyperlinkAttributeProvider = new HyperlinkAttributeProvider();
 
     @Before
     public void setUp() {
@@ -50,6 +49,6 @@ public class HyperlinkAttributeProviderTest {
         hyperlinkAttributeProvider.setAttributes(nodeOtherThanLink, "tagName is ignored", attributes);
 
         // then
-        then(attributes).shouldHaveNoMoreInteractions();
+        then(attributes).shouldHaveNoInteractions();
     }
 }
