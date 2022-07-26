@@ -10,18 +10,12 @@ import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.awaitility.Awaitility.await;
 import static org.awaitility.Awaitility.with;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.anyOf;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
@@ -127,15 +121,14 @@ public class CmsSteps extends AbstractSpringSteps {
     @Given("^I am on the content page$")
     public void givenIAmOnContentPage() throws Throwable {
         loginSteps.loginAsCiEditor();
-        assertThat("Current page should be content page.", contentPage.openContentTab(), is(true));
+        assertTrue("Current page should be content page.", contentPage.openContentTab());
     }
 
     @When("^I create a fully populated publication$")
     public void whenICreateANewPublication() throws Throwable {
         final Publication publication = TestDataFactory.createFullyPopulatedPublication().build();
         testDataRepo.setPublication(publication);
-
-        assertThat("New publication created.", contentPage.newPublication(publication), is(true));
+        assertTrue("New publication created.", contentPage.newPublication(publication));
     }
 
     @When("^I create a publication with taxonomy$")
@@ -144,8 +137,7 @@ public class CmsSteps extends AbstractSpringSteps {
             .withTaxonomy(Taxonomy.createNew("Conditions", "Accidents and injuries", "Falls"))
             .build();
         testDataRepo.setPublication(publication);
-
-        assertThat("New publication created.", contentPage.newPublication(publication), is(true));
+        assertTrue("New publication created.", contentPage.newPublication(publication));
     }
 
     @Then("^an edit screen is displayed which allows me to populate details of the publication")
@@ -237,18 +229,12 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @Then("^the save is rejected with error message containing \"([^\"]+)\"$")
     public void validationErrorMessageIsShownAndContains(String errorMessageFragment) throws Throwable {
-
-        assertThat("Error message should be shown and contains",
-            contentPage.getErrorMessages(),
-            hasItem(containsString(errorMessageFragment)));
+        assertEquals("Error message should be shown and contains", contentPage.getErrorMessages(), errorMessageFragment);
     }
 
     @Then("^the modal save is rejected with error message containing \"([^\"]+)\"$")
     public void validationModalErrorMessageIsShownAndContains(String errorMessageFragment) throws Throwable {
-
-        assertThat("Error message should be shown and contains",
-            contentPage.getErrorMessageInModal(),
-            is(containsString(errorMessageFragment)));
+        assertEquals("Error message should be shown and contains", contentPage.getErrorMessageInModal(), errorMessageFragment);
     }
 
     // Scenario: Blank attachment field rejection =====================================================================
@@ -299,18 +285,14 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @Then("^Title is shown$")
     public void titleIsVisible() throws Throwable {
-        assertThat("Title is shown.",
-            sitePage.getDocumentTitle(), is(testDataRepo.getCurrentPublication().getTitle())
-        );
+        assertEquals("Title is shown.", sitePage.getDocumentTitle(), testDataRepo.getCurrentPublication().getTitle());
     }
 
     // Scenarios: Publication Date is displayed in full/in part ==============================
     @Then("^Publication Date field is shown$")
     public void nominalPublicationDateFieldIsVisible() throws Throwable {
-        assertThat("Publication Date field is shown.",
-            publicationPage.getNominalPublicationDate(),
-            is(testDataRepo.getCurrentPublication().getNominalPublicationDate().formattedInRespectToCutOff())
-        );
+        assertEquals("Publication Date field is shown.", publicationPage.getNominalPublicationDate(),
+            testDataRepo.getCurrentPublication().getNominalPublicationDate().formattedInRespectToCutOff());
     }
 
     @Then("^Disclaimer \"([^\"]*)\" is displayed$")
@@ -320,9 +302,7 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @Then("^All other publication's details are hidden$")
     public void allOtherDetailsAreHidden() throws Throwable {
-        assertThat("Fields that should be hidden for upcoming publication are hidden.",
-            publicationPage.getElementsHiddenWhenUpcoming(), is(empty())
-        );
+        assertNull("Fields that should be hidden for upcoming publication are hidden.", publicationPage.getElementsHiddenWhenUpcoming());
     }
 
     @Given("^I have a published publication with nominal date falling before (-?\\d+) (days|weeks|years) from now$")
@@ -401,9 +381,8 @@ public class CmsSteps extends AbstractSpringSteps {
             testDataRepo.getCurrentPublication().getNominalPublicationDate();
 
         final String expectedDate = nominalPublicationDate.inFormat(dateFormat);
+        assertEquals("Publication Date is formatted in a way consistent with pattern '" + dateFormat + "'", publicationPage.getNominalPublicationDate(), expectedDate);
 
-        assertThat("Publication Date is formatted in a way consistent with pattern '" + dateFormat + "'",
-            publicationPage.getNominalPublicationDate(), is(expectedDate));
     }
 
     private void createSeriesInEditableState() throws Throwable {
@@ -551,7 +530,7 @@ public class CmsSteps extends AbstractSpringSteps {
             matcher = not(anyOf(matchers.toArray(new Matcher[0])));
         }
 
-        assertThat("Menu options on the folder are as expected", actualOptions, matcher);
+        assertEquals("Menu options on the folder are as expected", actualOptions, matcher);
     }
 
     @Then("^I should see the document options:$")
@@ -559,7 +538,7 @@ public class CmsSteps extends AbstractSpringSteps {
         List<String> expectedDocumentTypes = options.asList(String.class);
         List<String> actualOptions = contentPage.getDocumentTypeOptions();
 
-        assertThat("Document option are as expected", actualOptions, containsInAnyOrder(expectedDocumentTypes.toArray()));
+        assertEquals("Document option are as expected", actualOptions, expectedDocumentTypes.toArray());
     }
 
     @Then("^I should see no document options$")
@@ -583,7 +562,7 @@ public class CmsSteps extends AbstractSpringSteps {
     public void thenIShouldSeeTheFolder(String not, String folder) throws Throwable {
         String[] folders = folder.split("/");
         boolean expectedPresent = isEmpty(not);
-        assertThat("Folder presence is as expected", contentPage.navigateToFolder(folders) != null, is(expectedPresent));
+        assertEquals("Folder presence is as expected", contentPage.navigateToFolder(folders) != null, expectedPresent);
     }
 
     @When("^I schedule the publication for publishing on \"([^\"]*)\"")
