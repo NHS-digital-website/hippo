@@ -9,7 +9,6 @@ import static org.mockito.ArgumentMatchers.refEq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_CONFIG;
 import static uk.nhs.digital.ps.chart.ChartType.AREA_MAP;
@@ -114,8 +113,8 @@ public class HighchartsInputConversionTaskTest {
         highchartsInputConversionTask.doExecute();
 
         // then
-        then(highchartsInputParser).shouldHaveZeroInteractions();
-        then(jsonSerialiser).shouldHaveZeroInteractions();
+        then(highchartsInputParser).shouldHaveNoInteractions();
+        then(jsonSerialiser).shouldHaveNoInteractions();
     }
 
     @Test

@@ -1,8 +1,8 @@
 package uk.nhs.digital.ps.chart.input;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -10,7 +10,6 @@ import static org.mockito.BDDMockito.given;
 import org.apache.jackrabbit.value.BinaryImpl;
 import org.apache.poi.ss.usermodel.Cell;
 import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -62,7 +61,8 @@ public class HighmapsXlsxInputParserTest {
 
         assertEquals(highmapsModel.getSeries().get(0).getName(), "Example Data");
         assertThat(highmapsModel.getSeries(), hasSize(1));
-        Assert.<List<Object[]>>assertThat(highmapsModel.getSeries().get(0).getData(), Matchers.contains(
+        List<Object> actualSeries = highmapsModel.getSeries().get(0).getData();
+        assertThat(actualSeries, Matchers.contains(
             new Object[]{"ie-irl", 10d},
             new Object[]{"gb-eng", 20d},
             new Object[]{"gb-wls", 30d},
