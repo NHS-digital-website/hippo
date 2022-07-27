@@ -2,15 +2,12 @@ package uk.nhs.digital.ps.chart;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.hippoecm.repository.impl.NodeDecorator;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
@@ -39,9 +36,6 @@ public class HighchartsDataFileValidatorTest {
 
     @Mock
     private Violation violation;
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     private HighchartsDataFileValidator highchartsDataFileValidator;
 
