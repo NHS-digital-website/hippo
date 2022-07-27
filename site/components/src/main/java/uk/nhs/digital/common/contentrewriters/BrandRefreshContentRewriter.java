@@ -74,7 +74,7 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
                         .getQueryManager()
                         .createQuery(nodes.nextNode(),
                             CustomizedAssetSet.class).execute().getHippoBeans().next();
-                    if (hp.getArchiveMaterial()) {
+                    if (hp.getArchiveMaterial() != null && hp.getArchiveMaterial()) {
                         ele.attr("rel", "archived");
                         ele.text(ele.text() + " [Archive Content]");
                     }
