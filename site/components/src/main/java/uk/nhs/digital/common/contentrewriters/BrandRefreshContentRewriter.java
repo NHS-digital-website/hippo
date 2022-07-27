@@ -1,5 +1,6 @@
 package uk.nhs.digital.common.contentrewriters;
 
+import org.apache.jackrabbit.util.ISO9075;
 import org.hippoecm.hst.configuration.hosting.*;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.request.*;
@@ -67,7 +68,7 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
                     String assetPath = ele.attr("href");
                     String assetQueryPath = assetPath.substring(assetPath.indexOf("/content"));
                     QueryManager jcrQueryManager = requestContext.getSession().getWorkspace().getQueryManager();
-                    Query jcrQuery = jcrQueryManager.createQuery("/jcr:root" + assetQueryPath, "xpath");
+                    Query jcrQuery = jcrQueryManager.createQuery("/jcr:root" + ISO9075.encodePath(assetQueryPath), "xpath");
                     QueryResult queryResult = jcrQuery.execute();
                     NodeIterator nodes = queryResult.getNodes();
                     CustomizedAssetSet hp = (CustomizedAssetSet) requestContext
