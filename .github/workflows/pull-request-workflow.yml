@@ -3,8 +3,7 @@ name: Pull Request Workflow
 on:
   pull_request:
     branches:
-      - master
-      - ADZ-1195_API_specification_branding_release
+      - cucumberjs-test
 
 jobs:
   build-and-test:
@@ -84,30 +83,41 @@ jobs:
 
       # Step 7
       - name: Test Project
-        run: make test.site
+        run: make test.cucumberjs
 
-      # Notify via Slack that the PR's 'build and test' failed
-      - name: "Send fail message"
-        if: failure()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: support
-          SLACK_ICON: 'https://avatars.slack-edge.com/2021-01-13/1630579512549_65b98dab3cfe3321e943_48.png'
-          SLACK_USERNAME: CI/CD Pipeline
-          SLACK_COLOR: '#ff0d0d'
-          SLACK_TITLE: PR Request 'build and test' failed
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_FOOTER: 'Oh yeah, I may have forgotten something.'
+      # Step 8
+      # Store test results as an artifact
+      - name: "Upload cucumber report"
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cucumber-report
+          path: |
+            acceptance-tests/src/test/node/cucumber-report.html
 
-      # Notify via Slack that the PR's 'build and test' succeeded
-      - name: "Send a success message"
-        if: success()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: support
-          SLACK_ICON: 'https://avatars.slack-edge.com/2021-01-13/1630579512549_65b98dab3cfe3321e943_48.png'
-          SLACK_USERNAME: CI/CD Pipeline
-          SLACK_COLOR: '#02ad0a'
-          SLACK_TITLE: PR Request 'build and test' succeeded
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_FOOTER: 'The Web Team are awesome!'
+      # Step 8
+      # Store test results as an artifact
+      - name: Read test summary
+        if: always()
+        id: testsummary
+        run: |
+          SUMMARY=$(cat acceptance-tests/src/test/node/cucumber-summary.txt)
+          SUMMARY="${SUMMARY//'%'/'%25'}"
+          SUMMARY="${SUMMARY//$'\n'/'%0A'}"
+          SUMMARY="${SUMMARY//$'\r'/'%0D'}"
+          echo "::set-output name=summary::$SUMMARY"
+
+      # Step 8
+      # Store test results as an artifact
+      - name: "Added PR comment"
+        if: always()
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `**Test Results** \n ${{steps.testsummary.outputs.summary}}`
+            })

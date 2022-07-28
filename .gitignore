@@ -26,6 +26,7 @@ target
 /acceptance-tests/src/test/node/test-results
 /acceptance-tests/src/test/node/playwright-report
 /acceptance-tests/src/test/node/cucumber-report.html
+/acceptance-tests/src/test/node/cucumber-summary.txt
 
 ## Hippo content and config
 /repository-data/application/src/main/resources/hcm-content/content/documents/publicationsystem/publications/*
