@@ -6,7 +6,7 @@ const site = 'http://localhost:8080/site';
 
 Given('I navigate to the {string} page', {timeout: 3 * 5000}, async function (page: string) {
     const url = getPage(page);
-    await this.openUrl(site + url);
+    return await this.openUrl(site + url);
 });
 
 Then('I should see page titled {string}', async function (pageTitle: string) {

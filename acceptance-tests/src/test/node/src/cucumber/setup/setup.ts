@@ -1,4 +1,13 @@
-import { After, Status } from '@cucumber/cucumber';
+//testing
+import {After, Before, Status} from '@cucumber/cucumber';
+
+Before({ tags: '@chrome' }, function () {
+    this.browser = 'chrome';
+});
+
+Before({ tags: '@firefox' }, function () {
+    this.browser = 'firefox';
+});
 
 After(async function(scenario) {
     if (scenario.result && scenario.result.status === Status.FAILED) {
