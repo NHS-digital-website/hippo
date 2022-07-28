@@ -191,7 +191,7 @@
         <jackson-coreutils.version>1.8</jackson-coreutils.version>
         <jackson-dataformat-xml.version>2.11.2</jackson-dataformat-xml.version>
         <javax.mail.version>1.4.7</javax.mail.version>
-        <jcr-mock.version>1.5.2</jcr-mock.version>
+        <jcr-mock.version>1.6.0</jcr-mock.version>
         <joda-time.version>2.10.10</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
         <json.version>20180813</json.version>
