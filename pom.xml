@@ -82,7 +82,7 @@
         -->
         <bloomreach.version>14.7.0</bloomreach.version>
         <bloomreach.essential.dashboard>14.6.0</bloomreach.essential.dashboard>
-        <h2.database.version>1.4.200</h2.database.version>
+        <h2.database.version>2.1.214</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
 
