@@ -4,6 +4,7 @@ import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
@@ -12,9 +13,7 @@ import static uk.nhs.digital.test.util.TimeTestUtils.calendarFrom;
 
 import org.apache.jackrabbit.value.DateValue;
 import org.apache.jackrabbit.value.StringValue;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.onehippo.repository.mock.MockNode;
 import org.onehippo.repository.mock.MockNodeIterator;
 import uk.nhs.digital.toolbox.exception.ExceptionUtils;
@@ -28,8 +27,6 @@ import java.util.stream.Stream;
 import javax.jcr.*;
 
 public class JcrNodeUtilsTest {
-
-    @Rule public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void streamOf_returnsNodesFromNodeIteratorAsStream() {
@@ -72,7 +69,7 @@ public class JcrNodeUtilsTest {
         );
     }
 
-    @Test
+    @Test(expected = ExceptionUtils.UncheckedWrappingException.class)
     public void getSessionQuietly_throwsException_onFailure() throws RepositoryException {
 
         // given
@@ -80,9 +77,6 @@ public class JcrNodeUtilsTest {
 
         final Node node = mock(Node.class);
         given(node.getSession()).willThrow(repositoryException);
-
-        expectedException.expect(ExceptionUtils.UncheckedWrappingException.class);
-        expectedException.expectCause(sameInstance(repositoryException));
 
         // when
         JcrNodeUtils.getSessionQuietly(node);
@@ -117,7 +111,7 @@ public class JcrNodeUtilsTest {
         );
     }
 
-    @Test
+    @Test(expected = ExceptionUtils.UncheckedWrappingException.class)
     public void getStringPropertyQuietly_throwsException_onFailure() throws RepositoryException {
 
         // given
@@ -126,9 +120,6 @@ public class JcrNodeUtilsTest {
         final Node node = mock(Node.class);
         given(node.getProperty(any())).willThrow(repositoryException);
         given(node.hasProperty(any())).willReturn(true);
-
-        expectedException.expect(ExceptionUtils.UncheckedWrappingException.class);
-        expectedException.expectCause(sameInstance(repositoryException));
 
         // when
         JcrNodeUtils.getStringPropertyQuietly(node, "aProperty");
@@ -153,7 +144,7 @@ public class JcrNodeUtilsTest {
         then(node).should().setProperty(expectedPropertyName, expectedPropertyValue);
     }
 
-    @Test
+    @Test(expected = ExceptionUtils.UncheckedWrappingException.class)
     public void setStringPropertyQuietly_throwsException_onFailure() throws RepositoryException {
 
         // given
@@ -161,9 +152,6 @@ public class JcrNodeUtilsTest {
 
         final Node node = mock(Node.class);
         given(node.setProperty(any(String.class), any(String.class))).willThrow(repositoryException);
-
-        expectedException.expect(ExceptionUtils.UncheckedWrappingException.class);
-        expectedException.expectCause(sameInstance(repositoryException));
 
         // when
         JcrNodeUtils.setStringPropertyQuietly(node, "aPropertyName", "aPropertyValue");
@@ -264,7 +252,7 @@ public class JcrNodeUtilsTest {
         );
     }
 
-    @Test
+    @Test(expected = ExceptionUtils.UncheckedWrappingException.class)
     public void getInstantPropertyQuietly_throwsException_onFailure() throws RepositoryException {
 
         // given
@@ -273,9 +261,6 @@ public class JcrNodeUtilsTest {
         final Node node = mock(Node.class);
         given(node.getProperty(any(String.class))).willThrow(repositoryException);
         given(node.hasProperty(any(String.class))).willReturn(true);
-
-        expectedException.expect(ExceptionUtils.UncheckedWrappingException.class);
-        expectedException.expectCause(sameInstance(repositoryException));
 
         // when
         JcrNodeUtils.getInstantPropertyQuietly(node, "aPropertyName");
@@ -391,18 +376,16 @@ public class JcrNodeUtilsTest {
         // no exception is thrown
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void validateIsOfTypeHandle_throwsException_whenItsJcrPrimaryTypeIsNotHippoHandle() throws RepositoryException {
 
         // given
         final Node node = mock(Node.class);
         given(node.isNodeType("hippo:handle")).willReturn(false);
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage("Node's 'jcr:primaryType' property has to be of type 'hippo:handle'");
-
         // when
         JcrNodeUtils.validateIsOfTypeHandle(node);
+        fail("Node's 'jcr:primaryType' property has to be of type 'hippo:handle'");
 
         // then
         // expectations set in 'given' are satisfied

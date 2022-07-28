@@ -3,20 +3,18 @@ package uk.nhs.digital.apispecs;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hippoecm.repository.util.WorkflowUtils.Variant.*;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static org.powermock.api.mockito.PowerMockito.*;
 
 import org.hippoecm.repository.api.Document;
 import org.hippoecm.repository.util.WorkflowUtils;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.onehippo.forge.content.exim.core.DocumentManager;
@@ -38,8 +36,6 @@ import javax.jcr.Session;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JcrDocumentUtils.class, JcrNodeUtils.class, WorkflowUtils.class})
 public class JcrDocumentLifecycleSupportTest {
-
-    @Rule public ExpectedException expectedException = ExpectedException.none();
 
     @Mock private Node documentHandleNode;
     @Mock private Node draftNodeCheckedOut;
@@ -78,7 +74,7 @@ public class JcrDocumentLifecycleSupportTest {
         then(draftNodeCheckedOut).should().setProperty(expectedPropertyName, expectedPropertyValue);
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void setStringPropertyWithCheckout_throwsException_onFailure() {
 
         // given
@@ -90,19 +86,16 @@ public class JcrDocumentLifecycleSupportTest {
         mockStatic(JcrDocumentUtils.class);
         given(JcrDocumentUtils.documentManagerFor(any())).willThrow(originalException);
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage(startsWith("Failed to update property " + expectedPropertyName + " on "));
-        expectedException.expectCause(sameInstance(originalException));
-
         // when
         jcrDocumentLifecycleSupport.setStringPropertyWithCheckout(expectedPropertyName, expectedPropertyValue);
+        fail("Failed to update property " + expectedPropertyName + " on ");
 
         // then
         // expectations set in 'given' are satisfied
     }
 
     @Test
-    public void getStringProperty_returnsPropertyValueFromNodeOfRequestedDocumentVariant() throws RepositoryException {
+    public void getStringProperty_returnsPropertyValueFromNodeOfRequestedDocumentVariant() {
 
         // given
         final String propertyName = "aPropertyName";
@@ -139,7 +132,7 @@ public class JcrDocumentLifecycleSupportTest {
         JcrNodeUtils.getStringPropertyQuietly(documentVariantNode, propertyName);
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void getStringProperty_throwsException_onFailure() {
 
         // given
@@ -148,8 +141,6 @@ public class JcrDocumentLifecycleSupportTest {
         mockStatic(WorkflowUtils.class);
         given(WorkflowUtils.getDocumentVariantNode(any(Node.class), any(WorkflowUtils.Variant.class)))
             .willThrow(collaboratorException);
-
-        expectedException.expect(sameInstance(collaboratorException));
 
         // when
         jcrDocumentLifecycleSupport.getStringProperty("aPropertyName", UNPUBLISHED);
@@ -179,7 +170,7 @@ public class JcrDocumentLifecycleSupportTest {
         then(documentVariantNode).should().setProperty(expectedPropertyName, expectedCalendar);
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void setInstantPropertyNoCheckout_throwsException_onFailure() {
 
         // given
@@ -191,19 +182,16 @@ public class JcrDocumentLifecycleSupportTest {
         mockStatic(WorkflowUtils.class);
         given(WorkflowUtils.getDocumentVariantNode(any(), any())).willThrow(originalException);
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage(startsWith("Failed to update property " + expectedPropertyName + " on "));
-        expectedException.expectCause(sameInstance(originalException));
-
         // when
         jcrDocumentLifecycleSupport.setInstantPropertyNoCheckout(expectedPropertyName, PUBLISHED, expectedPropertyValue);
 
+        fail("Failed to update property " + expectedPropertyName + " on ");
         // then
         // expectations set in 'given' are satisfied
     }
 
     @Test
-    public void getInstantProperty_returnsPropertyValueFromNodeOfRequestedDocumentVariant() throws RepositoryException {
+    public void getInstantProperty_returnsPropertyValueFromNodeOfRequestedDocumentVariant() {
 
         // given
         final String propertyName = "aPropertyName";
@@ -260,7 +248,7 @@ public class JcrDocumentLifecycleSupportTest {
         then(documentVariantNode).should().setProperty(expectedPropertyName, expectedPropertyValue);
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void setStringPropertyNoCheckout_throwsException_onFailure() {
 
         // given
@@ -272,12 +260,9 @@ public class JcrDocumentLifecycleSupportTest {
         mockStatic(WorkflowUtils.class);
         given(WorkflowUtils.getDocumentVariantNode(any(), any())).willThrow(originalException);
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage(startsWith("Failed to update property " + expectedPropertyName + " on "));
-        expectedException.expectCause(sameInstance(originalException));
-
         // when
         jcrDocumentLifecycleSupport.setStringPropertyNoCheckout(expectedPropertyName, PUBLISHED, expectedPropertyValue);
+        fail("Failed to update property " + expectedPropertyName + " on ");
 
         // then
         // expectations set in 'given' are satisfied
@@ -319,7 +304,7 @@ public class JcrDocumentLifecycleSupportTest {
         JcrNodeUtils.getInstantPropertyQuietly(documentVariantNode, expectedPropertyName);
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void getLastPublicationInstant_throwsException_onFailure() {
 
         // given
@@ -328,8 +313,6 @@ public class JcrDocumentLifecycleSupportTest {
         mockStatic(WorkflowUtils.class);
         given(WorkflowUtils.getDocumentVariantNode(any(Node.class), any(WorkflowUtils.Variant.class)))
             .willThrow(collaboratorException);
-
-        expectedException.expect(sameInstance(collaboratorException));
 
         // when
         jcrDocumentLifecycleSupport.getLastPublicationInstant();
@@ -370,7 +353,7 @@ public class JcrDocumentLifecycleSupportTest {
         then(documentManager).should(never()).commitEditableDocument(any(Document.class));
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void save_throwsException_onFailure() {
 
         // given
@@ -380,12 +363,9 @@ public class JcrDocumentLifecycleSupportTest {
         given(JcrNodeUtils.getSessionQuietly(any(Node.class)))
             .willThrow(collaboratorException);
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage(startsWith("Failed to save"));
-        expectedException.expectCause(sameInstance(collaboratorException));
-
         // when
         jcrDocumentLifecycleSupport.save();
+        fail("Failed to save");
 
         // then
         // expectations set in 'given' are satisfied
@@ -429,7 +409,7 @@ public class JcrDocumentLifecycleSupportTest {
         JcrDocumentUtils.publish(documentHandleNode);
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void saveAndPublish_throwsException_onSaveFailure() {
 
         // given
@@ -442,18 +422,16 @@ public class JcrDocumentLifecycleSupportTest {
         given(JcrNodeUtils.getSessionQuietly(any(Node.class)))
             .willThrow(collaboratorException);
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage(startsWith("Failed to save"));
-        expectedException.expectCause(sameInstance(collaboratorException));
-
         // when
         jcrDocumentLifecycleSupport.saveAndPublish();
+
+        fail("Failed to save");
 
         // then
         // expectations set in 'given' are satisfied
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void saveAndPublish_throwsException_onPublishFailure() throws Exception {
 
         // given
@@ -465,12 +443,9 @@ public class JcrDocumentLifecycleSupportTest {
         mockStatic(JcrDocumentUtils.class);
         doThrow(collaboratorException).when(JcrDocumentUtils.class, "publish", documentHandleNode);
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage(startsWith("Failed to publish"));
-        expectedException.expectCause(sameInstance(collaboratorException));
-
         // when
         jcrDocumentLifecycleSupport.saveAndPublish();
+        fail("Failed to publish");
 
         // then
         // expectations set in 'given' are satisfied
@@ -496,18 +471,17 @@ public class JcrDocumentLifecycleSupportTest {
         );
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void from_throwsException_whenNodeNotOfTypeHandle() throws RepositoryException {
 
         // given
         given(documentHandleNode.isNodeType("hippo:handle")).willReturn(false);
         given(documentHandleNode.toString()).willReturn("testDocumentHandleNode");
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage("Failed to create document object for testDocumentHandleNode");
-
         // when
         JcrDocumentLifecycleSupport.from(documentHandleNode);
+
+        fail("Failed to create document object for testDocumentHandleNode");
 
         // then
         // expectations set up in 'given' are satisfied
