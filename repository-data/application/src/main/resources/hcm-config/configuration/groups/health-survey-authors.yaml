@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:groups/health-survey-authors:
+    /hippo:configuration/hippo:groups/health-survey-author:
       hipposys:description: Health survey author users ONLY have access to documents
         in /corporate-website/publication-system/statistical/
       hipposys:securityprovider: internal

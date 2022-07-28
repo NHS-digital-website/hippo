@@ -1,14 +1,14 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:domains/health-survey-authors:
+    /hippo:configuration/hippo:domains/health-survey-author:
       /author:
         hipposys:groups:
           .meta:add-new-system-values: true
           .meta:category: system
           type: string
           value:
-          - health-survey-authors
+          - health-survey-author
         hipposys:role: author
         jcr:primaryType: hipposys:authrole
       /child-measurement-programme:
@@ -53,7 +53,7 @@ definitions:
           .meta:category: system
           type: string
           value:
-          - health-survey-authors
+          - health-survey-author
         hipposys:role: readwrite
         jcr:primaryType: hipposys:authrole
       jcr:primaryType: hipposys:domain
