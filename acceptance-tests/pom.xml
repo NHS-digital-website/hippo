@@ -270,6 +270,7 @@
                             <workingDirectory>${website.basedir}/acceptance-tests/src/test/node</workingDirectory>
                             <environmentVariables>
                                 <NODE_ENV>${NODE_ENV}</NODE_ENV>
+                                <CUCUMBER_PUBLISH_TOKEN>45cd9712-edce-4038-8782-64b7364d71ea</CUCUMBER_PUBLISH_TOKEN>
                             </environmentVariables>
                         </configuration>
                         <executions>

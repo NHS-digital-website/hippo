@@ -7,6 +7,6 @@ module.exports = {
             'src/cucumber/setup/**/*.ts',
             'src/cucumber/step_definitions/**/*.ts'
         ],
-        publishQuiet: true
+        publish: true,
     }
 }

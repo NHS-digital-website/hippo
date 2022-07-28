@@ -68,7 +68,8 @@ test.playwright:
 
 test.cucumberjs:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
-		-Pacceptance-test-hippo,cucumberjs-test
+		-Dcucumber.options="src/test/resources/features/site" \
+		-Pacceptance-test-hippo,acceptance-test,cucumberjs-test
 
 test.playwright-running:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
