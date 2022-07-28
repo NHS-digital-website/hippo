@@ -4,7 +4,7 @@ import getPage from './pages';
 
 const site = 'http://localhost:8080/site';
 
-Given('I navigate to the {string} page', {timeout: 2 * 5000}, async function (page: string) {
+Given('I navigate to the {string} page', {timeout: 3 * 5000}, async function (page: string) {
     const url = getPage(page);
     await this.openUrl(site + url);
 });
