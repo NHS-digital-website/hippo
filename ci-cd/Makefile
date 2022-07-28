@@ -66,6 +66,10 @@ test.playwright:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Pacceptance-test-hippo,playwrite-test
 
+test.cucumberjs:
+	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Pacceptance-test-hippo,cucumberjs-test
+
 test.playwright-running:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Pplaywrite-test
