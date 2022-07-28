@@ -10,7 +10,7 @@ public interface LatestBlogComponentInfo extends EssentialsListComponentInfo {
         name = "pageSize",
         required = true,
         defaultValue = "2",
-        description = "Nr of items per page"
+        displayName = "Nr of items per page"
         )
     int getPageSize();
 

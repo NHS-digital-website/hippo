@@ -46,7 +46,6 @@ import java.util.Map;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 
-
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.management.*", "javax.script.*"})
 @PowerMockRunnerDelegate(DataProviderRunner.class)
@@ -125,7 +124,7 @@ public class DatasetTest {
     @Test
     @UseDataProvider("gettersForbiddenInUpcomingPublication")
     public void restrictsGetters_whenPublicationNotPubliclyAvailable(
-        final Method forbiddenGetter) throws Exception {
+        final Method forbiddenGetter) {
 
         // given
         given(publication.isPubliclyAccessible()).willReturn(false);
@@ -153,7 +152,7 @@ public class DatasetTest {
 
     @Test
     @UseDataProvider("allPublicGetters")
-    public void permitsAllGetters_whenPublicationFlaggedAsPubliclyAvailable(final Method permittedGetter) throws Exception {
+    public void permitsAllGetters_whenPublicationFlaggedAsPubliclyAvailable(final Method permittedGetter) {
 
         // given
         given(publication.isPubliclyAccessible()).willReturn(true);
