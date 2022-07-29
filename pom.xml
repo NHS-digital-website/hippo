@@ -102,7 +102,7 @@
         <!-- Set to 1 for testing (once 1 event is queued, it's considered a batch).
         In production, start with a setting of "10" and adjust as necessary. -->
         <splunk.batch.size.count>1</splunk.batch.size.count>
-        <splunk.version>1.9.0</splunk.version>
+        <splunk.version>1.11.5</splunk.version>
 
         <externalstorage.aws.bucket></externalstorage.aws.bucket>
         <externalstorage.aws.region></externalstorage.aws.region>
