@@ -163,7 +163,7 @@
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
         <awaitility.version>4.2.0</awaitility.version>
-        <aws-java-sdk.version>1.12.218</aws-java-sdk.version>
+        <aws-java-sdk.version>1.12.271</aws-java-sdk.version>
         <aws.sdk-bom.version>2.16.1</aws.sdk-bom.version>
         <batik.version>1.14</batik.version>
         <commons-codec.version>1.15</commons-codec.version>
