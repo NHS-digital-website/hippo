@@ -8,7 +8,7 @@
 
     <#local headingClass = (section.headingLevel?has_content && section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines') />
 
-    <div ${section.heading?has_content?then('id="' + slugify(section.heading) + '"', '')}>
+    <div ${section.heading?has_content?then('id=' + slugify(section.heading), '')}>
         <#if section.heading?has_content>
             <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
                 <p class="nhsd-t-heading-l">${section.title}</p>
