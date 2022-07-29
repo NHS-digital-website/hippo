@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.website.beans.CustomizedAssetSet;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -57,16 +58,19 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         // bullet point list
         docSelect(document, "ul", "nhsd-t-list nhsd-t-list--bullet");
 
-        // external link
+        // external or internal link
         if (document.select("a").first() != null) {
             document.select("a").attr("class", "nhsd-a-link");
-            List<Element> lsElements = document.select("a").stream().filter(a -> a.attr("href").contains("/binaries/content/assets")).collect(Collectors.toList());
+            List<Element> lsElements = document.select("a").stream().filter(a -> a.attr("href").contains("/binaries/content/assets")
+                    && !(a.attr("href").contains("https://") || a.attr("href").contains("http://")))
+                .collect(Collectors.toList());
 
             for (Element ele : lsElements) {
                 LOGGER.debug("Element " + ele);
                 try {
                     String assetPath = ele.attr("href");
                     String assetQueryPath = assetPath.substring(assetPath.indexOf("/content"));
+                    LOGGER.debug("Query Path is  " + assetQueryPath);
                     QueryManager jcrQueryManager = requestContext.getSession().getWorkspace().getQueryManager();
                     Query jcrQuery = jcrQueryManager.createQuery("/jcr:root" + ISO9075.encodePath(assetQueryPath), "xpath");
                     QueryResult queryResult = jcrQuery.execute();
@@ -79,8 +83,8 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
                         ele.attr("rel", "archived");
                         ele.text(ele.text() + " [Archive Content]");
                     }
-                } catch (RepositoryException | QueryException e) {
-                    LOGGER.error(" Error updating Asset link ", e);
+                } catch (NoSuchElementException | RepositoryException | QueryException e) {
+                    LOGGER.warn(" Error updating Asset link ", e.getMessage());
                 }
 
             }
