@@ -135,11 +135,16 @@
                     <#list index as i>
                         <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
                     </#list>
-                    <@stickyNavSections getStickySectionNavLinks({
+                    <#assign links = getStickySectionNavLinks({
                         "document": document,
                         "sections": links,
                         "keepBundles": ["publicationsystem.change","publicationsystem.survey","publicationsystem.interactive","publicationsystem.labels","publicationsystem.headers"]
                     })/>
+                    <#if publication.relatedLinks?has_content>
+                        <@fmt.message key="headers.related-links" var="relatedLinksHeader" />
+                        <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
+                    </#if>
+                    <@stickyNavSections links />
                 </div>
                 <div class="nhsd-t-col-xs-12 nhsd-t-off-s-1 nhsd-t-col-s-8 js-publication-body" data-uipath="ps.publication.body">
                     <#if document.publication??>
