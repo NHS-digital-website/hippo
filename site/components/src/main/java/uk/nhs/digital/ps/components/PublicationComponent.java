@@ -27,7 +27,6 @@ public class PublicationComponent extends ContentRewriterComponent {
     private static final String DATASETS_ID = "Data sets";
     private static final String RESOURCES_ID = "Resources";
     private static final String SUPPLEMENTARY_INFO_ID = "Supplementary information requests";
-    private static final String RELATED_LINKS_ID = "Related links";
 
     private static final Logger LOG = LoggerFactory.getLogger(PublicationComponent.class);
 
@@ -83,10 +82,6 @@ public class PublicationComponent extends ContentRewriterComponent {
             }
         } catch (QueryException e) {
             LOG.error("Error getting related supplementary info", e);
-        }
-
-        if (isNotEmpty(publication.getRelatedLinks())) {
-            index.add(RELATED_LINKS_ID);
         }
 
         return index;
