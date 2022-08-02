@@ -47,6 +47,11 @@ public class Series extends BaseDocument {
         return getSingleProperty("publicationsystem:ShowLatest", false);
     }
 
+    @HippoEssentialsGenerated(internalName = "common:SearchableTags")
+    public String[] getSearchableTags() {
+        return getMultipleProperty("common:SearchableTags");
+    }
+
     @HippoEssentialsGenerated(internalName = "publicationsystem:attachments")
     public List<ExtAttachment> getAttachments() {
         return getChildBeansIfPermitted("publicationsystem:attachments", ExtAttachment.class);
@@ -67,10 +72,6 @@ public class Series extends BaseDocument {
 
     public List<String> getFullTaxonomyList() {
         return HippoBeanHelper.getFullTaxonomyList(this);
-    }
-
-    public List<String> getTaxonomyList() {
-        return HippoBeanHelper.getTaxonomyList(this);
     }
 
     public String[] getGeographicCoverage() {

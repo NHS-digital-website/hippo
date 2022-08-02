@@ -51,7 +51,6 @@
 
     <#assign authors = authorInfo(item) />
     <@hst.link var="cardLink" hippobean=item/>
-
     <#assign cardData = {
         'title': item.title,
         'link': cardLink,
@@ -108,7 +107,7 @@
         <#assign cardData += {
             'background': 'white',
             'tags': tags,
-            'threat': (item.taxonomyList)!"",
+            'threat': (item.searchableTags)!"",
             'frequency': (item.properties["publicationsystem:frequency"])!"",
             'from': (item.publicationDates[0])!"",
             'to': (item.publicationDates[item.publicationDates?size - 1])!"",

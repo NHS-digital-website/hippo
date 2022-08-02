@@ -1,0 +1,11 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/nhsd-coronavirus/main/white-space-component1:
+      .meta:order-before: callToActionRich
+      hst:componentclassname: uk.nhs.digital.common.components.WhiteSpaceComponent
+      hst:iconpath: images/essentials/catalog-component-icons/spacer.png
+      hst:label: Whitespace
+      hst:template: white-space
+      hst:xtype: hst.item
+      jcr:primaryType: hst:containeritemcomponent

@@ -94,13 +94,7 @@
                                                             <#if value gt 0>
                                                                 <#assign filterSize = "(${value})" />
                                                             </#if>
-                                                            <span class="nhsd-a-checkbox__label nhsd-t-body-s">
-                                                            <#if filterName = "Topic">
-                                                                ${topicMap[filterOption]}
-                                                            <#else>
-                                                                ${filterOption}
-                                                            </#if>
-                                                            ${filterSize}</span>
+                                                            <span class="nhsd-a-checkbox__label nhsd-t-body-s">${filterOption} ${filterSize}</span>
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </span>

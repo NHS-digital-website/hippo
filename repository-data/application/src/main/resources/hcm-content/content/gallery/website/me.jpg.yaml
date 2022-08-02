@@ -1,0 +1,301 @@
+---
+/content/gallery/website/me.jpg:
+  .meta:order-before: ft-one.jpeg
+  /me.jpg:
+    /hippogallery:original:
+      hippogallery:height: 1072
+      hippogallery:width: 1079
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/original/original.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /hippogallery:thumbnail:
+      hippo:filename: me.jpg
+      hippogallery:height: 59
+      hippogallery:width: 60
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/thumbnail/thumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhoto:
+      hippogallery:height: 50
+      hippogallery:width: 50
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/authorPhoto/authorPhoto.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhoto2x:
+      hippogallery:height: 100
+      hippogallery:width: 100
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/authorPhoto2x/authorPhoto2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhotoLarge:
+      hippogallery:height: 200
+      hippogallery:width: 200
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/authorPhotoLarge/authorPhotoLarge.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhotoLarge2x:
+      hippogallery:height: 400
+      hippogallery:width: 400
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/authorPhotoLarge2x/authorPhotoLarge2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:blogIndexThumb:
+      hippogallery:height: 240
+      hippogallery:width: 468
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/blogIndexThumb/blogIndexThumb.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:blogIndexThumb2x:
+      hippogallery:height: 480
+      hippogallery:width: 936
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/blogIndexThumb2x/blogIndexThumb2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumb:
+      hippogallery:height: 184
+      hippogallery:width: 468
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/homeBlogThumb/homeBlogThumb.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumb2x:
+      hippogallery:height: 368
+      hippogallery:width: 936
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/homeBlogThumb2x/homeBlogThumb2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumbSmall:
+      hippogallery:height: 184
+      hippogallery:width: 341
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumbSmall2x:
+      hippogallery:height: 368
+      hippogallery:width: 682
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/homeBlogThumbSmall2x/homeBlogThumbSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsFeaturedPost:
+      hippogallery:height: 463
+      hippogallery:width: 467
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/newsFeaturedPost/newsFeaturedPost.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsFeaturedPost2x:
+      hippogallery:height: 927
+      hippogallery:width: 934
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/newsFeaturedPost2x/newsFeaturedPost2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImage:
+      hippogallery:height: 635
+      hippogallery:width: 640
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/newsPostImage/newsPostImage.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImage2x:
+      hippogallery:height: 1072
+      hippogallery:width: 1079
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/newsPostImage2x/newsPostImage2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImageLarge:
+      hippogallery:height: 985
+      hippogallery:width: 991
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/newsPostImageLarge/newsPostImageLarge.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImageLarge2x:
+      hippogallery:height: 1072
+      hippogallery:width: 1079
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/newsPostImageLarge2x/newsPostImageLarge2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsThumbnail:
+      hippogallery:height: 153
+      hippogallery:width: 154
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/newsThumbnail/newsThumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsThumbnail2x:
+      hippogallery:height: 306
+      hippogallery:width: 308
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/newsThumbnail2x/newsThumbnail2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:oldArticleThumbnail:
+      hippogallery:height: 612
+      hippogallery:width: 616
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/oldArticleThumbnail/oldArticleThumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:oldArticleThumbnail2x:
+      hippogallery:height: 1072
+      hippogallery:width: 1079
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/oldArticleThumbnail2x/oldArticleThumbnail2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModule:
+      hippogallery:height: 825
+      hippogallery:width: 830
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModule2x:
+      hippogallery:height: 1072
+      hippogallery:width: 1079
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/pageHeaderHeroModule2x/pageHeaderHeroModule2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModuleSmall:
+      hippogallery:height: 375
+      hippogallery:width: 375
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModuleSmall2x:
+      hippogallery:height: 750
+      hippogallery:width: 750
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/pageHeaderHeroModuleSmall2x/pageHeaderHeroModuleSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBanner:
+      hippogallery:height: 500
+      hippogallery:width: 1270
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBanner2x:
+      hippogallery:height: 1000
+      hippogallery:width: 2540
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/pageHeaderSlimBanner2x/pageHeaderSlimBanner2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBannerSmall:
+      hippogallery:height: 372
+      hippogallery:width: 375
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBannerSmall2x:
+      hippogallery:height: 745
+      hippogallery:width: 750
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/pageHeaderSlimBannerSmall2x/pageHeaderSlimBannerSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:postImageSmall:
+      hippogallery:height: 340
+      hippogallery:width: 343
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/postImageSmall/postImageSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:postImageSmall2x:
+      hippogallery:height: 681
+      hippogallery:width: 686
+      jcr:data:
+        resource: /content/gallery/website/me.jpg/me.jpg/postImageSmall2x/postImageSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-03-22T08:19:14.437Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    hippo:availability:
+    - live
+    - preview
+    hippogallery:filename: me.jpg
+    jcr:primaryType: website:corporateWebsiteImageset
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -1,0 +1,301 @@
+---
+/content/gallery/website/ft-one-trans.jpeg:
+  .meta:order-before: award.jpg
+  /ft-one-trans.jpeg:
+    /hippogallery:original:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/original/original.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /hippogallery:thumbnail:
+      hippo:filename: ft-one-trans.jpeg
+      hippogallery:height: 30
+      hippogallery:width: 60
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/thumbnail/thumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhoto:
+      hippogallery:height: 50
+      hippogallery:width: 50
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/authorPhoto/authorPhoto.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhoto2x:
+      hippogallery:height: 100
+      hippogallery:width: 100
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/authorPhoto2x/authorPhoto2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhotoLarge:
+      hippogallery:height: 200
+      hippogallery:width: 200
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/authorPhotoLarge/authorPhotoLarge.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:authorPhotoLarge2x:
+      hippogallery:height: 400
+      hippogallery:width: 400
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/authorPhotoLarge2x/authorPhotoLarge2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:blogIndexThumb:
+      hippogallery:height: 240
+      hippogallery:width: 468
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/blogIndexThumb/blogIndexThumb.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:blogIndexThumb2x:
+      hippogallery:height: 480
+      hippogallery:width: 936
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/blogIndexThumb2x/blogIndexThumb2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumb:
+      hippogallery:height: 184
+      hippogallery:width: 468
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/homeBlogThumb/homeBlogThumb.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumb2x:
+      hippogallery:height: 368
+      hippogallery:width: 936
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/homeBlogThumb2x/homeBlogThumb2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumbSmall:
+      hippogallery:height: 184
+      hippogallery:width: 341
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/homeBlogThumbSmall/homeBlogThumbSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:homeBlogThumbSmall2x:
+      hippogallery:height: 368
+      hippogallery:width: 682
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/homeBlogThumbSmall2x/homeBlogThumbSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsFeaturedPost:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/newsFeaturedPost/newsFeaturedPost.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsFeaturedPost2x:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/newsFeaturedPost2x/newsFeaturedPost2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImage:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/newsPostImage/newsPostImage.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImage2x:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/newsPostImage2x/newsPostImage2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImageLarge:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/newsPostImageLarge/newsPostImageLarge.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsPostImageLarge2x:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/newsPostImageLarge2x/newsPostImageLarge2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsThumbnail:
+      hippogallery:height: 77
+      hippogallery:width: 154
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/newsThumbnail/newsThumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:newsThumbnail2x:
+      hippogallery:height: 154
+      hippogallery:width: 308
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/newsThumbnail2x/newsThumbnail2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:oldArticleThumbnail:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/oldArticleThumbnail/oldArticleThumbnail.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:oldArticleThumbnail2x:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/oldArticleThumbnail2x/oldArticleThumbnail2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModule:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/pageHeaderHeroModule/pageHeaderHeroModule.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModule2x:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/pageHeaderHeroModule2x/pageHeaderHeroModule2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModuleSmall:
+      hippogallery:height: 375
+      hippogallery:width: 375
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/pageHeaderHeroModuleSmall/pageHeaderHeroModuleSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderHeroModuleSmall2x:
+      hippogallery:height: 750
+      hippogallery:width: 750
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/pageHeaderHeroModuleSmall2x/pageHeaderHeroModuleSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBanner:
+      hippogallery:height: 500
+      hippogallery:width: 1270
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/pageHeaderSlimBanner/pageHeaderSlimBanner.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBanner2x:
+      hippogallery:height: 1000
+      hippogallery:width: 2540
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/pageHeaderSlimBanner2x/pageHeaderSlimBanner2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBannerSmall:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/pageHeaderSlimBannerSmall/pageHeaderSlimBannerSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:pageHeaderSlimBannerSmall2x:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/pageHeaderSlimBannerSmall2x/pageHeaderSlimBannerSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:postImageSmall:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/postImageSmall/postImageSmall.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /website:postImageSmall2x:
+      hippogallery:height: 159
+      hippogallery:width: 318
+      jcr:data:
+        resource: /content/gallery/website/ft-one-trans.jpeg/ft-one-trans.jpeg/postImageSmall2x/postImageSmall2x.jpg
+        type: binary
+      jcr:lastModified: 2022-06-10T10:26:36.486Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    hippo:availability:
+    - live
+    - preview
+    hippogallery:filename: ft-one-trans.jpeg
+    jcr:primaryType: website:corporateWebsiteImageset
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

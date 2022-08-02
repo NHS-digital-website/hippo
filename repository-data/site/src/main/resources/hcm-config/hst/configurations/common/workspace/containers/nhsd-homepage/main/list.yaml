@@ -1,0 +1,36 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/nhsd-homepage/main/list:
+      hst:componentclassname: uk.nhs.digital.common.components.PublicationListComponent
+      hst:iconpath: images/catalog/component-products-30x30.png
+      hst:label: Publication List
+      hst:parameternames:
+      - Display Tier 3 Publications
+      - path
+      - viewAllUrl
+      - viewUpcoming
+      - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+      - documentTypes
+      - sortOrder
+      - sortField
+      - pageSize
+      - showPagination
+      - includeSubtypes
+      - org.hippoecm.hst.core.component.template
+      hst:parametervalues:
+      - 'on'
+      - ''
+      - site/search/document-type/publication/publicationStatus/true?area=data&sort=date
+      - site/search/publicationStatus/false?area=data&sort=date
+      - 'off'
+      - ''
+      - desc
+      - ''
+      - '10'
+      - 'off'
+      - 'on'
+      - webfile:/freemarker/common/publications-list/publications-list-rebrand.ftl
+      hst:template: publications-list
+      hst:xtype: HST.Item
+      jcr:primaryType: hst:containeritemcomponent
