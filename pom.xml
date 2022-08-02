@@ -180,7 +180,7 @@
         <findbugs.version>3.0.2</findbugs.version>
         <gmavenplus.version>1.13.1</gmavenplus.version>
         <googleauth.version>1.5.0</googleauth.version>
-        <groovy.version>3.0.9</groovy.version>
+        <groovy.version>3.0.12</groovy.version>
         <gson.version>2.9.0</gson.version>
         <hamcrest.version>2.2</hamcrest.version>
         <hamcrest.version>2.2</hamcrest.version>
