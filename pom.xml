@@ -206,7 +206,7 @@
         <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
         <maven-frontend.version>1.12.1</maven-frontend.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
-        <maven-pmd.version>3.16.0</maven-pmd.version>
+        <maven-pmd.version>3.17.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
         <maven-surefire.version>3.0.0-M6</maven-surefire.version>
         <mokito.version>3.12.4</mokito.version>
