@@ -214,7 +214,7 @@
         <okhttp.version>4.9.3</okhttp.version>
         <okio.version>3.1.0</okio.version>
         <plexus-component.version>2.1.0</plexus-component.version>
-        <plexus-utils.version>3.4.1</plexus-utils.version>
+        <plexus-utils.version>3.4.2</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
         <selenium.version>4.1.1</selenium.version>
         <slf4j.version>1.7.36</slf4j.version>
