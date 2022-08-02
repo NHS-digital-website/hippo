@@ -189,7 +189,7 @@
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.15</httpcore.version>
         <jackson-coreutils.version>1.8</jackson-coreutils.version>
-        <jackson-dataformat-xml.version>2.13.2</jackson-dataformat-xml.version>
+        <jackson-dataformat-xml.version>2.13.3</jackson-dataformat-xml.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
         <joda-time.version>2.10.14</joda-time.version>
