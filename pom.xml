@@ -224,7 +224,7 @@
         <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
         <taglibs-standard.version>1.2.5</taglibs-standard.version>
-        <tika-core.version>1.28.2</tika-core.version>
+        <tika-core.version>2.4.1</tika-core.version>
         <versions-maven.version>2.10.0</versions-maven.version>
         <webdriverextensions-maven.version>3.3.0</webdriverextensions-maven.version>
         <wiremock.version>2.33.2</wiremock.version>
