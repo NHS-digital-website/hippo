@@ -18,6 +18,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import uk.nhs.digital.common.enums.Region;
+import uk.nhs.digital.ps.beans.HippoBeanHelper;
 import uk.nhs.digital.ps.beans.RestrictableDate;
 import uk.nhs.digital.ps.beans.Series;
 import uk.nhs.digital.website.beans.*;
@@ -31,6 +32,7 @@ import java.util.stream.Collectors;
 public class FeedHubComponent extends ContentRewriterComponent {
     List<Map> filters;
     Map<String, String[]> filterValues;
+    Map<String, String> topicMap;
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
@@ -38,6 +40,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
         filters = new ArrayList<>();
         filterValues = new HashMap<>();
+        topicMap = new HashMap<>();
 
         String[] yearParams = getPublicRequestParameters(request, "year");
         filterValues.put("year", yearParams);
@@ -92,16 +95,17 @@ public class FeedHubComponent extends ContentRewriterComponent {
                     getNewsFilters(feed);
                     break;
                 case "Supplementary information":
-                    getSupInfoFilters(feed);
+                    getSupInfoFilters(feed, filterValues);
                     break;
                 case "Events":
-                    getEventFilters(feed);
+                    getEventFilters(feed, filterValues);
                     break;
                 case "Cyber Alerts":
-                    getCyberAlertFilters(feed);
+                    getCyberAlertFilters(feed, filterValues);
                     break;
                 case "Series":
                     getSeriesFilters(feed);
+                    request.setAttribute("topicMap", topicMap);
                     break;
                 default:
             }
@@ -123,7 +127,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         addFilter("Year", "year", yearFilters);
     }
 
-    private void getSupInfoFilters(List<HippoBean> supInfoFeed) throws QueryException {
+    private void getSupInfoFilters(List<HippoBean> supInfoFeed, Map<String, String[]> filterValues) throws QueryException {
         Map<String, Long> yearFilters = supInfoFeed.stream()
             .map(e -> (SupplementaryInformation) e)
             .map(SupplementaryInformation::getPublishedDate)
@@ -144,7 +148,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
     }
 
-    private void getEventFilters(List<HippoBean> eventFeed) throws QueryException {
+    private void getEventFilters(List<HippoBean> eventFeed, Map<String, String[]> filterValues) throws QueryException {
         Map<String, Long> yearFilters = eventFeed.stream()
             .map(e -> (Event) e)
             .flatMap(e -> e.getEvents().parallelStream()
@@ -175,7 +179,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         addFilter("Type", "type[]", typeFilters);
     }
 
-    private void getCyberAlertFilters(List<HippoBean> cyberFeed) throws QueryException {
+    private void getCyberAlertFilters(List<HippoBean> cyberFeed, Map<String, String[]> filterValues) throws QueryException {
         Map<String, Long> severityFilters = cyberFeed.stream()
             .map(e -> (CyberAlert) e)
             .map(CyberAlert::getSeverity)
@@ -249,14 +253,16 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
 
         Map<String, Long> seriesTaxFilters = seriesFeed.stream()
-            .filter(x -> x instanceof Series && ((Series) x).getSearchableTags() != null)
+            .filter(x -> x instanceof Series && ((Series) x).getKeys() != null)
             .map(e -> (Series) e)
-            .flatMap(e -> Arrays.stream(e.getSearchableTags()))
+            .flatMap(e -> Arrays.stream(e.getKeys()))
             .collect(Collectors.groupingBy(
                 Function.identity(), Collectors.counting()
             ));
 
         addFilter("Topic", "topic[]", seriesTaxFilters);
+
+        topicMap = HippoBeanHelper.getFinalTaxonomyKeysAndNames(seriesTaxFilters.keySet().toArray(new String[seriesTaxFilters.size()]));
 
         Map<String, Long> seriesInfoFilters = seriesFeed.stream()
             .filter(e -> e instanceof Series && ((Series) e).getInformationType() != null)
@@ -467,7 +473,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 if (filterValues.get("topic[]").length > 0) {
                     String[] topics = filterValues.get("topic[]");
                     for (String topic : topics) {
-                        constraints.add(constraint("common:SearchableTags").equalTo(topic));
+                        constraints.add(constraint("hippotaxonomy:keys").equalTo(topic));
                     }
                 }
                 break;
