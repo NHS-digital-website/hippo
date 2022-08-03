@@ -4,9 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
 import java.time.LocalDate;
@@ -14,8 +12,6 @@ import java.time.LocalDate;
 public class RestrictableDateTest {
 
     private LocalDate localDate;
-
-    @Rule public ExpectedException expectedException = ExpectedException.none();
 
     @Before
     public void setUp() throws Exception {
@@ -48,15 +44,11 @@ public class RestrictableDateTest {
         RestrictableDateTest.assertRestrictableDate(actualDate, true, localDate);
     }
 
-    @Test
+    @Test(expected = DataRestrictionViolationException.class)
     public void reportsError_whenAskedForDayComponentOfRestrictedDate() throws Exception {
 
         // given
         final RestrictableDate restrictableDate = RestrictableDate.restrictedDateFrom(localDate);
-
-        expectedException.expect(DataRestrictionViolationException.class);
-        expectedException.expectMessage("Restricted date does not contain day of month component."
-            + " Consult 'isRestricted()' before requesting day of month value.");
 
         // when
         restrictableDate.getDayOfMonth();
