@@ -1,8 +1,6 @@
 package uk.nhs.digital.externalstorage.s3;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -24,7 +22,8 @@ public class S3ObjectKeyGeneratorTest {
         final String actualObjectKey = s3ObjectKeyGenerator.generateObjectKey(fileName);
 
         // then
-        assertThat("Generates S3 object key folder structure.", actualObjectKey.matches("^[0-9A-F]{2}/[0-9A-F]{6}/.*"), is(true));
+        assertTrue("Generates S3 object key folder structure.", actualObjectKey.matches("^[0-9A-F]{2}/[0-9A-F]{6}/.*"));
+
     }
 
     @Test
@@ -40,7 +39,8 @@ public class S3ObjectKeyGeneratorTest {
 
         // then
         Path path = Paths.get(actualObjectKey);
-        assertThat("path contains filename at the end.", path.getName(2).toString(), equalTo(fileName));
+        assertEquals("Path contains filename at the end.", path.getName(2).toString(), fileName);
+
     }
 
     @Test
@@ -57,7 +57,7 @@ public class S3ObjectKeyGeneratorTest {
         final String actualObjectKeyB = s3ObjectKeyGenerator.generateObjectKey(fileName);
 
         // then
-        assertThat("Generated S3 object keys are identical.", actualObjectKeyA, is(actualObjectKeyB));
+        assertEquals("Generated S3 object keys are identical.", actualObjectKeyA, actualObjectKeyB);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class S3ObjectKeyGeneratorTest {
         final String actualObjectKeyB = s3ObjectKeyGeneratorB.generateObjectKey(fileName);
 
         // then
-        assertThat("Generated S3 object keys are different.", actualObjectKeyA, is(not(actualObjectKeyB)));
+        assertNotEquals("Generated S3 object keys are different.", actualObjectKeyA, actualObjectKeyB);
     }
 
     private String newRandomString() {

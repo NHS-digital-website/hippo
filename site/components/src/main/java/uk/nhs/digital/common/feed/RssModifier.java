@@ -39,7 +39,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.imageio.ImageIO;
 
-
 public class RssModifier extends RSS20Modifier {
     private static final Logger LOGGER = LoggerFactory.getLogger(RssModifier.class);
 

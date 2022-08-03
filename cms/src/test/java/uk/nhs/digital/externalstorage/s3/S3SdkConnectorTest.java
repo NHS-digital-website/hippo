@@ -1,17 +1,16 @@
 package uk.nhs.digital.externalstorage.s3;
 
 import static java.util.Arrays.asList;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.hamcrest.Matchers.sameInstance;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.amazonaws.services.s3.AmazonS3;
@@ -137,8 +136,9 @@ public class S3SdkConnectorTest {
             = ArgumentCaptor.forClass(InitiateMultipartUploadRequest.class);
         then(s3).should().initiateMultipartUpload(initiateRequestArgCaptor.capture());
         final InitiateMultipartUploadRequest initRequest = initiateRequestArgCaptor.getValue();
-        assertThat("Upload to expected S3 bucket is initiated.", initRequest.getBucketName(), is(bucketName));
-        assertThat("Upload is initiated with expected object key.", initRequest.getKey(), is(objectKey));
+
+        assertEquals("Upload to expected S3 bucket is initiated.", initRequest.getBucketName(), bucketName);
+        assertEquals("Upload is initiated with expected object key.", initRequest.getKey(), objectKey);
 
         //   assert upload request - both chunks (full and partial) of the upload itself
         final ArgumentCaptor<UploadPartRequest> uploadPartRequestArgCaptor = ArgumentCaptor.forClass(UploadPartRequest.class);
@@ -149,19 +149,16 @@ public class S3SdkConnectorTest {
             final byte[] expectedChunk = expectedChunks[i];
             final UploadPartRequest uploadPartRequest = actualUploadRequests.get(i);
 
-            assertThat("Chunk " + i + " uploaded to correct bucket", uploadPartRequest.getBucketName(), is(bucketName));
-            assertThat("Chunk " + i + " uploaded with correct object key", uploadPartRequest.getKey(), is(objectKey));
-            assertThat("Chunk " + i + " uploaded with correct upload id", uploadPartRequest.getUploadId(), is(uploadId));
-            assertThat("Chunk " + i + " uploaded with correct part number", uploadPartRequest.getPartNumber(), is(i + 1));
-            assertThat("Chunk " + i + " uploaded with correct part size", uploadPartRequest.getPartSize(),
-                is(Long.valueOf(expectedChunk.length))
-            );
+            assertEquals("Chunk " + i + " uploaded to correct bucket", uploadPartRequest.getBucketName(), bucketName);
+            assertEquals("Chunk " + i + " uploaded with correct object key", uploadPartRequest.getKey(), objectKey);
+            assertEquals("Chunk " + i + " uploaded with correct upload id", uploadPartRequest.getUploadId(), uploadId);
+            assertEquals("Chunk " + i + " uploaded with correct part number", uploadPartRequest.getPartNumber(), i + 1);
+            assertEquals("Chunk " + i + " uploaded with correct part size", uploadPartRequest.getPartSize(), expectedChunk.length);
 
             final byte[] actualChunk = new byte[expectedChunk.length];
             try (final InputStream uploadPartRequestInputStream = uploadPartRequest.getInputStream()) {
                 IOUtils.read(uploadPartRequestInputStream, actualChunk, 0, actualChunk.length);
             }
-
             assertThat("Chunk " + i + " uploaded with correct content", actualChunk, is(expectedChunk));
         }
 
