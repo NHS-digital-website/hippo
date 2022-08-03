@@ -42,6 +42,15 @@ public class HippoBeanHelper {
             .collect(Collectors.toList());
     }
 
+    public static List<String> getTaxonomyList(HippoBean bean) {
+        String[] fullTaxonomy = bean.getMultipleProperty("common:FullTaxonomy");
+        if (isEmpty(fullTaxonomy)) {
+            return null;
+        }
+
+        return new ArrayList<>(getFinalTaxonomyKeysAndNames(fullTaxonomy).values());
+    }
+
     /**
      * Return distinct collection of taxonomy in the format of [Key, Name]
      */
@@ -66,6 +75,31 @@ public class HippoBeanHelper {
 
                 // combine with master collection if haven't been collected already
                 map.forEach(keyNamePairs::putIfAbsent);
+            }
+        }
+
+        return keyNamePairs;
+    }
+
+    public static Map<String, String> getFinalTaxonomyKeysAndNames(String[] keys) {
+        Map<String, String> keyNamePairs = new HashMap<String, String>();
+
+        // For each taxonomy tag key, get the name and also include hierarchy context (ancestors)
+        if (keys != null) {
+            // Lookup Taxonomy Tree
+            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
+            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(PUBLICATION_TAXONOMY);
+
+            for (String key : keys) {
+                Map<String, String> map = new HashMap<String, String>();
+
+                // add the current node if it is not a folder
+                if (taxonomyTree.getCategoryByKey(key).getChildren().size() == 0) {
+                    map.put(key, taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
+
+                    // combine with master collection if haven't been collected already
+                    map.forEach(keyNamePairs::putIfAbsent);
+                }
             }
         }
 

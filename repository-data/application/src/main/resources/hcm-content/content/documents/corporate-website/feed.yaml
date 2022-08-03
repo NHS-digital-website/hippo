@@ -9,8 +9,6 @@
   - website:publisheddatetime$month
   hippofacnav:filters:
   - jcr:primaryType=website:news
-  hippofacnav:limit:
-  - 100
   hippofacnav:sortby:
   - website:publisheddatetime
   hippofacnav:sortorder:

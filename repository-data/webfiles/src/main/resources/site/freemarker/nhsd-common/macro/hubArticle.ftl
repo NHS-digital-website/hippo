@@ -75,6 +75,51 @@
     	} />
     </#if>
 
+    <#if hst.isBeanType(item, 'uk.nhs.digital.ps.beans.Series')>
+        <#assign tags = []/>
+        <#if item.informationType?has_content>
+            <#list item.informationType as type>
+                <#assign tags = tags + [{'text': type}] />
+            </#list>
+        </#if>
+
+        <#if item.geographicCoverage?has_content>
+            <#list item.geographicCoverage as type>
+                <#assign tags = tags + [{'text': type, 'colour': 'nhsd-a-tag--bg-light-grey'}] />
+            </#list>
+        </#if>
+
+        <#assign nextDate = "">
+        <#if item.publicationDates?has_content>
+            <@fmt.formatDate value=.now type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="dateNow" />
+            <#list item.publicationDates as thisDate>
+                <#assign checkDate><@formatRestrictableDate value=thisDate/></#assign>
+                <#if (checkDate?markup_string?length < 9)>
+                    <#assign checkDate = "30 " + checkDate/>
+                </#if>
+
+                <#if (checkDate?markup_string?date("dd MMM yyyy")?long > .now?long)>
+                    <#assign nextDate><@formatRestrictableDate value=thisDate/></#assign>
+                </#if>
+            </#list>
+        </#if>
+
+        <@hst.link var="latestLink" hippobean=item.latestPublication/>
+        <#assign cardData += {
+            'background': 'white',
+            'tags': tags,
+            'threat': (item.searchableTags)!"",
+            'frequency': (item.properties["publicationsystem:frequency"])!"",
+            'from': (item.publicationDates[0])!"",
+            'to': (item.publicationDates[item.publicationDates?size - 1])!"",
+            'shortsummary': item.properties["publicationsystem:Summary"][0..*180],
+            'latest': (item.latestPublication)!"",
+            'latestLink': (latestLink)!"",
+            'link': cardLink,
+            'nextDate': nextDate
+        } />
+    </#if>
+
     <#-- DW-2686 if there is a thumbnail image use it else use the lead image -->
     <#if item.thumbnailImage?has_content>
         <#assign cardData += {

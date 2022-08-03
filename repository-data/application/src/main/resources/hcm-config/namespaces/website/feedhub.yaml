@@ -63,13 +63,14 @@ definitions:
               selectable.options: Documents for a section,Site-wide documents
             caption: Type of Hub
             field: hubType
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /feedType:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: News,Events,Cyber Alerts,Supplementary information
+              selectable.options: News,Events,Cyber Alerts,Supplementary information,Series
             caption: Feed Type
             field: feedType
             hint: ''

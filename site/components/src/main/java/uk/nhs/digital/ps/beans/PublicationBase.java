@@ -138,6 +138,10 @@ public abstract class PublicationBase extends BaseDocument {
         return nominalPublicationDate;
     }
 
+    public Calendar getNominalDate() {
+        return getSingleProperty(PropertyKeys.NOMINAL_DATE);
+    }
+
     public Date getNominalPublicationDateCalendar() {
 
         Calendar cal = Calendar.getInstance();
@@ -181,6 +185,10 @@ public abstract class PublicationBase extends BaseDocument {
     private boolean isInternalViewAccess() {
         String servletPath = RequestContextProvider.get().getServletRequest().getServletPath();
         return servletPath != null && servletPath.equalsIgnoreCase("/_cmsinternal");
+    }
+
+    public String getPubliclyAccessible() {
+        return Boolean.toString(!getBeforePublicationDate() || isCorrectAccessKey());
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.RELATED_LINKS)
@@ -270,6 +278,18 @@ public abstract class PublicationBase extends BaseDocument {
             && getSingleProperty(PublicationBase.PropertyKeys.EARLY_ACCESS_KEY).equals(
             RequestContextProvider.get().getServletRequest().getParameter(
                 EARLY_ACCESS_KEY_QUERY_PARAM));
+    }
+
+    public String[] getInformationType() {
+        return getMultipleProperty(PropertyKeys.INFORMATION_TYPE);
+    }
+
+    public String[] getGeographicCoverage() {
+        return geographicCoverageValuesToRegionValue(getMultipleProperty(PropertyKeys.GEOGRAPHIC_COVERAGE));
+    }
+
+    public String[] getGranularity() {
+        return getMultipleProperty(PublicationBase.PropertyKeys.GRANULARITY);
     }
 
     private boolean isPropertyAlwaysPermitted(final String propertyKey) {
