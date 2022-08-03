@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.beans;
 
 import static org.apache.commons.collections.IteratorUtils.toList;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
@@ -20,6 +21,7 @@ import uk.nhs.digital.website.beans.Person;
 import uk.nhs.digital.website.beans.Team;
 import uk.nhs.digital.website.beans.Update;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:series")
@@ -45,6 +47,11 @@ public class Series extends BaseDocument {
         return getSingleProperty("publicationsystem:ShowLatest", false);
     }
 
+    @HippoEssentialsGenerated(internalName = "common:SearchableTags")
+    public String[] getSearchableTags() {
+        return getMultipleProperty("common:SearchableTags");
+    }
+
     @HippoEssentialsGenerated(internalName = "publicationsystem:attachments")
     public List<ExtAttachment> getAttachments() {
         return getChildBeansIfPermitted("publicationsystem:attachments", ExtAttachment.class);
@@ -67,8 +74,16 @@ public class Series extends BaseDocument {
         return HippoBeanHelper.getFullTaxonomyList(this);
     }
 
+    public List<String> getTaxonomyList() {
+        return HippoBeanHelper.getTaxonomyList(this);
+    }
+
     public String[] getGeographicCoverage() {
         return geographicCoverageValuesToRegionValue(getMultipleProperty(PublicationBase.PropertyKeys.GEOGRAPHIC_COVERAGE));
+    }
+
+    public String[] getRawGeographicCoverage() {
+        return getMultipleProperty(PublicationBase.PropertyKeys.GEOGRAPHIC_COVERAGE);
     }
 
     public String[] getGranularity() {
@@ -106,6 +121,66 @@ public class Series extends BaseDocument {
         }
 
         return null;
+    }
+
+    HippoBean oldDateFolder = null;
+    ArrayList<RestrictableDate> publicationDates = null;
+
+    public ArrayList<RestrictableDate> getPublicationDates() {
+        HippoBean folder = getCanonicalBean().getParentBean();
+
+        if (!folder.equals(oldDateFolder)) {
+            HippoBeanIterator hippoBeans = null;
+            try {
+                hippoBeans = HstQueryBuilder.create(folder)
+                    .ofTypes(Publication.class, LegacyPublication.class)
+                    .orderByAscending("publicationsystem:NominalDate")
+                    .build()
+                    .execute()
+                    .getHippoBeans();
+
+            } catch (QueryException e) {
+                e.printStackTrace();
+            }
+
+            PublicationBase publication = null;
+            publicationDates = new ArrayList<RestrictableDate>();
+            while (hippoBeans.hasNext()) {
+                HippoBean hippoBean = hippoBeans.nextHippoBean();
+                publication = (PublicationBase) hippoBean;
+                publicationDates.add(publication.getNominalPublicationDate());
+            }
+
+            oldDateFolder = folder;
+        }
+        return publicationDates;
+    }
+
+    HippoBean oldUpcommingFolder = null;
+    Boolean hasUpcommingDates = false;
+
+    public Boolean getHasUpcomming() {
+        HippoBean folder = getCanonicalBean().getParentBean();
+
+        if (!folder.equals(oldUpcommingFolder)) {
+            HippoBeanIterator hippoBeans = null;
+            try {
+                hippoBeans = HstQueryBuilder.create(folder)
+                    .ofTypes(Publication.class, LegacyPublication.class)
+                    .where(constraint("publicationsystem:PubliclyAccessible").equalTo(false))
+                    .orderByAscending("publicationsystem:NominalDate")
+                    .build()
+                    .execute()
+                    .getHippoBeans();
+            } catch (QueryException e) {
+                e.printStackTrace();
+            }
+
+            oldUpcommingFolder = folder;
+            hasUpcommingDates = hippoBeans.hasNext();
+        }
+
+        return hasUpcommingDates;
     }
 
     public Person getStatistician() {

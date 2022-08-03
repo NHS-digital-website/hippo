@@ -20,7 +20,7 @@
 
     <article class="nhsd-m-card ${cardClass}">
         <#if cardProperties.publishedDate?has_content>
-   		    <@fmt.formatDate value=cardProperties.publishedDate.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="publishedDate" />
+            <@fmt.formatDate value=cardProperties.publishedDate.time type="Date" pattern="EEEE d MMMM yyyy (hh:mm)" timeZone="${getTimeZone()}" var="pubDate" />
             <@fmt.formatDate value=cardProperties.lastModified type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="lastModifiedDate" />
         </#if>
 
@@ -55,14 +55,37 @@
                             </div>
                         </#if>
 
-                        <#if publishedDate?has_content>
-                            <h2 class="nhsd-m-card__date">${publishedDate} (updated ${lastModifiedDate})</h2>
+                        <#if pubDate?has_content>
+                            <span class="nhsd-m-card__date">Published ${pubDate}
+                                <#if lastModifiedDate?has_content>
+                                    (updated ${lastModifiedDate})
+                                </#if>
+                            </span>
+                        </#if>
+                        <#if cardProperties.frequency?has_content>
+                            <span class="nhsd-m-card__date">${cardProperties.frequency?cap_first}
+                                publication from ${cardProperties.from.month?lower_case?cap_first} ${cardProperties.from.year?long?c}
+                                - ${cardProperties.to.month?lower_case?cap_first} ${cardProperties.to.year?long?c}
+                            </span>
                         </#if>
                         <#if cardProperties.title?has_content>
                             <h2 class="nhsd-t-heading-s">${cardProperties.title}</h2>
                         </#if>
-                        <#if cardProperties.shortsummary?has_content>
-                            <p class="nhsd-t-body-s">${cardProperties.shortsummary}</p>
+                         <#if cardProperties.shortsummary?has_content>
+                       		<p class="nhsd-t-body-s">${cardProperties.shortsummary}</p>
+                        </#if>
+
+                        <#if cardProperties.icon?has_content>
+                            <#if cardProperties.icon == "link">
+                                <span class="nhsd-a-icon nhsd-a-icon--size-xxl nhsd-m-card__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
+                                        <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="42%" height="42%" x="29%" y="29%">
+                                            <path d="M11.4,9.1c0,2.5-2,3.9-3.6,5.5C7,15.5,5.8,16,4.6,16C2,16,0,14,0,11.4c0-2.1,1.2-3.1,2.6-4.5l1.6,1.6 c-0.8,0.8-2,1.6-2,2.9c0,1.3,1,2.3,2.3,2.3c0.6,0,1.2-0.2,1.6-0.7l2.3-2.3c0.4-0.4,0.7-1,0.7-1.6c0-0.9-0.5-1.7-1.3-2.1l1-2.1 C10.4,5.7,11.4,7.4,11.4,9.1z M16,4.6c0,2.1-1.2,3.1-2.6,4.5l-1.6-1.6c0.8-0.8,2-1.6,2-2.9c0-1.3-1-2.3-2.3-2.3 c-0.6,0-1.2,0.2-1.6,0.7L7.5,5.2c-0.4,0.4-0.7,1-0.7,1.6c0,0.9,0.5,1.7,1.3,2.1l-1,2.1c-1.6-0.7-2.7-2.4-2.7-4.2 c0-1.2,0.5-2.4,1.3-3.2C7.6,2,8.9,0,11.4,0C14,0,16,2,16,4.6z"></path>
+                                        </svg>
+                                    </svg>
+                                </span>
+                            </#if>
                         </#if>
 
                         <#if cardProperties.bullets?has_content>
@@ -91,12 +114,39 @@
                             </ul>
                         </#if>
 
-                        <#if cardProperties.threat?has_content>
-                        	<div class="nhsd-t-body-s" style="margin-top: 1.1111111111rem;">
-                        		<span class="nhsd-a-tag--bg-light-grey">
-                        			${cardProperties.threat}
-                        		</span>
+                        <#if cardProperties.threat?has_content >
+                        	<div class="nhsd-t-body-s" style="margin-top: 6px;">
+                                <#if cardProperties.threat?size gt 1>
+                                    <#list cardProperties.threat[0..*5] as threat>
+                                        <span class="nhsd-a-tag--bg-light-grey">
+                                            ${threat}
+                                        </span>
+                                        &nbsp;
+                                    </#list>
+                                <#else>
+                                    <span class="nhsd-a-tag--bg-light-grey">
+                                        ${cardProperties.threat}
+                                    </span>
+                        		</#if>
                         	</div>
+                        </#if>
+
+                        <#if cardProperties.latest?has_content>
+                            <span style="margin-top: 6px;">Latest publication:&nbsp;
+                                <span onClick="window.location='${cardProperties.latestLink}'; return false;">
+                                   <u>${cardProperties.latest.title}</u>
+                                </span>
+                                <span style="font-size: smaller;">
+                                    (Publication date: ${cardProperties.latest.nominalPublicationDate.month?capitalize}
+                                    ${cardProperties.latest.nominalPublicationDate.year?long?c})
+                                </span>
+                            </span>
+                        </#if>
+
+                        <#if cardProperties.nextDate?has_content>
+                            <span style="margin-top: 6px;">Next publication date:&nbsp;
+                                ${cardProperties.nextDate} @ 09:30
+                            </span>
                         </#if>
                     </div>
 
