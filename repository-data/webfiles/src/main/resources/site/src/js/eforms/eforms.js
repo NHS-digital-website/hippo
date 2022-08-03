@@ -542,7 +542,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             const dateformat = field.dataset.eformsDateformat;
 
             $(`input[class*="date"][name=${formName}]`).datepicker({
-                format:`${dateformat}`
+                dateFormat:`${dateformat}`
                     .replace(/d+/g,'dd')
                     .replace(/M+/g,'mm')
                     .replace(/y+/g,'yy'),
