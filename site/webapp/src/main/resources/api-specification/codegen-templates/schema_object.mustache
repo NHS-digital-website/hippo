@@ -39,26 +39,26 @@
 
         {{#ifNotNull multipleOf}}<div>Multiple of: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{multipleOf}}</span></div>{{/ifNotNull}}
 
+        {{#ifNotNull minimum}}
+            <div>Minimum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minimum}}</span>
+                <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</span>
+            </div>
+        {{/ifNotNull}}
+
         {{#ifNotNull maximum}}
         <div>Maximum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maximum}}</span>
             <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}</span>
         </div>
         {{/ifNotNull}}
-
-        {{#ifNotNull minimum}}
-        <div>Minimum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minimum}}</span>
-            <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</span>
-        </div>
-        {{/ifNotNull}}
-
-        {{#ifNotNull maxLength}}<div>Max length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxLength}}</span></div>{{/ifNotNull}}
+        
         {{#ifNotNull minLength}}<div>Min length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minLength}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull maxLength}}<div>Max length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxLength}}</span></div>{{/ifNotNull}}
 
-        {{#ifNotNull maxItems}}<div>Max items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxItems}}</span></div>{{/ifNotNull}}
         {{#ifNotNull minItems}}<div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minItems}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull maxItems}}<div>Max items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxItems}}</span></div>{{/ifNotNull}}
 
-        {{#ifNotNull maxProperties}}<div>Max properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxProperties}}</span></div>{{/ifNotNull}}
         {{#ifNotNull minProperties}}<div>Min properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minProperties}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull maxProperties}}<div>Max properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxProperties}}</span></div>{{/ifNotNull}}
 
         {{#if enum}}<div>Allowed values: {{{enumeration enum}}}</div>{{/if}}
 
