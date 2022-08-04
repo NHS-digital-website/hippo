@@ -2,7 +2,8 @@ package uk.nhs.digital.common.components.apispecification.swagger;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.junit.Assert.fail;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.test.util.StringTestUtils.*;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
@@ -10,15 +11,11 @@ import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.hamcrest.Matcher;
-import org.jetbrains.annotations.Nullable;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import uk.nhs.digital.test.util.TestDataCache;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -29,14 +26,11 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
 
     private final TestDataCache cache = TestDataCache.create();
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
     private SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter swaggerCodeGenApiSpecHtmlProvider;
 
     @Before
     public void setUp() throws MalformedURLException {
-        initMocks(this);
+        openMocks(this);
 
         final URL templatesDir = Paths.get("../webapp/src/main/resources/api-specification/codegen-templates").toAbsolutePath().normalize().toUri().toURL();
 
@@ -311,18 +305,15 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // @formatter:on
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void throwsException_onCodeGenFailure() {
 
         // given
         final String invalidSpecificationJson = "invalid specification JSON";
 
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage("Failed to generate HTML for OpenAPI specification.");
-        expectedException.expectCause(isA(RuntimeException.class));
-
         // when
         swaggerCodeGenApiSpecHtmlProvider.htmlFrom(invalidSpecificationJson);
+        fail("Failed to generate HTML for OpenAPI specification.");
 
         // then
         // expectations set in 'given' are satisfied
