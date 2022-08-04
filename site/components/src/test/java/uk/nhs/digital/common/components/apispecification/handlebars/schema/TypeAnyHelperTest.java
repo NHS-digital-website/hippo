@@ -160,10 +160,6 @@ public class TypeAnyHelperTest {
         final RuntimeException expectedCause = new RuntimeException();
         given(buffer.append(any())).willThrow(expectedCause);
 
-        //expectedException.expect(SchemaRenderingException.class);
-        //expectedException.expectMessage("Failed to render value of type 'any' for: model");
-        //expectedException.expectCause(sameInstance(expectedCause));
-
         final String irrelevantModel = "model";
 
         // when
