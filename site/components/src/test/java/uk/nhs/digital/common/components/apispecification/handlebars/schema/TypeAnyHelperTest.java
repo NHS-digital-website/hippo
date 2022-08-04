@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.jknack.handlebars.Options;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import org.junit.Before;
-import org.junit.Test;import org.junit.Rule;import org.junit.Rule;import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub;
