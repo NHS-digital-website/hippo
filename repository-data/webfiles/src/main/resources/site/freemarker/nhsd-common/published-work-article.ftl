@@ -64,9 +64,7 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-display-chapters"
-     aria-label="Document Header">
-
+<div class="nhsd-t-grid nhsd-t-grid--full-width nhsd-!t-display-chapters">
     <@hst.headContributions categoryIncludes="testscripts"/>
 
     <#assign heroOptions = getHeroOptionsWithMetaData(document)/>
@@ -94,22 +92,7 @@
         <@hero getHeroOptions(document) "image" />
     </#if>
 
-    <#if hasChildPages>
-        <#assign documents = [] />
-
-    <#-- Cache the parent document's details -->
-        <@hst.link hippobean=document var="link" />
-        <#assign documents = [{ "index": 0, "id": document.identifier, "title": document.title, "link": link }] />
-
-    <#-- Cache the chapter details -->
-        <#list childPages as chapter>
-            <@hst.link hippobean=chapter var="link" />
-            <#assign documents += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
-        </#list>
-
-        <@chapterNav document />
-    </#if>
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8" id="document-content">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8 nhsd-!t-margin-bottom-6" id="document-content">
         <div class="nhsd-t-row">
             <#if renderNav>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
@@ -150,6 +133,8 @@
                     </#if>
 
                     <@sections document.sections></@sections>
+
+                    <hr class="nhsd-a-horizontal-rule"/>
                 </#if>
 
                 <#if hasAboutThisSection>
@@ -245,16 +230,33 @@
                 </#if>
 
                 <div class="nhsd-!t-margin-bottom-6">
-                    <@lastModified document.lastModified false></@lastModified>
-                </div>
+                    <hr class="nhsd-a-horizontal-rule"/>
 
-                <div class="nhsd-!t-margin-bottom-8">
                     <@pagination document />
                 </div>
 
+                <div class="nhsd-!t-margin-bottom-6">
+                    <@lastModified document.lastModified false></@lastModified>
+                </div>
+
                 <#if hasChildPages>
+                    <#assign documents = [] />
+
+                    <#-- Cache the parent document's details -->
+                    <@hst.link hippobean=document var="link" />
+                    <#assign documents = [{ "index": 0, "id": document.identifier, "title": document.title, "link": link }] />
+
+                    <#-- Cache the chapter details -->
+                    <#list childPages as chapter>
+                        <@hst.link hippobean=chapter var="link" />
+                        <#assign documents += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
+                    </#list>
+
+                    <hr class="nhsd-a-horizontal-rule"/>
+
+                    <h2 class="nhsd-t-heading-m">Chapters</h2>
                     <#assign splitChapters = splitHash(documents) />
-                    <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1"
+                    <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1 nhsd-!t-margin-bottom-6"
                          id="chapter-index"
                     >
                         <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
@@ -299,4 +301,8 @@
             </div>
         </div>
     </div>
+
+    <#if hasChildPages>
+        <@chapterNav document />
+    </#if>
 </div>

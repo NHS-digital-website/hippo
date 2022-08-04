@@ -116,10 +116,6 @@
         <@hero getHeroOptions(document) "image" />
     </#if>
 
-    <#if hasChapters>
-        <@chapterNav document "Current chapter – " />
-    </#if>
-
     <#-- Don't use the summary in the content when the hero module is active -->
     <#if publicationStyle = 'heromodule'>
         <#assign hasSummaryContent = false />
@@ -156,17 +152,22 @@
                 </#if>
 
                 <div class="nhsd-!t-margin-bottom-6">
-                    <@lastModified document.lastModified false></@lastModified>
-                </div>
+                    <hr class="nhsd-a-horizontal-rule"/>
 
-                <div class="nhsd-!t-margin-bottom-8">
                     <@pagination document />
                 </div>
 
+                <div class="nhsd-!t-margin-bottom-6">
+                    <@lastModified document.lastModified false></@lastModified>
+                </div>
+
                 <#if hasChapters>
+                    <hr class="nhsd-a-horizontal-rule"/>
+
+                    <h2 class="nhsd-t-heading-m">Chapters</h2>
                     <#assign splitChapters = splitHash(documents) />
 
-                    <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1"
+                    <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1 nhsd-!t-margin-bottom-8"
                          id="chapter-index"
                     >
                         <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
@@ -211,4 +212,7 @@
             </div>
         </div>
     </div>
+    <#if hasChapters>
+        <@chapterNav document />
+    </#if>
 </div>

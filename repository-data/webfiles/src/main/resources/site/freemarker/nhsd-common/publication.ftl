@@ -30,7 +30,7 @@
 
 <#assign hasChapters = publication.publiclyAccessible && publication.pageIndex?has_content />
 
-<article class="article article--publication ${hasChapters?then('nhsd-!t-display-chapters', '')}" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header">
+<article itemscope itemtype="http://schema.org/Dataset">
     <#assign metaData = publicationMetaData(publication, publication.publiclyAccessible) />
 
     <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions"/>
@@ -101,10 +101,6 @@
     </@hero>
 
     <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
-
-    <#if publication.publiclyAccessible && publication.pageIndex?has_content>
-        <@chapterNav document />
-    </#if>
 
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <#if publication.changenotice?has_content>
@@ -407,11 +403,11 @@
                     </#if>
 
                     <div class="nhsd-!t-margin-bottom-6">
-                        <@lastModified publication.lastModified false />
+                        <@pagination document/>
                     </div>
 
                     <div class="nhsd-!t-margin-bottom-6">
-                        <@pagination document/>
+                        <@lastModified publication.lastModified false />
                     </div>
                 </div>
             <#else>
@@ -423,7 +419,7 @@
     </div>
 
     <#if hasChapters>
-        <div id="chapter-index" class="nhsd-t-grid nhsd-!t-margin-bottom-6">
+        <div id="chapter-index" class="nhsd-t-grid nhsd-!t-margin-bottom-8">
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col-12">
                     <hr class="nhsd-a-horizontal-rule"/>
@@ -447,5 +443,9 @@
                 </div>
             </div>
         </div>
+    </#if>
+
+    <#if publication.publiclyAccessible && publication.pageIndex?has_content>
+        <@chapterNav document />
     </#if>
 </article>
