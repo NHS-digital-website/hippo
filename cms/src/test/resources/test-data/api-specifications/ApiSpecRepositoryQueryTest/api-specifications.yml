@@ -6,6 +6,7 @@
 # Api specification document A
 - path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a
   primaryType: hippo:handle
+  jcr:uuid: api-spec-a-id
 - path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a
   primaryType: website:apispecification
   properties:
@@ -32,6 +33,7 @@
 # Api specification document B
 - path: /content/documents/corporate-website/api-specifications-location-b/api-spec-b
   primaryType: hippo:handle
+  jcr:uuid: api-spec-b-id
 - path: /content/documents/corporate-website/api-specifications-location-b/api-spec-b/api-spec-b
   primaryType: website:apispecification
   properties:

@@ -13,61 +13,56 @@ public class SpecificationSyncData {
 
     private static final Pattern VERSION_FIELD_PATTERN = Pattern.compile("\"version\"\\s*:\\s*\"[^\"]+\"");
 
-    private final ApiSpecificationDocument localSpec;
-    private final OpenApiSpecification remoteSpec;
-    private final ApiSpecificationImportMetadata.Item localSpecMetadataItem;
-    private String html;
+    private final String specificationId;
+    private final String apiSpecJcrHandleNodeId;
+    private final String draftSpecJcrPath;
+    private ApiSpecificationDocument localSpec;
+    private OpenApiSpecification remoteSpec;
+    private ApiSpecificationImportMetadata.Item localSpecMetadataItem;
     private Exception error;
     private boolean published;
     private boolean eligible;
     private boolean skipped;
 
     private SpecificationSyncData(
-        final ApiSpecificationDocument localSpec,
-        final OpenApiSpecification remoteSpec,
-        final ApiSpecificationImportMetadata.Item localSpecMetadataItem
+        final String specificationId,
+        final String apiSpecJcrHandleNodeId,
+        final String draftSpecJcrPath
     ) {
-        this.localSpec = localSpec;
-        this.remoteSpec = remoteSpec;
-        this.localSpecMetadataItem = localSpecMetadataItem;
+        this.specificationId = specificationId;
+        this.apiSpecJcrHandleNodeId = apiSpecJcrHandleNodeId;
+        this.draftSpecJcrPath = draftSpecJcrPath;
     }
 
     public static SpecificationSyncData with(
-        final ApiSpecificationDocument localSpec,
-        final OpenApiSpecification remoteSpec,
-        final ApiSpecificationImportMetadata.Item localSpecMetadataItem
+        final String specificationId,
+        final String apiSpecJcrHandleNodeId,
+        final String draftSpecJcrPath
     ) {
         return new SpecificationSyncData(
-            localSpec,
-            remoteSpec,
-            localSpecMetadataItem
+            specificationId,
+            apiSpecJcrHandleNodeId,
+            draftSpecJcrPath
         );
     }
 
-    private boolean specContentDiffersIgnoringVersion(final String left, final String right) {
+    public boolean specContentDiffersIgnoringVersion() {
+
+        final String remoteSpecJson = remoteSpec.getSpecJson().orElse("");
+        final String localSpecJson = localSpec.json().orElse("");
 
         // We're ignoring version field because it is often the only piece of spec's content that actually changes.
         // It is calculated from git tags which are incremented on each merge to master (of the API codebase)
         // and that incrementation often takes place as a result of the API proxy definition being updated,
         // with no change to the spec itself.
+        final String remoteSpecJsonNoVersion = VERSION_FIELD_PATTERN.matcher(remoteSpecJson).replaceFirst("");
+        final String localSpecJsonNoVersion = VERSION_FIELD_PATTERN.matcher(localSpecJson).replaceFirst("");
 
-        final String leftSpecJsonNoVersion = VERSION_FIELD_PATTERN.matcher(left).replaceFirst("");
-        final String rightSpecJsonNoVersion = VERSION_FIELD_PATTERN.matcher(right).replaceFirst("");
+        final boolean jsonDiffers = !remoteSpecJsonNoVersion.equals(localSpecJsonNoVersion);
 
-        final boolean jsonDiffers = !leftSpecJsonNoVersion.equals(rightSpecJsonNoVersion);
-
-        log.debug("{} Json differs: {}.", specJcrId(), jsonDiffers);
+        log.debug("{} Json differs: {}.", apiSpecJcrHandleNodeId, jsonDiffers);
 
         return jsonDiffers;
-    }
-
-    public boolean specContentChanged() {
-
-        return remoteSpecReportedAsUpdated() && specContentDiffersIgnoringVersion(
-            remoteSpec.getSpecJson().orElse(""),
-            localSpec.json().orElse("")
-        );
-
     }
 
     public boolean remoteSpecReportedAsUpdated() {
@@ -76,7 +71,7 @@ public class SpecificationSyncData {
 
         log.debug(
             "{} Remote spec reported as modified after last check: {}; local: {}, remote: {} ",
-            specJcrId(),
+            apiSpecJcrHandleNodeId,
             specReportedAsUpdated,
             localSpecLastCheckTime(),
             remoteSpec.getModified()
@@ -86,15 +81,31 @@ public class SpecificationSyncData {
     }
 
     private Instant localSpecLastCheckTime() {
-        return localMetadata().lastChangeCheckInstant();
+        return localSpecMetadataItem.lastChangeCheckInstant();
     }
 
-    public void setHtml(final String html) {
-        this.html = html;
+    public void setLocalSpec(final ApiSpecificationDocument localSpec) {
+        this.localSpec = localSpec;
+    }
+
+    public void setRemoteSpec(final OpenApiSpecification remoteSpec) {
+        this.remoteSpec = remoteSpec;
+    }
+
+    public void setLocalSpecMetadataItem(final ApiSpecificationImportMetadata.Item localSpecMetadataItem) {
+        this.localSpecMetadataItem = localSpecMetadataItem;
     }
 
     public void setError(final String message, final Exception cause) {
         this.error = new RuntimeException(message, cause);
+    }
+
+    public void setEligible(final boolean eligible) {
+        this.eligible = eligible;
+    }
+
+    public void markPublished() {
+        published = true;
     }
 
     public boolean noFailure() {
@@ -105,10 +116,6 @@ public class SpecificationSyncData {
         return !noFailure();
     }
 
-    public void markPublished() {
-        published = true;
-    }
-
     public ApiSpecificationDocument localSpec() {
         return localSpec;
     }
@@ -117,12 +124,8 @@ public class SpecificationSyncData {
         return remoteSpec;
     }
 
-    public String html() {
-        return html;
-    }
-
-    public void setEligible(final boolean eligible) {
-        this.eligible = eligible;
+    public ApiSpecificationImportMetadata.Item localMetadata() {
+        return localSpecMetadataItem;
     }
 
     public boolean eligible() {
@@ -145,11 +148,15 @@ public class SpecificationSyncData {
         return skipped;
     }
 
-    public ApiSpecificationImportMetadata.Item localMetadata() {
-        return localSpecMetadataItem;
+    public String specJcrHandleNodeId() {
+        return apiSpecJcrHandleNodeId;
     }
 
-    public String specJcrId() {
-        return localSpecMetadataItem.apiSpecJcrId();
+    public String specificationId() {
+        return specificationId;
+    }
+
+    public String specJcrPath() {
+        return (localSpec != null) ? localSpec.path() : draftSpecJcrPath;
     }
 }

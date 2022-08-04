@@ -5,6 +5,7 @@
 # Api specification document
 - path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a
   primaryType: hippo:handle
+  jcr:uuid: api-spec-a-handle-node-id
 - path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a
   primaryType: website:apispecification
   properties:

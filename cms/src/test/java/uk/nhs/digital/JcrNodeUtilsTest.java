@@ -1,9 +1,9 @@
 package uk.nhs.digital;
 
 import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -14,8 +14,6 @@ import static uk.nhs.digital.test.util.TimeTestUtils.calendarFrom;
 import org.apache.jackrabbit.value.DateValue;
 import org.apache.jackrabbit.value.StringValue;
 import org.junit.Test;
-import org.onehippo.repository.mock.MockNode;
-import org.onehippo.repository.mock.MockNodeIterator;
 import uk.nhs.digital.toolbox.exception.ExceptionUtils;
 
 import java.sql.Date;
@@ -23,31 +21,12 @@ import java.time.Instant;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
-import javax.jcr.*;
+import javax.jcr.Node;
+import javax.jcr.Property;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 
 public class JcrNodeUtilsTest {
-
-    @Test
-    public void streamOf_returnsNodesFromNodeIteratorAsStream() {
-
-        // given
-        final MockNode nodeA = new MockNode("nodeA");
-        final MockNode nodeB = new MockNode("nodeB");
-        final MockNode nodeC = new MockNode("nodeC");
-
-        final NodeIterator nodeIterator = new MockNodeIterator(asList(nodeA, nodeB, nodeC));
-
-        // when
-        final Stream<Node> actualNodeStream = JcrNodeUtils.streamOf(nodeIterator);
-
-        // then
-        assertThat(
-            "Returned stream contains nodes from the iterator, exactly.",
-            actualNodeStream.collect(toList()),
-            containsInAnyOrder(nodeA, nodeB, nodeC)
-        );
-    }
 
     @Test
     public void getSessionQuietly_returnsNodeSession() throws RepositoryException {
