@@ -13,8 +13,8 @@ public class SyncResults {
 
     static SyncResults.SyncResult from(final SpecificationSyncData specificationSyncData) {
         return new SyncResults.SyncResult(
-            specificationSyncData.localSpec().specificationId(),
-            specificationSyncData.localSpec().path(),
+            specificationSyncData.specificationId(),
+            specificationSyncData.specJcrPath(),
             specificationSyncData.error(),
             specificationSyncData.eligible(),
             specificationSyncData.published(),
