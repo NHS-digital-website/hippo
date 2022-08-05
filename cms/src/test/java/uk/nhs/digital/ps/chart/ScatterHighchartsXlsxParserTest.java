@@ -2,21 +2,16 @@ package uk.nhs.digital.ps.chart;
 
 import static java.text.MessageFormat.format;
 import static java.util.stream.Collectors.toList;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.apache.jackrabbit.value.BinaryImpl;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxInputParser;
 import uk.nhs.digital.ps.chart.model.HighchartsModel;
@@ -36,9 +31,6 @@ public class ScatterHighchartsXlsxParserTest {
     private String chartTitle;
     private String xTitleFromSheet;
     private String yTitleFromSheet;
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     private ScatterHighchartsXlsxInputParser scatterHighchartsXlsxParser;
 
@@ -61,7 +53,7 @@ public class ScatterHighchartsXlsxParserTest {
         boolean actualSupportFlag = scatterHighchartsXlsxParser.supports(supportedChartType);
 
         // then
-        assertThat("Scatter chart type is supported", actualSupportFlag, is(true));
+        assertTrue("Scatter chart type is supported", actualSupportFlag);
     }
 
     @Test
@@ -72,19 +64,14 @@ public class ScatterHighchartsXlsxParserTest {
         boolean actualSupportFlag = scatterHighchartsXlsxParser.supports(unsupportedChartType);
 
         // then
-        assertThat("Scatter chart type is not supported", actualSupportFlag, is(false));
+        assertFalse("Scatter chart type is not supported", actualSupportFlag);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void reportsException_whenParseCalledForUnsupportedChartType() {
 
         // given
         String type = "Line";
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage(format(
-            "Unsupported chart type: {0}",
-            ChartType.toChartType("Line")
-        ));
 
         // when
         scatterHighchartsXlsxParser.parse(
@@ -93,15 +80,15 @@ public class ScatterHighchartsXlsxParserTest {
 
         // then
         // expectations set in given
+        fail(format("Unsupported chart type: {0}", ChartType.toChartType("Line")));
+
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void reportsException_whenFunnelTypeSelectedButOnlyScatterSheetProvided() {
 
         // given
         String type = "Funnel_plot";
-        expectedException.expect(RuntimeException.class);
-        expectedException.expectMessage("Failed to parse chart input.");
 
         // when
         scatterHighchartsXlsxParser.parse(
@@ -110,6 +97,7 @@ public class ScatterHighchartsXlsxParserTest {
 
         // then
         // expectations set in given
+        fail("Failed to parse chart input.");
     }
 
     @Test
@@ -143,7 +131,7 @@ public class ScatterHighchartsXlsxParserTest {
 
         // Series data is set correctly
         List<Series> series = chart.getSeries();
-        assertThat("Only one series for Scatter chart", series, hasSize(1));
+        assertEquals("Only one series for Scatter chart", 1, series.size());
 
         // Check the data parsed from scatter
         Series scatter = series.get(0);
@@ -158,8 +146,9 @@ public class ScatterHighchartsXlsxParserTest {
             "123.0",
             "572.11",
             "RAS - THE HILLINGDON HOSPITALS NHS FOUNDATION TRUST"));
+
         assertThat(getValues(scatter, Point::getX), contains(672.11, 372.11, 572.11, 622.11, 422.11, 622.11, 422.11, 129.24, 387.11, 383.18, 629.74));
-        assertThat(getValues(scatter, Point::getY), contains(1.04, 0.88, 0.81, 0.91, 0.99, 0.83, 0.97, 1.17, 0.9, 0.88, 0.93));
+
     }
 
     @Test
@@ -193,7 +182,7 @@ public class ScatterHighchartsXlsxParserTest {
 
         // Series data is set correctly
         List<Series> series = chart.getSeries();
-        assertThat("Correct number of series for funnel chart", series, hasSize(3));
+        assertEquals("Correct number of series for funnel chart", 3, series.size());
 
         // Check the data parsed from the scatter and control limits are correct
         // Scatter points

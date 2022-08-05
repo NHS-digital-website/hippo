@@ -2,19 +2,17 @@ package uk.nhs.digital.common.components.apispecification.handlebars;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.sameInstance;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_INVERSE_BLOCK;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
 
 import com.github.jknack.handlebars.Options;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.Data;
 import uk.nhs.digital.test.util.RandomTestUtils;
@@ -23,10 +21,7 @@ import java.io.IOException;
 
 public class StringBooleanVariableHelperTest {
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
-
     @Mock Options.Buffer buffer;
-
 
     private final StringBooleanVariableHelper helper = StringBooleanVariableHelper.INSTANCE;
 
@@ -90,7 +85,7 @@ public class StringBooleanVariableHelperTest {
         );
     }
 
-    @Test
+    @Test(expected = TemplateRenderingException.class)
     public void throwsException_onSchemaRenderingFailure() throws IOException {
 
         // given
@@ -99,14 +94,11 @@ public class StringBooleanVariableHelperTest {
 
         final Options options = OptionsStub.with(buffer, Data.of(variableName, "irrelevant value"));
 
-        expectedException.expectMessage("Failed to interpret value of variable " + variableName + ".");
-        expectedException.expect(TemplateRenderingException.class);
-        expectedException.expectCause(sameInstance(expectedCauseException));
-
         // when
         helper.apply(variableName, options);
 
         // then
         // expectations set up in 'given' are satisfied
+        fail("Failed to interpret value of variable " + variableName + ".");
     }
 }

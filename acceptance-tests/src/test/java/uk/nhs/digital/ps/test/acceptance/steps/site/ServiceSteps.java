@@ -1,8 +1,8 @@
 package uk.nhs.digital.ps.test.acceptance.steps.site;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertThat;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;

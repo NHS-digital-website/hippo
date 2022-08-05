@@ -5,6 +5,7 @@ import static java.math.BigDecimal.ZERO;
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
@@ -61,8 +62,6 @@ public class SchemaHelperTest {
     // content. Ignoring those lines during assertions reduces the number of
     // times the test files need to be updated whilst not invalidating their
     // value as a reference content.
-
-    @Rule public ExpectedException expectedException = ExpectedException.none();
 
     private static final TestDataCache cache = TestDataCache.create();
 
@@ -612,7 +611,7 @@ public class SchemaHelperTest {
         );
     }
 
-    @Test
+    @Test(expected = SchemaRenderingException.class)
     public void throwsExceptionOnSchemaRenderingFailure() {
 
         // given
@@ -620,16 +619,13 @@ public class SchemaHelperTest {
 
         given(markdownHelper.apply(any(), any())).willThrow(new RuntimeException());
 
-        expectedException.expectMessage("Failed to render schema.");
-        expectedException.expect(SchemaRenderingException.class);
-        expectedException.expectCause(instanceOf(HandlebarsException.class));
-
         // when
         schemaHelper.apply(schemaObject, null);
 
         // then
 
         // expectations set up in 'given' are satisfied
+        fail("Failed to render schema.");
     }
 
     @DataProvider
