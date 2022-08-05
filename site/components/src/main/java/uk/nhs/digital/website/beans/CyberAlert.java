@@ -80,9 +80,10 @@ public class CyberAlert extends CommonFieldsBean {
         if (getPublicallyAccessible() || getLimitedAccess()) {
             final HstRequestContext context = RequestContextProvider.get();
             if (context != null) {
-                //DW-1077 - compose this documetn base URL for REST API purposes
+                //DW-1077 - compose this document base URL for REST API purposes
                 HttpServletRequest req = context.getServletRequest();
-                StringBuffer url = req.getRequestURL();
+                StringBuilder url = new StringBuilder();
+                url.append(req.getRequestURL().toString());
                 String base = url.substring(0, url.length() - req.getRequestURI().length() + req.getContextPath().length());
 
                 //remove basepath part ('content/documents/corporate-website')
