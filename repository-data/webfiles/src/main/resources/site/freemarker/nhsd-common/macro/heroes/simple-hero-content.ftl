@@ -41,12 +41,12 @@
                  <#if options.colour == "Dark Blue Multicolour">
                      <#assign buttonClasses += "nhsd-a-button--invert"/>
                  </#if>
-                <a class="nhsd-a-button  ${buttonClasses}" href="${button.src?has_content?then(button.src, "#")}">
-                    <span class="nhsd-a-button__label">${button.text}</span>
-                    <#if button.srText?has_content>
-                        <span class="nhsd-t-sr-only">${button.srText}</span>
-                    </#if>
-                </a>
+                    <a class="nhsd-a-button  ${buttonClasses}" href="${button.src?has_content?then(button.src, "#")}" ${button.target?has_content?then("target=\"${button.target}\"","")}">
+                        <span class="nhsd-a-button__label">${button.text}</span>
+                        <#if button.srText?has_content>
+                            <span class="nhsd-t-sr-only">${button.srText}</span>
+                        </#if>
+                    </a>
             </#list>
         </nav>
     </#if>
