@@ -5,9 +5,7 @@ import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
@@ -35,9 +33,6 @@ public class SeriesHighchartsXlsxInputParserTest {
     private Binary binary;
     private String chartTitle;
     private String yAxisTitle;
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     private SeriesHighchartsXlsxInputParser seriesHighchartsXlsxInputParser;
 
@@ -72,16 +67,11 @@ public class SeriesHighchartsXlsxInputParserTest {
         assertThat("Series chart type is not supported", actualSupportFlag, is(false));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void reportsException_whenParseCalledForUnsupportedChartType() {
 
         // given
         String type = "Scatter_plot";
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage(format(
-            "Unsupported chart type: {0}",
-            ChartType.toChartType("Scatter_plot")
-        ));
 
         // when
         seriesHighchartsXlsxInputParser.parse(
@@ -90,6 +80,8 @@ public class SeriesHighchartsXlsxInputParserTest {
 
         // then
         // expectations set in given
+        fail(format("Unsupported chart type: {0}", ChartType.toChartType("Scatter_plot")));
+
     }
 
     @Test

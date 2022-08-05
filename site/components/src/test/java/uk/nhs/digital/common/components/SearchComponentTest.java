@@ -6,7 +6,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -53,7 +52,7 @@ public class SearchComponentTest {
         final String actualQueryOutput = ComponentUtils.parseAndApplyWildcards(queryInput);
 
         // then
-        assertThat("Wildcard query is correct", actualQueryOutput, is(expectedQueryOutput));
+        assertEquals("Wildcard query is correct", expectedQueryOutput, actualQueryOutput);
 
     }
 
