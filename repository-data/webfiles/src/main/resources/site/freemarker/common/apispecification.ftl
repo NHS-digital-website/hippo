@@ -21,8 +21,8 @@
         <@metaTags></@metaTags>
 
         <article itemscope>
-            <@hero getHeroOptions(document) />
 
+            <@hero getExtendedHeroOptions(document) />
             <div class="nhsd-t-grid nhsd-!t-margin-top-6">
                 <div class="nhsd-t-row"><@renderHtml specificationJson=document.json path=path documentHandleUuid=document.getCanonicalHandleUUID()/></div>
             </div>
@@ -37,3 +37,23 @@
     </#if>
 
 </#if>
+
+<#function getExtendedHeroOptions document>
+    <#assign options = getHeroOptions(document) />
+
+    <@hst.html var="htmlSummary" hippohtml=options.summary contentRewriter=brContentRewriter />
+    <@hst.link var="oasHintLink" path='developer/guides-and-documentation/our-api-technologies#oas/'/>
+    <#assign oasHintText = "<p style=\"margin-left:0px; margin-right:0px\">This specification is written from an <a href=\"${oasHintLink}\">OAS</a> file.</p>">
+
+    <@hst.link var="oasLink" path='/restapi/oas/${document.getSpecificationId()}/'/>
+
+    <#assign options += {
+        "summary": (htmlSummary + oasHintText)?no_esc,
+        "buttons": [{
+            "src": oasLink,
+            "text": "Get this specification in OAS format",
+            "target": "_blank"
+        }]
+    }/>
+    <#return options/>
+</#function>
