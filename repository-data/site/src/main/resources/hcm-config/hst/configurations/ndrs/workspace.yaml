@@ -67,6 +67,22 @@ definitions:
             hst:xtype: hst.nomarkup
             jcr:primaryType: hst:containercomponent
           jcr:primaryType: hst:containercomponentfolder
+        /ndrs-news-hub:
+          /banner:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 3b08858e-f834-406d-b749-6257a6a36246
+            hst:label: Banner
+            hst:lastmodified: 2022-03-29T21:23:40.194Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          /main:
+            .meta:residual-child-node-category: content
+            hippo:identifier: 00027994-2130-4d54-ad4d-bd63a6915f8b
+            hst:label: Main
+            hst:lastmodified: 2022-03-29T21:44:14.892Z
+            hst:xtype: hst.nomarkup
+            jcr:primaryType: hst:containercomponent
+          jcr:primaryType: hst:containercomponentfolder
         /nhsd-homepage:
           /banner:
             .meta:residual-child-node-category: content

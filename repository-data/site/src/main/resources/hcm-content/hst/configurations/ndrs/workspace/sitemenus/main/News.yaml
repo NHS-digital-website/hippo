@@ -1,5 +1,5 @@
 ---
 /hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/main/News:
-  hst:referencesitemapitem: data
+  hst:referencesitemapitem: news
   hst:repobased: false
   jcr:primaryType: hst:sitemenuitem
