@@ -30,8 +30,13 @@ public class SitemorseResource extends org.hippoecm.hst.jaxrs.services.AbstractR
                 LOG.warn("Sitemorse API key is empty or could not be retrieved");
                 return null;
             }
-
             SciClient client = new SciClient(sitemorseToken);
+
+            String sessionCookie = "Cookies: add your session cookie";
+            String[] headerArray = new String[1];
+            headerArray[0] = sessionCookie;
+            client.setExtraHeaders( headerArray );
+
             client.setExtendedResponse(true);
             return client.performTest(url);
         } catch (SciException e) {
