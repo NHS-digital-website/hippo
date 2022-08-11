@@ -440,11 +440,14 @@
                                 <@hst.link hippobean=page.linkedBean var="relatedSubjectLink"/>
                                 <#assign isActive = document.getCanonicalUUID() == page.linkedBean.getCanonicalUUID()/>
                                 <li ${isActive?then('class=nhsd-m-publication-chapter-navigation--active', '')} itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                    <span itemprop="name"><a itemprop="url" href="<@hst.link hippobean=page.linkedBean>
-                                                <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
-                                                </@hst.link>"
+                                    <span itemprop="name">
+                                        <@hst.link hippobean=page.linkedBean var="chapterLink">
+                                            <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
+                                        </@hst.link>
+                                        <a itemprop="url" href="${chapterLink}" class="nhsd-a-link"
                                                 onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
-                                                ${isActive?then('', 'data-print-article')}>${page.title}</a></span>
+                                                ${isActive?then('', 'data-print-article')}>${page.title}</a>
+                                    </span>
                                 </li>
                             </#list>
                         </ol>

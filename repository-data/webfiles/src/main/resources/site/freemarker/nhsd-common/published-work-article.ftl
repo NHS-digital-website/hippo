@@ -109,10 +109,10 @@
 
         <@chapterNav document />
     </#if>
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8" id="document-content">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8 nhsd-!t-margin-bottom-6" id="document-content">
         <div class="nhsd-t-row">
             <#if renderNav>
-                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
                     <!-- start sticky-nav -->
                     <@fmt.message key="headers.page-contents" var="pageContentsHeader" />
                     <#assign links = [] />
@@ -127,7 +127,7 @@
                 </div>
             </#if>
 
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 ${renderNav?then('nhsd-t-off-s-1', '')}">
                 <#if hasSummaryContent>
                     <div id="${slugify('Summary')}">
                         <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
@@ -245,10 +245,11 @@
                 </#if>
 
                 <div class="nhsd-!t-margin-bottom-6">
+                    <hr class="nhsd-a-horizontal-rule"/>
                     <@lastModified document.lastModified false></@lastModified>
                 </div>
 
-                <div class="nhsd-!t-margin-bottom-8">
+                <div class="nhsd-!t-margin-bottom-6">
                     <@pagination document />
                 </div>
 
@@ -257,6 +258,9 @@
                     <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1"
                          id="chapter-index"
                     >
+                        <hr class="nhsd-a-horizontal-rule"/>
+                        <h2 class="nhsd-t-heading-m">Chapters</h2>
+
                         <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
                             <#list splitChapters.left as chapter>
                                 <#if chapter.id == document.identifier>
@@ -265,7 +269,7 @@
                                     <li class="">
                                 </#if>
                                 <a class="nhsd-a-link"
-                                   href="${chapter.link}?key=${earlyAccessKey}"
+                                   href="${chapter.link + earlyAccessKey?has_content?then('?key=' + earlyAccessKey, '')}"
                                    onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                    title="${chapter.title}"
                                 >
@@ -283,12 +287,11 @@
                                         <li class="">
                                     </#if>
                                     <a class="nhsd-a-link"
-                                       href="${chapter.link}?key=${earlyAccessKey}"
+                                       href="${chapter.link + earlyAccessKey?has_content?then('?key=' + earlyAccessKey, '')}"
                                        onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                        title="${chapter.title}"
                                     >
                                         ${chapter.title}
-                                        <span class="nhsd-t-sr-only"></span>
                                     </a>
                                     </li>
                                 </#list>
