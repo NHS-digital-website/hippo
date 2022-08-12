@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  website:
+    image: nhs-digital-website
+    container_name: test
+    volumes:
+      - $HOME/.m2:/root/.m2
+    expose:
+      - 8080
+    networks:
+      - frontend
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://test:8080/site/"]
+      interval: 60s
+      timeout: 60s
+      retries: 5
+  acceptance-test:
+    image: acceptance-test
+    volumes:
+      - $PWD/acceptance-tests/src/test/node/playwright-report:/e2e/playwright-report
+    depends_on:
+      website:
+        condition: service_healthy
+    networks:
+      - frontend
+networks:
+  frontend:
+    driver: bridge

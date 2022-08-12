@@ -7,5 +7,5 @@ export async function acceptCookies(page: Page) {
 
 export async function navigateToPage(url: string, page: Page) {
     await page.goto(url);
-    await acceptCookies(page);
+    //await acceptCookies(page);
 }

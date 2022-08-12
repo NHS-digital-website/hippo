@@ -40,6 +40,10 @@ serve.noexport: essentials/target/essentials.war
 run:
 	mvn $(MVN_OPTS) -P $(PROFILE_RUN) $(REPO_PATH)
 
+## Start server for automation test (excludes Elastic Search plugin) using automation.test.run
+test.run:
+	mvn $(MVN_OPTS) -P $(PROFILE_RUN),without-es $(REPO_PATH)
+
 # we don't have to recompile it every time.
 essentials/target/essentials.war:
 	mvn clean verify $(MVN_OPTS) -pl essentials -am --offline -DskipTests=true

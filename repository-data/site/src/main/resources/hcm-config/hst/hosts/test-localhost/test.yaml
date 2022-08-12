@@ -1,0 +1,47 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/test-localhost/test:
+      .meta:residual-child-node-category: content
+      /hst:root:
+        .meta:residual-child-node-category: content
+        /api:
+          .meta:residual-child-node-category: content
+          hst:alias: api
+          hst:ismapped: false
+          hst:namedpipeline: RestApiPipeline
+          hst:types:
+          - rest
+          jcr:primaryType: hst:mount
+        /gdpr:
+          .meta:residual-child-node-category: content
+          hst:ismapped: false
+          hst:namedpipeline: TargetingRestApiPipeline
+          hst:types:
+          - rest
+          jcr:primaryType: hst:mount
+        /intranet:
+          .meta:residual-child-node-category: content
+          hst:mountpoint: /hst:hst/hst:sites/intranet
+          jcr:primaryType: hst:mount
+        /ndrs:
+          .meta:residual-child-node-category: content
+          hst:homepage: root
+          hst:mountpoint: /hst:hst/hst:sites/ndrs
+          jcr:primaryType: hst:mount
+        /restapi:
+          .meta:residual-child-node-category: content
+          hst:alias: restapi
+          hst:ismapped: false
+          hst:namedpipeline: JaxrsRestPlainPipeline
+          hst:types:
+          - rest
+          jcr:primaryType: hst:mount
+        hst:cacheable: false
+        hst:homepage: root
+        hst:mountpoint: /hst:hst/hst:sites/common
+        jcr:primaryType: hst:mount
+      hst:scheme: http
+      hst:showcontextpath: true
+      hst:showport: true
+      jcr:primaryType: hst:virtualhost

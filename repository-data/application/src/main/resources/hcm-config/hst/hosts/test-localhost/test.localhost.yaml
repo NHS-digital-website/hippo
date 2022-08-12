@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hst:platform/hst:hosts/test-localhost/test.localhost:
+      /hst:root:
+        hst:ismapped: false
+        hst:namedpipeline: WebApplicationInvokingPipeline
+        jcr:primaryType: hst:mount
+      jcr:primaryType: hst:virtualhost

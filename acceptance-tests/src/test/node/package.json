@@ -1,22 +1,20 @@
 {
-  "name": "tests",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@playwright/test": "^1.23.1",
-    "axe-playwright": "^1.1.11",
-    "lighthouse": "^9.6.3",
-    "playwright": "^1.23.1",
-    "playwright-core": "^1.23.2",
-    "ts-node": "^10.8.2",
-    "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "@cucumber/cucumber": "^8.4.0"
-  }
+    "name": "playwright-demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@playwright/test": "^1.25.0",
+        "axe-playwright": "^1.1.11",
+        "lighthouse": "^9.6.3",
+        "playwright": "^1.23.1",
+        "playwright-core": "^1.23.2",
+        "ts-node": "^10.8.2",
+        "typescript": "^4.7.4",
+        "@cucumber/cucumber": "^8.4.0"
+    }
 }

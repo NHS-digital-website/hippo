@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/test-localhost:
+      .meta:residual-child-node-category: content
+      hst:defaultport: 8080
+      jcr:primaryType: hst:virtualhostgroup

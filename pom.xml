@@ -1247,6 +1247,28 @@
                 <development-module-deploy-dir>temp</development-module-deploy-dir>
             </properties>
         </profile>
+        <profile>
+            <id>without-es</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.alexcojocaru</groupId>
+                        <artifactId>elasticsearch-maven-plugin</artifactId>
+                        <version>${maven.plugin.elasticsearch.version}</version>
+                        <executions>
+                            <execution>
+                                <id>start-elasticsearch</id>
+                                <phase>none</phase>
+                            </execution>
+                            <execution>
+                                <id>stop-elasticsearch</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
         <profile>
             <id>without-autoexport</id>

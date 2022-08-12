@@ -3,7 +3,7 @@ import {Given, setWorldConstructor, Then} from '@cucumber/cucumber';
 import getPage from './pages';
 import CustomWorld from "./world";
 
-const site = 'http://localhost:8080/site'
+const site = 'http://test:8080/site'
 
 setWorldConstructor(CustomWorld);
 
