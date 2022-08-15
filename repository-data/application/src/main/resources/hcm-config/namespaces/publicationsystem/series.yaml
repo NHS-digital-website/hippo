@@ -252,12 +252,13 @@ definitions:
                 & disorder reduction partnership,Dental practices,Deprivation,Education
                 Authority,Government Office Regions,GP practices,Health Education
                 England Region,Hospital and Community Health Services,Hospital Sites,Hospital
-                Trusts,Independent Sector Health Care Providers,Local Authorities,London
-                Authorities,Mental Health Trusts,Middle Layer Super Output Areas,NHS
-                Health Boards,NHS Trusts,ONS Area Classification,Parliamentary constituency,Pharmacies
-                and clinics,Primary Care Organisations,Primary Care Trusts,Provider,Provider
-                clusters,Regional health body,Regions,Strategic Health Authorities,Sustainability
-                and Transformation Partnerships,Wards
+                Trusts,Independent Sector Health Care Providers,Integrated Care Systems,
+                Local Authorities,London Authorities,Mental Health Trusts,Middle Layer
+                Super Output Areas, Neighbourhoods,NHS Health Boards,NHS Trusts,ONS
+                Area Classification,Parliamentary constituency, Pharmacies and clinics,Primary
+                Care Organisations,Primary Care Trusts,Provider,Provider clusters,Regional
+                health body,Regions,Strategic Health Authorities,Sub-Integrated Care
+                Systems, Sustainability and Transformation Partnerships,Wards
             caption: Granularity
             field: granularity
             hint: ''
