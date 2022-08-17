@@ -7,6 +7,15 @@ definitions:
         - statistical-publications-and-clinical-indicators-author
         hipposys:role: author
         jcr:primaryType: hipposys:authrole
+      /data-and-information-assets:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/assets/website-assets/data-and-information
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /editor:
         hipposys:groups:
         - statistical-publications-and-clinical-indicators-editor
