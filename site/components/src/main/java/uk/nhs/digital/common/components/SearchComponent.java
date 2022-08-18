@@ -805,7 +805,13 @@ public class SearchComponent extends CommonComponent {
             return null;
         }
 
-        return ContentBeanUtils.getFacetNavigationBean(buildQuery(request));
+        // If we get no results without wildcards, we add wildcards in the search.
+        HippoFacetNavigationBean result = ContentBeanUtils.getFacetNavigationBean(buildQuery(request, false));
+        if (result.getCount() != 0) {
+            return result;
+        } else {
+            return ContentBeanUtils.getFacetNavigationBean(buildQuery(request, true));
+        }
     }
 
     String getQueryParameter(HstRequest request) {
@@ -820,7 +826,7 @@ public class SearchComponent extends CommonComponent {
         return getComponentParametersInfo(request);
     }
 
-    private HstQuery buildQuery(HstRequest request) {
+    private HstQuery buildQuery(HstRequest request, Boolean includeWildcards) {
         String queryParameter = getQueryParameter(request);
         Constraint searchStringConstraint = null;
 
@@ -828,18 +834,32 @@ public class SearchComponent extends CommonComponent {
 
         if (queryParameter != null) {
             String query = SearchInputParsingUtils.parse(queryParameter, true);
-            String queryIncWildcards = ComponentUtils.parseAndApplyWildcards(queryParameter);
 
-            searchStringConstraint = or(
-                //forcing specific fields first: this will boost the weight of a hit fot those specific property
-                constraint(".").contains(query),
-                constraint(".").contains(queryIncWildcards),
-                constraint("website:title").contains(query),
-                constraint("website:summary").contains(query),
-                constraint("publicationsystem:title").contains(query),
-                constraint("publicationsystem:summary").contains(query),
-                constraint("nationalindicatorlibrary:title").contains(query)
-            );
+            if (includeWildcards) {
+                String queryIncWildcards = ComponentUtils.parseAndApplyWildcards(queryParameter);
+
+                searchStringConstraint = or(
+                    //forcing specific fields first: this will boost the weight of a hit fot those specific property
+                    constraint(".").contains(query),
+                    constraint(".").contains(queryIncWildcards),
+                    constraint("website:title").contains(query),
+                    constraint("website:summary").contains(query),
+                    constraint("publicationsystem:title").contains(query),
+                    constraint("publicationsystem:summary").contains(query),
+                    constraint("nationalindicatorlibrary:title").contains(query)
+                );
+            } else {
+                searchStringConstraint = or(
+                    //forcing specific fields first: this will boost the weight of a hit fot those specific property
+                    constraint(".").contains(query),
+                    constraint("website:title").contains(query),
+                    constraint("website:summary").contains(query),
+                    constraint("publicationsystem:title").contains(query),
+                    constraint("publicationsystem:summary").contains(query),
+                    constraint("nationalindicatorlibrary:title").contains(query)
+                );
+            }
+
         }
 
         // register content classes
@@ -929,7 +949,7 @@ public class SearchComponent extends CommonComponent {
             constraints.add(searchStringConstraint);
         }
 
-        return queryBuilder.where(and(constraints.toArray(new Constraint[0]))).build();
+        return queryBuilder.where(and(constraints.toArray(new Constraint[0]))).limit(800).build();
     }
 
     /**
