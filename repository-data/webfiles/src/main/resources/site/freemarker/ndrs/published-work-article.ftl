@@ -3,7 +3,7 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Publishedwork" -->
 
 <#include "../include/imports.ftl">
-<#include "../nhsd-common/macro/sections/sections.ftl">
+<#include "../common/macro/sections/sections.ftl">
 <#include "../nhsd-common/macro/component/lastModified.ftl">
 <#include "../nhsd-common/macro/component/pagination.ftl">
 <#include "../nhsd-common/macro/component/chapter-pagination.ftl">
@@ -13,10 +13,9 @@
 <#include "../common/macro/fileIconByMimeType.ftl">
 <#include "../nhsd-common/macro/component/downloadBlockAsset.ftl">
 <#include "../nhsd-common/macro/heroes/hero-options.ftl">
-<#include "../nhsd-common/macro/heroes/hero.ftl">
+<#include "macro/heroes/hero.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/documentIcon.ftl">
-<#import "app-layout-head.ftl" as alh>
 
 <@hst.headContribution category="metadata">
     <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
@@ -81,47 +80,53 @@
         }/>
     </#if>
 
-    <#if publicationStyle == 'bluebanner' || !heroOptions.image?has_content>
+    <div class="hero-inner-bg bg-fix">
         <#assign heroOptions += {
             "colour": "darkBlue"
         }/>
-        <@hero heroOptions />
-    <#elseif publicationStyle == 'heromodule'>
-        <@hero heroOptions "image" />
-    <#elseif publicationStyle == 'slimpicture'>
-        <@hero getHeroOptions(document) "image" />
-    </#if>
+        <#if publicationStyle == 'bluebanner' || !heroOptions.image?has_content>
+            <@hero heroOptions />
+        <#elseif publicationStyle == 'heromodule'>
+            <@hero heroOptions "image" />
+        <#elseif publicationStyle == 'slimpicture'>
+            <@hero getHeroOptions(document) "image" />
+        </#if>
 
-    <#if hasChildPages>
-        <#assign documents = [] />
 
-    <#-- Cache the parent document's details -->
-        <@hst.link hippobean=document var="link" />
-        <#assign documents = [{ "index": 0, "id": document.identifier, "title": document.title, "link": link }] />
+        <#if hasChildPages>
+            <#assign documents = [] />
 
-    <#-- Cache the chapter details -->
-        <#list childPages as chapter>
-            <@hst.link hippobean=chapter var="link" />
-            <#assign documents += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
-        </#list>
+            <#-- Cache the parent document's details -->
+            <@hst.link hippobean=document var="link" />
+            <#assign documents = [{ "index": 0, "id": document.identifier, "title": document.title, "link": link }] />
 
-        <@chapterNav document />
-    </#if>
+            <#-- Cache the chapter details -->
+            <#list childPages as chapter>
+                <@hst.link hippobean=chapter var="link" />
+                <#assign documents += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
+            </#list>
+
+            <@chapterNav document />
+        </#if>
+    </div>
+
     <div class="nhsd-t-grid nhsd-!t-margin-top-8" id="document-content">
         <div class="nhsd-t-row">
             <#if renderNav>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-                    <!-- start sticky-nav -->
-                    <@fmt.message key="headers.page-contents" var="pageContentsHeader" />
-                    <#assign links = [] />
-                    <#if hasAboutThisSection>
-                        <#assign links = links + [{"url": "#about-this-publication", "title": aboutThisPublicationHeader}] />
-                    </#if>
-                    <@stickyNavSections getStickySectionNavLinks({ "document": document, "sections": links, "includeSummary": hasSummaryContent}), pageContentsHeader></@stickyNavSections>
+                    <div id="sticky-nav" class="sticky-nav-leftfix nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
+                        <!-- start sticky-nav -->
+                        <@fmt.message key="headers.page-contents" var="pageContentsHeader" />
+                        <#assign links = [] />
+                        <#if hasAboutThisSection>
+                            <#assign links = links + [{"url": "#about-this-publication", "title": aboutThisPublicationHeader}] />
+                        </#if>
+                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "sections": links, "includeSummary": hasSummaryContent}), pageContentsHeader></@stickyNavSections>
 
-                    <#-- Restore the bundle -->
-                    <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
-                    <!-- end sticky-nav -->
+                        <#-- Restore the bundle -->
+                        <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
+                        <!-- end sticky-nav -->
+                    </div>
                 </div>
             </#if>
 
@@ -143,9 +148,6 @@
                 </#if>
 
                 <#if hasSectionContent>
-                    <#if hasHighlightsContent || (hasSummaryContent && !hasHighlightsContent)>
-                        <hr class="nhsd-a-horizontal-rule"/>
-                    </#if>
 
                     <@sections document.sections></@sections>
                 </#if>

@@ -126,10 +126,10 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/publications-list.ftl
         jcr:primaryType: hst:template
       /published-work-article:
-        hst:renderpath: webfile:/freemarker/nhsd-common/published-work-article.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/published-work-article.ftl
         jcr:primaryType: hst:template
       /published-work-chapter-article:
-        hst:renderpath: webfile:/freemarker/nhsd-common/published-work-chapter-article.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/published-work-chapter-article.ftl
         jcr:primaryType: hst:template
       /search-results-layout:
         hst:renderpath: webfile:/freemarker/common/search-results-layout.ftl

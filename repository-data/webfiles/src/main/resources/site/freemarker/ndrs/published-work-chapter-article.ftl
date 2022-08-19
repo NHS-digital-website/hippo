@@ -3,10 +3,10 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Publishedworkchapter" -->
 
 <#include "../include/imports.ftl">
-<#include "../macro/sections/sections.ftl">
-<#include "../macro/component/lastModified.ftl">
-<#include "../macro/component/pagination.ftl">
-<#include "../macro/component/chapter-pagination.ftl">
+<#include "../nhsd-common/macro/sections/sections.ftl">
+<#include "../nhsd-common/macro/component/lastModified.ftl">
+<#include "../nhsd-common/macro/component/pagination.ftl">
+<#include "../nhsd-common/macro/component/chapter-pagination.ftl">
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "./macro/heroes/hero.ftl">
@@ -99,24 +99,28 @@
         }/>
     </#if>
 
-    <#if publicationStyle == 'bluebanner' || !heroOptions.image?has_content>
+    <div class="hero-inner-bg bg-fix">
         <#assign heroOptions += {
-            "colour": "darkBlue",
-            "introText": introText
+            "colour": "darkBlue"
         }/>
-        <@hero heroOptions />
-    <#elseif publicationStyle == 'heromodule'>
-        <#assign heroOptions += {
-            "introText": introText
-        }/>
-        <@hero heroOptions "image" />
-    <#elseif publicationStyle == 'slimpicture'>
-        <@hero getHeroOptions(document) "image" />
-    </#if>
+        <#if publicationStyle == 'bluebanner' || !heroOptions.image?has_content>
+            <#assign heroOptions += {
+                "introText": introText
+            }/>
+            <@hero heroOptions />
+        <#elseif publicationStyle == 'heromodule'>
+            <#assign heroOptions += {
+                "introText": introText
+            }/>
+            <@hero heroOptions "image" />
+        <#elseif publicationStyle == 'slimpicture'>
+            <@hero getHeroOptions(document) "image" />
+        </#if>
 
-    <#if hasChapters>
-        <@chapterNav document "Current chapter – " />
-    </#if>
+        <#if hasChapters>
+            <@chapterNav document "Current chapter – " />
+        </#if>
+    </div>
 
     <#-- Don't use the summary in the content when the hero module is active -->
     <#if publicationStyle = 'heromodule'>
@@ -129,11 +133,13 @@
         <div class="nhsd-t-row" id="document-content">
             <#if renderNav>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-                    <!-- start sticky-nav -->
-                    <@stickyNavSections getStickySectionNavLinks({ "document": document, "includeSummary": hasSummaryContent })></@stickyNavSections>
-                    <!-- end sticky-nav -->
-                    <#-- Restore the bundle -->
-                    <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>
+                    <div id="sticky-nav" class="sticky-nav-leftfix nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
+                        <!-- start sticky-nav -->
+                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "includeSummary": hasSummaryContent })></@stickyNavSections>
+                        <!-- end sticky-nav -->
+                        <#-- Restore the bundle -->
+                        <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>
+                    </div>
                 </div>
             </#if>
 
