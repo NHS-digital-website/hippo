@@ -17,6 +17,8 @@ definitions:
           - website:componentlist
           - intranet:task
           - website:signup
+          - website:publishedwork
+          - website:publishedworkchapter
           hst:componentconfigurationmappingvalues:
           - hst:pages/article-hub
           - hst:pages/event
@@ -29,6 +31,8 @@ definitions:
           - hst:pages/componentlist
           - hst:pages/task
           - hst:pages/sign-up
+          - hst:pages/publishedwork
+          - hst:pages/publishedworkchapter
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -44,6 +48,8 @@ definitions:
         - website:componentlist
         - intranet:task
         - website:signup
+        - website:publishedwork
+        - website:publishedworkchapter
         hst:componentconfigurationmappingvalues:
         - hst:pages/article-hub
         - hst:pages/event
@@ -56,6 +62,8 @@ definitions:
         - hst:pages/componentlist
         - hst:pages/task
         - hst:pages/sign-up
+        - hst:pages/publishedwork
+        - hst:pages/publishedworkchapter
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
