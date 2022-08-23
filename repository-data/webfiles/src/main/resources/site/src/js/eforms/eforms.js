@@ -399,7 +399,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
     /* Show success message and hide everything else*/
     function showSuccessMessage() {
         $successMessage.removeClass('visually-hidden');
-
+        $successMessage.removeClass('nhsd-t-sr-only');
         $form.remove();
     }
 
