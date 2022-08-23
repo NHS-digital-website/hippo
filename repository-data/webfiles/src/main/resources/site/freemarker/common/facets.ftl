@@ -5,6 +5,7 @@
 <#assign facetMaxCount=6/>
 
 <#if isContentSearch?? && isContentSearch>
+    here1
     <#assign facetFields = hstRequest.requestContext.getAttribute("facetFields") />
     <#assign resetUrl = hstRequest.requestContext.getAttribute("resetUrl") />
     <div class="filter">
@@ -33,6 +34,7 @@
     </div>
 
 <#else>
+    here2
     <#if facets??>
         <div class="filter">
             <div class="filter-head">
