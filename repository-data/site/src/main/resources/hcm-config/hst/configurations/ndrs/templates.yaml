@@ -56,6 +56,9 @@ definitions:
       /eforms.validation.default:
         hst:renderpath: webfile:/freemarker/common/eforms/eforms-validation-default.ftl
         jcr:primaryType: hst:template
+      /essentials-banner:
+        hst:renderpath: webfile:/freemarker/ndrs/hstdefault/essentials-banner.ftl
+        jcr:primaryType: hst:template
       /event-article:
         hst:renderpath: webfile:/freemarker/ndrs/event-article.ftl
         jcr:primaryType: hst:template

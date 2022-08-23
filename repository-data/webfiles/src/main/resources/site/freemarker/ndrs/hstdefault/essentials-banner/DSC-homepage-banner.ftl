@@ -3,8 +3,12 @@
 <#include "../../macro/documentHeader.ftl">
 <#assign overridePageTitle>${document.title}</#assign>
 <#-- Add meta tags -->
-<#include "../macro/metaTags.ftl">
-<@metaTags title summary></@metaTags>
+<#include "../../macro/metaTags.ftl">
+
+<#if pageTitle?has_content>
+    <#assign overridePageTitle = pageTitle />
+    <@metaTags />
+</#if>
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Banner" -->
 <#assign hasBannerImage = document.image?has_content />
