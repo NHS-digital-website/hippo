@@ -24,10 +24,9 @@
 <#assign mirrored = (hasTextAlignment && textAlignment == "right")?then("nhsd-o-hero-feature--mirrored","")/>
 
 <#assign breadcrumb  = hstRequestContext.getAttribute("bread")>
-
-<#if breadcrumb?has_content && (breadcrumb=="Coronavirus" || breadcrumb=="News") && !hstRequestContext.getAttribute("headerPresent")?if_exists>
-    <#assign overridePageTitle>${breadcrumb}</#assign>
-    <@metaTags></@metaTags>
+<#if pageTitle?has_content>
+    <#assign overridePageTitle = pageTitle />
+    <@metaTags />
 </#if>
 
 <#-- Colourbar -->

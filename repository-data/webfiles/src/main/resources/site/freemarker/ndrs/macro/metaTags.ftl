@@ -8,14 +8,12 @@
     <#assign defaultMetaImage><@hst.webfile path="images/nhs-digital-logo-social.jpg" fullyQualified=true/></#assign>
     <#assign defaultTwitterImage = defaultMetaImage />
 
-    <#if document?? && document.title??>
-        <#assign pageTitle = document.title + ' - ' + siteTitle />
-    </#if>
-    <#if overridePageTitle?? >
-        <#assign pageTitle = overridePageTitle + ' - ' + siteTitle />
-    </#if>
     <#if contentTitle?? && contentTitle?has_content >
         <#assign pageTitle = contentTitle />
+    <#elseif overridePageTitle?has_content>
+        <#assign pageTitle = overridePageTitle + ' - ' + siteTitle />
+    <#elseif document?? && document.title?has_content>
+        <#assign pageTitle = document.title + ' - ' + siteTitle />
     </#if>
 
     <#if document?? && document.seosummary?? && document.seosummary?has_content>
