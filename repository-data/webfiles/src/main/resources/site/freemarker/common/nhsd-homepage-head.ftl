@@ -7,6 +7,15 @@
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFB0ZQ0CHQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NFB0ZQ0CHQ');
+    </script>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" async></script>
 
     <meta charset="utf-8">
