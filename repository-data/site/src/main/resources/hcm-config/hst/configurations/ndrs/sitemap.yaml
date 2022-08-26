@@ -118,6 +118,7 @@ definitions:
               hst:relativecontentpath: /data/data-outputs/ncardrs-data-outputs/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/data/data-outputs/ncardrs-data-outputs
+            hst:refId: ncardrs-data-outputs
             hst:relativecontentpath: ncardrs-data-outputs
             jcr:primaryType: hst:sitemapitem
           /ncras-data-outputs:
@@ -130,9 +131,11 @@ definitions:
               hst:relativecontentpath: /data/data-outputs/ncras-data-outputs/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/data/data-outputs/ncras-data-outputs
+            hst:refId: ncras-data-outputs
             hst:relativecontentpath: ncras-data-outputs
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/data/data-outputs
+          hst:refId: data-outputs
           hst:relativecontentpath: data-outputs
           jcr:primaryType: hst:sitemapitem
         /data-sets:
@@ -154,6 +157,7 @@ definitions:
               hst:relativecontentpath: /data/data-sets/ncardrs-data-sets/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/data/data-sets/ncardrs-data-sets
+            hst:refId: ncardrs-data-sets
             hst:relativecontentpath: ncardrs-data-sets
             jcr:primaryType: hst:sitemapitem
           /ncras-data-sets:
@@ -166,8 +170,10 @@ definitions:
               hst:relativecontentpath: /data/data-sets/ncras-data-sets/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/data/data-sets/ncras-data-sets
+            hst:refId: ncras-data-sets
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/data/data-sets
+          hst:refId: data-sets
           hst:relativecontentpath: data-sets
           jcr:primaryType: hst:sitemapitem
         /data-stories:
@@ -179,8 +185,9 @@ definitions:
             - hst:pages/feedhub
             hst:relativecontentpath: /data/data-stories/${1}
             jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/data/data-stories
-          hst:relativecontentpath: data-stories
+          hst:componentconfigurationid: hst:pages/article-hub
+          hst:refId: data-stories
+          hst:relativecontentpath: /data/data-stories/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/data
         hst:refId: data
@@ -241,6 +248,7 @@ definitions:
             hst:relativecontentpath: /our-work/ncardrs-partnerships/${1}
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/our-work/ncardrs-partnerships
+          hst:refId: ncardrs-partnerships
           jcr:primaryType: hst:sitemapitem
         /ncardrs-work-programme:
           /_any_:
@@ -252,6 +260,7 @@ definitions:
             hst:relativecontentpath: /our-work/ncardrs-work-programme/${1}
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/our-work/ncardrs-work-programme
+          hst:refId: ncardrs-work-programme
           jcr:primaryType: hst:sitemapitem
         /ncras-partnerships:
           /_any_:
@@ -263,6 +272,7 @@ definitions:
             hst:relativecontentpath: /our-work/ncras-partnerships/${1}
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/our-work/ncras-partnerships
+          hst:refId: ncras-partnerships
           jcr:primaryType: hst:sitemapitem
         /ncras-work-programme:
           /_any_:
@@ -274,6 +284,7 @@ definitions:
             hst:relativecontentpath: /our-work/ncras-work-programme/${1}
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/our-work/ncras-work-programme
+          hst:refId: ncras-work-programme
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/our-work
         hst:refId: ourwork
