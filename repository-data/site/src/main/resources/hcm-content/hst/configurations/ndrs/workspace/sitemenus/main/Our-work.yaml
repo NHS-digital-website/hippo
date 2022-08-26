@@ -1,6 +1,22 @@
 ---
 /hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/main/Our work:
   .meta:order-before: About
-  hst:referencesitemapitem: data
+  /NCARDRS Partnerships:
+    hst:referencesitemapitem: ncardrs-partnerships
+    hst:repobased: false
+    jcr:primaryType: hst:sitemenuitem
+  /NCARDRS Work Programme:
+    hst:referencesitemapitem: ncardrs-work-programme
+    hst:repobased: false
+    jcr:primaryType: hst:sitemenuitem
+  /NCRAS Partnerships:
+    hst:referencesitemapitem: ncras-partnerships
+    hst:repobased: false
+    jcr:primaryType: hst:sitemenuitem
+  /NCRAS Work Programme:
+    hst:referencesitemapitem: ncras-work-programme
+    hst:repobased: false
+    jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: ourwork
   hst:repobased: false
   jcr:primaryType: hst:sitemenuitem

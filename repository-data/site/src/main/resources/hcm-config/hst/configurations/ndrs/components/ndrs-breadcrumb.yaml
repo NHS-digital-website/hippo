@@ -1,0 +1,13 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:components/ndrs-breadcrumb:
+      hst:componentclassname: uk.nhs.digital.common.components.BreadcrumbComponent
+      hst:parameternames:
+      - breadcrumb-separator
+      - breadcrumb-add-content-based
+      hst:parametervalues:
+      - '>'
+      - 'true'
+      hst:template: breadcrumb
+      jcr:primaryType: hst:component
