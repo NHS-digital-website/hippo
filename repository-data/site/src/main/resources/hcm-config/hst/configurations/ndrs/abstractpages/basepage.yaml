@@ -3,7 +3,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/ndrs/hst:abstractpages/basepage:
       /breadcrumb:
-        hst:referencecomponent: hst:components/nhsd-breadcrumb
+        hst:referencecomponent: hst:components/ndrs-breadcrumb
         jcr:primaryType: hst:component
       /breadcrumb-ci-old-styling:
         hst:referencecomponent: hst:components/breadcrumb-ci-old-styling
