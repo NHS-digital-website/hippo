@@ -61,15 +61,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /events:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Events
-            field: interval
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
           /location:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -179,6 +170,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /eventSchema:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: eventSchema
+            field: eventSchema
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -216,6 +216,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: selection:BooleanRadioGroup
             jcr:primaryType: hipposysedit:field
+          /eventSchema:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:eventSchema
+            hipposysedit:primary: false
+            hipposysedit:type: website:eventSchema
+            jcr:primaryType: hipposysedit:field
           /friendlyurls:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -223,14 +231,6 @@ definitions:
             hipposysedit:path: website:friendlyurls
             hipposysedit:primary: false
             hipposysedit:type: website:friendlyurls
-            jcr:primaryType: hipposysedit:field
-          /interval:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:events
-            hipposysedit:primary: false
-            hipposysedit:type: website:interval
             jcr:primaryType: hipposysedit:field
           /location:
             hipposysedit:mandatory: false
@@ -345,14 +345,16 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:events:
-            jcr:primaryType: website:interval
-            website:enddatetime: 0001-01-01T12:00:00Z
-            website:startdatetime: 0001-01-01T12:00:00Z
+          /website:eventSchema:
+            jcr:primaryType: website:eventSchema
+            website:eventstatustype: ''
           /website:friendlyurls:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summaryimage:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []

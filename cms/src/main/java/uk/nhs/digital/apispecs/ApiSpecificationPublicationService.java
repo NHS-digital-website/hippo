@@ -16,7 +16,6 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 
@@ -38,22 +37,21 @@ public class ApiSpecificationPublicationService {
     }
 
     public void syncEligibleSpecifications() {
+        List<SpecificationSyncData> initialLocalSyncDataForAllSpecs = localSpecRepository.findInitialSyncDataForAllApiSpecifications();
 
-        final List<ApiSpecificationDocument> localSpecs = findCmsApiSpecifications();
-
-        final List<OpenApiSpecification> remoteSpecs = localSpecs.isEmpty()
+        final List<OpenApiSpecification> remoteSpecs = initialLocalSyncDataForAllSpecs.isEmpty()
             ? emptyList()
             : getRemoteSpecifications();
-
-        final ApiSpecificationImportMetadata apiSpecificationImportMetadata = apiSpecificationImportMetadata();
 
         final Map<String, OpenApiSpecification> remoteSpecsById = Maps.uniqueIndex(
             remoteSpecs, OpenApiSpecification::getId
         );
 
-        final SyncResults syncResults = localSpecs.stream()
+        final ApiSpecificationImportMetadata apiSpecificationImportMetadata = apiSpecificationImportMetadata();
+
+        final SyncResults syncResults = initialLocalSyncDataForAllSpecs.stream()
             .filter(specificationsPresentInBothSystems(remoteSpecsById))
-            .map(toInitialSpecSyncData(remoteSpecsById, apiSpecificationImportMetadata))
+            .peek(setAdditionalSyncData(apiSpecificationImportMetadata, remoteSpecsById))
             .peek(determineEligibility())
             .peek(setLastChangeCheckInstant())
             .peek(publishSpecIfActuallyChanged())
@@ -61,7 +59,7 @@ public class ApiSpecificationPublicationService {
 
         save(apiSpecificationImportMetadata);
 
-        reportPublicationStatusFor(localSpecs.size(), remoteSpecs.size(), syncResults);
+        reportPublicationStatusFor(initialLocalSyncDataForAllSpecs.size(), remoteSpecs.size(), syncResults);
     }
 
     private void save(final ApiSpecificationImportMetadata localSpecsMetadata) {
@@ -79,30 +77,39 @@ public class ApiSpecificationPublicationService {
         return apiSpecificationImportMetadata;
     }
 
-    private Function<ApiSpecificationDocument, SpecificationSyncData> toInitialSpecSyncData(
-        final Map<String, OpenApiSpecification> remoteSpecsById,
-        final ApiSpecificationImportMetadata apiSpecificationImportMetadata
+    private Consumer<SpecificationSyncData> setAdditionalSyncData(
+        ApiSpecificationImportMetadata apiSpecificationImportMetadata,
+        Map<String, OpenApiSpecification> remoteSpecsById
     ) {
-        return localSpec -> {
-            final ApiSpecificationImportMetadata.Item specMetadata = apiSpecificationImportMetadata.getBySpecJcrId(localSpec.jcrId());
+        return specSyncData -> {
+            final ApiSpecificationImportMetadata.Item specMetadata = apiSpecificationImportMetadata.getBySpecJcrId(specSyncData.specJcrHandleNodeId());
             specMetadata.setSpecExists();
+            specSyncData.setLocalSpecMetadataItem(specMetadata);
+            specSyncData.setRemoteSpec(remoteSpecsById.get(specSyncData.specificationId()));
 
-            log.debug("{} Processing API Specification: id: {}; path: {}.", localSpec.jcrId(), localSpec.specificationId(), localSpec.path());
-
-            return SpecificationSyncData.with(
-                localSpec,
-                remoteSpecsById.get(localSpec.specificationId()),
-                specMetadata
-            );
+            log.debug("Processing API Specification: specification id: {}; specification handle node id: {}.",
+                specSyncData.specificationId(), specSyncData.specJcrHandleNodeId());
         };
     }
 
     private Consumer<SpecificationSyncData> determineEligibility() {
         return ifSuccessfulSoFar(specSyncData -> {
             try {
-                log.debug("{} Determining eligibility for update: start.", specSyncData.specJcrId());
-                final boolean eligible = specSyncData.specContentChanged();
-                log.debug("{} Determining eligibility for update: done; eligible: {}.", specSyncData.specJcrId(), eligible);
+                log.debug("{} Determining eligibility for update: start.", specSyncData.specJcrHandleNodeId());
+
+                boolean eligible = false;
+                if (specSyncData.remoteSpecReportedAsUpdated()) {
+
+                    specSyncData.setLocalSpec(localSpecRepository.findApiSpecification(specSyncData.specJcrHandleNodeId()));
+
+                    eligible = specSyncData.specContentDiffersIgnoringVersion();
+
+                    if (!eligible) {
+                        specSyncData.markSkipped();
+                    }
+                }
+
+                log.debug("{} Determining eligibility for update: done; eligible: {}.", specSyncData.specJcrHandleNodeId(), eligible);
 
                 specSyncData.setEligible(eligible);
             } catch (final Exception e) {
@@ -116,14 +123,14 @@ public class ApiSpecificationPublicationService {
             try {
                 final Instant nowInstant = TimeProvider.getNowInstant();
 
-                log.debug("{} Setting lastChangeCheckInstant to {}", specSyncData.specJcrId(), nowInstant.toString());
+                log.debug("{} Setting lastChangeCheckInstant to {}", specSyncData.specJcrHandleNodeId(), nowInstant.toString());
 
                 specSyncData.localMetadata().setLastChangeCheckInstant(nowInstant);
             } catch (final Exception cause) {
                 specSyncData.setError(
                     format("Failed to record time of last check on specification with id %s at %s.",
-                        specSyncData.localSpec().specificationId(),
-                        specSyncData.localSpec().path()
+                        specSyncData.specificationId(),
+                        specSyncData.specJcrPath()
                     ),
                     cause
                 );
@@ -134,9 +141,9 @@ public class ApiSpecificationPublicationService {
     private Consumer<SpecificationSyncData> publishSpecIfActuallyChanged() {
         return ifSuccessfulSoFar(specSyncData -> {
             if (specSyncData.eligible()) {
-                log.debug("{} Publishing spec: start.", specSyncData.specJcrId());
+                log.debug("{} Publishing spec: start.", specSyncData.specJcrHandleNodeId());
                 updateAndPublish(specSyncData);
-                log.debug("{} Publishing spec: done.", specSyncData.specJcrId());
+                log.debug("{} Publishing spec: done.", specSyncData.specJcrHandleNodeId());
             }
         });
     }
@@ -195,18 +202,9 @@ public class ApiSpecificationPublicationService {
         return openApiSpecifications;
     }
 
-    private List<ApiSpecificationDocument> findCmsApiSpecifications() {
-
-        log.debug("Local API Specifications query: start.");
-        final List<ApiSpecificationDocument> allApiSpecifications = localSpecRepository.findAllApiSpecifications();
-        log.debug("Local API Specifications query: found {} documents.", allApiSpecifications.size());
-
-        return allApiSpecifications;
-    }
-
-    private Predicate<ApiSpecificationDocument> specificationsPresentInBothSystems(
+    private Predicate<SpecificationSyncData> specificationsPresentInBothSystems(
         final Map<String, OpenApiSpecification> remoteSpecsById) {
-        return apiSpecification -> remoteSpecsById.containsKey(apiSpecification.specificationId());
+        return specSyncData -> remoteSpecsById.containsKey(specSyncData.specificationId());
     }
 
     private void updateAndPublish(final SpecificationSyncData specSyncData) {

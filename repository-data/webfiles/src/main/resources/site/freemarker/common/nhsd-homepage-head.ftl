@@ -7,6 +7,15 @@
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFB0ZQ0CHQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NFB0ZQ0CHQ');
+    </script>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" async></script>
 
     <meta charset="utf-8">
@@ -14,6 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="max-image-preview:large">
+    <meta name="google-site-verification" content="A554JTOAgNpNy7A-cUEEi2MkZR_ml-30-xNDYK7NOZQ" />
     <@hst.headContributions categoryIncludes="metadata" xhtml=true />
 
     <!-- Generic meta tags -->

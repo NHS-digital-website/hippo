@@ -199,6 +199,14 @@ definitions:
         hst:relativecontentpath: forms
         jcr:primaryType: hst:sitemapitem
       /news:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/article-hub
+          hst:componentconfigurationmappingnames:
+          - website:feedhub
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/feedhub
+          hst:relativecontentpath: /news/${1}
+          jcr:primaryType: hst:sitemapitem
         /events:
           /_any_:
             hst:componentconfigurationid: hst:pages/event
@@ -211,7 +219,7 @@ definitions:
           hst:componentconfigurationid: hst:pages/latestevents
           hst:refId: eventsfeed
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/article-hub
+        hst:componentconfigurationid: hst:pages/ndrs-news-hub
         hst:relativecontentpath: news
         jcr:primaryType: hst:sitemapitem
       /our-work:

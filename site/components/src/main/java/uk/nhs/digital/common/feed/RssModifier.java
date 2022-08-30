@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
+import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.website.beans.Blog;
 import uk.nhs.digital.website.beans.ContactDetail;
 import uk.nhs.digital.website.beans.CyberAlert;
@@ -200,11 +201,16 @@ public class RssModifier extends RSS20Modifier {
             final Publication publicationBean = (Publication) bean;
             String docPath = bean.getPath();
             if (docPath.contains("/publication-system/")) {
-                foreignMarkup.add(getElement("title", publicationBean.getTitle()));
+                String title = publicationBean.getTitle();
+                foreignMarkup.add(getElement("title", title));
                 foreignMarkup.add(getElement("author", "enquiries@nhsdigital.nhs.uk (NHS Digital)"));
                 StringBuilder description = new StringBuilder();
-                for (uk.nhs.digital.ps.beans.structuredText.Element tempDesc : publicationBean.getSummary().getElements()) {
-                    description.append(tempDesc);
+                try {
+                    for (uk.nhs.digital.ps.beans.structuredText.Element tempDesc : publicationBean.getSummary().getElements()) {
+                        description.append(tempDesc);
+                    }
+                } catch (DataRestrictionViolationException ex) {
+                    LOGGER.debug("Exception thrown for {}  message {}", title, ex.getMessage());
                 }
                 foreignMarkup.add(getElement("description", description.toString()));
 
