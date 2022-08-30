@@ -290,47 +290,16 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         /publications:
           /_any_:
-            /_index_:
-              hst:componentconfigurationid: hst:pages/404
-              hst:componentconfigurationmappingnames:
-              - publicationsystem:archive
-              - publicationsystem:legacypublication
-              - publicationsystem:publication
-              - publicationsystem:series
-              - website:general
-              hst:componentconfigurationmappingvalues:
-              - hst:pages/archive
-              - hst:pages/legacypublication
-              - hst:pages/publication
-              - hst:pages/series
-              - hst:pages/general
-              hst:relativecontentpath: ${parent}/content
-              jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/404
+            hst:componentconfigurationid: hst:pages/feedhub
             hst:componentconfigurationmappingnames:
-            - publicationsystem:archive
-            - publicationsystem:dataset
-            - hippostd:folder
-            - publicationsystem:legacypublication
-            - publicationsystem:publication
-            - publicationsystem:publicationPage
-            - publicationsystem:series
-            - publicationsystem:cilanding
-            - website:general
+            - website:feedhub
             hst:componentconfigurationmappingvalues:
-            - hst:pages/archive
-            - hst:pages/dataset
-            - hst:pages/folder
-            - hst:pages/legacypublication
-            - hst:pages/publication
-            - hst:pages/publicationPage
-            - hst:pages/series
-            - hst:pages/cilanding
-            - hst:pages/general
-            hst:refId: publicationpages
-            hst:relativecontentpath: publication-system/${1}
+            - hst:pages/feedhub
+            hst:pagetitle: hst:pages/feedhub
+            hst:relativecontentpath: data/publications/${1}
             jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationid: hst:pages/publications
+          hst:relativecontentpath: hubs/hub-document/publication-hub
           jcr:primaryType: hst:sitemapitem
         /supplementary-information:
           /_any_:

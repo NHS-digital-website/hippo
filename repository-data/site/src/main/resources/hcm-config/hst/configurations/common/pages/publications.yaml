@@ -1,0 +1,20 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/publications:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.FeedHubComponent
+        hst:parameternames:
+        - brandRefreshContentRewriter
+        - googleAnalyticsContentRewriter
+        - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
+        hst:parametervalues:
+        - 'true'
+        - 'true'
+        - 'true'
+        - 'true'
+        hst:template: feedhub
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/nhsd-homepage
+      jcr:primaryType: hst:component

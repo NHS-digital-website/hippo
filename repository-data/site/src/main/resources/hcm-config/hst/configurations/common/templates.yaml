@@ -284,6 +284,9 @@ definitions:
       /publicationPage:
         hst:renderpath: webfile:/freemarker/nhsd-common/publication-page.ftl
         jcr:primaryType: hst:template
+      /publications:
+        hst:renderpath: webfile:/freemarker/nhsd-common/feedhub.ftl
+        jcr:primaryType: hst:template
       /publications-list:
         hst:renderpath: webfile:/freemarker/common/publications-list.ftl
         jcr:primaryType: hst:template

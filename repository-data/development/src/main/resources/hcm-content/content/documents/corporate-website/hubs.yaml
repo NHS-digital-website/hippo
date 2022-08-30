@@ -522,6 +522,93 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+  /publication-hub:
+    /publication-hub[1]:
+      /website:seoSummary:
+        hippostd:content: Series publications
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Series publications</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-08-30T18:17:01.960Z
+      hippostdpubwf:lastModificationDate: 2022-09-13T15:03:35.498Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c30e88e8-b699-4eff-a4e5-02188c614e10
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feedhub
+      website:feedType: Series
+      website:hubType: Site-wide documents
+      website:shortSummary: Series publications
+      website:title: Series publications
+    /publication-hub[2]:
+      /website:seoSummary:
+        hippostd:content: Series publications
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Series publications</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-08-30T18:17:01.960Z
+      hippostdpubwf:lastModificationDate: 2022-09-13T15:03:35.264Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c30e88e8-b699-4eff-a4e5-02188c614e10
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:feedhub
+      website:feedType: Series
+      website:hubType: Site-wide documents
+      website:shortSummary: Series publications
+      website:title: Series publications
+    /publication-hub[3]:
+      /website:seoSummary:
+        hippostd:content: Series publications
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Series publications</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-08-30T18:17:01.960Z
+      hippostdpubwf:lastModificationDate: 2022-09-13T15:03:35.264Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-09-13T15:03:40.376Z
+      hippotranslation:id: c30e88e8-b699-4eff-a4e5-02188c614e10
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:feedhub
+      website:feedType: Series
+      website:hubType: Site-wide documents
+      website:shortSummary: Series publications
+      website:title: Series publications
+    hippo:name: Publication Hub
+    hippo:versionHistory: 963362a9-0fba-4303-b2d5-3b7d566374ff
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Hub Document
   hippostd:foldertype:
   - new-digital-website-folder
