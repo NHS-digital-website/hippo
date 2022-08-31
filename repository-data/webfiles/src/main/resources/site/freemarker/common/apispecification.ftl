@@ -18,7 +18,7 @@
     <#else>
         <#assign renderHtml = "uk.nhs.digital.common.components.apispecification.ApiSpecificationRendererDirective"?new() />
 
-    <#-- Add meta tags -->
+        <#-- Add meta tags -->
         <#include "../common/macro/metaTags.ftl">
         <@metaTags></@metaTags>
 
@@ -42,8 +42,7 @@
             <@hst.renderURL var="tryItNowUrl"/>
             const tryEndpointNowBaseUrl = '${tryItNowUrl}';
         </script>
-        <script
-            src="<@hst.webfile path="/apispecification/apispecification.js"/>"></script>
+        <script src="<@hst.webfile path="/apispecification/apispecification.js"/>"></script>
     </#if>
 
 </#if>
@@ -58,12 +57,12 @@
     <@hst.link var="oasLink" path='/restapi/oas/${document.getSpecificationId()}/'/>
 
     <#assign options += {
-    "summary": (htmlSummary + oasHintText)?no_esc,
-    "buttons": [{
-    "src": oasLink,
-    "text": "Get this specification in OAS format",
-    "target": "_blank"
-    }]
+        "summary": (htmlSummary + oasHintText)?no_esc,
+        "buttons": [{
+             "src": oasLink,
+            "text": "Get this specification in OAS format",
+            "target": "_blank"
+        }]
     }/>
     <#return options/>
 </#function>
