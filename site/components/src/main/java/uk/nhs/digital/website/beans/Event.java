@@ -60,11 +60,6 @@ public class Event extends BaseDocument {
         return getLinkedBeans("website:relatedDocuments", HippoBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:peoplementioned")
-    public List<HippoBean> getPeoplementioned() {
-        return getLinkedBeans("website:peoplementioned", HippoBean.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "website:summaryimage")
     public CorporateWebsiteImageset getSummaryimage() {
         return getLinkedBean("website:summaryimage", CorporateWebsiteImageset.class);
@@ -79,10 +74,4 @@ public class Event extends BaseDocument {
     public List<Interval> getEvents() {
         return getChildBeansByName("website:events", Interval.class);
     }
-
-    @HippoEssentialsGenerated(internalName = "website:eventSchema")
-    public List<EventSchema> getEventSchema() {
-        return getChildBeansByName("website:eventSchema", EventSchema.class);
-    }
-
 }
