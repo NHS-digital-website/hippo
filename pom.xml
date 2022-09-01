@@ -212,7 +212,7 @@
         <mokito.version>3.12.4</mokito.version>
         <objenesis.version>3.2</objenesis.version>
         <okhttp.version>4.9.3</okhttp.version>
-        <okio.version>3.1.0</okio.version>
+        <okio.version>2.7.0</okio.version>
         <plexus-component.version>2.1.0</plexus-component.version>
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
@@ -231,6 +231,8 @@
         <woodstox.version>4.2.1</woodstox.version>
         <xalan.version>2.7.2</xalan.version>
         <xml-apis.version>2.0.2</xml-apis.version>
+
+        <kotlin.version>1.4.10</kotlin.version>
     </properties>
 
     <repositories>
@@ -273,6 +275,12 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-targeting-shared-api</artifactId>
@@ -1035,6 +1043,13 @@
             </properties>
             <dependencies>
                 <dependency>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <artifactId>kotlin-stdlib</artifactId>
+                    <scope>provided</scope>
+                    <version>${kotlin.version}</version>
+                </dependency>
+
+                <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
                     <scope>provided</scope>
@@ -1176,6 +1191,11 @@
 
                                 </systemProperties>
                                 <dependencies>
+                                    <dependency>
+                                        <groupId>org.jetbrains.kotlin</groupId>
+                                        <artifactId>kotlin-stdlib</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
                                     <dependency>
                                         <groupId>org.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-crisp-api</artifactId>
