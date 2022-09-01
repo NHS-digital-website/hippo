@@ -211,8 +211,8 @@
         <maven-surefire.version>3.0.0-M6</maven-surefire.version>
         <mokito.version>3.12.4</mokito.version>
         <objenesis.version>3.2</objenesis.version>
-        <okhttp.version>4.9.3</okhttp.version>
         <okio.version>2.7.0</okio.version>
+        <okhttp.version>4.9.3</okhttp.version>
         <plexus-component.version>2.1.0</plexus-component.version>
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
@@ -232,7 +232,7 @@
         <xalan.version>2.7.2</xalan.version>
         <xml-apis.version>2.0.2</xml-apis.version>
 
-        <kotlin.version>1.4.10</kotlin.version>
+        <kotlin.version>1.6.20</kotlin.version>
     </properties>
 
     <repositories>
@@ -301,6 +301,11 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -1222,13 +1227,13 @@
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>com.squareup.okhttp3</groupId>
-                                        <artifactId>okhttp</artifactId>
+                                        <groupId>com.squareup.okio</groupId>
+                                        <artifactId>okio</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>com.squareup.okio</groupId>
-                                        <artifactId>okio</artifactId>
+                                        <groupId>com.squareup.okhttp3</groupId>
+                                        <artifactId>okhttp</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                 </dependencies>
@@ -1332,13 +1337,13 @@
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
-                    <groupId>com.squareup.okhttp3</groupId>
-                    <artifactId>okhttp</artifactId>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
-                    <groupId>com.squareup.okio</groupId>
-                    <artifactId>okio</artifactId>
+                    <groupId>com.squareup.okhttp3</groupId>
+                    <artifactId>okhttp</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
@@ -1400,13 +1405,13 @@
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
-                    <groupId>com.squareup.okhttp3</groupId>
-                    <artifactId>okhttp</artifactId>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
-                    <groupId>com.squareup.okio</groupId>
-                    <artifactId>okio</artifactId>
+                    <groupId>com.squareup.okhttp3</groupId>
+                    <artifactId>okhttp</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -1485,13 +1490,13 @@
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
-                    <groupId>com.squareup.okhttp3</groupId>
-                    <artifactId>okhttp</artifactId>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
-                    <groupId>com.squareup.okio</groupId>
-                    <artifactId>okio</artifactId>
+                    <groupId>com.squareup.okhttp3</groupId>
+                    <artifactId>okhttp</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
