@@ -26,8 +26,8 @@
                 <include>org.jetbrains.kotlin:kotlin-stdlib</include>
                 <include>com.splunk.logging:splunk-library-javalogging</include>
                 <include>com.google.code.gson:gson</include>
-                <include>com.squareup.okhttp3:okhttp</include>
                 <include>com.squareup.okio:okio</include>
+                <include>com.squareup.okhttp3:okhttp</include>
             </includes>
         </dependencySet>
     </dependencySets>
