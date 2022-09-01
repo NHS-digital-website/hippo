@@ -23,6 +23,7 @@
                 <include>com.onehippo.cms7:hippo-addon-targeting-shared-api</include>
                 <include>com.onehippo.cms7:hippo-addon-content-feed-search-api</include>
 
+                <include>org.jetbrains.kotlin:kotlin-stdlib</include>
                 <include>com.splunk.logging:splunk-library-javalogging</include>
                 <include>com.google.code.gson:gson</include>
                 <include>com.squareup.okhttp3:okhttp</include>
