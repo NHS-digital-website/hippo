@@ -115,12 +115,12 @@
                     <div class="nhsd-t-col-12">
                         <div class="nhsd-o-gallery__card-container">
                             <div class="nhsd-m-card">
-                                <div class="nhsd-a-box nhsd-a-box--border-grey">
+                                <div class="nhsd-a-box">
                                     <figure class="nhsd-a-image nhsd-a-image--round-top-corners" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                         <@hst.link hippobean=document.leadimagesection.leadImage.newsPostImage2x fullyQualified=true var="leadImage" />
                                         <meta itemprop="url" content="${leadImage}" />
                                         <picture class="nhsd-a-image__picture ">
-                                            <img itemprop="contentUrl" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadimagesection.alttext}</#if>">
+                                            <img style="object-fit:contain" itemprop="contentUrl" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadimagesection.alttext}</#if>">
                                         </picture>
                                     </figure>
                                     <#if hasLeadImageCaption>
