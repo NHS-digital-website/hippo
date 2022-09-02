@@ -60,7 +60,7 @@
     <#assign options += {
         "summary": (htmlSummary + oasHintText)?no_esc,
         "buttons": [{
-             "src": oasLink,
+            "src": oasLink,
             "text": "Get this specification in OAS format",
             "target": "_blank"
         }]
