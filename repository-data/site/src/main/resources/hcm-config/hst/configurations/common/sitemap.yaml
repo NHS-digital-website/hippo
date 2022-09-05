@@ -425,6 +425,9 @@ definitions:
         hst:componentconfigurationid: hst:pages/icon-library
         hst:relativecontentpath: icon-library
         jcr:primaryType: hst:sitemapitem
+      /macros:
+        hst:componentconfigurationid: hst:pages/macro-test
+        jcr:primaryType: hst:sitemapitem
       /news:
         /events:
           /_any_:

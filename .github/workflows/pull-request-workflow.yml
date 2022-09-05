@@ -3,7 +3,8 @@ name: Pull Request Workflow
 on:
   pull_request:
     branches:
-      - cucumberjs-test
+      - master
+      - ADZ-1195_API_specification_branding_release
 
 jobs:
   build-and-test:
@@ -83,7 +84,7 @@ jobs:
 
       # Step 7
       - name: Test Project
-        run: make test.cucumberjs
+        run: make test.site
 
       # Step 8
       # Store test results as an artifact

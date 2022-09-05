@@ -44,12 +44,6 @@ run:
 essentials/target/essentials.war:
 	mvn clean verify $(MVN_OPTS) -pl essentials -am --offline -DskipTests=true
 
-## Run acceptance tests against already running server (`make serve`)
-test.site-running:
-	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
-		-Pacceptance-test \
-		-Dcucumber.options="src/test/resources/features/site"
-
 ## Run only acceptance tests tagged with "WIP"
 # This target requires a running site instance (e.g. `make serve.noexport`)
 test.wip:

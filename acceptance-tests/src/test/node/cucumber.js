@@ -1,11 +1,10 @@
 module.exports = {
     default: {
-        parallel: 2,
-        format: ['html:cucumber-report.html', 'summary:cucumber-summary.txt'],
+        format: ['html:cucumber-report.html', 'summary:cucumber-summary.txt', '@cucumber/pretty-formatter'],
         requireModule: ['ts-node/register'],
         require: [
-            'src/cucumber/setup/**/*.ts',
-            'src/cucumber/step_definitions/**/*.ts'
+            'src/setup/**/*.ts',
+            'src/step-definitions/**/*.ts'
         ],
         publish: true,
     }
