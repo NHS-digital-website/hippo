@@ -26,6 +26,12 @@ definitions:
       /general-article:
         hst:renderpath: webfile:/freemarker/nhsd-common/general-article.ftl
         jcr:primaryType: hst:template
+      /macro-test-layout:
+        hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-layout.ftl
+        jcr:primaryType: hst:template
+      /macro-test-page:
+        hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-page.ftl
+        jcr:primaryType: hst:template
       /nhsd-breadcrumb:
         hst:renderpath: webfile:/freemarker/common/nhsd-breadcrumb.ftl
         jcr:primaryType: hst:template
