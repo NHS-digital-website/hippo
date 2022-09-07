@@ -15,5 +15,9 @@ public class BaseDocument extends HippoDocument {
         return ((Calendar) getSingleProperty("hippostdpubwf:lastModificationDate")).getTime();
     }
 
+    public Date getLastPublicationDate() {
+        return ((Calendar) getSingleProperty("hippostdpubwf:publicationDate")).getTime();
+    }
+
 }
 

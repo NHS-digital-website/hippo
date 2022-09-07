@@ -85,6 +85,7 @@ public class ComponentHelper extends EssentialsListComponent {
     protected static String addIntervalFilter(final HstRequest request, Object component) {
         String dateField = null;
         boolean hidePastEvents = false;
+
         if (component instanceof FeedListComponent) {
             FeedListComponentInfo paramInfo = ((FeedListComponent)component).getComponentParametersInfo(request);
             dateField = paramInfo.getDocumentDateField();
@@ -95,6 +96,10 @@ public class ComponentHelper extends EssentialsListComponent {
             hidePastEvents = paramInfo.getHidePastEvents();
         }
 
+        // Set the date range from the current date
+        int start = !hidePastEvents && component instanceof EventsComponent ? -30 : 0;
+        int end = 30;
+
         if (!Strings.isNullOrEmpty(dateField)) {
             //filter list containing dates contraints
             try {
@@ -104,7 +109,7 @@ public class ComponentHelper extends EssentialsListComponent {
 
                 List<BaseFilter> filters = new ArrayList<>();
                 //adding the interval date range constraint
-                addIntervalConstraint(filters, hstQuery, dateField, request, component);
+                addIntervalConstraint(filters, hstQuery, dateField, request, component, start, end);
 
                 if (hidePastEvents && component instanceof FeedListComponentInfo) {
                     try {
@@ -125,7 +130,7 @@ public class ComponentHelper extends EssentialsListComponent {
                 if (queryFilter != null) {
                     filters.add(queryFilter);
                 }
-                //appling the filters on the hstQuery object
+                //applying the filters on the hstQuery object
                 if (component instanceof FeedListComponent) {
                     ((FeedListComponent)component).applyAndFilters(hstQuery, filters);
                 } else {
@@ -156,13 +161,21 @@ public class ComponentHelper extends EssentialsListComponent {
         return "";
     }
 
-    protected static void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request, Object comp) throws FilterException {
-        Calendar calendar = Calendar.getInstance();
-        int year = Integer.parseInt(DocumentUtils.findYearOrDefault(getSelectedYear(request, comp), calendar.get(Calendar.YEAR)));
-        final Filter filter = hstQuery.createFilter();
-        calendar.set(Calendar.YEAR, year);
-        filter.addBetween(dateField, calendar, calendar, DateTools.Resolution.YEAR);
-        filters.add(filter);
+    protected static void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request, Object comp, int start, int end)
+            throws FilterException {
+        Calendar calendarStart = Calendar.getInstance();
+        Calendar calendarEnd = Calendar.getInstance();
+        int year = Integer.parseInt(DocumentUtils.findYearOrDefault(getSelectedYear(request, comp), calendarStart.get(Calendar.YEAR)));
+        final Filter filterFrom = hstQuery.createFilter();
+        calendarStart.set(Calendar.YEAR, year);
+        calendarStart.add(Calendar.DATE, start);
+        calendarEnd.set(Calendar.YEAR, year);
+        calendarEnd.add(Calendar.DATE, end);
+        filterFrom.addBetween(dateField, calendarStart, calendarEnd, DateTools.Resolution.DAY);
+
+        final Filter filterTo = hstQuery.createFilter();
+        filterTo.addBetween("website:enddatetime", calendarStart, calendarEnd, DateTools.Resolution.DAY);
+        filters.add(filterFrom.addOrFilter(filterTo));
     }
 
     protected static String getSelectedYear(HstRequest request, Object comp) {
