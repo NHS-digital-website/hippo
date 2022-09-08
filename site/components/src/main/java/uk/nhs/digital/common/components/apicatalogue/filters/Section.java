@@ -5,6 +5,7 @@ import static java.util.Collections.emptyList;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.*;
+import uk.nhs.digital.common.util.CustomToStringStyle;
 
 import java.util.Arrays;
 import java.util.List;
@@ -106,12 +107,7 @@ public class Section implements Walkable {
     }
 
     @Override public String toString() {
-        return new ReflectionToStringBuilder(this, new MultilineRecursiveToStringStyle() {
-            {
-                setUseShortClassName(true);
-                setUseIdentityHashCode(false);
-            }
-        }).build();
+        return new ReflectionToStringBuilder(this, CustomToStringStyle.INSTANCE).build();
     }
 
     private String from(final String displayName) {
