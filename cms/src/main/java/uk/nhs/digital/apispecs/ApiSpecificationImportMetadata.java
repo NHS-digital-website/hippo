@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * Meta data of API Specifications processed during import.
  */
-public class ApiSpecificationImportMetadata {
+public class    ApiSpecificationImportMetadata {
 
     final Map<String, Item> apiSpecsMetadata = new HashMap<>();
 

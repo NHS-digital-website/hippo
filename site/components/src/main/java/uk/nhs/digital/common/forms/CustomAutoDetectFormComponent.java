@@ -5,7 +5,9 @@ import com.onehippo.cms7.eforms.hst.components.AutoDetectFormComponent;
 import com.onehippo.cms7.eforms.hst.components.info.AutoDetectFormComponentInfo;
 import org.apache.commons.lang3.ArrayUtils;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -22,7 +24,7 @@ public class CustomAutoDetectFormComponent extends AutoDetectFormComponent {
 
     private static final Class[] ADDITIONAL_AUTO_DETECT_BEHAVIORS = new Class[]{
         SubscriptionBehavior.class,
-        ReCaptchaValidationPlugin.class
+        //ReCaptchaValidationPlugin.class
     };
 
     @Override
@@ -75,4 +77,17 @@ public class CustomAutoDetectFormComponent extends AutoDetectFormComponent {
         return (FormBean) document;
     }
 
+    @Override
+    public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
+        super.doBeforeRender(request, response);
+        Object processDone = request.getAttribute("processDone");
+        if (processDone != null && "true".equalsIgnoreCase(processDone.toString())) {
+            request.setAttribute("processComplete", "true");
+            request.setAttribute("demoCheck", "processDone");
+        } else {
+            request.setAttribute("demoCheck", "processNotDone");
+        }
+        request.setAttribute("demo", processDone);
+
+    }
 }

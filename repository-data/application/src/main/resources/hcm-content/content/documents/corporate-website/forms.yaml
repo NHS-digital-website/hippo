@@ -1,12 +1,173 @@
----
 /content/documents/corporate-website/forms:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 58e4b13d-3fee-46af-8cd8-649c0ad45e93
   hippo:name: Forms
-  hippostd:foldertype:
-  - new-enterprise-forms-document
+  hippostd:foldertype: [new-enterprise-forms-document]
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+  /testforms:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 86a8a144-997a-4fb6-a476-d81e1eb972a3
+    hippo:versionHistory: abfcfcaf-1bb9-4fb1-a34c-35a02db9b1fe
+    /testforms[1]:
+      jcr:primaryType: eforms:form
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 358c0418-516b-43b3-9a28-2613903bb328
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccessmode: text
+      eforms:buttonlabel: Click me
+      eforms:formintro: Form introduction
+      eforms:formname: Test Submit
+      eforms:notificationemail: test@example.com
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-09-07T10:05:10.402Z
+      hippostdpubwf:lastModificationDate: 2022-09-08T06:53:20.287Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6d00bf12-cfe9-4105-a6e1-d9c8f62e4bb2
+      hippotranslation:locale: en
+      /emailconfiguration0:
+        jcr:primaryType: eforms:formconfiguration
+        jcr:uuid: 731ab4ab-f399-4092-8bc2-b881f7e67209
+        eforms:addattachments: 'false'
+        eforms:mailformdata: 'false'
+        eforms:notificationbccemail: ''
+        eforms:notificationccemail: ''
+        eforms:notificationemail: test@example.com
+        eforms:notificationreplytoemailfields: ''
+        eforms:notificationsubject: ''
+        eforms:notificationtemplate: ''
+        eforms:notificationtext: ''
+      /page0:
+        jcr:primaryType: eforms:page
+        jcr:uuid: 0cacc3cd-162e-4490-b12c-fc6df3e12017
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        /field0:
+          jcr:primaryType: eforms:textfield
+          jcr:uuid: 1b055f39-a37a-4a8f-bed8-ec7340c9ae44
+          eforms:autocomplete: ''
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: ida355cba28cacb68e
+          eforms:fieldname: fill-it
+          eforms:hint: ''
+          eforms:label: Fill it
+          eforms:length: 40
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''
+    /testforms[2]:
+      jcr:primaryType: eforms:form
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 9623d8a4-ac14-437e-adb9-30e350fdbe52
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccessmode: text
+      eforms:buttonlabel: Click me
+      eforms:formintro: Form introduction
+      eforms:formname: Test Submit
+      eforms:notificationemail: test@example.com
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-09-07T10:05:10.402Z
+      hippostdpubwf:lastModificationDate: 2022-09-08T06:53:28.084Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6d00bf12-cfe9-4105-a6e1-d9c8f62e4bb2
+      hippotranslation:locale: en
+      /emailconfiguration0:
+        jcr:primaryType: eforms:formconfiguration
+        jcr:uuid: 11b96809-90c1-47c5-b922-024da5c6d780
+        eforms:addattachments: 'false'
+        eforms:mailformdata: 'false'
+        eforms:notificationbccemail: ''
+        eforms:notificationccemail: ''
+        eforms:notificationemail: test@example.com
+        eforms:notificationreplytoemailfields: ''
+        eforms:notificationsubject: ''
+        eforms:notificationtemplate: ''
+        eforms:notificationtext: ''
+      /page0:
+        jcr:primaryType: eforms:page
+        jcr:uuid: 4fb412b0-b493-4361-8f3a-ea6103b26560
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        /field0:
+          jcr:primaryType: eforms:textfield
+          jcr:uuid: 38abbf7d-58cf-4da6-82ce-6b6171bd16e1
+          eforms:autocomplete: ''
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: ida355cba28cacb68e
+          eforms:fieldname: fill-it
+          eforms:hint: ''
+          eforms:label: Fill it
+          eforms:length: 40
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''
+    /testforms[3]:
+      jcr:primaryType: eforms:form
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: d109ca02-5eea-43be-a982-891e6a63e856
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccessmode: text
+      eforms:buttonlabel: Click me
+      eforms:formintro: Form introduction
+      eforms:formname: Test Submit
+      eforms:notificationemail: test@example.com
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-09-07T10:05:10.402Z
+      hippostdpubwf:lastModificationDate: 2022-09-08T06:53:28.084Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-09-08T06:53:29.524Z
+      hippotranslation:id: 6d00bf12-cfe9-4105-a6e1-d9c8f62e4bb2
+      hippotranslation:locale: en
+      /emailconfiguration0:
+        jcr:primaryType: eforms:formconfiguration
+        jcr:uuid: 52133af1-080e-465e-aebd-287b80c3d37e
+        eforms:addattachments: 'false'
+        eforms:mailformdata: 'false'
+        eforms:notificationbccemail: ''
+        eforms:notificationccemail: ''
+        eforms:notificationemail: test@example.com
+        eforms:notificationreplytoemailfields: ''
+        eforms:notificationsubject: ''
+        eforms:notificationtemplate: ''
+        eforms:notificationtext: ''
+      /page0:
+        jcr:primaryType: eforms:page
+        jcr:uuid: ce2f0be2-ef79-4ea6-9651-9496f16d7cc5
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        /field0:
+          jcr:primaryType: eforms:textfield
+          jcr:uuid: 5e798be6-364f-42de-a88a-288e30470cf5
+          eforms:autocomplete: ''
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: ida355cba28cacb68e
+          eforms:fieldname: fill-it
+          eforms:hint: ''
+          eforms:label: Fill it
+          eforms:length: 40
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''

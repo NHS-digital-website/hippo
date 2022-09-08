@@ -49,6 +49,6 @@ public class MailAndAfterProcessEformComponent extends EformComponent {
         super.addConfiguredBehaviors(request);
         addBehavior(new MailFormDataBehavior());
         addBehavior(new AfterProcessBehavior());
-        addBehavior(new ReCaptchaValidationPlugin());
+        //addBehavior(new ReCaptchaValidationPlugin());
     }
 }

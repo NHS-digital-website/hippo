@@ -43,6 +43,10 @@
     <p class="eforms-intro">${formIntro}</p>
 </#if>
 
+demoCheck -- > ${demoCheck} </br>
+demo -- > ${demo} </br>
+
+
 <#assign className = (processDone! == "true")?then("eforms-success-box", "eforms-success-box nhsd-t-sr-only") />
 <div class="${className}">
     <span class="eforms-success-box__title">Form submitted successfully</span>
@@ -99,9 +103,6 @@
                 </#list>
             </#if>
 
-            <div class="recaptcha">
-                <div class="g-recaptcha" data-sitekey="${resolveSiteKey("GOOGLE_CAPTCHA_SITE_KEY")}" data-callback="enableSubmit" data-expired-callback="displayRecaptcha"></div>
-            </div>
 
             <div class="eforms-buttons">
                 <#list form.buttons as button>

@@ -52,7 +52,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             });
 
             // Show ReCaptcha
-            displayRecaptcha();
+            //displayRecaptcha();
         }
 
         $('#pagesTab li').hide();
@@ -459,7 +459,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
 
     function displayRecaptcha() {
         $('.recaptcha').show();
-        $submitButton.prop('disabled', true);
+        $submitButton.prop('disabled', false);
     }
 
     function hideRecaptcha() {

@@ -73,11 +73,14 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-coronavirus:
         /banner:
+          hippo:identifier: 0423f13b-c550-4af5-806c-368b0b8fbc41
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
-          hst:xtype: hst.nomarkup
+          hippo:identifier: 93908273-5a32-4cf1-88a9-29ee14c9b82f
+          hst:lastmodified: 2022-09-07T10:26:05.248Z
+          hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-cyber-hub:

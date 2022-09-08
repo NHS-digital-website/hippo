@@ -1,6 +1,17 @@
 ---
 /content/documents/corporate-website/forms/email-subscription:
   /email-subscription[1]:
+    /emailconfiguration0:
+      eforms:addattachments: 'true'
+      eforms:mailformdata: ''
+      eforms:notificationbccemail: ''
+      eforms:notificationccemail: ''
+      eforms:notificationemail: test@example.com
+      eforms:notificationreplytoemailfields: ''
+      eforms:notificationsubject: ''
+      eforms:notificationtemplate: ''
+      eforms:notificationtext: ''
+      jcr:primaryType: eforms:formconfiguration
     /page0:
       /field0:
         eforms:conditional: false
@@ -48,16 +59,16 @@
     eforms:actionurl: http://test.com/action.do
     eforms:afterprocesssuccessmode: text
     eforms:afterprocesssuccesstext: You have subscribed to our bulletin!
+    eforms:afterprocesssuccessurl: /form/confirmation
     eforms:buttonlabel: Subscribe
     eforms:formname: Email subscription
     eforms:govdeliveryapi: 'true'
-    eforms:notificationemail: test@example.com
-    eforms:notificationreplytoemailfields: ''
     hippo:availability: []
+    hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-31T11:07:17.862Z
-    hippostdpubwf:lastModificationDate: 2020-08-10T11:45:16.906Z
+    hippostdpubwf:lastModificationDate: 2022-09-07T21:17:52.057Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 31032092-0e2b-46a1-889c-2acfd5671ce0
     hippotranslation:locale: en
@@ -66,6 +77,17 @@
     - mix:referenceable
     jcr:primaryType: eforms:form
   /email-subscription[2]:
+    /emailconfiguration0:
+      eforms:addattachments: 'true'
+      eforms:mailformdata: ''
+      eforms:notificationbccemail: ''
+      eforms:notificationccemail: ''
+      eforms:notificationemail: test@example.com
+      eforms:notificationreplytoemailfields: ''
+      eforms:notificationsubject: ''
+      eforms:notificationtemplate: ''
+      eforms:notificationtext: ''
+      jcr:primaryType: eforms:formconfiguration
     /page0:
       /field0:
         eforms:conditional: false
@@ -113,17 +135,17 @@
     eforms:actionurl: http://test.com/action.do
     eforms:afterprocesssuccessmode: text
     eforms:afterprocesssuccesstext: You have subscribed to our bulletin!
+    eforms:afterprocesssuccessurl: /form/confirmation
     eforms:buttonlabel: Subscribe
     eforms:formname: Email subscription
     eforms:govdeliveryapi: 'true'
-    eforms:notificationemail: test@example.com
-    eforms:notificationreplytoemailfields: ''
     hippo:availability:
     - preview
+    hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-31T11:07:17.862Z
-    hippostdpubwf:lastModificationDate: 2020-08-10T11:45:16.807Z
+    hippostdpubwf:lastModificationDate: 2022-09-07T21:18:07.975Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 31032092-0e2b-46a1-889c-2acfd5671ce0
     hippotranslation:locale: en
@@ -133,6 +155,17 @@
     - mix:versionable
     jcr:primaryType: eforms:form
   /email-subscription[3]:
+    /emailconfiguration0:
+      eforms:addattachments: 'true'
+      eforms:mailformdata: ''
+      eforms:notificationbccemail: ''
+      eforms:notificationccemail: ''
+      eforms:notificationemail: test@example.com
+      eforms:notificationreplytoemailfields: ''
+      eforms:notificationsubject: ''
+      eforms:notificationtemplate: ''
+      eforms:notificationtext: ''
+      jcr:primaryType: eforms:formconfiguration
     /page0:
       /field0:
         eforms:conditional: false
@@ -180,19 +213,19 @@
     eforms:actionurl: http://test.com/action.do
     eforms:afterprocesssuccessmode: text
     eforms:afterprocesssuccesstext: You have subscribed to our bulletin!
+    eforms:afterprocesssuccessurl: /form/confirmation
     eforms:buttonlabel: Subscribe
     eforms:formname: Email subscription
     eforms:govdeliveryapi: 'true'
-    eforms:notificationemail: test@example.com
-    eforms:notificationreplytoemailfields: ''
     hippo:availability:
     - live
+    hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-31T11:07:17.862Z
-    hippostdpubwf:lastModificationDate: 2020-08-10T11:45:16.807Z
+    hippostdpubwf:lastModificationDate: 2022-09-07T21:18:07.975Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2020-08-10T11:45:19.643Z
+    hippostdpubwf:publicationDate: 2022-09-07T21:18:09.931Z
     hippotranslation:id: 31032092-0e2b-46a1-889c-2acfd5671ce0
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -200,7 +233,7 @@
     - mix:referenceable
     jcr:primaryType: eforms:form
   hippo:name: Email subscription
-  hippo:versionHistory: bbe9b929-a4e0-4744-a5cd-154f6e45a5d0
+  hippo:versionHistory: 0a74cb83-03ae-4d5b-8b5b-0327e1a38a1b
   jcr:mixinTypes:
   - hippo:named
   - hippo:versionInfo
