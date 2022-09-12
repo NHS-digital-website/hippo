@@ -27,7 +27,6 @@ Given('I navigate to the {string} page', {timeout: 20000}, async function (this:
     if (!pageUrl) throw "Page not found";
     const res = await this.browser.openUrl(siteUrl + pageUrl);
     if (!res.ok()) throw "Navigation error";
-    await this.browser.waitForPageLoad();
 
     await cookieNotice.accept(this);
     this.currentPage = page;
@@ -37,7 +36,6 @@ Given('I navigate to the {string} macro test page', {timeout: 20000}, async func
     const pageUrl = getMacroTestPageUrl(macro);
     const res = await this.browser.openUrl(siteUrl + pageUrl);
     if (!res.ok()) throw "Navigation error";
-    await this.browser.waitForPageLoad();
     this.currentPage = 'Macro test page';
 });
 

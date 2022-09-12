@@ -68,12 +68,7 @@ export default class BrowserDelegate {
 
     async openUrl(url: string) {
         const page = await this.getPage();
-        return await page.goto(url);
-    }
-
-    async waitForPageLoad() {
-        const page = await this.getPage();
-        await page.waitForLoadState('load');
+        return await page.goto(url, {waitUntil: 'networkidle'});
     }
 
     async switchViewport(viewport: Viewport) {
