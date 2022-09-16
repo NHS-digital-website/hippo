@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - master
-      - ADZ-1195_API_specification_branding_release
 
 jobs:
   build-and-test:
@@ -78,11 +77,14 @@ jobs:
             ${{ runner.os }}-node-nhs-digital-
             ${{ runner.os }}-node-nhs-
 
-      # Step 6
+      # Step 6 (Formatting Checks)
       - name: Check YAML formatting
         run: make check.yaml
 
-      # Step 7
+      - name: Lint JS Files
+        run: make lint-frontend
+
+      # Step 7 (Functional Tests)
       - name: Test Project
         run: make test.site CI=true
 

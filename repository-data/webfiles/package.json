@@ -11,7 +11,7 @@
         "build": "npm run lint && gulp build",
         "build-css": "gulp build-css",
         "build-js": "gulp build-js",
-        "lint": "npx eslint $(git diff --name-only --line-prefix=$(git rev-parse --show-toplevel)/ '*.js')",
+        "lint": "npx eslint $(git diff origin/master --name-only --line-prefix=$(git rev-parse --show-toplevel)/ '*.js')",
         "lint-fix": "npx eslint --fix $(git diff --name-only --line-prefix=$(git rev-parse --show-toplevel)/ '*.js')"
     },
     "repository": {
