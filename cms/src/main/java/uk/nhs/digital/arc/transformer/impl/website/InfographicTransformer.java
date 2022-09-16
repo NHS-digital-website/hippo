@@ -51,7 +51,7 @@ public class InfographicTransformer extends AbstractSectionTransformer {
         if (!StringUtils.isEmpty(section.getIcon())) {
             try {
                 Node iconNode = session.getNode(section.getIcon());
-                ContentNode iconContent = setSingleNodeLevelProperty(currentSectionNode, WEBSITE_IMAGE, "hippogallerypicker:imagelink", "hippo:docbase", iconNode.getIdentifier());
+                ContentNode iconContent = setSingleNodeLevelProperty(currentSectionNode, WEBSITE_ICON, "hippogallerypicker:imagelink", "hippo:docbase", iconNode.getIdentifier());
                 String[] categories = new String[]{"life", "cms"};
                 iconContent.setProperty(HIPPO_VALUES, categories);
                 iconContent.setProperty(HIPPO_FACETS, new String[]{});
