@@ -1,0 +1,47 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/system/CustomDynamicDropdown:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          - source
+          - valuelistProvider
+          - sortComparator
+          - sortOrder
+          - sortBy
+          - showDefault
+          - observableId
+          - observerId
+          - nameProvider
+          - sourceBasePath
+          frontend:references:
+          - wicket.model
+          - engine
+          - model.compareTo
+          frontend:services:
+          - wicket.id
+          /root:
+            engine: ${engine}
+            jcr:primaryType: frontend:plugin
+            mode: ${mode}
+            model.compareTo: ${model.compareTo}
+            plugin.class: uk.nhs.digital.common.dynamicdropdown.RoadmapItemDynamicDropDownPlugin
+            wicket.id: ${wicket.id}
+            wicket.model: ${wicket.model}
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          hipposysedit:node: false
+          hipposysedit:type: String
+          hipposysedit:uri: internal
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:primaryType: hippo:handle
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

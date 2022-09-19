@@ -57,17 +57,14 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /categorylink:
+          /dynamicdropdown:
             /cluster.options:
-              base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
-              nodetypes:
-              - website:categorylist
-            caption: Category Link
-            field: categorylink
+            caption: Categories
+            field: dynamicdropdown
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /impactedservices:
             /cluster.options:
@@ -135,13 +132,13 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /categorylink:
+          /dynamicdropdown:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:categorylink
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:dynamicdropdown
             hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
+            hipposysedit:type: CustomDynamicDropdown
             jcr:primaryType: hipposysedit:field
           /effectivedate:
             hipposysedit:mandatory: false
@@ -264,6 +261,9 @@ definitions:
             website:enddate: 0001-01-01T12:00:00Z
             website:startdate: 0001-01-01T12:00:00Z
             website:status: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -280,6 +280,7 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:roadmapitem
+          website:dynamicdropdown: ''
           website:shortsummary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
