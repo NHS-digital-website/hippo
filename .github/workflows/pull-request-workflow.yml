@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - master
+      - lint-test
 
 jobs:
   build-and-test:
@@ -82,7 +83,20 @@ jobs:
         run: make check.yaml
 
       - name: Lint JS Files
+        id: jsLint
         run: make lint-frontend
+
+      - name: "Added PR comment"
+        if: ${{ always() }}
+        uses: actions/github-script@v6N}}
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Outcome ${steps.jsLint.outcome}`
+            })
 
       # Step 7 (Functional Tests)
       - name: Test Project
