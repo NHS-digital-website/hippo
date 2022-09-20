@@ -88,7 +88,7 @@ jobs:
 
       - name: "Added PR comment"
         if: ${{ always() }}
-        uses: actions/github-script@v6N}}
+        uses: actions/github-script@v6
         with:
           script: |
             github.rest.issues.createComment({
