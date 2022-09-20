@@ -1,10 +1,9 @@
 name: Pull Request Workflow
 
 on:
-  push:
+  pull_request:
     branches:
       - master
-      - lint-test
 
 jobs:
   build-and-test:
