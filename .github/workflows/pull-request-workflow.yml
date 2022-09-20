@@ -95,7 +95,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `Outcome ${steps.jsLint.outcome}`
+              body: `Outcome ${{steps.jsLint.outcome}}`
             })
 
       # Step 7 (Functional Tests)
