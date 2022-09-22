@@ -111,4 +111,10 @@ frontend:
 	cd repository-data/webfiles && npm install && NODE_ENV=development npm start
 
 lint-frontend:
+	cd repository-data/webfiles && npm run lint
+
+lint-frontend-fix:
 	cd repository-data/webfiles && npm run lint-fix
+
+ci-pipeline-lint-frontend:
+	cd repository-data/webfiles && npm install && npm run lint
