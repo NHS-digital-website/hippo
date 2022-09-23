@@ -1,7 +1,8 @@
-import {Given, When} from '@cucumber/cucumber';
+import {Given, When, Then} from '@cucumber/cucumber';
 import {CustomWorld} from "../setup/world/CustomWorld";
 import cookieNotice from "../helpers/handle-cookie-notice";
 import {Viewport} from "../setup/world/BrowserDelegate";
+import { expect } from 'chai';
 
 const siteUrl = 'http://localhost:8080/site';
 
@@ -22,7 +23,7 @@ function getMacroTestPageUrl(macro: string) {
     return "/automated-test-pages/macros?macro=" + macro;
 }
 
-Given('I navigate to the {string} page', {timeout: 20000}, async function (this: CustomWorld, page: string) {
+Given('I navigate to the {string} page', {timeout: 60000}, async function (this: CustomWorld, page: string) {
     const pageUrl = getPageUrl(page);
     if (!pageUrl) throw "Page not found";
     const res = await this.browser.openUrl(siteUrl + pageUrl);
@@ -32,11 +33,24 @@ Given('I navigate to the {string} page', {timeout: 20000}, async function (this:
     this.currentPage = page;
 });
 
-Given('I navigate to the {string} macro test page', {timeout: 20000}, async function (this: CustomWorld, macro: string) {
+Given('I navigate to the {string} macro test page', {timeout: 60000}, async function (this: CustomWorld, macro: string) {
     const pageUrl = getMacroTestPageUrl(macro);
     const res = await this.browser.openUrl(siteUrl + pageUrl);
     if (!res.ok()) throw "Navigation error";
     this.currentPage = 'Macro test page';
+});
+
+Given('I click target {string} element', async function (this: CustomWorld, target: string) {
+    const page = await this.browser.getPage();
+    const targetElement = page.locator(`[data-test-target="${target}"]`);
+    expect(await targetElement.count()).to.be.greaterThan(0);
+    await targetElement.first().scrollIntoViewIfNeeded();
+    await this.browser.timeout(1000);
+    await targetElement.first().click();
+});
+
+Then('I wait {int} seconds', {timeout: 60000}, async function(this: CustomWorld, timeout: number) {
+    await this.browser.timeout(timeout * 1000);
 });
 
 When('I view page on {string}', async function(this: CustomWorld, device: Viewport) {
