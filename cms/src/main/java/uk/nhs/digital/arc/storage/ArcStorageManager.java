@@ -23,4 +23,6 @@ public interface ArcStorageManager {
     InputStream getFileInputStream(FilePathData filePathData);
 
     ArcFileData getFileMetaData(FilePathData sourceFilePathData);
+
+    void writeOutcomeFile(String docbase, String location, String text);
 }

@@ -2,6 +2,7 @@ package uk.nhs.digital.arc.transformer.publicationsystem;
 
 import org.onehippo.forge.content.pojo.model.ContentNode;
 import org.onehippo.forge.content.pojo.model.ContentPropertyType;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.BasicBodyItem;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemInteractivetool;
 import uk.nhs.digital.arc.transformer.abs.AbstractSectionTransformer;
@@ -19,25 +20,29 @@ public class PubSysInteractivetoolTransformer extends AbstractSectionTransformer
     }
 
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         ContentNode sectionNode = new ContentNode(PUBLICATIONSYSTEM_INTERACTIVETOOL, PUBLICATIONSYSTEM_INTERACTIVETOOL);
-        sectionNode.setProperty(PUBLICATIONSYSTEM_DATE, ContentPropertyType.DATE, DateHelper.massageDate(interactivetool.getDate()));
+        setSingleDateProp(sectionNode, PUBLICATIONSYSTEM_DATE, DateHelper.massageDate(interactivetool.getDate()));
         sectionNode.setProperty(PUBLICATIONSYSTEM_LINK, interactivetool.getLinkReq());
         sectionNode.setProperty(PUBLICATIONSYSTEM_TITLE, interactivetool.getTitleReq());
         sectionNode.setProperty(PUBLICATIONSYSTEM_ACCESSIBLE, ContentPropertyType.BOOLEAN, interactivetool.getAccessibleReq());
 
-        ContentNode cmAtt = new ContentNode(PUBLICATIONSYSTEM_CONTENT, HIPPOSTD_HTML);
-        cmAtt.setProperty(HIPPOSTD_CONTENT, interactivetool.getContent());
-        sectionNode.addNode(cmAtt);
+        if (interactivetool.getContent() != null) {
+            ContentNode cmAtt = new ContentNode(PUBLICATIONSYSTEM_CONTENT, HIPPOSTD_HTML);
+            cmAtt.setProperty(HIPPOSTD_CONTENT, interactivetool.getContent());
+            sectionNode.addNode(cmAtt);
+        }
 
         if (interactivetool.getAccessibleLocation() != null) {
             ContentNode cmAccess = new ContentNode(PUBLICATIONSYSTEM_ACCESSIBLELOCATION, PUBLICATIONSYSTEM_ACCESSIBLELINK);
             cmAccess.setProperty(PUBLICATIONSYSTEM_LINK, interactivetool.getAccessibleLocation().getLinkReq());
             cmAccess.setProperty(PUBLICATIONSYSTEM_TITLE, interactivetool.getAccessibleLocation().getTitleReq());
 
-            ContentNode cmContent = new ContentNode(PUBLICATIONSYSTEM_CONTENT, HIPPOSTD_HTML);
-            cmContent.setProperty(HIPPOSTD_CONTENT, interactivetool.getAccessibleLocation().getContent());
-            cmAccess.addNode(cmContent);
+            if (interactivetool.getAccessibleLocation().getContent() != null) {
+                ContentNode cmContent = new ContentNode(PUBLICATIONSYSTEM_CONTENT, HIPPOSTD_HTML);
+                cmContent.setProperty(HIPPOSTD_CONTENT, interactivetool.getAccessibleLocation().getContent());
+                cmAccess.addNode(cmContent);
+            }
 
             sectionNode.addNode(cmAccess);
         }

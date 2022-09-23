@@ -6,6 +6,7 @@ import org.apache.jackrabbit.JcrConstants;
 import org.onehippo.forge.content.pojo.model.BinaryValue;
 import org.onehippo.forge.content.pojo.model.ContentNode;
 import org.onehippo.forge.content.pojo.model.ContentPropertyType;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.storage.ArcStorageManager;
 import uk.nhs.digital.externalstorage.s3.S3ObjectMetadata;
 
@@ -118,11 +119,31 @@ public abstract class AbstractTransformer {
         this.session = session;
     }
 
-    public abstract ContentNode process();
+    public abstract ContentNode process() throws ArcException;
 
     protected void setMultipleProp(ContentNode cn, String property, List<String> values) {
         if (values != null) {
             cn.setProperty(property, values.toArray(new String[0]));
+        }
+    }
+
+    protected void setSingleProp(ContentNode cn, String property, String value) {
+        if (value != null) {
+            cn.setProperty(property, value);
+        }
+    }
+
+    protected void setSingleRequiredDateProp(ContentNode cn, String property, String manifestName, String value) throws ArcException {
+        if (value != null && value.trim().length() > 0) {
+            setSingleDateProp(cn, property, value);
+        } else {
+            throw new ArcException(String.format("The value for the property '%s' is either in an incorrect format or empty", manifestName));
+        }
+    }
+
+    protected void setSingleDateProp(ContentNode cn, String property, String value) {
+        if (value != null && value.trim().length() > 0) {
+            cn.setProperty(property, ContentPropertyType.DATE, value);
         }
     }
 

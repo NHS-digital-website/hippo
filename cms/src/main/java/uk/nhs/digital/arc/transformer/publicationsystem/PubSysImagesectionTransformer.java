@@ -5,6 +5,7 @@ import org.onehippo.forge.content.pojo.model.BinaryValue;
 import org.onehippo.forge.content.pojo.model.ContentNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemImagesection;
 import uk.nhs.digital.arc.storage.ArcFileData;
@@ -27,19 +28,19 @@ public class PubSysImagesectionTransformer extends AbstractSectionTransformer {
     }
 
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         ContentNode sectionNode = new ContentNode(PUBLICATIONSYSTEM_BODYSECTIONS, PUBLICATIONSYSTEM_IMAGESECTION);
 
         sectionNode.setProperty(PUBLICATIONSYSTEM_ALTTEXT, imageSection.getAltTextReq());
-        sectionNode.setProperty(PUBLICATIONSYSTEM_CAPTION, imageSection.getCaption());
+        setSingleProp(sectionNode, PUBLICATIONSYSTEM_CAPTION, imageSection.getCaption());
         sectionNode.setProperty(PUBLICATIONSYSTEM_IMAGESIZE, imageSection.getImageSizeReq());
-        sectionNode.setProperty(PUBLICATIONSYSTEM_LINK, imageSection.getLink());
+        setSingleProp(sectionNode, PUBLICATIONSYSTEM_LINK, imageSection.getLink());
         getImageDataFromS3File(sectionNode);
 
         return sectionNode;
     }
 
-    private void getImageDataFromS3File(ContentNode sectionNode) {
+    private void getImageDataFromS3File(ContentNode sectionNode) throws ArcException {
         FilePathData sourceFilePathUtils = new FilePathData(docbase, imageSection.getImageReq());
         ArcFileData metadata = storageManager.getFileMetaData(sourceFilePathUtils);
 
@@ -51,8 +52,9 @@ public class PubSysImagesectionTransformer extends AbstractSectionTransformer {
                 sourceFilePathUtils.getFilename());
 
             sectionNode.addNode(newNode);
-        } catch (IOException e) {
-            LOGGER.error("Error attempting to create image data", e);
+        } catch (IOException | RuntimeException e) {
+            LOGGER.error("Error attempting to create image data");
+            throw new ArcException(String.format("Unable to process image data from S3 file in '%s'", this.getClass().getName()), e);
         }
     }
 }

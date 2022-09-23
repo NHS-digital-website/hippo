@@ -18,4 +18,8 @@ public abstract class AbstractPageLevelTransformer extends AbstractTransformer {
     public void setDoctype(ArcDoctype doctype) {
         this.doctype = doctype;
     }
+
+    public ArcDoctype getDoctype() {
+        return doctype;
+    }
 }

@@ -1,6 +1,7 @@
 package uk.nhs.digital.arc.transformer.publicationsystem;
 
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemResourceOrExternalLink;
 import uk.nhs.digital.arc.transformer.abs.AbstractSectionTransformer;
 
@@ -17,7 +18,7 @@ public class PubSysLinkTransformer extends AbstractSectionTransformer {
         this.nodeType = nodeType;
     }
 
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         ContentNode sectionNode = new ContentNode(nodeType, PUBLICATIONSYSTEM_RELATEDLINK);
         sectionNode.setProperty(PUBLICATIONSYSTEM_LINKTEXT, linkSection.getLinkTextReq());
         sectionNode.setProperty(PUBLICATIONSYSTEM_LINKURL, linkSection.getLinkUrlReq());
