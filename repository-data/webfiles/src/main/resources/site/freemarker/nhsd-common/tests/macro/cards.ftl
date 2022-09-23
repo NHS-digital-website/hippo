@@ -5,7 +5,7 @@
 <div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-6">
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-margin-top-6">
-            <div id="BasicCard">
+            <div id="BasicCard" data-variant="basic">
                 <#assign cardProperties = {
                     "background": "light-grey",
                     "title": "Basic card",
@@ -18,7 +18,7 @@
     </div>
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-margin-top-6">
-            <div id="ButtonCard">
+            <div id="ButtonCard" data-variant="button">
                 <#assign cardProperties = {
                     "background": "light-grey",
                     "title": "Button card",
@@ -32,7 +32,7 @@
     </div>
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-margin-top-6">
-            <div id="ImageCard">
+            <div id="ImageCard" data-variant="image">
                 <#assign cardProperties = {
                     "background": "light-grey",
                     "title": "Image card",
@@ -45,7 +45,7 @@
     </div>
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-margin-top-6">
-            <div id="AuthorCard">
+            <div id="AuthorCard" data-variant="author">
                 <#assign cardProperties = {
                     "background": "light-grey",
                     "title": "Author card",

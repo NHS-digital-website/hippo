@@ -3,7 +3,7 @@
 <#include "macro/metaTags.ftl">
 <#include "../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../nhsd-common/macro/heroes/hero.ftl">
-<#include "../nhsd-common/macro/banners/nhsd-banner.ftl">
+<#include "../nhsd-common/macro/toolkit/organisms/banner.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Calltoaction" -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.CallToActionRich" -->

@@ -1,6 +1,5 @@
 import {DataTable, Then} from '@cucumber/cucumber';
 import { expect } from 'chai';
-import macroSelectors, {MacroSelectors, isVariant} from "../helpers/macro-selectors";
 import {CustomWorld} from "../setup/world/CustomWorld";
 
 Then('the page should look visually correct', async function(this: CustomWorld) {
@@ -13,18 +12,25 @@ Then('the page should look visually correct', async function(this: CustomWorld) 
     expect(result).to.be.true;
 });
 
-Then('I should see the following {string} macros look visually correct:', async function(this: CustomWorld, macro: keyof MacroSelectors, variants: DataTable) {
+Then('I should see the following {string} variants look visually correct:', async function(this: CustomWorld, macro: string, variants: DataTable) {
     for (const [variant] of variants.raw()) {
-        if (!isVariant(macro, variant)) throw `Variant "${variant}" not found`;
-
         const page = await this.browser.getPage();
-        const macroElement = page.locator(macroSelectors[macro][variant]);
+
+        // Grey out iframe content to prevent flakey tests
+        const stylesheet = await page.addStyleTag({
+            content: `iframe { filter: contrast(0); }`
+        });
+
+        const macroElement = page.locator(`[data-variant='${variant}']`);
+        expect(await macroElement.count()).greaterThan(0);
 
         const imageBuff = await macroElement.screenshot({
             scale: "css"
         });
 
-        const result = await this.matchSnapshot(imageBuff, `${macro}-${variant}-macro-${this.browser.viewport}`);
+        const result = await this.matchSnapshot(imageBuff, `${macro}-${variant.replace(' ', '-')}-macro-${this.browser.viewport}`);
         expect(result).to.be.true;
+
+        await stylesheet.dispose();
     }
 });
