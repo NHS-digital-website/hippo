@@ -1,7 +1,7 @@
 package uk.nhs.digital.arc.transformer.impl.pagelevel;
 
 import org.onehippo.forge.content.pojo.model.ContentNode;
-import org.onehippo.forge.content.pojo.model.ContentPropertyType;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.factory.InnerSectionTransformerFactory;
 import uk.nhs.digital.arc.json.Publication;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
@@ -38,17 +38,17 @@ public class PublicationTransformer extends AbstractPageLevelTransformer {
      * @return is the now populated {@link ContentNode}
      */
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         publication = (Publication) doctype;
 
         ContentNode contentNode = new ContentNode(publication.getTitleReq(), doctype.getDoctypeReq().toLowerCase());
 
         contentNode.setProperty(PUBLICATIONSYSTEM_TITLE_UC, publication.getTitleReq());
         contentNode.setProperty(PUBLICATIONSYSTEM_SUMMARY, publication.getSummaryReq());
-        contentNode.setProperty(PUBLICATIONSYSTEM_NOMINALDATE, ContentPropertyType.DATE, DateHelper.massageDate(publication.getNominalDateReq()));
+        setSingleRequiredDateProp(contentNode, PUBLICATIONSYSTEM_NOMINALDATE, "nominal_date_REQ", DateHelper.massageDate(publication.getNominalDateReq()));
         contentNode.setProperty(PUBLICATIONSYSTEM_PUBLICALLYACCESSIBLE, publication.getPublicallyAccessibleReq());
-        contentNode.setProperty(PUBLICATIONSYSTEM_COVERAGESTART, ContentPropertyType.DATE, DateHelper.massageDate(publication.getCoverageStart()));
-        contentNode.setProperty(PUBLICATIONSYSTEM_COVERAGEEND, ContentPropertyType.DATE, DateHelper.massageDate(publication.getCoverageEnd()));
+        setSingleDateProp(contentNode, PUBLICATIONSYSTEM_COVERAGESTART, DateHelper.massageDate(publication.getCoverageStart()));
+        setSingleDateProp(contentNode, PUBLICATIONSYSTEM_COVERAGEEND, DateHelper.massageDate(publication.getCoverageEnd()));
 
         processPageLevelFields(contentNode);
         processSections(contentNode);
@@ -56,7 +56,7 @@ public class PublicationTransformer extends AbstractPageLevelTransformer {
         return contentNode;
     }
 
-    private void processPageLevelFields(ContentNode contentNode) {
+    private void processPageLevelFields(ContentNode contentNode) throws ArcException {
         if (publication.getSeoSummary() != null) {
             ContentNode summaryNode = new ContentNode(PUBLICATIONSYSTEM_SEOSUMMARY, HIPPOSTD_HTML);
             summaryNode.setProperty(HIPPOSTD_CONTENT, publication.getSeoSummary());
@@ -77,8 +77,8 @@ public class PublicationTransformer extends AbstractPageLevelTransformer {
 
         if (publication.getPublicationSurvey() != null) {
             ContentNode surveyNode = new ContentNode(PUBLICATIONSYSTEM_SURVEY, PUBLICATIONSYSTEM_SURVEY);
-            surveyNode.setProperty(PUBLICATIONSYSTEM_DATE,
-                ContentPropertyType.DATE,
+            setSingleRequiredDateProp(surveyNode, PUBLICATIONSYSTEM_DATE,
+                "date_REQ",
                 DateHelper.massageDate(publication.getPublicationSurvey().getDateReq()));
             surveyNode.setProperty(PUBLICATIONSYSTEM_LINK, publication.getPublicationSurvey().getLinkReq());
             contentNode.addNode(surveyNode);
@@ -117,7 +117,9 @@ public class PublicationTransformer extends AbstractPageLevelTransformer {
         }
     }
 
-    private void processLinkOfResourceOrExternalType(ContentNode sectionNode, List<PublicationsystemResourceOrExternalLink> links, String nodeType) {
+    private void processLinkOfResourceOrExternalType(ContentNode sectionNode,
+                                                     List<PublicationsystemResourceOrExternalLink> links,
+                                                     String nodeType) throws ArcException {
         for (PublicationsystemResourceOrExternalLink resourceLink : links) {
             PubSysLinkTransformer transformer = new PubSysLinkTransformer(session, resourceLink, nodeType);
             ContentNode linkNode = transformer.process();
@@ -125,7 +127,7 @@ public class PublicationTransformer extends AbstractPageLevelTransformer {
         }
     }
 
-    private void processSections(ContentNode contentNode) {
+    private void processSections(ContentNode contentNode) throws ArcException {
         if (listExists(publication.getSections())) {
             for (PublicationBodyItem section : publication.getSections()) {
                 AbstractSectionTransformer sectionTransformer = getSectionTransformer(section);

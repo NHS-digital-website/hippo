@@ -80,6 +80,10 @@ public class FilePathData {
             offset = HTTPS_PROTO_LENGTH;
         }
 
+        if (offset > filePath.length()) {
+            return "";
+        }
+
         String workPath = filePath.substring(offset);
 
         if (wantFilename) {

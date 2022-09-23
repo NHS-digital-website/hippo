@@ -17,7 +17,7 @@ public class S3ObjectMetadataImpl implements S3ObjectMetadata {
     private final String url;
     private final String reference;
 
-    S3ObjectMetadataImpl(ObjectMetadata metadata, String bucketName, String objectKey) {
+    public S3ObjectMetadataImpl(ObjectMetadata metadata, String bucketName, String objectKey) {
         URL url = getUrlObject(bucketName, objectKey);
 
         size = metadata.getContentLength();

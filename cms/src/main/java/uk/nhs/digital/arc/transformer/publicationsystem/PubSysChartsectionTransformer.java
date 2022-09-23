@@ -4,6 +4,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.jackrabbit.value.BinaryImpl;
 import org.onehippo.forge.content.pojo.model.BinaryValue;
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemChartSection;
 import uk.nhs.digital.arc.storage.ArcFileData;
@@ -28,7 +29,7 @@ public class PubSysChartsectionTransformer extends AbstractSectionTransformer {
     }
 
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         ContentNode sectionNode = new ContentNode(PUBLICATIONSYSTEM_BODYSECTIONS, PUBLICATIONSYSTEM_CHARTSECTION);
 
         sectionNode.setProperty(PUBLICATIONSYSTEM_TITLE, chartSection.getTitleReq());
@@ -46,7 +47,7 @@ public class PubSysChartsectionTransformer extends AbstractSectionTransformer {
      *
      * @param sectionNode is the node to which we attach the storage meta data once loaded
      */
-    private void getChartDataAsJsonFromContentOfResource(ContentNode sectionNode) {
+    private void getChartDataAsJsonFromContentOfResource(ContentNode sectionNode) throws ArcException {
         FilePathData sourceFilePathData = new FilePathData(docbase, chartSection.getDataFileReq());
         ArcFileData metaData = storageManager.getFileMetaData(sourceFilePathData);
 
@@ -62,8 +63,8 @@ public class PubSysChartsectionTransformer extends AbstractSectionTransformer {
                     sourceFilePathData.getFilename());
 
                 sectionNode.addNode(newNode);
-            } catch (IOException | RepositoryException exception) {
-                exception.printStackTrace();
+            } catch (IOException | RepositoryException | RuntimeException exception) {
+                throw new ArcException(String.format("Unable to process the chart data found in the file '%s'", sourceFilePathData.getFilePath()), exception);
             }
         }
     }
