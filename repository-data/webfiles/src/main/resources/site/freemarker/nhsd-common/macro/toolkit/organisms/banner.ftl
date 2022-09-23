@@ -65,7 +65,7 @@
         <div class="nhsd-o-banner__image-container">
             <#if options.video?has_content>
                 <div class="nhsd-t-ratio-4x3">
-                    <iframe src="${options.video}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen data-test-target="video"></iframe>
+                    <iframe src="${options.video.src}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen data-test-target="video"></iframe>
                 </div>
             <#else>
                 <figure class="nhsd-a-image nhsd-a-image--cover">
