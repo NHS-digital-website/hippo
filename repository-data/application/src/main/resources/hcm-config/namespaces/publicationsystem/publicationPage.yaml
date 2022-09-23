@@ -31,7 +31,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Body
-            compoundList: website:section,website:ImageModule,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,publicationsystem:textSection,website:iconlist,website:gallerysection,website:download,website:expander,website:ctabutton,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:propertytable,website:VideoSection
+            compoundList: website:section,website:ImageModule,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,publicationsystem:textSection,website:iconlist,website:gallerysection,website:download,website:expander,website:ctabutton,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau,website:propertytable,website:VideoSection,publicationsystem:Visualisation
             contentPickerType: links
             field: body
             hint: ''
@@ -68,6 +68,31 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
+        /hipposysedit:nodetype[2]:
+          /body:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publicationsystem:bodySections
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:Title
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - publicationsystem:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
@@ -85,6 +110,59 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: publicationsystem:publicationPage
+          publicationsystem:Title: ''
+        /hipposysedit:prototype[2]:
+          /publicationsystem:bodySections[1]:
+            /publicationsystem:dataFile:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /namespaces/publicationsystem/publicationPage/prototypes/prototype[2]/bodySections[1]/dataFile/text.bin
+                type: binary
+              jcr:data:
+                resource: /namespaces/publicationsystem/publicationPage/prototypes/prototype[2]/bodySections[1]/dataFile/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            /publicationsystem:imagelink:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            jcr:primaryType: publicationsystem:chartSection
+            publicationsystem:title: ''
+            publicationsystem:yTitle: ''
+            website:htmlCode: <!-- <img src="" id="chartPrintFriendly" alt="Print
+              Friendly Chart" style="display:none"> -->
+          /publicationsystem:bodySections[2]:
+            /website:caption:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:text:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:VideoSection
+            website:behaviour: false
+            website:loop: false
+            website:videoUrl: ''
+          common:searchable: false
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2018-04-09T11:52:44.199Z
+          hippostdpubwf:lastModificationDate: 2018-04-09T11:52:44.198Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - hippostd:publishableSummary
+          - hippostd:relaxed
+          - hippostdpubwf:document
+          - hippotranslation:translated
+          - mix:referenceable
+          jcr:primaryType: nt:unstructured
           publicationsystem:Title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

@@ -128,6 +128,63 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
+        /hipposysedit:nodetype[2]:
+          /dataFile:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:dataFile
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:resource
+            hipposysedit:validators:
+            - required
+            - publicationsystem-charts-datafile
+            jcr:primaryType: hipposysedit:field
+          /htmlHeaderCode:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:htmlCode
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /type:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:type
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /yTitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:yTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
@@ -152,6 +209,33 @@ definitions:
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: publicationsystem:chartSection
+          publicationsystem:title: ''
+          publicationsystem:yTitle: ''
+          website:htmlCode: <!-- <img src="" id="chartPrintFriendly" alt="Print Friendly
+            Chart" style="display:none"> -->
+        /hipposysedit:prototype[2]:
+          /publicationsystem:dataFile:
+            hippo:filename: publicationsystem:resource
+            hippo:text:
+              resource: /namespaces/publicationsystem/chartSection/prototypes/prototype[2]/dataFile/text.bin
+              type: binary
+            jcr:data:
+              resource: /namespaces/publicationsystem/chartSection/prototypes/prototype[2]/dataFile/data.bin
+              type: binary
+            jcr:encoding: UTF-8
+            jcr:lastModified: 2008-03-26T11:03:00Z
+            jcr:mimeType: application/vnd.hippo.blank
+            jcr:primaryType: publicationsystem:resource
+          /publicationsystem:imagelink:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:mixinTypes:
+          - hippo:derived
+          - hippostd:relaxed
+          jcr:primaryType: nt:unstructured
           publicationsystem:title: ''
           publicationsystem:yTitle: ''
           website:htmlCode: <!-- <img src="" id="chartPrintFriendly" alt="Print Friendly
