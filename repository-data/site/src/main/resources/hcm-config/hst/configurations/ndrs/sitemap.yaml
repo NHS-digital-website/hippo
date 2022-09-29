@@ -185,7 +185,7 @@ definitions:
             - hst:pages/feedhub
             hst:relativecontentpath: /data/data-stories/${1}
             jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/article-hub
+          hst:componentconfigurationid: hst:pages/data/data-stories
           hst:refId: data-stories
           hst:relativecontentpath: /data/data-stories/content
           jcr:primaryType: hst:sitemapitem
