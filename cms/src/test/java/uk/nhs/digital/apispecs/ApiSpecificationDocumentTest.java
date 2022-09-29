@@ -2,7 +2,6 @@ package uk.nhs.digital.apispecs;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hippoecm.repository.util.WorkflowUtils.Variant.DRAFT;
 import static org.hippoecm.repository.util.WorkflowUtils.Variant.PUBLISHED;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
@@ -14,7 +13,6 @@ import org.junit.Test;
 import uk.nhs.digital.apispecs.jcr.JcrDocumentLifecycleSupport;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 
-import java.time.Instant;
 import java.util.Optional;
 
 public class ApiSpecificationDocumentTest {
@@ -28,25 +26,6 @@ public class ApiSpecificationDocumentTest {
         jcrDocumentLifecycleSupport = mock(JcrDocumentLifecycleSupport.class);
 
         apiSpecificationDocument = ApiSpecificationDocument.from(jcrDocumentLifecycleSupport);
-    }
-
-    @Test
-    public void id_delegatesToDocumentProxy() {
-
-        // given
-        final String expectedSpecificationId = randomString();
-
-        given(jcrDocumentLifecycleSupport.getStringProperty("website:specification_id", DRAFT))
-            .willReturn(Optional.of(expectedSpecificationId));
-
-        // when
-        final String actualSpecificationId = apiSpecificationDocument.specificationId();
-
-        // then
-        assertThat("ID value is as returned from document proxy.",
-            actualSpecificationId,
-            is(expectedSpecificationId)
-        );
     }
 
     @Test
@@ -89,24 +68,5 @@ public class ApiSpecificationDocumentTest {
 
         // then
         then(jcrDocumentLifecycleSupport).should().saveAndPublish();
-    }
-
-    @Test
-    public void lastPublicationInstant_delegatesToDocumentProxy() {
-
-        // given
-        final Instant expectedInstant = Instant.now();
-
-        given(jcrDocumentLifecycleSupport.getLastPublicationInstant())
-            .willReturn(Optional.of(expectedInstant));
-
-        // when
-        final Optional<Instant> actualInstant = apiSpecificationDocument.lastPublicationInstant();
-
-        // then
-        assertThat("Last publication time value is as returned from document proxy.",
-            actualInstant,
-            is(Optional.of(expectedInstant))
-        );
     }
 }

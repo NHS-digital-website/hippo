@@ -56,14 +56,14 @@
                         <#if hasIcon>
                             <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">
                                 <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                                <image x="4" y="4" width="8" height="8" href="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, variant))}"/>
+                                <image x="0" y="0" width="100%" height="100%" href="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepository, variant))}"/>
                             </svg>
                         <#elseif hasImage>
                             <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16">
                                 <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
                                 <@hst.link hippobean=item.image var="image"/>
                                 <#if image?ends_with("svg")>
-                                    <image x="4" y="4" width="8" height="8" href="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepositoryImage, variant))}"/>
+                                    <image x="0" y="0" width="100%" height="100%" href="data:image/svg+xml;base64,${base64(colour(item.svgXmlFromRepositoryImage, variant))}"/>
                                 <#else>
                                     <image x="4" y="4" width="8" height="8" href="${image}"/>
                                 </#if>

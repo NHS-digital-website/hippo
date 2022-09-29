@@ -20,6 +20,9 @@ definitions:
       /basepage-layout:
         hst:renderpath: webfile:/freemarker/ndrs/homepage-layout.ftl
         jcr:primaryType: hst:template
+      /breadcrumb:
+        hst:renderpath: webfile:/freemarker/ndrs/breadcrumb.ftl
+        jcr:primaryType: hst:template
       /button:
         hst:renderpath: webfile:/freemarker/common/button.ftl
         jcr:primaryType: hst:template
@@ -55,6 +58,9 @@ definitions:
         jcr:primaryType: hst:template
       /eforms.validation.default:
         hst:renderpath: webfile:/freemarker/common/eforms/eforms-validation-default.ftl
+        jcr:primaryType: hst:template
+      /essentials-banner:
+        hst:renderpath: webfile:/freemarker/ndrs/hstdefault/essentials-banner.ftl
         jcr:primaryType: hst:template
       /event-article:
         hst:renderpath: webfile:/freemarker/ndrs/event-article.ftl
@@ -126,10 +132,10 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/publications-list.ftl
         jcr:primaryType: hst:template
       /published-work-article:
-        hst:renderpath: webfile:/freemarker/nhsd-common/published-work-article.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/published-work-article.ftl
         jcr:primaryType: hst:template
       /published-work-chapter-article:
-        hst:renderpath: webfile:/freemarker/nhsd-common/published-work-chapter-article.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/published-work-chapter-article.ftl
         jcr:primaryType: hst:template
       /search-results-layout:
         hst:renderpath: webfile:/freemarker/common/search-results-layout.ftl

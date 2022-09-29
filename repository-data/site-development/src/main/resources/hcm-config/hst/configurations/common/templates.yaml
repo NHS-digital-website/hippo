@@ -1,39 +1,46 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:templates/static-ui:
-      hst:renderpath: webfile:/freemarker/common/static-ui/index.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-component-button:
-      hst:renderpath: webfile:/freemarker/common/static-ui/component/button.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-component-callout-box:
-      hst:renderpath: webfile:/freemarker/common/static-ui/component/callout-box.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-component-hub-box:
-      hst:renderpath: webfile:/freemarker/common/static-ui/component/hub-box.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-filtered-list:
-      hst:renderpath: webfile:/freemarker/common/statiorganisation.yamlc-ui/filtered-list-page.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-home:
-      hst:renderpath: webfile:/freemarker/common/static-ui/home-page.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-hub:
-      hst:renderpath: webfile:/freemarker/common/static-ui/hub-page.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-icons:
-      hst:renderpath: webfile:/freemarker/common/static-ui/icons-page.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-list:
-      hst:renderpath: webfile:/freemarker/common/static-ui/list-page.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-news-events-homepage:
-      hst:renderpath: webfile:/freemarker/common/static-ui/news-events-homepage.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-service:
-      hst:renderpath: webfile:/freemarker/common/static-ui/service-page.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-supplementary-info-hub:
-      hst:renderpath: webfile:/freemarker/common/static-ui/supplementary-info-hub-page.ftl
-      jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates:
+      /macro-test-layout:
+        hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-layout.ftl
+        jcr:primaryType: hst:template
+      /macro-test-page:
+        hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-page.ftl
+        jcr:primaryType: hst:template
+      /static-ui:
+        hst:renderpath: webfile:/freemarker/common/static-ui/index.ftl
+        jcr:primaryType: hst:template
+      /static-ui-component-button:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/button.ftl
+        jcr:primaryType: hst:template
+      /static-ui-component-callout-box:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/callout-box.ftl
+        jcr:primaryType: hst:template
+      /static-ui-component-hub-box:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/hub-box.ftl
+        jcr:primaryType: hst:template
+      /static-ui-filtered-list:
+        hst:renderpath: webfile:/freemarker/common/statiorganisation.yamlc-ui/filtered-list-page.ftl
+        jcr:primaryType: hst:template
+      /static-ui-home:
+        hst:renderpath: webfile:/freemarker/common/static-ui/home-page.ftl
+        jcr:primaryType: hst:template
+      /static-ui-hub:
+        hst:renderpath: webfile:/freemarker/common/static-ui/hub-page.ftl
+        jcr:primaryType: hst:template
+      /static-ui-icons:
+        hst:renderpath: webfile:/freemarker/common/static-ui/icons-page.ftl
+        jcr:primaryType: hst:template
+      /static-ui-list:
+        hst:renderpath: webfile:/freemarker/common/static-ui/list-page.ftl
+        jcr:primaryType: hst:template
+      /static-ui-news-events-homepage:
+        hst:renderpath: webfile:/freemarker/common/static-ui/news-events-homepage.ftl
+        jcr:primaryType: hst:template
+      /static-ui-service:
+        hst:renderpath: webfile:/freemarker/common/static-ui/service-page.ftl
+        jcr:primaryType: hst:template
+      /static-ui-supplementary-info-hub:
+        hst:renderpath: webfile:/freemarker/common/static-ui/supplementary-info-hub-page.ftl
+        jcr:primaryType: hst:template

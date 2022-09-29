@@ -1,13 +1,5 @@
 ---
 /content/documents/corporate-website/ndrs:
-  /facet:
-    hippo:docbase: 10548b66-1a4e-4431-8833-d6b80d0ee572
-    hippofacnav:facetnodenames:
-    - category
-    hippofacnav:facets:
-    - common:FullTaxonomy
-    hippofacnav:limit: 100
-    jcr:primaryType: hippofacnav:facetnavigation
   hippo:name: NDRS
   hippostd:foldertype:
   - new-translated-folder
@@ -19,3 +11,4 @@
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
+  jcr:uuid: ea459c60-8716-464c-984b-3d6f7ff5ac70

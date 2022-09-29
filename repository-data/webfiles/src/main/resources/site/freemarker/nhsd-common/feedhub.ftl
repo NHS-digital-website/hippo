@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#setting url_escaping_charset="UTF-8">
 
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.FeedHub" -->
+
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/metaTags.ftl">

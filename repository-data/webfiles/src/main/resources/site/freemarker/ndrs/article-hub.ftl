@@ -14,6 +14,9 @@
 <#include "../common/macro/contentPixel.ftl">
 <#include "macro/heroes/hero.ftl">
 
+<#include "./macro/metaTags.ftl">
+<@metaTags></@metaTags>
+
 <#assign hasApiEndpointContent = document.requestname?? && document.uriaddress?? && document.summary?? />
 <#assign hasAuthnAuthsContent = document.authnauths?? && document.authnauths.content?has_content />
 <#assign hasParameters = document.apiendpointparams?? && document.apiendpointparams?has_content />

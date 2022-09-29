@@ -28,6 +28,15 @@ serve: essentials/target/essentials.war
 	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
 	$(MAKE) run
 
+## Clean, build and start local hippo
+# Clean and recompile only modules that we do customise.
+# Warning: Experimental. Requires Maven v3+
+serve.enhance: essentials/target/essentials.war
+	mvn -T 1C clean verify $(MVN_OPTS) \
+	-am -DskipTests=true \
+	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
+	$(MAKE) run
+
 ## Serve without allowing auto-export
 # Clean and recompile only modules that we do customise.
 serve.noexport: essentials/target/essentials.war
@@ -43,12 +52,6 @@ run:
 # we don't have to recompile it every time.
 essentials/target/essentials.war:
 	mvn clean verify $(MVN_OPTS) -pl essentials -am --offline -DskipTests=true
-
-## Run acceptance tests against already running server (`make serve`)
-test.site-running:
-	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
-		-Pacceptance-test \
-		-Dcucumber.options="src/test/resources/features/site"
 
 ## Run only acceptance tests tagged with "WIP"
 # This target requires a running site instance (e.g. `make serve.noexport`)
@@ -106,3 +109,12 @@ env.mk:
 
 frontend:
 	cd repository-data/webfiles && npm install && NODE_ENV=development npm start
+
+lint-frontend:
+	cd repository-data/webfiles && npm run lint
+
+lint-frontend-fix:
+	cd repository-data/webfiles && npm run lint-fix
+
+ci-pipeline-lint-frontend:
+	cd repository-data/webfiles && npm install && npm run lint

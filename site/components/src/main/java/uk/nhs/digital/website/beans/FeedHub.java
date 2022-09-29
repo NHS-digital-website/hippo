@@ -24,4 +24,9 @@ public class FeedHub extends CommonFieldsBean {
     public List<HippoBean> getSubject() {
         return getLinkedBeans("website:subject", HippoBean.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "website:ctabutton")
+    public CtaButton getCtabutton() {
+        return getBean("website:ctabutton", CtaButton.class);
+    }
 }

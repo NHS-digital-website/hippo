@@ -21,6 +21,13 @@ target
 /repository-data/webfiles/node_modules
 /repository-data/webfiles/src/main/resources/site/dist
 
+/acceptance-tests/src/test/node/node
+/acceptance-tests/src/test/node/node_modules
+/acceptance-tests/src/test/node/test-results
+/acceptance-tests/src/test/node/playwright-report
+/acceptance-tests/src/test/node/cucumber-report.html
+/acceptance-tests/src/test/node/cucumber-summary.txt
+
 ## Hippo content and config
 /repository-data/application/src/main/resources/hcm-content/content/documents/publicationsystem/publications/*
 /repository-data/development/src/main/resources/hcm-config/hst/hosts-allowed.yaml

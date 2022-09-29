@@ -57,6 +57,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /ctabutton:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: ctabutton
+            field: ctabutton
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /hubType:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -99,6 +108,16 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /ctabutton:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:ctabutton
+            hipposysedit:primary: false
+            hipposysedit:type: website:ctabutton
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
           /feedType:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
@@ -177,6 +196,11 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:ctabutton:
+            jcr:primaryType: website:ctabutton
+            website:alignment: Left
+            website:buttontype: NHS Digital button
+            website:title: ''
           /website:seoSummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html

@@ -1,0 +1,9 @@
+---
+/content/documents/corporate-website/ndrs/facet:
+  hippo:docbase: ea459c60-8716-464c-984b-3d6f7ff5ac70
+  hippofacnav:facetnodenames:
+  - category
+  hippofacnav:facets:
+  - common:FullTaxonomy
+  hippofacnav:limit: 100
+  jcr:primaryType: hippofacnav:facetnavigation

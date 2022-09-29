@@ -16,7 +16,7 @@ definitions:
         - 'true'
     /hst:hst/hst:configurations/hst:default/hst:catalog/essentials-catalog:
       /banner:
-        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsDocumentComponent
+        hst:componentclassname: uk.nhs.digital.common.components.BannerComponent
         hst:iconpath: images/essentials/catalog-component-icons/banner.png
         hst:label: Banner
         hst:template: essentials-banner

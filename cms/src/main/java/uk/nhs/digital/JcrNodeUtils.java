@@ -10,22 +10,10 @@ import java.sql.Date;
 import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 
 public abstract class JcrNodeUtils {
-
-    @SuppressWarnings("unchecked") // it's guaranteed that NodeIterator operates on instances of Node class
-    public static Stream<Node> streamOf(final NodeIterator nodeIterator) {
-
-        return StreamSupport.stream(
-            Spliterators.<Node>spliteratorUnknownSize(nodeIterator, Spliterator.ORDERED),
-            false
-        );
-    }
 
     public static Session getSessionQuietly(final Node node) {
         return wrapCheckedException(node::getSession);

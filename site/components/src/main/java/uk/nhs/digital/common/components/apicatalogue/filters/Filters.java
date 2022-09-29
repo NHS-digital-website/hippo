@@ -4,10 +4,8 @@ import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toSet;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle;
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.*;
+import uk.nhs.digital.common.util.CustomToStringStyle;
 
 import java.util.HashSet;
 import java.util.List;
@@ -143,13 +141,7 @@ public class Filters implements Walkable {
     }
 
     @Override public String toString() {
-        return new ToStringBuilder(this, new MultilineRecursiveToStringStyle() {
-            {
-                setUseShortClassName(true);
-                setUseIdentityHashCode(false);
-            }
-        })
-            .append("sections", sections)
-            .build();
+        return new ToStringBuilder(this, CustomToStringStyle.INSTANCE).append("sections", sections).build();
     }
+
 }

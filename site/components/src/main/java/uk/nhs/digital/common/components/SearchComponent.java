@@ -5,6 +5,7 @@ import static java.lang.Math.min;
 import static java.util.stream.Collectors.toList;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.onehippo.search.integration.api.Document;
 import com.onehippo.search.integration.api.ExternalSearchService;
 import com.onehippo.search.integration.api.QueryBuilder;
@@ -76,7 +77,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.stream.IntStream;
 
 /**
- * We are not extending "EssentialsSearchComponent" because we could not find a elegant way of using our own search
+ * We are not extending "EssentialsSearchComponent" because we could not find an elegant way of using our own search
  * HstObject in the faceted search.
  */
 @ParametersInfo(type = SearchComponentInfo.class)
@@ -207,7 +208,8 @@ public class SearchComponent extends CommonComponent {
         }
     }
 
-    private Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, int pageSize, int currentPage, String query) {
+    @VisibleForTesting
+    Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, int pageSize, int currentPage, String query) {
         ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
         QueryBuilder queryBuilder = searchService.builder()
             .catalog("content_en")
@@ -327,20 +329,21 @@ public class SearchComponent extends CommonComponent {
 
     /* Method for configuring Facets. Sets URL for all facets, groups docType facets
      */
-    private void configureFacets(Map<String, Object> facetFields, HstRequest request, long totalResults) {
+    @VisibleForTesting
+    void configureFacets(Map<String, Object> facetFields, HstRequest request, long totalResults) {
         addTaxonomyFacets(facetFields, request, totalResults);
         final String queryString = request.getRequestContext().getServletRequest().getQueryString();
 
-        StringBuffer baseUrlBuilder = new StringBuffer();
+        StringBuilder baseUrlBuilder = new StringBuilder();
         if (!request.getRequestContext().getResolvedMount().getMount().getVirtualHost().getHostName().equals("localhost")) {
             baseUrlBuilder.append(request.getRequestContext().getServletRequest().getScheme())
                 .append("://")
                 .append(request.getRequestContext().getBaseURL().getHostName())
                 .append(request.getRequestContext().getBaseURL().getRequestPath());
         } else {
-            baseUrlBuilder = request.getRequestContext().getServletRequest().getRequestURL();
+            baseUrlBuilder.append(request.getRequestContext().getServletRequest().getRequestURL().toString());
         }
-        StringBuffer baseUrl = new StringBuffer(baseUrlBuilder);
+        StringBuilder baseUrl = new StringBuilder(baseUrlBuilder);
         configureFacetResetUrl(request, baseUrl, queryString);
 
         if (queryString != null) {
@@ -583,7 +586,7 @@ public class SearchComponent extends CommonComponent {
         }
     }
 
-    private void configureFacetResetUrl(HstRequest request, StringBuffer resetBaseUrl, String queryString) {
+    private void configureFacetResetUrl(HstRequest request, StringBuilder resetBaseUrl, String queryString) {
         if (queryString != null) {
             StringBuilder fullUrl = new StringBuilder(resetBaseUrl);
             final MultiValueMap<String, String> queryParams =
@@ -802,7 +805,13 @@ public class SearchComponent extends CommonComponent {
             return null;
         }
 
-        return ContentBeanUtils.getFacetNavigationBean(buildQuery(request));
+        // If we get no results without wildcards, we add wildcards in the search.
+        HippoFacetNavigationBean result = ContentBeanUtils.getFacetNavigationBean(buildQuery(request, false));
+        if (result.getCount() != 0) {
+            return result;
+        } else {
+            return ContentBeanUtils.getFacetNavigationBean(buildQuery(request, true));
+        }
     }
 
     String getQueryParameter(HstRequest request) {
@@ -817,7 +826,7 @@ public class SearchComponent extends CommonComponent {
         return getComponentParametersInfo(request);
     }
 
-    private HstQuery buildQuery(HstRequest request) {
+    private HstQuery buildQuery(HstRequest request, Boolean includeWildcards) {
         String queryParameter = getQueryParameter(request);
         Constraint searchStringConstraint = null;
 
@@ -825,18 +834,32 @@ public class SearchComponent extends CommonComponent {
 
         if (queryParameter != null) {
             String query = SearchInputParsingUtils.parse(queryParameter, true);
-            String queryIncWildcards = ComponentUtils.parseAndApplyWildcards(queryParameter);
 
-            searchStringConstraint = or(
-                //forcing specific fields first: this will boost the weight of a hit fot those specific property
-                constraint(".").contains(query),
-                constraint(".").contains(queryIncWildcards),
-                constraint("website:title").contains(query),
-                constraint("website:summary").contains(query),
-                constraint("publicationsystem:title").contains(query),
-                constraint("publicationsystem:summary").contains(query),
-                constraint("nationalindicatorlibrary:title").contains(query)
-            );
+            if (includeWildcards) {
+                String queryIncWildcards = ComponentUtils.parseAndApplyWildcards(queryParameter);
+
+                searchStringConstraint = or(
+                    //forcing specific fields first: this will boost the weight of a hit fot those specific property
+                    constraint(".").contains(query),
+                    constraint(".").contains(queryIncWildcards),
+                    constraint("website:title").contains(query),
+                    constraint("website:summary").contains(query),
+                    constraint("publicationsystem:title").contains(query),
+                    constraint("publicationsystem:summary").contains(query),
+                    constraint("nationalindicatorlibrary:title").contains(query)
+                );
+            } else {
+                searchStringConstraint = or(
+                    //forcing specific fields first: this will boost the weight of a hit fot those specific property
+                    constraint(".").contains(query),
+                    constraint("website:title").contains(query),
+                    constraint("website:summary").contains(query),
+                    constraint("publicationsystem:title").contains(query),
+                    constraint("publicationsystem:summary").contains(query),
+                    constraint("nationalindicatorlibrary:title").contains(query)
+                );
+            }
+
         }
 
         // register content classes
@@ -926,7 +949,7 @@ public class SearchComponent extends CommonComponent {
             constraints.add(searchStringConstraint);
         }
 
-        return queryBuilder.where(and(constraints.toArray(new Constraint[0]))).build();
+        return queryBuilder.where(and(constraints.toArray(new Constraint[0]))).limit(800).build();
     }
 
     /**

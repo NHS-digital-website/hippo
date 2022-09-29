@@ -13,6 +13,7 @@ class YamlFormatter extends Script {
     // Same for ci-hub, since referenced for page links
     static final Set keepUuidFiles = [
         "corporate-website.yaml",
+        "ndrs.yaml",
         "ccg-outcomes.yaml",
         "compendium-indicators.yaml",
         "nhs-outcomes-framework.yaml",

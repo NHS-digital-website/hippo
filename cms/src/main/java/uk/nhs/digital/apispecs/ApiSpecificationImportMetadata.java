@@ -4,6 +4,7 @@ import static java.util.Collections.unmodifiableCollection;
 import static java.util.stream.Collectors.toList;
 
 import org.apache.commons.lang3.builder.*;
+import uk.nhs.digital.apispecs.util.CustomToStringStyle;
 
 import java.time.Instant;
 import java.util.*;
@@ -53,12 +54,7 @@ public class ApiSpecificationImportMetadata {
     }
 
     @Override public String toString() {
-        return new ReflectionToStringBuilder(this, new MultilineRecursiveToStringStyle() {
-            {
-                setUseShortClassName(true);
-                setUseIdentityHashCode(false);
-            }
-        }).build();
+        return new ReflectionToStringBuilder(this, CustomToStringStyle.INSTANCE).build();
     }
 
     public List<Item> ofExistingApiSpecifications() {
@@ -122,12 +118,7 @@ public class ApiSpecificationImportMetadata {
         }
 
         @Override public String toString() {
-            return new ToStringBuilder(this, new MultilineRecursiveToStringStyle() {
-                {
-                    setUseShortClassName(true);
-                    setUseIdentityHashCode(false);
-                }
-            })
+            return new ToStringBuilder(this, CustomToStringStyle.INSTANCE)
                 .append("lastChangeCheckInstant", lastChangeCheckInstant.toString())
                 .append("apiSpecJcrId", apiSpecJcrId)
                 .append("specExists", specExists)

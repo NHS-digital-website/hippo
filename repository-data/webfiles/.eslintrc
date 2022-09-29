@@ -1,0 +1,13 @@
+{
+    "parser": "@babel/eslint-parser",
+    "extends": "airbnb-base",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "indent": ["error", 4]
+    },
+    "globals": {
+        "__webpack_public_path__": "writable"
+    }
+}
