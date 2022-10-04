@@ -18,7 +18,7 @@
         <div id="${divId}" class="viz-wrapper navigationMarker-sub">
             <#if section.placeholderImageLocation?has_content>
                 <div id="${divId}-viz" class="viz-wrapper-item hidden-viz"></div>
-                <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" />
+                <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" alt="" />
                 <div id="${divId}-loading" class="viz-wrapper-item">
                     <div class="viz-wrapper-loading">
                         <span id="${divId}-loading-message" class="viz-wrapper-loading-message"><@fmt.message key="loading-message"/></span>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             <#else>
-                <div id="${divId}-viz" class="viz-wrapper-item"></div>
+                <div id="${divId}-viz" class="viz-wrapper-item" data-viz-device="${section.device?trim}"></div>
             </#if>
         </div>
 
@@ -39,6 +39,10 @@
         </script>
 
         <script>
+            var vizResponsiveViewports = {
+                'desktop': 1366,
+                'tablet': 1024
+            };
 
             // Viz instance
             var viz${index};
@@ -78,15 +82,39 @@
                         _onFirstInteractive(containerDiv, placeholderElements);
                     },
                     hideTabs: ${section.hidetabs?string}
-                    <#if section.device??>
-                    ,device: "${section.device}"
-                    </#if>
                 };
+
                 if(typeof tableau !== 'undefined' && typeof tableau.Viz !== 'undefined') {
-                    if(!!viz${index}) {
-                        viz${index}.dispose();
+                    var currentDeviceSize = null;
+                    var responsiveValue = containerDiv.dataset.vizDevice.substring(13);
+
+                    var initViz = function() {
+                        var device = 'default';
+
+                        if (containerDiv.dataset.vizDevice) {
+                            if (containerDiv.dataset.vizDevice.startsWith("responsive")) {
+                                device = 'mobile';
+                                if (responsiveValue.includes('desktop') && window.innerWidth >= vizResponsiveViewports.desktop) {
+                                    device = 'desktop';
+                                } else if (responsiveValue.includes('tablet') && window.innerWidth >= vizResponsiveViewports.tablet) {
+                                    device = 'tablet';
+                                }
+                            } else {
+                                device = containerDiv.dataset.vizDevice;
+                            }
+                        }
+
+                        if (currentDeviceSize !== device) {
+                            currentDeviceSize = device;
+
+                            if(!!viz${index}) {
+                                viz${index}.dispose();
+                            }
+                            viz${index} = new tableau.Viz(containerDiv, url, { ...options, device });
+                        }
                     }
-                    viz${index} = new tableau.Viz(containerDiv, url, options);
+                    window.addEventListener('resize', initViz);
+                    initViz();
                 } else {
                     _showLoadingError();
                 }
