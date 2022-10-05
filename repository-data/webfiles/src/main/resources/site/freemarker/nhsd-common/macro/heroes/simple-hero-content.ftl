@@ -12,20 +12,43 @@
     </#if>
     <#if options.title?has_content>
         <#assign heroHeadingLevel = headingLevel?has_content?then(headingLevel, 1) />
-        <h${heroHeadingLevel} class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-0" data-uipath="document.title" itemprop="name">${options.title}</h${heroHeadingLevel}>
+        <h${heroHeadingLevel} class="nhsd-t-heading-xxl nhsd-!t-margin-bottom-0"
+                              data-uipath="document.title"
+                              itemprop="name">${options.title}</h${heroHeadingLevel}>
     </#if>
 
     <#if options.summary?has_content>
         <#if hst.isBeanType(options.summary, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
             <@hst.html var="htmlSummary" hippohtml=options.summary contentRewriter=brContentRewriter />
             <#if htmlSummary?has_content>
-                <div class="${options.title?has_content?then('nhsd-!t-margin-top-6', '')}" data-uipath="document.summary">${htmlSummary?no_esc}</div>
+                <div
+                    class="${options.title?has_content?then('nhsd-!t-margin-top-6', '')}"
+                    data-uipath="document.summary">${htmlSummary?no_esc}</div>
             </#if>
         <#else>
-            <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0" data-uipath="document.summary">${options.summary}</div>
+            <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0"
+                 data-uipath="document.summary">${options.summary}</div>
         </#if>
     </#if>
-
+    <#if document.ctabutton.items[0]?has_content && document.class.name?contains("FeedHub")>
+        <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0"
+             data-uipath="document.ctabutton">
+            <#assign ctaLink = document.ctabutton.items[0] />
+            <#if ctaLink.linkType == "internal">
+                <a class="nhsd-a-button nhsd-a-button--invert nhsd-!t-margin-bottom-0"
+                   href="<@hst.link hippobean=ctaLink.link/>">
+                <span
+                    class="nhsd-a-button__label">${document.ctabutton.title}</span>
+                </a>
+            <#elseif ctaLink.linkType == "external">
+                <a class="nhsd-a-button nhsd-a-button--invert nhsd-!t-margin-bottom-0"
+                   href="${ctaLink.link}">
+                <span
+                    class="nhsd-a-button__label">${document.ctabutton.title}</span>
+                </a>
+            </#if>
+        </div>
+    </#if>
     <#nested />
 
     <#if options.buttons?has_content && options.buttons?size gt 0>
@@ -33,20 +56,22 @@
         <#if options.alignment?has_content && options.alignment == "centre">
             <#assign buttonAlignmentClass = "nhsd-!t-text-align-center"/>
         </#if>
-        <nav class="nhsd-m-button-nav nhsd-m-button-nav--condensed ${buttonAlignmentClass} nhsd-!t-margin-top-6">
+        <nav
+            class="nhsd-m-button-nav nhsd-m-button-nav--condensed ${buttonAlignmentClass} nhsd-!t-margin-top-6">
             <#list options.buttons as button>
                 <#assign buttonClasses = ""/>
                 <#assign buttonClasses += button.type?has_content?then("nhsd-a-button--${button.type} ", "")/>
                 <#assign buttonClasses += button.classes?has_content?then(button.classes, "")/>
-                 <#if options.colour == "Dark Blue Multicolour">
-                     <#assign buttonClasses += "nhsd-a-button--invert"/>
-                 </#if>
-                    <a class="nhsd-a-button  ${buttonClasses}" href="${button.src?has_content?then(button.src, "#")}" ${button.target?has_content?then("target=\"${button.target}\"","")}">
-                        <span class="nhsd-a-button__label">${button.text}</span>
-                        <#if button.srText?has_content>
-                            <span class="nhsd-t-sr-only">${button.srText}</span>
-                        </#if>
-                    </a>
+                <#if options.colour == "Dark Blue Multicolour">
+                    <#assign buttonClasses += "nhsd-a-button--invert"/>
+                </#if>
+                <a class="nhsd-a-button  ${buttonClasses}"
+                   href="${button.src?has_content?then(button.src, "#")}" ${button.target?has_content?then("target=\"${button.target}\"","")}">
+                <span class="nhsd-a-button__label">${button.text}</span>
+                <#if button.srText?has_content>
+                    <span class="nhsd-t-sr-only">${button.srText}</span>
+                </#if>
+                </a>
             </#list>
         </nav>
     </#if>
