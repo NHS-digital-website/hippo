@@ -17,7 +17,7 @@
         <#assign summary = link.shortsummary>
     </#if>
 
-    <article class="nhsd-m-card nhsd-m-card--with-icon">
+    <article class="nhsd-m-card nhsd-m-card--full-height nhsd-m-card--with-icon">
         <#if link.linkType == "internal">
             <@hst.link hippobean=link.link var="internalLink"/>
         <#-- Below does not work if declared in section above -->

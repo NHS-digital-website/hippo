@@ -14,7 +14,7 @@
     <#assign hasLabel = item.label?has_content />
     <#assign label = hasLabel?then(item.label, item.title) />
 
-    <article class="nhsd-m-card nhsd-m-card--with-icon ${isDarkMolecule}" id="${id}">
+    <article class="nhsd-m-card nhsd-m-card--full-height nhsd-m-card--with-icon ${isDarkMolecule}" id="${id}">
         <#if hasLink>
             <#if item.internal?has_content>
                 <a href="<@hst.link hippobean=item.internal/>" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}">

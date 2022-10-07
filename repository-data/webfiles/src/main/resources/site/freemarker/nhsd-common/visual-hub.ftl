@@ -57,15 +57,13 @@
 
         <#list document.tileSections as tileSection>
             <#if slugify(tileSection.tileSectionHeading) == area>
-                <div class="nhsd-o-card-list">
-                    <div class="nhsd-t-grid nhsd-t-grid--nested">
-                        <div class="nhsd-t-row nhsd-o-card-list__items" role="tabpanel">
-                            <#list tileSection.tileSectionLinks as links>
-                                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
-                                    <@tabTiles links/>
-                                </div>
-                            </#list>
-                        </div>
+                <div class="nhsd-t-grid nhsd-t-grid--nested">
+                    <div class="nhsd-t-row" role="tabpanel">
+                        <#list tileSection.tileSectionLinks as links>
+                            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-margin-bottom-6">
+                                <@tabTiles links/>
+                            </div>
+                        </#list>
                     </div>
                 </div>
             </#if>
@@ -73,17 +71,15 @@
     </#if>
 
     <#if hasPrimaryLinks>
-        <div class="nhsd-o-card-list">
-            <div class="nhsd-t-grid nhsd-!t-no-gutters">
-                <div class="nhsd-t-row nhsd-o-card-list__items nhsd-t-row--centred">
-                    <#list document.primarySections as primarySection>
-                        <#list primarySection.primarySectionsTiles as link>
-                            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
-                                <@visualhubBox link />
-                            </div>
-                        </#list>
+        <div class="nhsd-t-grid nhsd-!t-no-gutters">
+            <div class="nhsd-t-row nhsd-t-row--centred">
+                <#list document.primarySections as primarySection>
+                    <#list primarySection.primarySectionsTiles as link>
+                        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-margin-bottom-6">
+                            <@visualhubBox link />
+                        </div>
                     </#list>
-                </div>
+                </#list>
             </div>
         </div>
     </#if>
