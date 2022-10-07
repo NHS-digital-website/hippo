@@ -35,10 +35,7 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
 <#assign hasHeading = heading?has_content />
 
 <#if hasDocuments>
-    <#assign organism = isSmallBlock?then("nhsd-o-card-list", "") />
-    <#assign organismRow = isSmallBlock?then("nhsd-o-card-list__items", "") />
-
-    <div class="${organism} nhsd-!t-margin-bottom-9">
+    <div class="nhsd-!t-margin-bottom-9">
         <div class="nhsd-t-grid">
             <#if hasHeading>
                 <div class="nhsd-t-row">
@@ -48,7 +45,7 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
                 </div>
             </#if>
 
-            <div class="nhsd-t-row ${organismRow} nhsd-t-row--centred">
+            <div class="nhsd-t-row nhsd-t-row--centred">
                 <#list documents as item>
                     <#assign hasTitle = item.title?has_content />
                     <#assign hasContent = item.content?has_content />

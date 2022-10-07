@@ -10,7 +10,7 @@
 <#macro latestblogs blogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs" centred=true>
  <#assign hasLatestBlogs = blogs?has_content && blogs?size &gt; 0 />
   <#if hasLatestBlogs>
-  <div class="nhsd-o-card-list nhsd-!t-margin-bottom-4" data-max-count="${itemsMaxCount}" data-state="short">
+  <div class="nhsd-!t-margin-bottom-4" data-max-count="${itemsMaxCount}" data-state="short">
     <div class="nhsd-t-grid nhsd-t-grid--nested">
         <#if title?has_content>
             <div class="nhsd-t-row">
@@ -20,14 +20,14 @@
             </div>
         </#if>
 
-        <div class="nhsd-t-row nhsd-o-card-list__items">
+        <div class="nhsd-t-row">
             <#list blogs as latest>
                 <#if latest?counter <= itemsMaxCount >
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 ${idsuffix}">
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 ${idsuffix} nhsd-!t-margin-bottom-6">
                 <#else>
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-display-hide ${idsuffix}">
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-display-hide ${idsuffix} nhsd-!t-margin-bottom-6">
                 </#if>
-                    <div class="nhsd-m-card nhsd-!t-margin-top-1">
+                    <div class="nhsd-m-card nhsd-m-card--full-height nhsd-!t-margin-top-1">
                     <@hst.link hippobean=latest var="link"/>
                         <a href="${link}" class="nhsd-a-box-link" onClick="logGoogleAnalyticsEvent('Link click','${fromDoctype}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" aria-label="About NHS Digital - More about what we do" title="${latest.title}" >
                             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
