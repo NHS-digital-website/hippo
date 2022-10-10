@@ -49,7 +49,11 @@
             <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
                 <div class="">
                     <!--  Call Macro -->
-                    <@nhsdFilterMenu facetFilter=true/>
+                    <@nhsdFilterMenu>
+                        <div id="nhsd-filter-menu" class="js-filter-list">
+                            <@hst.include ref="filters"/>
+                        </div>
+                    </@nhsdFilterMenu>
                 </div>
             </div>
             <div class="nhsd-t-off-l-1 nhsd-t-col-l-8 nhsd-t-col-xs-12">

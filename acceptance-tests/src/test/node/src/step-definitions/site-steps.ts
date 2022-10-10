@@ -9,9 +9,15 @@ const siteUrl = 'http://localhost:8080/site';
 const pages: [{
     name: string,
     url: string
+},{
+    name: string,
+    url: string
 }] = [{
     name: 'General test document',
     url: '/website-acceptance-tests/general-test-document'
+},{
+    name: 'Cyber Alert',
+    url: '/cyber-alerts'
 }];
 
 function getPageUrl(pageName: string) {

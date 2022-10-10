@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#macro nhsdFilterMenu  facetFilter filters="">
+<#macro nhsdFilterMenu>
 
     <form id="feed-list-filter" method="get">
         <div class="nhsd-o-filter-menu__search-bar">
@@ -14,12 +14,13 @@
                         autocomplete="off"
                         placeholder="Filter search..."
                         aria-label="Filter search..."
+                        data-test-text="searchBox"
                     />
                     <span class="nhsd-t-form-control__button">
                                         <button
                                             class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent"
                                             type="submit"
-                                            aria-label="Perform search">
+                                            aria-label="Perform search" data-test-text="button">
                                             <span
                                                 class="nhsd-a-icon nhsd-a-icon--size-s">
                                                 <svg
@@ -37,92 +38,8 @@
                 </div>
             </div>
         </div>
-        <div id="nhsd-filter-menu" class="js-filter-list">
-            <#if filters?has_content && !facetFilter >
-                <#list filters as filterOptions>
-                    <#assign filterKey = filterOptions.key />
-                    <#assign filterName = filterOptions.name />
-                    <#assign active = (filterValues[filterOptions.key])?has_content || (activeFilters?has_content && activeFilters?seq_contains(filterKey)) />
-                    <div
-                        class="nhsd-m-filter-menu-section ${active?then("nhsd-m-filter-menu-section--active", "")}"
-                        data-active-menu="${filterKey}">
-                        <div class="nhsd-m-filter-menu-section__accordion-heading">
-                            <button class="nhsd-m-filter-menu-section__menu-button"
-                                    aria-expanded="${active?then("true", "false")}"
-                                    type="button">
-                                            <span
-                                                class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s">
-                                                <span
-                                                    class="${active?then("active", "")}">
-                                                    <span
-                                                        class="nhsd-a-icon nhsd-a-icon--size-xxs">
-                                                        <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            preserveAspectRatio="xMidYMid meet"
-                                                            focusable="false"
-                                                            viewBox="0 0 16 16"
-                                                            width="100%"
-                                                            height="100%">
-                                                            <path
-                                                                d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"/>
-                                                        </svg>
-                                                    </span>
-                                                </span>
-                                                ${filterName}
-                                            </span>
-                            </button>
-                            <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xxs"/>
+        <#nested />
 
-                            <div
-                                class="nhsd-m-filter-menu-section__accordion-panel">
-                                <#list filterOptions.values as filterOption, value>
-                                    <div
-                                        class="nhsd-m-filter-menu-section__option-row">
-                                            <span class="nhsd-a-checkbox">
-                                                <label>
-                                                    <input
-                                                        name="${filterKey}"
-                                                        type="checkbox"
-                                                        data-input-id="${filterKey}-${filterOption}"
-                                                        class="js-filter-checkbox"
-                                                        value="${filterOption}"
-                                                        <#if filterValues?has_content && filterKey?has_content && filterValues[filterKey]?has_content>
-                                                            ${filterValues[filterKey]?seq_contains(filterOption)?then('checked=checked', '')}
-                                                        </#if>
-                                                    />
-                                                    <#assign filterSize = "" />
-                                                    <#if value gt 0>
-                                                        <#assign filterSize = "(${value})" />
-                                                    </#if>
-                                                    <span
-                                                        class="nhsd-a-checkbox__label nhsd-t-body-s">
-                                                    <#if filterName = "Topic">
-                                                        ${topicMap[filterOption]}
-                                                    <#else>
-                                                        ${filterOption}
-                                                    </#if>
-                                                        ${filterSize}</span>
-                                                    <span
-                                                        class="checkmark"></span>
-                                                </label>
-                                            </span>
-                                    </div>
-                                </#list>
-                            </div>
-                        </div>
-                    </div>
-                </#list>
-            <#else>
-                <div id="nhsd-filter-menu" class="js-filter-list">
-                    <@hst.include ref="filters"/>
-                </div>
-
-            </#if>
-        </div>
-        <div class="nhsd-o-filter-menu__filter-button">
-            <button class="nhsd-a-button" type="submit"><span
-                    class="nhsd-a-button__label">Filter results</span></button>
-        </div>
     </form>
 
 </#macro>
