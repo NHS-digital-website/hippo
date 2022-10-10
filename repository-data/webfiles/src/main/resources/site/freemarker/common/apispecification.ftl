@@ -61,7 +61,7 @@
         "summary": (htmlSummary + oasHintText)?no_esc,
         "buttons": [{
             "src": oasLink,
-            "text": "Get this specification in OAS format",
+            "text": "Get OAS file",
             "target": "_blank"
         }]
     }/>

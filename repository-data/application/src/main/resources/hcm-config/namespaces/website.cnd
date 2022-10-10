@@ -81,6 +81,9 @@
 [website:casestudy] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:categories] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:categorylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 

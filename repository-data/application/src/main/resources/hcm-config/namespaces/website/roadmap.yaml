@@ -105,6 +105,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /roadmapCategories:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Roadmap categories
+            field: categories
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /item:
             /cluster.options:
               base.path: /content/documents
@@ -122,6 +131,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /categories:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:roadmapCategories
+            hipposysedit:primary: false
+            hipposysedit:type: website:categories
+            jcr:primaryType: hipposysedit:field
           /granularity:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -239,6 +256,17 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:roadmapCategories:
+            /website:description:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:linkedService:
+              /website:link:
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                jcr:primaryType: hippo:mirror
+              jcr:primaryType: website:nonmandatoryinternallink
+            jcr:primaryType: website:categories
+            website:categoryName: ''
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
