@@ -1,14 +1,12 @@
 @macro
 Feature: Ensure Filter Menu macro is working as expected
 
-    @filterMenu1
     Scenario: Filter Menu content
         Given I navigate to the "Cyber Alert" page
         Then I should see "resultsNum" results when search text is "searchText":
             | 0 | nhs |
             | 1 | cry |
 
-    @filterMenu2
     Scenario: Filter Menu content
         Given I navigate to the "Cyber Alert" page
         Then I should see "resultsNum" results when click on filter "filterType":
@@ -16,8 +14,7 @@ Feature: Ensure Filter Menu macro is working as expected
             | 1 | 2019              | year        |
             | 1 | Insecure software | threat type |
 
-
-    @filterMenu3
+    @snapshot
     Scenario: Check Filter Menu are visually correct
         Given I navigate to the "filterMenu" macro test page
         Then I should see the following "filterMenu" variants look visually correct:
