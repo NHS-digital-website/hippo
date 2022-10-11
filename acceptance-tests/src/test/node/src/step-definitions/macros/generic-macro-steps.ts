@@ -30,3 +30,15 @@ Then('I should see {string} variants with an image with alt text:', async functi
         expect(await imageWithAltText.count()).greaterThan(0);
     }
 });
+
+Then('I should see {string} variants with the following links:', async function (this: CustomWorld, macro: string, variantLinks: DataTable) {
+    const page = await this.browser.getPage();
+
+    for (const [variant, linkText, link] of variantLinks.raw()) {
+        const macroElement = page.locator(`[data-variant='${variant}']`);
+        expect(await macroElement.count()).greaterThan(0);
+        const linkElement = macroElement.locator(`a[href="${link}"]`);
+        expect(await linkElement.count()).greaterThan(0);
+        expect(await linkElement.innerHTML()).to.equal(linkText);
+    }
+});
