@@ -4,7 +4,7 @@ import {CustomWorld} from "../setup/world/CustomWorld";
 
 Then('the page should look visually correct', async function(this: CustomWorld) {
     const page = await this.browser.getPage()
-    const screenshot = await page.screenshot({fullPage: true});
+    const screenshot = await page.screenshot({fullPage: true, scale: "css"});
 
     const fileName = this.currentPage.toLowerCase().replace(/ /g, '-').replace(/[^a-z-]/g, '');
 

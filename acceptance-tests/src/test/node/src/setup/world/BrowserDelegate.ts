@@ -29,7 +29,18 @@ export default class BrowserDelegate {
         if (browser == 'firefox') {
             this.browser = await playwright.firefox.launch();
         } else {
-            this.browser = await playwright.chromium.launch();
+            this.browser = await playwright.chromium.launch({
+                args: [
+                    '--use-gl=swiftshader',
+                    '--swiftshader',
+                    '--disable-gpu',
+                ],
+                ignoreDefaultArgs: [
+                    '--use-gl',
+                    '--swiftshader',
+                    '--disable-gpu',
+                ]
+            });
         }
         return this.browser;
     }
