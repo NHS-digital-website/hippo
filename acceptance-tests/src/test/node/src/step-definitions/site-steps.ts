@@ -2,7 +2,7 @@ import {Given, When, Then} from '@cucumber/cucumber';
 import {CustomWorld} from "../setup/world/CustomWorld";
 import cookieNotice from "../helpers/handle-cookie-notice";
 import {Viewport} from "../setup/world/BrowserDelegate";
-import { expect } from 'chai';
+import {expect} from 'chai';
 
 const siteUrl = 'http://localhost:8080/site';
 
@@ -55,11 +55,16 @@ Given('I click target {string} element', async function (this: CustomWorld, targ
     await targetElement.first().click();
 });
 
-Then('I wait {int} seconds', {timeout: 60000}, async function(this: CustomWorld, timeout: number) {
+Then('I wait {int} seconds', {timeout: 60000}, async function (this: CustomWorld, timeout: number) {
     await this.browser.timeout(timeout * 1000);
 });
 
-When('I view page on {string}', async function(this: CustomWorld, device: Viewport) {
-    await this.browser.switchViewport(device);
+// check the page has been navigated to the document
+Then('I check the page has been navigated', async function (this: CustomWorld, page: string)
+{
+ // #TODO
 });
 
+When('I view page on {string}', async function (this: CustomWorld, device: Viewport) {
+    await this.browser.switchViewport(device);
+});

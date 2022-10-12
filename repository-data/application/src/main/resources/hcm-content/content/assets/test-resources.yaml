@@ -1,10 +1,9 @@
 ---
-/content/assets:
-  .meta:order-before: attic
+/content/assets/test-resources:
   hippostd:foldertype:
   - new-file-folder
   hippostd:gallerytype:
   - website:customizedAssetSet
   jcr:mixinTypes:
-  - mix:referenceable
+  - mix:versionable
   jcr:primaryType: hippogallery:stdAssetGallery

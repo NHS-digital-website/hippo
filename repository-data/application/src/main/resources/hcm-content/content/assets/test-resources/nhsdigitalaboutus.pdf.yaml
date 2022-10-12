@@ -1,0 +1,23 @@
+---
+/content/assets/test-resources/nhsdigitalaboutus.pdf:
+  /nhsdigitalaboutus.pdf:
+    /hippogallery:asset:
+      hippo:filename: NHSDigitalAboutUs.pdf
+      hippo:text:
+        resource: /content/assets/test-resources/nhsdigitalaboutus.pdf/nhsdigitalaboutus.pdf/asset/NHSDigitalAboutUs.pdf
+        type: binary
+      jcr:data:
+        resource: /content/assets/test-resources/nhsdigitalaboutus.pdf/nhsdigitalaboutus.pdf/asset/NHSDigitalAboutUs-1.pdf
+        type: binary
+      jcr:lastModified: 2022-10-19T13:49:22.384Z
+      jcr:mimeType: application/pdf
+      jcr:primaryType: hippo:resource
+    hippo:availability:
+    - live
+    - preview
+    jcr:primaryType: website:customizedAssetSet
+  hippo:name: NHSDigitalAboutUs.pdf
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
