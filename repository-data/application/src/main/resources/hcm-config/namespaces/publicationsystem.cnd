@@ -5,10 +5,13 @@
 <'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
-[publicationsystem:accessiblelink] > hippo:compound, hippostd:relaxed
+[publicationsystem:Visualisation] > hippo:compound, hippostd:relaxed
   orderable
 
 [publicationsystem:accessList] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publicationsystem:accessiblelink] > hippo:compound, hippostd:relaxed
   orderable
 
 [publicationsystem:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
@@ -68,10 +71,10 @@
 [publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
-[publicationsystem:survey] > hippo:compound, hippostd:relaxed
+[publicationsystem:seriesreplaces] > hippo:compound, hippostd:relaxed
   orderable
 
-[publicationsystem:seriesreplaces] > hippo:compound, hippostd:relaxed
+[publicationsystem:survey] > hippo:compound, hippostd:relaxed
   orderable
 
 [publicationsystem:textSection] > hippo:compound, hippostd:relaxed
