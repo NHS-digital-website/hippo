@@ -93,10 +93,10 @@
         <#if (blogs?size &gt; 3) >
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <nav class="nhsd-m-button-nav">
+                    <nav class="nhsd-m-button-nav nhsd-t-flex--justify-content-centre">
                     <#if idsuffix?contains("news")>
-                        <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="newsfeed"/>" >
-                        <span class="nhsd-a-button__label">See all news</span>
+                        <a id="btn-view-all" onClick="toggleCards(${itemsMaxCountWithJS}, ${blogs?size}, '${idsuffix?js_string}'); return false;" class="nhsd-a-button" href="#">
+                            <span class="nhsd-a-button__label" id='${idsuffix?js_string}'>View more</span>
                     <#elseif idsuffix?contains("event") >
                         <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="eventsfeed"/>">
@@ -105,12 +105,8 @@
                         </#if>
                             <span class="nhsd-a-button__label">View all events</span>
                     <#else>
-                        <#if (blogs?size >= itemsMaxCount) >
-                        <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="newshomepage"/>">
-                        <#else>
                         <a id="btn-view-all" onClick="toggleCards(${itemsMaxCountWithJS}, ${blogs?size}, '${idsuffix?js_string}'); return false;" class="nhsd-a-button" href="#">
-                        </#if>
-                            <span class="nhsd-a-button__label">View all</span>
+                            <span class="nhsd-a-button__label" id='${idsuffix?js_string}'>View more</span>
                     </#if>
                         </a>
                     </nav>
@@ -135,13 +131,17 @@
     }());
 
     function toggleCards(itemsMaxCountWithJS, numberOfCards, blogType) {
+
         var cards = document.getElementsByClassName(blogType);
+
         for (var i=0; i < cards.length; i++) {
             if (i >= itemsMaxCountWithJS && i < numberOfCards) {
                 if (cards.item(i).classList.contains('nhsd-!t-display-hide')) {
                 cards.item(i).classList.remove('nhsd-!t-display-hide');
+                    document.getElementById(blogType).innerHTML = "View less";
                 } else {
                     cards.item(i).classList.add('nhsd-!t-display-hide');
+                    document.getElementById(blogType).innerHTML = "View more";
                 }
             }
         }

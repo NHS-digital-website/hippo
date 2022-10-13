@@ -61,7 +61,7 @@ public class Person extends CommonFieldsBean {
     public SocialMedia getSocialmedias() {
         return getBean("website:socialmedias", SocialMedia.class);
     }
-    
+
     @HippoEssentialsGenerated(internalName = "website:socialmedia")
     public SocialMedia getSocialmedia() {
         return getBean("website:socialmedia", SocialMedia.class);
@@ -113,13 +113,13 @@ public class Person extends CommonFieldsBean {
     }
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {
-        return getRelatedDocuments("website:peoplementioned/@hippo:docbase", News.class).stream().sorted(
+        return getRelatedDocuments("website:peoplementioned/@hippo:docbase",6, News.class).stream().sorted(
             (n1, n2) -> n2.getPublisheddatetime().compareTo(n1.getPublisheddatetime())
         ).collect(Collectors.toList());
     }
 
     public List<Blog> getRelatedBlogs() throws HstComponentException, QueryException {
-        return getRelatedDocuments("website:authors/@hippo:docbase", 3, "website:dateofpublication", Blog.class);
+        return getRelatedDocuments("website:authors/@hippo:docbase", 6, "website:dateofpublication", Blog.class);
     }
 
     public List<BusinessUnit> getBusinessUnits() throws HstComponentException, QueryException {
