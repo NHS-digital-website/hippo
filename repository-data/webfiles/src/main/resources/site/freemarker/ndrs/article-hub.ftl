@@ -28,7 +28,6 @@
 <#assign renderNav = sectionTitlesFound gte 1 || hasAuthnAuthsContent || hasApiEndpointContent />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasShortsummary = document.shortsummary?? />
-<#assign hasTopLink = document.includeTopLink?? && document.includeTopLink />
 <#assign navigationController = document.navigationController />
 
 <#assign apimethodValue = document.apimethod?upper_case />
@@ -129,7 +128,7 @@
                     <#if hasStatusErrorCode>
                         <#assign links += [{ "url": "#" + "statusErrorCode", "title": "Status and error codes" }] />
                     </#if>
-                    <@stickyNavSections getStickySectionNavLinks({"document": document, "includeTopLink": hasTopLink, "sections": links})></@stickyNavSections>
+                    <@stickyNavSections getStickySectionNavLinks({"document": document, "sections": links, "includeTopLink": true})></@stickyNavSections>
                 </div>
                 <!-- end sticky-nav -->
             </div>
