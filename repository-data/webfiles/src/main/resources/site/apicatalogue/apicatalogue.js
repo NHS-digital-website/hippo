@@ -1,14 +1,34 @@
 const nhsdHiddenClass = 'nhsd-!t-display-hide';
 
 function getAllSearchResults() {
+    return [...document.querySelectorAll('[data-api-catalogue-entry]')];
+}
+
+function getAllSections() {
     return [...document.querySelectorAll('#list-page-results-list > div')];
 }
+
+document.querySelectorAll('[data-filter-results-item=""]')
 
 function containsMatchingText(result, searchTerm) {
     const regex = new RegExp(`\\b${searchTerm}`, 'gi');
     const headingContainsTerm = result.querySelector('h2').textContent.match(regex);
     const summaryContainsTerm = result.querySelector('p').textContent.match(regex);
     return headingContainsTerm || summaryContainsTerm;
+}
+
+function updateSections() {
+    const sections = getAllSections();
+    sections.forEach((section) => {
+        const visibleResults = [...section.querySelectorAll('[data-api-catalogue-entry]')]
+            .filter((result) => !result.classList.contains(nhsdHiddenClass))
+        if (!visibleResults.length) {
+            section.classList?.add(nhsdHiddenClass);
+        }
+        else {
+            section.classList?.remove(nhsdHiddenClass);
+        }
+    });
 }
 
 function updateSearchResults(ev) {
@@ -25,9 +45,8 @@ function updateSearchResults(ev) {
             rule?.classList?.remove(nhsdHiddenClass);
         }
     });
-    const visibleResults = [...getAllSearchResults()]
-        .filter((result) => !result.classList.contains(nhsdHiddenClass));
-    visibleResults.at(0)?.querySelector('hr')?.classList?.add(nhsdHiddenClass);
+    updateSections();
 }
+
 
 document.querySelector('#catalogue-search-bar').addEventListener('input', (ev) => updateSearchResults(ev));
