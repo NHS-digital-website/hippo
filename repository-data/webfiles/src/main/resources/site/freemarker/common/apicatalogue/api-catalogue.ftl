@@ -7,6 +7,7 @@
 <#include "../macro/svgIcons.ftl">
 <#include "../../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../../nhsd-common/macro/heroes/hero.ftl">
+<#include "../../nhsd-common/macros/az-nav.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
@@ -33,13 +34,18 @@
 
     <#if alphabetical_hash??>
         <div class="nhsd-t-row">
+            <div class="nhsd-t-col-12 nhsd-!t-margin-bottom-5">
+                <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Search A-Z</h2>
+                <@azList alphabetical_hash "side-az-nav-heading"/>
+            </div>
+
             <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
-                <@scrollableFilterNav alphabetical_hash filtersModel false></@scrollableFilterNav>
+                <@scrollableFilterNav filtersModel false></@scrollableFilterNav>
             </div>
 
             <div class="nhsd-t-col-l-9 nhsd-t-col-m-12">
                 <div class="nhsd-!t-display-l-hide">
-                    <@scrollableFilterNav alphabetical_hash filtersModel true></@scrollableFilterNav>
+                    <@scrollableFilterNav filtersModel true></@scrollableFilterNav>
                 </div>
                 <div class="nhsd-t-row">
                     <div class="nhsd-t-col-3">
