@@ -30,6 +30,7 @@ class YamlFormatter extends Script {
         "news-and-events.yaml",
         "cyber-alerts.yaml",
         "api-catalogue.yaml",
+        "website-acceptance-tests.yaml",
     ]
 
     // We don't want to change the order of the children of '/_default_' tags

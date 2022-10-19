@@ -4607,6 +4607,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: f7edbc4a-1e27-438a-b366-28c4e532a80f
   /glossary-test-document:
     /glossary-test-document[1]:
       /website:glossaryitems[1]:
@@ -7784,6 +7785,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 80a4ccfe-4d19-43d8-ac48-f1a8a5b4cb5c
   /visual-hub-test-document:
     /visual-hub-test-document[1]:
       /website:additionalinformation:

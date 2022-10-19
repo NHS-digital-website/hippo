@@ -9,7 +9,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">
-<#include "macro/component/calloutBox.ftl">
+<#include "macro/updateSection.ftl">
 <#include "macro/contentPixel.ftl">
 <#import "app-layout-head.ftl" as alh>
 <#include "macro/heroes/hero.ftl">
@@ -56,16 +56,7 @@
         <#assign heroType = "image" />
     </#if>
     <@hero getHeroOptions(document) heroType />
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
-        <#if document.updates?has_content>
-            <#assign item = {} />
-            <#list document.updates as update>
-                <#assign item += update />
-                <#assign item += {"calloutType":"update", "index":update?index} />
-                <@calloutBox item document.class.name />
-            </#list>
-        </#if>
-    </div>
+
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <#if navStatus == "withNav" && renderNav>
@@ -88,7 +79,9 @@
 
             <div
                 class="${(navStatus == "withNav" || navStatus == "withoutNav")?then("nhsd-t-col-xs-12 nhsd-t-off-s-1 nhsd-t-col-s-8", "nhsd-t-col-12")}">
-
+                <#if document.updates?has_content>
+                    <@updateSection document.updates />
+                </#if>
 
                 <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' false />
 
