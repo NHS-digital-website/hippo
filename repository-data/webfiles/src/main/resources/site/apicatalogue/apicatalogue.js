@@ -25,7 +25,7 @@ function updateSections() {
         } else {
             section.classList?.remove(nhsdHiddenClass);
             visibleResults.forEach((result) => {
-                result.querySelector('hr')?.classList?.remove(nhsdHiddenClass)
+                result.querySelector('hr')?.classList?.remove(nhsdHiddenClass);
             });
             visibleResults.pop().querySelector('hr')?.classList?.add(nhsdHiddenClass);
         }
