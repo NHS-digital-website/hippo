@@ -49,4 +49,5 @@ function updateSearchResults(ev) {
     updateSections();
 }
 
-document.querySelector('#catalogue-search-bar').addEventListener('input', (ev) => updateSearchResults(ev));
+document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);
+document.querySelector('#catalogue-search-bar-input').addEventListener('input', (ev) => updateSearchResults(ev));
