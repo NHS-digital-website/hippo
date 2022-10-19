@@ -9,7 +9,7 @@ function getAllSections() {
 }
 
 function containsMatchingText(result, searchTerm) {
-    const regex = new RegExp(`\\b${searchTerm}`, 'gi');
+    const regex = new RegExp(`\\b${searchTerm.trim()}`, 'gi');
     const headingContainsTerm = result.querySelector('h2').textContent.match(regex);
     const summaryContainsTerm = result.querySelector('p').textContent.match(regex);
     return headingContainsTerm || summaryContainsTerm;
