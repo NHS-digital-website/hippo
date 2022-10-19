@@ -8,8 +8,6 @@ function getAllSections() {
     return [...document.querySelectorAll('#list-page-results-list > div')];
 }
 
-document.querySelectorAll('[data-filter-results-item=""]')
-
 function containsMatchingText(result, searchTerm) {
     const regex = new RegExp(`\\b${searchTerm}`, 'gi');
     const headingContainsTerm = result.querySelector('h2').textContent.match(regex);
@@ -21,11 +19,10 @@ function updateSections() {
     const sections = getAllSections();
     sections.forEach((section) => {
         const visibleResults = [...section.querySelectorAll('[data-api-catalogue-entry]')]
-            .filter((result) => !result.classList.contains(nhsdHiddenClass))
+            .filter((result) => !result.classList.contains(nhsdHiddenClass));
         if (!visibleResults.length) {
             section.classList?.add(nhsdHiddenClass);
-        }
-        else {
+        } else {
             section.classList?.remove(nhsdHiddenClass);
         }
     });
@@ -47,6 +44,5 @@ function updateSearchResults(ev) {
     });
     updateSections();
 }
-
 
 document.querySelector('#catalogue-search-bar').addEventListener('input', (ev) => updateSearchResults(ev));
