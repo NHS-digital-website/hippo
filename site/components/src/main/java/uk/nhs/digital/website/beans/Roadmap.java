@@ -25,5 +25,10 @@ public class Roadmap extends CommonFieldsBean {
     public List<HippoBean> getItem() {
         return getLinkedBeans("website:item", HippoBean.class);
     }
+    
+    @HippoEssentialsGenerated(internalName = "website:roadmapCategories")
+    public List<Categories> getRoadmapCategories() {
+        return getLinkedBeans("website:roadmapCategories", Categories.class);
+    }
 
 }

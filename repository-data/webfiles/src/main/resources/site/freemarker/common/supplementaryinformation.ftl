@@ -35,33 +35,33 @@
     <!-- for schema.org tags use ex. => "schemaOrgTag": "publishedDate" -->
     <#assign metadata = [] />
     <#if document.responsibleperson?has_content >
-      <#assign metadata += [ 
+      <#assign metadata += [
         {
-         "key": "Responsible statistician", 
-         "value": document.responsibleperson, 
-         "uipath": "website.supplementaryinfo.responsibleperson", 
+         "key": "Lead Analyst",
+         "value": document.responsibleperson,
+         "uipath": "website.supplementaryinfo.responsibleperson",
          "type": "link"
-        } 
+        }
       ] />
     </#if>
     <#if document.responsibleteam?has_content >
-      <#assign metadata += [ 
+      <#assign metadata += [
         {
-         "key": "Responsible team", 
-         "value": document.responsibleteam, 
-         "uipath": "website.supplementaryinfo.responsibleteam", 
+         "key": "Responsible team",
+         "value": document.responsibleteam,
+         "uipath": "website.supplementaryinfo.responsibleteam",
          "type": "link"
-        } 
+        }
       ] />
     </#if>
     <#if document.publishedDate?has_content >
-      <#assign metadata += [ 
+      <#assign metadata += [
         {
-         "key": "Date published", 
-         "value": document.publishedDate.time, 
-         "uipath": "website.supplementaryinfo.publisheddate", 
+         "key": "Date published",
+         "value": document.publishedDate.time,
+         "uipath": "website.supplementaryinfo.publisheddate",
          "type": "date"
-        } 
+        }
       ] />
     </#if>
     <#if document.interval?has_content >
@@ -77,13 +77,13 @@
         <#assign dateRange = document.interval.enddatetime.time?string["d MMMM yyyy"] />
       </#if>
 
-      <#assign metadata += [ 
+      <#assign metadata += [
         {
-         "key": "Date range covered", 
-         "value": dateRange, 
-         "uipath": "website.supplementaryinfo.datepublished", 
+         "key": "Date range covered",
+         "value": dateRange,
+         "uipath": "website.supplementaryinfo.datepublished",
          "type": "span"
-        } 
+        }
       ] />
     </#if>
 

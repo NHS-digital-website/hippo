@@ -13,9 +13,8 @@
 </#list>
 
 <#if isFooterChecked_TOP == 'Yes'>
-    <div id="footer-section-wrapper-social-media"
-         class="nhsd-t-body-s nhsd-!t-font-weight-bold nhsd-!t-margin-bottom-1">
-        <h2>Follow us on social media</h2>
+    <div id="footer-section-wrapper-social-media" class="nhsd-t-body-s">
+        <h2 class="nhsd-t-heading-m">Follow us on social media</h2>
     </div>
 <#else>
     <div class="nhsd-t-grid nhsd-!t-margin-bottom-4">
@@ -37,15 +36,11 @@
         <#assign iconFetchLink = socialmediaItem.icon/>
         <#assign altText = iconDesc?has_content?then(iconDesc, "Icon of ${socialmediaItem.linkName}") />
         <#if isFooterChecked_BOTTOM == 'Yes'>
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3 nhsd-!t-padding-0">
-                <ul class="nhsd-t-list nhsd-t-list--links">
-                    <li class="nhsd-t-body-s">
-                        <span class="nhsd-a-icon nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey">
-                            <img src="${iconFetchLink}" alt="${socialmediaItem.linkName}">
-                        </span>
-                       <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${socialmediaItem.nhsDigitalUrl}" target="_blank" rel="external">${socialmediaItem.linkName}</a>
-                    </li>
-                </ul>
+            <div>
+                <span class="nhsd-a-icon nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey">
+                    <img src="${iconFetchLink}" alt="${socialmediaItem.linkName}">
+                </span>
+               <a class="nhsd-a-link nhsd-a-link--col-dark-grey nhsd-t-body-s" href="${socialmediaItem.nhsDigitalUrl}" target="_blank" rel="external">${socialmediaItem.linkName}</a>
             </div>
         <#else>
             <div class="nhsd-t-row">

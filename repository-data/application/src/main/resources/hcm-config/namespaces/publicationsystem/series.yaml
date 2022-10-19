@@ -87,7 +87,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               nodetypes:
               - website:person
-            caption: Responsible Statistician
+            caption: Lead Analyst
             field: statistician
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin

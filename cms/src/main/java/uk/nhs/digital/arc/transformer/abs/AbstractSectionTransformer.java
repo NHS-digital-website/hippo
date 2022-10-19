@@ -11,6 +11,7 @@ public abstract class AbstractSectionTransformer extends AbstractTransformer {
     public static final String WEBSITE_EXTERNALLINK = "website:externallink";
     public static final String WEBSITE_HEADING = "website:heading";
     public static final String WEBSITE_HEADINGLEVEL = "website:headinglevel";
+    public static final String WEBSITE_ICON = "website:icon";
     public static final String WEBSITE_ICONLIST = "website:iconlist";
     public static final String WEBSITE_ICONLISTITEM = "website:iconlistitem";
     public static final String WEBSITE_ICONLISTITEMS = "website:iconlistitems";

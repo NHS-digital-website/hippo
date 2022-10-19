@@ -108,7 +108,7 @@ definitions:
               last.visited.enabled: true
               nodetypes:
               - website:person
-            caption: Responsible statistician override
+            caption: Lead analyst override
             field: responsibleperson
             hint: ''
             jcr:primaryType: frontend:plugin
@@ -316,6 +316,145 @@ definitions:
           - hipposysedit:remodel
           - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
+        /hipposysedit:nodetype[2]:
+          /bannercontrols:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:bannercontrols
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /interval:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: true
+            hipposysedit:path: website:interval
+            hipposysedit:primary: false
+            hipposysedit:type: website:interval
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /publisheddate:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:NominalDate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /relateddocuments:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:relateddocuments
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /request:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:request
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /responsibleperson:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:responsibleperson
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /responsibleteam:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:responsibleteam
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /sections:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:sections
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /seosummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummary
+            hipposysedit:primary: false
+            hipposysedit:type: website:seoSummary
+            jcr:primaryType: hipposysedit:field
+          /seosummarytext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummarytext
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /shortsummary:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /summary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotaxonomy:classifiable
+          - hippotranslation:translated
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
@@ -338,6 +477,33 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:supplementaryinformation
+          website:shortsummary: ''
+          website:title: ''
+        /hipposysedit:prototype[2]:
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchRank: 5
+          common:searchable: true
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - hippostd:publishableSummary
+          - hippostd:relaxed
+          - hippostdpubwf:document
+          - hippotaxonomy:classifiable
+          - hippotranslation:translated
+          - mix:referenceable
+          jcr:primaryType: nt:unstructured
           website:shortsummary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
