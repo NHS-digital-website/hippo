@@ -46,7 +46,7 @@
                 <div class="nhsd-!t-display-l-hide">
                     <@scrollableFilterNav filtersModel true></@scrollableFilterNav>
                 </div>
-                <div class="nhsd-t-row">
+                <div class="nhsd-t-row nhsd-!t-display-hide" id="catalogue-search-bar">
                     <div class="nhsd-t-col-l-8 nhsd-!t-padding-left-0">
                         <div class="nhsd-t-float-left">
                             <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Search</h6>
@@ -56,7 +56,7 @@
                                 <input
                                     class="nhsd-t-form-input"
                                     type="text"
-                                    id="catalogue-search-bar"
+                                    id="catalogue-search-bar-input"
                                     name="query"
                                     autocomplete="off"
                                     placeholder="What are you looking for today?"
