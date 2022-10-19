@@ -1,0 +1,85 @@
+---
+/content/documents/corporate-website/website-acceptance-tests/updates/important-update:
+  /important-update[1]:
+    /website:content:
+      hippostd:content: <p>An important update about this document</p>
+      jcr:primaryType: hippostd:html
+    /website:relateddocument[1]:
+      hippo:docbase: f7edbc4a-1e27-438a-b366-28c4e532a80f
+      jcr:primaryType: hippo:mirror
+    common:searchRank: 4
+    common:searchable: true
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-10-17T16:51:07.339Z
+    hippostdpubwf:lastModificationDate: 2022-10-17T16:54:40.809Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 0618196b-9b3e-46df-8f9a-82eeac1cc361
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:update
+    website:expirydate: 0001-01-01T12:00:00Z
+    website:severity: important
+    website:title: Important update
+  /important-update[2]:
+    /website:content:
+      hippostd:content: <p>An important update about this document</p>
+      jcr:primaryType: hippostd:html
+    /website:relateddocument[1]:
+      hippo:docbase: f7edbc4a-1e27-438a-b366-28c4e532a80f
+      jcr:primaryType: hippo:mirror
+    common:searchRank: 4
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-10-17T16:51:07.339Z
+    hippostdpubwf:lastModificationDate: 2022-10-17T16:54:52.665Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 0618196b-9b3e-46df-8f9a-82eeac1cc361
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: website:update
+    website:expirydate: 0001-01-01T12:00:00Z
+    website:severity: important
+    website:title: Important update
+  /important-update[3]:
+    /website:content:
+      hippostd:content: <p>An important update about this document</p>
+      jcr:primaryType: hippostd:html
+    /website:relateddocument[1]:
+      hippo:docbase: f7edbc4a-1e27-438a-b366-28c4e532a80f
+      jcr:primaryType: hippo:mirror
+    common:searchRank: 4
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-10-17T16:51:07.339Z
+    hippostdpubwf:lastModificationDate: 2022-10-17T16:54:52.665Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-10-17T16:54:54.575Z
+    hippotranslation:id: 0618196b-9b3e-46df-8f9a-82eeac1cc361
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:update
+    website:expirydate: 0001-01-01T12:00:00Z
+    website:severity: important
+    website:title: Important update
+  hippo:name: Important update
+  hippo:versionHistory: 9c0c9a44-ea3a-4493-a6c7-5390cb3d0344
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

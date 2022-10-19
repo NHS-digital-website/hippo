@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/website-acceptance-tests/updates:
+  hippo:name: Updates
+  hippostd:foldertype:
+  - new-digital-website-folder
+  - new-digital-website-document
+  hippotranslation:id: d0f822b5-c7c2-43d4-8bca-234db9fbb19a
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

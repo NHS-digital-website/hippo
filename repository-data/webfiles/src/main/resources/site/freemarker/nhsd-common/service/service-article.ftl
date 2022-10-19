@@ -9,7 +9,7 @@
 <#include "../macro/metaTags.ftl">
 <#include "../macro/component/lastModified.ftl">
 <#include "../macro/latestblogs.ftl">
-<#include "../macro/component/calloutBox.ftl">
+<#include "../macro/updateSection.ftl">
 <#include "../macro/contentPixel.ftl">
 <#import "../app-layout-head.ftl" as alh>
 <#include "../macro/heroes/hero.ftl">
@@ -56,16 +56,6 @@
 
     <@hero getHeroOptions(document) heroType />
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
-        <#if document.updates?has_content>
-            <#assign item = {} />
-            <#list document.updates as update>
-                <#assign item += update />
-                <#assign item += {"calloutType":"update", "index":update?index} />
-                <@calloutBox item document.class.name />
-            </#list>
-        </#if>
-    </div>
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8">
         <div class="nhsd-t-row">
             <#if navStatus == "withNav" && renderNav>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
@@ -86,48 +76,53 @@
             </#if>
 
             <div class="${(navStatus == "withNav" || navStatus == "withoutNav")?then("nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-1", "nhsd-t-col-12")}">
+                <#if document.updates?has_content>
+                    <@updateSection document.updates />
+                </#if>
+
                 <#if document.priorityActions?has_content>
-                    <div class="nhsd-t-grid nhsd-!t-no-gutters">
-                        <div class="nhsd-t-row">
-                            <#list document.priorityActions as action>
-                                <div class="nhsd-t-col-12 nhsd-!t-no-gutters nhsd-!t-margin-bottom-6">
-                                    <div class="nhsd-m-card">
-                                        <@hst.link hippobean=action.link.link var="priorityActionInternalLink"/>
-                                        <a <#if action.link.linkType == "internal">
-                                           href="${priorityActionInternalLink}"
-                                           onClick="${getOnClickMethodCall(document.class.name, priorityActionInternalLink)}"
-                                           <#else>
-                                           href="${action.link.link}"
-                                           onClick="${getOnClickMethodCall(document.class.name, action.link.link)}"
-                                           </#if>
-                                           onKeyUp="return vjsu.onKeyUp(event)"
-                                           class="nhsd-a-box-link"
-                                           aria-label="${action.action}"
-                                        >
-                                            <div class="nhsd-a-box nhsd-a-box--bg-dark-green">
-                                                <div class="nhsd-m-card__content_container">
-                                                    <div class="nhsd-m-card__content-box">
-                                                        <p class="nhsd-t-heading-s">${action.action}</p>
+                    <div class="nhsd-o-card-list">
+                        <div class="nhsd-t-grid nhsd-!t-no-gutters">
+                            <div class="nhsd-t-row nhsd-o-card-list__items ">
+                                <#list document.priorityActions as action>
+                                    <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
+                                        <div class="nhsd-m-card">
+                                            <@hst.link hippobean=action.link.link var="priorityActionInternalLink"/>
+                                            <a <#if action.link.linkType == "internal">
+                                               href="${priorityActionInternalLink}"
+                                               onClick="${getOnClickMethodCall(document.class.name, priorityActionInternalLink)}"
+                                               <#else>
+                                               href="${action.link.link}"
+                                               onClick="${getOnClickMethodCall(document.class.name, action.link.link)}"
+                                               </#if>
+                                               onKeyUp="return vjsu.onKeyUp(event)"
+                                               class="nhsd-a-box-link"
+                                               aria-label="${action.action}"
+                                            >
+                                                <div class="nhsd-a-box nhsd-a-box--bg-dark-green">
+                                                    <div class="nhsd-m-card__content_container">
+                                                        <div class="nhsd-m-card__content-box">
+                                                            <p class="nhsd-t-heading-s">${action.action}</p>
 
-                                                        <#if action.additionalInformation?has_content>
-                                                            <p class="nhsd-t-body-s">${action.additionalInformation}</p>
-                                                        </#if>
+                                                            <#if action.additionalInformation?has_content>
+                                                                <p class="nhsd-t-body-s">${action.additionalInformation}</p>
+                                                            </#if>
+                                                        </div>
+
+                                                        <div class="nhsd-m-card__button-box">
+                                                            <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                                    <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
                                                     </div>
-
-                                                    <div class="nhsd-m-card__button-box">
-                                                        <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                                                <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                                            </svg>
-                                                        </span>
-                                                    </div>
-
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </#list>
+                                </#list>
+                            </div>
                         </div>
                     </div>
                 </#if>
