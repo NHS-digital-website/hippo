@@ -14,7 +14,7 @@
             <#list lettersOfTheAlphabet as letter>
                 <#if blockGroups[letter]??>
                     <#assign matchesFound++ />
-                    <div data-filter-results-item>
+                    <div data-letter-section>
                         <#if matchesFound gt 1>
                             <hr class="nhsd-a-horizontal-rule"/>
                         </#if>
@@ -22,7 +22,7 @@
                             <div class="nhsd-!t-margin-right-5">
                                 <span class="nhsd-a-character-block nhsd-a-character-block--large nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">${letter}</span>
                             </div>
-                            <div class="nhsd-t-flex-item--grow" data-filter-results-item>
+                            <div class="nhsd-t-flex-item--grow">
                                 <#list blockGroups[letter] as block>
                                 <#-- Glossery list links -->
                                     <#assign link = ""/>
