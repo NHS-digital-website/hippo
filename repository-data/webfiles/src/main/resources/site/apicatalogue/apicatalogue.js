@@ -17,6 +17,12 @@ function containsMatchingText(result, searchTerm) {
 
 function updateSections() {
     const sections = getAllSections();
+    // restore section dividers?
+    document.querySelectorAll('#list-page-results-list > div > hr:first-child')
+        .forEach((hr) => {
+            hr.classList?.remove(nhsdHiddenClass);
+        });
+
     sections.forEach((section) => {
         const visibleResults = [...section.querySelectorAll('[data-api-catalogue-entry]')]
             .filter((result) => !result.classList.contains(nhsdHiddenClass));
@@ -30,6 +36,9 @@ function updateSections() {
             visibleResults.pop().querySelector('hr')?.classList?.add(nhsdHiddenClass);
         }
     });
+    // hide top divider from first visible section
+    sections.filter((result) => !result.classList.contains(nhsdHiddenClass))
+        .at(0)?.querySelector('hr:first-child')?.classList?.add(nhsdHiddenClass);
 }
 
 function updateSearchResults(ev) {
@@ -38,8 +47,6 @@ function updateSearchResults(ev) {
     allResults.forEach((result) => {
         if (!containsMatchingText(result, searchTerm)) {
             result?.classList?.add(nhsdHiddenClass);
-            const rule = result.querySelector('hr');
-            rule?.classList?.remove(nhsdHiddenClass);
         } else {
             result?.classList?.remove(nhsdHiddenClass);
             const rule = result.querySelector('hr');
@@ -47,6 +54,9 @@ function updateSearchResults(ev) {
         }
     });
     updateSections();
+    const countDisplay = document.querySelector('h6#search-results-count');
+    const visibleCount = allResults.filter((result) => !result.classList.contains(nhsdHiddenClass)).length;
+    countDisplay.textContent = `${visibleCount} results`;
 }
 
 document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);
