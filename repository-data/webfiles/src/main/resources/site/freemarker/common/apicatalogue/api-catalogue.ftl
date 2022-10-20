@@ -75,8 +75,11 @@
                     </div>
                     <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs"/>
                 </div>
+                <div class="nhsd-t-row nhsd-!t-padding-top-1">
+                    <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0" id="search-results-count">${apiCatalogueLinks?size} results</h6>
+                </div>
                 <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-4 nhsd-!t-padding-left-0 ">
+                    <div class="nhsd-t-col-4 nhsd-!t-padding-left-0">
                         <label aria-label="Include retired APIs" class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
                             <div class="nhsd-a-box nhsd-!t-padding-left-0">
                                 <span class="nhsd-m-selector-toggle-card__toggle">
