@@ -5,7 +5,7 @@ function getAllSearchResults() {
 }
 
 function getAllSections() {
-    return [...document.querySelectorAll('#list-page-results-list > div')];
+    return [...document.querySelectorAll('[data-letter-section]')];
 }
 
 function containsMatchingText(result, searchTerm) {
@@ -24,7 +24,7 @@ function updateSections() {
     const sections = getAllSections();
 
     // restore section dividers
-    document.querySelectorAll('#list-page-results-list > div > hr:first-child')
+    document.querySelectorAll('[data-letter-section] > hr:first-child')
         .forEach((hr) => {
             hr.classList?.remove(nhsdHiddenClass);
         });
