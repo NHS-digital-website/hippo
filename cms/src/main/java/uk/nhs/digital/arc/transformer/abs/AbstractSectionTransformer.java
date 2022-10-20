@@ -29,7 +29,6 @@ public abstract class AbstractSectionTransformer extends AbstractTransformer {
     public static final String WEBSITE_SECTIONS = "website:sections";
     public static final String WEBSITE_INFOGRAPHIC = "website:infographic";
     public static final String WEBSITE_IMAGE = "website:image";
-    public static final String WEBSITE_ICON = "website:icon";
     public static final String WEBSITE_COLOUR = "website:colour";
     public static final String WEBSITE_HEADLINE = "website:headline";
 
