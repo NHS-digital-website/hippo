@@ -15,9 +15,15 @@ function containsMatchingText(result, searchTerm) {
     return headingContainsTerm || summaryContainsTerm;
 }
 
+function isVisible(element) {
+    return !element.classList.contains(nhsdHiddenClass);
+}
+
+/* Hides hr elements and alphabet blocks for sections without visible results */
 function updateSections() {
     const sections = getAllSections();
-    // restore section dividers?
+
+    // restore section dividers
     document.querySelectorAll('#list-page-results-list > div > hr:first-child')
         .forEach((hr) => {
             hr.classList?.remove(nhsdHiddenClass);
@@ -25,7 +31,7 @@ function updateSections() {
 
     sections.forEach((section) => {
         const visibleResults = [...section.querySelectorAll('[data-api-catalogue-entry]')]
-            .filter((result) => !result.classList.contains(nhsdHiddenClass));
+            .filter(isVisible);
         if (!visibleResults.length) {
             section.classList?.add(nhsdHiddenClass);
         } else {
@@ -36,9 +42,12 @@ function updateSections() {
             visibleResults.pop().querySelector('hr')?.classList?.add(nhsdHiddenClass);
         }
     });
+
     // hide top divider from first visible section
-    sections.filter((result) => !result.classList.contains(nhsdHiddenClass))
-        .at(0)?.querySelector('hr:first-child')?.classList?.add(nhsdHiddenClass);
+    sections.filter(isVisible).at(0)
+        ?.querySelector('hr:first-child')
+        ?.classList
+        ?.add(nhsdHiddenClass);
 }
 
 function updateSearchResults(ev) {
@@ -55,7 +64,7 @@ function updateSearchResults(ev) {
     });
     updateSections();
     const countDisplay = document.querySelector('h6#search-results-count');
-    const visibleCount = allResults.filter((result) => !result.classList.contains(nhsdHiddenClass)).length;
+    const visibleCount = allResults.filter(isVisible).length;
     countDisplay.textContent = `${visibleCount} results`;
 }
 
