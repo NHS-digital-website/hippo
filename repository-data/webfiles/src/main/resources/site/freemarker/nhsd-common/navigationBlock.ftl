@@ -35,8 +35,8 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
 <#assign hasHeading = heading?has_content />
 
 <#if hasDocuments>
-    <#assign organism = isSmallBlock?then("nhsd-o-card-list", "nhsd-o-nav-block-list") />
-    <#assign organismRow = isSmallBlock?then("nhsd-o-card-list__items", "nhsd-o-nav-block-list__items") />
+    <#assign organism = isSmallBlock?then("nhsd-o-card-list", "") />
+    <#assign organismRow = isSmallBlock?then("nhsd-o-card-list__items", "") />
 
     <div class="${organism} nhsd-!t-margin-bottom-9">
         <div class="nhsd-t-grid">
@@ -63,7 +63,7 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
                     <#assign isDarkMolecule = darkVariants?seq_contains(colourVariant)?then(isSmallBlock?then("nhsd-m-card--light-text", "nhsd-m-nav-block--light-text"), "") />
                     <#assign isDarkButton = darkVariants?seq_contains(colourVariant)?then("nhsd-a-button--invert", "") />
 
-                    <div class="nhsd-t-col-xs-12 ${getGridCol(documents?size, "large")}">
+                    <div class="nhsd-t-col-xs-12 ${getGridCol(documents?size, "large")} nhsd-!t-margin-bottom-6">
                         <#if isSmallBlock>
                             <#assign id = "navigation-small-block-${item?index + 1}" />
                             <@navigationBlockSmall
@@ -83,7 +83,8 @@ black = "black", yellow = "yellow", blue = "blue", darkBlue = "dark-blue" />
                                 isYellowLink
                                 isDarkButton
                                 positions[position]
-                                hasHeading/>
+                                hasHeading
+                                { "fullHeight": true }/>
                         </#if>
                     </div>
                 </#list>

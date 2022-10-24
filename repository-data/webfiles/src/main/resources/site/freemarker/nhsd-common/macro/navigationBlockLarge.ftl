@@ -8,7 +8,7 @@
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
 
-<#macro navigationBlockLarge item id colourVariant isDarkMolecule isYellowLink isDarkButton position hasHeading>
+<#macro navigationBlockLarge item id colourVariant isDarkMolecule isYellowLink isDarkButton position hasHeading options={}>
     <#assign hasTitle = item.title?has_content />
     <#assign hasContent = item.content?has_content />
     <#assign hasIcon = item.icon?has_content />
@@ -17,7 +17,12 @@
     <#assign hasLabel = item.label?has_content />
     <#assign colVarWithYellowCheck = (colourVariant == yellow)?then("light-yellow", colourVariant) />
 
-    <div class="nhsd-m-nav-block ${isDarkMolecule}" id="${id}">
+    <#assign classes = "" />
+    <#if options.fullHeight?has_content && options.fullHeight>
+        <#assign classes += "nhsd-m-nav-block--full-height" />
+    </#if>
+
+    <div class="nhsd-m-nav-block ${isDarkMolecule} ${classes}" id="${id}">
         <#if hasLink>
             <#if item.internal?has_content>
                 <a href="<@hst.link hippobean=item.internal/>" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}">
