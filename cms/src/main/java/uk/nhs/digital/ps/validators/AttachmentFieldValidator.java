@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps;
+package uk.nhs.digital.ps.validators;
 
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.repository.impl.NodeDecorator;

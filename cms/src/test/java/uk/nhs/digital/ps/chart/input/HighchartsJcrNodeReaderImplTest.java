@@ -9,7 +9,11 @@ import static uk.nhs.digital.ps.PublicationSystemConstants.*;
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.junit.Before;
 import org.junit.Test;
-import uk.nhs.digital.ps.chart.*;
+import uk.nhs.digital.ps.chart.enums.ChartType;
+import uk.nhs.digital.ps.chart.enums.MapSource;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
+import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
 
 import java.util.UUID;
 import javax.jcr.*;
@@ -41,7 +45,7 @@ public class HighchartsJcrNodeReaderImplTest {
         initValidDocumentNodeStructure();
 
         // when
-        AbstractHighchartsParameters parameters = highchartsJcrNodeReader.readParameters(chartConfigNode);
+        AbstractVisualisationParameters parameters = highchartsJcrNodeReader.readParameters(chartConfigNode);
 
         // then
         assertThat("Correct parameter type returned", parameters, instanceOf(HighchartsParameters.class));
@@ -54,7 +58,7 @@ public class HighchartsJcrNodeReaderImplTest {
         initValidDocumentNodeStructure();
 
         // when
-        AbstractHighchartsParameters parameters = highchartsJcrNodeReader.readParameters(mapConfigNode);
+        AbstractVisualisationParameters parameters = highchartsJcrNodeReader.readParameters(mapConfigNode);
 
         // then
         assertThat("Correct parameter type returned", parameters, instanceOf(HighmapsParameters.class));

@@ -1,14 +1,14 @@
 package uk.nhs.digital.ps.chart.input;
 
-import static uk.nhs.digital.ps.chart.ChartType.FUNNEL_PLOT;
-import static uk.nhs.digital.ps.chart.ChartType.SCATTER_PLOT;
+import static uk.nhs.digital.ps.chart.enums.ChartType.FUNNEL_PLOT;
+import static uk.nhs.digital.ps.chart.enums.ChartType.SCATTER_PLOT;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
-import uk.nhs.digital.ps.chart.ChartType;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.model.HighchartsModel;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
@@ -31,7 +31,7 @@ public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInpu
         super(SCATTER_PLOT, FUNNEL_PLOT);
     }
 
-    protected HighchartsModel parseXlsxChart(final AbstractHighchartsParameters parameters
+    protected HighchartsModel parseXlsxChart(final AbstractVisualisationParameters parameters
     ) throws IOException, RepositoryException {
 
         final ChartType chartType = parameters.getChartType();

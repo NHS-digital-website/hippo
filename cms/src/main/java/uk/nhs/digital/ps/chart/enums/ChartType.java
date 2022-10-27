@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps.chart;
+package uk.nhs.digital.ps.chart.enums;
 
 public enum ChartType {
     PIE("pie"),
@@ -9,6 +9,8 @@ public enum ChartType {
     LINE("line"),
     SCATTER_PLOT("scatter"),
     FUNNEL_PLOT("funnel"),
+
+    ICON("icon"),
     AREA_MAP(null);
 
     private final String highChartsType;
