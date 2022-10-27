@@ -121,7 +121,7 @@
                         <#if hasAboutThisSection>
                             <#assign links = links + [{"url": "#about-this-publication", "title": aboutThisPublicationHeader}] />
                         </#if>
-                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "sections": links, "includeSummary": hasSummaryContent}), pageContentsHeader></@stickyNavSections>
+                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "sections": links, "includeSummary": hasSummaryContent, "includeTopLink": true}), pageContentsHeader></@stickyNavSections>
 
                         <#-- Restore the bundle -->
                         <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>

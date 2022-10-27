@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
 <#macro ndrsLogo>
-    <svg class="nhsd-a-logo" width="62" height="39" viewBox="0 0 62 39" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="nhsd-a-logo" width="82" height="60" viewBox="0 0 62 39" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M39.2338 11.0517C38.0125 4.74524 32.6827 0 26.2904 0C19.898 0 14.5664 4.74524 13.3451 11.0517H39.2338Z" fill="#4AB0E5"/>
         <path d="M47.079 11.0517C45.8577 4.74524 40.5261 0 34.1337 0C27.7414 0 22.4098 4.74524 21.1885 11.0517H47.079Z" fill="#55B687"/>
         <path d="M39.2338 11.0515C38.2739 6.09334 34.7724 2.09882 30.2121 0.61792C25.6517 2.09882 22.1502 6.09334 21.1885 11.0515H39.2338Z" fill="#2CA9AB"/>

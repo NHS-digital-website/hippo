@@ -135,7 +135,7 @@
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
                     <div id="sticky-nav" class="sticky-nav-leftfix nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
                         <!-- start sticky-nav -->
-                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "includeSummary": hasSummaryContent })></@stickyNavSections>
+                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "includeSummary": hasSummaryContent, "includeTopLink": true })></@stickyNavSections>
                         <!-- end sticky-nav -->
                         <#-- Restore the bundle -->
                         <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>
