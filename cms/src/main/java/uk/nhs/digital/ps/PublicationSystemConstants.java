@@ -11,6 +11,11 @@ public interface PublicationSystemConstants {
     String NODE_TYPE_CHART = "publicationsystem:chartSection";
     String NODE_TYPE_MAP = "publicationsystem:mapSection";
 
+    String NODE_TYPE_VISUALISATION = "publicationsystem:Visualisation";
+
+    String PROPERTY_VISUALISATION_YTITLE = "publicationsystem:yaxistitle";
+
+    String PROPERTY_TYPE_ICON = "publicationsystem:icontype";
     String PROPERTY_PUBLICATION_DATE = "publicationsystem:NominalDate";
     String PROPERTY_EARLY_ACCESS_KEY = "publicationsystem:earlyaccesskey";
     String PROPERTY_CHART_CONFIG = "publicationsystem:chartConfig";

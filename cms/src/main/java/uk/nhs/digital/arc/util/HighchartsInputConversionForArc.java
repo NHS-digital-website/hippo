@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import uk.nhs.digital.common.util.json.JacksonJsonSerialiser;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
-import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
-import uk.nhs.digital.ps.chart.HighchartsParameters;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 import uk.nhs.digital.ps.chart.input.DelegatingHighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighmapsXlsxInputParser;
 import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxInputParser;
@@ -27,7 +27,7 @@ public class HighchartsInputConversionForArc {
 
         JsonSerialiser jsonSerialiser = new JacksonJsonSerialiser(objectMapper);
 
-        final AbstractHighchartsParameters parameters = new HighchartsParameters(type, title, yTitle, fileData);
+        final AbstractVisualisationParameters parameters = new HighchartsParameters(type, title, yTitle, fileData);
         final AbstractHighchartsModel chart = parser.parse(parameters);
         return jsonSerialiser.toJson(chart);
     }

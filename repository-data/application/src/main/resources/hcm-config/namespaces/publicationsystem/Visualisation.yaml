@@ -19,10 +19,10 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /visualisationtype:
+          /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Icon Chart
+              selectable.options: Icon
             caption: Visualisation Type
             field: visualisationtype
             hint: ''
@@ -101,7 +101,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:visualisationtype
+            hipposysedit:path: publicationsystem:type
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:

@@ -1,6 +1,6 @@
 package uk.nhs.digital.ps.chart.model;
 
-import uk.nhs.digital.ps.chart.ChartType;
+import uk.nhs.digital.ps.chart.enums.ChartType;
 
 public class Chart {
     private final String type;

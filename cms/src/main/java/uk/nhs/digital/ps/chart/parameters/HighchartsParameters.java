@@ -1,8 +1,8 @@
-package uk.nhs.digital.ps.chart;
+package uk.nhs.digital.ps.chart.parameters;
 
 import javax.jcr.Binary;
 
-public class HighchartsParameters extends AbstractHighchartsParameters {
+public class HighchartsParameters extends AbstractVisualisationParameters {
 
     private String yTitle;
 

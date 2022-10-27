@@ -3,8 +3,8 @@ package uk.nhs.digital.ps.chart.input;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toSet;
 
-import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
-import uk.nhs.digital.ps.chart.ChartType;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
 
 import java.util.Collections;
@@ -21,7 +21,7 @@ public class DelegatingHighchartsInputParser implements HighchartsInputParser {
     }
 
     @Override
-    public AbstractHighchartsModel parse(final AbstractHighchartsParameters parameters) {
+    public AbstractHighchartsModel parse(final AbstractVisualisationParameters parameters) {
 
         final ChartType chartType = parameters.getChartType();
 

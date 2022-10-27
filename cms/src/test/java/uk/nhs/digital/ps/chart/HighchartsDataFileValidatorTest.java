@@ -14,6 +14,7 @@ import org.onehippo.cms.services.validation.api.Violation;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.util.Optional;
 import javax.jcr.Node;
@@ -26,7 +27,7 @@ public class HighchartsDataFileValidatorTest {
     @Mock
     private HighchartsJcrNodeReader highchartsJcrNodeReader;
     @Mock
-    private AbstractHighchartsParameters highchartsParameters;
+    private AbstractVisualisationParameters highchartsParameters;
 
     @Mock
     private ValidationContext validationContextMock;

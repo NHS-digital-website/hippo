@@ -8,7 +8,7 @@ import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
-import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
 import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
@@ -51,7 +51,7 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
 
             final Node chartConfigNode = nodes.next();
 
-            final AbstractHighchartsParameters chartConfig = nodeReader.readParameters(chartConfigNode);
+            final AbstractVisualisationParameters chartConfig = nodeReader.readParameters(chartConfigNode);
 
             final AbstractHighchartsModel chart = parseChartInput(chartConfig);
 
@@ -69,7 +69,7 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
         return variant;
     }
 
-    private AbstractHighchartsModel parseChartInput(final AbstractHighchartsParameters chartConfig) throws RepositoryException {
+    private AbstractHighchartsModel parseChartInput(final AbstractVisualisationParameters chartConfig) throws RepositoryException {
         try {
             return parser.parse(chartConfig);
         } catch (final Exception ex) {

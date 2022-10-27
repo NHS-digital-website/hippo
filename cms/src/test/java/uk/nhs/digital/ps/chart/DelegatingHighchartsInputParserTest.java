@@ -8,11 +8,13 @@ import static org.mockito.MockitoAnnotations.openMocks;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.input.DelegatingHighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxInputParser;
 import uk.nhs.digital.ps.chart.input.SeriesHighchartsXlsxInputParser;
 import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
 import uk.nhs.digital.ps.chart.model.HighchartsModel;
+import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 
 public class DelegatingHighchartsInputParserTest {
 

@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
 import org.onehippo.repository.mock.MockNode;
+import uk.nhs.digital.ps.validators.PublicationDateValidator;
 
 import java.time.LocalDate;
 import java.util.*;

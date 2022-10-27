@@ -1,13 +1,13 @@
 package uk.nhs.digital.ps.chart.input;
 
 import static org.apache.commons.lang3.StringUtils.isEmpty;
-import static uk.nhs.digital.ps.chart.ChartType.AREA_MAP;
+import static uk.nhs.digital.ps.chart.enums.ChartType.AREA_MAP;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
-import uk.nhs.digital.ps.chart.HighmapsParameters;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
 import uk.nhs.digital.ps.chart.model.HighmapsModel;
 import uk.nhs.digital.ps.chart.model.Series;
 
@@ -30,7 +30,7 @@ public class HighmapsXlsxInputParser extends AbstractHighchartsXlsxInputParser {
     }
 
     @Override
-    protected HighmapsModel parseXlsxChart(final AbstractHighchartsParameters abstractParameters)
+    protected HighmapsModel parseXlsxChart(final AbstractVisualisationParameters abstractParameters)
         throws IOException, RepositoryException {
 
         HighmapsParameters parameters = (HighmapsParameters) abstractParameters;

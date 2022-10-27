@@ -3,7 +3,6 @@ package uk.nhs.digital.ps;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.hippoecm.repository.impl.NodeDecorator;
@@ -13,6 +12,7 @@ import org.mockito.Mock;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
 import org.onehippo.repository.mock.MockNode;
+import uk.nhs.digital.ps.validators.AttachmentFieldValidator;
 
 import java.util.Optional;
 import javax.jcr.Node;
