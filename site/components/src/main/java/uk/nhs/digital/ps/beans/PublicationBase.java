@@ -59,6 +59,7 @@ public abstract class PublicationBase extends BaseDocument {
      *   like data sets.
      */
     public HippoBean getSelfLinkBean() {
+        debugIt("getSelfLinkBean()");
         assertPropertyPermitted(PropertyKeys.PARENT_BEAN);
 
         if (getName().equals("content")) {
@@ -69,6 +70,7 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     public HippoBean getParentDocument() {
+        debugIt("getParentDocument()");
         assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
 
         HippoBean parentBean = null;
@@ -94,7 +96,20 @@ public abstract class PublicationBase extends BaseDocument {
         return parentBean;
     }
 
+    private void debugIt(String where) {
+        log.debug("----");
+        log.debug(where);
+        log.debug(this.getName());
+        log.debug(this.getTitle());
+        log.debug(this.getPath());
+        log.debug(this.getCanonicalUUID());
+        log.debug(this.getPubliclyAccessible());
+        log.debug(this.getContentType());
+        log.debug(this.getRepresentationId());
+    }
+
     public List<Dataset> getDatasets() throws HstComponentException {
+        debugIt("getDatasets()");
         assertPropertyPermitted(PropertyKeys.DATASETS);
 
         HstQueryResult hstQueryResult;
