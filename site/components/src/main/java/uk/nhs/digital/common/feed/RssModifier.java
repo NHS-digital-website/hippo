@@ -57,9 +57,8 @@ public class RssModifier extends RSS20Modifier {
                 try {
                     filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
                     query.setFilter(filter);
-                    LOGGER.debug(strQuery);
+                    LOGGER.debug(query.toString());
                 } catch (final FilterException exception) {
-                    LOGGER.warn("Query used: " + strQuery);
                     exception.printStackTrace();
                 }
             }
