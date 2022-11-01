@@ -8,10 +8,10 @@ import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
-import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
 import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.util.Iterator;
 import javax.jcr.Node;

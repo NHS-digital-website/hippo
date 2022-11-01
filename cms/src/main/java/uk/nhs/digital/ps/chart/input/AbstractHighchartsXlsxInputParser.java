@@ -6,9 +6,9 @@ import static java.util.stream.Collectors.toSet;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.io.IOException;
 import java.io.InputStream;

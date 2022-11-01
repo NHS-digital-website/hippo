@@ -10,8 +10,8 @@ public abstract class AbstractVisualisationParameters {
     private Binary inputFileContent;
     private String title;
 
-    public AbstractVisualisationParameters(final String type, final Binary inputFileContent, final String title) {
-        this.chartType = ChartType.toChartType(type);
+    public AbstractVisualisationParameters(final String chartType, final Binary inputFileContent, final String title) {
+        this.chartType = ChartType.toChartType(chartType);
         this.inputFileContent = inputFileContent;
         this.title = title;
     }
