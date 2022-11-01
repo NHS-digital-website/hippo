@@ -4,19 +4,17 @@ import uk.nhs.digital.ps.chart.enums.ChartType;
 
 import java.util.List;
 
-public class HighchartsModel extends AbstractVisualisationModel {
+public class VisualisationModel extends AbstractVisualisationModel {
     private final Chart chart;
     private final Axis xAxis;
     private final Axis yAxis;
-    private final PlotOptions plotOptions;
 
-    public HighchartsModel(ChartType type, String title, List<Series> series, String yAxisTitle, String xAxisTitle, List<String> categories) {
+    public VisualisationModel(ChartType type, String title, List<Series> series, String yAxisTitle, String xAxisTitle, List<String> categories) {
         super(title, series);
 
         this.chart = new Chart(type);
         this.xAxis = new Axis(xAxisTitle, categories);
         this.yAxis = new Axis(yAxisTitle, null);
-        this.plotOptions = type.isStacked() ? new PlotOptions("normal") : null;
     }
 
     public Axis getxAxis() {
@@ -31,7 +29,4 @@ public class HighchartsModel extends AbstractVisualisationModel {
         return chart;
     }
 
-    public PlotOptions getPlotOptions() {
-        return plotOptions;
-    }
 }

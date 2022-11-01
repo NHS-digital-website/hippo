@@ -7,7 +7,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import uk.nhs.digital.ps.chart.enums.ChartType;
-import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
+import uk.nhs.digital.ps.chart.model.AbstractVisualisationModel;
 import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.io.IOException;
@@ -34,7 +34,7 @@ public abstract class AbstractHighchartsXlsxInputParser implements SpecialisedHi
     }
 
     @Override
-    public AbstractHighchartsModel parse(final AbstractVisualisationParameters config) {
+    public AbstractVisualisationModel parse(final AbstractVisualisationParameters config) {
 
         final ChartType chartType = config.getChartType();
 
@@ -47,7 +47,7 @@ public abstract class AbstractHighchartsXlsxInputParser implements SpecialisedHi
         }
     }
 
-    protected abstract AbstractHighchartsModel parseXlsxChart(AbstractVisualisationParameters chartConfig)
+    protected abstract AbstractVisualisationModel parseXlsxChart(AbstractVisualisationParameters chartConfig)
         throws IOException, RepositoryException;
 
     public Optional<Double> getDoubleValue(Cell cell) {

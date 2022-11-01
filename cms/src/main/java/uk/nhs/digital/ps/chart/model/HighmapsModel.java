@@ -2,7 +2,7 @@ package uk.nhs.digital.ps.chart.model;
 
 import static java.util.Collections.singletonList;
 
-public class HighmapsModel extends AbstractHighchartsModel {
+public class HighmapsModel extends AbstractVisualisationModel {
     private final MapChart chart;
     private final ColorAxis colorAxis;
     private final MapNavigation mapNavigation;

@@ -12,7 +12,7 @@ import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.input.DelegatingHighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxInputParser;
 import uk.nhs.digital.ps.chart.input.SeriesHighchartsXlsxInputParser;
-import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
+import uk.nhs.digital.ps.chart.model.AbstractVisualisationModel;
 import uk.nhs.digital.ps.chart.model.HighchartsModel;
 import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 
@@ -48,7 +48,7 @@ public class DelegatingHighchartsInputParserTest {
         given(seriesHighchartsXlsxInputParser.supports(ChartType.LINE)).willReturn(true);
 
         // when
-        AbstractHighchartsModel actualChart = delegatingHighchartsInputParser.parse(chartConfig);
+        AbstractVisualisationModel actualChart = delegatingHighchartsInputParser.parse(chartConfig);
 
         // then
         assertEquals("Returns value received from specialised parser", actualChart,
@@ -65,7 +65,7 @@ public class DelegatingHighchartsInputParserTest {
         given(scatterHighchartsXlsxParser.supports(ChartType.SCATTER_PLOT)).willReturn(true);
 
         // when
-        AbstractHighchartsModel actualChart = delegatingHighchartsInputParser.parse(chartConfig);
+        AbstractVisualisationModel actualChart = delegatingHighchartsInputParser.parse(chartConfig);
 
         // then
         assertEquals("Returns value received from specialised parser", actualChart,
