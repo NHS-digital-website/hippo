@@ -4,7 +4,7 @@ import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toSet;
 
 import uk.nhs.digital.ps.chart.enums.ChartType;
-import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
+import uk.nhs.digital.ps.chart.model.AbstractVisualisationModel;
 import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.util.Collections;
@@ -23,7 +23,7 @@ public class DelegatingHighchartsInputParser implements HighchartsInputParser {
     }
 
     @Override
-    public AbstractHighchartsModel parse(
+    public AbstractVisualisationModel parse(
         final AbstractVisualisationParameters parameters) {
 
         final ChartType chartType = parameters.getChartType();

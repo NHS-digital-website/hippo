@@ -8,7 +8,7 @@ import uk.nhs.digital.ps.chart.input.DelegatingHighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighmapsXlsxInputParser;
 import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxInputParser;
 import uk.nhs.digital.ps.chart.input.SeriesHighchartsXlsxInputParser;
-import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
+import uk.nhs.digital.ps.chart.model.AbstractVisualisationModel;
 import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 
@@ -28,7 +28,7 @@ public class HighchartsInputConversionForArc {
         JsonSerialiser jsonSerialiser = new JacksonJsonSerialiser(objectMapper);
 
         final AbstractVisualisationParameters parameters = new HighchartsParameters(type, title, yTitle, fileData);
-        final AbstractHighchartsModel chart = parser.parse(parameters);
+        final AbstractVisualisationModel chart = parser.parse(parameters);
         return jsonSerialiser.toJson(chart);
     }
 }
