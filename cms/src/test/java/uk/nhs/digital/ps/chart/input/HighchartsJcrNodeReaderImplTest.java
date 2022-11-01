@@ -4,19 +4,29 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.samePropertyValuesAs;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.mockito.Mockito.mock;
-import static uk.nhs.digital.ps.PublicationSystemConstants.*;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_DATA_FILE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TITLE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TYPE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_YTITLE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_MAP_SOURCE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_TYPE_ICON;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_VISUALISATION_YTITLE;
 
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.junit.Before;
 import org.junit.Test;
 import uk.nhs.digital.ps.chart.enums.ChartType;
+import uk.nhs.digital.ps.chart.enums.IconType;
 import uk.nhs.digital.ps.chart.enums.MapSource;
 import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
+import uk.nhs.digital.ps.chart.parameters.VisualisationParameters;
 
 import java.util.UUID;
-import javax.jcr.*;
+import javax.jcr.Binary;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 public class HighchartsJcrNodeReaderImplTest {
 
@@ -27,6 +37,10 @@ public class HighchartsJcrNodeReaderImplTest {
 
     private HighmapsParameters mapConfig;
     private Node mapConfigNode;
+
+    private VisualisationParameters visualisationConfig;
+
+    private Node visualisationConfigNode;
 
     private Node documentVariantNode;
 
@@ -65,6 +79,19 @@ public class HighchartsJcrNodeReaderImplTest {
         assertThat("Correct parameter values", parameters, samePropertyValuesAs(mapConfig));
     }
 
+    @Test
+    public void readVisualisationParameters() throws RepositoryException {
+        // given
+        initValidDocumentNodeStructure();
+
+        // when
+        AbstractVisualisationParameters parameters = highchartsJcrNodeReader.readParameters(visualisationConfigNode);
+
+        // then
+        assertThat("Correct parameter type returned", parameters, instanceOf(VisualisationParameters.class));
+        assertThat("Correct parameter values", parameters, samePropertyValuesAs(visualisationConfig));
+    }
+
     private void initValidDocumentNodeStructure() throws RepositoryException {
 
         // node structure:
@@ -93,6 +120,8 @@ public class HighchartsJcrNodeReaderImplTest {
         // chart section B parameters
         mapConfig = new HighmapsParameters(ChartType.AREA_MAP.name(), MapSource.BRITISH_ISLES_COUNTIES.name(), newRandomString(), mock(Binary.class));
 
+        visualisationConfig = new VisualisationParameters(ChartType.ICON.name(), newRandomString(), newRandomString(), mock(Binary.class), IconType.PERSON.getIconType());
+
         // nodes' creation
         chartConfigNode = addChartConfigNode(documentVariantNode, chartConfig, "[A]");
         documentVariantNode.addNode(
@@ -101,6 +130,7 @@ public class HighchartsJcrNodeReaderImplTest {
             "publicationsystem:bodySections", "publicationsystem:non-chart-section"
         );
         mapConfigNode = addMapConfigNode(documentVariantNode, mapConfig, "[B]");
+        visualisationConfigNode = addVisualisationConfigNode(documentVariantNode, visualisationConfig, "[C]");
     }
 
     private Node addChartConfigNode(final Node documentVariantNode,
@@ -142,6 +172,28 @@ public class HighchartsJcrNodeReaderImplTest {
         dataFileNode.setProperty("jcr:data", mapConfig.getInputFileContent());
 
         return chartConfigNode;
+    }
+
+    private Node addVisualisationConfigNode(final Node documentVariantNode,
+                                    final VisualisationParameters visualisationConfig,
+                                    final String nodeNameSuffix
+    ) throws RepositoryException {
+
+        final Node visualisationConfigNode = documentVariantNode.addNode(
+            "publicationsystem:bodySections" + nodeNameSuffix, "publicationsystem:Visualisation"
+        );
+
+        visualisationConfigNode.setProperty(PROPERTY_CHART_TITLE, visualisationConfig.getTitle());
+        visualisationConfigNode.setProperty(PROPERTY_CHART_TYPE, visualisationConfig.getChartType().getHighChartsType());
+        visualisationConfigNode.setProperty(PROPERTY_VISUALISATION_YTITLE, visualisationConfig.getYTitle());
+        visualisationConfigNode.setProperty(PROPERTY_TYPE_ICON, visualisationConfig.getIconType().toString());
+
+        final Node dataFileNode = visualisationConfigNode.addNode(
+            NODE_TYPE_DATA_FILE, "publicationsystem:resource"
+        );
+        dataFileNode.setProperty("jcr:data", visualisationConfig.getInputFileContent());
+
+        return visualisationConfigNode;
     }
 
     private String newRandomString() {
