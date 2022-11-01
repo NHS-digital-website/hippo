@@ -6,10 +6,10 @@ import static uk.nhs.digital.ps.chart.enums.ChartType.AREA_MAP;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
-import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
 import uk.nhs.digital.ps.chart.model.HighmapsModel;
 import uk.nhs.digital.ps.chart.model.Series;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
 
 import java.io.IOException;
 import java.util.Iterator;

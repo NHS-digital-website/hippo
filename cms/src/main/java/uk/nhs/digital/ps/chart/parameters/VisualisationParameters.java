@@ -10,15 +10,15 @@ public class VisualisationParameters extends AbstractVisualisationParameters {
 
     private IconType iconType;
 
-    public VisualisationParameters(final String type,
+    public VisualisationParameters(final String chartType,
                                    final String title,
                                    final String yTitle,
                                    final Binary inputFileContent,
                                    final String iconType) {
-        super(type, inputFileContent, title);
+        super(chartType, inputFileContent, title);
 
         this.yTitle = yTitle;
-        this.iconType = IconType.toIconType(type);
+        this.iconType = IconType.toIconType(iconType);
 
     }
 

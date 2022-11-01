@@ -13,15 +13,20 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.enums.ChartType;
-import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 import uk.nhs.digital.ps.chart.model.HighchartsModel;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import javax.jcr.RepositoryException;
 
 @SuppressWarnings("PMD.TooManyStaticImports")
@@ -66,7 +71,8 @@ public class SeriesHighchartsXlsxInputParser extends AbstractHighchartsXlsxInput
                 Optional<Double> cellValue = getDoubleValue(cell);
                 indexedSeries.computeIfAbsent(i, key -> new Series(""))
                     .add(cell != null && cell.getCellType() != CellType.BLANK
-                        ? new Point(category, cellValue.isPresent() ? cellValue.get() : null) : new Point(category, null));
+                        ? new Point(category, cellValue.isPresent() ? cellValue.get() : null) :
+                        new Point(category, null));
             }
         });
 
