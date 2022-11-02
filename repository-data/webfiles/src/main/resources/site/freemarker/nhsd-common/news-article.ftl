@@ -252,10 +252,12 @@
                 </#if>
 
 
-                <#assign rendername="Media enquiries" /><#if hasContactDetails && document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
-                <#assign renderemail="media@nhsdigital.nhs.net" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
-                <#assign renderphone="0300 30 33 888" /><#if hasContactDetails && document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
-                <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
+                <#assign rendername="" /><#if hasContactDetails && document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
+                <#assign renderemail="" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
+                <#assign renderphone="" /><#if hasContactDetails && document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
+                <#if document.mediacontact?has_content>
+                    <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
+                </#if>
 
                 <hr class="nhsd-a-horizontal-rule" />
 
