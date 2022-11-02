@@ -52,12 +52,12 @@ public class RssModifier extends RSS20Modifier {
     public void modifyHstQuery(final HstRequestContext context, final HstQuery query, final RSS20FeedDescriptor descriptor) {
         try {
             String strQuery = query.getQueryAsString(true);
-
             if (strQuery.contains("jcr:primaryType=\'publicationsystem:publication\'")) {
                 Filter filter = query.createFilter();
                 try {
                     filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
                     query.setFilter(filter);
+                    LOGGER.debug(query.toString());
                 } catch (final FilterException exception) {
                     exception.printStackTrace();
                 }
@@ -230,10 +230,16 @@ public class RssModifier extends RSS20Modifier {
 
                 String tempUrl1 = url.substring(0, url.indexOf(context.getBaseURL().getHostName()));
                 String finalUrl = tempUrl1 + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
-                for (Infographic test : publicationBean.getKeyFactInfographics()) {
-                    if (test.getIcon() != null) {
-                        foreignMarkup.add(getImageElement(finalUrl + test.getIcon().getCanonicalHandlePath()));
+
+                if (publicationBean.getKeyFactInfographics() != null) {
+                    LOGGER.warn("Test publicationBean.getKeyFactInfographics() == null on: " + publicationBean.getCanonicalPath() + " - " + publicationBean.getCanonicalUUID());
+                    for (Infographic test : publicationBean.getKeyFactInfographics()) {
+                        if (test.getIcon() != null) {
+                            foreignMarkup.add(getImageElement(finalUrl + test.getIcon().getCanonicalHandlePath()));
+                        }
                     }
+                } else {
+                    LOGGER.warn("publicationBean.getKeyFactInfographics() == null on: " + publicationBean.getCanonicalPath() + " - " + publicationBean.getCanonicalUUID());
                 }
 
                 Element source = getElement("source", "NHS Digital");
