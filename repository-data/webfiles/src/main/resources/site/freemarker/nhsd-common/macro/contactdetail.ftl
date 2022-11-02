@@ -3,7 +3,7 @@
 <#include "../../include/imports.ftl">
 
 <#macro contactdetail contactdetails='' idsuffix='' name='' email='' phone='' title="Contact details" schemaOrg="">
-  <#if contactdetails='' || (contactdetails?has_content && (contactdetails.emailaddress?has_content || contactdetails.phonenumber?has_content)) >
+  <#if contactdetails=='' || (contactdetails?has_content && (contactdetails.emailaddress?has_content || contactdetails.phonenumber?has_content)) >
 
     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" ${schemaOrg?has_content?then('itemscope itemtype="https://schema.org/'+schemaOrg+'"', '')?no_esc}>
       <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
