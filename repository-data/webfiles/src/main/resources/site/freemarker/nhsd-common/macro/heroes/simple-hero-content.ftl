@@ -30,25 +30,41 @@
                  data-uipath="document.summary">${options.summary}</div>
         </#if>
     </#if>
-    <#if document.ctabutton.items[0]?has_content && document.class.name?contains("FeedHub")>
-        <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0"
-             data-uipath="document.ctabutton">
+    <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0"
+         data-uipath="document.ctabutton">
+        <#if document.ctabutton.items[0]?has_content && document.class.name?contains("FeedHub")>
             <#assign ctaLink = document.ctabutton.items[0] />
             <#if ctaLink.linkType == "internal">
-                <a class="nhsd-a-button nhsd-a-button--invert nhsd-!t-margin-bottom-0"
+                <a class="nhsd-a-button nhsd-!t-margin-1 nhsd-a-button--invert"
                    href="<@hst.link hippobean=ctaLink.link/>">
                 <span
                     class="nhsd-a-button__label">${document.ctabutton.title}</span>
                 </a>
             <#elseif ctaLink.linkType == "external">
-                <a class="nhsd-a-button nhsd-a-button--invert nhsd-!t-margin-bottom-0"
+                <a class="nhsd-a-button nhsd-!t-margin-1 nhsd-a-button--invert"
                    href="${ctaLink.link}">
                 <span
                     class="nhsd-a-button__label">${document.ctabutton.title}</span>
                 </a>
             </#if>
-        </div>
-    </#if>
+        </#if>
+        <#if document.ctabutton1.items[0]?has_content && document.class.name?contains("FeedHub")>
+            <#assign ctaLink1 = document.ctabutton1.items[0] />
+            <#if ctaLink1.linkType == "internal">
+                <a class="nhsd-a-button nhsd-!t-margin-1 nhsd-a-button--invert"
+                   href="<@hst.link hippobean=ctaLink1.link/>">
+                <span
+                    class="nhsd-a-button__label">${document.ctabutton1.title}</span>
+                </a>
+            <#elseif ctaLink1.linkType == "external">
+                <a class="nhsd-a-button nhsd-!t-margin-1 nhsd-a-button--invert"
+                   href="${ctaLink1.link}">
+                <span
+                    class="nhsd-a-button__label">${document.ctabutton1.title}</span>
+                </a>
+            </#if>
+        </#if>
+    </div>
     <#nested />
 
     <#if options.buttons?has_content && options.buttons?size gt 0>
