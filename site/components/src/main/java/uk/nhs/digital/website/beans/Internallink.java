@@ -18,4 +18,8 @@ public class Internallink extends HippoCompound {
     public HippoBean getLink() {
         return getLinkedBean("website:link", HippoBean.class);
     }
+
+    public String getTitle() {
+        return getLink().getDisplayName();
+    }
 }

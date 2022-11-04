@@ -298,9 +298,14 @@ definitions:
           jcr:name: Policy
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:ctaButtonSimplified:
+        /en:
+          jcr:name: CTA Button (Simplified Version)
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
         /en:
-          jcr:name: CTA
+          jcr:name: CTA Button
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:customizedAssetSet:

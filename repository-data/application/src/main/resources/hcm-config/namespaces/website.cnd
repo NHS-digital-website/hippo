@@ -116,6 +116,9 @@
 [website:ctabutton] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:ctaButtonSimplified] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:customdatefield] > eforms:textfield
 
 [website:customizedAssetSet] > hippogallery:exampleAssetSet, hippogallery:relaxed

@@ -173,6 +173,50 @@
         }/>
     </#if>
 
+    <!-- Hero Buttons start -->
+    <#assign heroButtons = [] />
+
+    <#if document.primaryCtaButton.items?size gt 0>
+        <#if document.primaryCtaButton.items[0].linkType == "internal">
+            <@hst.link hippobean=document.primaryCtaButton.items[0].link var="link" />
+            <#assign heroButtons += [{
+                "src": "${link}",
+                "text": "${document.primaryCtaButton.items[0].title}"
+            }]/>
+        <#elseif document.primaryCtaButton.items[0].linkType == "external">
+            <#assign heroButtons += [{
+                "src": "${document.primaryCtaButton.items[0].link}",
+                "text": "${document.primaryCtaButton.items[0].title}",
+                "srText": "${document.primaryCtaButton.items[0].shortsummary}"
+            }]/>
+        </#if>
+    </#if>
+
+    <#if document.secondaryCtaButton.items?size gt 0>
+        <#if document.secondaryCtaButton.items[0].linkType == "internal">
+            <@hst.link hippobean=document.secondaryCtaButton.items[0].link var="link" />
+            <#assign heroButtons += [{
+                "classes": "nhsd-a-button--outline",
+                "src": "${link}",
+                "text": "${document.secondaryCtaButton.items[0].title}"
+            }]/>
+        <#elseif document.secondaryCtaButton.items[0].linkType == "external">
+            <#assign heroButtons += [{
+                "classes": "nhsd-a-button--outline",
+                "src": "${document.secondaryCtaButton.items[0].link}",
+                "text": "${document.secondaryCtaButton.items[0].title}",
+                "srText": "${document.secondaryCtaButton.items[0].shortsummary}"
+            }]/>
+        </#if>
+    </#if>
+
+    <#assign heroOptions += {
+        "buttons": heroButtons
+    }/>
+    <!-- Hero Buttons end -->
+
+
+
     <#assign heroType = "default" />
     <#if document.headertype?has_content && document.headertype == "Image header" && document.leadImage?has_content>
         <#assign heroType = "backgroundImage" />
