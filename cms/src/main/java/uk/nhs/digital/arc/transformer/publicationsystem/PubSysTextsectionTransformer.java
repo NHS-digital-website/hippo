@@ -1,6 +1,7 @@
 package uk.nhs.digital.arc.transformer.publicationsystem;
 
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemTextsection;
 import uk.nhs.digital.arc.storage.ArcStorageManager;
@@ -18,13 +19,15 @@ public class PubSysTextsectionTransformer extends AbstractSectionTransformer {
     }
 
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         ContentNode sectionNode = new ContentNode(PUBLICATIONSYSTEM_BODYSECTIONS, PUBLICATIONSYSTEM_TEXTSECTION);
-        sectionNode.setProperty(PUBLICATIONSYSTEM_HEADING, textSection.getHeading());
+        setSingleProp(sectionNode, PUBLICATIONSYSTEM_HEADING, textSection.getHeading());
 
-        ContentNode textContentNode = new ContentNode(PUBLICATIONSYSTEM_TEXT, HIPPOSTD_HTML);
-        textContentNode.setProperty(HIPPOSTD_CONTENT, textSection.getText());
-        sectionNode.addNode(textContentNode);
+        if (textSection.getText() != null) {
+            ContentNode textContentNode = new ContentNode(PUBLICATIONSYSTEM_TEXT, HIPPOSTD_HTML);
+            textContentNode.setProperty(HIPPOSTD_CONTENT, textSection.getText());
+            sectionNode.addNode(textContentNode);
+        }
 
         return sectionNode;
     }

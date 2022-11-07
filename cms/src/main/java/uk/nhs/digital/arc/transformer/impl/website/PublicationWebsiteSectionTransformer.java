@@ -1,6 +1,7 @@
 package uk.nhs.digital.arc.transformer.impl.website;
 
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.website.WebsiteSection;
 import uk.nhs.digital.arc.storage.ArcStorageManager;
@@ -30,11 +31,11 @@ public class PublicationWebsiteSectionTransformer extends AbstractSectionTransfo
     }
 
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         ContentNode sectionNode = new ContentNode(contentNodeName, WEBSITE_SECTION);
 
-        sectionNode.setProperty(WEBSITE_HEADINGLEVEL, section.getHeadingLevel());
-        sectionNode.setProperty(WEBSITE_TITLE, section.getTitle());
+        setSingleProp(sectionNode, WEBSITE_HEADINGLEVEL, section.getHeadingLevel());
+        setSingleProp(sectionNode, WEBSITE_TITLE, section.getTitle());
 
         if (section.getHtml() != null) {
             ContentNode htmlNode = new ContentNode(WEBSITE_HTML, HIPPOSTD_HTML);
