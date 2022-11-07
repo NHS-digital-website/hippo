@@ -42,7 +42,7 @@
 <#if apimethodValue??>
 <#assign colourClass = "colour-class-${apimethodValue?lower_case}" />
 </#if>
-Hello --->
+
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.requestname></@contentPixel>
 <div class="grid-row">
