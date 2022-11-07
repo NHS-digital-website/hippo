@@ -16,7 +16,14 @@
 
 <#include "./macro/metaTags.ftl">
 <@metaTags></@metaTags>
+<style>
+    table td,
+    table td * {
+        font-size:14px;
+        line-height:30px
+    }
 
+</style>
 <#assign hasApiEndpointContent = document.requestname?? && document.uriaddress?? && document.summary?? />
 <#assign hasAuthnAuthsContent = document.authnauths?? && document.authnauths.content?has_content />
 <#assign hasParameters = document.apiendpointparams?? && document.apiendpointparams?has_content />
@@ -35,7 +42,7 @@
 <#if apimethodValue??>
 <#assign colourClass = "colour-class-${apimethodValue?lower_case}" />
 </#if>
-
+Hello --->
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.requestname></@contentPixel>
 <div class="grid-row">
