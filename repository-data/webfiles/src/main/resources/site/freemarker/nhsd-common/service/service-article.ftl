@@ -86,51 +86,48 @@
             </#if>
 
             <div class="${(navStatus == "withNav" || navStatus == "withoutNav")?then("nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-1", "nhsd-t-col-12")}">
-
                 <#if document.priorityActions?has_content>
-                    <div class="nhsd-o-card-list">
-                        <div class="nhsd-t-grid nhsd-!t-no-gutters">
-                            <div class="nhsd-t-row nhsd-o-card-list__items ">
-                                <#list document.priorityActions as action>
-                                    <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-                                        <div class="nhsd-m-card">
-                                            <@hst.link hippobean=action.link.link var="priorityActionInternalLink"/>
-                                            <a <#if action.link.linkType == "internal">
-                                               href="${priorityActionInternalLink}"
-                                               onClick="${getOnClickMethodCall(document.class.name, priorityActionInternalLink)}"
-                                               <#else>
-                                               href="${action.link.link}"
-                                               onClick="${getOnClickMethodCall(document.class.name, action.link.link)}"
-                                               </#if>
-                                               onKeyUp="return vjsu.onKeyUp(event)"
-                                               class="nhsd-a-box-link"
-                                               aria-label="${action.action}"
-                                            >
-                                                <div class="nhsd-a-box nhsd-a-box--bg-dark-green">
-                                                    <div class="nhsd-m-card__content_container">
-                                                        <div class="nhsd-m-card__content-box">
-                                                            <p class="nhsd-t-heading-s">${action.action}</p>
+                    <div class="nhsd-t-grid nhsd-!t-no-gutters">
+                        <div class="nhsd-t-row">
+                            <#list document.priorityActions as action>
+                                <div class="nhsd-t-col-12 nhsd-!t-no-gutters nhsd-!t-margin-bottom-6">
+                                    <div class="nhsd-m-card">
+                                        <@hst.link hippobean=action.link.link var="priorityActionInternalLink"/>
+                                        <a <#if action.link.linkType == "internal">
+                                           href="${priorityActionInternalLink}"
+                                           onClick="${getOnClickMethodCall(document.class.name, priorityActionInternalLink)}"
+                                           <#else>
+                                           href="${action.link.link}"
+                                           onClick="${getOnClickMethodCall(document.class.name, action.link.link)}"
+                                           </#if>
+                                           onKeyUp="return vjsu.onKeyUp(event)"
+                                           class="nhsd-a-box-link"
+                                           aria-label="${action.action}"
+                                        >
+                                            <div class="nhsd-a-box nhsd-a-box--bg-dark-green">
+                                                <div class="nhsd-m-card__content_container">
+                                                    <div class="nhsd-m-card__content-box">
+                                                        <p class="nhsd-t-heading-s">${action.action}</p>
 
-                                                            <#if action.additionalInformation?has_content>
-                                                                <p class="nhsd-t-body-s">${action.additionalInformation}</p>
-                                                            </#if>
-                                                        </div>
-
-                                                        <div class="nhsd-m-card__button-box">
-                                                            <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                                                    <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-
+                                                        <#if action.additionalInformation?has_content>
+                                                            <p class="nhsd-t-body-s">${action.additionalInformation}</p>
+                                                        </#if>
                                                     </div>
+
+                                                    <div class="nhsd-m-card__button-box">
+                                                        <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                                <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+
                                                 </div>
-                                            </a>
-                                        </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                </#list>
-                            </div>
+                                </div>
+                            </#list>
                         </div>
                     </div>
                 </#if>
