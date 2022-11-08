@@ -289,6 +289,41 @@ definitions:
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
         /publications:
+          /Category:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Category/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
+          /Geographical Coverage:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Geographical Coverage/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
+          /Geographical Granularity:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Geographical Granularity/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
+          /Information Type:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Information Type/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
+          /Year:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Year/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
           /_any_:
             /_index_:
               hst:componentconfigurationid: hst:pages/404
@@ -330,7 +365,8 @@ definitions:
             hst:refId: publicationpages
             hst:relativecontentpath: publication-system/${1}
             jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationid: hst:pages/seriesfeedhub
+          hst:relativecontentpath: faceted-series-feed
           jcr:primaryType: hst:sitemapitem
         /supplementary-information:
           /_any_:

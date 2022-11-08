@@ -8,7 +8,7 @@
     <#assign breadcrumb = ciBreadcrumb/>
 </#if>
 
-<#assign filterNames = hstRequest.requestContext.resolvedSiteMapItem.hstComponentConfiguration.children["hst:pages/cyberalerthub/breadcrumb"].localParameters["filterValues"]?split(",")/>
+<#assign filterNames = hstRequest.requestContext.resolvedSiteMapItem.hstComponentConfiguration.children["hst:pages/cyberalerthub/breadcrumb, hst:pages/seriesfeedhub/breadcrumb"].localParameters["filterValues"]?split(",")/>
 
 <#if breadcrumb?? && breadcrumb.items?size gte 1>
 <div class="nhsd-t-grid nhsd-!t-padding-top-3 nhsd-!t-padding-bottom-3">
