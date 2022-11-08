@@ -1,5 +1,6 @@
 ---
 /content/documents/administration/resources/tableau-lables:
+  .meta:order-before: series-feed-hub-resource-bundle
   /tableau-lables[1]:
     hippo:availability: []
     hippostd:state: draft

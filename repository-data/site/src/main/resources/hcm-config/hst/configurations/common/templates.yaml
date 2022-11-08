@@ -329,6 +329,12 @@ definitions:
       /series:
         hst:renderpath: webfile:/freemarker/publicationsystem/series.ftl
         jcr:primaryType: hst:template
+      /series-feed-article:
+        hst:renderpath: webfile:/freemarker/nhsd-common/series-feed-article.ftl
+        jcr:primaryType: hst:template
+      /series-feed-hub:
+        hst:renderpath: webfile:/freemarker/nhsd-common/series-feed-hub.ftl
+        jcr:primaryType: hst:template
       /service-article:
         hst:renderpath: webfile:/freemarker/nhsd-common/service/service-article.ftl
         jcr:primaryType: hst:template

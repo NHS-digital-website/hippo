@@ -1,0 +1,31 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/seriesfeedhub:
+      /breadcrumb:
+        hst:parameternames:
+        - filterValues
+        hst:parametervalues:
+        - Year,Month,Publication Status,Category,Information Type,Geographical Coverage,Geographical
+          Granularity
+        hst:referencecomponent: hst:components/nhsd-breadcrumb-nofilternames
+        jcr:primaryType: hst:component
+      /main:
+        /filters:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsFacetsComponent
+          hst:suppresswastemessage: true
+          hst:template: nhsd-faceted-navigation
+          jcr:primaryType: hst:component
+        hst:componentclassname: uk.nhs.digital.common.components.SeriesFeedHubComponent
+        hst:parameternames:
+        - pageSize
+        - sortOrder
+        - sortField
+        hst:parametervalues:
+        - '10'
+        - asc
+        - hippostdpubwf:publicationDate
+        hst:template: series-feed-hub
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/nhsd-apppage
+      jcr:primaryType: hst:component
