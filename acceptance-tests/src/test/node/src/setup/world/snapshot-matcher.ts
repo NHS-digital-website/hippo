@@ -32,8 +32,11 @@ export default async function matchSnapshot(imageBuff: Buffer, referenceFile: st
         const compImg = PNG.sync.read(imageBuff);
         const diffImg = new PNG({width: refImg.width, height: refImg.height});
 
-        const result = pixelmatch(compImg.data, refImg.data, diffImg.data, refImg.width, refImg.height,{threshold: 0.15});
-        if (result > 0) {
+        const pxCount = refImg.width * refImg.height;
+        const pxThreshold = 0.001;
+
+        const result = pixelmatch(compImg.data, refImg.data, diffImg.data, refImg.width, refImg.height,{threshold: 0.2});
+        if (result > pxCount * pxThreshold) {
             const diffBuffer = PNG.sync.write(diffImg);
             this.attach(diffBuffer, 'image/png');
             return false;
