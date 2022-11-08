@@ -13,6 +13,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemChartSection;
 import uk.nhs.digital.arc.storage.ArcFileData;
 import uk.nhs.digital.arc.storage.S3StorageManager;
@@ -45,7 +46,7 @@ public class PubSysChartsectionTransformerTest {
     }
 
     @Test
-    public void processNodeWithNoS3DataFileProvided() {
+    public void processNodeWithNoS3DataFileProvided() throws ArcException {
         PublicationsystemChartSection section = getPublicationSystemChartSection(HTTP_FILELOCATION);
         PubSysChartsectionTransformer transformer = new PubSysChartsectionTransformer(session, section, DOCBASE, mockStorageManager);
 
@@ -62,7 +63,7 @@ public class PubSysChartsectionTransformerTest {
     }
 
     @Test
-    public void processNodeWithAS3DataFileProvided() {
+    public void processNodeWithAS3DataFileProvided() throws ArcException {
         PublicationsystemChartSection section = getPublicationSystemChartSection("s3://file/location");
         PubSysChartsectionTransformer transformer = new PubSysChartsectionTransformer(session, section, DOCBASE, mockStorageManager);
 

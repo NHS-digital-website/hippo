@@ -5,9 +5,9 @@
 
     "pages": [
         {
-            "document_type": "publicationsystem:publication",
-            "page_name": "content",
-            "page_ref": "file-exist.json"
+            "document_type": "publicationsystem:publicationpage",
+            "page_name": "publication",
+            "page_ref": "publication_no_urls.json"
         }
     ]
 }

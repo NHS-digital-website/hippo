@@ -3,15 +3,15 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ApiEndpoint" -->
 
 <#include "../include/imports.ftl">
-<#include "../common/macro/sections/codeSection.ftl">
-<#include "../common/macro/furtherInformationSection.ftl">
+<#include "../nhsd-common/macro/sections/codeSection.ftl">
+<#include "../nhsd-common/macro/furtherInformationSection.ftl">
 <#include "../publicationsystem/macro/structured-text.ftl">
-<#include "../common/macro/sections/sections.ftl">
-<#include "../common/macro/stickyNavSections.ftl">
-<#include "../common/macro/fileMetaAppendix.ftl">
-<#include "../common/macro/component/lastModified.ftl">
-<#include "../common/macro/fileIconByMimeType.ftl">
-<#include "../common/macro/contentPixel.ftl">
+<#include "../nhsd-common/macro/sections/sections.ftl">
+<#include "../nhsd-common/macro/stickyNavSections.ftl">
+<#include "../nhsd-common/macro/fileMetaAppendix.ftl">
+<#include "../nhsd-common/macro/component/lastModified.ftl">
+<#include "../nhsd-common/macro/fileIconByMimeType.ftl">
+<#include "../nhsd-common/macro/contentPixel.ftl">
 <#include "macro/heroes/hero.ftl">
 
 <#include "./macro/metaTags.ftl">

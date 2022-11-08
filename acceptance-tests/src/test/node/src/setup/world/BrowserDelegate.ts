@@ -68,12 +68,22 @@ export default class BrowserDelegate {
 
     async openUrl(url: string) {
         const page = await this.getPage();
-        return await page.goto(url, {waitUntil: 'networkidle'});
+        const res = await page.goto(url);
+        await page.waitForLoadState('networkidle');
+        return res;
     }
 
     async switchViewport(viewport: Viewport) {
         const page = await this.getPage();
         await page.setViewportSize(viewports[viewport]);
         this.viewport = viewport;
+    }
+
+    async timeout(timeout: number) {
+        await this.page.waitForTimeout(timeout);
+    }
+
+    async loadScript(url: string) {
+        await this.page.addScriptTag({ url })
     }
 }

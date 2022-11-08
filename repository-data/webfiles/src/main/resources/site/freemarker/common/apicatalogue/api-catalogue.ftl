@@ -7,6 +7,7 @@
 <#include "../macro/svgIcons.ftl">
 <#include "../../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../../nhsd-common/macro/heroes/hero.ftl">
+<#include "../../nhsd-common/macros/az-nav.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
@@ -30,40 +31,72 @@
             </#if>
         </div>
     </div>
-
     <#if alphabetical_hash??>
         <div class="nhsd-t-row">
+            <div class="nhsd-t-col-12 nhsd-!t-margin-bottom-5">
+                <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Search A-Z</h2>
+                <@azList alphabetical_hash "side-az-nav-heading"/>
+            </div>
+
             <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
-                <@scrollableFilterNav alphabetical_hash filtersModel false></@scrollableFilterNav>
+                <@scrollableFilterNav filtersModel false></@scrollableFilterNav>
             </div>
 
             <div class="nhsd-t-col-l-9 nhsd-t-col-m-12">
                 <div class="nhsd-!t-display-l-hide">
-                    <@scrollableFilterNav alphabetical_hash filtersModel true></@scrollableFilterNav>
+                    <@scrollableFilterNav filtersModel true></@scrollableFilterNav>
                 </div>
-                <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-3">
+                <div class="nhsd-t-row nhsd-!t-display-hide" id="catalogue-search-bar">
+                    <div class="nhsd-t-col-l-8 nhsd-!t-padding-left-0">
                         <div class="nhsd-t-float-left">
-                            <h6 class="nhsd-t-heading-xs">${apiCatalogueLinks?size} results</h6>
+                            <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Search</h6>
                         </div>
-                    </div>
-                    <div class="nhsd-t-col-8 nhsd-t-col-l-8">
-                        <div class="nhsd-t-float-right nhsd-!t-margin-top-1">
-                            <p class="nhsd-t-body-s">Include retired APIs</p>
+                        <div class=" nhsd-!t-padding-0 nhsd-!t-margin-bottom-2">
+                            <div class="nhsd-t-form-control">
+                                <input
+                                    class="nhsd-t-form-input"
+                                    type="text"
+                                    id="catalogue-search-bar-input"
+                                    name="query"
+                                    autocomplete="off"
+                                    placeholder="What are you looking for today?"
+                                    aria-label="Keywords"
+                                />
+                                <span class="nhsd-t-form-control__button">
+                                    <button  class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent nhsd-!t-display-hide"  type="submit" data-clear-button aria-label="Clear">
+                                        <span class="nhsd-a-icon nhsd-a-icon--size-s">
+                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16"><polygon points="13.9,1 8,6.9 2.1,1 1,2.1 6.9,8 1,13.9 2.1,15 8,9.1 13.9,15 15,13.9 9.1,8 15,2.1 "/></svg>
+                                        </span>
+                                    </button>
+                                </span>
+                                <script src="<@hst.webfile path="/apicatalogue/apicatalogue.js"/>"></script>
+                            </div>
                         </div>
-                    </div>
-                    <div class="nhsd-t-col-1 nhsd-t-col-l-1">
-                        <label class="nhsd-a-selector-toggle nhsd-a-selector-toggle--cancel" aria-label="Include retired APIs">
-                            <@hst.link var="baseUrl"/>
-                            <a href="<@renderUrl baseUrl=baseUrl showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api"]) />"
-                               class="nhsd-a-checkbox__label nhsd-t-body-s">
-                                <input type="checkbox"  <#if showRetired>checked</#if> />
-                                <span class="slider"></span>
-                            </a>
-
-                        </label>
                     </div>
                     <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs"/>
+                </div>
+                <div class="nhsd-t-row nhsd-!t-padding-top-1">
+                    <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0" id="search-results-count">${apiCatalogueLinks?size} results</h6>
+                </div>
+                <div class="nhsd-t-row">
+                    <div class="nhsd-t-col-4 nhsd-!t-padding-left-0">
+                        <label aria-label="Include retired APIs" class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
+                            <div class="nhsd-a-box nhsd-!t-padding-left-0">
+                                <span class="nhsd-m-selector-toggle-card__toggle">
+                                    <div class="nhsd-a-selector-toggle">
+                                    <@hst.link var="baseUrl"/>
+                                        <a href="<@renderUrl baseUrl=baseUrl showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api"]) />"
+                                           class="nhsd-a-checkbox__label nhsd-t-body-s">
+                                            <input type="checkbox"  <#if showRetired>checked</#if> />
+                                            <span class="slider"></span>
+                                        </a>
+                                    </div>
+                                </span>
+
+                                <p class="nhsd-t-body-s">Include retired APIs</p>
+                            </div>
+                        </label>
+                    </div>
                 </div>
 
                 <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>

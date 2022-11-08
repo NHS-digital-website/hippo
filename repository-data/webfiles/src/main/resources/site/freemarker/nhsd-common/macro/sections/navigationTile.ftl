@@ -13,17 +13,21 @@
     </#if>
 </#macro>
 
-<#macro navigationTile tile tileType="full" imageType="icon">
-
+<#macro navigationTile tile imageType="icon" options={}>
     <#assign hasLink = tile.link?? && tile.link?size gt 0 />
 
     <#if hasLink>
         <#local link = tile.link?first />
     </#if>
 
+    <#assign classes = "" />
+    <#if options.fullHeight?has_content && options.fullHeight>
+        <#assign classes += "nhsd-m-nav-block--full-height" />
+    </#if>
+
     <#assign blockColour = 'light-grey' />
 
-    <div class="nhsd-m-nav-block">
+    <div class="nhsd-m-nav-block ${classes}">
         <a class="nhsd-a-box-link" href="<@linkDestination link />" aria-label="${tile.title} - ${tile.actionDescription}">
             <div class="nhsd-a-box nhsd-a-box--bg-${blockColour} nhsd-!t-padding-6">
                 <div class="nhsd-m-nav-block__content-box">

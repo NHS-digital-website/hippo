@@ -69,7 +69,7 @@
                             </span>
                         </#if>
                         <#if cardProperties.title?has_content>
-                            <h2 class="nhsd-t-heading-s">${cardProperties.title}</h2>
+                            <h2 class="nhsd-t-heading-s" data-test-text="heading">${cardProperties.title}</h2>
                         </#if>
                          <#if cardProperties.shortsummary?has_content>
                        		<p class="nhsd-t-body-s">${cardProperties.shortsummary}</p>

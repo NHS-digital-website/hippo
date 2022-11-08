@@ -94,6 +94,7 @@ public abstract class PublicationBase extends BaseDocument {
         return parentBean;
     }
 
+
     public List<Dataset> getDatasets() throws HstComponentException {
         assertPropertyPermitted(PropertyKeys.DATASETS);
 
@@ -266,9 +267,15 @@ public abstract class PublicationBase extends BaseDocument {
                 || isCorrectAccessKey();
 
         if (!isPropertyPermitted) {
-            throw new DataRestrictionViolationException(
-                "Property is not available when publication is flagged as 'not publicly accessible': " + propertyKey
-            );
+            if (this.getPath() != null) {
+                throw new DataRestrictionViolationException(
+                    "Property in '" + this.getPath() + "' not available when publication is flagged as 'not publicly accessible': " + propertyKey
+                );
+            } else {
+                throw new DataRestrictionViolationException(
+                    "Property is not available when publication is flagged as 'not publicly accessible': " + propertyKey
+                );
+            }
         }
     }
 

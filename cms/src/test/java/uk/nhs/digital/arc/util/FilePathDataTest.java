@@ -42,6 +42,16 @@ public class FilePathDataTest {
 
 
     @Test
+    public void expectEmptyFilePathWhenNoFIlePathProvided() {
+        FilePathData fpu = new FilePathData("s3://folder/sub-folder", "s3://bucketname");
+        assertTrue(fpu.isS3Protocol());
+        assertEquals("", fpu.getFilePathNoBucket());
+        assertEquals("bucketname", fpu.getS3Bucketname());
+        assertEquals("", fpu.getFolderPathNoBucket());
+        assertEquals("s3://bucketname", fpu.getFilePath());
+    }
+
+    @Test
     public void expectAProperFilePathToBeConstructedWhenTheDocbaseIsNullButTheInputFilePathContainsAFullPath() {
         FilePathData fpu = new FilePathData(null, "s3://bucketname/folder/filename.dat");
         assertTrue(fpu.isS3Protocol());

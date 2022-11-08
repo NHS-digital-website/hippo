@@ -13,6 +13,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSetBean;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.repository.util.DateTools;
 import org.jdom2.Element;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -52,12 +53,19 @@ public class RssModifier extends RSS20Modifier {
     public void modifyHstQuery(final HstRequestContext context, final HstQuery query, final RSS20FeedDescriptor descriptor) {
         try {
             String strQuery = query.getQueryAsString(true);
-
             if (strQuery.contains("jcr:primaryType=\'publicationsystem:publication\'")) {
-                Filter filter = query.createFilter();
                 try {
-                    filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
-                    query.setFilter(filter);
+                    // Publicly Accessible Filter
+                    Filter publiclyAccessibleFilter = query.createFilter();
+                    publiclyAccessibleFilter.addEqualTo("publicationsystem:PubliclyAccessible", true);
+                    query.setFilter(publiclyAccessibleFilter);
+
+                    // Already Published Filter
+                    Filter publishedDateFilter = query.createFilter();
+                    publishedDateFilter.addLessOrEqualThan("publicationsystem:NominalDate", Calendar.getInstance(), DateTools.Resolution.DAY);
+                    query.setFilter(publishedDateFilter);
+
+                    LOGGER.debug(query.toString());
                 } catch (final FilterException exception) {
                     exception.printStackTrace();
                 }
@@ -230,9 +238,12 @@ public class RssModifier extends RSS20Modifier {
 
                 String tempUrl1 = url.substring(0, url.indexOf(context.getBaseURL().getHostName()));
                 String finalUrl = tempUrl1 + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
-                for (Infographic test : publicationBean.getKeyFactInfographics()) {
-                    if (test.getIcon() != null) {
-                        foreignMarkup.add(getImageElement(finalUrl + test.getIcon().getCanonicalHandlePath()));
+
+                if (publicationBean.getKeyFactInfographics() != null) {
+                    for (Infographic test : publicationBean.getKeyFactInfographics()) {
+                        if (test.getIcon() != null) {
+                            foreignMarkup.add(getImageElement(finalUrl + test.getIcon().getCanonicalHandlePath()));
+                        }
                     }
                 }
 

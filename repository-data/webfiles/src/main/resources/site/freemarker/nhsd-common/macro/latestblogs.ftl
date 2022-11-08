@@ -10,7 +10,7 @@
 <#macro latestblogs blogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs" centred=true>
  <#assign hasLatestBlogs = blogs?has_content && blogs?size &gt; 0 />
   <#if hasLatestBlogs>
-  <div class="nhsd-o-card-list nhsd-!t-margin-bottom-4" data-max-count="${itemsMaxCount}" data-state="short">
+  <div class="nhsd-!t-margin-bottom-4" data-max-count="${itemsMaxCount}" data-state="short">
     <div class="nhsd-t-grid nhsd-t-grid--nested">
         <#if title?has_content>
             <div class="nhsd-t-row">
@@ -20,14 +20,14 @@
             </div>
         </#if>
 
-        <div class="nhsd-t-row nhsd-o-card-list__items">
+        <div class="nhsd-t-row">
             <#list blogs as latest>
                 <#if latest?counter <= itemsMaxCount >
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 ${idsuffix}">
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 ${idsuffix} nhsd-!t-margin-bottom-6">
                 <#else>
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-display-hide ${idsuffix}">
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-!t-display-hide ${idsuffix} nhsd-!t-margin-bottom-6">
                 </#if>
-                    <div class="nhsd-m-card nhsd-!t-margin-top-1">
+                    <div class="nhsd-m-card nhsd-m-card--full-height nhsd-!t-margin-top-1">
                     <@hst.link hippobean=latest var="link"/>
                         <a href="${link}" class="nhsd-a-box-link" onClick="logGoogleAnalyticsEvent('Link click','${fromDoctype}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" aria-label="About NHS Digital - More about what we do" title="${latest.title}" >
                             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
@@ -93,10 +93,10 @@
         <#if (blogs?size &gt; 3) >
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <nav class="nhsd-m-button-nav">
+                    <nav class="nhsd-m-button-nav nhsd-t-flex--justify-content-centre">
                     <#if idsuffix?contains("news")>
-                        <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="newsfeed"/>" >
-                        <span class="nhsd-a-button__label">See all news</span>
+                        <a id="btn-view-all" onClick="toggleCards(${itemsMaxCountWithJS}, ${blogs?size}, '${idsuffix?js_string}'); return false;" class="nhsd-a-button" href="#">
+                            <span class="nhsd-a-button__label" id='${idsuffix?js_string}'>View more</span>
                     <#elseif idsuffix?contains("event") >
                         <#if (blogs?size >= itemsMaxCount) >
                         <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="eventsfeed"/>">
@@ -105,12 +105,8 @@
                         </#if>
                             <span class="nhsd-a-button__label">View all events</span>
                     <#else>
-                        <#if (blogs?size >= itemsMaxCount) >
-                        <a id="btn-view-all" class="nhsd-a-button" href="<@hst.link siteMapItemRefId="newshomepage"/>">
-                        <#else>
                         <a id="btn-view-all" onClick="toggleCards(${itemsMaxCountWithJS}, ${blogs?size}, '${idsuffix?js_string}'); return false;" class="nhsd-a-button" href="#">
-                        </#if>
-                            <span class="nhsd-a-button__label">View all</span>
+                            <span class="nhsd-a-button__label" id='${idsuffix?js_string}'>View more</span>
                     </#if>
                         </a>
                     </nav>
@@ -135,13 +131,17 @@
     }());
 
     function toggleCards(itemsMaxCountWithJS, numberOfCards, blogType) {
+
         var cards = document.getElementsByClassName(blogType);
+
         for (var i=0; i < cards.length; i++) {
             if (i >= itemsMaxCountWithJS && i < numberOfCards) {
                 if (cards.item(i).classList.contains('nhsd-!t-display-hide')) {
                 cards.item(i).classList.remove('nhsd-!t-display-hide');
+                    document.getElementById(blogType).innerHTML = "View less";
                 } else {
                     cards.item(i).classList.add('nhsd-!t-display-hide');
+                    document.getElementById(blogType).innerHTML = "View more";
                 }
             }
         }

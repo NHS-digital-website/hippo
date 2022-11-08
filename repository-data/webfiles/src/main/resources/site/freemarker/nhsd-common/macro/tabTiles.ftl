@@ -19,7 +19,7 @@
             <#assign summary = options.shortsummary />
         </#if>
 
-        <article class="nhsd-m-card nhsd-m-card--with-icon">
+        <article class="nhsd-m-card nhsd-m-card--full-height nhsd-m-card--with-icon">
             <#if options.linkType == "internal">
             <a href="<@hst.link hippobean=options.link />" class="nhsd-a-box-link" aria-label="${title}">
             <#elseif options.linkType == "external">

@@ -12,6 +12,9 @@
     <#if cardProps.authorsInfo?has_content && cardProps.authorsInfo?size gt 0>
         <#assign cardClass += " nhsd-m-card--author"/>
     </#if>
+    <#if cardProps.fullHeight?has_content && cardProps.fullHeight>
+        <#assign cardClass += " nhsd-m-card--full-height"/>
+    </#if>
 
     <#if cardProps.contentType?has_content>
         <#assign trackingEvent = 'onclick="logGoogleAnalyticsEvent(\'Link click\', \'${cardProps.contentType}\', \'${cardProps.link}\')" onkeyup="return vjsu.onKeyUp(event)"' />

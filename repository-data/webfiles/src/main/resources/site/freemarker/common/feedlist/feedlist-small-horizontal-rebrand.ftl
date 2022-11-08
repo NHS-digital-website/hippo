@@ -8,7 +8,7 @@
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.sr-only-link" var="srOnlyLinkText" />
 
-<div class="nhsd-o-card-list nhsd-!t-margin-bottom-9">
+<div class="nhsd-!t-margin-bottom-9">
     <div class="nhsd-t-grid">
         <#if titleText?has_content>
             <div class="nhsd-t-row">
@@ -19,18 +19,19 @@
         </#if>
 
         <#if pageable.items??>
-            <div class="nhsd-t-row nhsd-o-card-list__items nhsd-t-row--centred">
+            <div class="nhsd-t-row nhsd-t-row--centred">
                 <#list pageable.items as item>
                     <#assign imageData = getImageData(item) />
                     <@hst.link hippobean=item var="linkDestination"/>
-                    <div class="nhsd-t-col-xs-12 ${getGridCol(pageable.items?size)}">
+                    <div class="nhsd-t-col-xs-12 ${getGridCol(pageable.items?size)} nhsd-!t-margin-bottom-6">
                         <#assign itemProps = item />
                         <#assign itemProps += {
                             "image": imageData[0],
                             "altText": imageData[1],
                             "shortsummary": item.shortsummary,
                             "link": linkDestination,
-                            "background": "pale-grey"
+                            "background": "pale-grey",
+                            "fullHeight": true
                         }/>
                         <@cardItem itemProps />
                     </div>

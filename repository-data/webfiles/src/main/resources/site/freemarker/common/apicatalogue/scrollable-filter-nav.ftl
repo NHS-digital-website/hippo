@@ -1,21 +1,10 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include "../../nhsd-common/macros/az-nav.ftl">
 
-<#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 <#assign markdownDescription = "uk.nhs.digital.common.components.apicatalogue.FilterDescriptionDirective"?new() />
 
-<#macro scrollableFilterNav blockGroups filtersModel responsive>
+<#macro scrollableFilterNav filtersModel responsive>
     <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
-    <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5">
-    <#if responsive>
-        <h2 id="side-az-nav-heading-responsive" class="nhsd-t-heading-xs">Search A-Z</h2>
-        <@azList blockGroups "side-az-nav-heading-responsive"/>
-    <#else>
-        <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Search A-Z</h2>
-        <@azList blockGroups "side-az-nav-heading"/>
-    </#if>
-    </div>
     <#if filtersModel?? && !filtersModel.isEmpty()>
         <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
         <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">

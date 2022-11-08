@@ -116,6 +116,28 @@ public interface PooledS3Connector {
                             String mimeType);
 
     /**
+     * <p>
+     * Schedules an upload to S3 as a task to be executed as soon as one of the pooled threads becomes available.
+     * Blocks the calling thread until the upload is complete.
+     * </p><p>
+     * </p>
+     *
+     * @param inputStreamSupplier Provider of the input stream of the file being uploaded. Wrapping the stream in
+     *                            a supplier allows to access the stream as late as possible, that is when the task
+     *                            is actually being executed rather than at the point of it being scheduled.
+     *                            If the method of obtaining the stream declares a checked exception, a conveninence
+     *                            method {@linkplain PooledS3Connector#wrapCheckedException} can be used to avoid
+     *                            having to deal with try-catch boilerplate code.
+     * @param alternateBucketName Name of an alternate bucket name (Default is the one used for output and we don't want that)
+     * @param fileName            Name of the uploaded file.
+     * @param mimeType            Type of the uploaded file.
+     */
+    void uploadOutcome(Supplier<InputStream> inputStreamSupplier,
+                            String alternateBucketName,
+                            String alternateObjectPath,
+                            String mimeType);
+
+    /**
      * 'Syntactic sugar' method that takes a supplier throwing checked exception and wraps it in a
      * try-catch clause, rethrowing the original exception wrapped in {@linkplain RuntimeException},
      * thus preventing obscuring the calling code with a boilerplate try-catch-rethrow code at the

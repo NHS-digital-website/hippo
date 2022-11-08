@@ -2,6 +2,7 @@ package uk.nhs.digital.arc.transformer.impl.pagelevel;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.openMocks;
@@ -10,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.Dataset;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemResourceOrExternalLink;
 import uk.nhs.digital.arc.storage.ArcStorageManager;
@@ -39,7 +41,7 @@ public class DatasetTransformerTest {
     }
 
     @Test
-    public void createsContentNodeForABareBonesDataset() {
+    public void createsContentNodeForABareBonesDataset() throws ArcException {
         //* given
         DatasetTransformer transformer = buildASimpleDatasetTransformer(null, null);
 
@@ -54,8 +56,26 @@ public class DatasetTransformerTest {
         assertNull(node.getNode(AbstractTransformer.PUBLICATION_SYSTEM + "Files-v3"));
     }
 
+
     @Test
-    public void createsContentNodeForABareBonesDatasetWithLinks() {
+    public void failsToCreateContentNodeForABareBonesDatasetWhenRequiredDateInIncorrectFormat() {
+        //* given
+        DatasetTransformer transformer = buildASimpleDatasetTransformer(null, null);
+        ((Dataset)transformer.getDoctype()).setNominalDateReq("12 Oct 2028");
+
+        try {
+            //* when
+            ContentNode node = transformer.process();
+
+            //* then
+            fail();
+        } catch (ArcException e) {
+            assertEquals("The value for the property 'nominal_date_REQ' is either in an incorrect format or empty", e.getMessage());
+        }
+    }
+
+    @Test
+    public void createsContentNodeForABareBonesDatasetWithLinks() throws ArcException {
         //* given
         DatasetTransformer transformer = buildASimpleDatasetTransformer(listOfThings("resource"), null);
 
@@ -73,7 +93,7 @@ public class DatasetTransformerTest {
     }
 
     @Test
-    public void createsContentNodeForADatasetWithAttachmentsAndLinks() {
+    public void createsContentNodeForADatasetWithAttachmentsAndLinks() throws ArcException {
         //* given
         DatasetTransformer transformer = buildASimpleDatasetTransformer(listOfThings("resource"), listOfThings("file"));
         given(mockStorageManager.uploadFileToS3(any(), any())).willReturn(mockS3ObjectMetaData);

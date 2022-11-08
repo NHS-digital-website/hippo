@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../heroes/quote-hero-content.ftl">
+
 <#macro nhsdBanner options mirrored = false>
     <div class="nhsd-o-banner ${mirrored?then("nhsd-o-banner--mirrored", "")}">
         <#assign bgClass="">
@@ -31,9 +32,9 @@
                     <#else>
                         <p class="nhsd-t-body ${textClass}">${options.categoryInfo}</p>
                 </#if>
-                <span class="nhsd-t-heading-l ${textClass}">${options.title}</span>
+                <span class="nhsd-t-heading-l ${textClass}" data-test-text="heading">${options.title}</span>
                 <#if options.summary?has_content>
-                    <div class="nhsd-t-heading-s nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0 ${textClass}" data-uipath="${uiPath}.summary">
+                    <div class="nhsd-t-heading-s nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0 ${textClass}" data-uipath="${uiPath}.summary" data-test-text="summary">
                         <#if hst.isBeanType(content, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
                             <@hst.html hippohtml=options.summary contentRewriter=stripTagsContentRewriter />
                         <#else>
@@ -49,7 +50,7 @@
                             <#else >
                                 <#assign buttonClass="nhsd-a-button">
                             </#if>
-                            <a class="nhsd-a-button ${buttonClass}" href="${button.src}">
+                            <a class="nhsd-a-button ${buttonClass}" href="${button.src}" data-test-text="button">
                                 <span class="nhsd-a-button__label">${button.text}</span>
                                 <#if button.srText?has_content>
                                     <span class="nhsd-t-sr-only">${button.srText}</span>
@@ -63,8 +64,8 @@
 
         <div class="nhsd-o-banner__image-container">
             <#if options.video?has_content>
-                <div class="nhsd-o-banner__iframe-wrapper">
-                    <iframe class="nhsd-o-banner__iframe" src="${options.video}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                <div class="nhsd-t-ratio-4x3">
+                    <iframe src="${options.video}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen data-test-target="video"></iframe>
                 </div>
             <#else>
                 <figure class="nhsd-a-image nhsd-a-image--cover">
