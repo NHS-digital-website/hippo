@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.onehippo.forge.content.pojo.model.ContentNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.website.WebsiteEmphasis;
 import uk.nhs.digital.arc.storage.ArcStorageManager;
@@ -24,12 +25,12 @@ public class EmphasisTransformer extends AbstractSectionTransformer {
     }
 
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         //* Process section
         ContentNode sectionNode = new ContentNode("website:sections", "website:emphasisBox");
 
         sectionNode.setProperty("website:emphasisType", section.getEmphasisTypeReq());
-        sectionNode.setProperty("website:heading", section.getHeading());
+        setSingleProp(sectionNode, "website:heading", section.getHeading());
 
         setSingleNodeLevelProperty(sectionNode, "website:body", "hippostd:html", "hippostd:content", section.getBodyReq());
 
@@ -38,7 +39,7 @@ public class EmphasisTransformer extends AbstractSectionTransformer {
         return sectionNode;
     }
 
-    private void processImage(ContentNode currentSectionNode) {
+    private void processImage(ContentNode currentSectionNode) throws ArcException {
         if (!StringUtils.isEmpty(section.getImage())) {
             try {
                 Node iconNode = session.getNode(section.getImage());
@@ -52,7 +53,10 @@ public class EmphasisTransformer extends AbstractSectionTransformer {
                 iconContent.setProperty("hippo:facets", new String[]{});
                 iconContent.setProperty("hippo:modes", new String[]{"single"});
             } catch (RepositoryException e) {
-                LOGGER.error("Error adding nodes for an image section", e);
+                LOGGER.error("Error adding nodes for an image section in processImage");
+                throw new ArcException(e);
+            } catch (RuntimeException re) {
+                throw new ArcException(re.getMessage(), re);
             }
         }
     }

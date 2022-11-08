@@ -2,8 +2,7 @@ package uk.nhs.digital.arc.transformer.impl.website;
 
 import org.apache.commons.lang3.StringUtils;
 import org.onehippo.forge.content.pojo.model.ContentNode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.website.WebsiteInfographic;
 import uk.nhs.digital.arc.storage.ArcStorageManager;
@@ -14,9 +13,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 public class InfographicTransformer extends AbstractSectionTransformer {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(InfographicTransformer.class);
-
+    // private static final Logger LOGGER = LoggerFactory.getLogger(InfographicTransformer.class);
     private final WebsiteInfographic section;
 
     public InfographicTransformer(Session session, PublicationBodyItem section, String docbase, ArcStorageManager storageManager) {
@@ -25,11 +22,11 @@ public class InfographicTransformer extends AbstractSectionTransformer {
     }
 
     @Override
-    public ContentNode process() {
+    public ContentNode process()throws ArcException {
         return this.process(WEBSITE_SECTIONS);
     }
 
-    public ContentNode process(String nodeName) {
+    public ContentNode process(String nodeName) throws ArcException {
         //* Process section
         ContentNode sectionNode = new ContentNode(nodeName, WEBSITE_INFOGRAPHIC);
 
@@ -47,7 +44,7 @@ public class InfographicTransformer extends AbstractSectionTransformer {
         return sectionNode;
     }
 
-    private void processIcon(ContentNode currentSectionNode) {
+    private void processIcon(ContentNode currentSectionNode) throws ArcException {
         if (!StringUtils.isEmpty(section.getIcon())) {
             try {
                 Node iconNode = session.getNode(section.getIcon());
@@ -56,8 +53,11 @@ public class InfographicTransformer extends AbstractSectionTransformer {
                 iconContent.setProperty(HIPPO_VALUES, categories);
                 iconContent.setProperty(HIPPO_FACETS, new String[]{});
                 iconContent.setProperty(HIPPO_MODES, new String[]{"single"});
-            } catch (RepositoryException e) {
-                LOGGER.error("Error adding properties for an icon node", e);
+            } catch (RepositoryException repositoryException) {
+                throw new ArcException(String.format("Unable to find the image %s for the Infographic with the headline '%s'",
+                    section.getIcon(),
+                    section.getHeadlineReq()),
+                    repositoryException);
             }
         }
     }
