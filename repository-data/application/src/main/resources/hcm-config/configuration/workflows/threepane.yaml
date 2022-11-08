@@ -5,3 +5,7 @@ definitions:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.arc.plugin.ArcDocumentWorkflowPlugin
       wicket.id: ${item}
+    /hippo:configuration/hippo:workflows/default/handle/frontend:renderer/parse-report:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.arc.plugin.ArcParsingWorkflowPlugin
+      wicket.id: ${item}

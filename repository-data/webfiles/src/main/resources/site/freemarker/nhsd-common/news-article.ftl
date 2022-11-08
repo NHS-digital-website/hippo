@@ -155,9 +155,11 @@
                     <p class="nhsd-t-heading-xl">Related pages</p>
                     <div class="nhsd-t-grid nhsd-t-grid--nested nhsd-!t-margin-bottom-2">
                         <div class="nhsd-t-row">
-                            <div class="nhsd-t-col nhsd-!t-margin-bottom-4">
+                            <div class="nhsd-t-col">
                                 <#list document.relateddocuments as child>
-                                    <@downloadBlockInternal child.class.name child child.title child.shortsummary />
+                                    <div class="nhsd-!t-margin-bottom-4">
+                                        <@downloadBlockInternal child.class.name child child.title child.shortsummary />
+                                    </div>
                                 </#list>
                             </div>
                         </div>
@@ -254,6 +256,8 @@
                 <#assign renderemail="media@nhsdigital.nhs.net" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
                 <#assign renderphone="0300 30 33 888" /><#if hasContactDetails && document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
                 <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
+
+                <hr class="nhsd-a-horizontal-rule" />
 
                 <#if hasLatestNews>
                     <@latestblogs document.latestNews 'News' 'news-' + idsuffix 'Latest news' false />

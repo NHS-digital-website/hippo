@@ -174,6 +174,29 @@ public class BlockingPooledS3Connector implements PooledS3Connector {
     }
 
     /**
+     * See {@linkplain PooledS3Connector#upload}.
+     */
+    @Override
+    public void uploadOutcome(final Supplier<InputStream> inputStreamSupplier,
+                                   final String outcomeBucketName,
+                                   final String alternateObjectName,
+                                   final String mimeType) {
+        try {
+            waitFor(uploadExecutorService, () -> {
+                logger.reportUploadStarting(alternateObjectName);
+
+                final S3ObjectMetadata uploadedFileMetadata = s3Connector.uploadFileToSourceBucket(
+                    inputStreamSupplier.get(), outcomeBucketName, alternateObjectName, mimeType
+                );
+                return uploadedFileMetadata;
+            });
+        } catch (final RuntimeException re) {
+            logger.reportUploadFailed(alternateObjectName, re);
+            throw re;
+        }
+    }
+
+    /**
      * See {@linkplain PooledS3Connector#doesObjectExist(String, String)}
      */
     @Override

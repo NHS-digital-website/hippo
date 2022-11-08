@@ -13,6 +13,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSetBean;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.repository.util.DateTools;
 import org.jdom2.Element;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -53,10 +54,17 @@ public class RssModifier extends RSS20Modifier {
         try {
             String strQuery = query.getQueryAsString(true);
             if (strQuery.contains("jcr:primaryType=\'publicationsystem:publication\'")) {
-                Filter filter = query.createFilter();
                 try {
-                    filter.addEqualTo("publicationsystem:PubliclyAccessible", true);
-                    query.setFilter(filter);
+                    // Publicly Accessible Filter
+                    Filter publiclyAccessibleFilter = query.createFilter();
+                    publiclyAccessibleFilter.addEqualTo("publicationsystem:PubliclyAccessible", true);
+                    query.setFilter(publiclyAccessibleFilter);
+
+                    // Already Published Filter
+                    Filter publishedDateFilter = query.createFilter();
+                    publishedDateFilter.addLessOrEqualThan("publicationsystem:NominalDate", Calendar.getInstance(), DateTools.Resolution.DAY);
+                    query.setFilter(publishedDateFilter);
+
                     LOGGER.debug(query.toString());
                 } catch (final FilterException exception) {
                     exception.printStackTrace();
@@ -232,14 +240,11 @@ public class RssModifier extends RSS20Modifier {
                 String finalUrl = tempUrl1 + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
 
                 if (publicationBean.getKeyFactInfographics() != null) {
-                    LOGGER.warn("Test publicationBean.getKeyFactInfographics() == null on: " + publicationBean.getCanonicalPath() + " - " + publicationBean.getCanonicalUUID());
                     for (Infographic test : publicationBean.getKeyFactInfographics()) {
                         if (test.getIcon() != null) {
                             foreignMarkup.add(getImageElement(finalUrl + test.getIcon().getCanonicalHandlePath()));
                         }
                     }
-                } else {
-                    LOGGER.warn("publicationBean.getKeyFactInfographics() == null on: " + publicationBean.getCanonicalPath() + " - " + publicationBean.getCanonicalUUID());
                 }
 
                 Element source = getElement("source", "NHS Digital");

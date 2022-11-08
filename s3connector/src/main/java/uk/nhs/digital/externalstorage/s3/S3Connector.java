@@ -17,6 +17,8 @@ public interface S3Connector {
 
     S3ObjectMetadata uploadFile(InputStream fileStream, String objectPath, String contentType);
 
+    S3ObjectMetadata uploadFileToSourceBucket(InputStream fileStream, String alternateBucketname,
+                                              String objectPath, String contentType);
 
     /**
      * Determine whether an Object exists in a nominated bucket

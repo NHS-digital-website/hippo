@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.website.AbstractWebsiteItemlink;
 import uk.nhs.digital.arc.json.website.WebsiteExternalLink;
@@ -55,7 +56,7 @@ public class WebsiteIconListTransformerTest {
     }
 
     @Test
-    public void testInternalLinkCreatesApporopriateNodes() throws RepositoryException {
+    public void testInternalLinkCreatesApporopriateNodes() throws RepositoryException, ArcException {
         // given
         WebsiteIconListTransformer transformer = getWebsiteIconlistTransformer(true);
 
@@ -88,7 +89,7 @@ public class WebsiteIconListTransformerTest {
     }
 
     @Test
-    public void testExternalLinkCreatesApporopriateNodes() throws RepositoryException {
+    public void testExternalLinkCreatesApporopriateNodes() throws RepositoryException, ArcException {
         // given
         WebsiteIconListTransformer transformer = getWebsiteIconlistTransformer(false);
 

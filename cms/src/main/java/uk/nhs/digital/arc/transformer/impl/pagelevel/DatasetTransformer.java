@@ -1,7 +1,7 @@
 package uk.nhs.digital.arc.transformer.impl.pagelevel;
 
 import org.onehippo.forge.content.pojo.model.ContentNode;
-import org.onehippo.forge.content.pojo.model.ContentPropertyType;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.Dataset;
 import uk.nhs.digital.arc.json.publicationsystem.PublicationsystemResourceOrExternalLink;
 import uk.nhs.digital.arc.transformer.abs.AbstractPageLevelTransformer;
@@ -12,20 +12,20 @@ public class DatasetTransformer extends AbstractPageLevelTransformer {
     private Dataset dataset;
 
     @Override
-    public ContentNode process() {
+    public ContentNode process()  throws ArcException {
         dataset = (Dataset) doctype;
 
         ContentNode cn = new ContentNode(dataset.getTitleReq(), doctype.getDoctypeReq().toLowerCase());
 
         cn.setProperty(PUBLICATIONSYSTEM_TITLE_UC, dataset.getTitleReq());
         cn.setProperty(PUBLICATIONSYSTEM_SUMMARY, dataset.getSummaryReq());
-        cn.setProperty(PUBLICATIONSYSTEM_NOMINALDATE, ContentPropertyType.DATE, DateHelper.massageDate(dataset.getNominalDateReq()));
+        setSingleRequiredDateProp(cn, PUBLICATIONSYSTEM_NOMINALDATE, "nominal_date_REQ", DateHelper.massageDate(dataset.getNominalDateReq()));
 
         setMultipleProp(cn, PUBLICATIONSYSTEM_GEOGRAPHICCOVERAGE, dataset.getGeographicCoverage());
         setMultipleProp(cn, PUBLICATIONSYSTEM_GRANULARITY, dataset.getGranularity());
-        cn.setProperty(PUBLICATIONSYSTEM_NEXTPUBLICATIONDATE, ContentPropertyType.DATE, DateHelper.massageDate(dataset.getNextPublicationDate()));
-        cn.setProperty(PUBLICATIONSYSTEM_COVERAGESTART, ContentPropertyType.DATE, DateHelper.massageDate(dataset.getCoverageStart()));
-        cn.setProperty(PUBLICATIONSYSTEM_COVERAGEEND, ContentPropertyType.DATE, DateHelper.massageDate(dataset.getCoverageEnd()));
+        setSingleDateProp(cn, PUBLICATIONSYSTEM_NEXTPUBLICATIONDATE, DateHelper.massageDate(dataset.getNextPublicationDate()));
+        setSingleDateProp(cn, PUBLICATIONSYSTEM_COVERAGESTART, DateHelper.massageDate(dataset.getCoverageStart()));
+        setSingleDateProp(cn, PUBLICATIONSYSTEM_COVERAGEEND, DateHelper.massageDate(dataset.getCoverageEnd()));
 
         processAttachments(cn);
         processLinks(cn);

@@ -1,10 +1,13 @@
 package uk.nhs.digital.arc.process;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 public class ProcessOutcome {
     public static final boolean ERROR = true;
 
     private StringBuilder message = new StringBuilder();
     private boolean inError = false;
+    private String stackTrace = null;
 
     public ProcessOutcome(String messageString) {
         this.addErrorMessageLine(messageString);
@@ -20,8 +23,21 @@ public class ProcessOutcome {
         message.append(messageString);
     }
 
+    public String getStackTrace() {
+        return stackTrace;
+    }
+
+    public boolean hasStackTrace() {
+        return stackTrace != null;
+    }
+
     public void addErrorMessageLine(String messageString) {
         message.append(messageString);
+        inError = true;
+    }
+
+    public void addStackTrace(Exception exception) {
+        stackTrace = ExceptionUtils.getStackTrace(exception);
         inError = true;
     }
 

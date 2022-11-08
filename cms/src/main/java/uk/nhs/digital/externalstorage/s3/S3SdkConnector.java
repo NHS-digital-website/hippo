@@ -102,9 +102,17 @@ public class S3SdkConnector implements S3Connector {
     }
 
     @Override
+    public S3ObjectMetadata uploadFileToSourceBucket(InputStream fileStream, String sourceBucket, String alternateObjectPath, String contentType) {
+        return uploadFileToNamedBucket(fileStream, sourceBucket, alternateObjectPath, contentType);
+    }
+
+    @Override
     public S3ObjectMetadata uploadFile(InputStream fileStream, String fileName, String contentType) {
         String objectKey = s3ObjectKeyGenerator.generateObjectKey(fileName);
+        return uploadFileToNamedBucket(fileStream, bucketName, objectKey, contentType);
+    }
 
+    private S3ObjectMetadata uploadFileToNamedBucket(InputStream fileStream, String bucketName, String objectKey, String contentType) {
         reportAction("Uploading S3 resource {}", objectKey);
 
         ObjectMetadata metadata = new ObjectMetadata();

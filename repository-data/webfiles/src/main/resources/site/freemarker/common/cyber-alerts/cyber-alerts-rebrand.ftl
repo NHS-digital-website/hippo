@@ -7,7 +7,7 @@
 <@hst.setBundle basename="rb.doctype.data-security-homepage"/>
 <@fmt.message key="labels.alert-severity" var="alertsSeverityLabel" />
 
-<div class="nhsd-o-card-list nhsd-!t-margin-bottom-2">
+<div class="nhsd-!t-margin-bottom-2">
     <div class="nhsd-t-grid">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12">
@@ -15,13 +15,13 @@
             </div>
         </div>
         <#list cyberAlertList?chunk(3) as row>
-            <div class="nhsd-t-row nhsd-o-card-list__items nhsd-!t-margin-bottom-0">
+            <div class="nhsd-t-row nhsd-!t-margin-bottom-0">
                 <#list row as cyberAlert>
                     <@hst.link hippobean=cyberAlert var="itemLink" />
                     <@fmt.formatDate value=cyberAlert.publishedDate.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="publishedDate" />
                     <@fmt.formatDate value=cyberAlert.lastModified type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="lastModifiedDate" />
                     <div class="nhsd-t-col-xs-12 ${getGridCol(3)} nhsd-!t-padding-bottom-0 nhsd-!t-margin-bottom-4">
-                        <article class="nhsd-m-card">
+                        <article class="nhsd-m-card nhsd-m-card--full-height">
                             <a href="${itemLink}" class="nhsd-a-box-link nhsd-a-box-link--focus-orange">
                                 <div class="nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey">
                                     <div class="nhsd-m-card__content_container">

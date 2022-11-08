@@ -1,6 +1,7 @@
 package uk.nhs.digital.arc.transformer.impl.website;
 
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.website.WebsiteDynamicChartSection;
 import uk.nhs.digital.arc.storage.ArcStorageManager;
@@ -18,12 +19,12 @@ public class WebsiteDynamicChartSectionTransformer extends AbstractSectionTransf
     }
 
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         ContentNode sectionNode = new ContentNode(PUBLICATIONSYSTEM_BODYSECTIONS, PUBLICATIONSYSTEM_CHARTSECTION);
 
         sectionNode.setProperty(PUBLICATIONSYSTEM_TITLE, chartSection.getTitleReq());
-        sectionNode.setProperty(PUBLICATIONSYSTEM_TYPE, chartSection.getType());
-        sectionNode.setProperty(PUBLICATIONSYSTEM_YTITLE, chartSection.getYTitle());
+        setSingleProp(sectionNode, PUBLICATIONSYSTEM_TYPE, chartSection.getType());
+        setSingleProp(sectionNode, PUBLICATIONSYSTEM_YTITLE, chartSection.getYTitle());
 
         return sectionNode;
     }
