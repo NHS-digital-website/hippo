@@ -26,7 +26,7 @@ function getPageUrl(pageName: string) {
 }
 
 function getMacroTestPageUrl(macro: string) {
-    return "/automated-test-pages/macros?macro=" + macro;
+    return "/automated-test-pages/macros?macro=" + macro.replace(/ /, '-');
 }
 
 Given('I navigate to the {string} page', {timeout: 60000}, async function (this: CustomWorld, page: string) {
