@@ -28,7 +28,7 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
                 .getWorkspace()
                 .getQueryManager()
                 .createQuery("/jcr:root/content/documents/corporate-website/publication-system//*[@jcr:primaryType='publicationsystem:publication' "
-                    + " and (@publicationsystem:PubliclyAccessible='false') and (hippostd:state='published') ]", Query.XPATH)
+                    + " and (@publicationsystem:PubliclyAccessible='false') and (hippostd:stateSummary = 'live') ]", Query.XPATH)
                 .execute()
                 .getNodes();
             while (nodeItr.hasNext()) {
@@ -37,6 +37,7 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
                 if (isTodayDate(nominalDate)) {
                     LOGGER.debug(" Updating the Accessibility for  " + pubNode.getPath());
                     pubNode.setProperty("publicationsystem:PubliclyAccessible", true);
+                    pubNode.setProperty(PublicationSystemConstants.PROPERTY_EARLY_ACCESS_KEY, "");
                     session.save();
                 }
             }
