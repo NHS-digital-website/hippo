@@ -142,7 +142,7 @@ public class FeedListComponent extends EssentialsListComponent {
         this.buildAndApplyFilters(request, query);
 
         if (documentTypes.equals("website:event")) {
-            return componentHelper.executeQuery(request, paramInfo, query, page, pageSize,this);
+            return componentHelper.executeQuery(request, paramInfo, query, page, pageSize,this, true);
         } else {
             return super.executeQuery(request, paramInfo, query);
         }
