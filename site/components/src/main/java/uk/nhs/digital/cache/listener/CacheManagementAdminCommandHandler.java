@@ -3,6 +3,7 @@ package uk.nhs.digital.cache.listener;
 import uk.nhs.digital.admin.AdminCommand;
 import uk.nhs.digital.admin.AdminCommandEvenHandler;
 import uk.nhs.digital.cache.Cache;
+import uk.nhs.digital.cache.HeavyContentCache;
 
 /**
  * Purges cache upon receiving admin command {@code PURGE-HEAVY-CONTENT-CACHE}.
@@ -11,7 +12,7 @@ public class CacheManagementAdminCommandHandler implements AdminCommandEvenHandl
 
     public static final String COMMAND_KEYWORD = "PURGE-HEAVY-CONTENT-CACHE";
 
-    private final Cache<String, String> cache;
+    private final HeavyContentCache<String, String> cache;
 
     public CacheManagementAdminCommandHandler(final Cache<String, String> cache) {
         this.cache = cache;

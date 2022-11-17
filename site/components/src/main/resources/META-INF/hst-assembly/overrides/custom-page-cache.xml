@@ -64,6 +64,15 @@
         <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
     </bean>
 
+    <bean id="jedisPooled" class="redis.clients.jedis.JedisPooled">
+        <constructor-arg name="host" value="localhost"/>
+        <constructor-arg name="port" value="6379"/>
+    </bean>
+
+    <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
+        <constructor-arg name="jedisPooled" ref="jedisPooled"/>
+    </bean>
+
     <!--
     Registers listener that reacts to 'publish' events for documents of types given
     as constructors parameters, evicting corresponding entries from given cache.
