@@ -3,6 +3,8 @@ package uk.nhs.digital.cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.JedisPooled;
+import redis.clients.jedis.params.GetExParams;
+import uk.nhs.digital.common.util.DateUtils;
 
 import java.util.function.Supplier;
 
@@ -10,9 +12,11 @@ public class RedisCache implements HeavyContentCache<String, String> {
     private static final Logger log = LoggerFactory.getLogger(RedisCache.class);
     private String name = toString();
     private final JedisPooled jedisPooled;
+    private final String timeToIdle;
 
-    public RedisCache(JedisPooled jedisPooled) {
+    public RedisCache(JedisPooled jedisPooled, String timeToIdle) {
         this.jedisPooled = jedisPooled;
+        this.timeToIdle = timeToIdle;
     }
 
     @Override
@@ -22,15 +26,17 @@ public class RedisCache implements HeavyContentCache<String, String> {
             return valueFactory.get();
         }
 
+        long expiryDurationSeconds = DateUtils.durationFromIso(timeToIdle).getSeconds();
+
         log.debug("Cache '{}': loading value for key {} from cache.", name, key);
-        String value = jedisPooled.get(key); // returns null on no matching entry
+        String value = jedisPooled.getEx(key, GetExParams.getExParams().ex(expiryDurationSeconds)); // returns null on no matching entry
         log.debug("Cache '{}': value loaded for key {}.", name, key);
 
         if (value == null) {
             log.info("Cache '{}': no value found for key {}; generating new value.", name, key);
             value = valueFactory.get();
             log.debug("Cache '{}': storing new value for key {}.", name, key);
-            jedisPooled.set(key, value);
+            jedisPooled.setex(key, expiryDurationSeconds, value);
             log.info("Cache '{}': new value stored for key {}.", name, key);
 
         } else {

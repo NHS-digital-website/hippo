@@ -1,6 +1,5 @@
 package uk.nhs.digital.cache;
 
-import org.apache.commons.lang3.StringUtils;
 import org.ehcache.Cache;
 import org.ehcache.CacheManager;
 import org.ehcache.config.builders.CacheConfigurationBuilder;
@@ -11,9 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
+import uk.nhs.digital.common.util.DateUtils;
 
 import java.time.Duration;
-import java.util.Optional;
 
 public class DiskOnlyEhcacheFactoryBean implements FactoryBean<Cache<String, String>>, InitializingBean {
 
@@ -57,7 +56,7 @@ public class DiskOnlyEhcacheFactoryBean implements FactoryBean<Cache<String, Str
         log.info("- diskContentSurvivesJvmRestarts: {}", diskContentSurvivesJvmRestarts);
         log.info("- timeToIdle: {}", timeToIdle);
 
-        final Duration timeToIdleDuration = durationFromIso(timeToIdle);
+        final Duration timeToIdleDuration = DateUtils.durationFromIso(timeToIdle);
 
         cache = cacheManager.createCache(
             cacheName,
@@ -70,18 +69,5 @@ public class DiskOnlyEhcacheFactoryBean implements FactoryBean<Cache<String, Str
                 .withExpiry(ExpiryPolicyBuilder.timeToIdleExpiration(timeToIdleDuration))
                 .build()
         );
-    }
-
-    private Duration durationFromIso(final String durationIso) {
-
-        try {
-            return Duration.parse(Optional.ofNullable(durationIso)
-                .filter(StringUtils::isNotBlank)
-                .map(String::trim)
-                .orElse("not available"));
-
-        } catch (final Exception e) {
-            throw new IllegalArgumentException("Duration is not in a valid ISO-8601 format: " + durationIso, e);
-        }
     }
 }
