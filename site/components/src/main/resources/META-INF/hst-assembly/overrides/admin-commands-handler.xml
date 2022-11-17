@@ -32,7 +32,7 @@
                         </constructor-arg>
                     </bean>
                 </constructor-arg>
-                <constructor-arg name="adminCommandEvenHandlers">
+                <constructor-arg name="adminCommandEventHandlers">
                     <set>
                         <bean class="uk.nhs.digital.cache.listener.CacheManagementAdminCommandHandler">
                             <constructor-arg name="cache" ref="heavyContentCache"/>
