@@ -15,7 +15,7 @@ import java.util.function.Predicate;
 
 /**
  * <p>
- * Invokes supplied {@linkplain AdminCommandEvenHandler}s, listening on cluster-wide event bus.
+ * Invokes supplied {@linkplain AdminCommandEventHandler}s, listening on cluster-wide event bus.
  * <p>
  * If any handler fails with an exception (whether on checking if it supports current command
  * or when actually trying to handle it), the listener logs an error and invokes remaining
@@ -35,14 +35,14 @@ public class AdminCommandEventListener implements PersistedHippoEventListener {
     private final Predicate<HippoWorkflowEvent<?>> failed = event -> !event.success();
 
     private final AdminCommandProvider adminCommandProvider;
-    private final Set<AdminCommandEvenHandler> adminCommandEvenHandlers;
+    private final Set<AdminCommandEventHandler> adminCommandEventHandlers;
 
     public AdminCommandEventListener(
         final AdminCommandProvider adminCommandProvider,
-        final Set<AdminCommandEvenHandler> adminCommandEvenHandlers
+        final Set<AdminCommandEventHandler> adminCommandEventHandlers
     ) {
         this.adminCommandProvider = adminCommandProvider;
-        this.adminCommandEvenHandlers = adminCommandEvenHandlers;
+        this.adminCommandEventHandlers = adminCommandEventHandlers;
     }
 
     @Override public String getEventCategory() {
@@ -74,7 +74,7 @@ public class AdminCommandEventListener implements PersistedHippoEventListener {
         log.debug("Admin Command Interface document has been published: {} ({}).", documentPath, documentHandleUuid);
         log.info("Admin Command '{}' received, issued by user '{}'.", adminCommand, user);
 
-        adminCommandEvenHandlers.stream()
+        adminCommandEventHandlers.stream()
             .filter(handler -> safelyCheckIfSupports(handler, adminCommand))
             .forEach(handler -> safelyHandle(handler, adminCommand));
     }
@@ -84,7 +84,7 @@ public class AdminCommandEventListener implements PersistedHippoEventListener {
         return wrongDoctype.or(wrongPath).or(wrongAction).or(failed).test(workflowEvent);
     }
 
-    private boolean safelyCheckIfSupports(final AdminCommandEvenHandler handler, final AdminCommand command) {
+    private boolean safelyCheckIfSupports(final AdminCommandEventHandler handler, final AdminCommand command) {
         try {
             return handler.supports(command);
         } catch (final Exception e) {
@@ -94,7 +94,7 @@ public class AdminCommandEventListener implements PersistedHippoEventListener {
         return false;
     }
 
-    private void safelyHandle(final AdminCommandEvenHandler handler, final AdminCommand command) {
+    private void safelyHandle(final AdminCommandEventHandler handler, final AdminCommand command) {
         try {
             handler.execute(command);
         } catch (final Exception e) {
