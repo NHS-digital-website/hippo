@@ -2,7 +2,6 @@ package uk.nhs.digital.cache;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.BeanNameAware;
 
 import java.util.Set;
 import java.util.function.Supplier;
@@ -21,7 +20,7 @@ import java.util.stream.StreamSupport;
  * @param <K> Type of the key used in the cache.
  * @param <V> Type of the cached value associated with the key.
  */
-public class Cache<K, V> implements BeanNameAware {
+public class Cache<K, V> implements HeavyContentCache<K, V> {
 
     private static final Logger log = LoggerFactory.getLogger(Cache.class);
     public static final int PURGE_BATCH_SIZE = 100;
@@ -45,6 +44,7 @@ public class Cache<K, V> implements BeanNameAware {
      * @param valueFactory Produces actual value when it has not been found in the cache.
      * @return Actual value, whether retrieved from the cache or produced on the spot.
      */
+    @Override
     public V get(final K key, final Supplier<V> valueFactory) {
 
         if (ehchache == null) {
@@ -75,6 +75,7 @@ public class Cache<K, V> implements BeanNameAware {
      *
      * @param key Key identifying the entry to evict from cache.
      */
+    @Override
     public void remove(K key) {
         log.info("Cache '{}': evicting entry with key {}.", name, key);
         ehchache.remove(key);
@@ -84,6 +85,7 @@ public class Cache<K, V> implements BeanNameAware {
     /**
      * Removes all elements currently held in the cache.
      */
+    @Override
     public void purge() {
         log.info("Cache '{}': purging entire content.", name);
 
