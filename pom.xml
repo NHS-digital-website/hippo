@@ -1115,7 +1115,7 @@
                                 <properties>
                                     <cargo.jvmargs>
                                         -Xmx1024m
-                                        -Duser.timezone=Etc/UTC
+                                        -Duser.timezone=Europe/London
                                         -Dfile.encoding=UTF-8
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
