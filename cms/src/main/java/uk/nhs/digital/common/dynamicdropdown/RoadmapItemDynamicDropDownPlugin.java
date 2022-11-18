@@ -11,7 +11,6 @@ import org.onehippo.forge.selection.frontend.utils.SelectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -26,8 +25,7 @@ public class RoadmapItemDynamicDropDownPlugin extends DynamicDropdownPlugin {
     private static final Logger LOG = LoggerFactory.getLogger(RoadmapItemDynamicDropDownPlugin.class);
     private static final String NODE_TYPE_ROADMAP_CATEGORIES = "website:roadmapCategories";
     private static final String NODE_TYPE_ROADMAP_CATEGORIES_NAME = "website:categoryName";
-    private int count = 1;
-    
+
     public RoadmapItemDynamicDropDownPlugin(IPluginContext context, IPluginConfig config) {
         super(context, config);
 
@@ -46,7 +44,7 @@ public class RoadmapItemDynamicDropDownPlugin extends DynamicDropdownPlugin {
 
     private ValueList populateCategoryList() throws
         RepositoryException {
-        ArrayList<ListItem> dropDownListValues = new ValueList();
+        ValueList dropDownListValues = new ValueList();
         final HstRequestContext context = RequestContextProvider.get();
         QueryManager jcrQueryManager = context.getSession().getWorkspace().getQueryManager();
         Query jcrQuery = jcrQueryManager.createQuery(generateQuery(getDocumentHandleId().getParent().getPath(), getDocumentHandleId().getIdentifier()), "xpath");
@@ -60,12 +58,13 @@ public class RoadmapItemDynamicDropDownPlugin extends DynamicDropdownPlugin {
 
                 while (nodeIterator.hasNext()) {
                     Node parentNode = nodeIterator.nextNode();
-                    ListItem item1 = new ListItem(String.valueOf(count++), parentNode.getProperty(NODE_TYPE_ROADMAP_CATEGORIES_NAME).getValue().getString());
+                    String category = parentNode.getProperty(NODE_TYPE_ROADMAP_CATEGORIES_NAME).getValue().getString();
+                    ListItem item1 = new ListItem(category, category);
                     dropDownListValues.add(item1);
                 }
             }
         }
-        return (ValueList) dropDownListValues;
+        return dropDownListValues;
     }
 
     private String generateQuery(String contentPath, String documentId) {

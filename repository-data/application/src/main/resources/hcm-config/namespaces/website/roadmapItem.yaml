@@ -136,7 +136,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:dynamicdropdown
+            hipposysedit:path: website:categorylink
             hipposysedit:primary: false
             hipposysedit:type: CustomDynamicDropdown
             jcr:primaryType: hipposysedit:field
@@ -280,7 +280,6 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:roadmapitem
-          website:dynamicdropdown: ''
           website:shortsummary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
