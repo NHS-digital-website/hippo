@@ -132,8 +132,9 @@ public class RssModifier extends RSS20Modifier {
                     foreignMarkup.add(guid);
 
                     foreignMarkup.add(getElement("pubDate", dateFormat.format(lastUpdated)));
-
-                    foreignMarkup.add(getElement("link", hstLink.toUrlForm(context, true)));
+                    String blogLink = hstLink.toUrlForm(context, true);
+                    foreignMarkup.add(getElement("link", blogLink));
+                    LOGGER.debug("Blog Link is " + blogLink);
                     Element source = getElement("source", "NHS Digital");
                     source.setAttribute("url", "https://digital.nhs.uk");
                     foreignMarkup.add(source);
@@ -291,7 +292,7 @@ public class RssModifier extends RSS20Modifier {
 
     private void addImageProperties(String imageUrl, Element element) {
         String contentType = null;
-        URL url;
+        URL url = null;
         try {
             url = new URL(imageUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -304,6 +305,7 @@ public class RssModifier extends RSS20Modifier {
             }
             element.setAttribute("expression", "full");
         } catch (IOException e) {
+            LOGGER.debug("Image to be loaded " + url.getPath());
             LOGGER.error("Image can not read ", e);
         }
     }
