@@ -65,7 +65,7 @@ public class RssModifier extends RSS20Modifier {
                     publishedDateFilter.addLessOrEqualThan("publicationsystem:NominalDate", Calendar.getInstance(), DateTools.Resolution.DAY);
                     query.setFilter(publishedDateFilter);
 
-                    LOGGER.debug(query.toString());
+                    LOGGER.debug(" Query String is  " + query.toString());
                 } catch (final FilterException exception) {
                     exception.printStackTrace();
                 }
@@ -134,7 +134,7 @@ public class RssModifier extends RSS20Modifier {
                     foreignMarkup.add(getElement("pubDate", dateFormat.format(lastUpdated)));
                     String blogLink = hstLink.toUrlForm(context, true);
                     foreignMarkup.add(getElement("link", blogLink));
-                    LOGGER.debug("Blog Link is " + blogLink);
+                    LOGGER.error("Blog Link is " + blogLink);
                     Element source = getElement("source", "NHS Digital");
                     source.setAttribute("url", "https://digital.nhs.uk");
                     foreignMarkup.add(source);
@@ -305,7 +305,7 @@ public class RssModifier extends RSS20Modifier {
             }
             element.setAttribute("expression", "full");
         } catch (IOException e) {
-            LOGGER.debug("Image to be loaded " + url.getPath());
+            LOGGER.error("Image to be loaded " + url.getPath());
             LOGGER.error("Image can not read ", e);
         }
     }
