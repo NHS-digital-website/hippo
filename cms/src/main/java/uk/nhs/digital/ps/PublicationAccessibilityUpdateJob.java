@@ -38,6 +38,10 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
                     LOGGER.debug(" Updating the Accessibility for  " + pubNode.getPath());
                     pubNode.setProperty("publicationsystem:PubliclyAccessible", true);
                     pubNode.setProperty(PublicationSystemConstants.PROPERTY_EARLY_ACCESS_KEY, "");
+                    pubNode.setProperty("hippostdpubwf:lastModificationDate", Calendar.getInstance());
+                    pubNode.setProperty("hippostd:state", "published");
+                    pubNode.setProperty("hippostd:stateSummary", "live");
+
                     session.save();
                 }
             }
