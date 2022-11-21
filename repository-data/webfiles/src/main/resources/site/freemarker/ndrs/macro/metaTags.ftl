@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-
+<#global websiteName_GLOBALISED = "NDRS">
 <#macro metaTags contentTitle="" contentDescription="">
     <#assign siteTitle = "NDRS"/>
     <#assign pageTitle = 'Home - ' + siteTitle />

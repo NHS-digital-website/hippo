@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-
+<#global websiteName_GLOBALISED = "NHSD">
 <#macro metaTags contentTitle="" contentDescription="">
     <#assign siteTitle = "NHS Digital"/>
     <#assign pageTitle = 'Home - ' + siteTitle />
