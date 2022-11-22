@@ -34,8 +34,7 @@ public class DelegatingHighchartsInputParser implements HighchartsInputParser {
         return parser.parse(parameters);
     }
 
-    private SpecialisedHighchartsInputParser getChartParserFor(
-        final ChartType chartType) {
+    private SpecialisedHighchartsInputParser getChartParserFor(final ChartType chartType) {
         return chartParsers.stream()
             .filter(chartParser -> chartParser.supports(chartType))
             .findFirst()
