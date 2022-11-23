@@ -2,7 +2,6 @@ package uk.nhs.digital.ps.chart.input;
 
 import static uk.nhs.digital.ps.chart.enums.ChartType.ICON;
 
-import com.google.common.collect.Streams;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -15,11 +14,10 @@ import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.parameters.VisualisationParameters;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import javax.jcr.RepositoryException;
 
 public class IconChartXlsxInputParser extends AbstractHighchartsXlsxInputParser {
@@ -40,24 +38,24 @@ public class IconChartXlsxInputParser extends AbstractHighchartsXlsxInputParser 
         final XSSFSheet sheet = workbook.getSheetAt(0);
 
         Iterator<Row> rowIterator = sheet.rowIterator();
-        DataFormatter formatter = new DataFormatter();
 
         final List<String> allowList = IconXlsxAllowList.GetAllowedValuesList();
 
-        Iterable<Row> iterable = () -> rowIterator;
+        Map<String, String> xlsxValueMap = new HashMap<>();
 
-        Predicate<Row> containsAllowed = row -> allowList.contains(formatter.formatCellValue(row.getCell(0)).toUpperCase());
+        while(rowIterator.hasNext()){
+            Row currentRow = rowIterator.next();
+            if (currentRow == null){
+                continue;
+            }
+            if(allowList.contains(getFormatCellValue(currentRow, 0).toUpperCase())){
+                xlsxValueMap.put(getFormatCellValue(currentRow, 0), getFormatCellValue(currentRow, 1));
+            }
+        }
 
-        // if row(n).cell(0) value exists in allowlist
-        // then save Map<String, String> where
-        // key=row(n).cell(0) and value= key=row(n).cell(1)
-        Map<String, String> xlsxValueMap = Streams.stream(iterable)
-            .filter(row -> row.getCell(0) != null)
-            .filter(containsAllowed)
-            .collect(Collectors.toMap(
-                row -> formatter.formatCellValue(row.getCell(0)),
-                row -> formatter.formatCellValue(row.getCell(1))
-            ));
+        if(xlsxValueMap.size()!=allowList.size()){
+            throw new RuntimeException("Missing element or wrong name in file input.");
+        }
 
         String title = parameters.getTitle();
         ChartType chartType = parameters.getChartType();
@@ -65,5 +63,10 @@ public class IconChartXlsxInputParser extends AbstractHighchartsXlsxInputParser 
         String yTitle = parameters.getYTitle();
 
         return new IconVisualisationModel(chartType, iconType, title, yTitle, xlsxValueMap);
+    }
+
+    private String getFormatCellValue(Row currentRow, int cellnum) {
+        DataFormatter formatter = new DataFormatter();
+        return formatter.formatCellValue(currentRow.getCell(cellnum));
     }
 }
