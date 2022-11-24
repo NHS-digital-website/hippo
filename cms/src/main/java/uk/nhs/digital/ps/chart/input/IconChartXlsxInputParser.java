@@ -43,17 +43,17 @@ public class IconChartXlsxInputParser extends AbstractHighchartsXlsxInputParser 
 
         Map<String, String> xlsxValueMap = new HashMap<>();
 
-        while(rowIterator.hasNext()){
+        while (rowIterator.hasNext()) {
             Row currentRow = rowIterator.next();
-            if (currentRow == null){
+            if (currentRow == null) {
                 continue;
             }
-            if(allowList.contains(getFormatCellValue(currentRow, 0).toUpperCase())){
+            if (allowList.contains(getFormatCellValue(currentRow, 0).toUpperCase())) {
                 xlsxValueMap.put(getFormatCellValue(currentRow, 0), getFormatCellValue(currentRow, 1));
             }
         }
 
-        if(xlsxValueMap.size()!=allowList.size()){
+        if (xlsxValueMap.size() != allowList.size()) {
             throw new RuntimeException("Missing element or wrong name in file input.");
         }
 
