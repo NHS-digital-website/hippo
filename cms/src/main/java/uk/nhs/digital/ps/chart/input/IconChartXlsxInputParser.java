@@ -47,7 +47,7 @@ public class IconChartXlsxInputParser extends AbstractHighchartsXlsxInputParser 
 
         Iterator<Row> rowIterator = sheet.rowIterator();
 
-        final List<String> allowList = IconXlsxAllowList.GetAllowedValuesList();
+        final List<String> allowList = IconXlsxAllowList.getAllowedValuesList();
 
         Map<String, String> xlsxValueMap = new HashMap<>();
 
