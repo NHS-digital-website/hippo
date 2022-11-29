@@ -34,6 +34,7 @@ import javax.jcr.RepositoryException;
 public class IconChartXlsxInputParserTest {
 
 
+    private static final String EMPTY_STRING = "";
     private Binary binary;
     private String chartTitle;
     private String yAxisTitle;
@@ -49,7 +50,7 @@ public class IconChartXlsxInputParserTest {
         chartTitle = "a chart title";
         yAxisTitle = "a y chart title";
         iconType = IconType.SQUARE.getIconType();
-        allowList = IconXlsxAllowList.GetAllowedValuesList();
+        allowList = IconXlsxAllowList.getAllowedValuesList();
 
         iconChartXlsxInputParser = new IconChartXlsxInputParser();
 
@@ -66,7 +67,7 @@ public class IconChartXlsxInputParserTest {
         Iterable<Row> iterable = () -> testSheet.rowIterator();
         List<String> rowList = stream(iterable)
             .filter(Objects::nonNull)
-            .filter(row -> !Objects.equals(getFormatCellValue(row), ""))
+            .filter(row -> !Objects.equals(getFormatCellValue(row), EMPTY_STRING))
             .map(this::getFormatCellValue)
             .collect(Collectors.toList());
 
@@ -74,15 +75,14 @@ public class IconChartXlsxInputParserTest {
         IconVisualisationModel iconVisualisationModel = iconChartXlsxInputParser.parseXlsxChart(parameters);
 
         // then
+        assertEquals(rowList.size(), iconVisualisationModel.getXlxsValues().size());
         assertEquals(iconType, iconVisualisationModel.getIcon().getType());
         assertEquals(yAxisTitle, iconVisualisationModel.getyAxis().getTitle().getText());
         assertEquals(chartTitle, iconVisualisationModel.getTitle().getText());
-        assertEquals(rowList.size(), iconVisualisationModel.getXlxsValues().size());
         // all values parsed are allowed values
         for (String rowString : iconVisualisationModel.getXlxsValues().keySet()) {
             assertTrue(allowList.contains(rowString.toUpperCase()));
         }
-
     }
 
     private String getFormatCellValue(Row currentRow) {

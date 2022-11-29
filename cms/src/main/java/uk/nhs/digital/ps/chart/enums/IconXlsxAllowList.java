@@ -19,7 +19,7 @@ public enum IconXlsxAllowList {
         this.entryType = entryType;
     }
 
-    public static List<String> GetAllowedValuesList()
+    public static List<String> getAllowedValuesList()
     {
         return Arrays.stream(IconXlsxAllowList.values()).map(value -> value.entryType.toUpperCase()).collect(Collectors.toList());
     }
