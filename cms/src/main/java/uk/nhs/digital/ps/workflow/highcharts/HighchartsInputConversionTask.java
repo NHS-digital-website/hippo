@@ -2,6 +2,7 @@ package uk.nhs.digital.ps.workflow.highcharts;
 
 import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_CHART;
 import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_MAP;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_VISUALISATION;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_CONFIG;
 
 import org.onehippo.repository.documentworkflow.DocumentVariant;
@@ -40,6 +41,8 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
         processNodes(NODE_TYPE_CHART);
 
         processNodes(NODE_TYPE_MAP);
+
+        processNodes(NODE_TYPE_VISUALISATION);
 
         return null;
     }
