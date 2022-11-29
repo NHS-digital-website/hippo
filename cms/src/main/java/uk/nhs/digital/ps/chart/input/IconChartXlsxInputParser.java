@@ -6,6 +6,8 @@ import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.enums.IconType;
 import uk.nhs.digital.ps.chart.enums.IconXlsxAllowList;
@@ -22,20 +24,26 @@ import javax.jcr.RepositoryException;
 
 public class IconChartXlsxInputParser extends AbstractHighchartsXlsxInputParser {
 
+    private static final Logger LOG = LoggerFactory.getLogger(IconChartXlsxInputParser.class);
+
 
     public IconChartXlsxInputParser() {
         super(ICON);
     }
 
     @Override
-    protected IconVisualisationModel parseXlsxChart(final AbstractVisualisationParameters abstractParameters
-    ) throws IOException, RepositoryException {
+    protected IconVisualisationModel parseXlsxChart(final AbstractVisualisationParameters abstractParameters) {
 
         VisualisationParameters parameters = (VisualisationParameters) abstractParameters;
 
-        final XSSFWorkbook workbook = readXssfWorkbook(parameters.getInputFileContent());
+        final XSSFSheet sheet;
 
-        final XSSFSheet sheet = workbook.getSheetAt(0);
+        try (XSSFWorkbook workbook = readXssfWorkbook(parameters.getInputFileContent())) {
+            sheet = workbook.getSheetAt(0);
+        } catch (IOException | RepositoryException exception) {
+            LOG.error("Method readXssfWorkbook threw an exception while reading {}", parameters.getInputFileContent());
+            throw new RuntimeException("Could not read provided sheet for Icon Chart.");
+        }
 
         Iterator<Row> rowIterator = sheet.rowIterator();
 
@@ -54,6 +62,7 @@ public class IconChartXlsxInputParser extends AbstractHighchartsXlsxInputParser 
         }
 
         if (xlsxValueMap.size() != allowList.size()) {
+            LOG.warn("File has wrong structure or values.");
             throw new RuntimeException("Missing element or wrong name in file input.");
         }
 
