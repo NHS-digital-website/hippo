@@ -685,7 +685,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1672444800000
+      common:orderedSearchDate: 1609459200000
       common:searchRank: 4
       common:searchable: true
       common:seosummarytext: ''
@@ -710,13 +710,13 @@
       publicationsystem:InformationType:
       - National statistics
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2022-12-31T00:00:00Z
+      publicationsystem:NominalDate: 2021-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2021 - Upcoming Publication
       publicationsystem:Title: 2021 - Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: December
-      publicationsystem:year: '2022'
+      publicationsystem:year: '2021'
     /2021---upcoming[2]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
@@ -728,7 +728,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1672444800000
+      common:orderedSearchDate: 1609459200000
       common:searchRank: 4
       common:searchable: true
       common:seosummarytext: ''
@@ -752,13 +752,13 @@
       publicationsystem:InformationType:
       - National statistics
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2022-12-31T00:00:00Z
+      publicationsystem:NominalDate: 2021-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2021 - Upcoming Publication
       publicationsystem:Title: 2021 - Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: December
-      publicationsystem:year: '2022'
+      publicationsystem:year: '2021'
     /2021---upcoming[3]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
@@ -770,7 +770,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1672444800000
+      common:orderedSearchDate: 1609459200000
       common:searchRank: 4
       common:searchable: true
       common:seosummarytext: ''
@@ -796,13 +796,13 @@
       publicationsystem:InformationType:
       - National statistics
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2022-12-31T00:00:00Z
+      publicationsystem:NominalDate: 2021-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2021 - Upcoming Publication
       publicationsystem:Title: 2021 - Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: December
-      publicationsystem:year: '2022'
+      publicationsystem:year: '2021'
     hippo:name: 2021 - Upcoming
     hippo:versionHistory: 4c442f7a-2415-4c25-9012-95bbc30bb6f1
     jcr:mixinTypes:
@@ -822,7 +822,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1672531200000
+      common:orderedSearchDate: 1640995200000
       common:searchRank: 4
       common:searchable: true
       common:seosummarytext: ''
@@ -832,9 +832,146 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
-      hippostdpubwf:lastModificationDate: 2022-01-19T18:02:45.640Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:29:14.341Z
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
+      hippotranslation:id: 8fa35ad4-e900-44a7-b046-37628e50a8f4
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2022-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2022 - Upcoming Publication
+      publicationsystem:Title: 2022 - Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: January
+      publicationsystem:year: '2022'
+    /2022---upcoming[2]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:orderedSearchDate: 1640995200000
+      common:searchRank: 4
+      common:searchable: true
+      common:seosummarytext: ''
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:28:47.033Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8fa35ad4-e900-44a7-b046-37628e50a8f4
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2022-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2022 - Upcoming Publication
+      publicationsystem:Title: 2022 - Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: January
+      publicationsystem:year: '2022'
+    /2022---upcoming[3]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:orderedSearchDate: 1640995200000
+      common:searchRank: 4
+      common:searchable: true
+      common:seosummarytext: ''
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:29:14.341Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2023-01-03T19:29:16.943Z
+      hippotranslation:id: 8fa35ad4-e900-44a7-b046-37628e50a8f4
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2022-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2022 - Upcoming Publication
+      publicationsystem:Title: 2022 - Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: January
+      publicationsystem:year: '2022'
+    hippo:name: 2022 - Upcoming
+    hippo:versionHistory: 004a1050-c27e-4490-84b9-a2306c853516
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2023---upcoming:
+    /2023---upcoming[1]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:orderedSearchDate: 1672531200000
+      common:searchRank: 4
+      common:searchable: true
+      common:seosummarytext: ''
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:29:32.798Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8c0293ec-4ccb-4213-a8d4-c42906b44eeb
       hippotranslation:locale: en
       jcr:mixinTypes:
       - hippotaxonomy:classifiable
@@ -849,12 +986,12 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2023-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2022 - Upcoming Publication
-      publicationsystem:Title: 2022 - Upcoming
+      publicationsystem:Summary: 2023 - Upcoming Publication
+      publicationsystem:Title: 2023 - Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: January
       publicationsystem:year: '2023'
-    /2022---upcoming[2]:
+    /2023---upcoming[2]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
@@ -865,7 +1002,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1672531200000
+      common:orderedSearchDate: 1672531200000
       common:searchRank: 4
       common:searchable: true
       common:seosummarytext: ''
@@ -874,9 +1011,9 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
-      hippostdpubwf:lastModificationDate: 2022-01-19T18:02:27.247Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:29:22.454Z
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
+      hippotranslation:id: 8c0293ec-4ccb-4213-a8d4-c42906b44eeb
       hippotranslation:locale: en
       jcr:mixinTypes:
       - hippotaxonomy:classifiable
@@ -891,12 +1028,12 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2023-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2022 - Upcoming Publication
-      publicationsystem:Title: 2022 - Upcoming
+      publicationsystem:Summary: 2023 - Upcoming Publication
+      publicationsystem:Title: 2023 - Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: January
       publicationsystem:year: '2023'
-    /2022---upcoming[3]:
+    /2023---upcoming[3]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
@@ -907,19 +1044,20 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1672531200000
+      common:orderedSearchDate: 1672531200000
       common:searchRank: 4
       common:searchable: true
       common:seosummarytext: ''
-      hippo:availability: []
+      hippo:availability:
+      - live
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
-      hippostdpubwf:lastModificationDate: 2022-01-19T18:02:45.640Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:29:32.798Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-01-20T10:27:38.291Z
-      hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
+      hippostdpubwf:publicationDate: 2023-01-03T19:29:37.390Z
+      hippotranslation:id: 8c0293ec-4ccb-4213-a8d4-c42906b44eeb
       hippotranslation:locale: en
       jcr:mixinTypes:
       - hippotaxonomy:classifiable
@@ -934,13 +1072,150 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2023-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2022 - Upcoming Publication
-      publicationsystem:Title: 2022 - Upcoming
+      publicationsystem:Summary: 2023 - Upcoming Publication
+      publicationsystem:Title: 2023 - Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: January
       publicationsystem:year: '2023'
-    hippo:name: 2022 - Upcoming
-    hippo:versionHistory: 45e23a9a-7a59-40e5-809e-811eed1e14bc
+    hippo:name: 2023 - Upcoming
+    hippo:versionHistory: 561dbc59-9118-48a5-8802-c12a44fc1e79
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2024---upcoming:
+    /2024---upcoming[1]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:orderedSearchDate: -1704067200000
+      common:searchRank: 4
+      common:searchable: true
+      common:seosummarytext: ''
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:29:51.282Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7b12c134-42b5-46d2-a856-568bba8f3073
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2024-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2024 - Upcoming Publication
+      publicationsystem:Title: 2024 - Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: January
+      publicationsystem:year: '2024'
+    /2024---upcoming[2]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:orderedSearchDate: -1704067200000
+      common:searchRank: 4
+      common:searchable: true
+      common:seosummarytext: ''
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:29:41.019Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7b12c134-42b5-46d2-a856-568bba8f3073
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2024-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2024 - Upcoming Publication
+      publicationsystem:Title: 2024 - Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: January
+      publicationsystem:year: '2024'
+    /2024---upcoming[3]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:orderedSearchDate: -1704067200000
+      common:searchRank: 4
+      common:searchable: true
+      common:seosummarytext: ''
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2023-01-03T19:29:51.282Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2023-01-03T19:29:53.783Z
+      hippotranslation:id: 7b12c134-42b5-46d2-a856-568bba8f3073
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2024-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2024 - Upcoming Publication
+      publicationsystem:Title: 2024 - Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: January
+      publicationsystem:year: '2024'
+    hippo:name: 2024 - Upcoming
+    hippo:versionHistory: 1e764979-af6b-4158-82c3-75c0cc7b15ab
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo
