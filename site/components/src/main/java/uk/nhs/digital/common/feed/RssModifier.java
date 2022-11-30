@@ -134,7 +134,6 @@ public class RssModifier extends RSS20Modifier {
                     foreignMarkup.add(getElement("pubDate", dateFormat.format(lastUpdated)));
                     String blogLink = hstLink.toUrlForm(context, true);
                     foreignMarkup.add(getElement("link", blogLink));
-                    LOGGER.error("Blog Link is " + blogLink);
                     Element source = getElement("source", "NHS Digital");
                     source.setAttribute("url", "https://digital.nhs.uk");
                     foreignMarkup.add(source);
@@ -306,7 +305,7 @@ public class RssModifier extends RSS20Modifier {
             element.setAttribute("expression", "full");
         } catch (IOException e) {
             LOGGER.error("Image to be loaded " + url.getPath());
-            LOGGER.error("Image can not read ", e);
+            LOGGER.error("Image can not read {}", e.getMessage());
         }
     }
 
