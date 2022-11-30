@@ -21,7 +21,7 @@ definitions:
                 hst:ismapped: false
                 hst:namedpipeline: JaxrsRestPlainPipeline
                 hst:responseheaders:
-                - 'Access-Control-Allow-Origin: https://cms-tst.nhsd.io'
+                - 'Access-Control-Allow-Origin: https://tst.nhsd.io'
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
