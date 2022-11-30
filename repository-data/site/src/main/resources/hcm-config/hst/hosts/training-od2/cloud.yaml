@@ -1,14 +1,19 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:hosts/training:
-      /io:
-        /nhsd:
+    /hst:hst/hst:hosts/training-od2/cloud:
+      .meta:residual-child-node-category: content
+      /bloomreach:
+        .meta:residual-child-node-category: content
+        /nhsdigital:
+          .meta:residual-child-node-category: content
           /training:
+            .meta:residual-child-node-category: content
             /content:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:virtualhost
             /hst:root:
+              .meta:residual-child-node-category: content
               /gdpr:
                 .meta:residual-child-node-category: content
                 hst:ismapped: false
@@ -17,11 +22,12 @@ definitions:
                 - rest
                 jcr:primaryType: hst:mount
               /restapi:
+                .meta:residual-child-node-category: content
                 hst:alias: restapi
                 hst:ismapped: false
                 hst:namedpipeline: JaxrsRestPlainPipeline
                 hst:responseheaders:
-                - 'Access-Control-Allow-Origin: https://training.nhsd.io'
+                - 'Access-Control-Allow-Origin: https://training.nhsdigital.bloomreach.cloud'
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
@@ -41,6 +47,7 @@ definitions:
               jcr:primaryType: hst:mount
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
-        hst:cdnhost: //nhs-training.global.ssl.fastly.net
         jcr:primaryType: hst:virtualhost
-      jcr:primaryType: hst:virtualhostgroup
+      hst:scheme: https
+      hst:showcontextpath: true
+      jcr:primaryType: hst:virtualhost
