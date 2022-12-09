@@ -84,7 +84,13 @@
                 {{/example}}
                 {{/_enum}}
 
-                {{#required}}<div class="nhsd-!t-col-red">Required</div>{{/required}}
+                {{^response}}
+                    {{#required}}
+                        <div class="nhsd-!t-col-red">Required</div>
+                    {{else}}
+                        <div class="nhsd-!t-col-red">Optional</div>
+                    {{/required}}
+                {{/response}}
             </td>
         </tr>
         {{/this}}
