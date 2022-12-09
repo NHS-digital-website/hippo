@@ -83,6 +83,7 @@
                                 <h5 class="nhsd-t-heading-s">Body</h5>
                                 {{#bodyParams}}
                                     {{#required}}<div class="nhsd-!t-col-red">Required</div>{{/required}}
+                                    {{^required}}<div class="nhsd-!t-col-red">Optional</div>{{/required}}
 
                                     {{#vendorExtensions.x-body}}
                                         {{>body_param}}
