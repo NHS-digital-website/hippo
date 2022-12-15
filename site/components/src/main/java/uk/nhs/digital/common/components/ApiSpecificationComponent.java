@@ -13,6 +13,7 @@ public class ApiSpecificationComponent extends ContentRewriterComponent {
 
         Optional.ofNullable(request.getRequestContext().getContentBean())
             .ifPresent(document -> {
+                //ApiSpecification a = (ApiSpecification) document;
                 request.setAttribute("document", document);
                 request.setAttribute("path", request.getPathInfo());
             });

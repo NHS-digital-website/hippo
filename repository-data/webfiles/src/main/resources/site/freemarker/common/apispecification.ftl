@@ -27,7 +27,7 @@
             <@hero getExtendedHeroOptions(document) />
             <div class="nhsd-t-grid nhsd-!t-margin-top-6">
                 <div class="nhsd-t-row">
-                    <@renderHtml specificationJson=document.json path=path documentHandleUuid=document.getCanonicalHandleUUID()/>
+                    <@renderHtml document=document specificationJson=document.json path=path documentHandleUuid=document.getCanonicalHandleUUID()/>
                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
                     </div>
                     <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">

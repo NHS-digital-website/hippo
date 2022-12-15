@@ -125,7 +125,7 @@
         <devzone.apispec.sync.proxygen.daily-cron-expression></devzone.apispec.sync.proxygen.daily-cron-expression>
         <devzone.apispec.sync.nightly-cron-expression></devzone.apispec.sync.nightly-cron-expression>
         <!-- Custom on-disk page caching properties -->
-        <siteCache.cacheManager.diskStorePath></siteCache.cacheManager.diskStorePath>
+        <siteCache.cacheManager.diskStorePath>/home/lee-richardson/accounts/nhs/account/hippo/redisData/eh</siteCache.cacheManager.diskStorePath>
         <siteCache.heavyContentPageCache.maxMegabytesLocalDisk></siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
         <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts></siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
         <siteCache.heavyContentPageCache.timeToIdle></siteCache.heavyContentPageCache.timeToIdle>
