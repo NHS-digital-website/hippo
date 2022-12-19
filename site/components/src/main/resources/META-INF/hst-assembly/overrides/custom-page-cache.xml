@@ -72,7 +72,7 @@
 
     <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
         <constructor-arg name="jedisPool" ref="jedisPool"/>
-        <constructor-arg name="timeToIdle" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
+        <constructor-arg name="expiryDuration" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
     </bean>
 
     <!--
