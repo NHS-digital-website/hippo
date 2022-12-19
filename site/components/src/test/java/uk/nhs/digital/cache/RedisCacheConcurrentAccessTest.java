@@ -1,5 +1,11 @@
 package uk.nhs.digital.cache;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertTrue;
+import static uk.nhs.digital.cache.CacheConcurrentAccessTest.RoundRobinIterableValueSupplier.valuesFrom;
+import static uk.nhs.digital.test.util.TestFileUtils.deleteFileOrDirectoryRecursivelyQuietly;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -18,12 +24,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertTrue;
-import static uk.nhs.digital.cache.CacheConcurrentAccessTest.RoundRobinIterableValueSupplier.valuesFrom;
-import static uk.nhs.digital.test.util.TestFileUtils.deleteFileOrDirectoryRecursivelyQuietly;
 
 public class RedisCacheConcurrentAccessTest {
 
