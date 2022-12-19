@@ -64,13 +64,14 @@
         <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
     </bean>
 
-    <bean id="jedisPooled" class="redis.clients.jedis.JedisPooled">
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
         <constructor-arg name="host" value="localhost"/>
         <constructor-arg name="port" value="6379"/>
     </bean>
 
     <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
-        <constructor-arg name="jedisPooled" ref="jedisPooled"/>
+        <constructor-arg name="jedisPool" ref="jedisPool"/>
         <constructor-arg name="timeToIdle" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
     </bean>
 
@@ -84,7 +85,7 @@
     <bean class="uk.nhs.digital.cache.listener.PersistedHippoEventListenerRegisteringComponent">
         <constructor-arg name="listener">
             <bean class="uk.nhs.digital.cache.listener.CacheEvictingListener">
-                <constructor-arg name="cache" ref="heavyContentCache"/>
+                <constructor-arg name="cache" ref="heavyContentCacheRedis"/>
                 <constructor-arg name="eligibleDoctypes">
                     <set>
                         <value>website:apispecification</value>
