@@ -26,6 +26,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.cache.Cache;
+import uk.nhs.digital.cache.HeavyContentCache;
 import uk.nhs.digital.test.TestLoggerRule;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
@@ -44,7 +45,7 @@ public class ApiSpecificationRendererDirectiveTest extends MockitoSessionTestBas
 
     @Mock private Writer writer;
     @Mock private OpenApiSpecificationJsonToHtmlConverter converter;
-    @Mock private Cache<String, String> cache;
+    @Mock private HeavyContentCache<String, String> cache;
 
     private final String inputSpecificationJson = "{\"irrelevant\":\"payload\"}";
     private final String expectedRenderedContent = "<html><body>rendered specification</body></html>";

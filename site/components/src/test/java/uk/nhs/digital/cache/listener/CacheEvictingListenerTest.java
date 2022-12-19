@@ -1,35 +1,34 @@
 package uk.nhs.digital.cache.listener;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.BDDMockito.then;
-import static uk.nhs.digital.test.TestLogger.LogAssertor.info;
-import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
-
 import com.google.common.collect.ImmutableSet;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.event.HippoEventConstants;
-import uk.nhs.digital.cache.Cache;
-import uk.nhs.digital.cache.listener.CacheEvictingListener;
+import uk.nhs.digital.cache.HeavyContentCache;
 import uk.nhs.digital.test.TestLoggerRule;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 import java.util.Set;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.BDDMockito.then;
+import static uk.nhs.digital.test.TestLogger.LogAssertor.info;
+import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
 
 @RunWith(DataProviderRunner.class)
 public class CacheEvictingListenerTest extends MockitoSessionTestBase {
 
     @Rule public TestLoggerRule logger = TestLoggerRule.targeting(CacheEvictingListener.class);
 
-    @Mock Cache<String, String> cache;
+    @Mock
+    HeavyContentCache<String, String> cache;
 
     private Set<String> eligibleDoctypes = ImmutableSet.of("supported:doctype");
 
