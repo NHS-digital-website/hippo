@@ -1,5 +1,11 @@
 package uk.nhs.digital.cache.listener;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.BDDMockito.then;
+import static uk.nhs.digital.test.TestLogger.LogAssertor.info;
+import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
+
 import com.google.common.collect.ImmutableSet;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
@@ -15,12 +21,6 @@ import uk.nhs.digital.test.TestLoggerRule;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 import java.util.Set;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.BDDMockito.then;
-import static uk.nhs.digital.test.TestLogger.LogAssertor.info;
-import static uk.nhs.digital.test.util.RandomTestUtils.randomString;
 
 @RunWith(DataProviderRunner.class)
 public class CacheEvictingListenerTest extends MockitoSessionTestBase {

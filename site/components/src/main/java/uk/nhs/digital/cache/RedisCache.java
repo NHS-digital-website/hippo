@@ -14,36 +14,46 @@ public class RedisCache implements HeavyContentCache<String, String> {
     private String name = toString();
     private final JedisPool jedisPool;
     private final long expirySeconds;
+    private final String environmentName;
+    private final String nodeId;
 
     /**
      * @param expiryDuration ISO duration string.
      */
-    public RedisCache(JedisPool jedisPool, String expiryDuration) {
+    public RedisCache(JedisPool jedisPool, String expiryDuration, String environmentName, String nodeId) {
         this.jedisPool = jedisPool;
         this.expirySeconds = DateUtils.durationFromIso(expiryDuration).getSeconds();
+        this.environmentName = environmentName;
+        this.nodeId = nodeId;
+    }
+
+    public String buildCacheKey(String key) {
+        return String.format("%s:%s:%s", environmentName, nodeId, key);
     }
 
     @Override
     public String get(String key, Supplier<String> valueFactory) {
         try (Jedis jedis = jedisPool.getResource()) {
             if (jedis == null) {
-                log.warn("No cache has been configured; acting as no-op and returning value produced by the supplier for key {}", key);
+                log.error("Could not instantiate a Redis connection; acting as no-op and returning value produced by the supplier for key {}", key);
                 return valueFactory.get();
             }
 
-            log.debug("Cache '{}': loading value for key {} from cache.", name, key);
-            String value = jedis.getEx(key, GetExParams.getExParams().ex(expirySeconds)); // returns null on no matching entry
-            log.debug("Cache '{}': value loaded for key {}.", name, key);
+            String cacheKey = buildCacheKey(key);
+
+            log.debug("Cache '{}': loading value for key {} from cache.", name, cacheKey);
+            String value = jedis.getEx(cacheKey, GetExParams.getExParams().ex(expirySeconds)); // returns null on no matching entry
+            log.debug("Cache '{}': value loaded for key {}.", name, cacheKey);
 
             if (value == null) {
-                log.info("Cache '{}': no value found for key {}; generating new value.", name, key);
+                log.info("Cache '{}': no value found for key {}; generating new value.", name, cacheKey);
                 value = valueFactory.get();
-                log.debug("Cache '{}': storing new value for key {}.", name, key);
-                jedis.setex(key, expirySeconds, value);
-                log.info("Cache '{}': new value stored for key {}.", name, key);
+                log.debug("Cache '{}': storing new value for key {}.", name, cacheKey);
+                jedis.setex(cacheKey, expirySeconds, value);
+                log.info("Cache '{}': new value stored for key {}.", name, cacheKey);
 
             } else {
-                log.info("Cache '{}': value found for key {}.", name, key);
+                log.info("Cache '{}': value found for key {}.", name, cacheKey);
             }
 
             return value;
@@ -53,8 +63,9 @@ public class RedisCache implements HeavyContentCache<String, String> {
     @Override
     public void remove(String key) {
         log.info("Cache '{}': evicting entry with key {}.", name, key);
+        String cacheKey = buildCacheKey(key);
         try (Jedis jedis = jedisPool.getResource()) {
-            jedis.del(key);
+            jedis.del(cacheKey);
         }
         log.info("Cache '{}': evicted entry with key {}.", name, key);
     }

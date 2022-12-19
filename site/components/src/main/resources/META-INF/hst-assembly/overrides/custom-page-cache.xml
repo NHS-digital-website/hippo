@@ -73,6 +73,8 @@
     <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
         <constructor-arg name="jedisPool" ref="jedisPool"/>
         <constructor-arg name="expiryDuration" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
+        <constructor-arg name="environmentName" value="${hippo.environment}"/>
+        <constructor-arg name="nodeId" value="${org.apache.jackrabbit.core.cluster.node_id}"/>
     </bean>
 
     <!--
