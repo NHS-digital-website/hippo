@@ -2,7 +2,6 @@ package uk.nhs.digital.cache.listener;
 
 import uk.nhs.digital.admin.AdminCommand;
 import uk.nhs.digital.admin.AdminCommandEventHandler;
-import uk.nhs.digital.cache.Cache;
 import uk.nhs.digital.cache.HeavyContentCache;
 
 /**
@@ -14,7 +13,7 @@ public class CacheManagementAdminCommandHandler implements AdminCommandEventHand
 
     private final HeavyContentCache<String, String> cache;
 
-    public CacheManagementAdminCommandHandler(final Cache<String, String> cache) {
+    public CacheManagementAdminCommandHandler(final HeavyContentCache<String, String> cache) {
         this.cache = cache;
     }
 

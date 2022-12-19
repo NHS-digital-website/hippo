@@ -6,7 +6,7 @@ import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.onehippo.repository.events.PersistedHippoEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.cache.Cache;
+import uk.nhs.digital.cache.HeavyContentCache;
 
 import java.util.Set;
 
@@ -14,10 +14,10 @@ public class CacheEvictingListener implements PersistedHippoEventListener {
 
     private final Logger log = LoggerFactory.getLogger(CacheEvictingListener.class);
 
-    private final Cache<String, String> cache;
+    private final HeavyContentCache<String, String> cache;
     private Set<String> eligibleDoctypes;
 
-    public CacheEvictingListener(final Cache<String, String> cache, final Set<String> eligibleDoctypes) {
+    public CacheEvictingListener(final HeavyContentCache<String, String> cache, final Set<String> eligibleDoctypes) {
         this.cache = cache;
         this.eligibleDoctypes = eligibleDoctypes;
     }
