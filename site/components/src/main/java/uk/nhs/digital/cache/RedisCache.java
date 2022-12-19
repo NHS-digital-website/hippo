@@ -13,11 +13,14 @@ public class RedisCache implements HeavyContentCache<String, String> {
     private static final Logger log = LoggerFactory.getLogger(RedisCache.class);
     private String name = toString();
     private final JedisPool jedisPool;
-    private final String timeToIdle;
+    private final long expirySeconds;
 
-    public RedisCache(JedisPool jedisPool, String timeToIdle) {
+    /**
+     * @param expiryDuration ISO duration string.
+     */
+    public RedisCache(JedisPool jedisPool, String expiryDuration) {
         this.jedisPool = jedisPool;
-        this.timeToIdle = timeToIdle;
+        this.expirySeconds = DateUtils.durationFromIso(expiryDuration).getSeconds();
     }
 
     @Override
@@ -28,17 +31,15 @@ public class RedisCache implements HeavyContentCache<String, String> {
                 return valueFactory.get();
             }
 
-            long expiryDurationSeconds = DateUtils.durationFromIso(timeToIdle).getSeconds();
-
             log.debug("Cache '{}': loading value for key {} from cache.", name, key);
-            String value = jedis.getEx(key, GetExParams.getExParams().ex(expiryDurationSeconds)); // returns null on no matching entry
+            String value = jedis.getEx(key, GetExParams.getExParams().ex(expirySeconds)); // returns null on no matching entry
             log.debug("Cache '{}': value loaded for key {}.", name, key);
 
             if (value == null) {
                 log.info("Cache '{}': no value found for key {}; generating new value.", name, key);
                 value = valueFactory.get();
                 log.debug("Cache '{}': storing new value for key {}.", name, key);
-                jedis.setex(key, expiryDurationSeconds, value);
+                jedis.setex(key, expirySeconds, value);
                 log.info("Cache '{}': new value stored for key {}.", name, key);
 
             } else {
