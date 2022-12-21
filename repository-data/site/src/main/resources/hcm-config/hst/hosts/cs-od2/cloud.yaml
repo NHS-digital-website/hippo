@@ -21,6 +21,11 @@ definitions:
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
+              /ndrs:
+                .meta:residual-child-node-category: content
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/ndrs
+                jcr:primaryType: hst:mount
               /restapi:
                 .meta:residual-child-node-category: content
                 hst:alias: restapi
