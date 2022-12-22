@@ -129,6 +129,8 @@
         <siteCache.heavyContentPageCache.maxMegabytesLocalDisk></siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
         <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts></siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
         <siteCache.heavyContentPageCache.timeToIdle></siteCache.heavyContentPageCache.timeToIdle>
+        <siteCache.heavyContentPageCache.type></siteCache.heavyContentPageCache.type>
+        <siteCache.heavyContentPageCache.redisUrl></siteCache.heavyContentPageCache.redisUrl>
 
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
@@ -1189,6 +1191,8 @@
                                     <siteCache.heavyContentPageCache.maxMegabytesLocalDisk>${siteCache.heavyContentPageCache.maxMegabytesLocalDisk}</siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
                                     <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>${siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts}</siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
                                     <siteCache.heavyContentPageCache.timeToIdle>${siteCache.heavyContentPageCache.timeToIdle}</siteCache.heavyContentPageCache.timeToIdle>
+                                    <siteCache.heavyContentPageCache.type>${siteCache.heavyContentPageCache.type}</siteCache.heavyContentPageCache.type>
+                                    <siteCache.heavyContentPageCache.redisUrl>${siteCache.heavyContentPageCache.redisUrl}</siteCache.heavyContentPageCache.redisUrl>
 
                                 </systemProperties>
                                 <dependencies>

@@ -27,7 +27,7 @@ public class ApiSpecificationRendererDirective implements TemplateDirectiveModel
         final String path = stringParam(parameters, "path").orElse("not available");
 
         final OpenApiSpecificationJsonToHtmlConverter converter = getComponent("apiSpecificationRenderer");
-        final HeavyContentCache<String, String> cache = getComponent("heavyContentCacheRedis");
+        final HeavyContentCache<String, String> cache = getComponent("heavyContentCache");
 
         if (specificationJson == null) {
             log.warn("No API specification JSON available for {} ({}).", path, documentHandleUuid);
