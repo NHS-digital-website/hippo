@@ -59,22 +59,33 @@
         <constructor-arg name="timeToIdle" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
     </bean>
 
-    <!-- Convenience wrapper for heavyContentEhcache. See JavaDoc for more details. -->
-    <bean id="heavyContentCache" class="uk.nhs.digital.cache.Cache">
+    <!--<alias alias="heavyContentCache" name="#{ '${siteCache.heavyContentPageCache.type}' == 'disk' ? 'heavyContentCacheDisk' : 'heavyContentCacheRedis' }" />-->
+
+    <!--<bean name="#{ 'heavyContentCacheDisk' + ('${siteCache.heavyContentPageCache.type}' == 'disk' ? ';heavyContentCache' : '') }" class="uk.nhs.digital.cache.Cache">-->
+    <!--<bean name="#{'${siteCache.heavyContentPageCache.type}'=='disk'?'heavyContentCache':'heavyContentCacheDisk'}" class="uk.nhs.digital.cache.Cache">-->
+<!--    <bean name="heavyContentCacheDisk" class="uk.nhs.digital.cache.Cache" primary="#{T(java.lang.Boolean).parseBoolean('${siteCache.heavyContentPageCache.type}'=='disk'?true:false)}">-->
+    <bean name="heavyContentCacheDisk" class="uk.nhs.digital.cache.Cache">
         <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
     </bean>
 
-
     <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-        <constructor-arg name="host" value="localhost"/>
-        <constructor-arg name="port" value="6379"/>
+        <constructor-arg name="url" value="${siteCache.heavyContentPageCache.redisUrl}"/>
     </bean>
 
-    <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
+    <!--<bean name="#{ 'heavyContentCacheRedis' + ('${siteCache.heavyContentPageCache.type}' == 'redis' ? ';heavyContentCache' : '') }" class="uk.nhs.digital.cache.RedisCache">-->
+    <!--<bean name="#{'${siteCache.heavyContentPageCache.type}'=='redis'?'heavyContentCache':'heavyContentCacheRedis'}" class="uk.nhs.digital.cache.RedisCache">-->
+<!--    <bean name="heavyContentCacheRedis;heavyContentCache" class="uk.nhs.digital.cache.RedisCache" primary="#{T(java.lang.Boolean).parseBoolean('${siteCache.heavyContentPageCache.type}'=='redis'?true:false)}">-->
+    <bean name="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
         <constructor-arg name="jedisPool" ref="jedisPool"/>
         <constructor-arg name="expiryDuration" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
         <constructor-arg name="environmentName" value="${hippo.environment}"/>
         <constructor-arg name="nodeId" value="${org.apache.jackrabbit.core.cluster.node_id}"/>
+    </bean>
+
+    <bean id="heavyContentCache" class="uk.nhs.digital.cache.HeavyContentCacheFactory" factory-method="factory">
+        <constructor-arg name="type" value="${siteCache.heavyContentPageCache.type}"/>
+        <constructor-arg name="diskCache" ref="heavyContentCacheDisk"/>
+        <constructor-arg name="redisCache" ref="heavyContentCacheRedis"/>
     </bean>
 
     <!--
@@ -87,7 +98,7 @@
     <bean class="uk.nhs.digital.cache.listener.PersistedHippoEventListenerRegisteringComponent">
         <constructor-arg name="listener">
             <bean class="uk.nhs.digital.cache.listener.CacheEvictingListener">
-                <constructor-arg name="cache" ref="heavyContentCacheRedis"/>
+                <constructor-arg name="cache" ref="heavyContentCache"/>
                 <constructor-arg name="eligibleDoctypes">
                     <set>
                         <value>website:apispecification</value>
@@ -97,4 +108,28 @@
         </constructor-arg>
     </bean>
 
+    <!--<beans profile="local">
+        &lt;!&ndash; Convenience wrapper for heavyContentEhcache. See JavaDoc for more details. &ndash;&gt;
+        <bean id="heavyContentCache" class="uk.nhs.digital.cache.Cache" name="a">
+            <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
+        </bean>
+    </beans>
+    <beans profile="cloud-config-odv1">
+        &lt;!&ndash; Convenience wrapper for heavyContentEhcache. See JavaDoc for more details. &ndash;&gt;
+        <bean id="heavyContentCache" class="uk.nhs.digital.cache.Cache">
+            <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
+        </bean>
+    </beans>
+    <beans profile="cloud-config-odv2">
+        <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+            <constructor-arg name="url" value="${siteCache.heavyContentPageCache.redisUrl}"/>
+        </bean>
+
+        <bean id="heavyContentCache" class="uk.nhs.digital.cache.RedisCache">
+            <constructor-arg name="jedisPool" ref="jedisPool"/>
+            <constructor-arg name="expiryDuration" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
+            <constructor-arg name="environmentName" value="${hippo.environment}"/>
+            <constructor-arg name="nodeId" value="${org.apache.jackrabbit.core.cluster.node_id}"/>
+        </bean>
+    </beans>-->
 </beans>

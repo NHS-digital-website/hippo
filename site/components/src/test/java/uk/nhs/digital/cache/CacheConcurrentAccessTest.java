@@ -164,7 +164,11 @@ public class CacheConcurrentAccessTest {
         final MockEnvironment environment = new MockEnvironment()
             .withProperty("siteCache.heavyContentPageCache.maxMegabytesLocalDisk", "512")
             .withProperty("siteCache.cacheManager.diskStorePath", tempDirectory.toAbsolutePath().toString())
-            .withProperty("siteCache.heavyContentPageCache.timeToIdle", "PT15M");
+            .withProperty("siteCache.heavyContentPageCache.timeToIdle", "PT15M")
+            .withProperty("siteCache.heavyContentPageCache.type", "disk")
+            .withProperty("hippo.environment", "test")
+            .withProperty("org.apache.jackrabbit.core.cluster.node_id", "test-node-1")
+            .withProperty("siteCache.heavyContentPageCache.redisUrl", "http://example.com:6379");
 
         applicationContext = new ClassPathXmlApplicationContext();
         applicationContext.setEnvironment(environment);
@@ -174,7 +178,7 @@ public class CacheConcurrentAccessTest {
         );
         applicationContext.refresh();
 
-        cache = (Cache<String, String>) applicationContext.getBean("heavyContentCache");
+        cache = (Cache<String, String>) applicationContext.getBean("heavyContentCacheDisk");
     }
 
     private void givenCachePopulated() {

@@ -35,7 +35,7 @@
                 <constructor-arg name="adminCommandEventHandlers">
                     <set>
                         <bean class="uk.nhs.digital.cache.listener.CacheManagementAdminCommandHandler">
-                            <constructor-arg name="cache" ref="heavyContentCacheRedis"/>
+                            <constructor-arg name="cache" ref="heavyContentCache"/>
                         </bean>
                     </set>
                 </constructor-arg>
