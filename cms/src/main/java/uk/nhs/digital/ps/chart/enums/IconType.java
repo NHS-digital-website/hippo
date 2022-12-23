@@ -15,7 +15,6 @@ public enum IconType {
         return iconType;
     }
 
-
     public static IconType toIconType(String typeString) {
         return valueOf(typeString.toUpperCase().replace(" ", "_"));
     }

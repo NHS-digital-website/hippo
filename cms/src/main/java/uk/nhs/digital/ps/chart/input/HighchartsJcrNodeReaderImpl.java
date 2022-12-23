@@ -11,7 +11,7 @@ import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TYPE;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_YTITLE;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_MAP_SOURCE;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_TYPE_ICON;
-import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_VISUALISATION_YTITLE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_VISUALISATION_COLOUR;
 
 import org.apache.jackrabbit.JcrConstants;
 import uk.nhs.digital.ps.chart.enums.ChartType;
@@ -65,10 +65,10 @@ public class HighchartsJcrNodeReaderImpl implements HighchartsJcrNodeReader {
         final String title = getStringProperty(visualisationConfigNode, PROPERTY_CHART_TITLE, null);
 
         // optional field
-        final String yTitle = getStringProperty(visualisationConfigNode, PROPERTY_VISUALISATION_YTITLE, null);
+        final String colourOption = getStringProperty(visualisationConfigNode, PROPERTY_VISUALISATION_COLOUR, null);
         final String iconType = getStringProperty(visualisationConfigNode, PROPERTY_TYPE_ICON, null);
 
-        return new VisualisationParameters(chartType, title, yTitle, inputFile, iconType);
+        return new VisualisationParameters(chartType, title, colourOption, inputFile, iconType);
     }
 
     private HighmapsParameters getMapParameters(final Node mapConfigNode) throws RepositoryException {

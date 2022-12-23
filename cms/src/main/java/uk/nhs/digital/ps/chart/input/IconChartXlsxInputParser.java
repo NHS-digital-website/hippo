@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.enums.IconType;
 import uk.nhs.digital.ps.chart.enums.IconXlsxAllowList;
+import uk.nhs.digital.ps.chart.enums.VisualisationColourOption;
 import uk.nhs.digital.ps.chart.model.IconVisualisationModel;
 import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.parameters.VisualisationParameters;
@@ -69,9 +70,9 @@ public class IconChartXlsxInputParser extends AbstractHighchartsXlsxInputParser 
         String title = parameters.getTitle();
         ChartType chartType = parameters.getChartType();
         IconType iconType = parameters.getIconType();
-        String yTitle = parameters.getYTitle();
+        VisualisationColourOption colour = parameters.getColour();
 
-        return new IconVisualisationModel(chartType, iconType, title, yTitle, xlsxValueMap);
+        return new IconVisualisationModel(chartType, iconType, title, colour, xlsxValueMap);
     }
 
     private String getFormatCellValue(Row currentRow, int cellnum) {

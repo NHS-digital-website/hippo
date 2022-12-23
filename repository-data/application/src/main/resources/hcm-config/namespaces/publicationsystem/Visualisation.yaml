@@ -46,15 +46,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /yaxistitle:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Y Axis Title
-            field: yaxistitle
-            hint: Not applicable to all chart types
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /icontype:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -65,9 +56,27 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /colour:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Light,Dark,Coloured
+            caption: Visualisation Colour
+            field: colour
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /colour:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:colour
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            jcr:primaryType: hipposysedit:field
           /dataFile:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -86,6 +95,8 @@ definitions:
             hipposysedit:path: publicationsystem:icontype
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -94,8 +105,6 @@ definitions:
             hipposysedit:path: publicationsystem:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           /visualisationtype:
             hipposysedit:mandatory: false
@@ -106,14 +115,6 @@ definitions:
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
             - required
-            jcr:primaryType: hipposysedit:field
-          /yaxistitle:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:yaxistitle
-            hipposysedit:primary: false
-            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -142,8 +143,8 @@ definitions:
             jcr:mimeType: application/vnd.hippo.blank
             jcr:primaryType: publicationsystem:resource
           jcr:primaryType: publicationsystem:Visualisation
+          publicationsystem:colour: Light
           publicationsystem:title: ''
-          publicationsystem:yaxistitle: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

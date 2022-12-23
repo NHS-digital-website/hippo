@@ -13,7 +13,7 @@ public interface PublicationSystemConstants {
 
     String NODE_TYPE_VISUALISATION = "publicationsystem:Visualisation";
 
-    String PROPERTY_VISUALISATION_YTITLE = "publicationsystem:yaxistitle";
+    String PROPERTY_VISUALISATION_COLOUR = "publicationsystem:colour";
 
     String PROPERTY_TYPE_ICON = "publicationsystem:icontype";
     String PROPERTY_PUBLICATION_DATE = "publicationsystem:NominalDate";
