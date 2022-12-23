@@ -133,6 +133,7 @@
         "highcharts": "^9.1.0",
         "jquery": "^3.6.0",
         "jquery-ui": "^1.13.2",
+        "nhsd-dataviz": "^1.1.0",
         "papaparse": "^5.3.1",
         "tablesort": "^5.2.0"
     }

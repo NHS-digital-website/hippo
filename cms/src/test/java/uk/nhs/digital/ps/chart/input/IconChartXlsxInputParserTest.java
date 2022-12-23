@@ -18,6 +18,7 @@ import org.mockito.Mockito;
 import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.enums.IconType;
 import uk.nhs.digital.ps.chart.enums.IconXlsxAllowList;
+import uk.nhs.digital.ps.chart.enums.VisualisationColourOption;
 import uk.nhs.digital.ps.chart.model.IconVisualisationModel;
 import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.parameters.VisualisationParameters;
@@ -37,7 +38,7 @@ public class IconChartXlsxInputParserTest {
     private static final String EMPTY_STRING = "";
     private Binary binary;
     private String chartTitle;
-    private String yAxisTitle;
+    private String colour;
     private XSSFSheet testSheet;
     private String iconType;
     private List<String> allowList;
@@ -48,7 +49,7 @@ public class IconChartXlsxInputParserTest {
     public void setUp() throws IOException {
         binary = new BinaryImpl(Files.newInputStream(Paths.get("src/test/resources/ChartTestIconChart.xlsx")));
         chartTitle = "a chart title";
-        yAxisTitle = "a y chart title";
+        colour = VisualisationColourOption.LIGHT.getVisualisationColour();
         iconType = IconType.SQUARE.getIconType();
         allowList = IconXlsxAllowList.getAllowedValuesList();
 
@@ -62,7 +63,7 @@ public class IconChartXlsxInputParserTest {
     @Test
     public void testParseXlsxChart() throws IOException, RepositoryException {
         // given
-        VisualisationParameters parameters = new VisualisationParameters(ChartType.ICON.name(), chartTitle, yAxisTitle, binary, iconType);
+        VisualisationParameters parameters = new VisualisationParameters(ChartType.ICON.name(), chartTitle, colour, binary, iconType);
         testSheet = iconChartXlsxInputParser.readXssfWorkbook(parameters.getInputFileContent()).getSheetAt(0);
         Iterable<Row> iterable = () -> testSheet.rowIterator();
         List<String> rowList = stream(iterable)
@@ -77,7 +78,7 @@ public class IconChartXlsxInputParserTest {
         // then
         assertEquals(rowList.size(), iconVisualisationModel.getXlxsValues().size());
         assertEquals(iconType, iconVisualisationModel.getIcon().getType());
-        assertEquals(yAxisTitle, iconVisualisationModel.getyAxis().getTitle().getText());
+        assertEquals(colour, iconVisualisationModel.getColour().getColourOption());
         assertEquals(chartTitle, iconVisualisationModel.getTitle().getText());
         // all values parsed are allowed values
         for (String rowString : iconVisualisationModel.getXlxsValues().keySet()) {
@@ -93,7 +94,7 @@ public class IconChartXlsxInputParserTest {
     @Test(expected = RuntimeException.class)
     public void invalidValueThrowsException() throws Exception {
         // given
-        VisualisationParameters parameters = new VisualisationParameters(ChartType.ICON.name(), chartTitle, yAxisTitle, binary, iconType);
+        VisualisationParameters parameters = new VisualisationParameters(ChartType.ICON.name(), chartTitle, colour, binary, iconType);
         IconChartXlsxInputParser spy = Mockito.spy(iconChartXlsxInputParser);
         given(spy.getStringValue(any(Cell.class)))
             .willReturn("incorrect");
@@ -108,7 +109,7 @@ public class IconChartXlsxInputParserTest {
     @Test(expected = RuntimeException.class)
     public void emptySheetThrowsException() throws Exception {
         // given
-        VisualisationParameters parameters = new VisualisationParameters(ChartType.ICON.name(), chartTitle, yAxisTitle, binary, iconType);
+        VisualisationParameters parameters = new VisualisationParameters(ChartType.ICON.name(), chartTitle, colour, binary, iconType);
         IconChartXlsxInputParser spy = Mockito.spy(iconChartXlsxInputParser);
         given(spy.readXssfWorkbook(any(Binary.class)))
             .willReturn(null);

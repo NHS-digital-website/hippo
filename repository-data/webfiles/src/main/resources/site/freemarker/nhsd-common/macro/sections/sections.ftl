@@ -24,6 +24,7 @@
 <#include "../../../common/macro/sections/svgSection.ftl">
 <#include "../component/infoGraphic.ftl">
 <#include "imageModule.ftl">
+<#include "visualisationSection.ftl">
 
 
 <!-- Set up equation support from mathjax -->
@@ -99,6 +100,8 @@
                 <@tableau section=section index=section?index/>
             <#elseif section.sectionType == 'VideoSection'>
                 <@videoSection section=section/>
+            <#elseif section.sectionType == 'visualisation'>
+                <@visualisationSection section=section />
             </#if>
         <#if wrap>
         </div>

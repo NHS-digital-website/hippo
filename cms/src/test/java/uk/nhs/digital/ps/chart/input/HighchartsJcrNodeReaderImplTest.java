@@ -10,7 +10,7 @@ import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TYPE;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_YTITLE;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_MAP_SOURCE;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_TYPE_ICON;
-import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_VISUALISATION_YTITLE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_VISUALISATION_COLOUR;
 
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.junit.Before;
@@ -18,6 +18,7 @@ import org.junit.Test;
 import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.enums.IconType;
 import uk.nhs.digital.ps.chart.enums.MapSource;
+import uk.nhs.digital.ps.chart.enums.VisualisationColourOption;
 import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
@@ -120,7 +121,13 @@ public class HighchartsJcrNodeReaderImplTest {
         // chart section B parameters
         mapConfig = new HighmapsParameters(ChartType.AREA_MAP.name(), MapSource.BRITISH_ISLES_COUNTIES.name(), newRandomString(), mock(Binary.class));
 
-        visualisationConfig = new VisualisationParameters(ChartType.ICON.name(), newRandomString(), newRandomString(), mock(Binary.class), IconType.PERSON.getIconType());
+        visualisationConfig = new VisualisationParameters(
+            ChartType.ICON.name(),
+            newRandomString(),
+            VisualisationColourOption.LIGHT.getVisualisationColour(),
+            mock(Binary.class),
+            IconType.PERSON.name()
+        );
 
         // nodes' creation
         chartConfigNode = addChartConfigNode(documentVariantNode, chartConfig, "[A]");
@@ -185,7 +192,7 @@ public class HighchartsJcrNodeReaderImplTest {
 
         visualisationConfigNode.setProperty(PROPERTY_CHART_TITLE, visualisationConfig.getTitle());
         visualisationConfigNode.setProperty(PROPERTY_CHART_TYPE, visualisationConfig.getChartType().getHighChartsType());
-        visualisationConfigNode.setProperty(PROPERTY_VISUALISATION_YTITLE, visualisationConfig.getYTitle());
+        visualisationConfigNode.setProperty(PROPERTY_VISUALISATION_COLOUR, visualisationConfig.getColour().getVisualisationColour());
         visualisationConfigNode.setProperty(PROPERTY_TYPE_ICON, visualisationConfig.getIconType().toString());
 
         final Node dataFileNode = visualisationConfigNode.addNode(
