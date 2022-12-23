@@ -6,13 +6,16 @@ import static org.junit.Assert.assertTrue;
 import static uk.nhs.digital.cache.CacheConcurrentAccessTest.RoundRobinIterableValueSupplier.valuesFrom;
 import static uk.nhs.digital.test.util.TestFileUtils.deleteFileOrDirectoryRecursivelyQuietly;
 
+import com.github.fppt.jedismock.RedisServer;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.mock.env.MockEnvironment;
+import redis.clients.jedis.JedisPool;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
@@ -42,11 +45,16 @@ public class RedisCacheConcurrentAccessTest {
     private Path tempDirectory;
 
     private RedisCache cache;
+    private RedisServer jedisMock;
     private ClassPathXmlApplicationContext applicationContext;
 
     @Before
     public void setUp() throws Exception {
         tempDirectory = Files.createTempDirectory(RedisCacheConcurrentAccessTest.class.getSimpleName());
+
+        jedisMock = RedisServer
+            .newRedisServer()
+            .start();
 
         givenCustomCacheWiredUp();
 
@@ -54,11 +62,13 @@ public class RedisCacheConcurrentAccessTest {
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws IOException {
         // To invoke all 'destroy' methods, including the one on uk.nhs.digital.cache.listener.CacheEvictingListenerRegisteringComponent
         // to ensure we deregister our listener, so that we don't leak state to other tests through PersistedHippoEventListenerRegistry
         // class.
         applicationContext.close();
+
+        jedisMock.stop();
 
         Optional.ofNullable(tempDirectory).ifPresent(path -> deleteFileOrDirectoryRecursivelyQuietly(tempDirectory));
     }
@@ -160,6 +170,8 @@ public class RedisCacheConcurrentAccessTest {
 
         // Loads application context using bean definitions actually used in production.
 
+        String redisUrl = "http://" + jedisMock.getHost() + ":" + jedisMock.getBindPort();
+        //JedisPool jedisPool = new JedisPool(redisUrl);
         final MockEnvironment environment = new MockEnvironment()
             .withProperty("siteCache.heavyContentPageCache.maxMegabytesLocalDisk", "512")
             .withProperty("siteCache.cacheManager.diskStorePath", tempDirectory.toAbsolutePath().toString())
@@ -167,7 +179,7 @@ public class RedisCacheConcurrentAccessTest {
             .withProperty("siteCache.heavyContentPageCache.type", "redis")
             .withProperty("hippo.environment", "test")
             .withProperty("org.apache.jackrabbit.core.cluster.node_id", "test-node-1")
-            .withProperty("siteCache.heavyContentPageCache.redisUrl", "http://example.com:6379");
+            .withProperty("siteCache.heavyContentPageCache.redisUrl", redisUrl);
 
         applicationContext = new ClassPathXmlApplicationContext();
         applicationContext.setEnvironment(environment);
