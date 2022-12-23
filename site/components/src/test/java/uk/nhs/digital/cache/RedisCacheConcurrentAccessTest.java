@@ -7,13 +7,16 @@ import static uk.nhs.digital.cache.CacheConcurrentAccessTest.RoundRobinIterableV
 import static uk.nhs.digital.test.util.TestFileUtils.deleteFileOrDirectoryRecursivelyQuietly;
 
 import com.github.fppt.jedismock.RedisServer;
+import com.github.fppt.jedismock.datastructures.RMDataStructure;
+import com.github.fppt.jedismock.operations.server.MockExecutor;
+import com.github.fppt.jedismock.server.Response;
+import com.github.fppt.jedismock.server.ServiceOptions;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.mock.env.MockEnvironment;
-import redis.clients.jedis.JedisPool;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -54,6 +57,16 @@ public class RedisCacheConcurrentAccessTest {
 
         jedisMock = RedisServer
             .newRedisServer()
+            .setOptions(ServiceOptions.withInterceptor((state, roName, params) -> {
+                if ("getex".equalsIgnoreCase(roName)) {
+
+                    state.base().setTTL(params.get(0), Long.parseLong(params.get(2).toString()));
+                    RMDataStructure value = state.base().getValue(params.get(0));
+                    return Response.bulkString(value != null ? value.getAsSlice() : null);
+                } else {
+                    return MockExecutor.proceed(state, roName, params);
+                }
+            }))
             .start();
 
         givenCustomCacheWiredUp();

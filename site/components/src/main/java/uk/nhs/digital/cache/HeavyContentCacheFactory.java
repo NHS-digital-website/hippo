@@ -5,20 +5,13 @@ public class HeavyContentCacheFactory {
         String type,
         HeavyContentCache<K, V> redisCache,
         HeavyContentCache<K, V> diskCache) throws Exception {
+
         if (type.equals("redis")) {
             return redisCache;
         } else if (type.equals("disk")) {
             return diskCache;
         } else {
-            throw new Exception("No cache implentation found");
-        }
-    }
-
-    public static int factory2(String redisUrl) throws Exception {
-        if (redisUrl.equals("redis")) {
-            return 1;
-        } else {
-            return 2;
+            throw new Exception("No cache implementation found");
         }
     }
 }
