@@ -68,6 +68,10 @@
         <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
     </bean>
 
+    <bean id="heavyContentCache2" class="uk.nhs.digital.cache.HeavyContentCacheFactory" factory-method="factory2">
+        <constructor-arg name="redisUrl" value="${siteCache.heavyContentPageCache.maxMegabytesLocalDisk}"/>
+    </bean>
+
     <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
         <constructor-arg name="url" value="${siteCache.heavyContentPageCache.redisUrl}"/>
     </bean>
