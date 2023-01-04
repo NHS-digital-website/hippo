@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - master
+      - christmas-*
+      - freeze-trunk-*
 
 jobs:
   build-and-test:

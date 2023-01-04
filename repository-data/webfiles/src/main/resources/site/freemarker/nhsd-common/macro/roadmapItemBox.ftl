@@ -7,45 +7,44 @@
 
 <#macro roadmapItemBox options>
     <#if options??>
-        <div class="roadmapitem-box cta">
-            <h3 class="cta__title">
-                <#if options.link??>
-                <a href="${options.link}">
-                    </#if>
-                    <span data-uipath="website.roadmap.${options.title}">${options.title}</span>
-                    <#if options.link??>
-                </a>
-                </#if>
-            </h3>
-
-            <#if options.showDate>
-                <p class="cta__meta">
-                    <time datetime="${options.datetime}">${options.datelabel}</time>
-                </p>
-            </#if>
-
-            <#if options.text??>
-                <p class="cta__text">${options.text}</p>
-            </#if>
-
-            <#if options.status??>
-                <div class="align-middle">
-                    <#if inArray(options.status?lower_case, ['complete'])>
-                        <img src="<@hst.webfile path="/images/icon/Icon-tick-v3_v2.svg"/>"
-                             alt="Tick Image" alt="Tick"
-                             class="roadmap-status-icon"/> ${options.status?cap_first}
-                    <#elseif inArray(options.status?lower_case, ['cancelled', 'superseded']) >
-                        <img src="<@hst.webfile path="/images/icon/Icon-cross-v2_v2.svg"/>"
-                             alt="Tick Image" alt="Tick"
-                             class="roadmap-status-icon"/> ${options.status?cap_first}
-                    </#if>
+        <div>
+            <#if options.category?has_content>
+                <div class="nhsd-!t-margin-bottom-1">
+                    <span class="nhsd-a-tag nhsd-a-tag--bg-light-grey">${options.category}</span>
                 </div>
             </#if>
 
-            <#if options.category??>
-                <#list options.category as category>
-                    <span class="tag-link">${category.name?cap_first}</span>
-                </#list>
+            <h3 class="nhsd-t-heading-s">
+                <#if options.link??>
+                    <a href="${options.link}">
+                </#if>
+                <span data-uipath="website.roadmap.${options.title}">${options.title}</span>
+                <#if options.link??>
+                    </a>
+                </#if>
+            </h3>
+
+            <#if options.text??>
+                <p>${options.text}</p>
+            </#if>
+
+            <#if options.showDate>
+                <p><time datetime="${options.datetime}">${options.datelabel}</time></p>
+            </#if>
+
+            <#if options.status??>
+                <div class="nhsd-t-flex">
+                    <span class="nhsd-a-icon nhsd-a-icon--size-l">
+                        <#if inArray(options.status?lower_case, ['complete'])>
+                            <img src="<@hst.webfile path="/images/icon/Icon-tick-v3_v2.svg"/>"
+                                 alt="Tick" />
+                        <#elseif inArray(options.status?lower_case, ['cancelled', 'superseded']) >
+                            <img src="<@hst.webfile path="/images/icon/Icon-cross-v2_v2.svg"/>"
+                                 alt="Cross" />
+                        </#if>
+                    </span>
+                    <b class="nhsd-!t-font-weight-bold">${options.status?cap_first}</b>
+                </div>
             </#if>
         </div>
     </#if>
