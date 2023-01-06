@@ -77,6 +77,7 @@ public class ManifestProcessor {
         try {
             fileExists = storageManager.fileExists(manifestFile);
         } catch (SdkClientException s3) {
+            LOGGER.error("Error reading manifest file {}",s3.getMessage());
             fileExists = false;
         }
 
