@@ -3,7 +3,7 @@ package uk.nhs.digital.cache;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertTrue;
-import static uk.nhs.digital.cache.CacheConcurrentAccessTest.RoundRobinIterableValueSupplier.valuesFrom;
+import static uk.nhs.digital.cache.DiskCacheConcurrentAccessTest.RoundRobinIterableValueSupplier.valuesFrom;
 
 import com.github.fppt.jedismock.RedisServer;
 import com.github.fppt.jedismock.datastructures.RMDataStructure;
@@ -107,7 +107,7 @@ public class RedisCacheConcurrentAccessTest {
 
         // given
         final ExecutorService executorService = Executors.newFixedThreadPool(REQUEST_COUNT_CONCURRENT);
-        final CacheConcurrentAccessTest.RoundRobinIterableValueSupplier<String, Set<String>> keySupplier = valuesFrom(elementsToCache.keySet());
+        final DiskCacheConcurrentAccessTest.RoundRobinIterableValueSupplier<String, Set<String>> keySupplier = valuesFrom(elementsToCache.keySet());
 
         // when
         IntStream.rangeClosed(1, REQUEST_COUNT_TOTAL)

@@ -20,16 +20,16 @@ import java.util.stream.StreamSupport;
  * @param <K> Type of the key used in the cache.
  * @param <V> Type of the cached value associated with the key.
  */
-public class Cache<K, V> implements HeavyContentCache<K, V> {
+public class DiskCache<K, V> implements HeavyContentCache<K, V> {
 
-    private static final Logger log = LoggerFactory.getLogger(Cache.class);
+    private static final Logger log = LoggerFactory.getLogger(DiskCache.class);
     public static final int PURGE_BATCH_SIZE = 100;
 
     private String name = toString();
 
     private final org.ehcache.Cache<K, V> ehchache;
 
-    public Cache(final org.ehcache.Cache<K, V> ehcache) {
+    public DiskCache(final org.ehcache.Cache<K, V> ehcache) {
         this.ehchache = ehcache;
     }
 
