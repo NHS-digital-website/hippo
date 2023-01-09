@@ -14,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.params.GetExParams;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
@@ -128,6 +129,28 @@ public class RedisCacheTest extends MockitoSessionTestBase {
             "Cache key used is correct.",
             actualCacheKey,
             is(correctKey)
+        );
+    }
+
+    @Test
+    public void get_producesNewValue_whenCacheConnectionFailed() {
+        // given
+        final String generatedValue = randomString();
+        given(jedisPool.getResource()).willThrow(new JedisConnectionException(""));
+        given(valueFactory.get()).willReturn(generatedValue);
+
+        // when
+        final String actualValue = cache.get(key, valueFactory);
+
+        // then
+
+        then(valueFactory).should().get();
+        then(jedis).shouldHaveNoInteractions();
+
+        assertThat(
+            "Cache key used is correct.",
+            actualValue,
+            is(generatedValue)
         );
     }
 }
