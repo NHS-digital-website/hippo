@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "./macro/globalHeader.ftl">
 <#include "macro/component/skipLink.ftl">
+<#include "macro/mergerBanner.ftl">
 
 <!DOCTYPE html>
 <html lang="en" class="nhsd-no-js">
@@ -13,6 +14,8 @@
 
         <#-- Add IE banner -->
         <@hst.include ref="ie-banner"/>
+
+        <@mergerBanner />
 
         <@globalHeader true/>
 

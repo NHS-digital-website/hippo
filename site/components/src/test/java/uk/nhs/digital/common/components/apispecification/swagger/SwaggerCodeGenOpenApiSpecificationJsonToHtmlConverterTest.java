@@ -2,6 +2,7 @@ package uk.nhs.digital.common.components.apispecification.swagger;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.test.util.StringTestUtils.*;
@@ -445,23 +446,83 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         );
     }
 
+    @Test
+    public void rendersExample_forRequestHeadersAndParameters_outputtingOptionalOrRequired_dependingOnWhetherRequiredIsTrue() {
 
+        // given
+        final String specificationJson = from("oasV3_optional_vs_required.json");
+
+        final String requiredHeaderParam = "<p class=\"nhsd-t-body\">Request header parameter which is required with no example and no with enum.</p>"
+            + "<div class=\"nhsd-!t-col-red\">Required</div></td></tr>";
+
+        final String optionalHeaderParam = "<p class=\"nhsd-t-body\">Request header parameter which is optional with no example and no with enum.</p>"
+            + "<div class=\"nhsd-!t-col-red\">Optional</div></td></tr>";
+
+        final String requiredQueryParam = "<p class=\"nhsd-t-body\">Request query parameter which is required with no example and no with enum.</p>"
+            + "<div class=\"nhsd-!t-col-red\">Required</div></td>";
+        final String optionalQueryParam = "<p class=\"nhsd-t-body\">Request query parameter which is optional with no example and no with enum.</p>"
+            + "<div class=\"nhsd-!t-col-red\">Optional</div></td>";
+
+        final String optionalRequestBody = "Body</h5><div class=\"nhsd-!t-col-red\">Optional</div>"
+            + "<p class=\"nhsd-t-body\">Content type: <strong class=\"nhsd-!t-font-weight-bold\">irrelevant/content-type</strong></p>"
+            + "<p class=\"nhsd-!t-font-weight-bold nhsd-t-body\">Example</p><article class=\"nhsd-o-code-viewer nhsd-!t-margin-bottom-3\">"
+            + "<div class=\"nhsd-o-code-viewer__tab-content\" role=\"tabpanel\" aria-hidden=\"true\">"
+            + "<div class=\"nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim\">"
+            + "<div class=\"nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim\">"
+            + "<pre class=\"line-numbers\"><code>req-optional-body-param-value-a</code>";
+
+        final String requiredRequestBody = "Body</h5><div class=\"nhsd-!t-col-red\">Required</div>"
+            + "<p class=\"nhsd-t-body\">Content type: <strong class=\"nhsd-!t-font-weight-bold\">irrelevant/content-type</strong></p>"
+            + "<p class=\"nhsd-!t-font-weight-bold nhsd-t-body\">Example</p><article class=\"nhsd-o-code-viewer nhsd-!t-margin-bottom-3\">"
+            + "<div class=\"nhsd-o-code-viewer__tab-content\" role=\"tabpanel\" aria-hidden=\"true\">"
+            + "<div class=\"nhsd-o-code-viewer__code nhsd-o-code-viewer__code__slim\">"
+            + "<div class=\"nhsd-o-code-viewer__code-content nhsd-o-code-viewer__code-content__slim\">"
+            + "<pre class=\"line-numbers\"><code>req-required-body-param-value-a</code>";
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+        // then
+        assertThat("Required and Optional status are rendered correctly for either the header, query and body parameters.",
+            ignoringNewLinesIn(ignoringWhiteSpacesIn(actualSpecHtml)),
+            stringContainsInOrder(
+                optionalHeaderParam, // path-b: header-a
+                optionalHeaderParam, // path-b: header-b
+                requiredHeaderParam, // path-c: header-a
+                requiredHeaderParam, // path-c: header-b
+                requiredHeaderParam, // path-d: header-a
+                optionalHeaderParam, // path-d: header-b
+                optionalQueryParam,  // path-e: header-a
+                optionalQueryParam,  // path-e: header-b
+                requiredQueryParam,  // path-f: header-a
+                requiredQueryParam,  // path-f: header-b
+                requiredQueryParam,  // path-g: header-a
+                optionalQueryParam,  // path-g: header-b
+                requiredRequestBody, // path-h: req-body-param-a
+                optionalRequestBody  // path-i: req-body-param-b
+            )
+        );
+    }
 
     @Test
     public void rendersExample_forRequestAndResponseParameters_dependingOnWhetherEnumIsDefined() {
         // given
         final String specificationJson = from("oasV3_examples_vs_enums.json");
 
-        final String headerAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: <span class=\"nhsd-a-text-highlight "
-            + "nhsd-a-text-highlight--code\">value-a</span>, <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></p></td>";
+        final String paramAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span>, "
+            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></p><div class=\"nhsd-!t-col-red\">Optional</div></td>";
+
+        final String paramExample = "</p><p class=\"nhsd-t-body\">Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span></p>"
+            + "<div class=\"nhsd-!t-col-red\">Optional</div></td>";
+
+        final String headerAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span>, "
+            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></p></td>";
 
         final String headerExample = "</p><p class=\"nhsd-t-body\">Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span></p></td>";
 
-        final String schemaAllowedValues = "</p></div><div>Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span>, <span "
-            + "class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></div></td>";
+        final String schemaAllowedValues = "</p></div><div>Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span>, "
+            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></div></td>";
 
         final String schemaExample = "</p></div><div>Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span></div></td>";
-
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
 
@@ -470,9 +531,9 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         assertThat("Request and response parameter example values are rendered only when no enum (Allowed Values) are defined.",
             ignoringNewLinesIn(ignoringWhiteSpacesIn(actualSpecHtml)),
             stringContainsInOrder(
-                "Request parameter with example and with enum."         + headerAllowedValues,
-                "Request parameter with no example but with enum."      + headerAllowedValues,
-                "Request parameter with example and no enum."           + headerExample,
+                "Request parameter with example and with enum."         + paramAllowedValues,
+                "Request parameter with no example but with enum."      + paramAllowedValues,
+                "Request parameter with example and no enum."           + paramExample,
 
                 "Response header with example and with enum."           + headerAllowedValues,
                 "Response header with example and no enum."             + headerExample,
@@ -559,6 +620,27 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
             )
         );
         // @formatter:on
+    }
+
+    @Test
+    public void rendersUnresolvedRefElements() {
+        // given
+        final String specificationJson = from("oasV3_withRefElements.json");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        assertThat(
+            "Unresolved $ref elements are rendered correctly",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            stringContainsInOrder(
+                "This is a path parameter within a $ref element",
+                "This is a header within a $ref element",
+                "This is an example within a $ref element",
+                "This is a schema object within a nested $ref element",
+                "This is a schema object within a $ref element",
+                "This is a request body within a $ref element"));
     }
 
     private String from(final String fileName) {

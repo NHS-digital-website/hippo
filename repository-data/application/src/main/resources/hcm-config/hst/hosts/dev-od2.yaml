@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hst:platform/hst:hosts/dev-od2:
+      jcr:primaryType: hst:virtualhostgroup

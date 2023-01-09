@@ -56,6 +56,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
 
         final ParseOptions parseOptions = new ParseOptions();
         parseOptions.setResolve(true);
+        parseOptions.setResolveFully(true);
 
         final SwaggerParseResult swaggerParseResult = new OpenAPIV3Parser()
             .readContents(openApiSpecificationJson, null, parseOptions);

@@ -89,7 +89,6 @@ public class EventsComponent extends EssentialsEventsComponent {
     }
 
 
-
     /**
      * Fetch the value of year parameter from the URL query string
      *
@@ -109,7 +108,12 @@ public class EventsComponent extends EssentialsEventsComponent {
         this.applyExcludeScopes(request, query, paramInfo);
         this.buildAndApplyFilters(request, query);
 
-        return ComponentHelper.executeQuery(request, paramInfo, query, page, pageSize, this);
+        String intervalFilterParameter = this.getComponentConfiguration().getParameter("intervalFilter", RequestContextProvider.get().getResolvedSiteMapItem());
+        boolean intervalFilter = true;
+        if (intervalFilterParameter != null) {
+            intervalFilter = Boolean.parseBoolean(intervalFilterParameter);
+        }
+        return ComponentHelper.executeQuery(request, paramInfo, query, page, pageSize, this, intervalFilter);
     }
 
     @Override

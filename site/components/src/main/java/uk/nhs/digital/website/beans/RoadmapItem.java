@@ -12,8 +12,8 @@ import java.util.List;
 public class RoadmapItem extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:categorylink")
-    public List<HippoBean> getCategoryLink() {
-        return getLinkedBeans("website:categorylink", HippoBean.class);
+    public String getCategoryLink() {
+        return getSingleProperty("website:categorylink");
     }
 
     @HippoEssentialsGenerated(internalName = "website:impactedservices")
@@ -46,4 +46,7 @@ public class RoadmapItem extends CommonFieldsBean {
         return getBean("website:roadmapitemstatuses", RoadmapItemStatus.class);
     }
 
+    public String getId() {
+        return this.getCanonicalUUID();
+    }
 }

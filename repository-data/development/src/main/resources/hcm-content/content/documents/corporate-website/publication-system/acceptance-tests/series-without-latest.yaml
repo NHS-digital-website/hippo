@@ -249,8 +249,8 @@
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  /2020-upcoming:
-    /2020-upcoming[1]:
+  /2022-upcoming:
+    /2022-upcoming[1]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
@@ -285,12 +285,12 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2023-02-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2020 Upcoming
-      publicationsystem:Title: 2021 Upcoming
+      publicationsystem:Summary: 2022 Upcoming
+      publicationsystem:Title: 2022 Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: February
       publicationsystem:year: '2023'
-    /2020-upcoming[2]:
+    /2022-upcoming[2]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
@@ -327,12 +327,12 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2023-02-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2020 Upcoming
-      publicationsystem:Title: 2021 Upcoming
+      publicationsystem:Summary: 2022 Upcoming
+      publicationsystem:Title: 2022 Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: February
       publicationsystem:year: '2023'
-    /2020-upcoming[3]:
+    /2022-upcoming[3]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
@@ -369,12 +369,12 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2023-02-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2020 Upcoming
-      publicationsystem:Title: 2021 Upcoming
+      publicationsystem:Summary: 2022 Upcoming
+      publicationsystem:Title: 2022 Upcoming
       publicationsystem:earlyaccesskey: ''
       publicationsystem:month: February
       publicationsystem:year: '2023'
-    hippo:name: 2020 Upcoming
+    hippo:name: 2022 Upcoming
     hippo:versionHistory: 7b289b18-8549-41cd-b92b-d1c48bdda243
     jcr:mixinTypes:
     - hippo:named

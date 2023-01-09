@@ -3,6 +3,7 @@
 <#include "macro/siteHeader.ftl">
 <#include "macro/siteFooter.ftl">
 <#include "macro/component/skipLink.ftl">
+<#include "macro/mergerBanner.ftl">
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -14,6 +15,8 @@
 
     <#-- Add IE banner -->
     <@hst.include ref="ie-banner"/>
+
+    <@mergerBanner />
 
     <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>

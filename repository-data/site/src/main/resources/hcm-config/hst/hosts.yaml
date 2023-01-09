@@ -45,8 +45,8 @@ definitions:
           jcr:primaryType: hst:virtualhost
         hst:defaultport: 8080
         jcr:primaryType: hst:virtualhostgroup
-      hst:diagnosticsenabled: false
-      hst:diagnosticsthresholdmillisec: 1000
+      hst:diagnosticsenabled: true
+      hst:diagnosticsthresholdmillisec: 1500
       hst:diagnosticsunitthresholdmillisec: 5
       hst:homepage: root
       hst:scheme: https

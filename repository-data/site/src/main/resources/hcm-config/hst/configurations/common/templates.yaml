@@ -306,10 +306,10 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/quotehero.ftl
         jcr:primaryType: hst:template
       /roadmap:
-        hst:renderpath: webfile:/freemarker/common/roadmap.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/roadmap.ftl
         jcr:primaryType: hst:template
       /roadmapitem:
-        hst:renderpath: webfile:/freemarker/common/roadmapitem.ftl
+        hst:renderpath: webfile:/freemarker/nhsd-common/roadmapitem.ftl
         jcr:primaryType: hst:template
       /search-results-layout:
         hst:renderpath: webfile:/freemarker/common/search-results-layout.ftl
