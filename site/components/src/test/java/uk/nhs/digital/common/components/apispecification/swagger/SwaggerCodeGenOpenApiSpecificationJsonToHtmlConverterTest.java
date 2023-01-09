@@ -622,6 +622,27 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // @formatter:on
     }
 
+    @Test
+    public void rendersUnresolvedRefElements() {
+        // given
+        final String specificationJson = from("oasV3_withRefElements.json");
+
+        // when
+        final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
+
+        // then
+        assertThat(
+            "Unresolved $ref elements are rendered correctly",
+            ignoringWhiteSpacesIn(actualSpecHtml),
+            stringContainsInOrder(
+                "This is a path parameter within a $ref element",
+                "This is a header within a $ref element",
+                "This is an example within a $ref element",
+                "This is a schema object within a nested $ref element",
+                "This is a schema object within a $ref element",
+                "This is a request body within a $ref element"));
+    }
+
     private String from(final String fileName) {
         return cache.get(fileName, () -> contentOfFileFromClasspath(
             "/test-data/api-specifications/SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest/" + fileName)
