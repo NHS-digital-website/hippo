@@ -59,7 +59,7 @@
         <constructor-arg name="timeToIdle" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
     </bean>
 
-    <bean name="heavyContentCacheDisk" class="uk.nhs.digital.cache.Cache">
+    <bean name="heavyContentCacheDisk" class="uk.nhs.digital.cache.DiskCache">
         <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
     </bean>
 

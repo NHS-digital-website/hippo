@@ -3,7 +3,7 @@ package uk.nhs.digital.cache;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertTrue;
-import static uk.nhs.digital.cache.CacheConcurrentAccessTest.RoundRobinIterableValueSupplier.valuesFrom;
+import static uk.nhs.digital.cache.DiskCacheConcurrentAccessTest.RoundRobinIterableValueSupplier.valuesFrom;
 import static uk.nhs.digital.test.util.TestFileUtils.deleteFileOrDirectoryRecursivelyQuietly;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
-public class CacheConcurrentAccessTest {
+public class DiskCacheConcurrentAccessTest {
 
     private static final int CACHED_ELEMENTS_COUNT = 10;
     private static final int REQUEST_COUNT_TOTAL = 100;
@@ -42,12 +42,12 @@ public class CacheConcurrentAccessTest {
 
     private Path tempDirectory;
 
-    private Cache<String, String> cache;
+    private DiskCache<String, String> cache;
     private ClassPathXmlApplicationContext applicationContext;
 
     @Before
     public void setUp() throws Exception {
-        tempDirectory = Files.createTempDirectory(CacheConcurrentAccessTest.class.getSimpleName());
+        tempDirectory = Files.createTempDirectory(DiskCacheConcurrentAccessTest.class.getSimpleName());
 
         givenCustomCacheWiredUp();
 
@@ -178,7 +178,7 @@ public class CacheConcurrentAccessTest {
         );
         applicationContext.refresh();
 
-        cache = (Cache<String, String>) applicationContext.getBean("heavyContentCacheDisk");
+        cache = (DiskCache<String, String>) applicationContext.getBean("heavyContentCacheDisk");
     }
 
     private void givenCachePopulated() {
