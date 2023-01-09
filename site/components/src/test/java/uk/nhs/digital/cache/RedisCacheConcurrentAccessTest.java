@@ -4,7 +4,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertTrue;
 import static uk.nhs.digital.cache.CacheConcurrentAccessTest.RoundRobinIterableValueSupplier.valuesFrom;
-import static uk.nhs.digital.test.util.TestFileUtils.deleteFileOrDirectoryRecursivelyQuietly;
 
 import com.github.fppt.jedismock.RedisServer;
 import com.github.fppt.jedismock.datastructures.RMDataStructure;
@@ -19,10 +18,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.mock.env.MockEnvironment;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -45,21 +41,17 @@ public class RedisCacheConcurrentAccessTest {
 
     private final Map<String, String> elementsToCache = new ConcurrentHashMap<>();
 
-    private Path tempDirectory;
-
     private RedisCache cache;
     private RedisServer jedisMock;
     private ClassPathXmlApplicationContext applicationContext;
 
     @Before
     public void setUp() throws Exception {
-        tempDirectory = Files.createTempDirectory(RedisCacheConcurrentAccessTest.class.getSimpleName());
-
         jedisMock = RedisServer
             .newRedisServer()
             .setOptions(ServiceOptions.withInterceptor((state, roName, params) -> {
+                // Mock doesn't support getex so implemented here.
                 if ("getex".equalsIgnoreCase(roName)) {
-
                     state.base().setTTL(params.get(0), Long.parseLong(params.get(2).toString()));
                     RMDataStructure value = state.base().getValue(params.get(0));
                     return Response.bulkString(value != null ? value.getAsSlice() : null);
@@ -82,8 +74,6 @@ public class RedisCacheConcurrentAccessTest {
         applicationContext.close();
 
         jedisMock.stop();
-
-        Optional.ofNullable(tempDirectory).ifPresent(path -> deleteFileOrDirectoryRecursivelyQuietly(tempDirectory));
     }
 
     @Test
@@ -186,8 +176,6 @@ public class RedisCacheConcurrentAccessTest {
         String redisUrl = "http://" + jedisMock.getHost() + ":" + jedisMock.getBindPort();
         //JedisPool jedisPool = new JedisPool(redisUrl);
         final MockEnvironment environment = new MockEnvironment()
-            .withProperty("siteCache.heavyContentPageCache.maxMegabytesLocalDisk", "512")
-            .withProperty("siteCache.cacheManager.diskStorePath", tempDirectory.toAbsolutePath().toString())
             .withProperty("siteCache.heavyContentPageCache.timeToIdle", "PT15M")
             .withProperty("siteCache.heavyContentPageCache.type", "redis")
             .withProperty("hippo.environment", "test")

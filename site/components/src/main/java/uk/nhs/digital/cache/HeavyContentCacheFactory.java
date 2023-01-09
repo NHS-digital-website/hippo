@@ -11,7 +11,7 @@ public class HeavyContentCacheFactory {
         } else if (type.equals("disk")) {
             return diskCache;
         } else {
-            throw new Exception("No cache implementation found");
+            throw new Exception(String.format("No cache implementation found for config: \"%s\"", type));
         }
     }
 }

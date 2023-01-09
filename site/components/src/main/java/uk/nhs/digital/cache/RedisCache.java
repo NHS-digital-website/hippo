@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.params.GetExParams;
 import uk.nhs.digital.common.util.DateUtils;
 
@@ -43,7 +44,6 @@ public class RedisCache implements HeavyContentCache<String, String> {
 
             log.debug("Cache '{}': loading value for key {} from cache.", name, cacheKey);
             String value = jedis.getEx(cacheKey, GetExParams.getExParams().ex(expirySeconds)); // returns null on no matching entry
-            log.debug("Cache '{}': value loaded for key {}.", name, cacheKey);
 
             if (value == null) {
                 log.info("Cache '{}': no value found for key {}; generating new value.", name, cacheKey);
@@ -57,6 +57,11 @@ public class RedisCache implements HeavyContentCache<String, String> {
             }
 
             return value;
+        } catch (JedisConnectionException e) {
+            log.error(
+                String.format("Could not instantiate a Redis connection; acting as no-op and returning value produced by the supplier for key \"%s\"}", key),
+                e);
+            return valueFactory.get();
         }
     }
 
