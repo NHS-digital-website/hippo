@@ -126,6 +126,18 @@
         .local-header__title {
             white-space: nowrap;
         }
+
+        /* Meet contrast accessibility guidelines */
+        .swagger-ui .opblock .opblock-summary-method,
+        .swagger-ui .btn.execute{
+            color: #000;
+        }
+
+        .swagger-ui .copy-to-clipboard,
+        .swagger-ui .download-contents
+        {
+            background: #4c6272;
+        }
     </style>
 </#if>
 
@@ -183,6 +195,7 @@
 
                                 dom_id: '#content',
                                 deepLinking: true,
+                                "syntaxHighlight.theme": "tomorrow-night",
 
                                 presets: [
                                     SwaggerUIBundle.presets.apis,
