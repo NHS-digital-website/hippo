@@ -214,19 +214,19 @@ jobs:
             const environments = {
               C031HQR9Q0P: {
                 "name" : "cs",
-                "id": "${process.env.CS_ID}"
+                "id": `${process.env.CS_ID}`
               },
               C026PH4GQSH: {
                 "name": "development",
-                "id": "${process.env.DEV_ID}",
+                "id": `${process.env.DEV_ID}`
               },
               C0323S3FW4T: {
                 "name": "tst",
-                "id": "${process.env.TST_ID}"
+                "id": `${process.env.TST_ID}`
               },
               C03AADPJJRY: {
                 "name": "training",
-                "id": "${process.env.TRAINING_ID}"
+                "id": `${process.env.TRAINING_ID}`
               }
             }
             if(environments[`${process.env.CHANNEL_ID}`] === undefined) {
