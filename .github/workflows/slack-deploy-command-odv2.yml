@@ -204,10 +204,10 @@ jobs:
         uses: actions/github-script@v4.0.2
         id: find-target
         env:
-          CS_ID: ${{ ${{  secrets.BR_ID_CS }} }}
-          TST_ID: ${{ ${{  secrets.BR_ID_TST }} }}
-          DEV_ID: ${{ ${{  secrets.BR_ID_DEV }} }}
-          TRAINING_ID: ${{ ${{  secrets.BR_ID_TRAINING }} }}
+          CS_ID: ${{ secrets.BR_ID_CS }}
+          TST_ID: ${{ secrets.BR_ID_TST }}
+          DEV_ID: ${{ secrets.BR_ID_DEV }}
+          TRAINING_ID: ${{ secrets.BR_ID_TRAINING }}
         with:
           result-encoding: json
           script: |
