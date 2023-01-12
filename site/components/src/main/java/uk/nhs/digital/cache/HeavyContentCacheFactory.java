@@ -1,6 +1,11 @@
 package uk.nhs.digital.cache;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class HeavyContentCacheFactory {
+    private static final Logger log = LoggerFactory.getLogger(HeavyContentCacheFactory.class);
+
     public static <K, V> HeavyContentCache<K, V> factory(
         String type,
         HeavyContentCache<K, V> redisCache,
@@ -11,7 +16,9 @@ public class HeavyContentCacheFactory {
         } else if (type.equals("disk")) {
             return diskCache;
         } else {
-            throw new Exception(String.format("No cache implementation found for config: \"%s\"", type));
+            log.warn("No heavy content cache found for config: \"{}\". Will always re-render.", type);
+
+            return new NoopCache<>();
         }
     }
 }
