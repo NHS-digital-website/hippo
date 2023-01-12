@@ -203,25 +203,30 @@ jobs:
       - name: Identify target
         uses: actions/github-script@v4.0.2
         id: find-target
+        env:
+          CS_ID: ${{ ${{  secrets.BR_ID_CS }} }}
+          TST_ID: ${{ ${{  secrets.BR_ID_TST }} }}
+          DEV_ID: ${{ ${{  secrets.BR_ID_DEV }} }}
+          TRAINING_ID: ${{ ${{  secrets.BR_ID_TRAINING }} }}
         with:
           result-encoding: json
           script: |
             const environments = {
               C031HQR9Q0P: {
                 "name" : "cs",
-                "id": "${process.env.CS_BR_ID}"
+                "id": "${process.env.CS_ID}"
               },
               C026PH4GQSH: {
                 "name": "development",
-                "id": "${process.env.DEV_BR_ID}",
+                "id": "${process.env.DEV_ID}",
               },
               C0323S3FW4T: {
                 "name": "tst",
-                "id": "${process.env.TST_BR_ID}"
+                "id": "${process.env.TST_ID}"
               },
               C03AADPJJRY: {
                 "name": "training",
-                "id": "${process.env.TRAINING_BR_ID}"
+                "id": "${process.env.TRAINING_ID}"
               }
             }
             if(environments[`${process.env.CHANNEL_ID}`] === undefined) {
