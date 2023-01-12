@@ -59,7 +59,7 @@
         <constructor-arg name="timeToIdle" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
     </bean>
 
-    <bean name="heavyContentCacheDisk" class="uk.nhs.digital.cache.DiskCache">
+    <bean id="heavyContentCacheDisk" class="uk.nhs.digital.cache.DiskCache">
         <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
     </bean>
 
@@ -67,7 +67,7 @@
         <constructor-arg name="url" value="${siteCache.heavyContentPageCache.redisUrl:http://example.com:6379}"/>
     </bean>
 
-    <bean name="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
+    <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
         <constructor-arg name="jedisPool" ref="jedisPool"/>
         <constructor-arg name="expiryDuration" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
         <constructor-arg name="environmentName" value="${hippo.environment}"/>

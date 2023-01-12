@@ -67,12 +67,12 @@ public class RedisCache implements HeavyContentCache<String, String> {
 
     @Override
     public void remove(String key) {
-        log.info("Cache '{}': evicting entry with key {}.", name, key);
         String cacheKey = buildCacheKey(key);
+        log.info("Cache '{}': evicting entry with key {}.", name, cacheKey);
         try (Jedis jedis = jedisPool.getResource()) {
             jedis.del(cacheKey);
         }
-        log.info("Cache '{}': evicted entry with key {}.", name, key);
+        log.info("Cache '{}': evicted entry with key {}.", name, cacheKey);
     }
 
     @Override

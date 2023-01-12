@@ -56,7 +56,7 @@ public class RedisCacheTest extends MockitoSessionTestBase {
 
         // then
         assertThat(
-            "Returned value is that stored in Redis.",
+            "Returned value should be that stored in Redis.",
             actualValue,
             is(cachedValue)
         );
@@ -79,7 +79,7 @@ public class RedisCacheTest extends MockitoSessionTestBase {
 
         // then
         assertThat(
-            "Returned value is that returned from value factory.",
+            "Returned value should be that returned from value factory.",
             actualValue,
             is(generatedValue)
         );
@@ -109,7 +109,7 @@ public class RedisCacheTest extends MockitoSessionTestBase {
     }
 
     @Test
-    public void get_usesCorrectCacheFormat() {
+    public void get_usesCorrectCacheKeyFormat() {
         // given
         final String cachedValue = randomString();
         given(jedis.getEx(eq(cacheKey), any(GetExParams.class))).willReturn(cachedValue);
@@ -126,14 +126,14 @@ public class RedisCacheTest extends MockitoSessionTestBase {
         String actualCacheKey = captor.getValue();
 
         assertThat(
-            "Cache key used is correct.",
+            "Cache key should match format.",
             actualCacheKey,
             is(correctKey)
         );
     }
 
     @Test
-    public void get_producesNewValue_whenCacheConnectionFailed() {
+    public void get_producesNewValueWithoutCache_whenCacheConnectionFailed() {
         // given
         final String generatedValue = randomString();
         given(jedisPool.getResource()).willThrow(new JedisConnectionException(""));
