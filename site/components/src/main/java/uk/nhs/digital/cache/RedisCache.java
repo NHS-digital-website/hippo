@@ -35,11 +35,6 @@ public class RedisCache implements HeavyContentCache<String, String> {
     @Override
     public String get(String key, Supplier<String> valueFactory) {
         try (Jedis jedis = jedisPool.getResource()) {
-            if (jedis == null) {
-                log.error("Could not instantiate a Redis connection; acting as no-op and returning value produced by the supplier for key {}", key);
-                return valueFactory.get();
-            }
-
             String cacheKey = buildCacheKey(key);
 
             log.debug("Cache '{}': loading value for key {} from cache.", name, cacheKey);
