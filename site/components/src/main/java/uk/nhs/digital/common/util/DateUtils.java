@@ -7,8 +7,9 @@ public class DateUtils {
     public static Duration durationFromIso(final String durationIso)
         throws IllegalArgumentException, DateTimeParseException {
 
-        String durationIsoTrimmed = durationIso.trim();
+        String durationIsoTrimmed = null;
         try {
+            durationIsoTrimmed = durationIso.trim();
             Duration duration = Duration.parse(durationIsoTrimmed);
             return duration;
         } catch (final Exception e) {
