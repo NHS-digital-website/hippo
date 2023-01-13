@@ -70,12 +70,11 @@
     <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
         <constructor-arg name="jedisPool" ref="jedisPool"/>
         <constructor-arg name="expiryDuration" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
-        <constructor-arg name="environmentName" value="${hippo.environment}"/>
-        <constructor-arg name="nodeId" value="${org.apache.jackrabbit.core.cluster.node_id}"/>
+        <constructor-arg name="environmentName" value="#{systemProperties['brc.environmentname'] ?: systemProperties['hippo.environment'] ?: systemProperties['brx.contentfeed.environment']}"/>
     </bean>
 
     <bean id="heavyContentCache" class="uk.nhs.digital.cache.HeavyContentCacheFactory" factory-method="factory">
-        <constructor-arg name="type" value="${siteCache.heavyContentPageCache.type:disk}"/>
+        <constructor-arg name="type" value="${siteCache.heavyContentPageCache.type:noop}"/>
         <constructor-arg name="diskCache" ref="heavyContentCacheDisk"/>
         <constructor-arg name="redisCache" ref="heavyContentCacheRedis"/>
     </bean>

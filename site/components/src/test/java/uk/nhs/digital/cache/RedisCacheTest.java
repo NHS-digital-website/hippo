@@ -31,13 +31,12 @@ public class RedisCacheTest extends MockitoSessionTestBase {
     private final String key = randomString();
     private String cacheKey = null;
     private final String environmentName = randomString();
-    private final String nodeId = randomString();
 
     RedisCache cache;
 
     @Before
     public void setUp() throws Exception {
-        cache = new RedisCache(jedisPool, "PT24H", environmentName, nodeId);
+        cache = new RedisCache(jedisPool, "PT24H", environmentName);
         cache.setBeanName("testCache");
         cacheKey = cache.buildCacheKey(key);
         given(jedisPool.getResource()).willReturn(jedis);
@@ -109,12 +108,12 @@ public class RedisCacheTest extends MockitoSessionTestBase {
     }
 
     @Test
-    public void get_usesCorrectCacheKeyFormat() {
+    public void get_usesExpectedCacheKeyFormat() {
         // given
         final String cachedValue = randomString();
         given(jedis.getEx(eq(cacheKey), any(GetExParams.class))).willReturn(cachedValue);
 
-        String correctKey = String.format("%s:%s:%s", environmentName, nodeId, key);
+        String correctKey = String.format("%s:%s", environmentName, key);
 
         // when
         cache.get(key, valueFactory);
