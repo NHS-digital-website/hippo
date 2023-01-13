@@ -22,14 +22,13 @@ public enum Highlighter {
 
     private static final String POLYFILL = "highlighter/nashorn-polyfill.js";
     private static final String HIGHLIGHTER = "highlighter/highlight-js/highlight.pack.js"; // build from https://highlightjs.org/download/
-    private static final String DECORATOR = "highlighter/highlighter-decorator.js";
     private static final ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
 
     static {
         try {
             engine.eval(loadScript(POLYFILL));
             engine.eval(loadScript(HIGHLIGHTER));
-            engine.eval(loadScript(DECORATOR ));
+            engine.eval("function highlight(source, lang) { return hljs.highlight(lang, source).value }");
         } catch (ScriptException | IOException e) {
             // As we have control of the scripts this will not happen.
             e.printStackTrace();
@@ -45,7 +44,7 @@ public enum Highlighter {
 
     public String paint(final String source, final Language lang) {
         try {
-            return (String) ((Invocable) engine).invokeFunction("paint", source, lang.getKey());
+            return (String) ((Invocable) engine).invokeFunction("highlight", source, lang.getKey());
         } catch (ScriptException | NoSuchMethodException e) {
             // As we have control of the 'print' function this will not happen.
             e.printStackTrace();
