@@ -8,6 +8,7 @@ import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReaderImpl;
 import uk.nhs.digital.ps.chart.input.HighmapsXlsxInputParser;
+import uk.nhs.digital.ps.chart.input.IconChartXlsxInputParser;
 import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxInputParser;
 import uk.nhs.digital.ps.chart.input.SeriesHighchartsXlsxInputParser;
 
@@ -26,7 +27,8 @@ public class HighchartsModule implements DaemonModule {
         chartParser = new DelegatingHighchartsInputParser(
             new SeriesHighchartsXlsxInputParser(),
             new ScatterHighchartsXlsxInputParser(),
-            new HighmapsXlsxInputParser()
+            new HighmapsXlsxInputParser(),
+            new IconChartXlsxInputParser()
         );
         HippoServiceRegistry.register(chartParser, HighchartsInputParser.class);
 

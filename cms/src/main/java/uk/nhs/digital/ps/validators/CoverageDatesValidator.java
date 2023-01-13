@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps;
+package uk.nhs.digital.ps.validators;
 
 import static java.text.MessageFormat.format;
 

@@ -1,8 +1,10 @@
-package uk.nhs.digital.ps.chart;
+package uk.nhs.digital.ps.chart.parameters;
+
+import uk.nhs.digital.ps.chart.enums.MapSource;
 
 import javax.jcr.Binary;
 
-public class HighmapsParameters extends AbstractHighchartsParameters {
+public class HighmapsParameters extends AbstractVisualisationParameters {
 
     private MapSource mapSource;
 

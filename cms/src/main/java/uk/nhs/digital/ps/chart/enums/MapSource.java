@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps.chart;
+package uk.nhs.digital.ps.chart.enums;
 
 public enum MapSource {
     BRITISH_ISLES_COUNTRIES("custom/british-isles"),

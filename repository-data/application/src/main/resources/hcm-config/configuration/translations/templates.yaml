@@ -66,6 +66,11 @@ definitions:
           jcr:name: NI landing
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:Visualisation:
+        /en:
+          jcr:name: Visualisation
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:accessiblelink:
         /en:
           jcr:name: Link to accessible data

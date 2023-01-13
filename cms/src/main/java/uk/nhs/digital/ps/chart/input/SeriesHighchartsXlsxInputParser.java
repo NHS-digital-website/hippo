@@ -1,27 +1,32 @@
 package uk.nhs.digital.ps.chart.input;
 
 import static java.util.Collections.singletonList;
-import static uk.nhs.digital.ps.chart.ChartType.BAR;
-import static uk.nhs.digital.ps.chart.ChartType.COLUMN;
-import static uk.nhs.digital.ps.chart.ChartType.LINE;
-import static uk.nhs.digital.ps.chart.ChartType.PIE;
-import static uk.nhs.digital.ps.chart.ChartType.STACKED_BAR;
-import static uk.nhs.digital.ps.chart.ChartType.STACKED_COLUMN;
+import static uk.nhs.digital.ps.chart.enums.ChartType.BAR;
+import static uk.nhs.digital.ps.chart.enums.ChartType.COLUMN;
+import static uk.nhs.digital.ps.chart.enums.ChartType.LINE;
+import static uk.nhs.digital.ps.chart.enums.ChartType.PIE;
+import static uk.nhs.digital.ps.chart.enums.ChartType.STACKED_BAR;
+import static uk.nhs.digital.ps.chart.enums.ChartType.STACKED_COLUMN;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
-import uk.nhs.digital.ps.chart.ChartType;
-import uk.nhs.digital.ps.chart.HighchartsParameters;
+import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.model.HighchartsModel;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import javax.jcr.RepositoryException;
 
 @SuppressWarnings("PMD.TooManyStaticImports")
@@ -33,7 +38,7 @@ public class SeriesHighchartsXlsxInputParser extends AbstractHighchartsXlsxInput
         super(PIE, BAR, COLUMN, LINE, STACKED_BAR, STACKED_COLUMN);
     }
 
-    protected HighchartsModel parseXlsxChart(final AbstractHighchartsParameters abstractParameters
+    protected HighchartsModel parseXlsxChart(final AbstractVisualisationParameters abstractParameters
     ) throws IOException, RepositoryException {
         HighchartsParameters paramaters = (HighchartsParameters) abstractParameters;
 
@@ -66,7 +71,8 @@ public class SeriesHighchartsXlsxInputParser extends AbstractHighchartsXlsxInput
                 Optional<Double> cellValue = getDoubleValue(cell);
                 indexedSeries.computeIfAbsent(i, key -> new Series(""))
                     .add(cell != null && cell.getCellType() != CellType.BLANK
-                        ? new Point(category, cellValue.isPresent() ? cellValue.get() : null) : new Point(category, null));
+                        ? new Point(category, cellValue.isPresent() ? cellValue.get() : null) :
+                        new Point(category, null));
             }
         });
 

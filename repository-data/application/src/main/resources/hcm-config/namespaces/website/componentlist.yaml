@@ -73,7 +73,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /items:
+          /relateddocuments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Links
