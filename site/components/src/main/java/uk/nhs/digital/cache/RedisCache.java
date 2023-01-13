@@ -16,20 +16,18 @@ public class RedisCache implements HeavyContentCache<String, String> {
     private final JedisPool jedisPool;
     private final long expirySeconds;
     private final String environmentName;
-    private final String nodeId;
 
     /**
      * @param expiryDuration ISO duration string.
      */
-    public RedisCache(JedisPool jedisPool, String expiryDuration, String environmentName, String nodeId) {
+    public RedisCache(JedisPool jedisPool, String expiryDuration, String environmentName) {
         this.jedisPool = jedisPool;
         this.expirySeconds = DateUtils.durationFromIso(expiryDuration).getSeconds();
         this.environmentName = environmentName;
-        this.nodeId = nodeId;
     }
 
     public String buildCacheKey(String key) {
-        return String.format("%s:%s:%s", environmentName, nodeId, key);
+        return String.format("%s:%s", environmentName, key);
     }
 
     @Override
