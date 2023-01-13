@@ -19,7 +19,7 @@ definitions:
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/PublicationFlagChange:
       /hipposched:triggers:
         /daily925:
-          hipposched:cronExpression: 0 25 8-9 * * ?
+          hipposched:cronExpression: 0 31 8-9 * * ?
           hipposched:enabled: true
           hipposched:nextFireTime: 2022-05-13T08:25:00Z
           jcr:mixinTypes:

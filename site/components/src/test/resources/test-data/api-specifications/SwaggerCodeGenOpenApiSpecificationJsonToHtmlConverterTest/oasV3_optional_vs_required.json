@@ -1,0 +1,347 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/path-a": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/path-b": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "header-a",
+                        "description": "Request header parameter which is optional with no example and no with enum.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "header-b",
+                        "description": "Request header parameter which is optional with no example and no with enum.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/path-c": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "header-a",
+                        "description": "Request header parameter which is required with no example and no with enum.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "header-b",
+                        "description": "Request header parameter which is required with no example and no with enum.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/path-d": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "header-a",
+                        "description": "Request header parameter which is required with no example and no with enum.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "header-b",
+                        "description": "Request header parameter which is optional with no example and no with enum.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/path-e": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query-param-a",
+                        "description": "Request query parameter which is optional with no example and no with enum.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "query-param-b",
+                        "description": "Request query parameter which is optional with no example and no with enum.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/path-f": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query-param-a",
+                        "description": "Request query parameter which is required with no example and no with enum.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "query-param-b",
+                        "description": "Request query parameter which is required with no example and no with enum.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/path-g": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query-param-a",
+                        "description": "Request query parameter which is required with no example and no with enum.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "query-param-b",
+                        "description": "Request query parameter which is optional with no example and no with enum.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/path-h": {
+            "get": {
+                "requestBody": {
+                    "content": {
+                        "irrelevant/content-type": {
+                            "schema": {
+                                "type": "string",
+                                "description": "Request body schema which is required with example and with enum.",
+                                "enum": [
+                                    "req-required-body-param-value-a",
+                                    "req-required-body-param-value-b"
+                                ],
+                                "example": "req-required-body-param-value-a"
+                            }
+                        }
+                    },
+                    "required" : true
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/path-i": {
+            "get": {
+                "requestBody": {
+                    "content": {
+                        "irrelevant/content-type": {
+                            "schema": {
+                                "type": "string",
+                                "description": "Request body schema which is optional with example and with enum.",
+                                "enum": [
+                                    "req-optional-body-param-value-a",
+                                    "req-optional-body-param-value-b"
+                                ],
+                                "example": "req-optional-body-param-value-a"
+                            }
+                        }
+                    },
+                    "required" : false
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                            "header-d": {
+                                "description": "Response header with no example and with enum.",
+                                "schema": {
+                                    "type": "string",
+                                    "enum": [
+                                        "value-a",
+                                        "value-b"
+                                    ],
+                                    "example": "value-a"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

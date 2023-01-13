@@ -1,28 +1,26 @@
 <#ftl output_format="HTML">
 
 <#macro calloutBox callout classname="" title="">
-<#assign severity=(callout.severity?has_content?then(callout.severity, "information")) />
-<#assign update=callout.calloutType=="update" />
-<#assign calloutBoxId=callout.calloutType+"-"+callout.severity+"-"+callout.index />
+    <#assign severity=(callout.severity?has_content?then(callout.severity, "information")) />
+    <#assign update=callout.calloutType=="update" />
+    <#assign calloutBoxId=callout.calloutType+"-"+callout.severity+"-"+callout.index />
 
-<#if severity == 'critical'>
-    <#assign emphasisType = 'warning'/>
-    <#assign borderColour = 'red' />
-<#elseif severity == 'important'>
-    <#assign emphasisType = 'important' />
-    <#assign borderColour = 'yellow' />
-<#elseif severity == 'information'>
     <#assign emphasisType = 'emphasis' />
     <#assign borderColour = 'blue' />
-</#if>
+    <#assign emphasisClass = "" />
 
-<#if emphasisType=="warning">
-<div class="nhsd-m-emphasis-box--warning">
-    <#else>
-    <div class="nhsd-m-emphasis-box--wide">
-        </#if>
+    <#if severity == 'critical'>
+        <#assign emphasisType = 'warning'/>
+        <#assign borderColour = 'red' />
+        <#assign emphasisClass = "nhsd-m-emphasis-box--warning" />
+    <#elseif severity == 'important'>
+        <#assign emphasisType = 'important' />
+        <#assign borderColour = 'yellow' />
+    </#if>
+
+    <div class="nhsd-m-emphasis-box ${emphasisClass}">
         <div class="nhsd-a-box nhsd-a-box--border-${borderColour}">
-            <div class="nhsd-m-emphasis-box__icon-box" style="display: flex; justify-content: flex-end">
+            <div class="nhsd-m-emphasis-box__icon-box">
               <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
                   <svg xmlns="http://www.w3.org/2000/svg"
                        preserveAspectRatio="xMidYMid meet" focusable="false"
@@ -30,16 +28,7 @@
                       <path
                           d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"></path>
                       <g>
-                            <#if emphasisType == "important">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     preserveAspectRatio="xMidYMid meet"
-                                     aria-hidden="true" focusable="false"
-                                     viewBox="0 0 16 16" width="72%" height="72%"
-                                     x="14%" y="14%">
-                                    <path
-                                        d="M 7.3247844,11.545141 7.1559222,0.40326992 H 8.8440778 L 8.6752156,11.545141 H 7.3246603 Z M 7.1559222,15.59673 v -2.02577 h 1.6881556 v 2.02577 z"/>
-                                </svg>
-                            <#elseif emphasisType == "warning">
+                            <#if emphasisType == "important" || emphasisType == "warning">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      preserveAspectRatio="xMidYMid meet"
                                      aria-hidden="true" focusable="false"
@@ -75,4 +64,4 @@
             </div>
         </div>
     </div>
-    </#macro>
+</#macro>

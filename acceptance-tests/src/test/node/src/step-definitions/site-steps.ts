@@ -6,18 +6,18 @@ import { expect } from 'chai';
 
 const siteUrl = 'http://localhost:8080/site';
 
-const pages: [{
+const pages: {
     name: string,
     url: string
-},{
-    name: string,
-    url: string
-}] = [{
+}[] = [{
     name: 'General test document',
     url: '/website-acceptance-tests/general-test-document'
 },{
     name: 'Cyber Alert',
     url: '/cyber-alerts'
+},{
+    name: 'Service test document',
+    url: '/website-acceptance-tests/service-test-document'
 }];
 
 function getPageUrl(pageName: string) {
@@ -26,7 +26,7 @@ function getPageUrl(pageName: string) {
 }
 
 function getMacroTestPageUrl(macro: string) {
-    return "/automated-test-pages/macros?macro=" + macro;
+    return "/automated-test-pages/macros?macro=" + macro.replace(/ /, '-');
 }
 
 Given('I navigate to the {string} page', {timeout: 60000}, async function (this: CustomWorld, page: string) {

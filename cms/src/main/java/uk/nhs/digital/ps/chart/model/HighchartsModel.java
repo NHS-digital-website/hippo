@@ -1,10 +1,10 @@
 package uk.nhs.digital.ps.chart.model;
 
-import uk.nhs.digital.ps.chart.ChartType;
+import uk.nhs.digital.ps.chart.enums.ChartType;
 
 import java.util.List;
 
-public class HighchartsModel extends AbstractHighchartsModel {
+public class HighchartsModel extends AbstractVisualisationModel {
     private final Chart chart;
     private final Axis xAxis;
     private final Axis yAxis;

@@ -18,22 +18,25 @@ public class SvgProvider {
     private static final String IMAGE_TYPE_ORIGINAL = "hippogallery:original";
     private static final Logger LOG = LoggerFactory.getLogger(SvgProvider.class);
 
+    private SvgProvider() {
+    }
+
     public static String getSvgXmlFromBean(HippoBean svgBean) {
 
         HippoBean imageTypeSvgBean = svgBean.getBean(IMAGE_TYPE_ORIGINAL);
-        try {
-            if (hasBinaryData(imageTypeSvgBean.getNode())) {
-                LOG.debug("Fetching binary data from {}.", imageTypeSvgBean.getParentBean().getParentBean().getName());
-                InputStream svgBinaryStream = imageTypeSvgBean.getNode().getProperty(JcrConstants.JCR_DATA).getBinary().getStream();
+        if (hasBinaryData(imageTypeSvgBean.getNode())) {
+            LOG.debug("Fetching binary data from {}.", imageTypeSvgBean.getParentBean().getParentBean().getName());
+            try (InputStream svgBinaryStream = imageTypeSvgBean.getNode().getProperty(JcrConstants.JCR_DATA).getBinary().getStream()) {
                 return IOUtils.toString(svgBinaryStream, StandardCharsets.UTF_8.name());
-            } else {
-                LOG.warn("Could not find Binary data from the SVG section of the document.");
+            } catch (RepositoryException | IOException exception) {
+                LOG.error("Unknown exception occurred while trying to retrieve SVG from repository.", exception);
                 return null;
             }
-        } catch (RepositoryException | IOException exception) {
-            LOG.error("Unknown exception occurred while trying to retrieve SVG from repository.", exception);
+        } else {
+            LOG.warn("Could not find Binary data from the SVG section of the document.");
             return null;
         }
+
     }
 
     private static boolean hasBinaryData(Node svgNode) {

@@ -13,10 +13,12 @@ import org.apache.jackrabbit.value.BinaryImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxInputParser;
 import uk.nhs.digital.ps.chart.model.HighchartsModel;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
+import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
 
 import java.io.FileInputStream;
 import java.util.List;

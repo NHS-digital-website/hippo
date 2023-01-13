@@ -13,10 +13,10 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import uk.nhs.digital.ps.chart.ChartType;
-import uk.nhs.digital.ps.chart.HighmapsParameters;
-import uk.nhs.digital.ps.chart.MapSource;
+import uk.nhs.digital.ps.chart.enums.ChartType;
+import uk.nhs.digital.ps.chart.enums.MapSource;
 import uk.nhs.digital.ps.chart.model.HighmapsModel;
+import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
 
 import java.io.FileInputStream;
 import java.util.List;
