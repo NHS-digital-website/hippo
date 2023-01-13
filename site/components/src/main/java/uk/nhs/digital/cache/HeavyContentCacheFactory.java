@@ -9,7 +9,9 @@ public class HeavyContentCacheFactory {
     public static <K, V> HeavyContentCache<K, V> factory(
         String type,
         HeavyContentCache<K, V> redisCache,
-        HeavyContentCache<K, V> diskCache) throws Exception {
+        HeavyContentCache<K, V> diskCache) {
+
+        type = type == null ? "" : type.trim();
 
         if (type.equals("redis")) {
             return redisCache;
