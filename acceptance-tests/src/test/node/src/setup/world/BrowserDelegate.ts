@@ -66,6 +66,11 @@ export default class BrowserDelegate {
         return await this.newPage();
     }
 
+    async getContext() {
+        if (this.context) return this.context;
+        return null;
+    }
+
     async openUrl(url: string) {
         const page = await this.getPage();
         const res = await page.goto(url);
