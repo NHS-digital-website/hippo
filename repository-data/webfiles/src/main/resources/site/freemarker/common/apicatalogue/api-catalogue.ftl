@@ -34,7 +34,7 @@
     <#if alphabetical_hash??>
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12 nhsd-!t-margin-bottom-5">
-                <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Search A-Z</h2>
+                <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Quick navigation</h2>
                 <@azList alphabetical_hash "side-az-nav-heading"/>
             </div>
 
