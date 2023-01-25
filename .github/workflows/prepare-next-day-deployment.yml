@@ -2,7 +2,7 @@ name: Prepare the tags for the next production deployment
 
 on:
   schedule:
-     # Runs at 3 pm weekdays (UK time)
+    # Runs at 3 pm weekdays (UK time)
     - cron: "0 15 * * 1-5"
 
 jobs:
@@ -24,6 +24,23 @@ jobs:
           make git.update-environment-tag ENV=prd VERSION=rc
           make git.update-environment-tag ENV=rc VERSION=uat
 
-      - name: Message Slack
+      - name: Get JIRA List
+        id: getJiraListId
         run: |
-          make notify.slack
+          git log --format="* %s. [Author %an]" uat..rc
+          jiraList=$(echo $(git log --format="\n %s. [Author %an]" uat..rc))
+          echo "::set-output name=jiraListIds::${jiraList}"
+
+      - name: Slack message (List Jira Tickets to be released)
+        if: ${{ success() }}
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ env.SLACK_WEBHOOK }}
+          data: '{
+            "channel": "C04KERNBD4J",
+            "text": "Release to production has been scheduled at 12:05 on the next working day. The following new changes (if any) will be released: ${{steps.getJiraListId.outputs.jiraListIds}}"
+            }'
+        env:
+          SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
+          GITHUB_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
