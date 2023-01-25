@@ -86,7 +86,7 @@ Feature: Display of publications forming a series
             | A publication 2018 ... |
             | Publication 2017 ...   |
         And I should see the "Series Upcoming Publications" list containing:
-            | 2022 Upcoming ... |
+            | 2024 Upcoming ... |
 
     Scenario: List attachments and Links added to the series
         Given I navigate to the "valid publication series" page

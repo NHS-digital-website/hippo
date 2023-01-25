@@ -15,7 +15,7 @@
     <!-- Generic meta tags -->
     <@hst.headContributions categoryIncludes="intranetMeta" xhtml=true/>
 
-    <#assign toolkitVersion = 'v0.153.0' />
+    <#assign toolkitVersion = 'v0.166.1' />
 
     <#-- Preload fonts to improve performance -->
     <link href="https://design-system.digital.nhs.uk/" rel="preconnect" crossorigin>
@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/stylesheets/nhsd-frontend.css" />
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-edge-cases.css" />" />
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-print.css"/>" media="print" type="text/css"/>
-    <script src="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/scripts/nhsd-frontend.js"></script>
+    <script src="https://6f07-109-154-51-245.ngrok.io/scripts/nhsd-frontend.js"></script>
     <script src="<@hst.webfile path="/dist/nhsd-intranet-priority-scripts.bundle.js"/>"></script>
 
     <#include "../scripts/intranet-header-scripts.ftl" />

@@ -5,7 +5,10 @@
         "browser": true
     },
     "rules": {
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "no-console": ["error", {
+            "allow": ["warn", "error"]
+        }]
     },
     "globals": {
         "__webpack_public_path__": "writable"

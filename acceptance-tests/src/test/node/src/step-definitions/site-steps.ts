@@ -46,16 +46,24 @@ Given('I navigate to the {string} macro test page', {timeout: 60000}, async func
     this.currentPage = 'Macro test page';
 });
 
+Then('I scroll target {string} element into view', async function (this: CustomWorld, target: string) {
+    const page = await this.browser.getPage();
+    const targetElement = page.locator(`[data-test-target="${target}"]`);
+    expect(await targetElement.count()).to.be.greaterThan(0);
+
+    await targetElement.first().scrollIntoViewIfNeeded();
+    await this.browser.timeout(100);
+});
+
 Given('I click target {string} element', async function (this: CustomWorld, target: string) {
     const page = await this.browser.getPage();
     const targetElement = page.locator(`[data-test-target="${target}"]`);
     expect(await targetElement.count()).to.be.greaterThan(0);
-    await targetElement.first().scrollIntoViewIfNeeded();
-    await this.browser.timeout(1000);
     await targetElement.first().click();
+    await this.browser.timeout(100);
 });
 
-Then('I wait {int} seconds', {timeout: 60000}, async function(this: CustomWorld, timeout: number) {
+Then('I wait {float} second(s)', {timeout: 60000}, async function(this: CustomWorld, timeout: number) {
     await this.browser.timeout(timeout * 1000);
 });
 
@@ -63,3 +71,10 @@ When('I view page on {string}', async function(this: CustomWorld, device: Viewpo
     await this.browser.switchViewport(device);
 });
 
+When('I click button/link with text {string}', {timeout: 60000}, async function(this: CustomWorld, targetText: number) {
+    const page = await this.browser.getPage();
+    const targetElement = page.locator('button:visible, a:visible')
+        .locator(`text=${targetText}`);
+    await targetElement.click();
+    await this.browser.timeout(100);
+});

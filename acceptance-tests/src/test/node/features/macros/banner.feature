@@ -35,5 +35,7 @@ Feature: Ensure banner macro is working as expected
     Scenario: Check video banner video
         Given I navigate to the "banner" macro test page
         When "video banner" YouTube embed has loaded
+        And I scroll target "video" element into view
+        And I wait 1 second
         And I click target "video" element
         Then "video banner" YouTube embed should start playing
