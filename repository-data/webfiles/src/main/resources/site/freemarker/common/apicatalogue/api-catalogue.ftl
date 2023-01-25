@@ -79,13 +79,13 @@
                     <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0" id="search-results-count">${apiCatalogueLinks?size} results</h6>
                 </div>
                 <div class="nhsd-t-row">
-                    <div class="nhsd-t-col-4 nhsd-!t-padding-left-0">
-                        <label aria-label="Include retired APIs" class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
+                    <div class="nhsd-t-col-6 nhsd-!t-padding-left-0">
+                        <label aria-label="Include retired APIs and API standards" class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
                             <div class="nhsd-a-box nhsd-!t-padding-left-0">
                                 <span class="nhsd-m-selector-toggle-card__toggle">
                                     <div class="nhsd-a-selector-toggle">
                                     <@hst.link var="baseUrl"/>
-                                        <a href="<@renderUrl baseUrl=baseUrl showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api"]) />"
+                                        <a href="<@renderUrl baseUrl=baseUrl showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />"
                                            class="nhsd-a-checkbox__label nhsd-t-body-s">
                                             <input type="checkbox"  <#if showRetired>checked</#if> />
                                             <span class="slider"></span>
@@ -93,7 +93,7 @@
                                     </div>
                                 </span>
 
-                                <p class="nhsd-t-body-s">Include retired APIs</p>
+                                <p class="nhsd-t-body-s">Include retired APIs and API standards</p>
                             </div>
                         </label>
                     </div>
