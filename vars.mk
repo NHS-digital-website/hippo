@@ -58,6 +58,9 @@ SITE_CACHE_DISK_STORE_PATH ?= defaultTempLocation
 SITE_CACHE_HEAVY_MAX_MEGABYTES_LOCAL_DISK ?= 200
 SITE_CACHE_HEAVY_PERSISTENT ?= false
 SITE_CACHE_HEAVY_TIME_TO_IDLE ?= PT24H
+SITE_CACHE_HEAVY_REDIS_URL ?= http://localhost:6379
+SITE_CACHE_HEAVY_TYPE ?= disk
+
 
 PROXYGEN_TOKEN_URL ?= https://identity.ptl.api.platform.nhs.uk/auth/realms/api-producers/protocol/openid-connect/token
 PROXYGEN_AUDIENCE_URL ?= https://identity.ptl.api.platform.nhs.uk/auth/realms/api-producers
@@ -84,6 +87,8 @@ MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
     -DsiteCache.heavyContentPageCache.maxMegabytesLocalDisk=$(SITE_CACHE_HEAVY_MAX_MEGABYTES_LOCAL_DISK) \
     -DsiteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts=$(SITE_CACHE_HEAVY_PERSISTENT) \
     -DsiteCache.heavyContentPageCache.timeToIdle=$(SITE_CACHE_HEAVY_TIME_TO_IDLE) \
+    -DsiteCache.heavyContentPageCache.type=$(SITE_CACHE_HEAVY_TYPE) \
+    -DsiteCache.heavyContentPageCache.redisUrl=$(SITE_CACHE_HEAVY_REDIS_URL) \
 	-Ddevzone.proxygen.resources.specs.all.url=$(PROXYGEN_SPECS_ALL_URL) \
 	-Ddevzone.proxygen.resources.specs.individual.url=$(PROXYGEN_SPECS_ONE_URL) \
 	-Ddevzone.proxygen.oauth.token.url=$(PROXYGEN_TOKEN_URL) \
