@@ -10,6 +10,9 @@ import uk.nhs.digital.common.util.DateUtils;
 
 import java.util.function.Supplier;
 
+/**
+ * Note that RedisCache is {@code <string, string>} only.
+ */
 public class RedisCache implements HeavyContentCache<String, String> {
     private static final Logger log = LoggerFactory.getLogger(RedisCache.class);
     private String name = toString();
