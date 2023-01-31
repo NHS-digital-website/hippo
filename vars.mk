@@ -73,6 +73,8 @@ PROXYGEN_PRIVATE_KEY ?= REPLACE_WITH_ACTUAL_PROXYGEN_PRIVATE_KEY
 #	-Dsplunk.url=$(SPLUNK_URL) \
 #	-Dsplunk.hec.name=$(SPLUNK_HEC) \
 
+HIPPO_ENVIRONMENT ?= local-dev
+
 MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Dexternalstorage.aws.region=$(S3_REGION) \
 	-Dspring.profiles.active=local \
@@ -92,7 +94,8 @@ MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Ddevzone.proxygen.resources.specs.all.url=$(PROXYGEN_SPECS_ALL_URL) \
 	-Ddevzone.proxygen.resources.specs.individual.url=$(PROXYGEN_SPECS_ONE_URL) \
 	-Ddevzone.proxygen.oauth.token.url=$(PROXYGEN_TOKEN_URL) \
-	-Ddevzone.proxygen.oauth.aud.url=$(PROXYGEN_AUDIENCE_URL)
+	-Ddevzone.proxygen.oauth.aud.url=$(PROXYGEN_AUDIENCE_URL) \
+	-Dhippo.environment=$(HIPPO_ENVIRONMENT)
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)
 export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)

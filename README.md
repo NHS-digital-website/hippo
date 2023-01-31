@@ -8,11 +8,18 @@
 * To run all tests `make test`.
 * To get more help, simply run `make help`.
 
+## Repository Persistence
+
 Set `REPO_PATH = -Drepo.path=storage` in `env.mk` to preserve your local docs between `make serve` sessions.
 This creates `storage` directory within the project directory, that contains your local CMS database.
 The directory is ignored by git, so you're not risking committing it by accident. If you need to start with
 clean slate, simply delete the directory and it will be recreated on the next run.
 
+## API Catalogue Heavy Content Cache
+
+To cache the API Catalogue specs with Redis during development, set `SITE_CACHE_HEAVY_TYPE = redis` in
+your `env.mk`. Then start a Redis instance on the default port (6379) or set `SITE_CACHE_HEAVY_REDIS_URL`.
+E.g. `docker start hippo-redis || docker run --name hippo-redis redis -d`.
 
 ## Key Maven Build Operations
 
@@ -315,7 +322,6 @@ and to run the docker container, run command
 ```
 docker run acceptance-test
 ```
-
 
 ## More details
 
