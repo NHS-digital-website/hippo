@@ -22,7 +22,8 @@
 
 <@hero getHeroOptions(document) />
 
-<div class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-7 nhsd-api-catalogue">
+<div
+    class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-7 nhsd-api-catalogue">
 
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-12">
@@ -34,7 +35,8 @@
     <#if alphabetical_hash??>
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-12 nhsd-!t-margin-bottom-5">
-                <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Quick navigation</h2>
+                <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Quick
+                    navigation</h2>
                 <@azList alphabetical_hash "side-az-nav-heading"/>
             </div>
 
@@ -46,16 +48,19 @@
                 <div class="nhsd-!t-display-l-hide">
                     <@scrollableFilterNav filtersModel true></@scrollableFilterNav>
                 </div>
-                <div class="nhsd-t-row nhsd-!t-display-hide" id="catalogue-search-bar">
+                <div class="nhsd-t-row nhsd-!t-display-hide"
+                     id="catalogue-search-bar">
                     <div class="nhsd-t-col-l-8 nhsd-!t-padding-left-0">
                         <div class="nhsd-t-float-left">
-                            <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Search</h6>
+                            <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">
+                                Search</h6>
                         </div>
                         <div class=" nhsd-!t-padding-0 nhsd-!t-margin-bottom-2">
                             <div class="nhsd-t-form-control">
                                 <input
                                     class="nhsd-t-form-input"
                                     type="text"
+                                    onClick="logGoogleAnalyticsEvent('api-catalogue-search-click','api-catalogue-search-category','api-catalogue-search-label');"
                                     id="catalogue-search-bar-input"
                                     name="query"
                                     autocomplete="off"
@@ -63,37 +68,50 @@
                                     aria-label="Keywords"
                                 />
                                 <span class="nhsd-t-form-control__button">
-                                    <button  class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent nhsd-!t-display-hide"  type="submit" data-clear-button aria-label="Clear">
-                                        <span class="nhsd-a-icon nhsd-a-icon--size-s">
-                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16"><polygon points="13.9,1 8,6.9 2.1,1 1,2.1 6.9,8 1,13.9 2.1,15 8,9.1 13.9,15 15,13.9 9.1,8 15,2.1 "/></svg>
+                                    <button
+                                        class="nhsd-a-button nhsd-a-button--circle-condensed nhsd-a-button--transparent nhsd-!t-display-hide"
+                                        type="submit" data-clear-button
+                                        aria-label="Clear">
+                                        <span
+                                            class="nhsd-a-icon nhsd-a-icon--size-s">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             preserveAspectRatio="xMidYMid meet"
+                                             focusable="false" viewBox="0 0 16 16"><polygon
+                                                points="13.9,1 8,6.9 2.1,1 1,2.1 6.9,8 1,13.9 2.1,15 8,9.1 13.9,15 15,13.9 9.1,8 15,2.1 "/></svg>
                                         </span>
                                     </button>
                                 </span>
-                                <script src="<@hst.webfile path="/apicatalogue/apicatalogue.js"/>"></script>
+                                <script
+                                    src="<@hst.webfile path="/apicatalogue/apicatalogue.js"/>"></script>
                             </div>
                         </div>
                     </div>
                     <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xs"/>
                 </div>
                 <div class="nhsd-t-row nhsd-!t-padding-top-1">
-                    <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0" id="search-results-count">${apiCatalogueLinks?size} results</h6>
+                    <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"
+                        id="search-results-count">${apiCatalogueLinks?size}
+                        results</h6>
                 </div>
                 <div class="nhsd-t-row">
                     <div class="nhsd-t-col-6 nhsd-!t-padding-left-0">
-                        <label aria-label="Include retired APIs and API standards" class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
+                        <label aria-label="Include retired APIs and API standards"
+                               class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
                             <div class="nhsd-a-box nhsd-!t-padding-left-0">
                                 <span class="nhsd-m-selector-toggle-card__toggle">
                                     <div class="nhsd-a-selector-toggle">
                                     <@hst.link var="baseUrl"/>
                                         <a href="<@renderUrl baseUrl=baseUrl showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />"
                                            class="nhsd-a-checkbox__label nhsd-t-body-s">
-                                            <input type="checkbox"  <#if showRetired>checked</#if> />
+                                            <input type="checkbox"
+                                                   <#if showRetired>checked</#if> />
                                             <span class="slider"></span>
                                         </a>
                                     </div>
                                 </span>
 
-                                <p class="nhsd-t-body-s">Include retired APIs and API standards</p>
+                                <p class="nhsd-t-body-s">Include retired APIs and
+                                    API standards</p>
                             </div>
                         </label>
                     </div>
