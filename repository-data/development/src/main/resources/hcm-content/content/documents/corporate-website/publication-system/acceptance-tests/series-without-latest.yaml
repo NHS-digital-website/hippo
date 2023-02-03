@@ -249,8 +249,8 @@
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  /2022-upcoming:
-    /2022-upcoming[1]:
+  /2024-upcoming:
+    /2024-upcoming[1]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
@@ -283,14 +283,14 @@
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2023-02-01T00:00:00Z
+      publicationsystem:NominalDate: 2024-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2022 Upcoming
-      publicationsystem:Title: 2022 Upcoming
+      publicationsystem:Summary: 2024 Upcoming
+      publicationsystem:Title: 2024 Upcoming
       publicationsystem:earlyaccesskey: ''
-      publicationsystem:month: February
-      publicationsystem:year: '2023'
-    /2022-upcoming[2]:
+      publicationsystem:month: January
+      publicationsystem:year: '2024'
+    /2024-upcoming[2]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
@@ -325,14 +325,14 @@
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2023-02-01T00:00:00Z
+      publicationsystem:NominalDate: 2024-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2022 Upcoming
-      publicationsystem:Title: 2022 Upcoming
+      publicationsystem:Summary: 2024 Upcoming
+      publicationsystem:Title: 2024 Upcoming
       publicationsystem:earlyaccesskey: ''
-      publicationsystem:month: February
-      publicationsystem:year: '2023'
-    /2022-upcoming[3]:
+      publicationsystem:month: January
+      publicationsystem:year: '2024'
+    /2024-upcoming[3]:
       /publicationsystem:KeyFactsHead:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
@@ -369,12 +369,12 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2023-02-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
-      publicationsystem:Summary: 2022 Upcoming
-      publicationsystem:Title: 2022 Upcoming
+      publicationsystem:Summary: 2024 Upcoming
+      publicationsystem:Title: 2024 Upcoming
       publicationsystem:earlyaccesskey: ''
-      publicationsystem:month: February
-      publicationsystem:year: '2023'
-    hippo:name: 2022 Upcoming
+      publicationsystem:month: January
+      publicationsystem:year: '2024'
+    hippo:name: 2024 Upcoming
     hippo:versionHistory: 7b289b18-8549-41cd-b92b-d1c48bdda243
     jcr:mixinTypes:
     - hippo:named

@@ -17,6 +17,8 @@
     <#include "./macro/cards.ftl">
 <#elseif macro == "case-study">
     <#include "./macro/caseStudy.ftl">
+<#elseif macro == "dropdown">
+    <#include "./macro/dropdown.ftl">
 <#elseif macro == "filterMenu">
     <#include "./macro/filterMenu.ftl">
 <#elseif macro == "footer">
