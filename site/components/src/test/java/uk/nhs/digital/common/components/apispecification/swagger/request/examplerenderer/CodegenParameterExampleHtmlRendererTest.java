@@ -35,7 +35,7 @@ public class CodegenParameterExampleHtmlRendererTest extends MockitoSessionTestB
 
         // given
         final String expectedHtmlForExampleValue =
-            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">"
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">"
                 + "simple example specified in parameter's definition with HTML hostile characters &lt; &gt; &amp;</span>";
 
         final String parameterJsonDefinition = from("exampleSpecifiedInParamDefinitionAndInSchema_parameterDefinition.json");
@@ -61,8 +61,8 @@ public class CodegenParameterExampleHtmlRendererTest extends MockitoSessionTestB
         final CodegenParameter codegenParameter = codegenParameterWith(parameterJsonDefinition);
 
         given(markdownConverter.toHtml(any()))
-            .willReturn("Example A from request parameter's definition - description with <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">Markdown</span>")
-            .willReturn("Example B from request parameter's definition - description with <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">Markdown</span>");
+            .willReturn("Example A from request parameter's definition - description with <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">Markdown</span>")
+            .willReturn("Example B from request parameter's definition - description with <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">Markdown</span>");
 
         // when
         final String actualHtmlForExampleValue =
@@ -83,7 +83,7 @@ public class CodegenParameterExampleHtmlRendererTest extends MockitoSessionTestB
 
         // given
         final String expectedHtmlForExampleValue =
-            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">"
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">"
                 + "example specified in parameter's schema with HTML hostile characters &lt; &gt; &amp;</span>";
 
         final String parameterJsonDefinition = from("exampleSpecifiedInParamSchemaNoneInDefinition_parameterDefinition.json");

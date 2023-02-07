@@ -35,7 +35,7 @@ public class CodeAttributeProviderTest {
         codeAttributeProvider.setAttributes(nodeCode, "tagName is ignored", attributes);
 
         // then
-        then(attributes).should().put("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code");
+        then(attributes).should().put("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break");
         then(attributes).shouldHaveNoMoreInteractions();
     }
 

@@ -49,7 +49,7 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         // code
         if (document.select("code").first() != null) {
             Elements code = document.select("code");
-            code.tagName("span").attr("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code");
+            code.tagName("span").attr("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break");
         }
 
         // numbered list
