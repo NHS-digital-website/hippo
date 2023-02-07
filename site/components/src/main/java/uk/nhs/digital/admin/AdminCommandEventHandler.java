@@ -1,6 +1,6 @@
 package uk.nhs.digital.admin;
 
-public interface AdminCommandEvenHandler {
+public interface AdminCommandEventHandler {
 
     boolean supports(final AdminCommand adminCommand);
 

@@ -284,9 +284,16 @@
             <version>${revision}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>uk.nhs.digital</groupId>
             <artifactId>website-toolbox</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>4.3.1</version>
         </dependency>
 
     </dependencies>

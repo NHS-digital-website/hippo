@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.site.HstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.cache.Cache;
+import uk.nhs.digital.cache.HeavyContentCache;
 
 import java.io.IOException;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class ApiSpecificationRendererDirective implements TemplateDirectiveModel
         final String path = stringParam(parameters, "path").orElse("not available");
 
         final OpenApiSpecificationJsonToHtmlConverter converter = getComponent("apiSpecificationRenderer");
-        final Cache<String, String> cache = getComponent("heavyContentCache");
+        final HeavyContentCache<String, String> cache = getComponent("heavyContentCache");
 
         if (specificationJson == null) {
             log.warn("No API specification JSON available for {} ({}).", path, documentHandleUuid);

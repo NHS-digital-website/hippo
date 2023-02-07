@@ -26,7 +26,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
-public class CacheTest extends MockitoSessionTestBase {
+public class DiskCacheTest extends MockitoSessionTestBase {
 
     @Mock private org.ehcache.Cache<String, String> ehcache;
 
@@ -34,11 +34,11 @@ public class CacheTest extends MockitoSessionTestBase {
 
     private String key = randomString();
 
-    Cache<String, String> cache;
+    DiskCache<String, String> cache;
 
     @Before
     public void setUp() throws Exception {
-        cache = new Cache<>(ehcache);
+        cache = new DiskCache<>(ehcache);
         cache.setBeanName("testCache");
     }
 
