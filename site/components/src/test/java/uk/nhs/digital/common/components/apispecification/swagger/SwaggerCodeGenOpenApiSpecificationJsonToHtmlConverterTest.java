@@ -509,21 +509,21 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
         // given
         final String specificationJson = from("oasV3_examples_vs_enums.json");
 
-        final String paramAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span>, "
-            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></p><div class=\"nhsd-!t-col-red\">Optional</div></td>";
+        final String paramAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-a</span>, "
+            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-b</span></p><div class=\"nhsd-!t-col-red\">Optional</div></td>";
 
-        final String paramExample = "</p><p class=\"nhsd-t-body\">Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span></p>"
+        final String paramExample = "</p><p class=\"nhsd-t-body\">Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-a</span></p>"
             + "<div class=\"nhsd-!t-col-red\">Optional</div></td>";
 
-        final String headerAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span>, "
-            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></p></td>";
+        final String headerAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-a</span>, "
+            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-b</span></p></td>";
 
-        final String headerExample = "</p><p class=\"nhsd-t-body\">Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span></p></td>";
+        final String headerExample = "</p><p class=\"nhsd-t-body\">Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-a</span></p></td>";
 
-        final String schemaAllowedValues = "</p></div><div>Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span>, "
-            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-b</span></div></td>";
+        final String schemaAllowedValues = "</p></div><div>Allowed values: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-a</span>, "
+            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-b</span></div></td>";
 
-        final String schemaExample = "</p></div><div>Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">value-a</span></div></td>";
+        final String schemaExample = "</p></div><div>Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-a</span></div></td>";
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.htmlFrom(specificationJson);
 

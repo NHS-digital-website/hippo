@@ -35,44 +35,44 @@
 
         {{#description}}<div class="nhsd-o-schema__description">{{{markdown this levelToNormaliseHeadingsTo=7}}}</div>{{/description}}
 
-        {{#pattern}}<div>Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{this}}</span></div>{{/pattern}}
+        {{#pattern}}<div>Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{this}}</span></div>{{/pattern}}
 
-        {{#ifNotNull multipleOf}}<div>Multiple of: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{multipleOf}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull multipleOf}}<div>Multiple of: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{multipleOf}}</span></div>{{/ifNotNull}}
 
         {{#ifNotNull minimum}}
-            <div>Minimum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minimum}}</span>
-                <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</span>
+            <div>Minimum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{minimum}}</span>
+                <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}</span>
             </div>
         {{/ifNotNull}}
 
         {{#ifNotNull maximum}}
-        <div>Maximum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maximum}}</span>
-            <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}</span>
+        <div>Maximum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{maximum}}</span>
+            <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}</span>
         </div>
         {{/ifNotNull}}
         
-        {{#ifNotNull minLength}}<div>Min length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minLength}}</span></div>{{/ifNotNull}}
-        {{#ifNotNull maxLength}}<div>Max length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxLength}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull minLength}}<div>Min length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{minLength}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull maxLength}}<div>Max length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{maxLength}}</span></div>{{/ifNotNull}}
 
-        {{#ifNotNull minItems}}<div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minItems}}</span></div>{{/ifNotNull}}
-        {{#ifNotNull maxItems}}<div>Max items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxItems}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull minItems}}<div>Min items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{minItems}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull maxItems}}<div>Max items: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{maxItems}}</span></div>{{/ifNotNull}}
 
-        {{#ifNotNull minProperties}}<div>Min properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minProperties}}</span></div>{{/ifNotNull}}
-        {{#ifNotNull maxProperties}}<div>Max properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxProperties}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull minProperties}}<div>Min properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{minProperties}}</span></div>{{/ifNotNull}}
+        {{#ifNotNull maxProperties}}<div>Max properties: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{maxProperties}}</span></div>{{/ifNotNull}}
 
         {{#if enum}}<div>Allowed values: {{{enumeration enum}}}</div>{{/if}}
 
         {{#valueOfTypeAny default}}
             <div>Default: <pre><code>{{prettyJson default}}</code></pre></div>
         {{else}}
-            <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{sanitiseTypeAny default}}</span></div>
+            <div>Default: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{sanitiseTypeAny default}}</span></div>
         {{/valueOfTypeAny}}
 
         {{^enum}}
         {{#valueOfTypeAny example ignoreClass="java.util.HashMap"}}
             <div>Example: <pre><code>{{prettyJson example}}</code></pre></div>
         {{else}}
-            <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{sanitiseTypeAny example}}</span></div>
+            <div>Example: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{sanitiseTypeAny example}}</span></div>
         {{/valueOfTypeAny}}
         {{/enum}}
     </td>
