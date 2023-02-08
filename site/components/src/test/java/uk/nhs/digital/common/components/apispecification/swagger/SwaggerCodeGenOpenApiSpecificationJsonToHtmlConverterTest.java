@@ -518,7 +518,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
             + "<div class=\"nhsd-!t-col-red\">Optional</div></td>";
 
         final String headerAllowedValues = "</p><p class=\"nhsd-t-body\">Allowed values: "
-            +"<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-a</span>, "
+            + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-a</span>, "
             + "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">value-b</span></p></td>";
 
         final String headerExample = "</p><p class=\"nhsd-t-body\">Example: "
