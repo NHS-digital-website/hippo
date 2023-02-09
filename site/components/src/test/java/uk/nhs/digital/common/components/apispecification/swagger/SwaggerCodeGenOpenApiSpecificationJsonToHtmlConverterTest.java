@@ -624,7 +624,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
-    @Ignore("Crashes on circular references")
+    @Ignore("Tests for setResolveFully which is currently disabled as it causes crashes on circular schema references")
     public void rendersUnresolvedRefElements() {
         // given
         final String specificationJson = from("oasV3_withRefElements.json");
