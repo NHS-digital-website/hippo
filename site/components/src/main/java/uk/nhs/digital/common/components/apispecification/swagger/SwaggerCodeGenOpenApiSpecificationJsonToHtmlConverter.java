@@ -56,7 +56,9 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
 
         final ParseOptions parseOptions = new ParseOptions();
         parseOptions.setResolve(true);
-        parseOptions.setResolveFully(true);
+
+        // Do not enable this until circular refs no longer cause infinite recursion.
+        //parseOptions.setResolveFully(true);
 
         final SwaggerParseResult swaggerParseResult = new OpenAPIV3Parser()
             .readContents(openApiSpecificationJson, null, parseOptions);
