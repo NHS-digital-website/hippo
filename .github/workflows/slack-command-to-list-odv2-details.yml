@@ -19,7 +19,7 @@ jobs:
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
       #
       - name: Validate Origin
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         env:
           AGENT: ${{ github.event.client_payload.integrity.agent }}
           BODY: ${{ github.event.client_payload.integrity.body }}
@@ -60,8 +60,8 @@ jobs:
           -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
           token=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
           refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
-          echo "::set-output name=token::$token"
-          echo "::set-output name=refresh::$refresh"
+          echo "token=$token" >> $GITHUB_OUTPUT
+          echo "refresh=$refresh" >> $GITHUB_OUTPUT
         env:
           USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
           PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
@@ -73,10 +73,10 @@ jobs:
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
           -o /dev/null -w '%{http_code}\n' -s)
-          echo "::set-output name=code::$code"
+          echo "code=$code" >> $GITHUB_OUTPUT
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT token failed verification!')
@@ -96,7 +96,7 @@ jobs:
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/environments)
-          echo "::set-output name=environments::${response//'"'/'\"'}"
+          echo "environments=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
 
       - name: Slack message (sending environment details)
         if: ${{ success() }}
@@ -120,7 +120,7 @@ jobs:
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
-          echo "::set-output name=details::${response//'"'/'\"'}"
+          echo "details=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
 
       - name: Slack message (sending Applicaiton Configuration Files' Details)
         if: ${{ success() }}

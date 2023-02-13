@@ -14,7 +14,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -29,7 +29,7 @@ jobs:
         run: |
           git log --format="* %s. [Author %an]" uat..rc
           jiraList=$(echo $(git log --format="\n %s. [Author %an]" prd..rc))
-          echo "::set-output name=jiraListIds::${jiraList}"
+          echo "jiraListIds=${jiraList}" >> $GITHUB_OUTPUT
 
       - name: Slack message (List Jira Tickets to be released)
         if: ${{ success() }}

@@ -22,8 +22,8 @@ jobs:
           -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
           token1=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
           refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
-          echo "::set-output name=token1::$token1"
-          echo "::set-output name=refresh::$refresh"
+          echo "token1=$token1" >> $GITHUB_OUTPUT
+          echo "refresh=$refresh" >> $GITHUB_OUTPUT
 
         env:
           USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
@@ -37,11 +37,11 @@ jobs:
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
           -o /dev/null -w '%{http_code}\n' -s)
-          echo "::set-output name=code::$code"
+          echo "code=$code" >> $GITHUB_OUTPUT
 
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT token failed verification!')
@@ -55,7 +55,7 @@ jobs:
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
-          echo "::set-output name=allConfigFiles::${response}"
+          echo "allConfigFiles=${response}" >> $GITHUB_OUTPUT
 
       - name: Get All Environment
         id: all-envs
@@ -64,7 +64,7 @@ jobs:
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/environments)
           availEnvs=$(echo ${response} | jq --compact-output '[.items[] | {name: .name}] | map(select(.name )) | map(.name)')
-          echo "::set-output name=allEnvs::${availEnvs}"
+          echo "allEnvs=${availEnvs}" >> $GITHUB_OUTPUT
           echo "Avialable Envs are " ${availEnvs}
 
       - name: Remove Old System & AWS Files

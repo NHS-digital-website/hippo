@@ -43,7 +43,7 @@ jobs:
 
       # Step 5
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         id: cache-key-helper
         with:
           result-encoding: string
@@ -152,17 +152,17 @@ jobs:
           SUMMARY="${SUMMARY//'%'/'%25'}"
           SUMMARY="${SUMMARY//$'\n'/'%0A'}"
           SUMMARY="${SUMMARY//$'\r'/'%0D'}"
-          echo "::set-output name=summary::$SUMMARY"
+          echo "summary=$SUMMARY" >> $GITHUB_OUTPUT
 
       # Step 11
       # Add comment to PR with test results
       - name: "Added PR comment"
         if: ${{ always() && steps.testsummary.outcome == 'success' }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,

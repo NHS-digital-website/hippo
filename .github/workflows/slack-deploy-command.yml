@@ -19,7 +19,7 @@ jobs:
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
       #
       - name: Validate Origin
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         env:
           AGENT: ${{ github.event.client_payload.integrity.agent }}
           BODY: ${{ github.event.client_payload.integrity.body }}
@@ -56,7 +56,7 @@ jobs:
       # Identify target server
       #
       - name: Identify target
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         id: find-target
         with:
           result-encoding: string
@@ -87,7 +87,7 @@ jobs:
       # Checkout the branch
       #
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ env.BRANCH }}
           fetch-depth: 0 # Need all the tags for versioning
@@ -116,7 +116,7 @@ jobs:
           java-version: 8
 
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         id: cache-key-helper
         with:
           result-encoding: string
@@ -216,7 +216,7 @@ jobs:
         id: pipeline-deploy
         run: |
           make ondemand.pipeline-deploy > pipeline-deploy-output.txt
-          echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
+          echo "PIPELINE_DEPLOY_URL=$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")" >> $GITHUB_OUTPUT
         env:
           ENV: ${{steps.find-target.outputs.result}}
           RD_URL: ${{ secrets.RD_API }}
