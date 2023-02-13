@@ -19,7 +19,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -53,7 +53,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -71,7 +71,7 @@ jobs:
       # Get the Caches
       #
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         id: cache-key-helper
         with:
           result-encoding: string
@@ -166,8 +166,8 @@ jobs:
       - name: Get artifact details
         id: details
         run: |
-          echo '::set-output name=distribution::'$(echo ls *.tar.gz | awk '{ print $2 }')
-          echo '::set-output name=version::'$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-on-demand-distribution.tar.gz)')
+          echo "distribution=$(echo ls *.tar.gz | awk '{ print $2 }" >> $GITHUB_OUTPUT
+          echo "version=$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-on-demand-distribution.tar.gz)" >> $GITHUB_OUTPUT
         working-directory: ${{steps.download.outputs.download-path}}/distribution-odv1
 
       #
@@ -194,7 +194,7 @@ jobs:
           -- \
           -bootstrap true \
           -distribution "${{ env.VERSION }}.tar.gz" > pipeline-deploy-output.txt
-          echo "::set-output name=PIPELINE_DEPLOY_URL::"$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")
+          echo "PIPELINE_DEPLOY_URL=$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")" >> $GITHUB_OUTPUT
         env:
           RD_URL: ${{ secrets.RD_API }}
           RD_USER: ${{ secrets.RD_USER }}
@@ -226,7 +226,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -245,7 +245,7 @@ jobs:
       # Get the Caches
       #
       - name: Get cache key helper values
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v6
         id: cache-key-helper
         with:
           result-encoding: string
@@ -317,8 +317,8 @@ jobs:
           -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
           token=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
           refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
-          echo "::set-output name=token::$token"
-          echo "::set-output name=refresh::$refresh"
+          echo "token=$token" >> $GITHUB_OUTPUT
+          echo "refresh=$refresh" >> $GITHUB_OUTPUT
         env:
           USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
           PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
@@ -330,10 +330,10 @@ jobs:
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
           -o /dev/null -w '%{http_code}\n' -s)
-          echo "::set-output name=code::$code"
+          echo "code=$code" >> $GITHUB_OUTPUT
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT token failed verification!')
@@ -354,8 +354,8 @@ jobs:
       - name: Get artifact details
         id: details
         run: |
-          echo '::set-output name=distribution::'$(echo ls *.tar.gz | awk '{ print $2 }')
-          echo '::set-output name=version::'$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')
+          echo "distribution=$(echo ls *.tar.gz | awk '{ print $2 }')" >> $GITHUB_OUTPUT
+          echo "version=$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')" >> $GITHUB_OUTPUT
         working-directory: ${{steps.download.outputs.download-path}}/distribution-odv2
 
       #
@@ -369,7 +369,7 @@ jobs:
           -X POST https://api.${{ secrets.HOST }}/v3/distributions \
           -F "dist_file=@${{ env.DISTROBUTION }};filename=${{ env.VERSION }}.tar.gz")
           id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
-          echo "::set-output name=id::$id"
+          echo "id=$id" >> $GITHUB_OUTPUT
         env:
           DISTROBUTION: ${{steps.details.outputs.distribution}}
           VERSION: ${{steps.details.outputs.version}}
@@ -380,7 +380,7 @@ jobs:
       #
       - name: Check Response has ID from Upload Build to BR Cloud
         if: ${{ steps.distribution.outputs.id.length == 36 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('Upload Build to BR Cloud failed!')
@@ -398,13 +398,13 @@ jobs:
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
-          echo "::set-output name=details::${response}"
+          echo "details=${response}" >> $GITHUB_OUTPUT
 
       - name: Get Lastest System Properties for Envrinment
         id: system-properties
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-system-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
-          echo "::set-output name=id::${id}"
+          echo "id=${id}" >> $GITHUB_OUTPUT
         env:
           TARGET: "uat"
 
@@ -412,7 +412,7 @@ jobs:
         id: aws-keys
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-aws-credentials-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
-          echo "::set-output name=id::${id}"
+          echo "id=${id}" >> $GITHUB_OUTPUT
         env:
           TARGET: "uat"
 
@@ -420,13 +420,13 @@ jobs:
         id: latest-ip-whitelist
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "hippo-ipfilter-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
-          echo "::set-output name=id::${id}"
+          echo "id=${id}" >> $GITHUB_OUTPUT
 
       - name: Get latest Email SMTP properties File
         id: brc-mail-smtp
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "brc-mail-smtp-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
-          echo "::set-output name=id::${id}"
+          echo "id=${id}" >> $GITHUB_OUTPUT
 
       - name: Request Deployment from BR Cloud
         id: deployment
@@ -437,13 +437,13 @@ jobs:
           -X PUT https://api.${{ secrets.HOST }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
           -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }' \
           -o /dev/null -w '%{http_code}\n' -s)
-          echo "::set-output name=code::$code"
+          echo "code=$code" >> $GITHUB_OUTPUT
         env:
           DISTRIBUTION: ${{ steps.distribution.outputs.id }}
           ENVIRONMENT: "083ff91e-6ac5-4638-945c-3ee18acc40bf"
 
       - name: Check Response Code from Request Deployment
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         if: ${{ steps.deployment.outputs.code != 202 }}
         with:
           script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')
@@ -463,12 +463,12 @@ jobs:
           -X DELETE https://api.${{ secrets.HOST }}/v3/authn/refresh_token \
           -d '{ "grant_type": "refresh_token", "refresh_token": "${{ env.REFRESH }}" }' \
           -o /dev/null -w '%{http_code}\n' -s)
-          echo "::set-output name=code::$code"
+          echo "code=$code" >> $GITHUB_OUTPUT
         env:
           REFRESH:  ${{ steps.jwt_token.outputs.refresh }}
       - name: Check Response Code from Deletion of JWT Refresh Access tokens
         if: ${{ steps.jwt_token_invalidate.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT Deletion of JWT Refresh Access tokens failed!')
