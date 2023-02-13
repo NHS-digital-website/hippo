@@ -13,6 +13,7 @@ import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.hamcrest.Matcher;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.nhs.digital.test.util.TestDataCache;
@@ -630,6 +631,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverterTest {
     }
 
     @Test
+    @Ignore("Tests for setResolveFully which is currently disabled as it causes crashes on circular schema references")
     public void rendersUnresolvedRefElements() {
         // given
         final String specificationJson = from("oasV3_withRefElements.json");
