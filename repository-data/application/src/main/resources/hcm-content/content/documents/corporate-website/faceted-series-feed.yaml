@@ -1,0 +1,24 @@
+---
+/content/documents/corporate-website/faceted-series-feed:
+  hippo:docbase: ad9a72c7-0343-4c23-9d05-e17a4028d941
+  hippofacnav:facetnodenames:
+  - Year${sortby:'facetvalue', sortorder:'descending'}
+  - Month${after:'Year', sortby:'facetvalue', sortorder:'descending',hide:'Year'}
+  - Category
+  - Information Type
+  - Geographical Coverage
+  - Geographical Granularity
+  hippofacnav:facets:
+  - hippostdpubwf:lastModificationDate$year
+  - hippostdpubwf:lastModificationDate$month
+  - hippotaxonomy:keys
+  - publicationsystem:InformationType
+  - publicationsystem:GeographicCoverage
+  - publicationsystem:Granularity
+  hippofacnav:filters:
+  - jcr:primaryType=publicationsystem:series
+  hippofacnav:sortby:
+  - hippostdpubwf:lastModificationDate
+  hippofacnav:sortorder:
+  - descending
+  jcr:primaryType: hippofacnav:facetnavigation

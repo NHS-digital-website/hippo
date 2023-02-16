@@ -132,7 +132,7 @@
 
                         <#if cardProperties.nextDate?has_content>
                             <span style="margin-top: 6px;">Next publication date:&nbsp;
-                                ${cardProperties.nextDate} @ 09:30
+                                ${cardProperties.nextDate} 09:30
                             </span>
                         </#if>
                     </div>

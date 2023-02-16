@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.beans;
 import static org.apache.commons.collections.IteratorUtils.toList;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -22,6 +23,7 @@ import uk.nhs.digital.website.beans.Team;
 import uk.nhs.digital.website.beans.Update;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:series")
@@ -253,6 +255,15 @@ public class Series extends BaseDocument {
             property, beanClass, false);
 
         return toList(query.execute().getHippoBeans());
+    }
+
+    /**
+     * @return because there is no publicationsystem:NominalDate variable for series we need to use either hippostdpubwf:creationDate or hippostdpubwf:lastModificationDate
+     */
+    @JsonProperty
+    @HippoEssentialsGenerated(internalName = "hippostdpubwf:lastModificationDate", allowModifications = false)
+    public Calendar getPublishedDate() {
+        return getSingleProperty("hippostdpubwf:lastModificationDate");
     }
 
 }
