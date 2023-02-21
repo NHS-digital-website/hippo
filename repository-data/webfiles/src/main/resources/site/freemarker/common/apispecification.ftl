@@ -4,18 +4,9 @@
 <#include "../nhsd-common/macro/heroes/hero.ftl">
 <#include "../nhsd-common/macro/heroes/hero-options.ftl">
 
-<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ApiSpecification" -->
-<#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-
-<#--<#include "app-layout-head.ftl">-->
-
 <meta charset="utf-8">
-
-<script type="module"
-        src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
 
 <body>
 
@@ -23,19 +14,37 @@
 <@metaTags></@metaTags>
 
 <#if document?? >
+    <script src="<@hst.webfile path="/apispecification/rapidoc-min.js"/>"></script>
+
+    <style>
+        rapi-doc::part(btn) {
+            border-radius: 1.22rem;
+        }
+
+        rapi-doc::part(section-navbar) {
+            position: sticky;
+            top: 0;
+            padding-top: 10px;
+        }
+    </style>
 
     <@hero getExtendedHeroOptions(document) />
-    <div class="nhsd-t-grid">
+    <div class="nhsd-t-grid" style="max-width:106.666rem">
         <div class="nhsd-t-row nhsd-!t-margin-top-4" style="height:auto">
             <rapi-doc
+                style="overflow:visible"
                 id="rapi-doc-spec"
+                theme="light"
                 bg-color="#ffffff"
                 text-color="#3f525f"
                 header-color="#231f20"
                 primary-color="#005bbb"
-                regular-font="Frutiger W01"
+                regular-font="Frutiger W01, Arial, sans-serif"
+                load-fonts="false"
                 font-size="largest"
                 nav-item-spacing="relaxed"
+                nav-bg-color="#ffffff"
+                nav-text-color="#3f525f"
                 info-description-headings-in-navbar="true"
                 show-header="false"
                 allow-search="false"
@@ -43,6 +52,7 @@
                 allow-server-selection="false"
                 schema-description-expanded="true"
                 render-style="focused"
+                sort-endpoints-by="none"
             >
 
                 <div slot="footer">
@@ -52,29 +62,39 @@
             </rapi-doc>
 
             <script>
-                // https://github.com/rapi-doc/RapiDoc/blob/master/docs/examples/example9.html
                 const specification = ${document.json?no_esc}
 
-                // hacky until figure out better solution
-                delete specification.info["contact"];
-                delete specification.info["version"];
-                delete specification.info["title"];
-
                 document.addEventListener('DOMContentLoaded', () => {
-                    let rapidocEl = document.getElementById("rapi-doc-spec");
-                    rapidocEl.loadSpec(specification);
+                    let rapiDocEl = document.getElementById("rapi-doc-spec");
+                    rapiDocEl.loadSpec(specification);
 
                     let tryThisApiDisabled = specification["x-spec-publication"]?.["try-this-api"]?.disabled;
                     if (tryThisApiDisabled === true) {
-                        rapidocEl.setAttribute("allow-try", "false");
+                        rapiDocEl.setAttribute("allow-try", "false");
                     }
 
                     let allowAuth = specification.components?.securitySchemes;
                     if (!allowAuth) {
-                        rapidocEl.setAttribute("allow-authentication", "false");
+                        rapiDocEl.setAttribute("allow-authentication", "false");
                     }
-                })
 
+                    let customSheet = new CSSStyleSheet();
+                    customSheet.replaceSync(`
+                        #the-main-body {
+                            overflow: visible
+                        }
+
+                        #api-title, #api-info, #link-overview {
+                            display: none;
+                        }
+
+                        a {
+                            color: #005bbb !important;
+                        }
+                    `);
+                    const rapidDocStyleSheets = rapiDocEl.shadowRoot.adoptedStyleSheets;
+                    rapiDocEl.shadowRoot.adoptedStyleSheets = [...rapidDocStyleSheets, customSheet];
+                })
             </script>
         </div>
     </div>
