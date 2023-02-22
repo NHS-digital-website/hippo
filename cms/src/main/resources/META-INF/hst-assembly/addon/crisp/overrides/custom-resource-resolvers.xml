@@ -68,7 +68,7 @@
                     <bean class="org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsAccessTokenProvider">
                         <property name="authenticationHandler">
                             <bean class="uk.nhs.digital.apispecs.services.auth.ProxygenJwtClientAuthenticationHandler">
-                                <constructor-arg value="#{applicationSecrets.getFromFile('proxygenMachineUser.key')}"/>
+                                <constructor-arg value="#{applicationSecrets.getValueChained('devzone.proxygen.oauth.privateKey')}"/>
                                 <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_PROXYGEN_OAUTH_CLIENT_ID')}"/>
                                 <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.aud.url')}"/>
                             </bean>

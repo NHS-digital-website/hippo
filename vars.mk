@@ -62,10 +62,10 @@ SITE_CACHE_HEAVY_REDIS_URL ?= http://localhost:6379
 SITE_CACHE_HEAVY_TYPE ?= disk
 
 
-PROXYGEN_TOKEN_URL ?= https://identity.ptl.api.platform.nhs.uk/auth/realms/api-producers/protocol/openid-connect/token
-PROXYGEN_AUDIENCE_URL ?= https://identity.ptl.api.platform.nhs.uk/auth/realms/api-producers
-PROXYGEN_SPECS_ALL_URL ?= https://proxygen.ptl.api.platform.nhs.uk/specs
-PROXYGEN_SPECS_ONE_URL ?= https://proxygen.ptl.api.platform.nhs.uk/apis/{specificationId}/spec
+PROXYGEN_TOKEN_URL ?= https://identity.prod.api.platform.nhs.uk/auth/realms/api-producers/protocol/openid-connect/token
+PROXYGEN_AUDIENCE_URL ?= https://identity.prod.api.platform.nhs.uk/auth/realms/api-producers
+PROXYGEN_SPECS_ALL_URL ?= https://proxygen.prod.api.platform.nhs.uk/specs
+PROXYGEN_SPECS_ONE_URL ?= https://proxygen.prod.api.platform.nhs.uk/specs/{specificationId}
 PROXYGEN_CLIENT_ID ?= REPLACE_WITH_ACTUAL_PROXYGEN_CLIENT_ID
 PROXYGEN_PRIVATE_KEY ?= REPLACE_WITH_ACTUAL_PROXYGEN_PRIVATE_KEY
 
@@ -95,6 +95,7 @@ MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Ddevzone.proxygen.resources.specs.individual.url=$(PROXYGEN_SPECS_ONE_URL) \
 	-Ddevzone.proxygen.oauth.token.url=$(PROXYGEN_TOKEN_URL) \
 	-Ddevzone.proxygen.oauth.aud.url=$(PROXYGEN_AUDIENCE_URL) \
+	-Ddevzone.proxygen.oauth.privateKey=$(PROXYGEN_PRIVATE_KEY) \
 	-Dhippo.environment=$(HIPPO_ENVIRONMENT)
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)

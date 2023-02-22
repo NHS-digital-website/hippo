@@ -117,6 +117,7 @@
         <!-- Proxygen authentication config properties -->
         <devzone.proxygen.oauth.token.url></devzone.proxygen.oauth.token.url>
         <devzone.proxygen.oauth.aud.url></devzone.proxygen.oauth.aud.url>
+        <devzone.proxygen.oauth.privateKey></devzone.proxygen.oauth.privateKey>
         <devzone.proxygen.resources.specs.all.url></devzone.proxygen.resources.specs.all.url>
         <devzone.proxygen.resources.specs.individual.url ></devzone.proxygen.resources.specs.individual.url>
         <!-- API specifications sync schedule properties -->
@@ -1180,6 +1181,7 @@
                                     <!-- Proxygen access config -->
                                     <devzone.proxygen.oauth.token.url>${devzone.proxygen.oauth.token.url}</devzone.proxygen.oauth.token.url>
                                     <devzone.proxygen.oauth.aud.url>${devzone.proxygen.oauth.aud.url}</devzone.proxygen.oauth.aud.url>
+                                    <devzone.proxygen.oauth.privateKey>${devzone.proxygen.oauth.privateKey}</devzone.proxygen.oauth.privateKey>
                                     <devzone.proxygen.resources.specs.all.url>${devzone.proxygen.resources.specs.all.url}</devzone.proxygen.resources.specs.all.url>
                                     <devzone.proxygen.resources.specs.individual.url>${devzone.proxygen.resources.specs.individual.url}</devzone.proxygen.resources.specs.individual.url>
                                     <!-- API specifications sync schedule properties -->
