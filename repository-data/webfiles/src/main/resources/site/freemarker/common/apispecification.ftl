@@ -14,25 +14,66 @@
 <@metaTags></@metaTags>
 
 <#if document?? >
-    <script src="<@hst.webfile path="/apispecification/rapidoc-min.js"/>"></script>
+    <script type="text/javascript" src="<@hst.webfile path="/apispecification/rapidoc-min.js"/>"></script>
 
     <style>
+        .rapi-doc-section {
+            padding: 24px 4px
+        }
+
         rapi-doc::part(btn) {
             border-radius: 1.22rem;
         }
 
-        rapi-doc::part(section-navbar) {
-            position: sticky;
-            top: 0;
-            padding-top: 10px;
+        rapi-doc::part(btn-try) {
+            margin-right:5px;
+        }
+
+        rapi-doc::part(wrap-request-btn) {
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+
+        @media only screen and (min-width: 768px) {
+            rapi-doc::part(section-navbar) {
+                position: sticky;
+                top: 1rem;
+                max-height: 95vh
+            }
+
+            .rapi-doc-section {
+                padding: 24px 8px
+            }
+
+            rapi-doc::part(section-navbar-scroll) {
+                padding: 6px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            rapi-doc::part(section-navbar) {
+                width: 100%;
+                display: flex;
+            }
+
+            rapi-doc::part(section-main-content) {
+                overflow: unset;
+            }
+        }
+
+        @media only screen and (min-width: 1024px) {
+            .rapi-doc-section {
+                padding: 24px 80px 12px;
+            }
         }
     </style>
 
     <@hero getExtendedHeroOptions(document) />
-    <div class="nhsd-t-grid" style="max-width:106.666rem">
-        <div class="nhsd-t-row nhsd-!t-margin-top-4" style="height:auto">
+    <div class="nhsd-t-grid nhsd-!t-no-gutters nhsd-!t-margin-top-6" style="max-width:106.666rem">
+        <div class="nhsd-t-row" style="height:auto">
             <rapi-doc
-                style="overflow:visible"
+                style="overflow:unset"
                 id="rapi-doc-spec"
                 theme="light"
                 bg-color="#ffffff"
@@ -42,7 +83,6 @@
                 regular-font="Frutiger W01, Arial, sans-serif"
                 load-fonts="false"
                 font-size="largest"
-                nav-item-spacing="relaxed"
                 nav-bg-color="#ffffff"
                 nav-text-color="#3f525f"
                 info-description-headings-in-navbar="true"
@@ -55,8 +95,12 @@
                 sort-endpoints-by="none"
             >
 
-                <div slot="footer">
-                    <@lastModified document.lastPublicationDate></@lastModified>
+                <div slot="footer" >
+                    <div class="rapi-doc-section"><a class="nhsd-a-link" href="#top">Back to top</a></div>
+
+                    <div class="rapi-doc-section">
+                        <@lastModified document.lastPublicationDate></@lastModified>
+                    </div>
                 </div>
 
             </rapi-doc>
@@ -78,10 +122,11 @@
                         rapiDocEl.setAttribute("allow-authentication", "false");
                     }
 
-                    let customSheet = new CSSStyleSheet();
-                    customSheet.replaceSync(`
+                    let customStyles = new CSSStyleSheet();
+                    customStyles.replaceSync(`
                         #the-main-body {
-                            overflow: visible
+                            overflow: unset;
+                            flex-flow: wrap;
                         }
 
                         #api-title, #api-info, #link-overview {
@@ -93,7 +138,7 @@
                         }
                     `);
                     const rapidDocStyleSheets = rapiDocEl.shadowRoot.adoptedStyleSheets;
-                    rapiDocEl.shadowRoot.adoptedStyleSheets = [...rapidDocStyleSheets, customSheet];
+                    rapiDocEl.shadowRoot.adoptedStyleSheets = [...rapidDocStyleSheets, customStyles];
                 })
             </script>
         </div>

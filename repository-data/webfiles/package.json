@@ -102,6 +102,9 @@
             "jquery"
         ]
     },
+    "eslintIgnore": [
+        "rapidoc-min.js"
+    ],
     "stylelint": {
         "extends": "stylelint-config-recommended-scss",
         "rules": {
