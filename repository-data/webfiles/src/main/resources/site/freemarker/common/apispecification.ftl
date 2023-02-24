@@ -78,7 +78,6 @@
                 theme="light"
                 bg-color="#ffffff"
                 text-color="#3f525f"
-                header-color="#231f20"
                 primary-color="#005bbb"
                 regular-font="Frutiger W01, Arial, sans-serif"
                 load-fonts="false"
@@ -93,6 +92,7 @@
                 schema-description-expanded="true"
                 render-style="focused"
                 sort-endpoints-by="none"
+                css-file="nhsd-frontend.css"
             >
 
                 <div slot="footer" >
@@ -122,6 +122,8 @@
                         rapiDocEl.setAttribute("allow-authentication", "false");
                     }
 
+                    // This is temp until we do more advanced styling
+                    // See: https://rapidocweb.com/api.html#developers
                     let customStyles = new CSSStyleSheet();
                     customStyles.replaceSync(`
                         #the-main-body {
@@ -133,12 +135,12 @@
                             display: none;
                         }
 
-                        a {
-                            color: #005bbb !important;
+                        :host {
+                            --blue: #005bbb;
+                            --yellow: #fae100;
                         }
                     `);
-                    const rapidDocStyleSheets = rapiDocEl.shadowRoot.adoptedStyleSheets;
-                    rapiDocEl.shadowRoot.adoptedStyleSheets = [...rapidDocStyleSheets, customStyles];
+                    rapiDocEl.shadowRoot.adoptedStyleSheets.push(customStyles);
                 })
             </script>
         </div>
