@@ -161,7 +161,7 @@
         Consult https://chromedriver.chromium.org/downloads
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>108.0.5359.71</chromedriver.version>
+        <chromedriver.version>110.0.5481.77</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
@@ -229,7 +229,7 @@
         <taglibs-standard.version>1.2.5</taglibs-standard.version>
         <tika-core.version>1.28.2</tika-core.version>
         <versions-maven.version>2.10.0</versions-maven.version>
-        <webdriverextensions-maven.version>3.3.0</webdriverextensions-maven.version>
+        <webdriverextensions-maven.version>3.4.0</webdriverextensions-maven.version>
         <wiremock.version>2.33.2</wiremock.version>
         <woodstox.version>4.2.1</woodstox.version>
         <xalan.version>2.7.2</xalan.version>
