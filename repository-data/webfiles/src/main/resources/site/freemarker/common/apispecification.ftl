@@ -136,8 +136,16 @@
                         }
 
                         :host {
+                            --red: #da291c;
+                            --light-red: #f8d4d2;
+                            --pink: #ae2573;
+                            --green: #009639;
+                            --light-green: #78be20;
                             --blue: #005bbb;
+                            --light-blue: #41b6e6;
+                            --orange: #fa9200;
                             --yellow: #fae100;
+                            --light-yellow: #fef9cc;
                         }
                     `);
                     rapiDocEl.shadowRoot.adoptedStyleSheets.push(customStyles);
