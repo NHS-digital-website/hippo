@@ -29,8 +29,8 @@ jobs:
           -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
           token1=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
           refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
-          echo "::set-output name=token1::$token1"
-          echo "::set-output name=refresh::$refresh"
+          echo "token1=$token1" >> $GITHUB_OUTPUT
+          echo "refresh=$refresh" >> $GITHUB_OUTPUT
 
         env:
           USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
@@ -44,11 +44,11 @@ jobs:
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
           -o /dev/null -w '%{http_code}\n' -s)
-          echo "::set-output name=code::$code"
+          echo "code=$code" >> $GITHUB_OUTPUT
 
       - name: Check Response Code from Verify JWT Token
         if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('The JWT token failed verification!')
@@ -62,11 +62,11 @@ jobs:
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
           -X GET https://api.${{ secrets.HOST }}/v3/distributions)
-          echo "::set-output name=allDistIds::${response}"
+          echo "allDistIds=${response}" >> $GITHUB_OUTPUT
 
       - name: Distribution Ids Retrival failed
         if: ${{ contains(steps.all-distribution-id.response ,'401') }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('Retrival of distibution ids failed ')
@@ -77,8 +77,8 @@ jobs:
         run: |
           latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | reverse | map(select(.name | test("${{env.NON_PROD_REG_EXPRESSION}}"))) | map(.id) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_NON_PROD}}:]')
           fileNamesNonProd=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | reverse | map(select(.name | test("${{env.NON_PROD_REG_EXPRESSION}}"))) | map(.name) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_NON_PROD}}:]')
-          echo "::set-output name=latestNonProdDistIds::${latestId}"
-          echo "::set-output name=latestNonProdDistName::${fileNamesNonProd}"
+          echo "latestNonProdDistIds=${latestId}" >> $GITHUB_OUTPUT
+          echo "latestNonProdDistName=${fileNamesNonProd}" >> $GITHUB_OUTPUT
 
       - name: Get Latest Prod Distribution Ids to be removed
         #Retrieve all prod distribution ids which needs to be removed
@@ -86,8 +86,8 @@ jobs:
         run: |
           latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date)| reverse | map(select(.name | test("${{env.PROD_REG_EXPRESSION}}"))) | map(.id) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_PROD}}:]')
           fileNamesProd=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date)| reverse | map(select(.name | test("${{env.PROD_REG_EXPRESSION}}"))) | map(.name) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_PROD}}:]')
-          echo "::set-output name=latestProdDistIds::${latestId}"
-          echo "::set-output name=latestProdDistName::${fileNamesProd}"
+          echo "latestProdDistIds=${latestId}" >> $GITHUB_OUTPUT
+          echo "latestProdDistName=${fileNamesProd}" >> $GITHUB_OUTPUT
 
       - name: Print Names
         #Step for logging purpose
