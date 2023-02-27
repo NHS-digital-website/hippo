@@ -19,6 +19,7 @@ import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.collect.ImmutableMap;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.sling.testing.mock.jcr.MockQueryResult;
 import org.hippoecm.repository.api.Document;
@@ -72,7 +73,7 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
     private static final String PARAM_PROXYGEN_OAUTH_TOKEN_URL = "devzone.proxygen.oauth.token.url";
     private static final String PARAM_PROXYGEN_OAUTH_AUD_URL = "devzone.proxygen.oauth.aud.url";
     private static final String PARAM_PROXYGEN_OAUTH_CLIENT_ID = "DEVZONE_PROXYGEN_OAUTH_CLIENT_ID";
-    private static final String PARAM_PROXYGEN_OAUTH_PRIVATE_KEY = "proxygenMachineUser.key";
+    private static final String PARAM_PROXYGEN_OAUTH_PRIVATE_KEY = "devzone.proxygen.oauth.privateKey";
 
     private static final String PROXYGEN_CLIENT_ID = "clientId";
     private static final String PROXYGEN_TEST_PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
@@ -110,7 +111,7 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
     private static final String PROXYGEN_OAUTH_TOKEN_URL_PATH = "/auth/realms/api-producers/protocol/openid-connect/token";
     private static final String PROXYGEN_OAUTH_AUD_URL_PATH = "/auth/realms/api-producers";
     private static final String PROXYGEN_ALL_SPECS_URL_PATH = "/specs";
-    private static final String PROXYGEN_SINGLE_SPEC_URL_PATH_TEMPLATE = "/apis/{specificationId}/spec";
+    private static final String PROXYGEN_SINGLE_SPEC_URL_PATH_TEMPLATE = "/specs/{specificationId}";
     private static final String PROXYGEN_SINGLE_SPEC_URL_PATH = PROXYGEN_SINGLE_SPEC_URL_PATH_TEMPLATE.replace("{specificationId}", TEST_SPEC_ID);
 
     private String proxygenAllSpecsUrl;
@@ -422,6 +423,8 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
     }
 
     // Invoked from the test-specific crisp-spring-context-properties-support.xml
+    // For some reason this can't be extracted to be used by multiple test files.
+    // If the namespace changes it can't find any system properties or env vars.
     public static class DummyApplicationSecrets {
 
         public String getValue(final String propertyName) {
@@ -431,6 +434,17 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
             System.out.println("printf: " + propertyName + " " + val);
 
             return val;
+        }
+
+        public String getValueChained(final String propertyName) {
+            String value = getValue(propertyName);
+
+            if (StringUtils.isNotBlank(value)) {
+                String valueIndirect = getValueChained(value);
+                return valueIndirect;
+            } else {
+                return propertyName;
+            }
         }
 
         public String getFromFile(final String propertyName) {

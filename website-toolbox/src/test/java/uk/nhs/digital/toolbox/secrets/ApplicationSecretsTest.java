@@ -142,7 +142,6 @@ public class ApplicationSecretsTest {
 
         assertEquals(3, cache.size());
         assertEquals("LEVEL2", cache.get("LEVEL1"));
-        assertEquals("LEVEL2", cache.get("LEVEL1"));
         assertEquals("LEVEL3", cache.get("LEVEL2"));
         assertEquals("LEVEL4", cache.get("LEVEL3"));
     }
