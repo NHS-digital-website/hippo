@@ -105,6 +105,14 @@ public class ApplicationSecretsTest {
     }
 
     @Test
+    public void getValueChained_chainsCorrectlyAtOneLevel() {
+        environmentVariables.set("LEVEL1", "LEVEL2");
+
+        String value1 = applicationSecrets.getValueChained("LEVEL1");
+        assertEquals("LEVEL2", value1);
+    }
+
+    @Test
     public void getValueChained_chainsCorrectlyAtThreeLevels() {
         environmentVariables.set("LEVEL1", "LEVEL2");
         environmentVariables.set("LEVEL2", "LEVEL3");
