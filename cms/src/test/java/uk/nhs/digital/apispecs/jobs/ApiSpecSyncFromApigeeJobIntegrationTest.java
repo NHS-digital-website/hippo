@@ -19,6 +19,7 @@ import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.collect.ImmutableMap;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.sling.testing.mock.jcr.MockQueryResult;
 import org.hippoecm.repository.api.Document;
@@ -412,11 +413,28 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     }
 
     // Invoked from the test-specific crisp-spring-context-properties-support.xml
+    // For some reason this can't be extracted to be used by multiple test files.
+    // If the namespace changes it can't find any system properties or env vars.
     public static class DummyApplicationSecrets {
 
         public String getValue(final String propertyName) {
-            return Optional.ofNullable(System.getProperty(propertyName))
+            String val = Optional.ofNullable(System.getProperty(propertyName))
                 .orElse(System.getenv(propertyName));
+
+            System.out.println("printf: " + propertyName + " " + val);
+
+            return val;
+        }
+
+        public String getValueChained(final String propertyName) {
+            String value = getValue(propertyName);
+
+            if (StringUtils.isNotBlank(value)) {
+                String valueIndirect = getValueChained(value);
+                return valueIndirect;
+            } else {
+                return propertyName;
+            }
         }
 
         public String getFromFile(final String propertyName) {
