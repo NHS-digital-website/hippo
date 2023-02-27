@@ -92,6 +92,8 @@ public class ApplicationSecrets {
             }
         };
 
+        // Get first value normally to as to still log on blank.
+        // For nested values it can't be known if blank is wrong or just the end of the line.
         String value = getValue(key);
 
         if (StringUtils.isNotBlank(value)) {
