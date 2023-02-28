@@ -167,7 +167,7 @@ jobs:
         id: details
         run: |
           echo "distribution=$(echo ls *.tar.gz | awk '{ print $2 }')" >> $GITHUB_OUTPUT
-          echo "version=$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-on-demand-distribution.tar.gz)" >> $GITHUB_OUTPUT
+          echo "version=$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-on-demand-distribution.tar.gz)')" >> $GITHUB_OUTPUT
         working-directory: ${{steps.download.outputs.download-path}}/distribution-odv1
 
       #
