@@ -81,7 +81,7 @@ jobs:
               "rotation" : new Date().getTimezoneOffset()
             })
       - name: Setup cache (Maven packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
@@ -93,7 +93,7 @@ jobs:
             ${{ runner.os }}-maven-nhs-digital-
             ${{ runner.os }}-maven-nhs-
       - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
@@ -120,7 +120,7 @@ jobs:
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: distribution-odv1
           path: target/*-on-demand-distribution.tar.gz
@@ -157,7 +157,7 @@ jobs:
       # Download the distribution artifact
       #
       - name: Download version artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         id: download
 
       #
@@ -255,7 +255,7 @@ jobs:
               "rotation" : new Date().getTimezoneOffset()
             })
       - name: Setup cache (Maven packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
@@ -267,7 +267,7 @@ jobs:
             ${{ runner.os }}-v2-maven-nhs-digital-
             ${{ runner.os }}-v2-maven-nhs-
       - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
@@ -293,7 +293,7 @@ jobs:
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: distribution-odv2
           path: target/*.tar.gz
@@ -345,7 +345,7 @@ jobs:
       # Download the distribution artifact
       #
       - name: Download version artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         id: download
 
       #
