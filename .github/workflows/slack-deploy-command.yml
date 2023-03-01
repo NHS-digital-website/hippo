@@ -110,7 +110,7 @@ jobs:
           data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Building the branch (${{ env.BRANCH }})", "color": "#78BE20" }] }'
 
       - name: Set up JDK 8
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
           java-version: 8
@@ -127,7 +127,7 @@ jobs:
             })
 
       - name: Setup cache (Maven packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
@@ -140,7 +140,7 @@ jobs:
             ${{ runner.os }}-maven-v1-nhs-
 
       - name: Setup cache (Node.js packages)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
           ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
