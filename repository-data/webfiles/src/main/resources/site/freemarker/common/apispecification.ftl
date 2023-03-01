@@ -5,7 +5,7 @@
 <#include "../nhsd-common/macro/heroes/hero-options.ftl">
 
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="nhsd-no-js">
 <meta charset="utf-8">
 
 <body>
@@ -70,7 +70,17 @@
     </style>
 
     <@hero getExtendedHeroOptions(document) />
-    <div class="nhsd-t-grid nhsd-!t-no-gutters nhsd-!t-margin-top-6" style="max-width:106.666rem">
+
+    <div class="nhsd-t-grid">
+        <div class="nhsd-t-row">
+            <div class="nhsd-t-col-12 nhsd-!t-display-no-js-show">
+                <p>Enable Javascript to view the interactive API specification.</p>
+                <p>Alternatively you can download the OpenAPI Specification (OAS) file for this API using the button above.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="nhsd-t-grid nhsd-!t-no-gutters nhsd-!t-margin-top-6 nhsd-!t-display-no-js-hide" style="max-width:106.666rem">
         <div class="nhsd-t-row" style="height:auto">
             <rapi-doc
                 style="overflow:unset"
