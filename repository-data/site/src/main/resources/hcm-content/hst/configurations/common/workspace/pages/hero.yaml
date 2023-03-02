@@ -1,0 +1,34 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:pages/hero:
+  /main:
+    /banner:
+      hippo:identifier: 30406c51-6676-4cb0-adbf-9cc14c66030f
+      hst:label: Banner
+      hst:lastmodified: 2023-03-02T10:58:43.650Z
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent
+    /main:
+      /banner:
+        hst:componentclassname: uk.nhs.digital.common.components.BannerComponent
+        hst:iconpath: images/essentials/catalog-component-icons/banner.png
+        hst:label: Banner
+        hst:parameternames:
+        - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+        - document
+        - org.hippoecm.hst.core.component.template
+        hst:parametervalues:
+        - 'off'
+        - banners/banner
+        - webfile:/freemarker/hstdefault/essentials-banner/purple-lightup-theme.ftl
+        hst:template: essentials-banner
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      hippo:identifier: aa492d70-a58c-495e-9334-dd8bdee1d474
+      hst:lastmodified: 2023-03-02T11:01:13.219Z
+      hst:xtype: hst.nomarkup
+      jcr:primaryType: hst:containercomponent
+    hst:template: nhsd-homepage
+    jcr:primaryType: hst:component
+  hst:lastmodified: 2023-03-02T10:57:55.852Z
+  hst:referencecomponent: hst:abstractpages/nhsd-homepage
+  jcr:primaryType: hst:component

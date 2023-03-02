@@ -3,6 +3,11 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:sitemap:
       /automated-test-pages:
+        /hero:
+          hst:componentconfigurationid: hst:pages/hero
+          hst:lastmodified: 2023-03-02T10:57:55.852Z
+          hst:relativecontentpath: nhsd-homepage
+          jcr:primaryType: hst:sitemapitem
         /macros:
           hst:componentconfigurationid: hst:pages/macro-test
           jcr:primaryType: hst:sitemapitem
