@@ -63,3 +63,15 @@ When('I view page on {string}', async function(this: CustomWorld, device: Viewpo
     await this.browser.switchViewport(device);
 });
 
+let newPagePromise: Promise<any> = null;
+When('I wait for a new page to open', async function(this: CustomWorld) {
+    const browerContext = await this.browser.getContext();
+    newPagePromise = browerContext.waitForEvent('page');
+});
+
+Then('a new page should open with url, {string}', async function(this: CustomWorld, expectedUrl: string) {
+    const newPage = await newPagePromise;
+    await newPage.waitForLoadState();
+    const pageUrl = newPage.url();
+    expect(pageUrl.endsWith(expectedUrl)).to.be.true;
+});
