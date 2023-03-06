@@ -39,12 +39,12 @@ used.
 To run:
 
 **Unit tests**:
-```
+``` shell
 mvn test
 ```
 
 **Full suite of tests**:
-```
+``` shell
 mvn verify -Pacceptance-test-hippo,acceptance-test
 ```
 This will execute both unit and acceptance tests. An instance of Tomcat server will be automatically spawned and
