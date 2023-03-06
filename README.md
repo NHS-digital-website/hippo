@@ -39,7 +39,7 @@ used.
 To run:
 
 **Unit tests**:
-```
+``` shell
 mvn test
 ```
 
