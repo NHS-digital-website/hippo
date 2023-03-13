@@ -8,23 +8,148 @@
       hst:xtype: hst.nomarkup
       jcr:primaryType: hst:containercomponent
     /main:
-      /banner:
-        hst:componentclassname: uk.nhs.digital.common.components.BannerComponent
-        hst:iconpath: images/essentials/catalog-component-icons/banner.png
-        hst:label: Banner
+      /hero:
+        hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+        hst:label: Hero
         hst:parameternames:
+        - colour
+        - size
         - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
         - document
-        - org.hippoecm.hst.core.component.template
+        - alignment
+        - colourBar
         hst:parametervalues:
+        - Blue grey
+        - tall
         - 'off'
         - banners/banner
-        - webfile:/freemarker/hstdefault/essentials-banner/purple-lightup-theme.ftl
-        hst:template: essentials-banner
+        - left
+        - 'on'
+        hst:template: hero
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      /hero1:
+        hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+        hst:label: Hero
+        hst:parameternames:
+        - colour
+        - size
+        - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+        - document
+        - alignment
+        - colourBar
+        hst:parametervalues:
+        - Black
+        - tall
+        - 'off'
+        - banners/banner
+        - right
+        - 'on'
+        hst:template: hero
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      /hero2:
+        hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+        hst:label: Hero
+        hst:parameternames:
+        - colour
+        - size
+        - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+        - document
+        - alignment
+        - colourBar
+        hst:parametervalues:
+        - Mid blue
+        - tall
+        - 'off'
+        - banners/banner
+        - left
+        - 'on'
+        hst:template: hero
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      /hero3:
+        hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+        hst:label: Hero
+        hst:parameternames:
+        - colour
+        - size
+        - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+        - document
+        - alignment
+        - colourBar
+        hst:parametervalues:
+        - Light blue
+        - tall
+        - 'off'
+        - cta/how-we-look-after-your-information
+        - right
+        - 'on'
+        hst:template: hero
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      /hero4:
+        hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+        hst:label: Hero
+        hst:parameternames:
+        - colour
+        - size
+        - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+        - document
+        - alignment
+        - colourBar
+        hst:parametervalues:
+        - Yellow
+        - tall
+        - 'off'
+        - cta/how-we-look-after-your-information
+        - left
+        - 'on'
+        hst:template: hero
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      /hero5:
+        hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+        hst:label: Hero
+        hst:parameternames:
+        - colour
+        - size
+        - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+        - document
+        - alignment
+        - colourBar
+        hst:parametervalues:
+        - Blue grey
+        - small
+        - 'off'
+        - cta/how-we-look-after-your-information
+        - right
+        - 'on'
+        hst:template: hero
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      /hero6:
+        hst:componentclassname: uk.nhs.digital.common.components.HeroComponent
+        hst:label: Hero
+        hst:parameternames:
+        - colour
+        - size
+        - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+        - document
+        - alignment
+        - colourBar
+        hst:parametervalues:
+        - Yellow
+        - small
+        - 'off'
+        - cta/how-we-look-after-your-information
+        - left
+        - 'on'
+        hst:template: hero
         hst:xtype: hst.item
         jcr:primaryType: hst:containeritemcomponent
       hippo:identifier: aa492d70-a58c-495e-9334-dd8bdee1d474
-      hst:lastmodified: 2023-03-02T11:01:13.219Z
+      hst:lastmodified: 2023-03-08T10:08:36.060Z
       hst:xtype: hst.nomarkup
       jcr:primaryType: hst:containercomponent
     hst:template: nhsd-homepage
