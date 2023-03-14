@@ -34,6 +34,10 @@
             border-radius: 1.22rem;
         }
 
+        rapi-doc::part(schema-multiline-toggle) {
+            display: none;
+        }
+
         rapi-doc::part(btn-try) {
             margin-right: 5px;
         }
@@ -76,7 +80,55 @@
                 padding: 24px 80px 12px;
             }
         }
+
+        .btn{
+            width: 70px;
+            height: 70px;
+            background-color: #005bbb;
+            color: #fff;
+            font-size: 12px;
+            display: block;
+            border: none;
+            margin: 2px;
+            border-radius: 2px;
+            cursor:pointer;
+            outline:none;
+        }
     </style>
+
+    <#-- Configuration demo -->
+    <script>
+        function getRapiDoc(){
+            return document.getElementById("rapi-doc-spec");
+        }
+
+        function changeRenderStyle() {
+            let currRender = getRapiDoc().getAttribute('render-style');
+            let newRender = currRender === "focused" ? "read" : "focused";
+            getRapiDoc().setAttribute('render-style', newRender );
+        }
+
+        function changeSchemaStyle() {
+            let currSchema = getRapiDoc().getAttribute('schema-style');
+            let newSchema = currSchema === "tree" ? "table" : "tree";
+            getRapiDoc().setAttribute('schema-style', newSchema );
+        }
+
+        function changeSchemaExpandLevel() {
+            let currSchema = getRapiDoc().getAttribute('schema-expand-level');
+            let newSchema = currSchema === "999" ? "1" : "999";
+            getRapiDoc().setAttribute('schema-expand-level', newSchema );
+        }
+
+        function toggleAttr(attr){
+            if (getRapiDoc().getAttribute(attr) === 'false'){
+                getRapiDoc().setAttribute(attr,"true");
+            }
+            else{
+                getRapiDoc().setAttribute(attr,"false");
+            }
+        }
+    </script>
 
     <@hero getExtendedHeroOptions(document) />
 
@@ -111,7 +163,21 @@
         render-style="focused"
         sort-endpoints-by="none"
         css-file="nhsd-frontend.css"
+        show-curl-before-try="false"
+        schema-style="tree"
+        schema-expand-level="999"
     >
+
+        <div style="display:flex; margin:10px; justify-content:center;flex-wrap: wrap;">
+            <button class="btn" onclick="changeRenderStyle()">Render style</button>
+            <button class="btn" onclick="toggleAttr('show-header')">Toggle header</button>
+            <button class="btn" onclick="toggleAttr('allow-search')">Toggle search</button>
+            <button class="btn" onclick="toggleAttr('allow-advanced-search')">Toggle advanced search</button>
+            <button class="btn" onclick="toggleAttr('allow-server-selection')">Toggle server selection</button>
+            <button class="btn" onclick="toggleAttr('show-curl-before-try')">Toggle CURL before try</button>
+            <button class="btn" onclick="changeSchemaStyle()">Schema style</button>
+            <button class="btn" onclick="changeSchemaExpandLevel()">Schema expand level 1</button>
+        </div>
 
         <div slot="footer">
             <div class="rapi-doc-section"><a class="nhsd-a-link" href="#top">Back to
@@ -152,6 +218,12 @@
 
                         #api-title, #api-info, #link-overview {
                             display: none;
+                        }
+
+                        .method-fg.options,
+                        .method-fg.head,
+                        .method-fg.patch {
+                            color: #827717;
                         }
 
                         .m-markdown h2, .m-markdown h3, .m-markdown h4, .m-markdown h5, .m-markdown h6 {
@@ -219,19 +291,6 @@
                                 letter-spacing: -.01666rem;
                                 line-height: 1.3125;
                             }
-                        }
-
-                        :host {
-                            --red: #da291c;
-                            --light-red: #f8d4d2;
-                            --pink: #ae2573;
-                            --green: #009639;
-                            --light-green: #78be20;
-                            --blue: #005bbb;
-                            --light-blue: #41b6e6;
-                            --orange: #fa9200;
-                            --yellow: #fae100;
-                            --light-yellow: #fef9cc;
                         }
                     `);
             rapiDocEl.shadowRoot.adoptedStyleSheets.push(customStyles);
