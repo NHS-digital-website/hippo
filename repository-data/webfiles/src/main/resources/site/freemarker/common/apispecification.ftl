@@ -22,49 +22,150 @@
             overflow: unset;
         }
 
-        .rapi-doc-section {
-            padding: 24px 4px;
+        rapi-doc::part(section-navbar) {
+            padding: 6px 0.833rem;
+        }
+
+        rapi-doc::part(section-main-content) {
+            padding: 0 0.833rem;
+        }
+
+        rapi-doc::part(section-auth) {
+            padding: 0;
+        }
+
+        rapi-doc::part(section-operations-in-tag) {
+            padding: 0;
+        }
+
+        rapi-doc::part(section-overview) {
+            padding: 0;
         }
 
         rapi-doc::part(section-navbar-search) {
             justify-content: flex-start;
+            padding: 0;
+            margin-bottom: 15px;
+
+        }
+
+        rapi-doc::part(btn-search) {
+            margin: 0;
+            width: unset;
         }
 
         rapi-doc::part(btn) {
+            color: #ffffff;
+            background: #005bbb;
+            display: inline-flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            max-width: 15.55rem;
+            padding: .5555555556rem 1.1111111111rem;
+            border: 2px solid #005bbb;
             border-radius: 1.22rem;
+            outline: 0;
+            box-shadow: 0 0 0 .167rem transparent;
+            font-size: .78rem;
+            font-weight: 600;
+            line-height: 1.11;
+            text-align: center;
+            text-decoration: none;
+            /*vertical-align: text-bottom;*/
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            -webkit-user-select: none;
+            user-select: none;
+            transition-property: background-color,box-shadow,border-color;
+            transition-duration: .15s;
         }
 
-        rapi-doc::part(schema-multiline-toggle) {
-            display: none;
+        rapi-doc::part(btn-selected-response-status) {
+            color: #ffffff !important;
+            background: #005bbb !important;
+        }
+
+        rapi-doc::part(btn):after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            transform: translateX(-50%) translateY(-50%);
+            border-radius: 100%;
+        }
+
+        rapi-doc::part(btn):focus,
+        rapi-doc::part(btn):hover {
+            border-color: #003087;
+            background:#003087;
+            box-shadow: 0 0 0 0.167rem #fae100;
+        }
+
+        rapi-doc::part(btn-selected-response-status):focus,
+        rapi-doc::part(btn-selected-response-status):hover {
+            border-color: #003087 !important;
+            background:#003087 !important;
+        }
+
+        rapi-doc::part(btn):active {
+            border-color: #005bbb;
+            background: #005bbb;
+            transition-property: none;
+            box-shadow: 0 0 0 0.167rem transparent;
+            transform: translateY(0.111rem);
+        }
+
+        rapi-doc::part(btn-response-status),
+        rapi-doc::part(btn-outline) {
+            color: #005bbb;
+            background: #ffffff;
+        }
+
+        rapi-doc::part(btn-response-status):focus,
+        rapi-doc::part(btn-response-status):hover,
+        rapi-doc::part(btn-outline):focus,
+        rapi-doc::part(btn-outline):hover {
+            border-color: #231f20;
+            color: #005bbb;
+            background: #ffffff;
+        }
+
+        rapi-doc::part(btn-response-status):active,
+        rapi-doc::part(btn-outline):active {
+            border-color: #005bbb;
+            color: #005bbb;
+            background: #ffffff;
         }
 
         rapi-doc::part(btn-try) {
-            margin-right: 5px;
+            margin: 16px 5px 0 0;
         }
 
         rapi-doc::part(wrap-request-btn) {
             flex-direction: row-reverse;
             flex-wrap: wrap;
             justify-content: flex-end;
+            padding-top: 12px;
         }
 
-        rapi-doc::part(section-navbar-path) {
-            margin-left: 12px
+        rapi-doc::part(schema-multiline-toggle) {
+            display: none;
         }
 
-        @media only screen and (min-width: 1025px) {
+        @media only screen and (min-width: 1024px) {
             rapi-doc::part(section-navbar) {
                 position: sticky;
                 top: 1rem;
                 max-height: 95vh;
             }
-
-            .rapi-doc-section {
-                padding: 24px 8px;
-            }
         }
 
-        @media only screen and (max-width: 1024px) {
+        @media only screen and (max-width: 1023px) {
             rapi-doc::part(section-navbar) {
                 width: 100%;
                 display: flex;
@@ -72,12 +173,6 @@
 
             rapi-doc::part(section-main-content) {
                 overflow: unset;
-            }
-        }
-
-        @media only screen and (min-width: 1024px) {
-            .rapi-doc-section {
-                padding: 24px 80px 12px;
             }
         }
 
@@ -167,45 +262,43 @@
                 show-curl-before-try="false"
                 schema-style="tree"
                 schema-expand-level="999"
+                default-schema-tab="example"
             >
 
-                <div
-                    style="display:flex; margin:10px; justify-content:center;flex-wrap: wrap;">
-                    <button class="btn" onclick="changeRenderStyle()">
-                        Render style
-                    </button>
-                    <button class="btn" onclick="toggleAttr('show-header')">
-                        Toggle header
-                    </button>
-                    <button class="btn" onclick="toggleAttr('allow-search')">
-                        Toggle search
-                    </button>
-                    <button class="btn"
-                            onclick="toggleAttr('allow-advanced-search')">
-                        Toggle advanced search
-                    </button>
-                    <button class="btn"
-                            onclick="toggleAttr('allow-server-selection')">
-                        Toggle server selection
-                    </button>
-                    <button class="btn"
-                            onclick="toggleAttr('show-curl-before-try')">Toggle
-                        CURL before try
-                    </button>
-                    <button class="btn" onclick="changeSchemaStyle()">Schema
-                        style
-                    </button>
-                    <button class="btn" onclick="changeSchemaExpandLevel()">
-                        Schema expand level 1
-                    </button>
-                </div>
+<#--                <div-->
+<#--                    style="display:flex; margin:10px; justify-content:center;flex-wrap: wrap;">-->
+<#--                    <button class="btn" onclick="changeRenderStyle()">-->
+<#--                        Render style-->
+<#--                    </button>-->
+<#--                    <button class="btn" onclick="toggleAttr('show-header')">-->
+<#--                        Toggle header-->
+<#--                    </button>-->
+<#--                    <button class="btn" onclick="toggleAttr('allow-search')">-->
+<#--                        Toggle search-->
+<#--                    </button>-->
+<#--                    <button class="btn"-->
+<#--                            onclick="toggleAttr('allow-advanced-search')">-->
+<#--                        Toggle advanced search-->
+<#--                    </button>-->
+<#--                    <button class="btn"-->
+<#--                            onclick="toggleAttr('allow-server-selection')">-->
+<#--                        Toggle server selection-->
+<#--                    </button>-->
+<#--                    <button class="btn"-->
+<#--                            onclick="toggleAttr('show-curl-before-try')">Toggle-->
+<#--                        CURL before try-->
+<#--                    </button>-->
+<#--                    <button class="btn" onclick="changeSchemaStyle()">Schema-->
+<#--                        style-->
+<#--                    </button>-->
+<#--                    <button class="btn" onclick="changeSchemaExpandLevel()">-->
+<#--                        Schema expand level 1-->
+<#--                    </button>-->
+<#--                </div>-->
 
                 <div slot="footer">
-                    <div class="rapi-doc-section">
-                        <a class="nhsd-a-link" href="#top">Back to top</a></div>
-                    <div class="rapi-doc-section">
-                        <@lastModified document.lastPublicationDate></@lastModified>
-                    </div>
+                    <p class="nhsd-t-body nhsd-!t-margin-top-3"><a class="nhsd-a-link" href="#top">Back to top</a></p>
+                    <@lastModified document.lastPublicationDate></@lastModified>
                 </div>
 
             </rapi-doc>

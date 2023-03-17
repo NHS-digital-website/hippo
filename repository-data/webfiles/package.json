@@ -103,7 +103,8 @@
         ]
     },
     "eslintIgnore": [
-        "rapidoc-min.js"
+        "rapidoc-min.js",
+        "rapidoc-custom-styles.js"
     ],
     "stylelint": {
         "extends": "stylelint-config-recommended-scss",
