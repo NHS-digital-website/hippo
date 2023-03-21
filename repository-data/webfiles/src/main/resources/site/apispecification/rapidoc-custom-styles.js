@@ -191,7 +191,7 @@ export default css`
 
     a,
     a:visited {
-      padding-bottom: 2px;
+      padding-bottom: 2px;  /* maybe change to margin but first see if can fix underlying issue */
       border: 0;
       border-bottom: 1px solid var(--primary-colour, #005bbb);
       color: var(--primary-colour, #005bbb);
@@ -215,4 +215,77 @@ export default css`
     }
 
     /* NHSD tables */
+
+    .m-markdown-small table,
+    .m-markdown table,
+    .m-markdown-small tbody,
+    .m-markdown tbody{
+        overflow-x: auto;
+        width: 100%;
+        border-collapse: collapse;
+        backface-visibility: visible;
+        margin: 10px 0px;
+
+        border-spacing: unset;
+        border: unset;
+        border-radius: unset;
+        font-size: var(--font-size-regular);
+        line-height: calc(var(--font-size-regular) + 8px);
+        max-width: unset;
+    }
+
+    .m-markdown-small thead, .m-markdown thead {
+        color: #231f20;
+        font-weight: 600;
+    }
+
+    .m-markdown-small thead tr:first-child td,
+    .m-markdown-small thead tr:first-child th,
+    .m-markdown thead tr:first-child td,
+    .m-markdown thead tr:first-child th {
+        border: 0;
+    }
+
+    .m-markdown-small td,
+    .m-markdown-small th,
+    .m-markdown td,
+    .m-markdown th {
+        padding: .5555555556rem;
+        text-align: left;
+
+        line-height: calc(var(--font-size-regular) + 8px);
+        background-color: unset;
+        vertical-align: unset;
+    }
+
+    .m-markdown-small tbody tr:first-child td,
+    .m-markdown-small tbody tr:first-child th,
+    .m-markdown tbody tr:first-child td,
+    .m-markdown tbody tr:first-child th {
+        border-width: 2px;
+    }
+
+    .m-markdown-small tbody tr td,
+    .m-markdown-small tbody tr th,
+    .m-markdown tbody tr td,
+    .m-markdown tbody tr th {
+        border-top: 1px solid #d5dade;
+        vertical-align: top;
+    }
+
+    .m-markdown-small td,
+    .m-markdown-small th,
+    .m-markdown-small td,
+    .m-markdown-small th {
+        padding: .5555555556rem;
+        text-align: left;
+    }
+
+    .nhsd-m-table__mobile-list ul {
+        padding-inline-start: unset !important;
+    }
+
+    .nhsd-m-table__mobile-list {
+        margin-top: 15px;
+    }
 `;
