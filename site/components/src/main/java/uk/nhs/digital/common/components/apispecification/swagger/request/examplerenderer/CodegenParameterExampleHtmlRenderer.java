@@ -74,35 +74,37 @@ public class CodegenParameterExampleHtmlRenderer {
             .append(complexExamplesFromParamSchema.size() == 1 ? "Example" : "Examples")
             .append("</strong>\n")
             .append(
-                complexExamplesFromParamSchema.stream()
-                    .map(example -> {
+                () -> {
+                    Optional<StringBuilder> s = complexExamplesFromParamSchema.stream()
+                        .map(example -> {
 
-                        final StringBuilder examplesHtml = new StringBuilder();
+                            final StringBuilder examplesHtml = new StringBuilder();
 
-                        example.getSummary().ifPresent(summary -> examplesHtml
-                            .append("<p class=\"nhsd-t-body\">")
-                            .append(escapeHtml4(summary))
-                            .append("</p>\n")
-                        );
-
-                        example.getDescription()
-                            .map(markdownConverter::toHtml)
-                            .ifPresent(descriptionHtml -> examplesHtml
+                            example.getSummary().ifPresent(summary -> examplesHtml
                                 .append("<p class=\"nhsd-t-body\">")
-                                .append(descriptionHtml)
+                                .append(escapeHtml4(summary))
                                 .append("</p>\n")
                             );
 
-                        example.getValue().ifPresent(value -> examplesHtml
-                            .append("<p class=\"nhsd-t-body\"><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">")
-                            .append(escapeHtml4(value))
-                            .append("</span></p>\n")
-                        );
+                            example.getDescription()
+                                .map(markdownConverter::toHtml)
+                                .ifPresent(descriptionHtml -> examplesHtml
+                                    .append("<p class=\"nhsd-t-body\">")
+                                    .append(descriptionHtml)
+                                    .append("</p>\n")
+                                );
 
-                        return examplesHtml;
-                    })
-                    .reduce(StringBuilder::append)
-                    .get()
+                            example.getValue().ifPresent(value -> examplesHtml
+                                .append("<p class=\"nhsd-t-body\"><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">")
+                                .append(escapeHtml4(value))
+                                .append("</span></p>\n")
+                            );
+
+                            return examplesHtml;
+                        })
+                        .reduce(StringBuilder::append);
+                    return s.isPresent() ? s : "";
+                }
             ).toString();
     }
 
