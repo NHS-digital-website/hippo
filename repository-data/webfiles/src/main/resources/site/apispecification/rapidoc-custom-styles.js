@@ -69,9 +69,39 @@ export default css`
         }
     }
 
+    .m-markdown p,
+    .m-markdown-small p,
+    .m-markdown span,
+    .m-markdown ul,
+    .m-markdown ol {
+        margin: 0 0 0.8333333333rem;
+        line-height: 1.6;
+    }
+
+    .m-markdown p:not(:first-child) {
+        margin-block-start: unset;
+    }
+
+    .m-markdown ul,
+    .m-markdown ol {
+        padding-inline-start: 20px !important;
+        padding-left: 0;
+    }
+
+    .m-markdown li:not(:last-of-type) {
+        margin: 0 0 0.1333rem;
+    }
+
+    .m-markdown li {
+       padding-left: 0.5rem;
+       line-height: 1.6;
+    }
+
     h1, h2, h3, h4, h5, h6 {
         font-weight: 600;
         color: #231f20;
+        margin: 0 0 1.1111111111rem;
+        padding-top: unset;
     }
 
     h1, h2 {
@@ -215,22 +245,20 @@ export default css`
     }
 
     /* NHSD tables */
-
     .m-markdown-small table,
     .m-markdown table,
     .m-markdown-small tbody,
-    .m-markdown tbody{
+    .m-markdown tbody {
         overflow-x: auto;
         width: 100%;
         border-collapse: collapse;
         backface-visibility: visible;
-        margin: 10px 0px;
-
+        margin: 0 0 0.8333333333rem;
         border-spacing: unset;
         border: unset;
         border-radius: unset;
         font-size: var(--font-size-regular);
-        line-height: calc(var(--font-size-regular) + 8px);
+        line-height: 1.6;
         max-width: unset;
     }
 
@@ -252,10 +280,9 @@ export default css`
     .m-markdown th {
         padding: .5555555556rem;
         text-align: left;
-
-        line-height: calc(var(--font-size-regular) + 8px);
+        line-height: 1.6;
         background-color: unset;
-        vertical-align: unset;
+        vertical-align: inherit;
     }
 
     .m-markdown-small tbody tr:first-child td,

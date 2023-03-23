@@ -17,6 +17,9 @@
     <script type="text/javascript"
             src="<@hst.webfile path="/apispecification/rapidoc-min.js"/>"></script>
 
+    <script type="text/javascript"
+            src="<@hst.webfile path="/apispecification/rapidoc.js"/>"></script>
+
     <style>
         .rapi-doc-component {
             overflow: unset;
@@ -27,7 +30,7 @@
         }
 
         rapi-doc::part(section-main-content) {
-            padding: 0 0.833rem;
+            padding: 6px 0.833rem;
         }
 
         rapi-doc::part(section-auth) {
@@ -188,37 +191,37 @@
     </style>
 
 <#-- Configuration demo -->
-    <script>
-        function getRapiDoc() {
-            return document.getElementById("rapi-doc-spec");
-        }
+<#--    <script>-->
+<#--        function getRapiDoc() {-->
+<#--            return document.getElementById("rapi-doc-spec");-->
+<#--        }-->
 
-        function changeRenderStyle() {
-            let currRender = getRapiDoc().getAttribute('render-style');
-            let newRender = currRender === "focused" ? "read" : "focused";
-            getRapiDoc().setAttribute('render-style', newRender);
-        }
+<#--        function changeRenderStyle() {-->
+<#--            let currRender = getRapiDoc().getAttribute('render-style');-->
+<#--            let newRender = currRender === "focused" ? "read" : "focused";-->
+<#--            getRapiDoc().setAttribute('render-style', newRender);-->
+<#--        }-->
 
-        function changeSchemaStyle() {
-            let currSchema = getRapiDoc().getAttribute('schema-style');
-            let newSchema = currSchema === "tree" ? "table" : "tree";
-            getRapiDoc().setAttribute('schema-style', newSchema);
-        }
+<#--        function changeSchemaStyle() {-->
+<#--            let currSchema = getRapiDoc().getAttribute('schema-style');-->
+<#--            let newSchema = currSchema === "tree" ? "table" : "tree";-->
+<#--            getRapiDoc().setAttribute('schema-style', newSchema);-->
+<#--        }-->
 
-        function changeSchemaExpandLevel() {
-            let currSchema = getRapiDoc().getAttribute('schema-expand-level');
-            let newSchema = currSchema === "999" ? "1" : "999";
-            getRapiDoc().setAttribute('schema-expand-level', newSchema);
-        }
+<#--        function changeSchemaExpandLevel() {-->
+<#--            let currSchema = getRapiDoc().getAttribute('schema-expand-level');-->
+<#--            let newSchema = currSchema === "999" ? "1" : "999";-->
+<#--            getRapiDoc().setAttribute('schema-expand-level', newSchema);-->
+<#--        }-->
 
-        function toggleAttr(attr) {
-            if (getRapiDoc().getAttribute(attr) === 'false') {
-                getRapiDoc().setAttribute(attr, "true");
-            } else {
-                getRapiDoc().setAttribute(attr, "false");
-            }
-        }
-    </script>
+<#--        function toggleAttr(attr) {-->
+<#--            if (getRapiDoc().getAttribute(attr) === 'false') {-->
+<#--                getRapiDoc().setAttribute(attr, "true");-->
+<#--            } else {-->
+<#--                getRapiDoc().setAttribute(attr, "false");-->
+<#--            }-->
+<#--        }-->
+<#--    </script>-->
 
     <@hero getExtendedHeroOptions(document) />
 
@@ -256,7 +259,7 @@
                 sort-endpoints-by="none"
                 css-file="nhsd-frontend.css"
                 show-curl-before-try="false"
-                schema-style="tree"
+                schema-style="table"
                 schema-expand-level="999"
                 default-schema-tab="example"
             >
@@ -300,7 +303,6 @@
             </rapi-doc>
 
             <script>
-                // TODO clean up
                 const specification = ${document.json?no_esc}
 
                 document.addEventListener('DOMContentLoaded', () => {
@@ -317,69 +319,6 @@
                         rapiDocEl.setAttribute("allow-authentication", "false");
                     }
                 })
-
-                // Stick nav highlight active section possible?
-
-
-
-                // responsive table js take from nhsd frontend - only works for current page in focused mode
-                function makeResponsive(table) {
-                    table.classList.add('nhsd-!t-display-hide');
-                    table.classList.add('nhsd-!t-display-s-show-table');
-
-                    const tableHeader = table.querySelector('thead tr');
-                    const tableHeadings = tableHeader.querySelectorAll('td, th');
-                    const tableBodys = table.querySelectorAll('tbody');
-
-                    let listElHtml = '<ul class="nhsd-!t-display-s-hide">';
-
-                    Array.from(tableBodys).forEach((tableBody) => {
-                        const tableRows = tableBody.querySelectorAll('tr');
-
-                        Array.from(tableRows).forEach((tableRow) => {
-                            listElHtml += '<li>';
-                            listElHtml += '<ul class="nhsd-m-table__mobile-list-item">';
-
-                            const tableCells = tableRow.querySelectorAll('td, th');
-                            Array.from(tableCells).forEach((tableCell, index) => {
-                                listElHtml += '<li><span><b>';
-                                if (tableHeadings[index]) {
-                                    listElHtml += tableHeadings[index].innerText;
-                                }
-                                listElHtml += '</b></span><span>';
-                                listElHtml += tableCell.innerHTML;
-                                listElHtml += '</span></li>';
-                            });
-                            listElHtml += '</ul></li>';
-                        });
-                    });
-
-                    listElHtml += '</ul>';
-
-                    const listEl = document.createElement('div');
-                    listEl.classList.add('nhsd-m-table__mobile-list');
-                    listEl.innerHTML = listElHtml;
-
-                    table.parentNode.insertBefore(listEl, table.nextSibling);
-                }
-
-                window.addEventListener('load', () => {
-                    let rapiDocEl = document.getElementById("rapi-doc-spec");
-                    const tables = rapiDocEl.shadowRoot.querySelectorAll('table');
-                    Array.from(tables).forEach((table) => {
-                        makeResponsive(table);
-                    });
-
-                    let nav = rapiDocEl.shadowRoot.querySelector('nav.nav-scroll');
-                    nav.addEventListener('click', () => {
-                        const tables = rapiDocEl.shadowRoot.querySelectorAll('table');
-                        Array.from(tables).forEach((table) => {
-                            makeResponsive(table);
-                        });
-                    })
-                })
-
-
             </script>
         </div>
     </div>
