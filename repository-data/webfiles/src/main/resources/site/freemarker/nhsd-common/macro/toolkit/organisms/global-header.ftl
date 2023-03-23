@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
-<#include "./nhsdLogo.ftl">
-<#include "./iconGenerator.ftl">
+<#include "../../nhsdLogo.ftl">
+<#include "../../iconGenerator.ftl">
 
 <@hst.setBundle basename="rb.generic.texts"/>
 <@fmt.message key="text.close-menu" var="closeMenu" />
