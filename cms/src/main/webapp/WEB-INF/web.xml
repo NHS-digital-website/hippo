@@ -37,6 +37,11 @@
         <param-name>repository-config</param-name>
         <param-value>repository.xml</param-value>
     </context-param>
+    <context-param>
+        <param-name>hst-config-properties</param-name>
+        <param-value>${brc.appconfigpath}/platform.properties</param-value>
+    </context-param>
+
 
     <filter>
         <filter-name>HippoCmsIpFilter</filter-name>
