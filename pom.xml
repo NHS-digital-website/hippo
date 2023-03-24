@@ -223,7 +223,7 @@
         <selenium.version>4.1.1</selenium.version>
         <slf4j.version>1.7.36</slf4j.version>
         <snakeyaml.version>1.30</snakeyaml.version>
-        <spring.version>5.3.22</spring.version>
+        <spring.version>6.0.0</spring.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
