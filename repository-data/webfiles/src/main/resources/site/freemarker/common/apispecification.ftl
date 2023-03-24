@@ -259,7 +259,7 @@
                 sort-endpoints-by="none"
                 css-file="nhsd-frontend.css"
                 show-curl-before-try="false"
-                schema-style="table"
+                schema-style="tree"
                 schema-expand-level="999"
                 default-schema-tab="example"
             >

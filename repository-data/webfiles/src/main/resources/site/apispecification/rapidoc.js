@@ -1,17 +1,3 @@
-window.addEventListener('load', () => {
-    let rapiDocEl = document.getElementById("rapi-doc-spec").shadowRoot;
-    makeRapiDocMarkdownTablesResponsive(rapiDocEl);
-    addHorizontalRuleBetweenHeadings(rapiDocEl);
-
-    let nav = rapiDocEl.querySelector('nav.nav-scroll');
-    nav.addEventListener('click', () => {
-        // TODO added multiple times if click on the main content multiple times
-        makeRapiDocMarkdownTablesResponsive(rapiDocEl);
-        addHorizontalRuleBetweenHeadings(rapiDocEl);
-    })
-})
-
-
 // Stick nav highlight active section possible?
 
 // responsive table js taken from nhsd frontend
@@ -55,18 +41,36 @@ function makeResponsive(table) {
     table.parentNode.insertBefore(listEl, table.nextSibling);
 }
 
-function makeRapiDocMarkdownTablesResponsive(rapiDocEl) {
+function makeTablesResponsive(rapiDocEl) {
     const tables = rapiDocEl.querySelectorAll('table');
     Array.from(tables).forEach((table) => {
-        makeResponsive(table);
+        if (!table.classList.contains('nhsd-!t-display-hide')) {
+            makeResponsive(table);
+        }
     });
 }
 
 function addHorizontalRuleBetweenHeadings(rapiDocEl) {
     const headings = rapiDocEl.querySelectorAll('h2');
-    for(let i = 1; i < headings.length; i++) {
+    for (let i = 1; i < headings.length; i += 1) {
         const horizontalRuleEl = document.createElement('hr');
         horizontalRuleEl.classList.add('nhsd-a-horizontal-rule');
-        headings[i].before(horizontalRuleEl);
+
+        if (!headings[i].previousElementSibling || !headings[i].previousElementSibling.isEqualNode(horizontalRuleEl)) {
+            headings[i].before(horizontalRuleEl);
+        }
     }
 }
+
+window.addEventListener('load', () => {
+    const rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
+    makeTablesResponsive(rapiDocEl);
+    addHorizontalRuleBetweenHeadings(rapiDocEl);
+});
+
+navigation.addEventListener('currententrychange', (event) => {
+    const rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
+    makeTablesResponsive(rapiDocEl);
+    addHorizontalRuleBetweenHeadings(rapiDocEl);
+});
+

@@ -69,8 +69,8 @@ export default css`
         }
     }
 
+    /* .m-markdown-small?? other elements code, pre */
     .m-markdown p,
-    .m-markdown-small p,
     .m-markdown span,
     .m-markdown ul,
     .m-markdown ol {
@@ -88,7 +88,7 @@ export default css`
         padding-left: 0;
     }
 
-    .m-markdown li:not(:last-of-type) {
+    .m-markdown li:not(:last-of-type):not(.nhsd-m-table__mobile-list li) {
         margin: 0 0 0.1333rem;
     }
 
