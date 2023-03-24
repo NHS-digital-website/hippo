@@ -5,14 +5,16 @@ definitions:
       /form:
         hst:componentclassname: uk.nhs.digital.common.forms.CustomAutoDetectFormComponent
         hst:parameternames:
+        - behaviors
         - eforms-from-email
         - eforms-from-name
         - eforms-mailsession
         - eforms-use-freemarker
         hst:parametervalues:
+        - com.onehippo.cms7.eforms.hst.behaviors.MailFormDataBehavior
         - hippo.nhsdigital@nhs.net
         - NHS Mail
-        - mail/NHSMail
+        - mail/Session
         - 'true'
     /hst:hst/hst:configurations/hst:default/hst:catalog/essentials-catalog:
       /banner:
