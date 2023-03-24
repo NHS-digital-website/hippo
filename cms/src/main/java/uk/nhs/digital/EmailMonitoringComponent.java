@@ -24,7 +24,7 @@ public class EmailMonitoringComponent implements RepositoryJob {
         try {
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
-            Session session = (Session) envCtx.lookup("mail/NHSMail");
+            Session session = (Session) envCtx.lookup("mail/Session");
 
             try {
                 Message message = new MimeMessage(session);

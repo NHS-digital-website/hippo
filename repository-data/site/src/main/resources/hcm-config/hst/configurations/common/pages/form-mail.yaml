@@ -12,7 +12,7 @@ definitions:
         - eforms-use-freemarker
         hst:parametervalues:
         - com.onehippo.cms7.eforms.hst.behaviors.FormIntroBehavior
-        - mail/NHSMail
+        - mail/Session
         - NHS Mail
         - hippo.nhsdigital@nhs.net
         - 'true'
