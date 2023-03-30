@@ -63,8 +63,9 @@
         <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
     </bean>
 
-    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+    <bean id="jedisPool" class="uk.nhs.digital.cache.JedisPoolFactory" factory-method="factory" destroy-method="destroy">
         <constructor-arg name="url" value="${siteCache.heavyContentPageCache.redisUrl:http://example.com:6379}"/>
+        <constructor-arg name="timeout" value="5000"/>
     </bean>
 
     <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
