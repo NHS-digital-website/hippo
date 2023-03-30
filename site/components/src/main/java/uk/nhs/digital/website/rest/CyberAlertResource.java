@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.onehippo.cms7.essentials.components.rest.BaseRestResource;
 import org.onehippo.cms7.essentials.components.rest.ctx.DefaultRestContext;
+import org.onehippo.cms7.essentials.components.rest.ctx.RestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.website.beans.CyberAcknowledgement;
@@ -44,6 +45,13 @@ import javax.ws.rs.core.UriInfo;
 public class CyberAlertResource extends BaseRestResource {
 
     private static final Logger log = LoggerFactory.getLogger(CyberAlertResource.class);
+
+    @Override
+    public HstQuery createQuery(final RestContext context, final Class<? extends HippoBean> clazz, final Subtypes subtypes) {
+        final HstQuery query = super.createQuery(context, clazz, subtypes);
+        query.addOrderByDescending("hippostdpubwf:lastModificationDate");
+        return query;
+    }
 
     @GET
     @Path("/")
