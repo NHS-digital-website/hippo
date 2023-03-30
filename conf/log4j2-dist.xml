@@ -149,17 +149,17 @@
     <Logger name="uk.nhs.digital.ps" level="info"/>
     <Logger name="com.onehippo.cms7.targeting" level="warn"/>
     <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
+    <Logger name="org.hippoecm.hst.servlet.HstFreemarkerServlet" level="error"/>
 
-      <!-- IP Filter logging -->
-      <Logger name="org.bloomreach.forge.ipfilter" level="info"/>
-      <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter" level="info"/>
+    <!-- IP Filter logging -->
+    <!--
+    <Logger name="org.bloomreach.forge.ipfilter" level="info"/>
+    <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter" level="info"/>
+    -->
 
-      <Root level="ALL">
-          <AppenderRef ref="site"/>
+      <Root level="WARN">
           <AppenderRef ref="cms"/>
           <AppenderRef ref="splunk-cms"/>
-          <AppenderRef ref="splunk-site"/>
-          <AppenderRef ref="splunk-audit"/>
       </Root>
 
   </Loggers>
