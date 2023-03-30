@@ -19,7 +19,7 @@ clean slate, simply delete the directory and it will be recreated on the next ru
 
 To cache the API Catalogue specs with Redis during development, set `SITE_CACHE_HEAVY_TYPE = redis` in
 your `env.mk`. Then start a Redis instance on the default port (6379) or set `SITE_CACHE_HEAVY_REDIS_URL`.
-E.g. `docker start hippo-redis || docker run --name hippo-redis redis -d`.
+E.g. `docker start hippo-redis || docker run -d --name hippo-redis -p 6379:6379 redis`.
 
 ## Key Maven Build Operations
 
