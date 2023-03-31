@@ -69,7 +69,6 @@ export default css`
         }
     }
 
-    /* .m-markdown-small?? other elements code, pre */
     .m-markdown p,
     .m-markdown span,
     .m-markdown ul,
@@ -78,23 +77,60 @@ export default css`
         line-height: 1.6;
     }
 
-    .m-markdown p:not(:first-child) {
+    @media (max-width:63.99em) {
+        .m-markdown p,
+        .m-markdown span,
+        .m-markdown ul,
+        .m-markdown ol,
+        .m-markdown li,
+         a {
+            line-height: 1.4;
+        }
+    }
+
+    .m-markdown-small p,
+    .m-markdown-small span,
+    .m-markdown-small ul,
+    .m-markdown-small ol {
+        margin: 0 0 0.8333333333rem;
+        line-height: 1.4;
+    }
+
+    .m-markdown p:not(:first-child),
+    .m-markdown-small p:not(:first-child) {
         margin-block-start: unset;
     }
 
     .m-markdown ul,
-    .m-markdown ol {
+    .m-markdown ol,
+    .m-markdown-small ul,
+    .m-markdown-small ol {
         padding-inline-start: 20px !important;
         padding-left: 0;
     }
 
-    .m-markdown li:not(:last-of-type):not(.nhsd-m-table__mobile-list li) {
+    .m-markdown li:not(:last-of-type):not(.nhsd-m-table__mobile-list li),
+    .m-markdown-small li:not(:last-of-type):not(.nhsd-m-table__mobile-list li) {
         margin: 0 0 0.1333rem;
     }
 
     .m-markdown li {
        padding-left: 0.5rem;
        line-height: 1.6;
+    }
+
+    .m-markdown-small li {
+       padding-left: 0.5rem;
+       line-height: 1.4;
+    }
+
+    .tree {
+        line-height: 1.4;
+    }
+
+    .param-name,
+    .param-type {
+        line-height: 1.4;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -166,6 +202,10 @@ export default css`
         }
     }
 
+    .param-type {
+        font-weight: 600;
+    }
+
     .method-fg.options,
     .method-fg.head,
     .method-fg.patch {
@@ -184,12 +224,45 @@ export default css`
         margin-bottom: 24px;
     }
 
+
     div.oauth-flow button {
         margin-top: 5px;
     }
 
     [class="toolbar-btn"] {
         position: absolute !important;
+    }
+
+    /* Schema */
+    .tr {
+        border-top: 1px solid #d5dade;
+        padding: 0.555556rem;
+    }
+
+    .tree > .tr {
+        border-top: unset;
+        padding: unset;
+    }
+
+    .inside-bracket.object,
+    .inside-bracket.array {
+        border-left: 1px solid #d5dade;
+    }
+
+    /* prevent schema descriptions from cutting off */
+    .key-descr {
+        overflow-x: auto;
+    }
+
+    .key-descr::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    .key-descr::-webkit-scrollbar-track {
+        background:transparent;
+    }
+    .key-descr::-webkit-scrollbar-thumb {
+        background-color: var(--border-color);
     }
 
     /* Slider - to finish */
@@ -202,9 +275,10 @@ export default css`
         border: 1px solid var(--blue);
     }
 
-    /* line height is not exactly the same as NHSD */
-
-    /* example-panel xml example no longer horizontal scrolls due to global line-height */
+    /* Code - to finish */
+    .m-markdown-small code, .m-markdown code {
+        word-break: break-word;
+    }
 
     /* NHSD links - inactive links are now weird when try this API deactivated, with smaller text link line seems to e too low */
     a {
@@ -221,12 +295,14 @@ export default css`
 
     a,
     a:visited {
-      padding-bottom: 2px;  /* maybe change to margin but first see if can fix underlying issue */
+      padding-bottom: 2px;
       border: 0;
       border-bottom: 1px solid var(--primary-colour, #005bbb);
       color: var(--primary-colour, #005bbb);
+      line-height: 1.6;
       transition-property: background-color,color;
       transition-duration: .15s;
+      display: inline !important;
     }
 
     a:focus,
@@ -257,9 +333,17 @@ export default css`
         border-spacing: unset;
         border: unset;
         border-radius: unset;
-        font-size: var(--font-size-regular);
-        line-height: 1.6;
         max-width: unset;
+    }
+
+    .m-markdown table,
+    .m-markdown tbody {
+        line-height: 1.6;
+    }
+
+    .m-markdown-small table,
+    .m-markdown-small tbody {
+        line-height: 1.4;
     }
 
     .m-markdown-small thead, .m-markdown thead {
@@ -285,6 +369,23 @@ export default css`
         vertical-align: inherit;
     }
 
+    .m-table td,
+    .m-table th {
+        padding: .5555555556rem;
+    }
+
+    .m-markdown td,
+    .m-markdown th {
+        line-height: 1.6;
+    }
+
+    .m-markdown-small td,
+    .m-markdown-small th,
+    .m-table td,
+    .m-table th {
+        line-height: 1.4;
+    }
+
     .m-markdown-small tbody tr:first-child td,
     .m-markdown-small tbody tr:first-child th,
     .m-markdown tbody tr:first-child td,
@@ -298,14 +399,6 @@ export default css`
     .m-markdown tbody tr th {
         border-top: 1px solid #d5dade;
         vertical-align: top;
-    }
-
-    .m-markdown-small td,
-    .m-markdown-small th,
-    .m-markdown-small td,
-    .m-markdown-small th {
-        padding: .5555555556rem;
-        text-align: left;
     }
 
     .nhsd-m-table__mobile-list ul {

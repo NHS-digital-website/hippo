@@ -191,37 +191,37 @@
     </style>
 
 <#-- Configuration demo -->
-<#--    <script>-->
-<#--        function getRapiDoc() {-->
-<#--            return document.getElementById("rapi-doc-spec");-->
-<#--        }-->
+    <script>
+        function getRapiDoc() {
+            return document.getElementById("rapi-doc-spec");
+        }
 
-<#--        function changeRenderStyle() {-->
-<#--            let currRender = getRapiDoc().getAttribute('render-style');-->
-<#--            let newRender = currRender === "focused" ? "read" : "focused";-->
-<#--            getRapiDoc().setAttribute('render-style', newRender);-->
-<#--        }-->
+        function changeRenderStyle() {
+            let currRender = getRapiDoc().getAttribute('render-style');
+            let newRender = currRender === "focused" ? "read" : "focused";
+            getRapiDoc().setAttribute('render-style', newRender);
+        }
 
-<#--        function changeSchemaStyle() {-->
-<#--            let currSchema = getRapiDoc().getAttribute('schema-style');-->
-<#--            let newSchema = currSchema === "tree" ? "table" : "tree";-->
-<#--            getRapiDoc().setAttribute('schema-style', newSchema);-->
-<#--        }-->
+        function changeSchemaStyle() {
+            let currSchema = getRapiDoc().getAttribute('schema-style');
+            let newSchema = currSchema === "tree" ? "table" : "tree";
+            getRapiDoc().setAttribute('schema-style', newSchema);
+        }
 
-<#--        function changeSchemaExpandLevel() {-->
-<#--            let currSchema = getRapiDoc().getAttribute('schema-expand-level');-->
-<#--            let newSchema = currSchema === "999" ? "1" : "999";-->
-<#--            getRapiDoc().setAttribute('schema-expand-level', newSchema);-->
-<#--        }-->
+        function changeSchemaExpandLevel() {
+            let currSchema = getRapiDoc().getAttribute('schema-expand-level');
+            let newSchema = currSchema === "999" ? "1" : "999";
+            getRapiDoc().setAttribute('schema-expand-level', newSchema);
+        }
 
-<#--        function toggleAttr(attr) {-->
-<#--            if (getRapiDoc().getAttribute(attr) === 'false') {-->
-<#--                getRapiDoc().setAttribute(attr, "true");-->
-<#--            } else {-->
-<#--                getRapiDoc().setAttribute(attr, "false");-->
-<#--            }-->
-<#--        }-->
-<#--    </script>-->
+        function toggleAttr(attr) {
+            if (getRapiDoc().getAttribute(attr) === 'false') {
+                getRapiDoc().setAttribute(attr, "true");
+            } else {
+                getRapiDoc().setAttribute(attr, "false");
+            }
+        }
+    </script>
 
     <@hero getExtendedHeroOptions(document) />
 
@@ -258,45 +258,45 @@
                 render-style="focused"
                 sort-endpoints-by="none"
                 css-file="nhsd-frontend.css"
-                show-curl-before-try="false"
+                show-curl-before-try="true"
                 schema-style="tree"
                 schema-expand-level="999"
                 default-schema-tab="example"
             >
 
-<#--                <div-->
-<#--                    style="display:flex; margin:10px; justify-content:center;flex-wrap: wrap;">-->
-<#--                    <button class="btn" onclick="changeRenderStyle()">-->
-<#--                        Render style-->
-<#--                    </button>-->
-<#--                    <button class="btn" onclick="toggleAttr('show-header')">-->
-<#--                        Toggle header-->
-<#--                    </button>-->
-<#--                    <button class="btn" onclick="toggleAttr('allow-search')">-->
-<#--                        Toggle search-->
-<#--                    </button>-->
-<#--                    <button class="btn"-->
-<#--                            onclick="toggleAttr('allow-advanced-search')">-->
-<#--                        Toggle advanced search-->
-<#--                    </button>-->
-<#--                    <button class="btn"-->
-<#--                            onclick="toggleAttr('allow-server-selection')">-->
-<#--                        Toggle server selection-->
-<#--                    </button>-->
-<#--                    <button class="btn"-->
-<#--                            onclick="toggleAttr('show-curl-before-try')">Toggle-->
-<#--                        CURL before try-->
-<#--                    </button>-->
-<#--                    <button class="btn" onclick="changeSchemaStyle()">Schema-->
-<#--                        style-->
-<#--                    </button>-->
-<#--                    <button class="btn" onclick="changeSchemaExpandLevel()">-->
-<#--                        Schema expand level 1-->
-<#--                    </button>-->
-<#--                </div>-->
+                <div
+                    style="display:flex; margin:10px; justify-content:center;flex-wrap: wrap;">
+                    <button class="btn" onclick="changeRenderStyle()">
+                        Render style
+                    </button>
+                    <button class="btn" onclick="toggleAttr('show-header')">
+                        Toggle header
+                    </button>
+                    <button class="btn" onclick="toggleAttr('allow-search')">
+                        Toggle search
+                    </button>
+                    <button class="btn"
+                            onclick="toggleAttr('allow-advanced-search')">
+                        Toggle advanced search
+                    </button>
+                    <button class="btn"
+                            onclick="toggleAttr('allow-server-selection')">
+                        Toggle server selection
+                    </button>
+                    <button class="btn"
+                            onclick="toggleAttr('show-curl-before-try')">Toggle
+                        CURL before try
+                    </button>
+                    <button class="btn" onclick="changeSchemaStyle()">Schema
+                        style
+                    </button>
+                    <button class="btn" onclick="changeSchemaExpandLevel()">
+                        Schema expand level 1
+                    </button>
+                </div>
 
                 <div slot="footer">
-                    <p class="nhsd-t-body nhsd-!t-margin-top-3"><a class="nhsd-a-link" href="#top">Back to top</a></p>
+                    <p class="nhsd-t-body nhsd-!t-margin-top-3"><a class="nhsd-a-link" href="#overview" onclick="scroll(0,0)">Back to top</a></p>
                     <@lastModified document.lastPublicationDate></@lastModified>
                 </div>
 
