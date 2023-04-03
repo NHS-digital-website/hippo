@@ -1,35 +1,10 @@
-// import debounce from "debounce";
-
 // stick nav js adapted from NHSD frontend
+let rapiDocEl;
 let activeItem = null;
 let overviewNavItems = [];
 let allNavItems = [];
-
 let windowTopPos = 0;
 const TOP_THRESHOLD = 0.1;
-
-// temp until figure out debounce import
-function debounce(func, wait, immediate) {
-    var timeout;
-
-    return function executedFunction() {
-        var context = this;
-        var args = arguments;
-
-        var later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        }
-
-        var callNow = immediate && !timeout;
-
-        clearTimeout(timeout);
-
-        timeout = setTimeout(later, wait);
-
-        if (callNow) func.apply(context, args);
-    }
-}
 
 function updateActiveStates() {
     allNavItems.forEach((item) => item.classList.remove('active'));
@@ -38,26 +13,31 @@ function updateActiveStates() {
 }
 
 function findActiveItem() {
-    if (window.location.href.indexOf("overview") === -1) return;
+    function onOverviewPage() {
+        const currentUrl = window.location.href;
+        return currentUrl.indexOf('#') === -1 || currentUrl.indexOf('overview') >= 0;
+    }
 
-    let newActiveItem = null;
-    let newItemTopPos = null;
-    overviewNavItems.forEach((item) => {
-        const itemTopPos = item.contentEl.getBoundingClientRect().top;
-        if (windowTopPos < itemTopPos) return;
-        if (newActiveItem && itemTopPos < newItemTopPos) return;
+    if (onOverviewPage()) {
+        let newActiveItem = null;
+        let newItemTopPos = null;
+        overviewNavItems.forEach((item) => {
+            const itemTopPos = item.contentEl.getBoundingClientRect().top;
+            if (windowTopPos < itemTopPos) return;
+            if (newActiveItem && itemTopPos < newItemTopPos) return;
 
-        newActiveItem = item;
-        newItemTopPos = newActiveItem.contentEl.getBoundingClientRect().top;
-    });
+            newActiveItem = item;
+            newItemTopPos = newActiveItem.contentEl.getBoundingClientRect().top;
+        });
 
-    if (activeItem !== newActiveItem) {
-        activeItem = newActiveItem;
-        updateActiveStates();
+        if (activeItem !== newActiveItem) {
+            activeItem = newActiveItem;
+            updateActiveStates();
+        }
     }
 }
 
-function initItem(rapiDocEl, navEl) {
+function initItem(navEl) {
     const { contentId } = navEl.dataset;
     const contentEl = rapiDocEl.querySelector(`[id='${contentId}']`);
     if (!contentEl) return;
@@ -70,11 +50,19 @@ function initItem(rapiDocEl, navEl) {
     overviewNavItems.push(navItem);
 }
 
-function highlightNavbarOnScroll(rapiDocEl) {
+function debounce(func, timeout) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+}
+
+function highlightNavbarOnScroll() {
     allNavItems = rapiDocEl.querySelectorAll('.nav-bar-components, .nav-bar-h1, .nav-bar-h2, .nav-bar-info, .nav-bar-tag, .nav-bar-path');
     overviewNavItems = [];
     const items = rapiDocEl.querySelectorAll('.nav-bar-h1, .nav-bar-h2');
-    items.forEach((item) => initItem(rapiDocEl, item));
+    items.forEach((item) => initItem(item));
     windowTopPos = window.innerHeight * TOP_THRESHOLD;
 
     window.addEventListener('resize', () => {
@@ -127,8 +115,8 @@ function makeResponsive(table) {
     table.parentNode.insertBefore(listEl, table.nextSibling);
 }
 
-function makeTablesResponsive(element) {
-    const tables = element.querySelectorAll('.m-markdown-small table, .m-markdown table');
+function makeTablesResponsive() {
+    const tables = rapiDocEl.querySelectorAll('.m-markdown-small table, .m-markdown table');
     Array.from(tables).forEach((table) => {
         if (!table.classList.contains('nhsd-!t-display-hide')) {
             makeResponsive(table);
@@ -136,8 +124,8 @@ function makeTablesResponsive(element) {
     });
 }
 
-function addHorizontalRuleBetweenHeadings(element) {
-    const headings = element.querySelectorAll('h2');
+function addHorizontalRuleBetweenHeadings() {
+    const headings = rapiDocEl.querySelectorAll('h2');
     for (let i = 1; i < headings.length; i += 1) {
         const horizontalRuleEl = document.createElement('hr');
         horizontalRuleEl.classList.add('nhsd-a-horizontal-rule');
@@ -149,18 +137,17 @@ function addHorizontalRuleBetweenHeadings(element) {
     }
 }
 
-
+function customiseRapiDoc() {
+    rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
+    makeTablesResponsive();
+    addHorizontalRuleBetweenHeadings();
+    highlightNavbarOnScroll();
+}
 
 window.addEventListener('load', () => {
-    const rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
-    makeTablesResponsive(rapiDocEl);
-    addHorizontalRuleBetweenHeadings(rapiDocEl);
-    highlightNavbarOnScroll(rapiDocEl)
+    customiseRapiDoc();
 });
 
 window.navigation.addEventListener('currententrychange', () => {
-    const rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
-    makeTablesResponsive(rapiDocEl);
-    addHorizontalRuleBetweenHeadings(rapiDocEl);
-    highlightNavbarOnScroll(rapiDocEl)
+    customiseRapiDoc();
 });
