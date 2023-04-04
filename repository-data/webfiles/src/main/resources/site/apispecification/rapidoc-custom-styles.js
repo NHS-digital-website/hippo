@@ -75,8 +75,8 @@ export default css`
         --font-size-small: .888rem;
         --font-size-mono: 1rem;
         --font-mono: monospace;
-
-
+        --selection-bg: #0074ffcc;
+        --selection-fg: #ffffff;
         --red: #da291c;
         --light-red: #f8d4d2;
         --pink: #ae2573;
@@ -87,7 +87,6 @@ export default css`
         --orange: #fa9200;
         --yellow: #fae100;
         --light-yellow: #fef9cc;
-
         --fg: #3f525f;
         --fg2: #4e5a62;
         --fg3: #4e5a62;
@@ -399,7 +398,7 @@ export default css`
         display: none;
     }
 
-    /* Slider - to finish */
+    /* Slider */
     input[type="checkbox"]:checked {
         background-color: var(--blue);
         border-color: var(--blue);
@@ -409,12 +408,48 @@ export default css`
         border: 1px solid var(--blue);
     }
 
-    /* Code - to finish */
-    .m-markdown-small code, .m-markdown code {
+    /* Code */
+    .m-markdown-small code,
+    .m-markdown code {
+        font-weight: 400;
+        color: var(--pale-grey, #e8edee);
+        background-color: var(--dark-grey, #3f525f);
+        display: inline;
+        padding: 0.04rem 0.11rem;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
         word-break: break-word;
+        border-radius: unset;
     }
 
-    /* NHSD links - inactive links are now weird when try this API deactivated, with smaller text link line seems to e too low */
+    .m-markdown table code {
+        font-size: var(--font-size-mono);
+    }
+
+    .m-markdown code {
+        line-height: 1.6;
+    }
+
+    @media (max-width:63.99em) {
+        .m-markdown code{
+            line-height: 1.4;
+        }
+    }
+
+    .m-markdown-small code,
+    .m-markdown-small table code {
+        line-height: 1.4;
+        font-size: .888rem;
+    }
+
+    @media (max-width:63.99em) {
+        .m-markdown-small code,
+        .m-markdown-small table code {
+            font-size: .778rem;
+        }
+    }
+
+    /* NHSD links */
     a {
       font-family: "Frutiger W01","Arial",sans-serif;
       position: relative;
@@ -452,6 +487,15 @@ export default css`
       border-bottom: 3px solid transparent;
       color: var(--primary-colour, #005bbb);
       background-color: transparent;
+    }
+
+    a.inactive-link,
+    a.inactive-link:focus,
+    a.inactive-link:hover {
+        color: var(--fg);
+        padding: unset;
+        border: unset;
+        background-color: unset;
     }
 
     /* NHSD tables */
