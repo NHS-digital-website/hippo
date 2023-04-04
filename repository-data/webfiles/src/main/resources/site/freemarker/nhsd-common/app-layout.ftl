@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "./macro/globalHeader.ftl">
+<#include "../nhsd-common/macro/toolkit/organisms/global-header.ftl">
 <#include "macro/component/skipLink.ftl">
 <#include "macro/mergerBanner.ftl">
 

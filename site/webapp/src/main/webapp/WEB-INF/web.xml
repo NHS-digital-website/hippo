@@ -65,6 +65,7 @@
         </param-value>
     </context-param>
 
+
     <!-- IMPORTANT
     XSSUrlFilter should ALWAYS be the FIRST filter applied in the configuration
     https://www.onehippo.org/library/concepts/web-application/xss-and-crlf-injection-prevention-with-hst-2.html

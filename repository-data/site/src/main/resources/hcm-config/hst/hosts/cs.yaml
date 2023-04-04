@@ -43,9 +43,10 @@ definitions:
                 magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
                 execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
                 ''none''; push ''self''; speaker *;  fullscreen *'
+              - 'X-Content-Type-Options: nosniff'
+              - 'X-Frame-Options: SAMEORIGIN'
               jcr:primaryType: hst:mount
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
-        hst:cdnhost: //nhs-cs.global.ssl.fastly.net
         jcr:primaryType: hst:virtualhost
       jcr:primaryType: hst:virtualhostgroup

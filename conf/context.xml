@@ -23,7 +23,7 @@
     <Environment name="elasticsearch/targetingDS" value="{'indexName':'visits', 'locations':['http://localhost:9200/']}" type="java.lang.String"/>
 
     <!-- The onDemand servers contain the following configuration settings.  To change these values, contact BloomReach support  -->
-    <!--<Resource name="mail/NHSMail" auth="Container" type="javax.mail.Session"
+    <!--<Resource name="mail/Session" auth="Container" type="javax.mail.Session"
               mail.transport.protocol="smtp"
               mail.smtp.auth="true"
               mail.smtp.host="send.nhs.net"

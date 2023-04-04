@@ -37,6 +37,12 @@
         <param-name>repository-config</param-name>
         <param-value>repository.xml</param-value>
     </context-param>
+    <context-param>
+        <param-name>hst-config-properties</param-name>
+        <param-value>${brc.appconfigpath}/platform.properties</param-value>
+    </context-param>
+
+
 
     <filter>
         <filter-name>HippoCmsIpFilter</filter-name>
@@ -310,7 +316,7 @@
             messages, preconfigured to connect to NHSMail SMTP server.
         </description>
         <res-ref-name>
-            mail/NHSMail
+            mail/Session
         </res-ref-name>
         <res-type>
             javax.mail.Session

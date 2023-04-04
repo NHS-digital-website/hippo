@@ -17,6 +17,7 @@ const viewports = {
 export type Viewport = keyof typeof viewports;
 
 export default class BrowserDelegate {
+    public jsEnabled?: boolean
     public viewport: Viewport = 'desktop';
 
     private browser?: playwright.Browser;
@@ -43,14 +44,15 @@ export default class BrowserDelegate {
         if (!browser) browser = await this.init();
 
         this.context = await browser.newContext({
-            viewport: viewports[this.viewport]
+            viewport: viewports[this.viewport],
+            javaScriptEnabled: this.jsEnabled
         });
         return this.context;
     }
 
     async screenshot() {
         const page = await this.getPage();
-        return await page.screenshot({ fullPage: true, type: "jpeg" });
+        return await page.screenshot({fullPage: true, type: "jpeg"});
     }
 
     async newPage() {
@@ -66,7 +68,8 @@ export default class BrowserDelegate {
         return await this.newPage();
     }
 
-    async openUrl(url: string) {
+    async openUrl(url: string, jsenabled: boolean = true) {
+        this.jsEnabled = jsenabled;
         const page = await this.getPage();
         const res = await page.goto(url);
         await page.waitForLoadState('networkidle');
@@ -84,6 +87,6 @@ export default class BrowserDelegate {
     }
 
     async loadScript(url: string) {
-        await this.page.addScriptTag({ url })
+        await this.page.addScriptTag({url})
     }
 }

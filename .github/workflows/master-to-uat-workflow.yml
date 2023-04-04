@@ -408,6 +408,20 @@ jobs:
         env:
           TARGET: "uat"
 
+      - name: Get Lastest Platform Properties for Envrinment
+        id: platform-properties
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-content-search-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+        env:
+          TARGET: "uat"
+
+      - name: Get Lastest Content Search key for Envrinment
+        id: content-search-key
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "content-search-key-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
       - name: Get Lastest AWS Keys for Envrinment
         id: aws-keys
         run: |
@@ -435,7 +449,7 @@ jobs:
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ secrets.HOST }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }' \
+          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" }, { "appConfigFileId": ${{ steps.platform-properties.outputs.id }}, "role": "file", "newFilename": "platform.properties" }, { "appConfigFileId": ${{ steps.content-search-key.outputs.id }}, "role": "file", "newFilename": "content-search-key.pem" } ] }' \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "code=$code" >> $GITHUB_OUTPUT
         env:
