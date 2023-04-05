@@ -111,12 +111,19 @@
             </rapi-doc>
 
             <script>
-                const specification = ${document.json?no_esc}
+                const specification = ${document.json?no_esc};
+                const isDevEnv = ${isDevEnv?c};
 
                 document.addEventListener('DOMContentLoaded', () => {
                     let rapiDocEl = document.getElementById("rapi-doc-spec");
                     rapiDocEl.loadSpec(specification);
 
+                    // add some basic styling to the header
+                    if (isDevEnv) {
+                        rapiDocEl.setAttribute("show-header", "true");
+                    }
+
+                    // Move these to a different event listener so will be applied when uploading a spec via the header
                     let tryThisApiDisabled = specification["x-spec-publication"]?.["try-this-api"]?.disabled;
                     if (tryThisApiDisabled === true) {
                         rapiDocEl.setAttribute("allow-try", "false");
