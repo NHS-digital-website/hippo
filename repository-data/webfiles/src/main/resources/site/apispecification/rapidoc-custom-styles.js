@@ -91,6 +91,11 @@ export default css`
         --fg2: #4e5a62;
         --fg3: #4e5a62;
         --light-fg: #4e5a62;
+
+        --header-bg: #ffffff;
+        --header-color-darker: #ffffff;
+        --header-fg: #231f20;
+        --header-color-border: #231f20;
     }
 
     @media (max-width:63.99em) {
@@ -265,7 +270,16 @@ export default css`
         position: absolute !important;
     }
 
-    /* Buttons */
+    /* Header */
+    slot.logo {
+        display: none;
+    }
+
+    header.main-header {
+        margin: 0px 0px 0.833333rem;
+    }
+
+    /* NHSD Buttons */
     .m-btn,
     .toolbar-btn {
         display: inline-flex;
@@ -408,7 +422,7 @@ export default css`
         border: 1px solid var(--blue);
     }
 
-    /* Code */
+    /* NHSD Code */
     .m-markdown-small code,
     .m-markdown code {
         font-weight: 400;

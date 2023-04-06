@@ -1,24 +1,16 @@
 <#ftl output_format="HTML">
+
 <#include "../include/imports.ftl">
-<#include "../nhsd-common/macro/component/lastModified.ftl">
 <#include "../nhsd-common/macro/heroes/hero.ftl">
 <#include "../nhsd-common/macro/heroes/hero-options.ftl">
+<#include "../nhsd-common/macro/component/lastModified.ftl">
 
-<!DOCTYPE html>
-<html lang="en" class="nhsd-no-js">
-<meta charset="utf-8">
+<#if document?? && (document.enableRapiDoc!false || isDevEnv!false)>
+    <#include "../common/macro/metaTags.ftl">
+    <@metaTags></@metaTags>
 
-<body>
-
-<#include "../common/macro/metaTags.ftl">
-<@metaTags></@metaTags>
-
-<#if document?? >
-    <script type="text/javascript"
-            src="<@hst.webfile path="/apispecification/rapidoc-min.js"/>"></script>
-
-    <script type="text/javascript"
-            src="<@hst.webfile path="/apispecification/rapidoc.js"/>"></script>
+    <script src="<@hst.webfile path="/apispecification/rapidoc-min.js"/>"></script>
+    <script src="<@hst.webfile path="/apispecification/rapidoc.js"/>"></script>
 
     <style>
         <#--
@@ -104,7 +96,8 @@
             >
 
                 <div slot="footer">
-                    <p class="nhsd-t-body nhsd-!t-margin-top-3"><a class="nhsd-a-link" href="">Back to top</a></p>
+                    <p class="nhsd-t-body nhsd-!t-margin-top-3"><a
+                            class="nhsd-a-link" href="">Back to top</a></p>
                     <@lastModified document.lastPublicationDate></@lastModified>
                 </div>
 
@@ -118,28 +111,61 @@
                     let rapiDocEl = document.getElementById("rapi-doc-spec");
                     rapiDocEl.loadSpec(specification);
 
-                    // add some basic styling to the header
                     if (isDevEnv) {
                         rapiDocEl.setAttribute("show-header", "true");
                     }
 
-                    // Move these to a different event listener so will be applied when uploading a spec via the header
-                    let tryThisApiDisabled = specification["x-spec-publication"]?.["try-this-api"]?.disabled;
-                    if (tryThisApiDisabled === true) {
-                        rapiDocEl.setAttribute("allow-try", "false");
-                    }
+                    rapiDocEl.addEventListener('before-render', (e) => {
+                        const currentSpec = e.detail.spec;
+                        let tryThisApiDisabled = currentSpec["x-spec-publication"]?.["try-this-api"]?.disabled;
+                        rapiDocEl.setAttribute("allow-try", tryThisApiDisabled ? "false" : "true");
 
-                    let allowAuth = specification.components?.securitySchemes;
-                    if (!allowAuth) {
-                        rapiDocEl.setAttribute("allow-authentication", "false");
-                    }
+                        let securitySchemes = currentSpec.components?.securitySchemes;
+                        rapiDocEl.setAttribute("allow-authentication", !!securitySchemes && Object.keys(securitySchemes).length ? "true" : "false");
+                    });
                 })
             </script>
         </div>
     </div>
+
+<#elseif document?? >
+    <#assign isTryItNow = hstRequestContext.servletRequest.parameterMap?keys?seq_contains("tryitnow")>
+    <#if isTryItNow >
+
+        <#include "api-try-it-now.ftl">
+
+    <#else>
+        <#assign renderHtml = "uk.nhs.digital.common.components.apispecification.ApiSpecificationRendererDirective"?new() />
+
+        <#-- Add meta tags -->
+        <#include "../common/macro/metaTags.ftl">
+        <@metaTags></@metaTags>
+
+        <article itemscope>
+
+            <@hero getExtendedHeroOptions(document) />
+            <div class="nhsd-t-grid nhsd-!t-margin-top-6">
+                <div class="nhsd-t-row">
+                    <@renderHtml specificationJson=document.json path=path documentHandleUuid=document.getCanonicalHandleUUID()/>
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
+                    </div>
+                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+                        <@lastModified document.lastPublicationDate></@lastModified>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+
+        <script>
+            // used in function tryEndpointNow from apispecification.js
+            <@hst.renderURL var="tryItNowUrl"/>
+            const tryEndpointNowBaseUrl = '${tryItNowUrl}';
+        </script>
+        <script src="<@hst.webfile path="/apispecification/apispecification.js"/>"></script>
+    </#if>
 </#if>
-</body>
-</html>
+
 
 <#function getExtendedHeroOptions document>
     <#assign options = getHeroOptions(document) />
