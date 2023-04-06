@@ -117,7 +117,7 @@
         <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter"
                 level="warn"/>
 
-        <Logger name="uk.nhs.digital.externalstorage.modules.S3ConnectorServiceRegistrationModule" level="all"/>
+        <Logger name="uk.nhs.digital.externalstorage.modules.*" level="all"/>
 
         <Root level="warn">
             <AppenderRef ref="site"/>
