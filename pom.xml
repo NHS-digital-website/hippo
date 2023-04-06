@@ -1036,6 +1036,7 @@
             <properties>
                 <!--Already defined in hippo-cms-project POM. Override here for project, if necessary-->
                 <!--<repo.bootstrap>true</repo.bootstrap>-->
+                <brc.appconfigpath>conf</brc.appconfigpath>
                 <es.tcpPort>9300</es.tcpPort>
                 <es.path>${project.build.directory}/storage</es.path>
                 <es.skip.start>false</es.skip.start>

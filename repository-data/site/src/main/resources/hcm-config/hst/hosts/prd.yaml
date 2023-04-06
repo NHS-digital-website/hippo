@@ -49,6 +49,8 @@ definitions:
                 magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
                 execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
                 ''none''; push ''self''; speaker *;  fullscreen *'
+              - 'X-Frame-Options: SAMEORIGIN'
+              - 'X-Content-Type-Options: nosniff'
               jcr:primaryType: hst:mount
             /www:
               /hst:root:
@@ -65,6 +67,5 @@ definitions:
               jcr:primaryType: hst:virtualhost
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
-        hst:cdnhost: https://nhs-prod.global.ssl.fastly.net
         jcr:primaryType: hst:virtualhost
       jcr:primaryType: hst:virtualhostgroup
