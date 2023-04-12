@@ -216,10 +216,14 @@ version.pprint:
 
 ## Ensure that commit message contains JIRA id
 check.commit-msg:
+ifeq ("$(shell git log -n1 --no-merges --pretty=%ce)","noreply@github.com")
+	@echo "GitHub commit. No need to check."
+else
 	@git log -n1 --no-merges --pretty=%B > $(PWD)/.commit-msg
 	@head -n1 $(PWD)/.commit-msg | grep -E "^\[[A-Z]+-[0-9]+\]" || (echo "Missing JIRA id in the commit message. Expecting '[ABC-123] ...' but got" && cat .commit-msg && exit 1)
 	python $(PWD)/../.git-local/hooks/commit-msg $(PWD)/.commit-msg
 	@rm $(PWD)/.commit-msg
+endif
 
 ## Ensure that `make format-yaml` was run
 check.yaml:
