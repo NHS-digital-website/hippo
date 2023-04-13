@@ -1,6 +1,8 @@
 package uk.nhs.digital.test.util;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -9,6 +11,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class AssertionUtils {
+
+    private static final Logger log = LoggerFactory.getLogger(AssertionUtils.class);
 
     public static <A extends Annotation> void assertClassHasFieldWithAnnotationWithAttributeValue(
         final Class<?> targetClass,
@@ -60,7 +64,7 @@ public class AssertionUtils {
 
             } catch (final Exception e) {
                 // Exception means we don't have a match and that's all we care about.
-                e.printStackTrace();
+                log.error("",e);
             }
 
             return null;

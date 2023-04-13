@@ -112,7 +112,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
     private String templateFolderPath() {
 
         final URL templatesDirectoryUrl = templatesDir == null
-            ? getClass().getClassLoader().getResource(TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH)
+            ? Thread.currentThread().getContextClassLoader().getResource(TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH)
             : templatesDir;
 
         return requireNonNull(templatesDirectoryUrl, "Classpath resource not found: " + TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH).getPath();
