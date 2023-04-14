@@ -102,7 +102,7 @@ public class CodegenParameterExampleHtmlRenderer {
                         return examplesHtml;
                     })
                     .reduce(StringBuilder::append)
-                    .orElseThrow(() -> new NullPointerException(
+                    .orElseThrow(() -> new IllegalArgumentException(
                         "complexExamplesFromParamSchema is empty." +
                             "There are no ParamExample to render."
                     ))
