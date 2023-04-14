@@ -9,6 +9,10 @@
     <#include "../common/macro/metaTags.ftl">
     <@metaTags></@metaTags>
 
+    <script>
+        const specification = ${document.json?no_esc};
+        const isDevEnv = ${isDevEnv?c};
+    </script>
     <script src="<@hst.webfile path="/apispecification/rapidoc-min.js"/>"></script>
     <script src="<@hst.webfile path="/apispecification/rapidoc.js"/>"></script>
 
@@ -37,7 +41,6 @@
             justify-content: flex-start;
             padding: 0;
             margin-bottom: 15px;
-
         }
 
         rapi-doc::part(btn-search) {
@@ -94,37 +97,12 @@
                 css-file="nhsd-frontend.css"
                 show-curl-before-try="true"
             >
-
                 <div slot="footer">
                     <p class="nhsd-t-body nhsd-!t-margin-top-3"><a
                             class="nhsd-a-link" href="">Back to top</a></p>
                     <@lastModified document.lastPublicationDate></@lastModified>
                 </div>
-
             </rapi-doc>
-
-            <script>
-                const specification = ${document.json?no_esc};
-                const isDevEnv = ${isDevEnv?c};
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    let rapiDocEl = document.getElementById("rapi-doc-spec");
-                    rapiDocEl.loadSpec(specification);
-
-                    if (isDevEnv) {
-                        rapiDocEl.setAttribute("show-header", "true");
-                    }
-
-                    rapiDocEl.addEventListener('before-render', (e) => {
-                        const currentSpec = e.detail.spec;
-                        let tryThisApiDisabled = currentSpec["x-spec-publication"]?.["try-this-api"]?.disabled;
-                        rapiDocEl.setAttribute("allow-try", tryThisApiDisabled ? "false" : "true");
-
-                        let securitySchemes = currentSpec.components?.securitySchemes;
-                        rapiDocEl.setAttribute("allow-authentication", !!securitySchemes && Object.keys(securitySchemes).length ? "true" : "false");
-                    });
-                })
-            </script>
         </div>
     </div>
 
@@ -166,7 +144,6 @@
     </#if>
 </#if>
 
-
 <#function getExtendedHeroOptions document>
     <#assign options = getHeroOptions(document) />
 
@@ -177,12 +154,12 @@
     <@hst.link var="oasLink" path='/restapi/oas/${document.getSpecificationId()}/'/>
 
     <#assign options += {
-    "summary": (htmlSummary + oasHintText)?no_esc,
-    "buttons": [{
-    "src": oasLink,
-    "text": "Get OAS file",
-    "target": "_blank"
-    }]
+        "summary": (htmlSummary + oasHintText)?no_esc,
+        "buttons": [{
+            "src": oasLink,
+            "text": "Get OAS file",
+            "target": "_blank"
+        }]
     }/>
     <#return options/>
 </#function>

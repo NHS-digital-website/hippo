@@ -44,11 +44,11 @@ export default css`
 
     .nav-bar-section.operations {
         justify-content: flex-start;
-        margin-left: 4px
+        margin-left: 4px;
     }
 
     .nav-bar-section-title {
-        margin-left: -10px
+        margin-left: -10px;
     }
 
     .nav-bar-h2 {
@@ -61,10 +61,6 @@ export default css`
 
     #auth,
     .section-gap--read-mode,
-    .section-gap--focused-mode {
-        padding: 0;
-    }
-
     .section-gap--focused-mode {
         padding: 0;
     }
@@ -595,6 +591,10 @@ export default css`
 
     .nhsd-m-table__mobile-list ul {
         padding-inline-start: unset !important;
+    }
+
+    .nhsd-m-table__mobile-list li {
+        padding-left: unset;
     }
 
     .nhsd-m-table__mobile-list {
