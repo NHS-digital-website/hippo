@@ -1,19 +1,21 @@
+/* global specification, isDevEnv */
+
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
-        let rapiDocEl = document.getElementById("rapi-doc-spec");
+        const rapiDocEl = document.getElementById('rapi-doc-spec');
         rapiDocEl.loadSpec(specification);
 
         if (isDevEnv) {
-            rapiDocEl.setAttribute("show-header", "true");
+            rapiDocEl.setAttribute('show-header', 'true');
         }
 
         rapiDocEl.addEventListener('before-render', (e) => {
             const currentSpec = e.detail.spec;
-            const tryThisApiDisabled = currentSpec["x-spec-publication"]?.["try-this-api"]?.disabled;
-            rapiDocEl.setAttribute("allow-try", tryThisApiDisabled ? "false" : "true");
+            const tryThisApiDisabled = currentSpec['x-spec-publication']?.['try-this-api']?.disabled;
+            rapiDocEl.setAttribute('allow-try', tryThisApiDisabled ? 'false' : 'true');
 
             const securitySchemes = currentSpec.components?.securitySchemes;
-            rapiDocEl.setAttribute("allow-authentication", !!securitySchemes && Object.keys(securitySchemes).length ? "true" : "false");
+            rapiDocEl.setAttribute('allow-authentication', !!securitySchemes && Object.keys(securitySchemes).length ? 'true' : 'false');
         });
     });
 
