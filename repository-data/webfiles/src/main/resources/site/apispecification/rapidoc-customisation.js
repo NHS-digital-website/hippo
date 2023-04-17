@@ -1,24 +1,6 @@
 /* global specification, isDevEnv */
 
 (() => {
-    document.addEventListener('DOMContentLoaded', () => {
-        const rapiDocEl = document.getElementById('rapi-doc-spec');
-        rapiDocEl.loadSpec(specification);
-
-        if (isDevEnv) {
-            rapiDocEl.setAttribute('show-header', 'true');
-        }
-
-        rapiDocEl.addEventListener('before-render', (e) => {
-            const currentSpec = e.detail.spec;
-            const tryThisApiDisabled = currentSpec['x-spec-publication']?.['try-this-api']?.disabled;
-            rapiDocEl.setAttribute('allow-try', tryThisApiDisabled ? 'false' : 'true');
-
-            const securitySchemes = currentSpec.components?.securitySchemes;
-            rapiDocEl.setAttribute('allow-authentication', !!securitySchemes && Object.keys(securitySchemes).length ? 'true' : 'false');
-        });
-    });
-
     // stick nav js adapted from NHSD frontend
     let rapiDocEl;
     let activeItem = null;
@@ -167,11 +149,34 @@
         highlightNavbarOnScroll();
     }
 
-    window.addEventListener('load', () => {
-        customiseRapiDoc();
-    });
+    document.addEventListener('DOMContentLoaded', () => {
+        rapiDocEl = document.getElementById('rapi-doc-spec');
 
-    window.navigation.addEventListener('currententrychange', () => {
-        customiseRapiDoc();
+        rapiDocEl.addEventListener('spec-loaded', () => {
+            customiseRapiDoc();
+        });
+
+        // RapiDoc uses replaceState which doesn't trigger any navigation events.
+        // Navigation API is still experimental and largely unsupported.
+        const replaceStateOriginal = window.history.replaceState;
+        window.history.replaceState = (...args) => {
+            replaceStateOriginal.apply(window.history, args);
+            customiseRapiDoc();
+        };
+
+        rapiDocEl.loadSpec(specification);
+
+        if (isDevEnv) {
+            rapiDocEl.setAttribute('show-header', 'true');
+        }
+
+        rapiDocEl.addEventListener('before-render', (e) => {
+            const currentSpec = e.detail.spec;
+            const tryThisApiDisabled = currentSpec['x-spec-publication']?.['try-this-api']?.disabled;
+            rapiDocEl.setAttribute('allow-try', tryThisApiDisabled ? 'false' : 'true');
+
+            const securitySchemes = currentSpec.components?.securitySchemes;
+            rapiDocEl.setAttribute('allow-authentication', !!securitySchemes && Object.keys(securitySchemes).length ? 'true' : 'false');
+        });
     });
 })();
