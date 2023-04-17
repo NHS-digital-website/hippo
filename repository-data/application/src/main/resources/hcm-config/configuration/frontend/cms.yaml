@@ -49,6 +49,7 @@ definitions:
       - gz
       - msi
       - inf
+      - html
       jcr:primaryType: frontend:plugin
       max.file.size: 3000M
       plugin.class: org.hippoecm.frontend.plugins.yui.upload.validation.AssetUploadValidationPlugin
