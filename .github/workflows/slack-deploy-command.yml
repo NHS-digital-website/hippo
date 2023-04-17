@@ -214,6 +214,7 @@ jobs:
 
       - name: Deploy request
         id: pipeline-deploy
+        timeout-minutes: 2
         run: |
           make ondemand.pipeline-deploy > pipeline-deploy-output.txt
           echo "PIPELINE_DEPLOY_URL=$(cat pipeline-deploy-output.txt | grep -Po "(?<=<)[^>]+")" >> $GITHUB_OUTPUT
@@ -222,6 +223,8 @@ jobs:
           RD_URL: ${{ secrets.RD_API }}
           RD_USER: ${{ secrets.RD_USER }}
           RD_PASSWORD: ${{ secrets.RD_PASSWORD }}
+        with:
+          max_attempts: 3
 
       - name: Slack message (failed to deploy)
         if: ${{ failure() }}
