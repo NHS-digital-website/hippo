@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:prototypepages/general:
+      /main:
+        /main:
+          hippo:identifier: e7b38eb5-888a-4697-bcda-2b1a70dd4d3a
+          jcr:primaryType: hst:containercomponent
+        hst:template: nhsd-news
+        jcr:primaryType: hst:component
+      hst:displayname: General Page
+      hst:referencecomponent: hst:abstractpages/nhsd-homepage
+      jcr:mixinTypes:
+      - hst:prototypemeta
+      jcr:primaryType: hst:component
