@@ -72,7 +72,7 @@
 
         window.addEventListener('resize', () => {
             windowTopPos = window.innerHeight * TOP_THRESHOLD;
-            debounce(findActiveItem, 16);
+            debounce(findActiveItem, 16)();
         });
 
         window.addEventListener('scroll', debounce(findActiveItem, 16));
@@ -153,7 +153,7 @@
         rapiDocEl = document.getElementById('rapi-doc-spec');
 
         rapiDocEl.addEventListener('spec-loaded', () => {
-            customiseRapiDoc();
+            setTimeout(customiseRapiDoc);
         });
 
         // RapiDoc uses replaceState which doesn't trigger any navigation events.
