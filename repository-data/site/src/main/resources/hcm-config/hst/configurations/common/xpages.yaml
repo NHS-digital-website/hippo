@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:xpages:
+      /experience-page:
+        /main:
+          /main:
+            hippo:identifier: a1aa0004-f8aa-4069-8ec7-2bba95db0e77
+            hst:xtype: HST.vBox
+            jcr:primaryType: hst:containercomponent
+          hst:template: nhsd-news
+          jcr:primaryType: hst:component
+        hst:label: Experience Page
+        hst:referencecomponent: hst:abstractpages/nhsd-homepage
+        jcr:primaryType: hst:xpage
+      jcr:primaryType: hst:xpages

@@ -7,6 +7,13 @@ definitions:
           hst:componentconfigurationid: hst:pages/macro-test
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /experiencepages:
+        /_any_.html:
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:hiddeninchannelmanager: true
+        hst:relativecontentpath: experience-pages
+        jcr:primaryType: hst:sitemapitem
       /static-ui:
         /_any_:
           hst:componentconfigurationid: hst:pages/static-ui-home

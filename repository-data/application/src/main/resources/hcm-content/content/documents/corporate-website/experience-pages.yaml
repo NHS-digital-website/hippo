@@ -1,0 +1,112 @@
+---
+/content/documents/corporate-website/experience-pages:
+  /news:
+    /test-page:
+      /test-page[1]:
+        /common:Content:
+          hippostd:content: <p>best page</p>
+          jcr:primaryType: hippostd:html
+        common:Title: Test page
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-04T11:52:46.470Z
+        hippostdpubwf:lastModificationDate: 2023-05-04T11:53:14.031Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6392a3da-4368-4f3e-a3ce-9bb0fdea7415
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hst:xpagemixin
+        - mix:referenceable
+        jcr:primaryType: common:about
+      /test-page[2]:
+        /common:Content:
+          hippostd:content: <p>best page</p>
+          jcr:primaryType: hippostd:html
+        /hst:xpage:
+          /a1aa0004-f8aa-4069-8ec7-2bba95db0e77:
+            hippo:identifier: c6a541f0-5458-4ef0-af24-7ce893855419
+            jcr:primaryType: hst:containercomponent
+          hst:pageref: experience-page
+          jcr:primaryType: hst:xpage
+        common:Title: Test page
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-04T11:52:46.470Z
+        hippostdpubwf:lastModificationDate: 2023-05-04T11:52:56.561Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6392a3da-4368-4f3e-a3ce-9bb0fdea7415
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hst:xpagemixin
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: common:about
+      /test-page[3]:
+        /common:Content:
+          hippostd:content: <p>best page</p>
+          jcr:primaryType: hippostd:html
+        /hst:xpage:
+          /a1aa0004-f8aa-4069-8ec7-2bba95db0e77:
+            hippo:identifier: c6a541f0-5458-4ef0-af24-7ce893855419
+            jcr:primaryType: hst:containercomponent
+          hst:pageref: experience-page
+          jcr:primaryType: hst:xpage
+        common:Title: Test page
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-04T11:52:46.470Z
+        hippostdpubwf:lastModificationDate: 2023-05-04T11:52:56.561Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-05-04T11:56:33.115Z
+        hippotranslation:id: 6392a3da-4368-4f3e-a3ce-9bb0fdea7415
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hst:xpagemixin
+        - mix:referenceable
+        jcr:primaryType: common:about
+      hippo:name: Test page
+      hippo:versionHistory: 606f0f09-cc4b-4928-a0a0-092b5d7a29fb
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: News
+    hippostd:channelid: common
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 46994051-5a27-464f-a1a9-56e6fc5de95e
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippostd:xpagefolder
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  hippo:name: Experience Pages
+  hippostd:channelid: common
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: c74bbb83-2f90-4065-859a-5be5c6b2b509
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippostd:cmxpagefolder
+  - hippostd:xpagefolder
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
