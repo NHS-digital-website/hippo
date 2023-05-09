@@ -1,0 +1,17 @@
+name: Database Restore Training Environment
+
+on:
+  schedule:
+    # At 00:00 UTC on the 1st of March, June, September, and December.
+    # i.e. once every three months.
+    - cron: '0 0 1 3,6,9,12 *'
+
+jobs:
+  reusable_workflow_job:
+    name: Restore
+    uses: ./.github/workflows/database-restore.yml
+    with:
+      TARGET_NAME: Training
+      TARGET_SLACK_CHANNEL: C03AADPJJRY
+      MISSION_CONTROL_TARGET_ID: ${{ vars.BR_ID_TRAINING }}
+    secrets: inherit
