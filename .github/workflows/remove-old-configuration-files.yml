@@ -18,7 +18,7 @@ jobs:
         run: |
           response=$(curl -i \
           -H "Accept: application/json; charset=utf-8" \
-          -X POST https://api.${{ secrets.HOST }}/v3/authn/access_token \
+          -X POST https://api.${{ vars.BR_CLOUD }}/v3/authn/access_token \
           -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
           token1=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
           refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
@@ -35,7 +35,7 @@ jobs:
           code=$(curl -L \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/authn/verify_token \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "code=$code" >> $GITHUB_OUTPUT
 
@@ -54,7 +54,7 @@ jobs:
         run: |
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
           echo "allConfigFiles=${response}" >> $GITHUB_OUTPUT
 
       - name: Get All Environment
@@ -62,7 +62,7 @@ jobs:
         run: |
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/environments)
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/environments)
           availEnvs=$(echo ${response} | jq --compact-output '[.items[] | {name: .name}] | map(select(.name )) | map(.name)')
           echo "allEnvs=${availEnvs}" >> $GITHUB_OUTPUT
           echo "Avialable Envs are " ${availEnvs}
@@ -80,7 +80,7 @@ jobs:
               printf "%s\t%s\n" "$i" "${envSysConfigIds[$i]}"
               response=$(curl \
                 -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-                -X DELETE https://api.${{ secrets.HOST }}/v3/appconfigfiles/${envSysConfigIds[$i]})
+                -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles/${envSysConfigIds[$i]})
               echo ${response}
             done
 
@@ -89,7 +89,7 @@ jobs:
               printf "%s\t%s\n" "$i" "${envAWSConfigIds[$i]}"
               response=$(curl \
                 -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-                -X DELETE https://api.${{ secrets.HOST }}/v3/appconfigfiles/${envAWSConfigIds[$i]})
+                -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles/${envAWSConfigIds[$i]})
               echo ${response}
 
             done
@@ -103,6 +103,6 @@ jobs:
               printf "%s\t%s\n" "$i" "${envHippoConfigIds[$i]}"
               response=$(curl \
                 -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-                -X DELETE https://api.${{ secrets.HOST }}/v3/appconfigfiles/${envHippoConfigIds[$i]})
+                -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles/${envHippoConfigIds[$i]})
               echo ${response}
             done

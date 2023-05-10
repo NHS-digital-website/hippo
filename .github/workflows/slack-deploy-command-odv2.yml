@@ -204,10 +204,10 @@ jobs:
         uses: actions/github-script@v6
         id: find-target
         env:
-          CS_ID: ${{ secrets.BR_ID_CS }}
-          TST_ID: ${{ secrets.BR_ID_TST }}
-          DEV_ID: ${{ secrets.BR_ID_DEV }}
-          TRAINING_ID: ${{ secrets.BR_ID_TRAINING }}
+          CS_ID: ${{ vars.BR_ID_CS }}
+          TST_ID: ${{ vars.BR_ID_TST }}
+          DEV_ID: ${{ vars.BR_ID_DEV }}
+          TRAINING_ID: ${{ vars.BR_ID_TRAINING }}
         with:
           result-encoding: json
           script: |
@@ -253,7 +253,7 @@ jobs:
         run: |
           response=$(curl -i \
           -H "Accept: application/json; charset=utf-8" \
-          -X POST https://api.${{ secrets.HOST }}/v3/authn/access_token \
+          -X POST https://api.${{ vars.BR_CLOUD }}/v3/authn/access_token \
           -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
           token=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
           refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
@@ -268,7 +268,7 @@ jobs:
           code=$(curl -L \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/authn/verify_token \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "code=$code" >> $GITHUB_OUTPUT
       - name: Check Response Code from Verify JWT Token
@@ -313,7 +313,7 @@ jobs:
         run: |
           response=$(curl -i \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
-          -X POST https://api.${{ secrets.HOST }}/v3/distributions \
+          -X POST https://api.${{ vars.BR_CLOUD }}/v3/distributions \
           -F "dist_file=@${{ env.DISTROBUTION }};filename=${{ env.VERSION }}.tar.gz")
           id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
           echo "id=$id" >> $GITHUB_OUTPUT
@@ -350,7 +350,7 @@ jobs:
         run: |
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
           echo "details=${response}" >> $GITHUB_OUTPUT
 
       - name: Get Lastest System Properties for Envrinment
@@ -397,7 +397,7 @@ jobs:
           curl -i \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
-          -X PUT https://api.${{ secrets.HOST }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
+          -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
           -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }'
         env:
           DISTRIBUTION: ${{ steps.distribution.outputs.id }}
@@ -427,7 +427,7 @@ jobs:
         run: |
           code=$(curl -L \
           -H "Accept: application/json; charset=utf-8" \
-          -X DELETE https://api.${{ secrets.HOST }}/v3/authn/refresh_token \
+          -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/authn/refresh_token \
           -d '{ "grant_type": "refresh_token", "refresh_token": "${{ env.REFRESH }}" }' \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "code=$code" >> $GITHUB_OUTPUT
@@ -451,4 +451,4 @@ jobs:
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "BR ODv2 is deploying. <@${{ env.USER_ID }}> You can track progress here https://missioncontrol.${{ secrets.HOST }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details", "color": "#78BE20" }] }'
+          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "BR ODv2 is deploying. <@${{ env.USER_ID }}> You can track progress here https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details", "color": "#78BE20" }] }'
