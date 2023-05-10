@@ -25,7 +25,7 @@ jobs:
         run: |
           response=$(curl -i \
           -H "Accept: application/json; charset=utf-8" \
-          -X POST https://api.${{ secrets.HOST }}/v3/authn/access_token \
+          -X POST https://api.${{ vars.BR_CLOUD }}/v3/authn/access_token \
           -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
           token1=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
           refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
@@ -42,7 +42,7 @@ jobs:
           code=$(curl -L \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/authn/verify_token \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "code=$code" >> $GITHUB_OUTPUT
 
@@ -61,7 +61,7 @@ jobs:
         run: |
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/distributions)
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/distributions)
           echo "allDistIds=${response}" >> $GITHUB_OUTPUT
 
       - name: Distribution Ids Retrival failed
@@ -110,7 +110,7 @@ jobs:
               printf "%s\t%s\n" "$i" "${nonProdLatestDistIds[$i]}"
               response=$(curl \
                 -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-                -X DELETE https://api.${{ secrets.HOST }}/v3/distributions/${nonProdLatestDistIds[$i]})
+                -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/distributions/${nonProdLatestDistIds[$i]})
               echo ${response}
             done
 
@@ -125,6 +125,6 @@ jobs:
               printf "%s\t%s\n" "$i" "${prodLatestDistIds[$i]}"
               response=$(curl \
                 -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-                -X DELETE https://api.${{ secrets.HOST }}/v3/distributions/${prodLatestDistIds[$i]})
+                -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/distributions/${prodLatestDistIds[$i]})
               echo ${response}
             done
