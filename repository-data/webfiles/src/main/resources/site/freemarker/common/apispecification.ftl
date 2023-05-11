@@ -96,7 +96,7 @@
                 sort-endpoints-by="none"
                 css-file="nhsd-frontend.css"
                 show-curl-before-try="true"
-            >
+                do-api-catalogue-nav-bar-tweaks="true">
                 <div slot="footer">
                     <p class="nhsd-t-body nhsd-!t-margin-top-3"><a
                             class="nhsd-a-link" href="">Back to top</a></p>
