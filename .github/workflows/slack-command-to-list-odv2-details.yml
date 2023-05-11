@@ -56,7 +56,7 @@ jobs:
         run: |
           response=$(curl -i \
           -H "Accept: application/json; charset=utf-8" \
-          -X POST https://api.${{ secrets.HOST }}/v3/authn/access_token \
+          -X POST https://api.${{ vars.BR_CLOUD }}/v3/authn/access_token \
           -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
           token=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
           refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
@@ -71,7 +71,7 @@ jobs:
           code=$(curl -L \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/authn/verify_token \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/authn/verify_token \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "code=$code" >> $GITHUB_OUTPUT
       - name: Check Response Code from Verify JWT Token
@@ -95,7 +95,7 @@ jobs:
         run: |
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/environments)
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/environments)
           echo "environments=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
 
       - name: Slack message (sending environment details)
@@ -119,7 +119,7 @@ jobs:
         run: |
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
-          -X GET https://api.${{ secrets.HOST }}/v3/appconfigfiles)
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
           echo "details=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
 
       - name: Slack message (sending Applicaiton Configuration Files' Details)
