@@ -38,8 +38,6 @@ jobs:
           make git.update-environment-tag
           git push --tags
 
-
-`
   build:
     name: Build Distribution For BR Cloud
     needs: CalcVersion
