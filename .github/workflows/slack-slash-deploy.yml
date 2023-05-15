@@ -137,7 +137,7 @@ jobs:
             ${{ runner.os }}-node-nhs-
 
       - name: Build and Package Branch
-        run: make clean build-odv2
+        run: make clean build
         env:
           HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
           HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
