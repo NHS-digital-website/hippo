@@ -127,7 +127,7 @@ jobs:
 
   deployment:
     name: Deploy Distribution to UAT
-    needs: ODv2build
+    needs: build
     runs-on: ubuntu-latest
     steps:
 
