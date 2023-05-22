@@ -9,7 +9,7 @@ on:
   # Schedule A Normal Deployment
   schedule:
     # Runs at 12:05 pm weekdays (UK time)
-    - cron: "5 12 * * 1-5"
+    - cron: "5 11 * * 1-5"
 
 env:
   #Prod Env Id
