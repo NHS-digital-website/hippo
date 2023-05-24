@@ -90,7 +90,9 @@
                 <div class="checkmark"></div>
             </label>
             <div class="section-label-description">
-                <p class="nhsd-a-text">${filter.description()}</p>
+                <#if filter.description()?? && !responsive>
+                    <@markdownDescription description=filter.description()/>
+                </#if>
             </div>
         </span>
         </div>
