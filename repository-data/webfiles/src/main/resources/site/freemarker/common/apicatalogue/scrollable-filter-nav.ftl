@@ -30,7 +30,7 @@
                                    type="checkbox"
                                    aria-hidden="true"
                                    <#if section.expanded>checked</#if>/>
-                            <div class="nhsd-m-filter-menu-section__menu-button">
+                            <div style="position: relative" class="nhsd-m-filter-menu-section__menu-button">
                                 <label for="<#if responsive>responsive_</#if>toggler_${section.key}"
                                        class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
                                         <span class="nhsd-a-icon nhsd-a-icon--size-xxs">
@@ -40,7 +40,9 @@
                                         </span>
                                         <span class="<#if !responsive>filter-category-label__text</#if> nhsd-t-body-s <#if section.expanded>selected</#if>">${section.displayName}</span>
                                 </label>
-                                <@filterDescription responsive section.description()/>
+                                <div class="section-label-description">
+                                    <p class="nhsd-a-text">${section.description()}</p>
+                                </div>
                             </div>
                             <div class="section-entries nhsd-!t-margin-top-2">
                                 <#list section.entries as filter>
@@ -68,7 +70,7 @@
         <#else>
             <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
         </#if>
-        <div><#-- This div is needed to add vertical spacing between checkboxes -->
+        <div style="position: relative"><#-- This div is needed to add vertical spacing between checkboxes -->
         <span class="nhsd-a-checkbox">
             <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                 <input onclick="window.location = '<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
@@ -87,7 +89,9 @@
                 </#if>
                 <div class="checkmark"></div>
             </label>
-            <@filterDescription responsive filter.description()/>
+            <div class="section-label-description">
+                <p class="nhsd-a-text">${filter.description()}</p>
+            </div>
         </span>
         </div>
         <#local nextLevel = indentationLevel + 1>
@@ -98,11 +102,5 @@
             </#list>
             </div>
         </#if>
-    </#if>
-</#macro>
-
-<#macro filterDescription responsive description>
-    <#if description?? && !responsive>
-        <dfn class="filter-description nhsd-a-checkbox__hint"><@markdownDescription description=description/></dfn>
     </#if>
 </#macro>
