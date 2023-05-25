@@ -38,7 +38,7 @@ import java.util.List;
 import javax.jcr.*;
 
 @RunWith(PowerMockRunner.class)
-@PowerMockIgnore({"javax.management.*", "javax.script.*"})
+@PowerMockIgnore({"javax.management.*", "javax.script.*", "com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*"})
 @PowerMockRunnerDelegate(DataProviderRunner.class)
 public class SearchableTaxonomyTaskTest {
 

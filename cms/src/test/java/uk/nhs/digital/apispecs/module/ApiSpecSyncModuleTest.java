@@ -36,7 +36,7 @@ import javax.jcr.Session;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({HippoServiceRegistry.class})
-@PowerMockIgnore({"org.awaitility.*", "java.util.concurrent.*"})
+@PowerMockIgnore({"org.awaitility.*", "java.util.concurrent.*","com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*"})
 public class ApiSpecSyncModuleTest {
 
     public static final String DAILY_APIGEE_JOB_NAME = "apiSpecSyncFromApigee";

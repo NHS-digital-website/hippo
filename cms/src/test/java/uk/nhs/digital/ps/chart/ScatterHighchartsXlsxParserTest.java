@@ -136,7 +136,7 @@ public class ScatterHighchartsXlsxParserTest {
         assertEquals("Only one series for Scatter chart", 1, series.size());
 
         // Check the data parsed from scatter
-        Series scatter = series.get(0);
+        Series<Point> scatter = series.get(0);
         assertEquals("Organisation", scatter.getName());
         assertThat(getValues(scatter, Point::getName), contains("R1F - ISLE OF WIGHT NHS TRUST", "R1H - BARTS HEALTH NHS TRUST",
             "R1K - LONDON NORTH WEST HEALTHCARE NHS TRUST",
@@ -188,7 +188,7 @@ public class ScatterHighchartsXlsxParserTest {
 
         // Check the data parsed from the scatter and control limits are correct
         // Scatter points
-        Series scatter = series.get(0);
+        Series<Point> scatter = series.get(0);
         assertEquals("Organisation", scatter.getName());
         assertThat(getValues(scatter, Point::getName), contains("R1F - ISLE OF WIGHT NHS TRUST", "R1H - BARTS HEALTH NHS TRUST",
             "R1K - LONDON NORTH WEST HEALTHCARE NHS TRUST",
@@ -204,13 +204,13 @@ public class ScatterHighchartsXlsxParserTest {
         assertThat(getValues(scatter, Point::getY), contains(1.04, 0.88, 0.81, 0.91, 0.99, 0.83, 0.97, 1.17, 0.9, 0.88, 0.93));
 
         // lower limit
-        Series lower = series.get(1);
+        Series<Point> lower = series.get(1);
         assertEquals("555.0", lower.getName());
         assertThat(getValues(lower, Point::getX), contains(50d, 100d, 150d, 200d, 250d, 300d, 350d, 400d, 450d, 500d));
         assertThat(getValues(lower, Point::getY), contains(0.741, 0.812, 0.822, 0.842, 0.851, 0.858, 0.863, 0.867, 0.871, 0.883));
 
         // upper limit
-        Series upper = series.get(2);
+        Series<Point> upper = series.get(2);
         assertEquals("Upper limit", upper.getName());
         assertThat(getValues(upper, Point::getX), contains(50d, 100d, 150d, 200d, 250d, 300d, 350d, 400d, 450d, 500d));
         assertThat(getValues(upper, Point::getY), contains(1.343, 1.247, 1.209, 1.188, 1.174, 1.164, 1.157, 1.152, 1.172, 1.144));
