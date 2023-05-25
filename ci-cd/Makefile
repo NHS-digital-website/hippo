@@ -11,7 +11,6 @@ TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*" || echo $(VERSION_BASE).0)
 VERSION_BASE ?= $(shell cat "$(PWD)/../.version")
-SLACK_HOOK_URL ?=
 
 CI ?= false
 
@@ -98,13 +97,6 @@ test.wip.standalone:
 		-Dcucumber.options="src/test/resources/features --tags @WIP" \
 		-Pacceptance-test-hippo,acceptance-test
 
-## Run the tests that we want for travis builds
-# We only run site tests for pull requests as the CMS tests are unreliable
-# however we are adding a cron job that will run all test once a day and
-# we can fix these as we go along.
-test.travis:
-	$(MAKE) $(TRAVIS_BUILD_CMD)
-
 ## Run BDD tests
 test.e2e:
 	$(MAKE) test.site
@@ -113,12 +105,7 @@ test.e2e:
 ## Build distribution package
 build:
 	mvn verify $(MVN_OPTS) -DskipTests=true
-	mvn $(MVN_OPTS) -P separate-dist -DskipTests=true
-	mvn $(MVN_OPTS) -P on-demand-dist -DskipTests=true
-
-build-odv2:
-	mvn verify $(MVN_OPTS) -DskipTests=true
-	mvn $(MVN_OPTS) -P dist-od2 -DskipTests=true
+	mvn $(MVN_OPTS) -P dist -DskipTests=true
 
 ## Set a success status on current commit
 # You would normally run this target after running (and passing) all tests
@@ -133,69 +120,6 @@ git.update-environment-tag:
 	git tag --force $(ENV) $(VERSION)
 	git push --force --no-verify origin tag $(ENV)
 
-## Upload build artefact to AWS
-upload: $(VENV)
-	@echo "Task: upload Hippo $(VERSION) build distribution to S3 bucket"
-	aws s3 \
-		cp ../target/website-$(VERSION)-cms-distribution.tar.gz \
-		s3://artefacts.mgt.nhsd.io/hippo_authoring/$(VERSION)/website.tgz
-	aws s3 \
-		cp ../target/website-$(VERSION)-site-distribution.tar.gz \
-		s3://artefacts.mgt.nhsd.io/hippo_delivery/$(VERSION)/website.tgz
-
-## Upload distribution file to ondemand sftp server
-ondemand.upload:
-	echo "put ../target/website-$(VERSION)-on-demand-distribution.tar.gz /uploads/dists/$(VERSION).tar.gz" \
-		| sftp nhs@static.hosting.onehippo.com
-
-## Deploy to OnDemand environment
-# Usage: make ondemand.deploy ENV=tst RD_CONF=my-rd.conf
-#        make ondemand.deploy ENV=uat RD_CONF=my-rd.conf
-#        make ondemand.deploy ENV=prd RD_CONF=my-rd.conf
-#
-#        manually specify version (previously uploaded to on-demand)
-#        make ondemand.deploy ENV=tst VERSION=v2.0.10 RD_CONF=my-rd.conf
-ondemand.deploy: vendor/rd
-	source $(RD_CONF) && vendor/rd run \
-		--project nhs \
-		--job "jobs/$(OD_ENV)/Deploy" \
-		-- \
-		-bootstrap true \
-		-distribution "$(VERSION).tar.gz"
-
-ondemand.pipeline-deploy: vendor/rd
-	source vendor/rd run \
-		--project nhs \
-		--job "jobs/$(OD_ENV)/Deploy" \
-		-- \
-		-bootstrap true \
-		-distribution "$(VERSION).tar.gz"
-
-## Schedule deployment of the "rc" tag for next working day
-# Please make note this does not take into account bank holidays.
-#
-# Usage: make ondemand.schedule-deploy ENV=tst
-#        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf
-#
-#        3am (2am UTC) automated deploy on 28th Feb
-#        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf RELEASE_DATE=2018-02-28 RELEASE_TIME_UTC=02:00:00
-ondemand.schedule-deploy: vendor/rd
-	source $(RD_CONF) && vendor/rd run \
-		--at "$(RELEASE_DATE)T$(RELEASE_TIME_UTC)Z"\
-		--project nhs \
-		--job "jobs/$(OD_ENV)/Deploy" \
-		-- \
-		-bootstrap true \
-		-distribution "$$(git describe --tags --match $(VERSION_BASE)* rc).tar.gz"
-
-ondemand.restart: vendor/rd
-	vendor/rd run -p nhs -j "jobs/$(OD_ENV)/Control" -- \
-		-action restart
-
-deploy.vagrant: build
-	cp ../target/website-$(VERSION)-site-distribution.tar.gz $(BUILD_DIR)/.artefacts/
-	cp ../target/website-$(VERSION)-cms-distribution.tar.gz $(BUILD_DIR)/.artefacts/
-	cd $(BUILD_DIR) && ROLE=hippo_authoring vagrant ssh -c "/home/hippo_authoring/shipit /vagrant/.artefacts/website-$(VERSION)-cms-distribution.tar.gz"
 
 ## Create new version tag based on the nearest tag
 version.bumpup:
@@ -235,19 +159,9 @@ check.yaml:
 		echo "No YAML changes."; \
 	fi
 
-## Notify the slack release channel of the commits in the upcoming release
-notify.slack:
-	curl -X POST --data-urlencode "payload={\"text\": \"Release to production has been scheduled at 12:05 on the next working day. The following new changes (if any) will be released:\n\n$$(git log --format="* %s. [Author %an]" prd..rc)\"}" https://hooks.slack.com/services/${SLACK_HOOK_URL}
-
 ## Clean up
 clean:
 	mvn clean $(MVN_OPTS) --quiet
-
-# Install Rundec CLI
-vendor/rd: vendor
-	cd vendor && curl -LO https://github.com/rundeck/rundeck-cli/releases/download/v1.0.25/rundeck-cli-1.0.25-all.jar
-	echo -e "#!/bin/bash \nDIR=\$$( cd \"\$$( dirname \"\$${BASH_SOURCE[0]}\" )\" && pwd ) \njava -jar \$${DIR}/rundeck-cli-1.0.25-all.jar \$$@" > vendor/rd
-	chmod +x vendor/rd
 
 vendor:
 	mkdir -p vendor

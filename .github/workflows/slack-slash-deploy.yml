@@ -1,9 +1,10 @@
-name: Slack Deployment Command for ODv2
-#Slack deployment command for ODv2 (TST,Development, CS)
+#Slack deployment command for (TST,Development, CS)
+name: Slack Deployment Command
+
 on:
   repository_dispatch:
     types:
-      - slack-deploy-command-odv2
+      - slack-deploy-command
 
 jobs:
 
@@ -137,7 +138,7 @@ jobs:
             ${{ runner.os }}-node-nhs-
 
       - name: Build and Package Branch
-        run: make clean build-odv2
+        run: make clean build
         env:
           HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
           HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}

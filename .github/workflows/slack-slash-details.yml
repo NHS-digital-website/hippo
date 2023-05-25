@@ -1,4 +1,4 @@
-name: Slack Command for ODv2 that lists the details of all envronments
+name: Slack Command for ODv2 that lists the details of all environments
 
 on:
   repository_dispatch:
