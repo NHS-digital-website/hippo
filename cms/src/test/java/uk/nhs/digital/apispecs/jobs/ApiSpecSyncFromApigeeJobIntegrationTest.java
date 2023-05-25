@@ -58,7 +58,8 @@ import javax.jcr.query.Query;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JcrDocumentUtils.class, JcrNodeUtils.class, ApiSpecSyncFromApigeeJob.class, ApplicationSecrets.class, JcrRowUtils.class})
-@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*"})
+@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*", "com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*"})
+
 public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     private static final String PROPERTY_NAME_WEBSITE_JSON = "website:json";
@@ -94,9 +95,11 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     private String apigeeSingleSpecUrlTemplate;
     private String oauthTokenUrl;
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
-    @Rule public WireMockRule wireMock = new WireMockRule(wireMockConfig().dynamicPort());
+    @Rule
+    public WireMockRule wireMock = new WireMockRule(wireMockConfig().dynamicPort());
 
     // JCR repo access
     private Session session;
@@ -277,7 +280,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
         // @formatter:off
         final String apigeeOauth2AccessTokenRequestBodyRegex =
-                  "grant_type=password"
+            "grant_type=password"
                 + "&username=" + OAUTH_USERNAME
                 + "&password=" + OAUTH_PASSWORD
                 + "&mfa_token=\\d+";
