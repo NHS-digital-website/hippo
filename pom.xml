@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.7.13</version>
+        <version>15.1.0</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -80,8 +80,8 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <bloomreach.version>14.7.13</bloomreach.version>
-        <bloomreach.essential.dashboard>14.6.0</bloomreach.essential.dashboard>
+        <bloomreach.version>${hippo.release.version}</bloomreach.version>
+        <bloomreach.essential.dashboard>${hippo.release.version}</bloomreach.essential.dashboard>
         <h2.database.version>2.1.214</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
@@ -202,7 +202,7 @@
         <log4j.version>2.17.2</log4j.version>
         <logback.version>1.2.11</logback.version>
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
-        <maven-enforcer.version>3.0.0</maven-enforcer.version>
+        <maven-enforcer.version>3.3.0</maven-enforcer.version>
         <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
         <maven-frontend.version>1.15.1</maven-frontend.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
@@ -974,7 +974,7 @@
                         <reactorModuleConvergence/>
                         <requireJavaVersion>
                             <!-- Any Java 8 version is allowed -->
-                            <version>[1.8.0,1.8.1)</version>
+                            <version>[11,)</version>
                         </requireJavaVersion>
                         <requireMavenVersion>
                             <!-- Any Maven 3 version is allowed -->
@@ -1058,6 +1058,31 @@
                     <artifactId>pitest-maven</artifactId>
                     <scope>provided</scope>
                     <version>1.16.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                    <scope>runtime</scope>
                 </dependency>
             </dependencies>
             <build>
@@ -1413,6 +1438,31 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
