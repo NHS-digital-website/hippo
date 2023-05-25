@@ -18,6 +18,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.onehippo.forge.content.exim.core.DocumentManager;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.JcrDocumentUtils;
@@ -34,6 +35,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 @RunWith(PowerMockRunner.class)
+@PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*"})
 @PrepareForTest({JcrDocumentUtils.class, JcrNodeUtils.class, WorkflowUtils.class})
 public class JcrDocumentLifecycleSupportTest {
 
