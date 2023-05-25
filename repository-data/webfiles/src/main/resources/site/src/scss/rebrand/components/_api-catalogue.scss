@@ -160,7 +160,8 @@
     border-style: solid;
     border-color: black;
     border-width: thin;
-    padding: 4px;
+    padding: 8px;
+    cursor: text;
     z-index: 1;
 }
 
@@ -168,6 +169,10 @@
     display: none;
     color: grey;
     font-size: small;
+}
+
+.section-label-container {
+    position: relative;
 }
 
 .filter-category-label__described:hover ~ .section-label-description {
