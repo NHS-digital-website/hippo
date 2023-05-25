@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RunWith(PowerMockRunner.class)
-@PowerMockIgnore("javax.management.*")
+@PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*", "javax.management.*"})
 @PrepareForTest(HstQueryBuilder.class)
 public class CiBreadcrumbTest {
 
