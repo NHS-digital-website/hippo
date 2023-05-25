@@ -24,7 +24,15 @@ init: .git/.local-hooks-installed
 # Clean and recompile only modules that we do customise.
 serve: essentials/target/essentials.war
 	mvn clean verify $(MVN_OPTS) \
+	-Djava.locale.providers=COMPAT \
 	-am -DskipTests=true \
+	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
+	$(MAKE) run
+
+serve.tests.enhance: essentials/target/essentials.war
+	mvn clean verify $(MVN_OPTS) \
+	-Djava.locale.providers=COMPAT \
+	-am -DskipTests=false \
 	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
 	$(MAKE) run
 
