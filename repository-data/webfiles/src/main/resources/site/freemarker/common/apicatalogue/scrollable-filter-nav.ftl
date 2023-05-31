@@ -8,7 +8,7 @@
     <#if filtersModel?? && !filtersModel.isEmpty()>
         <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
         <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
-        <div style="padding-bottom: 1rem">
+        <div style="padding-bottom: 1.5rem">
                 <div class="nhsd-t-row">
                     <h2 class="nhsd-t-heading-xs">
                         <span class="filter-head__title">Filters</span>
@@ -73,7 +73,7 @@
             <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                 <input onclick="window.location = '<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
                 <#if filter.selectable>
-                    <a title="Filter by ${filter.displayName}"
+                    <a data-alt="Filter by ${filter.displayName}"
                        href="<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />"
                        class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                         <input type="checkbox">
