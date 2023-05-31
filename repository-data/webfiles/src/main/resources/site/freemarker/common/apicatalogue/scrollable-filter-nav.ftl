@@ -73,7 +73,7 @@
             <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                 <input onclick="window.location = '<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
                 <#if filter.selectable>
-                    <a data-alt="Filter by ${filter.displayName}"
+                    <a title="Filter by ${filter.displayName}"
                        href="<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />"
                        class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                         <input type="checkbox">
