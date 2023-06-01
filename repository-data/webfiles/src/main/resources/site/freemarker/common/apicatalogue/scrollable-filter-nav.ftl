@@ -8,7 +8,7 @@
     <#if filtersModel?? && !filtersModel.isEmpty()>
         <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
         <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
-        <div>
+        <div style="padding-bottom: 2.5rem">
                 <div class="nhsd-t-row">
                     <h2 class="nhsd-t-heading-xs">
                         <span class="filter-head__title">Filters</span>
@@ -30,7 +30,7 @@
                                    type="checkbox"
                                    aria-hidden="true"
                                    <#if section.expanded>checked</#if>/>
-                            <div class="nhsd-m-filter-menu-section__menu-button">
+                            <div class="nhsd-m-filter-menu-section__menu-button section-label-container">
                                 <label for="<#if responsive>responsive_</#if>toggler_${section.key}"
                                        class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
                                         <span class="nhsd-a-icon nhsd-a-icon--size-xxs">
@@ -40,7 +40,7 @@
                                         </span>
                                         <span class="<#if !responsive>filter-category-label__text</#if> nhsd-t-body-s <#if section.expanded>selected</#if>">${section.displayName}</span>
                                 </label>
-                                <@filterDescription responsive section.description()/>
+                                <@filterDescription section.description() responsive/>
                             </div>
                             <div class="section-entries nhsd-!t-margin-top-2">
                                 <#list section.entries as filter>
@@ -68,7 +68,7 @@
         <#else>
             <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
         </#if>
-        <div><#-- This div is needed to add vertical spacing between checkboxes -->
+        <div class="section-label-container"><#-- This div is needed to add vertical spacing between checkboxes -->
         <span class="nhsd-a-checkbox">
             <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                 <input onclick="window.location = '<@renderUrl baseUrl=baseUrl showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
@@ -87,7 +87,7 @@
                 </#if>
                 <div class="checkmark"></div>
             </label>
-            <@filterDescription responsive filter.description()/>
+            <@filterDescription filter.description() responsive/>
         </span>
         </div>
         <#local nextLevel = indentationLevel + 1>
@@ -101,8 +101,10 @@
     </#if>
 </#macro>
 
-<#macro filterDescription responsive description>
+<#macro filterDescription description responsive>
     <#if description?? && !responsive>
-        <dfn class="filter-description nhsd-a-checkbox__hint"><@markdownDescription description=description/></dfn>
+        <div class="section-label-description">
+            <@markdownDescription description=description/>
+        </div>
     </#if>
 </#macro>
