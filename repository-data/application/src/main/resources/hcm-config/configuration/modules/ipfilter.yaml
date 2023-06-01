@@ -28,7 +28,7 @@ definitions:
         - tst.nhsdigital.bloomreach.cloud
         - cms-test.nhsd.io
         - test.nhsd.io
-        - training.nhsdigital.bloomreach.cloud/
+        - training.nhsdigital.bloomreach.cloud
         - cms-training2.nhsd.io
         - training2.nhsd.io
         - uat.nhsdigital.bloomreach.cloud

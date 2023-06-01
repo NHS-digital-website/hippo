@@ -7,7 +7,7 @@ definitions:
         .meta:residual-child-node-category: content
         /nhsdigital:
           .meta:residual-child-node-category: content
-          /test:
+          /tst:
             .meta:residual-child-node-category: content
             /content:
               .meta:residual-child-node-category: content
