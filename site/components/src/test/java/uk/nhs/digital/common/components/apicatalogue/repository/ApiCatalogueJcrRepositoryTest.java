@@ -58,7 +58,11 @@ public class ApiCatalogueJcrRepositoryTest {
         final Session session = mock(Session.class);
         given(session.nodeExists(any())).willReturn(false);
 
-        final ApiCatalogueJcrRepository apiCatalogueJcrRepository = new ApiCatalogueJcrRepository(session, "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping");
+        final ApiCatalogueJcrRepository apiCatalogueJcrRepository =
+            new ApiCatalogueJcrRepository(
+                session,
+                "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping"
+            );
 
         // when
         final Optional<String> actualTaxonomyFiltersMappingYaml = apiCatalogueJcrRepository.taxonomyFiltersMapping();

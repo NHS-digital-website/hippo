@@ -42,7 +42,10 @@ public class ServiceCatalogueComponent extends ContentRewriterComponent {
             sessionFrom(request)
         );
 
-        request.setAttribute(uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent.Param.apiCatalogueLinks.name(), catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList()));
+        request.setAttribute(
+            uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent.Param.apiCatalogueLinks.name(),
+            catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList())
+        );
         request.setAttribute(uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent.Param.filtersModel.name(), filtersModel);
     }
 
