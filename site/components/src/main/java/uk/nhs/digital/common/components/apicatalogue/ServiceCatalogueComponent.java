@@ -2,7 +2,6 @@ package uk.nhs.digital.common.components.apicatalogue;
 
 import static java.util.stream.Collectors.toList;
 
-import com.google.common.collect.ImmutableSet;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.container.HstContainerURL;
@@ -19,51 +18,38 @@ import java.util.stream.Stream;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
-public class ApiCatalogueComponent extends ContentRewriterComponent {
+public class ServiceCatalogueComponent extends ContentRewriterComponent {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
-
-    private static final Set<String> RETIRED_API_FILTER_KEYS = ImmutableSet.of("retired-api");
+    private static final Logger log = LoggerFactory.getLogger(ServiceCatalogueComponent.class);
     private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        final List<CatalogueLink> allCatalogueLinks = apiCatalogueLinksFrom(request);
-
-        final boolean showRetired = shouldShowRetired(request);
-
-        final List<CatalogueLink> catalogueLinksExcludingRetiredIfNeeded =
-            eliminateRetiredIfNeeded(allCatalogueLinks, showRetired);
+        final List<CatalogueLink> allCatalogueLinks = catalogueLinksFrom(request);
 
         final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
         final List<CatalogueLink> catalogueLinksFiltered = applyUserSelectedFilters(
-            catalogueLinksExcludingRetiredIfNeeded,
+            allCatalogueLinks,
             userSelectedFilterKeys
         );
 
         final Filters filtersModel = filtersModel(
-            catalogueLinksExcludingRetiredIfNeeded,
+            allCatalogueLinks,
             userSelectedFilterKeys,
             sessionFrom(request)
         );
 
-        request.setAttribute(Param.showRetired.name(), showRetired);
-        request.setAttribute(Param.apiCatalogueLinks.name(), catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList()));
-        request.setAttribute(Param.filtersModel.name(), filtersModel);
+        request.setAttribute(uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent.Param.apiCatalogueLinks.name(), catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList()));
+        request.setAttribute(uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent.Param.filtersModel.name(), filtersModel);
     }
 
-    private boolean queryStringContainsParameter(final HstRequest request, final Param queryStringParameter) {
+    private boolean queryStringContainsParameter(final HstRequest request, final uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent.Param queryStringParameter) {
         return Optional.ofNullable(request.getQueryString())
             .filter(queryString -> queryString.contains(queryStringParameter.name()))
             .isPresent();
-    }
-
-    private boolean shouldShowRetired(final HstRequest request) {
-        return queryStringContainsParameter(request, Param.showDeprecatedAndRetired)
-            || queryStringContainsParameter(request, Param.showRetired);
     }
 
     private Session sessionFrom(final HstRequest request) {
@@ -74,17 +60,8 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
         }
     }
 
-    private List<CatalogueLink> apiCatalogueLinksFrom(final HstRequest request) {
+    private List<CatalogueLink> catalogueLinksFrom(final HstRequest request) {
         return CatalogueLink.linksFrom(((ComponentList) request.getRequestContext().getContentBean()).getBlocks());
-    }
-
-    private List<CatalogueLink> eliminateRetiredIfNeeded(
-        final List<CatalogueLink> catalogueLinks,
-        final boolean showRetired
-    ) {
-        return catalogueLinks.stream()
-            .filter(link -> showRetired || link.notFilterable() || link.notTaggedWithAnyOf(RETIRED_API_FILTER_KEYS))
-            .collect(toList());
     }
 
     private static Set<String> userSelectedFilterKeysFrom(final HstRequest request) {
@@ -92,7 +69,7 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
         return Optional.ofNullable(request.getRequestContext())
             .map(HstRequestContext::getBaseURL)
             .map(HstContainerURL::getParameterMap)
-            .map(parameterMap -> parameterMap.get(Param.filter.name()))
+            .map(parameterMap -> parameterMap.get(uk.nhs.digital.common.components.apicatalogue.ApiCatalogueComponent.Param.filter.name()))
             .map(Arrays::stream)
             .map(filterKeys -> filterKeys.collect(Collectors.toSet()))
             .orElse(Collections.emptySet());
@@ -156,7 +133,6 @@ public class ApiCatalogueComponent extends ContentRewriterComponent {
     }
 
     enum Param {
-        showRetired,
         apiCatalogueLinks,
         filtersModel,
         filter,

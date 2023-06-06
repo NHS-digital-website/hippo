@@ -20,22 +20,22 @@ public class ApiCatalogueJcrRepository implements ApiCatalogueRepository {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueJcrRepository.class);
 
-    private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
-
+    private final String taxonomyFiltersMappingDocumentPath;
     private final Session session;
 
-    public ApiCatalogueJcrRepository(final Session session) {
+    public ApiCatalogueJcrRepository(final Session session, final String taxonomyFiltersMappingDocumentPath) {
         this.session = session;
+        this.taxonomyFiltersMappingDocumentPath = taxonomyFiltersMappingDocumentPath;
     }
 
     @Override
     public Optional<String> taxonomyFiltersMapping() {
 
         try {
-            final Node mappingDocumentHandle = JcrUtils.getNodeIfExists(TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, session);
+            final Node mappingDocumentHandle = JcrUtils.getNodeIfExists(taxonomyFiltersMappingDocumentPath, session);
 
             if (mappingDocumentHandle == null) {
-                log.warn("API Catalogue's taxonomy-filters mapping document not found at {}", TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH);
+                log.warn("API Catalogue's taxonomy-filters mapping document not found at {}", taxonomyFiltersMappingDocumentPath);
                 return Optional.empty();
             }
 
@@ -52,7 +52,7 @@ public class ApiCatalogueJcrRepository implements ApiCatalogueRepository {
         } catch (final Exception cause) {
             throw new RuntimeException(
                 "Failed to retrieve taxonomy-filters mapping YAML for scope node "
-                    + TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH,
+                    + taxonomyFiltersMappingDocumentPath,
                 cause
             );
         }

@@ -35,9 +35,10 @@ public class ApiCatalogueContextTest {
 
         // given
         final Session expectedSession = mock(Session.class);
+        final String taxonomyPath = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
 
         // when
-        final ApiCatalogueRepository actualRepository = ApiCatalogueContext.apiCatalogueRepository(expectedSession);
+        final ApiCatalogueRepository actualRepository = ApiCatalogueContext.apiCatalogueRepository(expectedSession, taxonomyPath);
 
         // then
         assertThat("Repository is of expected type.",

@@ -72,6 +72,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
     private String expectedMappingYaml;
     private ComponentList apiCatalogueDocument;
     private List<?> allCatalogueLinksToTaggedDocuments;
+    private final String taxonomyPath = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
 
     @Before
     public void setUp() throws Exception {
@@ -342,7 +343,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
     private void givenApiCatalogueContext() {
         mockStatic(ApiCatalogueContext.class);
 
-        given(ApiCatalogueContext.apiCatalogueRepository(session)).willReturn(apiCatalogueRepository);
+        given(ApiCatalogueContext.apiCatalogueRepository(session, taxonomyPath)).willReturn(apiCatalogueRepository);
         given(ApiCatalogueContext.filtersFactory()).willReturn(filtersFactory);
         given(filtersFactory.filtersFromMappingYaml(expectedMappingYaml)).willReturn(expectedFiltersFromFactory);
     }

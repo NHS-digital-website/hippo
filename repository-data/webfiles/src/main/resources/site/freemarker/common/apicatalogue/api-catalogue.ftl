@@ -18,7 +18,7 @@
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<#assign alphabetical_hash = group_blocks(flat_blocks(apiCatalogueLinks true))/>
+<#assign alphabetical_hash = group_blocks(flat_blocks(catalogueLinks true))/>
 
 <@hero getHeroOptions(document) />
 
@@ -90,7 +90,7 @@
                 </div>
                 <div class="nhsd-t-row nhsd-!t-padding-top-1">
                     <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"
-                        id="search-results-count">${apiCatalogueLinks?size}
+                        id="search-results-count">${catalogueLinks?size}
                         results</h6>
                 </div>
                 <div class="nhsd-t-row">

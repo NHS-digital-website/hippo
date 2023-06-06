@@ -14,21 +14,21 @@ import java.util.*;
  * , which makes it awkward to make decisions based on type. This class is provided as a convenience wrapper to make it easier
  * to deal with this awkwardness in a more object-oriented way and promote better type safety.
  */
-class ApiCatalogueLink {
+class CatalogueLink {
 
     private final Object rawLink;
 
-    private ApiCatalogueLink(final Object rawLink) {
+    private CatalogueLink(final Object rawLink) {
         this.rawLink = rawLink;
     }
 
-    static ApiCatalogueLink from(final Object rawLink) {
-        return new ApiCatalogueLink(rawLink);
+    static CatalogueLink from(final Object rawLink) {
+        return new CatalogueLink(rawLink);
     }
 
-    static List<ApiCatalogueLink> linksFrom(final List<?> rawLinkCandidates) {
+    static List<CatalogueLink> linksFrom(final List<?> rawLinkCandidates) {
         return rawLinkCandidates.stream()
-            .map(ApiCatalogueLink::from)
+            .map(CatalogueLink::from)
             .collect(toList());
     }
 
