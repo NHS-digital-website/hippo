@@ -52,7 +52,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
     @Rule
     public TestLoggerRule logger = TestLoggerRule.targeting(ApiCatalogueComponent.class);
 
-    private static final String REQUEST_ATTR_RESULTS = "apiCatalogueLinks";
+    private static final String REQUEST_ATTR_RESULTS = "catalogueLinks";
     private static final String REQUEST_ATTR_FILTERS = "filtersModel";
 
     private ApiCatalogueComponent apiCatalogueComponent;
