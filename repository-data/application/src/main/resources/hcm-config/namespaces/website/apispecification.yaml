@@ -200,7 +200,7 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:apispecification
-          website:enable_rapidoc: false
+          website:enable_rapidoc: true
           website:json: ''
           website:seosummary: ''
           website:shortsummary: ''
