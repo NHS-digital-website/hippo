@@ -45,6 +45,7 @@ public class ApiCatalogueComponent extends CatalogueComponent {
         );
 
         request.setAttribute(Param.showRetired.name(), showRetired);
+        request.setAttribute(Param.hasRetired.name(), true);
         request.setAttribute(Param.catalogueLinks.name(), catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList()));
         request.setAttribute(Param.filtersModel.name(), filtersModel);
     }
@@ -71,6 +72,7 @@ public class ApiCatalogueComponent extends CatalogueComponent {
 
     enum Param {
         showRetired,
+        hasRetired,
         catalogueLinks,
         filtersModel,
         filter,

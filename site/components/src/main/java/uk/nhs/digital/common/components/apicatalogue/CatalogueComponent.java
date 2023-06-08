@@ -22,6 +22,8 @@ public class CatalogueComponent extends ContentRewriterComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
+        request.setAttribute(Param.hasRetired.name(), false);
+        request.setAttribute(Param.showRetired.name(), false);
     }
 
     protected Session sessionFrom(final HstRequest request) {
@@ -104,5 +106,10 @@ public class CatalogueComponent extends ContentRewriterComponent {
         return linksWithAllUserSelectedFilterKeys(links, userSelectedFilterKeys)
             .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream())
             .collect(Collectors.toSet());
+    }
+
+    enum Param {
+        showRetired,
+        hasRetired
     }
 }

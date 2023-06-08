@@ -46,10 +46,6 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
     enum Param {
         catalogueLinks,
         filtersModel,
-        filter,
-
-        // Older parameter, deprecated in favour of showRetired,
-        // retained in case it's been included in existing bookmarks.
-        showDeprecatedAndRetired
+        filter
     }
 }
