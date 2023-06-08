@@ -5,7 +5,7 @@
 <#include "../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../nhsd-common/macro/component/lastModified.ftl">
 
-<#if document?? && (document.enableRapiDoc!false || isDevEnv!false)>
+<#if document?? && (document.enableRapiDoc!isDevEnv!false)>
     <#include "../common/macro/metaTags.ftl">
     <@metaTags></@metaTags>
 
