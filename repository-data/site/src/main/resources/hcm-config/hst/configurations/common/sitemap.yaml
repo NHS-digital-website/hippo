@@ -453,14 +453,6 @@ definitions:
         hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: forms
         jcr:primaryType: hst:sitemapitem
-      /icon-library:
-        /_any_:
-          hst:componentconfigurationid: hst:pages/icon-library-item
-          hst:relativecontentpath: icon-library-item
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/icon-library
-        hst:relativecontentpath: icon-library
-        jcr:primaryType: hst:sitemapitem
       /news:
         /events:
           /_any_:
