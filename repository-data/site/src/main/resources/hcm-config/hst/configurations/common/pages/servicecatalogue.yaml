@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/service-catalogue:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.apicatalogue.ServiceCatalogueComponent
+        hst:template: api-catalogue
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/nhsd-apppage
+      jcr:primaryType: hst:component
