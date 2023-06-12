@@ -13,7 +13,7 @@ import java.util.*;
 public class ServiceCatalogueComponent extends CatalogueComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ServiceCatalogueComponent.class);
-    private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
+    private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping";
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
