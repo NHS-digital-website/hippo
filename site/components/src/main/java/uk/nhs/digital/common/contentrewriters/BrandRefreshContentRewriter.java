@@ -110,19 +110,29 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         // table
         if (document.select("table").first() != null) {
             document.select("table")
-                .wrap("<div class=\"nhsd-m-table nhsd-t-body\"></div>")
-                .attr("data-responsive", "");
+                .wrap("<div class=\"nhsd-m-table nhsd-t-body\"></div>");
+        }
 
-            for (Element table : document.select("table")) {
-                if (table.select("th").first() != null) {
-                    if (table.id().equals("cannotsort")) {
-                        table.select("th").attr("data-no-sort", "");
-                        table.removeAttr("id");
-                    }
-                } else {
-                    table.removeAttr("data-responsive");
-                }
+        // table header
+        for (Element table: document.select("table")) {
+            if (table.select("thead").first() == null) {
+                table.select("table").prepend("<thead><th></th></thead>");
+            }
+        }
 
+        // replace with attribute data-no-sort
+        for (Element table : document.select("table")) {
+            if (table.id().equals("cannotsort")) {
+                table.select("th").attr("data-no-sort", "");
+                table.removeAttr("id");
+            }
+        }
+
+        // replace with attribute data-responsive
+        for (Element table : document.select("table")) {
+            if (table.hasClass("make-responsive")) {
+                table.select("table").attr("data-responsive", "");
+                table.removeAttr("class");
             }
         }
 
