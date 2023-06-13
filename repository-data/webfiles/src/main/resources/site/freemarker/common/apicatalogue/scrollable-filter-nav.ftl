@@ -1,10 +1,10 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
-<#assign markdownDescription = "uk.nhs.digital.common.components.apicatalogue.FilterDescriptionDirective"?new() />
+<#assign markdownDescription = "uk.nhs.digital.common.components.catalogue.FilterDescriptionDirective"?new() />
 
 <#macro scrollableFilterNav filtersModel responsive>
-    <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.apicatalogue.filters.Filters" -->
+<#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.catalogue.filters.Filters" -->
     <#if filtersModel?? && !filtersModel.isEmpty()>
         <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
         <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
@@ -22,7 +22,7 @@
 
             <nav>
                 <#list filtersModel.sections as section>
-                    <#-- @ftlvariable name="section" type="uk.nhs.digital.common.components.apicatalogue.filters.Section" -->
+                <#-- @ftlvariable name="section" type="uk.nhs.digital.common.components.catalogue.filters.Section" -->
                     <#if section.displayed>
                         <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
                             <input id="<#if responsive>responsive_</#if>toggler_${section.key}"
@@ -60,7 +60,7 @@
 </#macro>
 
 <#macro filterTemplate filter filtersModel indentationLevel=0 responsive=false>
-    <#-- @ftlvariable name="filter" type="uk.nhs.digital.common.components.apicatalogue.filters.Subsection" -->
+<#-- @ftlvariable name="filter" type="uk.nhs.digital.common.components.catalogue.filters.Subsection" -->
     <#if filter.displayed>
         <@hst.link var="baseUrl"/>
         <#if filter.selected>
