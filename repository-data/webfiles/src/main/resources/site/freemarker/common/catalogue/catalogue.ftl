@@ -93,7 +93,7 @@
                         id="search-results-count">${catalogueLinks?size}
                         results</h6>
                 </div>
-                <#if hasRetired>
+                <#if retiredFilterEnabled>
                     <div class="nhsd-t-row">
                         <div class="nhsd-t-col-6 nhsd-!t-padding-left-0">
                             <label aria-label="Include retired APIs and API standards"
@@ -102,7 +102,7 @@
                                     <span class="nhsd-m-selector-toggle-card__toggle">
                                         <div class="nhsd-a-selector-toggle">
                                         <@hst.link var="baseUrl"/>
-                                            <a href="<@renderUrl baseUrl=baseUrl hasRetired=hasRetired showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />"
+                                            <a href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />"
                                                class="nhsd-a-checkbox__label nhsd-t-body-s">
                                                 <input type="checkbox"
                                                        <#if showRetired>checked</#if> />

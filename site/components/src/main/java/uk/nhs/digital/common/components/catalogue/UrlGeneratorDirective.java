@@ -18,13 +18,13 @@ public class UrlGeneratorDirective implements TemplateDirectiveModel {
     ) throws TemplateException, IOException {
 
         final String baseUrl = ((SimpleScalar) parameters.get(Param.baseUrl.name())).getAsString();
-        final boolean hasRetired = ((TemplateBooleanModel) parameters.get(Param.hasRetired.name())).getAsBoolean();
+        final boolean retiredFilterEnabled = ((TemplateBooleanModel) parameters.get(Param.retiredFilterEnabled.name())).getAsBoolean();
         final boolean showRetired = ((TemplateBooleanModel) parameters.get(Param.showRetired.name())).getAsBoolean();
         final TemplateSequenceModel filtersModelWrapper = (SimpleSequence) parameters.get(Param.filters.name());
 
         final Map<String, List<String>> params = new LinkedHashMap<>();
 
-        prepareshowRetiredParam(params, showRetired, hasRetired);
+        prepareshowRetiredParam(params, showRetired, retiredFilterEnabled);
 
         prepareFilterParams(params, filtersModelWrapper);
 
@@ -35,9 +35,9 @@ public class UrlGeneratorDirective implements TemplateDirectiveModel {
 
     private void prepareshowRetiredParam(final Map<String, List<String>> params,
                                          final boolean showRetired,
-                                         final boolean hasRetired
+                                         final boolean retiredFilterEnabled
     ) {
-        if (hasRetired && showRetired) {
+        if (retiredFilterEnabled && showRetired) {
             params.put(Param.showRetired.name(), Collections.emptyList());
         }
     }
@@ -103,7 +103,7 @@ public class UrlGeneratorDirective implements TemplateDirectiveModel {
     enum Param {
         baseUrl,
         showRetired,
-        hasRetired,
+        retiredFilterEnabled,
         filter,
         filters
     }

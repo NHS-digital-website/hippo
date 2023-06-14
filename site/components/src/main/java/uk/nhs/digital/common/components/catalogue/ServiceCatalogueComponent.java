@@ -41,11 +41,15 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
             catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList())
         );
         request.setAttribute(Param.filtersModel.name(), filtersModel);
+        request.setAttribute(Param.retiredFilterEnabled.name(), false);
+        request.setAttribute(Param.showRetired.name(), false);
     }
 
     enum Param {
         catalogueLinks,
         filtersModel,
-        filter
+        filter,
+        showRetired,
+        retiredFilterEnabled
     }
 }
