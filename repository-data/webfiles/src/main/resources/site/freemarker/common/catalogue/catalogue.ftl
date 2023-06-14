@@ -3,7 +3,7 @@
 <#include "../macro/metaTags.ftl">
 <#include "../macro/contentPixel.ftl">
 <#include "scrollable-filter-nav.ftl">
-<#include "api-catalogue-entries.ftl">
+<#include "catalogue-entries.ftl">
 <#include "../macro/svgIcons.ftl">
 <#include "../../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../../nhsd-common/macro/heroes/hero.ftl">
