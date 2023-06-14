@@ -48,7 +48,7 @@ public class UrlGeneratorDirectiveTest {
 
         final Map<String, Object> parameters = ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "hasRetired", TemplateBooleanModel.TRUE,
+            "retiredFilterEnabled", TemplateBooleanModel.TRUE,
             "showRetired", TemplateBooleanModel.TRUE,
             "filters", filterKeys
         );
@@ -69,7 +69,7 @@ public class UrlGeneratorDirectiveTest {
 
         final Map<String, Object> parameters = ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "hasRetired", TemplateBooleanModel.TRUE,
+            "retiredFilterEnabled", TemplateBooleanModel.TRUE,
             "showRetired", TemplateBooleanModel.FALSE,
             "filters", filterKeys
         );
@@ -87,7 +87,7 @@ public class UrlGeneratorDirectiveTest {
         // given
         final Map<String, Object> parameters = ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "hasRetired", TemplateBooleanModel.TRUE,
+            "retiredFilterEnabled", TemplateBooleanModel.TRUE,
             "showRetired", TemplateBooleanModel.TRUE,
             "filters", filterKeys
         );
@@ -105,7 +105,7 @@ public class UrlGeneratorDirectiveTest {
         // given
         final Map<String, Object> parameters =  ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "hasRetired", TemplateBooleanModel.TRUE,
+            "retiredFilterEnabled", TemplateBooleanModel.TRUE,
             "showRetired", TemplateBooleanModel.FALSE,
             "filters", filterKeys
         );
@@ -151,7 +151,7 @@ public class UrlGeneratorDirectiveTest {
 
         final Map<String, Object> parameters =  ImmutableMap.of(
             "baseUrl", new SimpleScalar("/site/developer/api-catalogue"),
-            "hasRetired", TemplateBooleanModel.TRUE,
+            "retiredFilterEnabled", TemplateBooleanModel.TRUE,
             "showRetired", TemplateBooleanModel.FALSE,
             "filters", filterKeys
         );
