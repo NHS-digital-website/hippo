@@ -157,7 +157,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise links of all docs referenced from Service catalogue, including of docs tagged as Retired.",
+            "Results comprise links of all docs referenced from Service catalogue.",
             actualResults,
             is(allCatalogueLinksToTaggedDocuments)
         );
@@ -272,7 +272,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
 
         request = new MockHstRequest();
         request.setRequestContext(hstRequestContext);
-        request.setRequestURL(new StringBuffer("http://localhost:8080/site/service-catalogue"));
+        request.setRequestURL(new StringBuffer("http://localhost:8080/site/services/service-catalogue"));
     }
 
 }
