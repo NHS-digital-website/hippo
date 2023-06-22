@@ -20,6 +20,7 @@ definitions:
       - .csv,text/csv
       - .exe,application/x-dosexec
       - .crt,application/x-x509-cert; format=der
+      - .crt,application/x-x509-cert; format=pem
       extensions.allowed:
       - doc
       - docx
