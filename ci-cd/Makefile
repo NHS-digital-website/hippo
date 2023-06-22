@@ -3,11 +3,7 @@ include ../vars.mk
 BUILD_DIR ?= ../../ps-build
 ENV ?= tst
 OD_ENV = $(shell bash ondemand-env-name $(ENV))
-RD_CONF = $(PWD)/rd.conf
 RELEASE_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((++d)); done; date --date +$${d}day +%Y-%m-%d)
-RELEASE_TIME_UTC = 12:05:00
-TRAVIS_BUILD_CMD ?= test.site
-TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*" || echo $(VERSION_BASE).0)
 VERSION_BASE ?= $(shell cat "$(PWD)/../.version")
@@ -45,15 +41,6 @@ help:
 ## Initialise local project
 init: $(VENV)
 
-## Sudo for AWS Roles
-# Usage:
-#   $(make aws-sudo PROFILE=profile-name)
-#   $(make aws-sudo PROFILE=profile-with-mfa TOKEN=123789)
-aws-sudo: $(VENV)
-	@(printenv TOKEN > /dev/null && aws-sudo -m $(TOKEN) $(PROFILE) ) || ( \
-		aws-sudo $(PROFILE) \
-	)
-
 ## Test, tag, build and upload artefact
 # You still have to push newly created tag
 release: test version.bumpup
@@ -89,13 +76,6 @@ test.cms:
 	mvn clean verify $(MVN_OPTS) --quiet \
 		-Dcucumber.options="src/test/resources/features/cms" \
 		-Pacceptance-test-hippo,acceptance-test,acceptance-without-development-data
-
-## Run only acceptance tests tagged with "WIP" without a running server
-# Useful for testing travis build only running some tests
-test.wip.standalone:
-	mvn clean verify $(MVN_OPTS) \
-		-Dcucumber.options="src/test/resources/features --tags @WIP" \
-		-Pacceptance-test-hippo,acceptance-test
 
 ## Run BDD tests
 test.e2e:
@@ -162,9 +142,6 @@ check.yaml:
 ## Clean up
 clean:
 	mvn clean $(MVN_OPTS) --quiet
-
-vendor:
-	mkdir -p vendor
 
 # get python virtualenv
 $(VENV):
