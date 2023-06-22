@@ -12,8 +12,8 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.powermock.api.mockito.PowerMockito.*;
-import static uk.nhs.digital.test.util.JcrTestUtils.BloomReachJcrDocumentVariantType.DRAFT;
 import static uk.nhs.digital.test.util.JcrTestUtils.*;
+import static uk.nhs.digital.test.util.JcrTestUtils.BloomReachJcrDocumentVariantType.DRAFT;
 import static uk.nhs.digital.test.util.MockJcrRepoProvider.initJcrRepoFromYaml;
 import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
@@ -95,9 +95,11 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     private String apigeeSingleSpecUrlTemplate;
     private String oauthTokenUrl;
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
-    @Rule public WireMockRule wireMock = new WireMockRule(wireMockConfig().dynamicPort());
+    @Rule
+    public WireMockRule wireMock = new WireMockRule(wireMockConfig().dynamicPort());
 
     // JCR repo access
     private Session session;
@@ -277,7 +279,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
         // @formatter:off
         final String apigeeOauth2AccessTokenRequestBodyRegex =
-                  "grant_type=password"
+            "grant_type=password"
                 + "&username=" + OAUTH_USERNAME
                 + "&password=" + OAUTH_PASSWORD
                 + "&mfa_token=\\d+";
