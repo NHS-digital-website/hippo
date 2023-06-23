@@ -13,41 +13,13 @@ jobs:
 
     steps:
       # Get API access token and verify it.
-      - name: Obtaino JWT Token
+      - name: Get BR Cloud Token
         id: jwt_token
-        run: |
-          response=$(curl -i \
-          -H "Accept: application/json; charset=utf-8" \
-          -X POST https://api.${{ vars.BR_CLOUD }}/v3/authn/access_token \
-          -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
-          token1=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
-          refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
-          echo "token1=$token1" >> $GITHUB_OUTPUT
-          echo "refresh=$refresh" >> $GITHUB_OUTPUT
-
-        env:
-          USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
-          PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
-
-      - name: Verify JWT Token
-        id: jwt_token_verify
-        run: |
-          code=$(curl -L \
-          -H "Accept: application/json; charset=utf-8" \
-          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-          -X GET https://api.${{ vars.BR_CLOUD }}/v3/authn/verify_token \
-          -o /dev/null -w '%{http_code}\n' -s)
-          echo "code=$code" >> $GITHUB_OUTPUT
-
-      - name: Check Response Code from Verify JWT Token
-        if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v6
+        uses: ./.github/actions/br-cloud-token
         with:
-          script: |
-            core.setFailed('The JWT token failed verification!')
-        env:
-          # 'CODE' is for debugging fails
-          CODE: ${{ steps.jwt_token_verify.outputs.code }}
+          MISSION_CONTROL_API_USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          MISSION_CONTROL_API_PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+          MISSION_CONTROL_API_HOST: ${{ vars.BR_CLOUD }}
 
       - name: Get All Configuration Files
         id: all-config-file-ids
