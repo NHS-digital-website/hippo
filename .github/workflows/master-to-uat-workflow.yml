@@ -131,41 +131,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Checkout
+        uses: actions/checkout@v3
+
       #
       # Get API access token and verify it.
       #
-      - name: Obtain JWT Token
+      - name: Get BR Cloud Token
         id: jwt_token
-        run: |
-          response=$(curl -i \
-          -H "Accept: application/json; charset=utf-8" \
-          -X POST https://api.${{ vars.BR_CLOUD }}/v3/authn/access_token \
-          -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
-          token=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
-          refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
-          echo "token=$token" >> $GITHUB_OUTPUT
-          echo "refresh=$refresh" >> $GITHUB_OUTPUT
-        env:
-          USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
-          PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
-      - name: Verify JWT Token
-        id: jwt_token_verify
-        run: |
-          code=$(curl -L \
-          -H "Accept: application/json; charset=utf-8" \
-          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
-          -X GET https://api.${{ vars.BR_CLOUD }}/v3/authn/verify_token \
-          -o /dev/null -w '%{http_code}\n' -s)
-          echo "code=$code" >> $GITHUB_OUTPUT
-      - name: Check Response Code from Verify JWT Token
-        if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v6
+        uses: ./.github/actions/br-cloud-token
         with:
-          script: |
-            core.setFailed('The JWT token failed verification!')
-        env:
-          # 'CODE' is for debugging fails
-          CODE: ${{ steps.jwt_token_verify.outputs.code }}
+          MISSION_CONTROL_API_USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          MISSION_CONTROL_API_PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+          MISSION_CONTROL_API_HOST: ${{ vars.BR_CLOUD }}
 
       #
       # Download the distribution artifact
@@ -289,29 +267,3 @@ jobs:
           script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')
         env:
           CODE: ${{ steps.deployment.outputs.code }}
-
-
-      # Clean-up steps below.
-
-      # Delete JWT refresh token
-      - name: Request Deletion of JWT Refresh Access tokens
-        if: always()
-        id: jwt_token_invalidate
-        run: |
-          code=$(curl -L \
-          -H "Accept: application/json; charset=utf-8" \
-          -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/authn/refresh_token \
-          -d '{ "grant_type": "refresh_token", "refresh_token": "${{ env.REFRESH }}" }' \
-          -o /dev/null -w '%{http_code}\n' -s)
-          echo "code=$code" >> $GITHUB_OUTPUT
-        env:
-          REFRESH:  ${{ steps.jwt_token.outputs.refresh }}
-      - name: Check Response Code from Deletion of JWT Refresh Access tokens
-        if: ${{ steps.jwt_token_invalidate.outputs.code != 200 }}
-        uses: actions/github-script@v6
-        with:
-          script: |
-            core.setFailed('The JWT Deletion of JWT Refresh Access tokens failed!')
-        env:
-          # 'CODE' is for debugging fails
-          CODE: ${{ steps.jwt_token_invalidate.outputs.code }}
