@@ -542,7 +542,7 @@ definitions:
               - website:service
               hst:componentconfigurationmappingvalues:
               - hst:pages/service
-              hst:relativecontentpath: ${parent}/content
+              hst:relativecontentpath: ${parent}/service-catalogue
               jcr:primaryType: hst:sitemapitem
             hst:cacheable: true
             hst:componentconfigurationid: hst:pages/404
@@ -554,10 +554,10 @@ definitions:
             jcr:primaryType: hst:sitemapitem
           /_index_:
             hst:componentconfigurationid: hst:pages/service-catalogue
-            hst:relativecontentpath: ${parent}/content
+            hst:relativecontentpath: ${parent}/service-catalogue
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
-          hst:relativecontentpath: service-catalogue
+          hst:relativecontentpath: services
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub
         hst:relativecontentpath: nhsd-services-hub
