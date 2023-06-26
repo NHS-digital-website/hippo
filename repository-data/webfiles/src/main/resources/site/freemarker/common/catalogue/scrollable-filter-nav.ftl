@@ -9,11 +9,11 @@
         <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
         <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
         <div style="padding-bottom: 2.5rem">
-                <div class="nhsd-t-row">
+                <div style="justify-content: space-between" class="nhsd-t-row">
                     <h2 class="nhsd-t-heading-xs">
                         <span class="filter-head__title">Filters</span>
                     </h2>
-                    <span class="nhsd-t-body nhsd-!t-padding-left-6 nhsd-!t-margin-right-0">
+                    <span class="nhsd-t-body">
                         <a class="nhsd-a-link nhsd-!t-padding-0" href="<@hst.link/>" title="Reset filters">
                             Reset filters
                         </a>
