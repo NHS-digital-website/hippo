@@ -117,6 +117,8 @@
                             </label>
                         </div>
                     </div>
+                <#else>
+                    <div class="nhsd-!t-padding-top-4"/>
                 </#if>
 
                 <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
