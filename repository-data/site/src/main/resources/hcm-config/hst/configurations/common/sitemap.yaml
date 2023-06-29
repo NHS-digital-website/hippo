@@ -542,7 +542,7 @@ definitions:
               - website:service
               hst:componentconfigurationmappingvalues:
               - hst:pages/service
-              hst:relativecontentpath: ${parent}/service-catalogue
+              hst:relativecontentpath: ${parent}/content
               jcr:primaryType: hst:sitemapitem
             hst:cacheable: true
             hst:componentconfigurationid: hst:pages/404
