@@ -554,10 +554,10 @@ definitions:
             jcr:primaryType: hst:sitemapitem
           /_index_:
             hst:componentconfigurationid: hst:pages/service-catalogue
-            hst:relativecontentpath: ${parent}/service-catalogue
+            hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
-          hst:relativecontentpath: services
+          hst:relativecontentpath: services-catalogue
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub
         hst:relativecontentpath: nhsd-services-hub
