@@ -46,7 +46,6 @@ jobs:
     env:
       PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
       CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
-      SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
 
     steps:
 
@@ -73,18 +72,23 @@ jobs:
 
       - name: Slack message (sending environment details)
         if: ${{ success() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Environment Details", "attachments": [{ "text" : "```${{steps.environments.outputs.environments}}```",  "color": "#78BE20" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
+          TITLE: ":green_book: Environment Details"
+          MESSAGE: |
+            ```${{steps.environments.outputs.environments}}```
 
       - name: Slack message (Failed to get environment details)
         if: ${{ failure() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Environment Details", "attachments": [{ "text" : "Failed to get environment details",  "color": "#DA291C" }] }'
-
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
+          TITLE: ":x: Environment Details"
+          MESSAGE: |
+            Failed to get environment details.
 
       # File Details
       - name: Request Application Configuration Files' Details
@@ -95,27 +99,22 @@ jobs:
           -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
           echo "details=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
 
-      - name: Slack message (sending Applicaiton Configuration Files' Details)
+      - name: Slack message (sending Application Configuration Files' Details)
         if: ${{ success() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Application Configuration File Details", "attachments": [{ "text" : "```${{steps.files.outputs.details}}```",  "color": "#78BE20" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
+          TITLE: ":green_book: Environment Details"
+          MESSAGE: |
+            ```${{steps.files.outputs.details}}```
 
-      - name: Slack message (Failed getting Applicaiton Configuration Files' Details)
+      - name: Slack message (Failed getting Application Configuration Files' Details)
         if: ${{ failure() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Environment Details", "attachments": [{ "text" : "Failed to get Application Configuration Files",  "color": "#DA291C" }] }'
-
-
-      # End
-      - name: Slack message (failed end message)
-        if: ${{ always() }}
-        uses: muinmomin/webhook-action@v1.0.0
-        env:
-          GITHUB_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-        with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Finished", "attachments": [{ "text" : "End of communication. The logs are here ${{ env.GITHUB_WORKFLOW_URL }}",  "color": "#005EB8" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
+          TITLE: ":x: Environment Details"
+          MESSAGE: |
+            Failed to get Application Configuration Files.
