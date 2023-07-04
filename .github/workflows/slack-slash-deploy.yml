@@ -377,7 +377,9 @@ jobs:
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
           MESSAGE: |
-            Requesting a deployment on BR Cloud on environment ${{steps.find-target.outputs.result.name}}.
+            Requesting a deployment on BR Cloud on environment ${{ env.TARGET }}.
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
       - name: Request Deployment from BR Cloud
         id: deployment
@@ -415,4 +417,4 @@ jobs:
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
           MESSAGE: |
-            <@${{ env.USER_ID }}>  BR Cloud has accepted the deployment request. You can track progress here https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details.
+            <@${{ env.USER_ID }}>, BR Cloud has accepted the deployment request. You can track progress on <https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details|Mission Control>.

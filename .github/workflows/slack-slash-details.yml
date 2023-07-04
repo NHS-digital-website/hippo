@@ -78,17 +78,9 @@ jobs:
           SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
           TITLE: ":green_book: Environment Details"
           MESSAGE: |
-            ```${{steps.environments.outputs.environments}}```
-
-      - name: Slack message (Failed to get environment details)
-        if: ${{ failure() }}
-        uses: ./.github/actions/slack-message
-        with:
-          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
-          SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
-          TITLE: ":x: Environment Details"
-          MESSAGE: |
-            Failed to get environment details.
+            ```${{ env.MESSAGE }}```
+        env:
+          MESSAGE: ${{ steps.environments.outputs.environments }}
 
       # File Details
       - name: Request Application Configuration Files' Details
@@ -107,14 +99,6 @@ jobs:
           SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
           TITLE: ":green_book: Environment Details"
           MESSAGE: |
-            ```${{steps.files.outputs.details}}```
-
-      - name: Slack message (Failed getting Application Configuration Files' Details)
-        if: ${{ failure() }}
-        uses: ./.github/actions/slack-message
-        with:
-          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
-          SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
-          TITLE: ":x: Environment Details"
-          MESSAGE: |
-            Failed to get Application Configuration Files.
+            ```${{ env.MESSAGE }}```
+        env:
+          MESSAGE: ${{ steps.files.outputs.details }}
