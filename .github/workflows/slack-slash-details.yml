@@ -61,6 +61,23 @@ jobs:
           MISSION_CONTROL_API_PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
           MISSION_CONTROL_API_HOST: ${{ vars.BR_CLOUD }}
 
+      # Distributions Details
+      - name: Request Environment Details
+        id: distributions
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/distributions)
+          echo "distributions=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
+      - name: Write Distributions Details to File
+        run: |
+          echo "${{ steps.distributions.outputs.distributions }}" | jq . > distributions.json
+      - name: Save Distributions Details
+        uses: actions/upload-artifact@v3
+        with:
+          path: distributions.json
+
+
       # Environment Details
       - name: Request Environment Details
         id: environments
@@ -69,36 +86,36 @@ jobs:
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ vars.BR_CLOUD }}/v3/environments)
           echo "environments=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
-
-      - name: Slack message (sending environment details)
-        if: ${{ success() }}
-        uses: ./.github/actions/slack-message
+      - name: Write Environment Details to File
+        run: |
+          echo "${{ steps.environments.outputs.environments }}" | jq . > environments.json
+      - name: Save Environment Details
+        uses: actions/upload-artifact@v3
         with:
-          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
-          SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
-          TITLE: ":green_book: Environment Details"
-          MESSAGE: |
-            ```${{ env.MESSAGE }}```
-        env:
-          MESSAGE: ${{ steps.environments.outputs.environments }}
+          path: environments.json
 
-      # File Details
-      - name: Request Application Configuration Files' Details
+      # Request Application Configuration Files Details
+      - name: Request Application Configuration Files Details
         id: files
         run: |
           response=$(curl \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
           echo "details=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
+      - name: Write Application Configuration to File
+        run: |
+          echo "${{ steps.files.outputs.details }}" | jq . > application-configuration-files.json
+      - name: Save Application Configuration Details
+        uses: actions/upload-artifact@v3
+        with:
+          path: application-configuration-files.json
 
-      - name: Slack message (sending Application Configuration Files' Details)
-        if: ${{ success() }}
+
+      - name: Slack message
         uses: ./.github/actions/slack-message
         with:
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
           TITLE: ":green_book: Environment Details"
           MESSAGE: |
-            ```${{ env.MESSAGE }}```
-        env:
-          MESSAGE: ${{ steps.files.outputs.details }}
+            The details will be attached to the GitHub Actions run :point_down: in a few seconds.
