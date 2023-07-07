@@ -5,6 +5,9 @@ on:
     # Runs at 3 pm weekdays (UK time)
     - cron: "0 15 * * 1-5"
 
+env:
+  SLACK_CHANNEL: "C0353KHFXNJ"
+
 jobs:
 
   prepare-prod-deployment:
@@ -31,16 +34,25 @@ jobs:
           jiraList=$(echo $(git log --format="\n %s. [Author %an]" prd..rc))
           echo "jiraListIds=${jiraList}" >> $GITHUB_OUTPUT
 
+      #
+      # Send a Slack Message to
+      #
       - name: Slack message (List Jira Tickets to be released)
         if: ${{ success() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{
-            "channel": "C04KERNBD4J",
-            "text": "Release to production has been scheduled at 12:05 on the next working day. The following new changes (if any) will be released: ${{steps.getJiraListId.outputs.jiraListIds}}"
-            }'
-        env:
-          SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
-          GITHUB_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.SLACK_CHANNEL }}
+          TITLE: ":clock1: Scheduled Deploying to Production"
+          MESSAGE: |
+            Release to production has been scheduled at 12:05 on the next working day. The following new changes (if any) will be released: ${{steps.getJiraListId.outputs.jiraListIds}}
+
+      - name: Slack message (Job failed message)
+        if: ${{ failure() }}
+        uses: ./.github/actions/slack-message
+        with:
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.SLACK_CHANNEL }}
+          TITLE: ":alarm_clock: Error Message"
+          MESSAGE: |
+            Failed to schedule a release to production. Please check the logs for more details.

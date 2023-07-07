@@ -39,20 +39,6 @@ jobs:
                 }
             }
 
-      #
-      # Provide a URL to the active GitHub Actions Workflow run
-      #
-      - name: Slack message (Track progress message)
-        if: ${{ success() }}
-        uses: muinmomin/webhook-action@v1.0.0
-        with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "The pipeline logs are here ${{ env.GITHUB_WORKFLOW_URL }}",  "color": "#005EB8" }] }'
-        env:
-          SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
-          GITHUB_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
-
 
   build:
     name: Build Commit
@@ -63,7 +49,6 @@ jobs:
       PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
       BRANCH: ${{ github.event.client_payload.data.text }}
       CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
-      SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
       USER_ID: ${{  github.event.client_payload.data.user_id }}
 
     steps:
@@ -76,23 +61,32 @@ jobs:
         with:
           ref: ${{ env.BRANCH }}
           fetch-depth: 0 # Need all the tags for versioning
+      - name: Fallback Checkout # Used by local actions when the main checkout attempt fails.
+        if: ${{ failure() }}
+        uses: actions/checkout@v3
 
       - name: Slack message (failed to checkout the branch)
         if: ${{ failure() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Cannot find the branch named ${{ env.BRANCH }}",  "color": "#DA291C" }] }'
-
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Cannot find the branch named ${{ env.BRANCH }}. Please check the branch name and try again.
 
       #
       # Build the branch
       #
       - name: Slack message (building the branch)
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Building the branch (${{ env.BRANCH }})", "color": "#78BE20" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Building the branch (${{ env.BRANCH }}).
+
 
       - name: Set up JDK 8
         uses: actions/setup-java@v3
@@ -145,11 +139,13 @@ jobs:
 
       - name: Slack message (failed to build the branch)
         if: ${{ failure() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Failed to build the branch named ${{ env.BRANCH }}",  "color": "#DA291C" }] }'
-
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Failed to build the branch named ${{ env.BRANCH }}. Please check the logs for more information.
 
       #
       # upload build for next job
@@ -163,14 +159,22 @@ jobs:
 
       - name: Slack message (failed to store artifact for later in the pipeline)
         if: ${{ failure() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "The pipeline failed to locate the built artifact",  "color": "#DA291C" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            The pipeline failed to locate the built artifact. Please check the logs for more information.
 
-      #
-      # Todo: success slack message that gives a link to the GitHub action for downloading the build for debugging.
-      #
+      - name: Slack message (Successfully stored the built artifact)
+        uses: ./.github/actions/slack-message
+        with:
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Successfully stored the built artifacts. Note they can be downloaded if required for debugging.
 
   upload:
     name: Upload Build to BR Cloud ODv2
@@ -181,7 +185,6 @@ jobs:
       PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
       BRANCH: ${{ github.event.client_payload.data.text }}
       CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
-      SLACK_WEBHOOK: ${{  secrets.SLACK_WEBHOOK }}
       USER_ID: ${{  github.event.client_payload.data.user_id }}
 
     steps:
@@ -193,11 +196,13 @@ jobs:
       # Upload the build
       #
       - name: Slack message (uploading the build)
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Preparing to uploading the build to BR ODv2", "color": "#78BE20" }] }'
-
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Preparing to upload the build to BR Cloud.
 
       # Set up steps.
 
@@ -241,10 +246,13 @@ jobs:
 
       - name: Slack message (failed to identify the target)
         if: ${{ failure() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Cannot find the target server. Are you running the command from the correct channel?",  "color": "#DA291C" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Cannot find the target server. Are you running the command from the correct channel?
 
       - name: Print Identify target for debugging
         run: |
@@ -284,11 +292,11 @@ jobs:
           response=$(curl -i \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X POST https://api.${{ vars.BR_CLOUD }}/v3/distributions \
-          -F "dist_file=@${{ env.DISTROBUTION }};filename=${{ env.VERSION }}.tar.gz")
+          -F "dist_file=@${{ env.DISTRIBUTION }};filename=${{ env.VERSION }}.tar.gz")
           id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
           echo "id=$id" >> $GITHUB_OUTPUT
         env:
-          DISTROBUTION: ${{steps.details.outputs.distribution}}
+          DISTRIBUTION: ${{steps.details.outputs.distribution}}
           VERSION: ${{steps.details.outputs.version}}
         working-directory: ${{steps.download.outputs.download-path}}/build
 
@@ -303,14 +311,24 @@ jobs:
           ID: ${{ steps.distribution.outputs.id }}
           ID-LENGTH: ${{ steps.distribution.outputs.id.length }}
 
-
-      - name: Slack message (failed to upload )
+      - name: Slack message (failed to upload the build)
         if: ${{ failure() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Failed to upload the build",  "color": "#DA291C" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Failed to upload the build to BR Cloud. Please check the logs for more details.
 
+      - name: Slack message (successfully upload the build)
+        uses: ./.github/actions/slack-message
+        with:
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Successfully upload the build to BR Cloud.
 
       #
       # Prepare App Config Deployment Details
@@ -356,10 +374,15 @@ jobs:
       # Request deployment from ODv2
       #
       - name: Slack message (requesting deployment)
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "Requesting a deployment on BR ODv2 going to ${{steps.find-target.outputs.result.name}}", "color": "#78BE20" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Requesting a deployment on BR Cloud on environment ${{ env.TARGET }}.
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
       - name: Request Deployment from BR Cloud
         id: deployment
@@ -382,17 +405,19 @@ jobs:
 
       - name: Slack message (failed to deploy)
         if: ${{ failure() }}
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "BR ODv2 failed to request a deployment",  "color": "#DA291C" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Deployment request failed. Please check the logs for more details.
 
-
-      #
-      # End with a success message
-      #
       - name: Slack message (end message)
-        uses: muinmomin/webhook-action@v1.0.0
+        uses: ./.github/actions/slack-message
         with:
-          url: ${{ env.SLACK_WEBHOOK }}
-          data: '{ "channel": "${{ env.CHANNEL_ID }}", "text": "Pipeline progress...", "attachments": [{ "text" : "BR ODv2 is deploying. <@${{ env.USER_ID }}> You can track progress here https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details", "color": "#78BE20" }] }'
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            <@${{ env.USER_ID }}>, BR Cloud has accepted the deployment request. You can track progress on <https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details|Mission Control>.
