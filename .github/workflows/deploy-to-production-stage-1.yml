@@ -1,8 +1,10 @@
-name: Prepare the tags for the next production deployment
+# Prepare the git tags for the next stage of deploying to production
+# and report what will be deployed.
+name: Deploy to Production - Stage 1
 
 on:
   schedule:
-    # Runs at 3 pm weekdays (UK time)
+    # Runs at 3 pm weekdays (UTC time)
     - cron: "0 15 * * 1-5"
 
 env:

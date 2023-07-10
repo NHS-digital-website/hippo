@@ -1,24 +1,24 @@
-name: Deploy to Production
+name: Deploy to Production - Stage 2
 
 
 on:
-  # Request Hotfix Deployment
+  # Hotfix Deployment
   repository_dispatch:
     types:
       - slack-deploy-hotfix-command-odv2
-  # Schedule A Normal Deployment
+  # A Normal Deployment
   schedule:
-    # Runs at 12:05 pm weekdays (UK time)
+    # Runs at 12:05 pm weekdays (UTC time)
     - cron: "5 11 * * 1-5"
 
 env:
-  #Prod Env Id
   PROD_ENV_ID: "91d6f394-c2ed-40aa-bc8d-3b29e2aaa645"
   TARGET: "production"
   SLACK_CHANNEL: "C0353KHFXNJ"
 
 jobs:
 
+  # For Hotfix Deployment Only
   integrity:
     name: Slack Integrity Check
     # Only runs for SLACK Command (hotfix)
@@ -62,6 +62,7 @@ jobs:
             }
 
 
+  # For Hotfix Deployment Only
   update-tag-hotfix:
     runs-on: ubuntu-latest
     name: Move tag uat to rc for Hotfix
