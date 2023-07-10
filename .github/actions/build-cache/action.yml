@@ -1,4 +1,4 @@
-name: 'Built Cache'
+name: 'Build Cache'
 description: 'Asks Github to cache the .m2 and .npm folders'
 
 runs:
