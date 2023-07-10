@@ -94,7 +94,7 @@ jobs:
           distribution: 'adopt'
           java-version: 8
 
-      - name: Slack message (building the branch)
+      - name: Setup Cache
         uses: ./.github/actions/build-cache
 
       - name: Build and Package Branch
