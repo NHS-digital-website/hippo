@@ -2,6 +2,9 @@
 # and report what will be deployed.
 name: Deploy to Production - Stage 1
 
+permissions:
+  contents: write
+
 on:
   schedule:
     # Runs at 3 pm weekdays (UTC time)
