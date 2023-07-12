@@ -28,7 +28,7 @@ jobs:
         id: all-config-file-ids
         run: |
           response=$(curl \
-          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
           echo "allConfigFiles=${response}" >> $GITHUB_OUTPUT
 
@@ -36,7 +36,7 @@ jobs:
         id: all-envs
         run: |
           response=$(curl \
-          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ vars.BR_CLOUD }}/v3/environments)
           availEnvs=$(echo ${response} | jq --compact-output '[.items[] | {name: .name}] | map(select(.name )) | map(.name)')
           echo "allEnvs=${availEnvs}" >> $GITHUB_OUTPUT
@@ -54,7 +54,7 @@ jobs:
             do
               printf "%s\t%s\n" "$i" "${envSysConfigIds[$i]}"
               response=$(curl \
-                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
                 -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles/${envSysConfigIds[$i]})
               echo ${response}
             done
@@ -63,7 +63,7 @@ jobs:
             do
               printf "%s\t%s\n" "$i" "${envAWSConfigIds[$i]}"
               response=$(curl \
-                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
                 -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles/${envAWSConfigIds[$i]})
               echo ${response}
 
@@ -77,7 +77,7 @@ jobs:
             do
               printf "%s\t%s\n" "$i" "${envHippoConfigIds[$i]}"
               response=$(curl \
-                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
                 -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles/${envHippoConfigIds[$i]})
               echo ${response}
             done
