@@ -1,7 +1,6 @@
 name: Deploy to Production - Stage 2
 
-permissions:
-  contents: write
+permissions: write-all
 
 on:
   # Hotfix Deployment
@@ -218,6 +217,9 @@ jobs:
     timeout-minutes: 60
     name: Updating Tag
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
