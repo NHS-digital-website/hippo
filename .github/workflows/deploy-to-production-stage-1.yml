@@ -2,8 +2,7 @@
 # and report what will be deployed.
 name: Deploy to Production - Stage 1
 
-permissions:
-  contents: write
+permissions: write-all
 
 on:
   schedule:
@@ -19,6 +18,9 @@ jobs:
     name: Prepare Tags
     runs-on: ubuntu-latest
     timeout-minutes: 85
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+
     steps:
 
       - name: Checkout
