@@ -34,7 +34,7 @@ jobs:
         id: all-distribution-id
         run: |
           response=$(curl \
-          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ vars.BR_CLOUD }}/v3/distributions)
           echo "allDistIds=${response}" >> $GITHUB_OUTPUT
 
@@ -83,7 +83,7 @@ jobs:
             do
               printf "%s\t%s\n" "$i" "${nonProdLatestDistIds[$i]}"
               response=$(curl \
-                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
                 -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/distributions/${nonProdLatestDistIds[$i]})
               echo ${response}
             done
@@ -98,7 +98,7 @@ jobs:
             do
               printf "%s\t%s\n" "$i" "${prodLatestDistIds[$i]}"
               response=$(curl \
-                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
                 -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/distributions/${prodLatestDistIds[$i]})
               echo ${response}
             done
