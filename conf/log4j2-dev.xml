@@ -57,6 +57,7 @@
         <Logger name="org.apache.jackrabbit" level="warn" />
         <Logger name="org.hippoecm.repository" level="warn" />
         <Logger name="org.hippoecm.frontend" level="warn" />
+        <Logger name="org.hippoecm.frontend.diagnosis" level="info"/>
         <Logger name="org.apache.wicket" level="warn" />
 
         <!-- DiagnosticsRequestCycleListener only logs when diagnostics are enabled in the repository at
