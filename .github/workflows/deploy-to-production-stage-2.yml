@@ -1,7 +1,5 @@
 name: Deploy to Production - Stage 2
 
-permissions: write-all
-
 on:
   # Hotfix Deployment
   repository_dispatch:
@@ -75,6 +73,7 @@ jobs:
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
+          token: ${{ secrets.PAT }}
 
       - name: Tagging the build
         run: |
@@ -217,8 +216,6 @@ jobs:
     timeout-minutes: 60
     name: Updating Tag
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
 
     steps:
       - name: Checkout
@@ -226,6 +223,7 @@ jobs:
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
+          token: ${{ secrets.PAT }}
 
       - name: Tagging the build
         run: |

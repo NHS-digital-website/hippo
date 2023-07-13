@@ -2,8 +2,6 @@
 # and report what will be deployed.
 name: Deploy to Production - Stage 1
 
-permissions: write-all
-
 on:
   schedule:
     # Runs at 3 pm weekdays (UTC time)
@@ -18,8 +16,6 @@ jobs:
     name: Prepare Tags
     runs-on: ubuntu-latest
     timeout-minutes: 85
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
 
     steps:
 
@@ -28,6 +24,7 @@ jobs:
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
+          token: ${{ secrets.PAT }}
 
       - name: Move the RC Tag
         run: |
