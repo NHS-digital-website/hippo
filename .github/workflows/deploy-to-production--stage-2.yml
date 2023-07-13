@@ -1,4 +1,5 @@
-name: Deploy to Production - Stage 2
+name: Deploy to Production (Stage 2)
+
 
 on:
   # Hotfix Deployment
@@ -35,7 +36,6 @@ jobs:
         with:
           script: |
             core.setFailed('Caller source not verified!')
-
       #
       # Validate that the origin is from Slack
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
@@ -59,8 +59,6 @@ jobs:
                   core.setFailed("The origin integrity check failed.")
                 }
             }
-
-
   # For Hotfix Deployment Only
   update-tag-hotfix:
     runs-on: ubuntu-latest
@@ -77,8 +75,6 @@ jobs:
       - name: Tagging the build
         run: |
           make git.update-environment-tag ENV=rc VERSION=uat
-
-
   prepare-prod-deployment:
     name: Deploy to Production
     runs-on: ubuntu-latest
@@ -100,11 +96,8 @@ jobs:
         run: |
           fileVersion=$(git describe --tags --match v3.0* rc)
           fileName=$(git describe --tags --match v3.0* rc).tar.gz
-
           echo "fileName=${fileName}" >> $GITHUB_OUTPUT
           echo "fileVersion=${fileVersion}" >> $GITHUB_OUTPUT
-
-
       # Get API access token and verify it.
       - name: Get BR Cloud Token
         id: jwt_token
@@ -124,37 +117,31 @@ jobs:
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
            echo "details=${response}" >> $GITHUB_OUTPUT
-
       - name: Get Lastest System Properties for Envrinment
         id: system-properties
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-system-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
-
       - name: Get Lastest Platform Properties for Envrinment
         id: platform-properties
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-content-search-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
-
       - name: Get Lastest Content Search key for Envrinment
         id: content-search-key
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "content-search-key-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
-
       - name: Get Lastest AWS Keys for Envrinment
         id: aws-keys
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-aws-credentials-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
-
       - name: Get Lastest IP Configuration File ID
         id: latest-ip-whitelist
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "hippo-ipfilter-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
-
       - name: Get All Distribution Ids
         id: all-distribution-id
         run: |
@@ -165,14 +152,12 @@ jobs:
           respLengthTemp=${#response}
           echo "respLength=${respLengthTemp}" >> $GITHUB_OUTPUT
           echo ${respLengthTemp}
-
       - name: Distribution Ids Retrival failed
         if: ${{steps.all-distribution-id.outputs.respLength < 4}}
         uses: actions/github-script@v6
         with:
           script: |
             core.setFailed('Retrival of distibution ids failed ')
-
       - name: Get Distribution Ids for prod deployment
         id: prod-distribution-ids
         run: |
@@ -180,13 +165,11 @@ jobs:
           prodLatestDistId=$(echo ${latestId} | tr "[" " " | tr "]" " " | xargs)
           echo "prodDistId=${prodLatestDistId}" >> $GITHUB_OUTPUT
           echo  ${{steps.all-distribution-id.outputs.respLength}}
-
       - name: Get latest Email SMTP properties File
         id: brc-mail-smtp
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "brc-mail-smtp-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
-
       - name: Request Deployment from BR Cloud
         id: deployment
         run: |
@@ -215,7 +198,6 @@ jobs:
     timeout-minutes: 60
     name: Updating Tag
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -226,8 +208,6 @@ jobs:
       - name: Tagging the build
         run: |
           make git.update-environment-tag ENV=prd VERSION=rc
-
-
       - name: Slack message (Track progress message)
         if: ${{ success() }}
         uses: ./.github/actions/slack-message
