@@ -32,9 +32,9 @@
                     <#else>
                         <p class="nhsd-t-body ${textClass}">${options.categoryInfo}</p>
                 </#if>
-                <span class="nhsd-t-heading-l ${textClass}" data-test-text="heading">${options.title}</span>
+                <span class="nhsd-t-heading-xxl ${textClass}" data-test-text="heading">${options.title}</span>
                 <#if options.summary?has_content>
-                    <div class="nhsd-t-heading-s nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0 ${textClass}" data-uipath="${uiPath}.summary" data-test-text="summary">
+                    <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0 ${textClass}" data-uipath="${uiPath}.summary" data-test-text="summary">
                         <#if hst.isBeanType(content, 'org.hippoecm.hst.content.beans.standard.HippoHtml')>
                             <@hst.html hippohtml=options.summary contentRewriter=stripTagsContentRewriter />
                         <#else>
