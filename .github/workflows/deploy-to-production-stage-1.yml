@@ -27,8 +27,12 @@ jobs:
 
       - name: Move the RC Tag
         run: |
-          make git.update-environment-tag ENV=prd VERSION=rc
-          make git.update-environment-tag ENV=rc VERSION=uat
+          ## --> make git.update-environment-tag ENV=prd VERSION=rc
+          git tag --force prd rc
+          git push --force --no-verify origin tag prd
+          ## --> make git.update-environment-tag ENV=rc VERSION=uat
+          git tag --force rc uat
+          git push --force --no-verify origin tag rc
 
       - name: Get JIRA List
         id: getJiraListId
