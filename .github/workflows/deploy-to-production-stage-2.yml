@@ -76,9 +76,7 @@ jobs:
 
       - name: Tagging the build
         run: |
-          ## -> make git.update-environment-tag ENV=rc VERSION=uat
-          git tag --force rc uat
-          git push --force --no-verify origin tag rc
+          make git.update-environment-tag ENV=rc VERSION=uat
 
   prepare-prod-deployment:
     name: Deploy to Production
@@ -226,9 +224,7 @@ jobs:
 
       - name: Tagging the build
         run: |
-          ## -> make git.update-environment-tag ENV=prd VERSION=rc
-          git tag --force prd rc
-          git push --force --no-verify origin tag prd
+          make git.update-environment-tag ENV=prd VERSION=rc
 
 
       - name: Slack message (Track progress message)
