@@ -6,15 +6,15 @@
 <#macro downloadBlockExternal classname doc title shortsummary>
     <#assign onClickMethodCall = getOnClickMethodCall(classname, doc) />
 
-    <div class="nhsd-m-download-card">
+    <div class="nhsd-m-download-card nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
         <a href="${doc}" class="nhsd-a-box-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                <div class="nhsd-m-download-card__image-box">
+                <div class="nhsd-m-download-card__image-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                     <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->
                     <@documentIcon  "web"/>
                 </div>
 
-                <div class="nhsd-m-download-card__content-box">
+                <div class="nhsd-m-download-card__content-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                     <span class="nhsd-a-tag nhsd-a-tag--bg-dark-grey">ARTICLE</span>
 
                     <#if title?has_content>

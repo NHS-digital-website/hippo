@@ -192,7 +192,7 @@
                                              itemscope
                                              itemtype="http://schema.org/MediaObject">
                                             <@externalstorageLink attachment.resource; url>
-                                                <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
+                                                <div class="nhsd-m-download-card nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                                                     <a class="nhsd-a-box-link"
                                                        title="${attachment.text}"
                                                        href="${url}"
@@ -201,17 +201,17 @@
                                                        itemprop="contentUrl"
                                                     >
                                                         <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                                                            <div class="nhsd-m-download-card__image-box">
+                                                            <div class="nhsd-m-download-card__image-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                                                                 <@documentIcon "${iconTypeFromMime}"/>
                                                             </div>
 
-                                                            <div class="nhsd-m-download-card__content-box">
+                                                            <div class="nhsd-m-download-card__content-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                                                                 <#if attachment.text?has_content>
                                                                     <p class="nhsd-t-heading-s"
                                                                        itemprop="name">${attachment.text}</p>
                                                                 </#if>
 
-                                                                <div class="nhsd-m-download-card__meta-tags">
+                                                                <div class="nhsd-m-download-card__meta-tags nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                                                                     <#assign fileFormat = iconTypeFromMime />
                                                                     <#if fileName != "">
                                                                         <#assign fileFormat = getFileExtension(fileName?lower_case) />

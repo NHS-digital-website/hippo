@@ -36,14 +36,14 @@
     </#if>
 
     <@externalstorageLink resource earlyAccessKey; url>
-        <div class="${(small == true)?then('nhsd-m-download-card', 'nhsd-m-download-card nhsd-!t-margin-bottom-6')}">
+        <div class="${(small == true)?then('nhsd-m-download-card', 'nhsd-m-download-card nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3')}">
             <a href="${(external == true)?then(resource, url)}"
                class="nhsd-a-box-link"
                onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, url), true)}"
                onKeyUp="return vjsu.onKeyUp(event)"
                ${orgPrompt?then('data-org-prompt', '')} ${archiveContent?then('rel=archived', '')}>
                 <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                    <div class="${(small == true)?then('nhsd-m-download-card__image-box small', 'nhsd-m-download-card__image-box')}">
+                    <div class="${(small == true)?then('nhsd-m-download-card__image-box small', 'nhsd-m-download-card__image-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3')}">
                         <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->
                         <#if small>
                             <@documentIcon "${iconTypeFromMime}" "extra-small" "${fileFormat}"/>
@@ -52,13 +52,13 @@
                         </#if>
                     </div>
 
-                    <div class="${(small == true)?then('nhsd-m-download-card__content-box small', 'nhsd-m-download-card__content-box')}">
+                    <div class="${(small == true)?then('nhsd-m-download-card__content-box small', 'nhsd-m-download-card__content-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3')}">
 
                         <#if title?has_content>
                         <p class="${(small == true)?then('nhsd-t-heading-xs nhsd-!t-margin-bottom-2', 'nhsd-t-heading-s')}">${title} ${archiveContent?then("[Archive content]", "")}</p>
                         </#if>
 
-                        <div class="nhsd-m-download-card__meta-tags">
+                        <div class="nhsd-m-download-card__meta-tags nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                             <span class="nhsd-a-tag nhsd-a-tag--meta">${fileFormat}</span>
                             <#if sizeString?has_content && external == false>
                                 <span class="nhsd-a-tag nhsd-a-tag--meta-light">${sizeString}</span>
@@ -79,7 +79,7 @@
                     </div>
 
                     <#if small>
-                    <div class="nhsd-m-download-card__arrow-icon-box">
+                    <div class="nhsd-m-download-card__arrow-icon-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                         <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-arrow--down nhsd-a-icon--size-xs">
                             <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
                                 <path d="M15,8.5L8,15L1,8.5L2.5,7L7,11.2L7,1l2,0l0,10.2L13.5,7L15,8.5z"/>
