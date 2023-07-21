@@ -175,8 +175,8 @@
 
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-urlrewriter-module-hst</artifactId>
-            <scope>compile</scope>
+            <artifactId>hippo-addon-urlrewriter-site-dependencies</artifactId>
+            <type>pom</type>
         </dependency>
 
         <dependency>
