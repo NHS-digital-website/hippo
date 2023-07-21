@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>15.2.3</version>
+        <version>15.3.0</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -221,7 +221,6 @@
         <powermock.version>2.0.9</powermock.version>
         <selenium.version>4.1.1</selenium.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <snakeyaml.version>1.30</snakeyaml.version>
         <spring.version>5.3.22</spring.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>
