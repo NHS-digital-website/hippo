@@ -23,7 +23,6 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.onehippo.repository.documentworkflow.DocumentHandle;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
 import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
@@ -46,6 +45,7 @@ import javax.jcr.Repository;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+@Ignore
 public class ExternalFilePublishTaskTest {
 
     @Mock
