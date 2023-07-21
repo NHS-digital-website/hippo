@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>15.2.3</version>
+        <version>15.3.0</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -158,10 +158,10 @@
         <ehcache3.version>3.9.9</ehcache3.version>
 
         <!--
-        Consult https://chromedriver.chromium.org/downloads
+        Consult https://googlechromelabs.github.io/chrome-for-testing/
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>112.0.5615.49</chromedriver.version>
+        <chromedriver.version>127.0.6533.72</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
@@ -177,7 +177,7 @@
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
         <content-exim.version>4.0.1</content-exim.version>
-        <cucumber.version>1.2.6</cucumber.version>
+        <cucumber.version>7.14.0</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
         <findbugs.version>3.0.2</findbugs.version>
@@ -191,7 +191,8 @@
         <hippo.forge.breadcrumb.version>3.0.0</hippo.forge.breadcrumb.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.15</httpcore.version>
-        <jackson-coreutils.version>1.8</jackson-coreutils.version>
+        <jackson-coreutils.version>2.15.2</jackson-coreutils.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <jackson-dataformat-xml.version>2.13.4</jackson-dataformat-xml.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
@@ -207,7 +208,7 @@
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
         <maven-enforcer.version>3.3.0</maven-enforcer.version>
         <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
-        <maven-frontend.version>1.12.1</maven-frontend.version>
+        <maven-frontend.version>1.15.0</maven-frontend.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
         <maven-pmd.version>3.16.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
@@ -221,8 +222,6 @@
         <powermock.version>2.0.9</powermock.version>
         <selenium.version>4.1.1</selenium.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <snakeyaml.version>1.30</snakeyaml.version>
-        <spring.version>5.3.22</spring.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
@@ -242,12 +241,10 @@
         <repository>
             <id>hippo</id>
             <name>Hippo maven 2 repository.</name>
-            <url>https://maven.onehippo.com/maven2/</url>
-        </repository>
-        <repository>
-            <id>hippo-maven2</id>
-            <name>Hippo Maven 2 Repository</name>
-            <url>https://maven.onehippo.com/maven2-forge/</url>
+            <url>https://maven.bloomreach.com/repository/maven2/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>splunk-artifactory</id>
@@ -261,12 +258,12 @@
             </releases>
             <id>hippo-maven2-enterprise</id>
             <name>Hippo Enterprise Maven 2</name>
-            <url>https://maven.onehippo.com/maven2-enterprise</url>
+            <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>
         </repository>
         <repository>
             <id>hippo-forge</id>
             <name>Hippo Forge maven 2 repository.</name>
-            <url>https://maven.onehippo.com/maven2-forge/</url>
+            <url>https://maven.bloomreach.com/repository/maven2-forge/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -291,12 +288,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-content-feed-search-api</artifactId>
-            <version>${bloomreach.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>com.splunk.logging</groupId>
             <artifactId>splunk-library-javalogging</artifactId>
@@ -1089,9 +1080,32 @@
                     <artifactId>jaxb-runtime</artifactId>
                     <scope>runtime</scope>
                 </dependency>
+                <dependency>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <scope>provided</scope>
+                    <version>1.16.0</version>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-maven</artifactId>
+                        <version>1.16.0</version>
+                        <configuration>
+                            <targetClasses>
+                                <param>com.uk.nhs.digital.mutate.*</param>
+                            </targetClasses>
+                            <targetTests>
+                                <param>com.uk.nhs.digital.test.*</param>
+                            </targetTests>
+                            <!-- Optional: Configure mutation thresholds -->
+                            <mutationThreshold>
+                                <high>50</high>
+                            </mutationThreshold>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
                         <artifactId>cargo-maven2-plugin</artifactId>
@@ -1226,6 +1240,11 @@
                                 </systemProperties>
                                 <dependencies>
                                     <dependency>
+                                        <groupId>org.pitest</groupId>
+                                        <artifactId>pitest</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
                                         <groupId>org.jetbrains.kotlin</groupId>
                                         <artifactId>kotlin-stdlib</artifactId>
                                         <classpath>shared</classpath>
@@ -1238,11 +1257,6 @@
                                     <dependency>
                                         <groupId>com.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-targeting-shared-api</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>com.onehippo.cms7</groupId>
-                                        <artifactId>hippo-addon-content-feed-search-api</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
@@ -1336,6 +1350,31 @@
             <id>dist-with-development-data</id>
             <dependencies>
                 <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-slf4j-impl</artifactId>
                     <scope>provided</scope>
@@ -1401,53 +1440,8 @@
         </profile>
 
         <profile>
-            <id>separate-dist</id>
+            <id>dist</id>
             <dependencies>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>jcl-over-slf4j</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-core</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.splunk.logging</groupId>
-                    <artifactId>splunk-library-javalogging</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.google.code.gson</groupId>
-                    <artifactId>gson</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.squareup.okio</groupId>
-                    <artifactId>okio</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.squareup.okhttp3</groupId>
-                    <artifactId>okhttp</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.onehippo.cms7</groupId>
-                    <artifactId>hippo-addon-crisp-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
                 <dependency>
                     <groupId>jakarta.xml.bind</groupId>
                     <artifactId>jakarta.xml.bind-api</artifactId>
@@ -1473,144 +1467,6 @@
                     <artifactId>jaxb-runtime</artifactId>
                     <scope>provided</scope>
                 </dependency>
-            </dependencies>
-            <build>
-                <defaultGoal>validate</defaultGoal>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>site-assembly</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>${project.basedir}/src/main/assembly/site-distribution.xml</descriptor>
-                                    </descriptors>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>cms-assembly</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>${project.basedir}/src/main/assembly/cms-distribution.xml</descriptor>
-                                    </descriptors>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>on-demand-dist</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>jcl-over-slf4j</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-core</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.splunk.logging</groupId>
-                    <artifactId>splunk-library-javalogging</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.google.code.gson</groupId>
-                    <artifactId>gson</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.squareup.okio</groupId>
-                    <artifactId>okio</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.squareup.okhttp3</groupId>
-                    <artifactId>okhttp</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.onehippo.cms7</groupId>
-                    <artifactId>hippo-addon-crisp-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.xml.bind</groupId>
-                    <artifactId>jakarta.xml.bind-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.xml.ws</groupId>
-                    <artifactId>jakarta.xml.ws-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>javax.annotation</groupId>
-                    <artifactId>javax.annotation-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.activation</groupId>
-                    <artifactId>jakarta.activation-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.glassfish.jaxb</groupId>
-                    <artifactId>jaxb-runtime</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-            </dependencies>
-            <build>
-                <defaultGoal>validate</defaultGoal>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>on-demand-assembly</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>${project.basedir}/src/main/assembly/on-demand-distribution.xml</descriptor>
-                                    </descriptors>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>dist-od2</id>
-            <dependencies>
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-slf4j-impl</artifactId>
@@ -1634,31 +1490,6 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.xml.bind</groupId>
-                    <artifactId>jakarta.xml.bind-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.xml.ws</groupId>
-                    <artifactId>jakarta.xml.ws-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>javax.annotation</groupId>
-                    <artifactId>javax.annotation-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>jakarta.activation</groupId>
-                    <artifactId>jakarta.activation-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.glassfish.jaxb</groupId>
-                    <artifactId>jaxb-runtime</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
