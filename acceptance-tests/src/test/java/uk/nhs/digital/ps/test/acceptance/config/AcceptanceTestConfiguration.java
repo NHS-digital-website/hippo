@@ -3,10 +3,12 @@ package uk.nhs.digital.ps.test.acceptance.config;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import io.cucumber.spring.CucumberContextConfiguration;
 import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.test.context.ContextConfiguration;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.data.WebDriversRepo;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
@@ -27,7 +29,8 @@ import java.nio.file.Paths;
 /**
  * Central configuration class, enabling acceptance tests to benefit from Spring-based dependency injection.
  */
-@Configuration
+@CucumberContextConfiguration
+@ContextConfiguration(classes = AcceptanceTestConfiguration.class)
 public class AcceptanceTestConfiguration {
 
     private static final Logger log = getLogger(AcceptanceTestConfiguration.class);

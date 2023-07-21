@@ -20,10 +20,10 @@ import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
 
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.apache.commons.io.FileUtils;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
