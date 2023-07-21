@@ -295,7 +295,7 @@ tests in the system. In such a case, you can speed up improve your change-the-te
 running selected Cucumber scenario(s) rather than all.
 
 To do that:
-- tag selected scenario(s) with a [custom tag][Gherkin tags] `@WIP`, placing it in the line directly preceding
+- tag selected scenario(s) with a [custom tag][Gherkin tags] `@wip`, placing it in the line directly preceding
   the scenario.
 - run `make test.wip` this will run only the scenarios you have tagged.
 
