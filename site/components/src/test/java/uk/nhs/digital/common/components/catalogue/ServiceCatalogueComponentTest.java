@@ -31,6 +31,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.onehippo.repository.mock.MockNode;
 import org.onehippo.repository.mock.MockSession;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareOnlyThisForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
@@ -47,6 +48,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RunWith(PowerMockRunner.class)
+@PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*", "javax.management.*"})
 @PrepareOnlyThisForTest({CatalogueContext.class, ServiceCatalogueComponent.class})
 public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
 
