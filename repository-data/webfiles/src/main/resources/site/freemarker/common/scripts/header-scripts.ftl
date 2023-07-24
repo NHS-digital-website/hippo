@@ -14,13 +14,6 @@
 
     gtag('js', new Date());
     gtag('config', 'UA-76954916-2', {'anonymize_ip': true});
-
-    function logGoogleAnalyticsEvent(action, category, label) {
-        gtag('event', action, {
-            'event_category': category,
-            'event_label': label
-        });
-    }
 </script>
 
 <#-- Hotjar tracking -->

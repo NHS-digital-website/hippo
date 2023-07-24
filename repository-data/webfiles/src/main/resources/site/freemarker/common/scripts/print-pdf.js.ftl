@@ -53,8 +53,6 @@
                 });*/
                 $(_this.imageLoader).on('completed', function() {
                     setTimeout(function() {
-                        logGoogleAnalyticsEvent('Button click','Download as PDF', window.location.href);
-
                         var browserName = navigator.userAgent.toLowerCase();
                         _this.iframe.focus();
 
