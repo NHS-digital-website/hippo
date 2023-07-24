@@ -1,0 +1,78 @@
+name: 'Send Slack Message'
+description: 'Sends a slack message via our CI/CD Pipeline App'
+
+
+inputs:
+  SLACK_API_TOKEN:
+    description: 'The CI/CD Pipeline app token'
+    required: true
+  SLACK_CHANNEL:
+    # Note the bot must be added to the receiving channel
+    description: 'A Slack channel to route the message to'
+    required: true
+  TITLE:
+    description: 'The title of the message (Plain Text)'
+    required: true
+  MESSAGE:
+    description: 'The body of the message (Markdown)'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+
+    - id: jwt_token
+      run: |
+        curl \
+        -H "Authorization: Bearer ${{ env.TOKEN }}" \
+        -H "Content-type: application/json; charset=utf-8" \
+        -X POST https://slack.com/api/chat.postMessage \
+        -d @- << EOF
+        {
+          "channel":"${{ env.CHANNEL }}",
+          "unfurl_links": false,
+          "blocks": [{
+            "type": "header",
+            "text": {
+              "type": "plain_text",
+              "text": "${{ env.TITLE }}",
+              "emoji": true
+            }
+          },
+          {
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "${{ env.MESSAGE }}"
+            }
+          },
+          {
+            "type": "context",
+            "elements": [
+              {
+                "type": "mrkdwn",
+                "text": "Origin Workflow ${{ env.GITHUB_WORKFLOW_URL }}",
+              }
+            ]
+          },
+          {
+            "type": "context",
+            "elements": [
+              {
+                "type": "mrkdwn",
+                "text": "The Web Team continues to be awesome :grin:",
+              }
+            ]
+          },
+          {
+            "type": "divider"
+          }]
+        }
+        EOF
+      env:
+        TOKEN: ${{ inputs.SLACK_API_TOKEN }}
+        CHANNEL: ${{ inputs.SLACK_CHANNEL }}
+        TITLE: ${{ inputs.TITLE }}
+        MESSAGE: ${{ inputs.MESSAGE }}
+        GITHUB_WORKFLOW_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      shell: bash

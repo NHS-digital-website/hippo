@@ -19,6 +19,8 @@ definitions:
       extension.mimetype.allowed.mappings:
       - .csv,text/csv
       - .exe,application/x-dosexec
+      - .crt,application/x-x509-cert; format=der
+      - .crt,application/x-x509-cert; format=pem
       extensions.allowed:
       - doc
       - docx
@@ -50,6 +52,7 @@ definitions:
       - msi
       - inf
       - html
+      - crt
       jcr:primaryType: frontend:plugin
       max.file.size: 3000M
       plugin.class: org.hippoecm.frontend.plugins.yui.upload.validation.AssetUploadValidationPlugin

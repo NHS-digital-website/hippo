@@ -42,43 +42,8 @@ jobs:
           java-version: 8
 
       # Step 5
-      - name: Get cache key helper values
-        uses: actions/github-script@v6
-        id: cache-key-helper
-        with:
-          result-encoding: string
-          script: |
-            return JSON.stringify({
-              "year" : new Date().getFullYear(),
-              "rotation" : new Date().getTimezoneOffset()
-            })
-
-      - name: Setup cache (Maven packages)
-        uses: actions/cache@v3
-        env:
-          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
-          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-nhs-digital-${{ env.YEAR }}-${{ env.ROTATION }}-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-nhs-digital-${{ env.YEAR }}-${{ env.ROTATION }}-
-            ${{ runner.os }}-maven-nhs-digital-${{ env.YEAR }}-
-            ${{ runner.os }}-maven-nhs-digital-
-            ${{ runner.os }}-maven-nhs-
-
-      - name: Setup cache (Node.js packages)
-        uses: actions/cache@v3
-        env:
-          YEAR: ${{ fromJSON(steps.cache-key-helper.outputs.result).year }}
-          ROTATION: ${{ fromJSON(steps.cache-key-helper.outputs.result).rotation }}
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-nhs-digital-${{ env.YEAR }}-${{ env.ROTATION }}
-          restore-keys: |
-            ${{ runner.os }}-node-nhs-digital-${{ env.YEAR }}-
-            ${{ runner.os }}-node-nhs-digital-
-            ${{ runner.os }}-node-nhs-
+      - name: Setup Cache
+        uses: ./.github/actions/build-cache
 
       # Step 6 (Formatting Checks)
       - name: Check YAML formatting
@@ -101,38 +66,11 @@ jobs:
             })
 
 
-          # Step 7 (Functional Tests)
+      # Step 7 (Functional Tests)
       - name: Test Project
         run: make test.site CI=true
 
       # Step 8
-      # Notify via Slack that the PR's 'build and test' failed
-      - name: "Send fail message"
-        if: failure()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: support
-          SLACK_ICON: 'https://avatars.slack-edge.com/2021-01-13/1630579512549_65b98dab3cfe3321e943_48.png'
-          SLACK_USERNAME: CI/CD Pipeline
-          SLACK_COLOR: '#ff0d0d'
-          SLACK_TITLE: PR Request 'build and test' failed
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_FOOTER: 'Oh yeah, I may have forgotten something.'
-
-      # Notify via Slack that the PR's 'build and test' succeeded
-      - name: "Send a success message"
-        if: success()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: support
-          SLACK_ICON: 'https://avatars.slack-edge.com/2021-01-13/1630579512549_65b98dab3cfe3321e943_48.png'
-          SLACK_USERNAME: CI/CD Pipeline
-          SLACK_COLOR: '#02ad0a'
-          SLACK_TITLE: PR Request 'build and test' succeeded
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_FOOTER: 'The Web Team are awesome!'
-
-      # Step 9
       # Store test results as an artifact
       - name: "Upload cucumber report"
         uses: actions/upload-artifact@v3
@@ -142,7 +80,7 @@ jobs:
           path: |
             acceptance-tests/src/test/node/cucumber-report.html
 
-      # Step 10
+      # Step 9
       # Read test summary
       - name: Read test summary
         if: always()
@@ -154,7 +92,7 @@ jobs:
           SUMMARY="${SUMMARY//$'\r'/'%0D'}"
           echo "summary=$SUMMARY" >> $GITHUB_OUTPUT
 
-      # Step 11
+      # Step 10
       # Add comment to PR with test results
       - name: "Added PR comment"
         if: ${{ always() && steps.testsummary.outcome == 'success' }}

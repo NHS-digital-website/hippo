@@ -1,4 +1,3 @@
-
 name: Remove Old Builds
 
 on:
@@ -19,52 +18,27 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      # Get API access token and verify it.
-      - name: Obtaino JWT Token
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get BR Cloud Token
         id: jwt_token
-        run: |
-          response=$(curl -i \
-          -H "Accept: application/json; charset=utf-8" \
-          -X POST https://api.${{ vars.BR_CLOUD }}/v3/authn/access_token \
-          -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
-          token1=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
-          refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
-          echo "token1=$token1" >> $GITHUB_OUTPUT
-          echo "refresh=$refresh" >> $GITHUB_OUTPUT
-
-        env:
-          USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
-          PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
-
-      - name: Verify JWT Token
-        id: jwt_token_verify
-        run: |
-          code=$(curl -L \
-          -H "Accept: application/json; charset=utf-8" \
-          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
-          -X GET https://api.${{ vars.BR_CLOUD }}/v3/authn/verify_token \
-          -o /dev/null -w '%{http_code}\n' -s)
-          echo "code=$code" >> $GITHUB_OUTPUT
-
-      - name: Check Response Code from Verify JWT Token
-        if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-        uses: actions/github-script@v6
+        uses: ./.github/actions/br-cloud-token
         with:
-          script: |
-            core.setFailed('The JWT token failed verification!')
-        env:
-          # 'CODE' is for debugging fails
-          CODE: ${{ steps.jwt_token_verify.outputs.code }}
+          MISSION_CONTROL_API_USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          MISSION_CONTROL_API_PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+          MISSION_CONTROL_API_HOST: ${{ vars.BR_CLOUD }}
 
       - name: Get All Distribution Ids
         id: all-distribution-id
         run: |
           response=$(curl \
-          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X GET https://api.${{ vars.BR_CLOUD }}/v3/distributions)
           echo "allDistIds=${response}" >> $GITHUB_OUTPUT
 
-      - name: Distribution Ids Retrival failed
+      - name: Distribution Ids Retrieval failed
         if: ${{ contains(steps.all-distribution-id.response ,'401') }}
         uses: actions/github-script@v6
         with:
@@ -72,7 +46,7 @@ jobs:
             core.setFailed('Retrival of distibution ids failed ')
 
       - name: Get NON-Prod Distribution Ids To be Removed
-        #Retrieve all non prod distribution ids which needs to be removed
+        # Retrieve all non prod distribution ids which needs to be removed
         id: latest-non-prod-distribution-ids
         run: |
           latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date) | reverse | map(select(.name | test("${{env.NON_PROD_REG_EXPRESSION}}"))) | map(.id) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_NON_PROD}}:]')
@@ -81,7 +55,7 @@ jobs:
           echo "latestNonProdDistName=${fileNamesNonProd}" >> $GITHUB_OUTPUT
 
       - name: Get Latest Prod Distribution Ids to be removed
-        #Retrieve all prod distribution ids which needs to be removed
+        # Retrieve all prod distribution ids which needs to be removed
         id: latest-prod-distribution-ids
         run: |
           latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | sort_by(.date)| reverse | map(select(.name | test("${{env.PROD_REG_EXPRESSION}}"))) | map(.id) | .[${{env.NO_OF_DISTRIBUTION_TO_KEEP_PROD}}:]')
@@ -109,7 +83,7 @@ jobs:
             do
               printf "%s\t%s\n" "$i" "${nonProdLatestDistIds[$i]}"
               response=$(curl \
-                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
                 -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/distributions/${nonProdLatestDistIds[$i]})
               echo ${response}
             done
@@ -124,7 +98,7 @@ jobs:
             do
               printf "%s\t%s\n" "$i" "${prodLatestDistIds[$i]}"
               response=$(curl \
-                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token1 }}" \
+                -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
                 -X DELETE https://api.${{ vars.BR_CLOUD }}/v3/distributions/${prodLatestDistIds[$i]})
               echo ${response}
             done

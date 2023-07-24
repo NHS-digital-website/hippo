@@ -48,6 +48,7 @@
         <!-- CMS logging -->
         <Logger name="org.apache" level="error"/>
         <Logger name="org.hippoecm" level="error"/>
+        <Logger name="org.hippoecm.frontend.diagnosis" level="info"/>
         <Logger name="com.onehippo" level="error"/>
         <Logger name="org.onehippo" level="error"/>
 

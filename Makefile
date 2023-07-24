@@ -48,7 +48,7 @@ serve.enhance: essentials/target/essentials.war
 ## Serve without allowing auto-export
 # Clean and recompile only modules that we do customise.
 serve.noexport: essentials/target/essentials.war
-	mvn clean verify $(MVN_OPTS) \
+	mvn -T 1C clean verify $(MVN_OPTS) \
 	-am -DskipTests=true \
 	-pl site,cms,repository-data/development,repository-data/local
 	$(MAKE) run PROFILE_RUN=cargo.run,without-autoexport
@@ -56,10 +56,6 @@ serve.noexport: essentials/target/essentials.war
 ## Start server using cargo.run
 run:
 	mvn $(MVN_OPTS) -P $(PROFILE_RUN) $(REPO_PATH)
-
-# we don't have to recompile it every time.
-essentials/target/essentials.war:
-	mvn clean verify $(MVN_OPTS) -pl essentials -am --offline -DskipTests=true
 
 ## Run only acceptance tests tagged with "WIP"
 # This target requires a running site instance (e.g. `make serve.noexport`)
@@ -69,44 +65,11 @@ test.wip:
 		-Dheadless=false \
 		-Dcucumber.options="src/test/resources/features --tags @WIP" \
 
-## Generate a number of test docs and users for S3 performance testing
-# Optional argument TEST_DOCS_COUNT=X specifies the number of Legacy Publication YAML files to
-# generate in local module, ready for bootstrapping; if the argument is not provided then the number
-# is by default 100.
-#
-# See 'test-s3-performance.md' for more details.
-prep.s3-perf-test-data:
-	mvn gplus:execute@generate-s3-perf-test-docs $(MVN_OPTS) \
-		-pl repository-data/local \
-		-DdocumentCount=$(TEST_DOCS_COUNT) \
-
-## Run S3 performance tests - only those tagged with "WIP"
-# This target requires a running site instance (e.g. `make serve.noexport`)
-# To target instances other than the default one running on localhost,
-# provide CMS_URL=<your-url-here> and/or SITE_URL=<your-site-url-here>
-test.s3-perf:
-	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
-		-Pacceptance-test \
-		-Dheadless=false \
-		-Dcucumber.options="src/test/resources/s3-performance --tags @WIP" \
-		-DcmsUrl=$(CMS_URL) \
-		-DsiteUrl=$(SITE_URL) \
 
 ## Format YAML files, run after exporting to reduce changes
 format-yaml:
 	mvn gplus:execute@format-yaml $(MVN_OPTS) \
 		-pl repository-data/local
-
-## Update maven dependency versions
-update-dependencies:
-	mvn verify $(MVN_OPTS) versions:update-parent versions:use-latest-versions versions:update-properties versions:commit -U -DskipTests=true
-
-## proxy all other targets to ci-cd/Makefile
-# Usage: make test
-#        make test.site
-#        make test.unit
-%:
-	$(MAKE) -C ci-cd/ $@
 
 # install hooks and local git config
 .git/.local-hooks-installed:
@@ -126,3 +89,10 @@ lint-frontend-fix:
 
 ci-pipeline-lint-frontend:
 	cd repository-data/webfiles && npm install && npm run lint
+
+## proxy all other targets to ci-cd/Makefile
+# Usage: make test
+#        make test.site
+#        make test.unit
+%:
+	$(MAKE) -C ci-cd/ $@

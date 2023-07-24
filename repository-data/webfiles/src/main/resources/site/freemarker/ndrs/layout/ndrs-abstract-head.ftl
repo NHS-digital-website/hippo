@@ -13,7 +13,7 @@
 
         gtag('config', 'G-NFB0ZQ0CHQ');
     </script>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" async></script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" async></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

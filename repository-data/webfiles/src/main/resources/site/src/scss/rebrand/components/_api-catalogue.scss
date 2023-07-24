@@ -150,6 +150,55 @@
   }
 }
 
+.section-label-description {
+    position: absolute;
+    width: 9rem;
+    top: 1.1rem;
+    display: none;
+    margin-left: 2.8rem;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    padding: 8px;
+    cursor: text;
+    z-index: 1;
+}
+
+.section-label-description p {
+    display: none;
+    color: grey;
+    font-size: small;
+}
+
+.section-label-container {
+    position: relative;
+}
+
+.filter-category-label__described:hover ~ .section-label-description {
+    display: block;
+}
+
+.filter-category-label__described:hover ~ .section-label-description p {
+    display: inline;
+}
+
+.section-label-description:hover {
+    display: block;
+}
+
+.section-label-description:hover > p {
+    display: inline;
+}
+
+.filter-label__described:hover ~ .section-label-description {
+    display: block;
+}
+
+.filter-label__described:hover ~ .section-label-description p {
+    display: inline;
+}
+
 .filter-entries-edge {
     position: absolute;
     margin-left: -1em;

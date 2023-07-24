@@ -67,18 +67,6 @@
                             </scripts>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>generate-s3-perf-test-docs</id>
-                        <phase>none</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <scripts>
-                                <script>file:///${project.basedir}/src/test/groovy/GenerateTestDocsForTestingS3Concurrent.groovy</script>
-                            </scripts>
-                        </configuration>
-                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>
