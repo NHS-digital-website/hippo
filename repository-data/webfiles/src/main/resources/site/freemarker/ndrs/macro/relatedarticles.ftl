@@ -21,7 +21,7 @@
                     <#-- do NOT display Person doctypes as related documents-->
                         <div>
                             <@hst.link hippobean=article var="link"/>
-                            <a href="${link}" onClick="logGoogleAnalyticsEvent('Link click','${articleType}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${article.title}">${article.title}</a>
+                            <a href="${link}" title="${article.title}">${article.title}</a>
                             <#if showDates>
                                 <#assign dateandtime = "" />
                                 <#if article.publisheddatetime?? && article.publisheddatetime?has_content>

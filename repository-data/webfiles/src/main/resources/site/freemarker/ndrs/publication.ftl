@@ -287,8 +287,7 @@
                                         <@hst.link hippobean=dataset.selfLinkBean var="dataSetLink">
                                             <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
                                         </@hst.link>
-                                        <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="${dataSetLink}"
-                                                                 onClick="logGoogleAnalyticsEvent('Link click','Data set',${dataSetLink});">${dataset.title}</a></span>
+                                        <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="${dataSetLink}">${dataset.title}</a></span>
                                         <#list dataset.summary.elements as element>
                                             <meta itemprop="description" content="${element}"/>
                                         </#list>
@@ -395,10 +394,7 @@
                             <h2 class="nhsd-t-heading-m">${relatedLinksHeader}</h2>
                             <ul data-uipath="ps.publication.related-links" class="nhsd-t-list nhsd-t-list--bullet">
                                 <#list publication.relatedLinks as link>
-                                    <li><a href="${link.linkUrl}"
-                                       onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');"
-                                       onKeyUp="return vjsu.onKeyUp(event)"
-                                       title="${link.linkText}">${link.linkText}</a></li>
+                                    <li><a href="${link.linkUrl}" title="${link.linkText}">${link.linkText}</a></li>
                                 </#list>
                             </ul>
                         </div>

@@ -171,8 +171,6 @@
                                         <a class="nhsd-a-box-link"
                                             href="${url}"
                                             title="${attachment.text}"
-                                            onClick="logGoogleAnalyticsEvent('Download attachment','Event','${url}');"
-                                            onKeyUp="return vjsu.onKeyUp(event)"
                                             itemprop="contentUrl"
                                             aria-label="${attachment.text}"
                                         >
