@@ -29,15 +29,18 @@ public class ProxygenJwtClientAuthenticationHandler implements ClientAuthenticat
     private final String privateKey;
     private final String clientId;
     private final String audUrl;
+    private final String kid;
 
-    public ProxygenJwtClientAuthenticationHandler(final String privateKey, String clientId, String audUrl) {
+    public ProxygenJwtClientAuthenticationHandler(final String privateKey, String clientId, String audUrl, String kid) {
         this.privateKey = privateKey;
         this.clientId = clientId;
         this.audUrl = audUrl;
+        this.kid = kid;
 
         ensureRequiredArgProvided("Proxygen Private Key", privateKey);
         ensureRequiredArgProvided("Proxygen Client ID", clientId);
         ensureRequiredArgProvided("Proxygen Audience URL", audUrl);
+        ensureRequiredArgProvided("Proxygen Auth KID", kid);
     }
 
     @Override
@@ -59,6 +62,7 @@ public class ProxygenJwtClientAuthenticationHandler implements ClientAuthenticat
         return Jwts.builder()
             .setSubject(clientId)
             .setIssuer(clientId)
+            .setHeaderParam("kid", kid)
             .setId(String.valueOf(UUID.randomUUID()))
             .setAudience(audUrl)
             .setExpiration(new Date(System.currentTimeMillis() + 300 * 1000))
