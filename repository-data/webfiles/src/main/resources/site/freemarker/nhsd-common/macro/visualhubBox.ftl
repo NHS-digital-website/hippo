@@ -21,12 +21,12 @@
         <#if link.linkType == "internal">
             <@hst.link hippobean=link.link var="internalLink"/>
         <#-- Below does not work if declared in section above -->
-            <a href="${internalLink}" class="nhsd-a-box-link " aria-label="${title}"  onClick="logGoogleAnalyticsEvent('Link click','Card Link',${internalLink});">
+            <a href="${internalLink}" class="nhsd-a-box-link" aria-label="${title}">
         <#elseif link.linkType == "external">
-            <a href="${link.link}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" onClick="logGoogleAnalyticsEvent('Link click','Card Link',${link.link});">
+            <a href="${link.link}" class="nhsd-a-box-link" aria-label="${title}">
         <#elseif link.linkType == "asset">
                 <@hst.link hippobean=link.link var="assestLink"/>
-                <a href="${assestLink}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link " aria-label="${title}" onClick="logGoogleAnalyticsEvent('Link click','Card Link',${assestLink});">
+                <a href="${assestLink}" class="nhsd-a-box-link" aria-label="${title}">
         </#if>
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-card__content_container">

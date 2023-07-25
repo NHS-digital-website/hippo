@@ -31,7 +31,7 @@
             <#list lettersOfTheAlphabet as letter>
                 <#if alphabetical_hash[letter]??>
                     <li>
-                        <a class="nhsd-a-character-block" href="${navUrl}#${letter?lower_case}" onclick="logGoogleAnalyticsEvent('a-z-nav-click','a-z-nav-category#${letter?lower_case}','a-z-nav-label#${letter?lower_case}');" aria-label="Jump to articles starting with the letter '${letter}'">${letter}</a>
+                        <a class="nhsd-a-character-block" href="${navUrl}#${letter?lower_case}" aria-label="Jump to articles starting with the letter '${letter}'">${letter}</a>
                     </li>
                 <#else>
                     <li>
