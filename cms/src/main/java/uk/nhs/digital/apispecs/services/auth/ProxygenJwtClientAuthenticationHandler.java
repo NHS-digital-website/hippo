@@ -29,7 +29,7 @@ public class ProxygenJwtClientAuthenticationHandler implements ClientAuthenticat
     private final String privateKey;
     private final String clientId;
     private final String audUrl;
-    private final String kid; //KID
+    private final String kid;
 
     public ProxygenJwtClientAuthenticationHandler(final String privateKey, String clientId, String audUrl, String kid) {
         this.privateKey = privateKey;
