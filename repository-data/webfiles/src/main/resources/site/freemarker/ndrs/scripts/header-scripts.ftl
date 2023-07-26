@@ -4,9 +4,6 @@
     document.querySelector('html').classList.remove('nhsd-no-js');
 </script>
 
-<#-- GA Tracking code -->
-<script src="https://www.googletagmanager.com/gtag/js?id=UA-76954916-2"></script>
-
 <#-- Hotjar tracking -->
 <#include "hotjar.js.ftl"/>
 <@hst.webfile var="webfilepath" path="" />
