@@ -94,7 +94,7 @@
                                     <#list section.attachments as attachment>
                                         <li class="attachment">
                                             <@externalstorageLink attachment.resource; url>
-                                            <a href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','CI landing page','${document.title} - ${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" title="${attachment.text}">${attachment.text}</a>
+                                            <a href="${url}" title="${attachment.text}">${attachment.text}</a>
                                             <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                                             </@externalstorageLink>
                                         </li>
@@ -104,7 +104,7 @@
                                 <#if hasRelatedLinks>
                                     <#list section.relatedLinks as link>
                                     <li>
-                                        <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','CI landing page','${document.title} - ${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
+                                        <a href="${link.linkUrl}" title="${link.linkText}">${link.linkText}</a>
                                     </li>
                                     </#list>
                                 </#if>
