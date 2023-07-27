@@ -71,6 +71,7 @@
                                 <constructor-arg value="#{applicationSecrets.getValueChained('devzone.proxygen.oauth.privateKey')}"/>
                                 <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_PROXYGEN_OAUTH_CLIENT_ID')}"/>
                                 <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.aud.url')}"/>
+                                <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.kid')}"/>
                             </bean>
                         </property>
                     </bean>
