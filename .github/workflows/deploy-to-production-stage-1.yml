@@ -25,6 +25,8 @@ jobs:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
 
+      # If this fails on GitHub for a permissions issues (that may seem unrelated) run the failing command
+      # on your DevOps laptop. Then rerun the failed job.
       - name: Move the RC Tag
         run: |
           make git.update-environment-tag ENV=prd VERSION=rc
