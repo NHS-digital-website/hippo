@@ -55,10 +55,9 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 
-@Ignore
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JcrDocumentUtils.class, JcrNodeUtils.class, ApiSpecSyncFromProxygenJob.class, ApplicationSecrets.class, JcrRowUtils.class})
-@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*", "com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*", "org.w3c.*"})
+@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*", "com.sun.org.apache.xerces.*", "com.sun.org.apache.xalan.*", "javax.xml.*", "org.xml.*", "org.w3c.*"})
 public class ApiSpecSyncFromProxygenJobIntegrationTest {
 
     private static final String PROPERTY_NAME_WEBSITE_JSON = "website:json";
