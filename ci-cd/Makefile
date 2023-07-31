@@ -58,12 +58,14 @@ test.unit:
 ## Run BDD tests for "site" only.
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
+		-Djava.locale.providers=COMPAT \
 		-Dcucumber.options="src/test/resources/features/site" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
 
 ## Run acceptance tests against already running server (`make serve`)
 test.site-running:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Djava.locale.providers=COMPAT \
 		-Dcucumber.options="src/test/resources/features/site" \
 		-Pacceptance-test,$(PLAYWRIGHT_PROFILE)
 

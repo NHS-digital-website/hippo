@@ -191,7 +191,8 @@
         <hippo.forge.breadcrumb.version>3.0.0</hippo.forge.breadcrumb.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.15</httpcore.version>
-        <jackson-coreutils.version>1.8</jackson-coreutils.version>
+        <jackson-coreutils.version>2.15.2</jackson-coreutils.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <jackson-dataformat-xml.version>2.13.4</jackson-dataformat-xml.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
@@ -221,7 +222,6 @@
         <powermock.version>2.0.9</powermock.version>
         <selenium.version>4.1.1</selenium.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <spring.version>5.3.22</spring.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
