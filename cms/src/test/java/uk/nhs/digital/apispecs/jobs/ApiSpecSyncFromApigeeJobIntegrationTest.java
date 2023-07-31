@@ -172,6 +172,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         given(System.getenv("proxygenMachineUser.key")).willReturn("privateKey");
         given(System.getenv("DEVZONE_PROXYGEN_OAUTH_CLIENT_ID")).willReturn("clientId");
         given(System.getenv("devzone.proxygen.oauth.aud.url")).willReturn("audUrl");
+        given(System.getenv("devzone.proxygen.oauth.kid")).willReturn("test-1");
     }
 
     private void crispApiConfiguredForOAuth2() {
