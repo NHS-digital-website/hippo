@@ -17,6 +17,8 @@ import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
 import cucumber.api.DataTable;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -75,6 +77,19 @@ public class SiteSteps extends AbstractSpringSteps {
         WebElement element = sitePage.findElementWithTitle(linkTitle);
 
         assertThat("I can find element with title: " + linkTitle,
+            element, is(notNullValue()));
+
+        sitePage.clickOnElement(element);
+
+        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
+        sitePage.clickCookieAcceptButton();
+    }
+
+    @When("^I click on the \"([^\"]*)\" labelled button$")
+    public void whenIClickOnLinkLabelled(String linkLabel) throws Throwable {
+        WebElement element = sitePage.findElementWithLabel(linkLabel);
+
+        assertThat("I can find element with label: " + linkLabel,
             element, is(notNullValue()));
 
         sitePage.clickOnElement(element);

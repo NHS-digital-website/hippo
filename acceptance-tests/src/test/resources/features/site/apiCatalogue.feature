@@ -28,7 +28,7 @@ Feature: API Catalogue in Developer hub
     Scenario: API Catalogue renders filtered results when filters applied
         Given I navigate to "Static API Catalogue" page
         When I click on the label for "toggler_care-setting"
-        And I click on the "Filter by Inpatient" button
+        And I click on the "Filter by Inpatient" labelled button
         Then the index is rendered with entries:
             | text | href  | aria-label                                    |
             | H    | #h    | Jump to articles starting with the letter 'H' |
