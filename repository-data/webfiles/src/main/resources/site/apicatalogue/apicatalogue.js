@@ -12,7 +12,10 @@ function containsMatchingText(result, searchTerm) {
     const regex = new RegExp(`\\b${searchTerm.trim()}`, 'gi');
     const headingContainsTerm = result.querySelector('h2').textContent.match(regex);
     const summaryContainsTerm = result.querySelector('p').textContent.match(regex);
-    return headingContainsTerm || summaryContainsTerm;
+    const tagsContainTerm = Array.from(result.querySelectorAll('.nhsd-a-tag'))
+        .map((item) => item.textContent.match(regex) != null)
+        .includes(true);
+    return headingContainsTerm || summaryContainsTerm || tagsContainTerm;
 }
 
 function isVisible(element) {
