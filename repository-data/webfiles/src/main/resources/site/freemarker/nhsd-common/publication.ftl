@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 
 <#include "../include/imports.ftl">
-<#include "./macro/metaTags.ftl">
 <#include "./macro/component/lastModified.ftl">
 <#include "./macro/heroes/hero.ftl">
 <#include "./macro/publicationsystem/structured-text.ftl">
@@ -25,7 +24,8 @@
 
 <#assign earlyAccessKey = hstRequest.request.getParameter("key")!"">
 
-<#-- Add meta tags -->
+<#-- Add meta tagging -->
+<#include "macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
 <#assign hasChapters = publication.publiclyAccessible && publication.pageIndex?has_content />

@@ -3,7 +3,6 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.News" -->
 <#include "../include/imports.ftl">
-<#include "macro/metaTags.ftl">
 <#include "macro/relatedarticles.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/editorsnotes.ftl">
@@ -16,7 +15,8 @@
 <#include "macro/latestblogs.ftl">
 <#include "macro/shareSection.ftl">
 
-<#-- Add meta tags -->
+<#-- Add meta tagging -->
+<#include "macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.news"/>
