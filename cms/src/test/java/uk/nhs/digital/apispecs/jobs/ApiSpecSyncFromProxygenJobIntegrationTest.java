@@ -74,6 +74,7 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
     private static final String PARAM_PROXYGEN_OAUTH_AUD_URL = "devzone.proxygen.oauth.aud.url";
     private static final String PARAM_PROXYGEN_OAUTH_CLIENT_ID = "DEVZONE_PROXYGEN_OAUTH_CLIENT_ID";
     private static final String PARAM_PROXYGEN_OAUTH_PRIVATE_KEY = "devzone.proxygen.oauth.privateKey";
+    private static final String PARAM_PROXYGEN_OAUTH_KID = "devzone.proxygen.oauth.kid";
 
     private static final String PROXYGEN_CLIENT_ID = "clientId";
     private static final String PROXYGEN_TEST_PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
@@ -103,6 +104,8 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
         + "e3hJttb3KgXD4Rx/LLvBto6hhBVo+qLdbALZMBPQNKiCgY0hL1+lhKeUyYiZbx76\n"
         + "puFQeyOxa0XT7lrib0qGGS1nHzt62YxTBzHziNwNo6YexTp7ouE0578=\n"
         + "-----END RSA PRIVATE KEY-----\n";
+
+    private static final String PROXYGEN_OAUTH_KID = "test-1";
 
     private static final String PROXYGEN_OAUTH_ACCESS_TOKEN = "accessToken";
     private static final String PROXYGEN_CLIENT_ASSERTION_TYPE = "urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer";
@@ -184,6 +187,7 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
         given(System.getProperty(PARAM_PROXYGEN_OAUTH_AUD_URL)).willReturn(oauthAudUrl);
         given(System.getenv(PARAM_PROXYGEN_OAUTH_CLIENT_ID)).willReturn(PROXYGEN_CLIENT_ID);
         given(System.getenv(PARAM_PROXYGEN_OAUTH_PRIVATE_KEY)).willReturn(PROXYGEN_TEST_PRIVATE_KEY);
+        given(System.getenv(PARAM_PROXYGEN_OAUTH_KID)).willReturn(PROXYGEN_OAUTH_KID);
 
         // This config is required to create the apigeeManagementApi bean in custom-resource-resolvers
         given(System.getenv("DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN")).willReturn("authToken");
@@ -196,7 +200,8 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
             .withProperty(PARAM_PROXYGEN_OAUTH_TOKEN_URL, oauthTokenUrl)
             .withProperty(PARAM_PROXYGEN_RESOURCES_SPECS_INDIVIDUAL_URL, proxygenSingleSpecUrlTemplate)
             .withProperty(PARAM_PROXYGEN_OAUTH_CLIENT_ID, PROXYGEN_CLIENT_ID)
-            .withProperty(PARAM_PROXYGEN_OAUTH_PRIVATE_KEY, PROXYGEN_TEST_PRIVATE_KEY);
+            .withProperty(PARAM_PROXYGEN_OAUTH_PRIVATE_KEY, PROXYGEN_TEST_PRIVATE_KEY)
+            .withProperty(PARAM_PROXYGEN_OAUTH_KID, PROXYGEN_OAUTH_KID);
 
         // See https://documentation.bloomreach.com/14/library/concepts/crisp-api/unit-testing.html
 

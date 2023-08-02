@@ -10,6 +10,8 @@ definitions:
       - nationalindicatorlibrary
       - publicationsystem
       search.input.maxlength: 100
+    /hippo:configuration/hippo:frontend/cms/cms-dashshortcuts/changePasswordShortcut:
+      passwordexpirationnotificationdays: 10.0
     /hippo:configuration/hippo:frontend/cms/cms-folder-views/urlrewriter:ruleset:
       list.page.size: '20'
       list.view.size: '20'

@@ -78,7 +78,6 @@ jobs:
         run: |
           make git.update-environment-tag ENV=rc VERSION=uat
 
-
   prepare-prod-deployment:
     name: Deploy to Production
     runs-on: ubuntu-latest
