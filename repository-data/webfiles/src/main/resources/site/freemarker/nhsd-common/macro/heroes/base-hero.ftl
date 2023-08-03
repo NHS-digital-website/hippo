@@ -143,7 +143,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
                                 <img src="https://digital.nhs.uk/binaries/content/gallery/website/about-nhs-digital/fibre_57101102_med.jpg" alt="" />
                             </#if>
                         </picture>
-                        <#if options.caption?has_content>
+                        <#if htmlCaption??>
                             <figcaption>
                             <#if options.link?has_content>
                                 <a class="nhsd-a-link" href="${options.link}" data-uipath="ps.publication.image-section.link">
