@@ -12,9 +12,10 @@ import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +91,7 @@ public class SearchSteps extends AbstractSpringSteps {
 
         List<SearchResultWidget> actualResults = searchPage.getSearchResultWidgets();
 
-        for (List<String> elementItem : expectedResults.raw()) {
+        for (List<String> elementItem : expectedResults.cells()) {
             assertTrue("Search result includes item specified",
                 actualResults.stream()
                     .anyMatch(result -> result.getType().equals(elementItem.get(0))
