@@ -2,7 +2,6 @@ package uk.nhs.digital.ps.test.acceptance.steps;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.apache.commons.io.FileUtils;
