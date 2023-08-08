@@ -98,6 +98,7 @@
                         <div class="nhsd-t-col-6 nhsd-!t-padding-left-0">
                             <label aria-label="Include retired APIs and API standards"
                                    class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
+                                <input onclick="window.location = '<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />'" type="checkbox" <#if showRetired>checked</#if>>
                                 <div class="nhsd-a-box nhsd-!t-padding-left-0">
                                     <span class="nhsd-m-selector-toggle-card__toggle">
                                         <div class="nhsd-a-selector-toggle">
