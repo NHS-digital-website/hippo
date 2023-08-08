@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.config;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import io.cucumber.spring.CucumberContextConfiguration;
 import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +29,7 @@ import java.nio.file.Paths;
  * Central configuration class, enabling acceptance tests to benefit from Spring-based dependency injection.
  */
 @Configuration
+@CucumberContextConfiguration
 public class AcceptanceTestConfiguration {
 
     private static final Logger log = getLogger(AcceptanceTestConfiguration.class);

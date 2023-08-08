@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = {"src/test/resources/features"},
+        glue = {"uk.nhs.digital.ps.test.acceptance.config", "uk.nhs.digital.ps.test.acceptance.steps"},
         plugin = {"pretty", "html:target/cucumber"}
         )
 public class AcceptanceTest {
