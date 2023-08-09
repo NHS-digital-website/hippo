@@ -58,7 +58,7 @@
             <#assign twitterlink = "https://twitter.com/" + twitterhandle />
 
             <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0">Twitter handle:
-              <a class="nhsd-a-link nhsd-t-word-break" href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click',document.class.name,'${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${twitterhandle}">@${twitterhandle}
+              <a class="nhsd-a-link nhsd-t-word-break" href="${twitterlink}" title="${twitterhandle}">@${twitterhandle}
                 <span class="nhsd-t-sr-only"></span>
               </a>
             </p>

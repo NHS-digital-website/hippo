@@ -157,7 +157,7 @@
                             <#list dataset.files as attachment>
                                 <li class="attachment" itemprop="distribution" itemscope itemtype="http://schema.org/DataDownload">
                                     <@externalstorageLink item=attachment.resource earlyAccessKey=earlyAccessKey; url>
-                                      <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="name">${attachment.text}</span></a>
+                                      <a itemprop="contentUrl" title="${attachment.text}" href="${url}"><span itemprop="name">${attachment.text}</span></a>
                                       <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
                                       <meta itemprop="encodingFormat" content="${attachment.resource.mimeType}" />
                                       <meta itemprop="name" content="${attachment.text}" />
@@ -167,7 +167,7 @@
                             </#list>
                             <#list dataset.resourceLinks as link>
                                 <li>
-                                    <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)">${link.linkText}</a>
+                                    <a href="${link.linkUrl}">${link.linkText}</a>
                                 </li>
                             </#list>
                         </ul>

@@ -79,14 +79,6 @@
         <#else>
             <#local docType = getDocTypeName(className) />
         </#if>
-        <#if docType?length gt 0>
-            <#if download>
-                <#local onClickAttr="logGoogleAnalyticsEvent('Download attachment', '${docType}', '${link}')" />
-            <#else>
-                <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />
-            </#if>
-            <#return onClickAttr?no_esc />
-        </#if>
     </#if>
 </#function>
 

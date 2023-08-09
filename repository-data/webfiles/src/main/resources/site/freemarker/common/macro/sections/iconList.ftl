@@ -43,9 +43,9 @@
                           <div class="iconList__title" data-uipath="website.contentblock.iconlistitem.heading">
                             <#list iconListItem.itemlink as link>
                               <#if link.linkType == "internal">
-                                <a href="<@hst.link hippobean=link.link />" onClick="logGoogleAnalyticsEvent('Link click','Person','${link.link.title}');" onKeyUp="return vjsu.onKeyUp(event)" title="${iconListItem.heading}">${iconListItem.heading}</a>
+                                <a href="<@hst.link hippobean=link.link />" title="${iconListItem.heading}">${iconListItem.heading}</a>
                               <#else>
-                                <a href="${link.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${link.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${iconListItem.heading}">${iconListItem.heading}</a>
+                                <a href="${link.link}" title="${iconListItem.heading}">${iconListItem.heading}</a>
                               </#if>
                             </#list>
                           </div>
