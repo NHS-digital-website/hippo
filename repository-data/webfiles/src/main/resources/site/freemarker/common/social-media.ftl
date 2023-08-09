@@ -48,8 +48,6 @@
                     <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey"
                        href="${socialmediaItem.nhsDigitalUrl}" target="_blank"
                        rel="external"
-                       onClick="logGoogleAnalyticsEvent('Link click','Social media - ${socialmediaItem.linkName}','${socialmediaItem.nhsDigitalUrl}');"
-                       onKeyUp="return vjsu.onKeyUp(event)"
                     >
                         <#if linkIcon?has_content>
                             <span class="nhsd-a-icon nhsd-a-icon--size-xxl">

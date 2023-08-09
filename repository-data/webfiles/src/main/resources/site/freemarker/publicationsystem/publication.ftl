@@ -245,8 +245,6 @@
                                             <a title="${attachment.text}"
                                                href="${url}"
                                                class="block-link"
-                                               onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${url}');"
-                                               onKeyUp="return vjsu.onKeyUp(event)"
                                                itemprop="contentUrl">
                                                 <div class="block-link__header">
                                                     <@fileIconByMimeType attachment.resource.mimeType></@fileIconByMimeType>
@@ -273,10 +271,7 @@
                                 class="list">
                                 <#list publication.resourceLinks as link>
                                     <li>
-                                        <a href="${link.linkUrl}"
-                                           onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');"
-                                           onKeyUp="return vjsu.onKeyUp(event)"
-                                           title="${link.linkText}">${link.linkText}</a>
+                                        <a href="${link.linkUrl}" title="${link.linkText}">${link.linkText}</a>
                                     </li>
                                 </#list>
                             </ul>
@@ -306,10 +301,7 @@
                         <ul data-uipath="ps.publication.related-links" class="list">
                             <#list publication.relatedLinks as link>
                                 <li>
-                                    <a href="${link.linkUrl}"
-                                       onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');"
-                                       onKeyUp="return vjsu.onKeyUp(event)"
-                                       title="${link.linkText}">${link.linkText}</a>
+                                    <a href="${link.linkUrl}" title="${link.linkText}">${link.linkText}</a>
                                 </li>
                             </#list>
                         </ul>

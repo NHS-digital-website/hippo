@@ -20,14 +20,7 @@
                 <a class="nhsd-a-link"
                 data-uipath="ps.publication.chart-section.data-file"
                 title="${linkText}"
-                href="${url}"
-                onClick="logGoogleAnalyticsEvent(
-                    'Download chart data','Publication','${dataFile.filename}'
-                );"
-                onKeyUp="logGoogleAnalyticsEvent(
-                    'Download chart data','Publication','${dataFile.filename}'
-                );">
-                    ${linkText}
+                href="${url}"> ${linkText}
                 </a>
                 </@externalstorageLink>
             </span>

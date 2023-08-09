@@ -34,9 +34,10 @@
 
                   <div class="latestBlog__content">
                       <@hst.link hippobean=latest var="link"/>
-                      <div class="latestBlog__title"><a class="cta__title cta__button" href="${link}" onClick="logGoogleAnalyticsEvent('Link click','${fromDoctype}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${latest.title}">${latest.title}</a></div>
+                      <div class="latestBlog__title">
+                          <a class="cta__title cta__button" href="${link}" title="${latest.title}">${latest.title}</a>
+                      </div>
                           <div class="latestBlog__author">
-
                               <#if latest.authors?? && latest.authors?has_content>
                                   By <#list latest.authors as author>${author.title}<#sep>, </#list>.
                               </#if>

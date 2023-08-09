@@ -37,12 +37,9 @@
                    <#else>
                        href="${section.url}"
                    </#if>
-                   onClick="logGoogleAnalyticsEvent(
-                           'Download chart data','Publication','${slugify(section.title)}'
-                           );"
-                   onKeyUp="logGoogleAnalyticsEvent(
-                           'Download chart data','Publication','${slugify(section.title)}'
-                           );">${linkText}</a>
+                >
+                    ${linkText}
+                </a>
             </span>
         </figure>
     </div>

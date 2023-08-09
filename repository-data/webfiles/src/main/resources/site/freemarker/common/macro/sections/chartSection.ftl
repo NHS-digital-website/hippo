@@ -15,17 +15,9 @@
         <#local dataFile=section.dataFile>
         <span class="attachment">
             <@externalstorageLink dataFile; url>
-                <a data-uipath="ps.publication.chart-section.data-file"
-                   title="${linkText}"
-                   href="${url}"
-                   onClick="logGoogleAnalyticsEvent(
-                           'Download chart data','Publication','${dataFile.filename}'
-                           );"
-                   onKeyUp="logGoogleAnalyticsEvent(
-                           'Download chart data','Publication','${dataFile.filename}'
-                           );">
+                <a data-uipath="ps.publication.chart-section.data-file" title="${linkText}" href="${url}">
                 ${linkText}
-            </a>
+                </a>
             </@externalstorageLink>
         </span>
         <span>

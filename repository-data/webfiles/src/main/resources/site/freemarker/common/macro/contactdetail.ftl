@@ -5,7 +5,7 @@
   <#macro contactdetail contactdetails='' idsuffix='' name='' email='' phone='' title="Contact details" isSchemaOrg=true>
     <#if contactdetails='' || (contactdetails?has_content && (contactdetails.emailaddress?has_content || contactdetails.phonenumber?has_content)) >
       <div id="contactdetail-${slugify(idsuffix)}" class="contactdetail--div article-section">
-        <h2>${title}</h2> 
+        <h2>${title}</h2>
 
         <#assign rendername=name /><#if contactdetails != '' && contactdetails.name?has_content><#assign rendername=contactdetails.name /></#if>
         <#assign renderemail=email /><#if contactdetails != '' && contactdetails.emailaddress?has_content><#assign renderemail=contactdetails.emailaddress /></#if>
@@ -24,7 +24,7 @@
           </#if>
 
           <#if renderemail != ''>
-            <div class="contactdetail-item">Email: 
+            <div class="contactdetail-item">Email:
               <#if isSchemaOrg>
                 <a href="mailto:${renderemail}" itemprop="email" class="contactdetail-item">${renderemail}</a>
               <#else>
@@ -33,7 +33,7 @@
             </div>
           </#if>
           <#if renderphone != ''>
-            <div class="contactdetail-item">Phone: 
+            <div class="contactdetail-item">Phone:
               <#if isSchemaOrg>
                 <a href="tel:${renderphone?replace(" ","")?replace("-","")}" itemprop="telephone" class=contactdetail-item>${renderphone}</a>
               <#else>
@@ -50,8 +50,7 @@
             <#assign twitterlink = "https://twitter.com/" + twitterhandle />
 
 
-            <div class="contactdetail-item">Twitter handle: 
-                <a href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click',document.class.name,'${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${twitterhandle}" target="_blank">@${twitterhandle}</a>
+            <div class="contactdetail-item">Twitter handle:<a href="${twitterlink}" title="${twitterhandle}" target="_blank">@${twitterhandle}</a>
             </div>
           </#if>
 
@@ -60,8 +59,7 @@
           </#if>
 
           <#if contactdetails != '' && contactdetails.webchatLink?has_content>
-            <div class="contactdetail-item">Webchat link: 
-                <a href="${contactdetails.webchatLink}" class=contactdetail-item>${contactdetails.webchatLink}</a>
+            <div class="contactdetail-item">Webchat link:<a href="${contactdetails.webchatLink}" class=contactdetail-item>${contactdetails.webchatLink}</a>
             </div>
           </#if>
 
@@ -70,8 +68,7 @@
           </#if>
 
           <#if contactdetails != '' && contactdetails.webformLink?has_content>
-            <div class="contactdetail-item">Webform link: 
-                <a href="${contactdetails.webformLink}" class=contactdetail-item>${contactdetails.webformLink}</a>
+            <div class="contactdetail-item">Webform link:<a href="${contactdetails.webformLink}" class=contactdetail-item>${contactdetails.webformLink}</a>
             </div>
           </#if>
 

@@ -309,8 +309,6 @@
                             <a title="${attachment.text}"
                                href="${url}"
                                class="block-link"
-                               onClick="logGoogleAnalyticsEvent('Download attachment','LegacyPublication','${attachment.resource.filename}');"
-                               onKeyUp="return vjsu.onKeyUp(event)"
                                itemprop="contentUrl">
                                 <div class="block-link__header">
                                     <@fileIconByMimeType attachment.resource.mimeType></@fileIconByMimeType>
@@ -335,13 +333,13 @@
                 </#if>
                 <#list legacyPublication.resourceLinks as link>
                     <li>
-                        <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
+                        <a href="${link.linkUrl}" title="${link.linkText}">${link.linkText}</a>
                     </li>
                 </#list>
                 <#list legacyPublication.datasets as dataset>
                     <@hst.link hippobean=dataset.selfLinkBean var="link"/>
                     <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset">
-                        <a itemprop="url" href="${link}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication', '${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a>
+                        <a itemprop="url" href="${link}" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a>
                     </li>
                 </#list>
                 <#if hasDataSets || hasResourceLinks>
@@ -361,7 +359,7 @@
                 <ul data-uipath="ps.publication.related-links" class="list">
                     <#list legacyPublication.relatedLinks as link>
                     <li>
-                        <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
+                        <a href="${link.linkUrl}" title="${link.linkText}">${link.linkText}</a>
                     </li>
                     </#list>
                 </ul>

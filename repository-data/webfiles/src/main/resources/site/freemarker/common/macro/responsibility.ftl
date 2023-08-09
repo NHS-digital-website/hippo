@@ -28,7 +28,7 @@
               <ul>
                 <#list resp.responsibleforservice as service>
                   <@hst.link hippobean=service var="link" />
-                  <li><a href="${link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${service.title}">${service.title}</a></li>
+                  <li><a href="${link}" title="${service.title}">${service.title}</a></li>
                 </#list>
               </ul>
           </p>
@@ -46,7 +46,7 @@
                     <#assign personrole = ', ' + managee.roles.firstprimaryrole />
                   </#if>
                   <@hst.link hippobean=managee var="link" />
-                  <li><a href="${link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${displayName}${personrole}">${displayName}${personrole}</a></li>
+                  <li><a href="${link}" title="${displayName}${personrole}">${displayName}${personrole}</a></li>
                 </#list>
               </ul>
           </p>
@@ -63,7 +63,7 @@
               ${firstname} is managed by:
               <ul>
                 <@hst.link hippobean=managedby var="link" />
-                <li><a href="${link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${link}');" onKeyUp="return vjsu.onKeyUp(event)" :title="${displayName}${personrole}">${displayName}${personrole}</a></li>
+                <li><a href="${link}" title="${displayName}${personrole}">${displayName}${personrole}</a></li>
               </ul>
           </p>
         </#if>

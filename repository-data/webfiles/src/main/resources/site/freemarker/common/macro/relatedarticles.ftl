@@ -5,7 +5,7 @@
 <#function isAnyNotPersonDoctype articles>
   <#list articles as article>
     <#if article.class.name != "uk.nhs.digital.website.beans.Person">
-      <#return true /> 
+      <#return true />
     </#if>
   </#list>
   <#return false />
@@ -14,14 +14,14 @@
 <#macro relatedarticles articles articleType showDates=true idsuffix='id' title='Related documents' showSummary=false>
   <#if articles?has_content && isAnyNotPersonDoctype(articles) >
     <div id="related-articles-${slugify(idsuffix)}" class="article-section related-articles--div">
-        <h2>${title}</h2> 
+        <h2>${title}</h2>
         <div class="list">
             <#list articles as article>
             <#if article.class.name != "uk.nhs.digital.website.beans.Person">
               <#-- do NOT display Person doctypes as related documents-->
               <div>
                   <@hst.link hippobean=article var="link"/>
-                  <a href="${link}" onClick="logGoogleAnalyticsEvent('Link click','${articleType}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${article.title}">${article.title}</a>
+                  <a href="${link}" title="${article.title}">${article.title}</a>
                   <#if showDates>
                     <#assign dateandtime = "" />
                     <#if article.publisheddatetime?? && article.publisheddatetime?has_content>
