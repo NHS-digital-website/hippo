@@ -14,10 +14,6 @@
         <#assign cardClass += " nhsd-m-card--author"/>
     </#if>
 
-    <#if cardProperties.contentType?has_content>
-        <#assign trackingEvent = 'onclick="logGoogleAnalyticsEvent(\'Link click\', \'${cardProperties.contentType}\', \'${cardProperties.link}\')" onkeyup="return vjsu.onKeyUp(event)"' />
-    </#if>
-
     <article class="nhsd-m-card ${cardClass}">
         <#if cardProperties.publishedDate?has_content>
             <@fmt.formatDate value=cardProperties.publishedDate.time type="Date" pattern="EEEE d MMMM yyyy (hh:mm)" timeZone="${getTimeZone()}" var="pubDate" />

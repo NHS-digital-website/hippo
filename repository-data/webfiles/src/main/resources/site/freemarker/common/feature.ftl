@@ -215,11 +215,7 @@
                         <#setting url_escaping_charset="UTF-8">
 
                         <div class="blog-social-icon">
-                            <a target="_blank"
-                               href="http://www.facebook.com/sharer.php?u=${currentUrl?url}"
-                               onClick="logGoogleAnalyticsEvent('Link click','Social media - Facebook','http://www.facebook.com/sharer.php?u=${currentUrl?url}');"
-                               onKeyUp="return vjsu.onKeyUp(event)"
-                            >
+                            <a target="_blank" href="http://www.facebook.com/sharer.php?u=${currentUrl?url}">
                                 <img src="<@hst.webfile path="/images/icon/Facebook.svg"/>" alt="Share on Facebook" class="blog-social-icon__img" />
                             </a>
                         </div>
@@ -235,25 +231,17 @@
                                     </#if>
                                 </#list>
                             </#if>
-                            <a target="_blank"
-                               href="https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"
-                               onClick="logGoogleAnalyticsEvent('Link click','Social media - Twitter','https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}');"
-                               onKeyUp="return vjsu.onKeyUp(event)"
-                            >
+                            <a target="_blank" href="https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}">
                                 <img src="<@hst.webfile path="/images/icon/Twitter.svg"/>" alt="Share on Twitter" class="blog-social-icon__img" />
                             </a>
                         </div>
 
                         <div class="blog-social-icon">
-                            <a target="_blank"
-                               href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"
-                               onClick="logGoogleAnalyticsEvent('Link click','Social media - LinkedIn','http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}');"
-                            >
+                            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}">
                                 <img src="<@hst.webfile path="/images/icon/LinkedIn.svg"/>" alt="Share on LinkedIn" class="blog-social-icon__img" />
                             </a>
                         </div>
                     </div>
-
                 </div>
 
 
@@ -276,6 +264,4 @@
             </div>
         </div>
     </div>
-
-
 </article>

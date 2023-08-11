@@ -196,8 +196,6 @@
                                                     <a class="nhsd-a-box-link"
                                                        title="${attachment.text}"
                                                        href="${url}"
-                                                       onClick="logGoogleAnalyticsEvent('Download attachment','Published work','${url}');"
-                                                       onKeyUp="return vjsu.onKeyUp(event)"
                                                        itemprop="contentUrl"
                                                     >
                                                         <div class="nhsd-a-box nhsd-a-box--bg-light-grey">

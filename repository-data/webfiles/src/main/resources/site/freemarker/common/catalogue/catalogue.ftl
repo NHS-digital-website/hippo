@@ -60,7 +60,6 @@
                                 <input
                                     class="nhsd-t-form-input"
                                     type="text"
-                                    onClick="logGoogleAnalyticsEvent('api-catalogue-search-click','api-catalogue-search-category','api-catalogue-search-label');"
                                     id="catalogue-search-bar-input"
                                     name="query"
                                     autocomplete="off"

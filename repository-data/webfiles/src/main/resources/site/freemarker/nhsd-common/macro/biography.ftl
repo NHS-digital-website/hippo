@@ -7,7 +7,7 @@
 
 <#macro biography biographies idsuffix>
     <#if document.biographies?has_content >
-        <#assign profbiography><@hst.html hippohtml=biographies.profbiography contentRewriter=gaContentRewriter/></#assign>
+        <#assign profbiography><@hst.html hippohtml=biographies.profbiography contentRewriter=brContentRewriter/></#assign>
 
         <#if profbiography?has_content>
             <div id="biography-${slugify(idsuffix)}" class="biography--div article-section no-border">
