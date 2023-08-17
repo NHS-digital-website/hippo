@@ -55,9 +55,9 @@
                                     <div data-api-catalogue-entry="">
                                     <#list get_unique_sorted_tags(block filtersModel) as taxonomyTag>
                                         <#if filtersModel.isHighlighted(taxonomyTag.getDisplayName())>
-                                            <a aria-label="Filter by ${taxonomyTag.getDisplayName()}"
-                                               href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=add_tag_to_filters(filtersModel, taxonomyTag)/>"
-                                               style="line-height:1"
+                                            <a title="${filter_title(filtersModel, taxonomyTag)}"
+                                               href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filter_for_tag(filtersModel, taxonomyTag)/>"
+                                               style="line-height:1; text-decoration:none"
                                                class="nhsd-a-tag nhsd-a-tag--bg-${filtersModel.getHighlight(taxonomyTag.getDisplayName())} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag.getDisplayName()}</a>
                                         </#if>
                                     </#list>
@@ -78,9 +78,9 @@
                                     </#if>
                                         <#list get_unique_sorted_tags(block filtersModel) as taxonomyTag>
                                             <#if !filtersModel.isHighlighted(taxonomyTag.getDisplayName())>
-                                                <a aria-label="Filter by ${taxonomyTag.getDisplayName()}"
-                                                   href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=add_tag_to_filters(filtersModel, taxonomyTag)/>"
-                                                   style="line-height:1"
+                                                <a title="${filter_title(filtersModel, taxonomyTag)}"
+                                                   href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filter_for_tag(filtersModel, taxonomyTag)/>"
+                                                   style="line-height:1; text-decoration:none"
                                                    class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag.getDisplayName()}</a>
                                         </#if>
                                     </#list>
@@ -98,11 +98,19 @@
     </#if>
 </#macro>
 
-<#function add_tag_to_filters filtersModel taxonomyTag>
+<#function filter_for_tag filtersModel taxonomyTag>
     <#if filtersModel.selectedFiltersContain(taxonomyTag.key)>
         <#return filtersModel.selectedFiltersKeysMinus(taxonomyTag.key)>
     <#else>
         <#return filtersModel.selectedFiltersKeysPlus(taxonomyTag.key)>
+    </#if>
+</#function>
+
+<#function filter_title filtersModel taxonomyTag>
+    <#if filtersModel.selectedFiltersContain(taxonomyTag.key)>
+        <#return "Remove ${taxonomyTag.getDisplayName()} filter">
+    <#else>
+        <#return "Filter by ${taxonomyTag.getDisplayName()}">
     </#if>
 </#function>
 
