@@ -54,8 +54,11 @@
                                     </#if>
                                     <div data-api-catalogue-entry="">
                                     <#list get_unique_sorted_tags(block filtersModel) as taxonomyTag>
-                                        <#if filtersModel.isHighlighted(taxonomyTag)>
-                                            <span class="nhsd-a-tag nhsd-a-tag--bg-${filtersModel.getHighlight(taxonomyTag)} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag}</span>
+                                        <#if filtersModel.isHighlighted(taxonomyTag.getDisplayName())>
+                                            <a title="${filter_title(filtersModel, taxonomyTag)}"
+                                               href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filter_for_tag(filtersModel, taxonomyTag)/>"
+                                               style="line-height:1; text-decoration:none"
+                                               class="nhsd-a-tag nhsd-a-tag--bg-${filtersModel.getHighlight(taxonomyTag.getDisplayName())} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag.getDisplayName()}</a>
                                         </#if>
                                     </#list>
                                     <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" id="${block.title?lower_case?replace(" ", "-")}">
@@ -74,8 +77,11 @@
                                         </div>
                                     </#if>
                                         <#list get_unique_sorted_tags(block filtersModel) as taxonomyTag>
-                                            <#if !filtersModel.isHighlighted(taxonomyTag)>
-                                                <span style="line-height:1" class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag}</span>
+                                            <#if !filtersModel.isHighlighted(taxonomyTag.getDisplayName())>
+                                                <a title="${filter_title(filtersModel, taxonomyTag)}"
+                                                   href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filter_for_tag(filtersModel, taxonomyTag)/>"
+                                                   style="line-height:1; text-decoration:none"
+                                                   class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${taxonomyTag.getDisplayName()}</a>
                                         </#if>
                                     </#list>
                                     <#if block?index lt blockGroups[letter]?size - 1>
@@ -92,13 +98,29 @@
     </#if>
 </#macro>
 
+<#function filter_for_tag filtersModel taxonomyTag>
+    <#if filtersModel.selectedFiltersContain(taxonomyTag.key)>
+        <#return filtersModel.selectedFiltersKeysMinus(taxonomyTag.key)>
+    <#else>
+        <#return filtersModel.selectedFiltersKeysPlus(taxonomyTag.key)>
+    </#if>
+</#function>
+
+<#function filter_title filtersModel taxonomyTag>
+    <#if filtersModel.selectedFiltersContain(taxonomyTag.key)>
+        <#return "Remove ${taxonomyTag.getDisplayName()} filter">
+    <#else>
+        <#return "Filter by ${taxonomyTag.getDisplayName()}">
+    </#if>
+</#function>
+
 <#function get_unique_sorted_tags block filtersModel>
     <#local documentTags = block.getMultipleProperty("hippotaxonomy:keys")![] />
-    <#local uniqueSortedTagDisplayNames = [] />
+    <#local uniqueSortedTags = [] />
     <#list filtersModel.sectionsInOrderOfDeclaration() as filterSection>
-        <#if documentTags?? && documentTags?seq_contains(filterSection.getKey()) && !uniqueSortedTagDisplayNames?seq_contains(filterSection.getDisplayName())>
-            <#local uniqueSortedTagDisplayNames = uniqueSortedTagDisplayNames + [ filterSection.displayName ] />
+        <#if documentTags?? && documentTags?seq_contains(filterSection.getKey()) && uniqueSortedTags?filter(x -> x.getDisplayName() == filterSection.getDisplayName())?size == 0>
+            <#local uniqueSortedTags = uniqueSortedTags + [ filterSection ] />
         </#if>
     </#list>
-    <#return uniqueSortedTagDisplayNames>
+    <#return uniqueSortedTags>
 </#function>
