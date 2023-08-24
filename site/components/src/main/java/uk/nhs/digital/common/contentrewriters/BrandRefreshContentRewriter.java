@@ -62,6 +62,11 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
             document.select("div").empty();
         }
 
+        // add class="nhsd-t-body" to bullet point list items
+        if (document.select("ul").first() != null) {
+            document.select("ul").select("li").attr("class", "nhsd-t-body");
+        }
+
         // external or internal link
         if (document.select("a").first() != null) {
             document.select("a").attr("class", "nhsd-a-link");
