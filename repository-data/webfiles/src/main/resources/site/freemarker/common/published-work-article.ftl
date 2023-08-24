@@ -29,7 +29,8 @@
 </#if>
 
 <#-- Don't use the summary in the content when the hero module is active -->
-<#if publicationStyle = 'heromodule'>
+<#--also if the publication system style is blueBanner or slimpicture do not use the summary in the content-->
+<#if publicationStyle = 'heromodule' || publicationStyle = 'bluebanner' || publicationStyle = 'slimpicture'>
     <#assign hasSummaryContent = false />
 <#else>
     <#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
