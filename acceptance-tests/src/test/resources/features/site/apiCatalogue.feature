@@ -39,8 +39,8 @@ Feature: API Catalogue in Developer hub
             | Personal Demographics Service - FHIR API | /site/developer/api-catalogue/personal-demographics-service---fhir-api |
         And I should see elements with attributes:
             | text         | class                                                                             |
-            | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
-            | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
+            | Inpatient    | nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
+            | Inpatient    | nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
 
     Scenario: API Catalogue renders filtered results when filters applied via taxonomy tag
         Given I navigate to "Static API Catalogue" page
@@ -55,8 +55,8 @@ Feature: API Catalogue in Developer hub
             | Personal Demographics Service - FHIR API | /site/developer/api-catalogue/personal-demographics-service---fhir-api |
         And I should see elements with attributes:
             | text         | class                                                                             |
-            | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
-            | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
+            | Inpatient    | nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
+            | Inpatient    | nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
 
     Scenario: API Catalogue is available through Search
         Given I navigate to the "home" page
