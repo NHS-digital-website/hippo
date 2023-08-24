@@ -104,6 +104,7 @@
     <#else>
         <#return filtersModel.selectedFiltersKeysPlus(taxonomyTag.key)>
     </#if>
+
 </#function>
 
 <#function filter_title filtersModel taxonomyTag>
