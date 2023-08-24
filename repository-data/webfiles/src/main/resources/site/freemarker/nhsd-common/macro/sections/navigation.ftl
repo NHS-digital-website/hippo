@@ -11,7 +11,7 @@
     <div ${section.heading?has_content?then('id=' + slugify(section.heading), '')}>
         <#if section.heading?has_content>
             <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
-                <p class="nhsd-t-heading-l">${section.title}</p>
+                <p class="nhsd-t-heading-xl">${section.title}</p>
             <#else>
                 <p class="nhsd-t-heading-s">${section.title}</p>
             </#if>
