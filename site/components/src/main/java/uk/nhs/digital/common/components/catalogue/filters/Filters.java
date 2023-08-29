@@ -94,7 +94,8 @@ public class Filters implements Walkable {
 
     // Also invoked from the template.
     public boolean selectedFiltersContain(final String filterKey) {
-        return selectedFiltersKeys().stream().anyMatch(key -> key.equals(filterKey));
+        final HashSet<String> selectedFilterKeys = new HashSet<>(selectedFiltersKeys());
+        return selectedFilterKeys.parallelStream().anyMatch(key -> key.equals(filterKey));
     }
 
     public boolean isHighlighted(final String displayName) {
