@@ -22,6 +22,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.site.HstServices;
 import org.hippoecm.hst.util.ContentBeanUtils;
+import org.hippoecm.hst.util.HstRequestUtils;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.hippoecm.repository.HippoStdPubWfNodeType;
 import org.onehippo.cms7.essentials.components.CommonComponent;
@@ -69,6 +70,7 @@ import uk.nhs.digital.website.beans.RoadmapItem;
 import uk.nhs.digital.website.beans.Service;
 import uk.nhs.digital.website.beans.VisualHub;
 
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -181,7 +183,10 @@ public class SearchComponent extends CommonComponent {
                     request.getRequestContext().setAttribute("isContentSearch", true);
                     setCommonSearchRequestAttributes(request, paramInfo);
                 } else {
-                    LOGGER.error("Content Search returned a failure, falling back to HST search");
+                    LOGGER.error(
+                        MessageFormat.format("Content Search returned a failure, falling back to HST search. {0}",
+                            HstRequestUtils.getHstRequestContext(request).getServletRequest().toString())
+                    );
                     buildAndExecuteHstSearch(request, paramInfo);
                 }
             } catch (InterruptedException | ExecutionException | TimeoutException | RuntimeException ex) {
