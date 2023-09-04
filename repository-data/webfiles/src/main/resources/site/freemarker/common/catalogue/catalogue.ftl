@@ -8,6 +8,7 @@
 <#include "../../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../../nhsd-common/macro/heroes/hero.ftl">
 <#include "../../nhsd-common/macros/az-nav.ftl">
+<#include "../macro/updateGroup.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.catalogue.filters.Filters" -->
@@ -24,7 +25,7 @@
 
 <div
     class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-7 nhsd-api-catalogue">
-
+    <@updateGroup document=document />
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-12">
             <#if document.body?has_content??>
