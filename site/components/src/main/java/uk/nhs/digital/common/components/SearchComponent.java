@@ -199,8 +199,9 @@ public class SearchComponent extends CommonComponent {
                 } else {
                     LOGGER.error(
                         MessageFormat.format("Content Search returned a failure, falling back to HST search. {0} - from {1}",
-                            HstRequestUtils.getHstRequestContext(request).getServletRequest().toString()),
+                            HstRequestUtils.getHstRequestContext(request).getServletRequest().toString(),
                             ipAddress.apply(request)
+                        )
                     );
                     buildAndExecuteHstSearch(request, paramInfo);
                 }
