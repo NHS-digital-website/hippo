@@ -53,7 +53,7 @@
                 "&playlist=${section.playlist}" +
                 "&${mute}=${section.behaviour?then('1','0')}"/>
 
-        <div class="nhsd-t-ratio-16x9">
+        <div class="nhsd-t-ratio-16x9 nhsd-!t-margin-bottom-6">
             <figure>
                 <iframe src="${section.videoUrl}&autoplay=${section.behaviour?then('1','0')}&loop=${section.loop?then('1','0')}&${mute}=${section.behaviour?then('1','0')}&rel=0"
                     title="${document.title}"
