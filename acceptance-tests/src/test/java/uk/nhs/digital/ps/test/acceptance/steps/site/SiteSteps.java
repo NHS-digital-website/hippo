@@ -337,6 +337,11 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
+    @Then("^I can see an update alert")
+    public void thenICanSeeUpdate() throws Throwable {
+        assertNotNull("I can see an update alert", sitePage.findCssClass("nhsd-m-emphasis-box"));
+    }
+
     private String buildXPathExpressionFromElementAttributes(List<String> keys, List<String> elementItem) {
         List<String> clauses = new ArrayList<>();
         for (String key: keys) {
