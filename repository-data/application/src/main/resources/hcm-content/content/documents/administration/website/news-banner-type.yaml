@@ -14,19 +14,6 @@
       selection:key: nhs-england-credit-local-figures
       selection:label: NHS England must be credited as the source of these figures.
         Regional data is available in this report.
-    /selection:listitem[4]:
-      jcr:primaryType: selection:listitem
-      selection:key: credit-information
-      selection:label: NHS Digital must be credited as the source of this information.
-    /selection:listitem[5]:
-      jcr:primaryType: selection:listitem
-      selection:key: credit-figures
-      selection:label: NHS Digital must be credited as the source of these figures.
-    /selection:listitem[6]:
-      jcr:primaryType: selection:listitem
-      selection:key: credit-local-figures
-      selection:label: NHS Digital must be credited as the source of these figures.
-        Regional data is available in this report.
     hippo:availability:
     - live
     - preview
