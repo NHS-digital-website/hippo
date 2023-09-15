@@ -18,11 +18,13 @@ definitions:
         - showPagination
         - contentSearchEnabled
         - contentSearchTimeOut
+        - queryParameterRequired
         hst:parametervalues:
         - '10'
         - 'true'
         - 'true'
         - '1500'
+        - 'true'
         hst:template: search-results-layout
         jcr:primaryType: hst:component
       hst:cacheable: false

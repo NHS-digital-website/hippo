@@ -60,7 +60,7 @@ public class TestContentUrls {
     private void setupSiteUrls() {
         addSiteUrl("home", "/");
 
-        addSiteUrl("search", "/search");
+        addSiteUrl("search", "/search?query=testing");
 
         addSiteUrl("shmi", "/shmi");
 

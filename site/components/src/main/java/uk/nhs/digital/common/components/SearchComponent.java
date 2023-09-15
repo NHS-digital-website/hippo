@@ -152,6 +152,19 @@ public class SearchComponent extends CommonComponent {
         super.doBeforeRender(request, response);
         SearchComponentInfo paramInfo = getComponentInfo(request);
 
+        // Stop processing if the query parameter is required and not present
+        if (paramInfo.isQueryParameterRequired() && getQueryParameter(request) == null) {
+            LOGGER.warn(
+                MessageFormat.format("Search without query performed. {0} - from {1}",
+                    HstRequestUtils.getHstRequestContext(request).getServletRequest().toString(),
+                    ipAddress.apply(request)
+                )
+            );
+
+            response.setStatus(400);
+            return;
+        }
+
         final boolean contentSearchEnabled = paramInfo.isContentSearchEnabled();
         final long contentSearchTimeOut = paramInfo.getContentSearchTimeOut();
         final boolean contentSearchOverride = getAnyBooleanParam(request, "contentSearch", true);

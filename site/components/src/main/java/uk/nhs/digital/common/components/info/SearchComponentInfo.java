@@ -11,4 +11,7 @@ public interface SearchComponentInfo extends EssentialsListComponentInfo {
     @Parameter(name = "contentSearchTimeOut")
     long getContentSearchTimeOut();
 
+    @Parameter(name = "queryParameterRequired")
+    boolean isQueryParameterRequired();
+
 }
