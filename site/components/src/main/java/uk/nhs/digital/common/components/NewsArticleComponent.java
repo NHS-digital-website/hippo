@@ -22,6 +22,11 @@ public class NewsArticleComponent extends ContentRewriterComponent {
             request.setAttribute("creditbanner", SelectionUtil.valueListAsMap(creditbannerValueList));
         }
 
+        final ValueList creditbannerValueListLegacy = SelectionUtil.getValueListByIdentifier("creditbannerlegacy", RequestContextProvider.get());
+        if (creditbannerValueListLegacy != null) {
+            request.setAttribute("creditbannerlegacy", SelectionUtil.valueListAsMap(creditbannerValueListLegacy));
+        }
+
         final ValueList newstypesValueList = SelectionUtil.getValueListByIdentifier("newstypes", RequestContextProvider.get());
         if (newstypesValueList != null) {
             request.setAttribute("newstypes", SelectionUtil.valueListAsMap(newstypesValueList));
