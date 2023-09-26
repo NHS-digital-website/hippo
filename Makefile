@@ -71,7 +71,7 @@ lint-frontend-fix:
 	cd repository-data/webfiles && npm run lint-fix
 
 ci-pipeline-lint-frontend:
-	cd repository-data/webfiles && npm install && npm run lint
+	cd repository-data/webfiles && npm install && cp node_modules/hippo-rapidoc/dist/rapidoc-min.js src/main/resources/site/apispecification && npm run lint
 
 ## proxy all other targets to ci-cd/Makefile
 # Usage: make test
