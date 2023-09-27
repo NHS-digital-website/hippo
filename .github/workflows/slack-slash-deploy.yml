@@ -69,7 +69,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -82,7 +82,7 @@ jobs:
       - name: Slack message (building the branch)
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -109,7 +109,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -130,7 +130,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -140,7 +140,7 @@ jobs:
       - name: Slack message (Successfully stored the built artifact)
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -169,7 +169,7 @@ jobs:
       - name: Slack message (uploading the build)
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -220,7 +220,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -288,7 +288,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -298,7 +298,7 @@ jobs:
       - name: Slack message (successfully upload the build)
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -351,7 +351,7 @@ jobs:
       - name: Slack message (requesting deployment)
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -383,7 +383,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -393,7 +393,7 @@ jobs:
       - name: Slack message (end message)
         uses: ./.github/actions/slack-message
         with:
-          ENABLED: ${{ coalesce(github.event.client_payload.data.replay, true) }}
+          ENABLED: ${{ github.event.client_payload.data.replay || true }}
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
