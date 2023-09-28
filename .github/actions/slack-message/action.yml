@@ -28,11 +28,11 @@ runs:
       id: slack_enabled
       run: |
         if [[ "${{ env.ENABLED }}" = "false" ]]; then
-          echo "is_enabled=false" >> $GITHUB_ENV
+          echo "is_enabled=false" >> $GITHUB_OUTPUT
         elif [[ -z "${{ env.ENABLED }}" ]]; then
-          echo "is_enabled=true" >> $GITHUB_ENV
+          echo "is_enabled=true" >> $GITHUB_OUTPUT
         else
-          echo "is_enabled=true" >> $GITHUB_ENV
+          echo "is_enabled=true" >> $GITHUB_OUTPUT
         fi
       env:
         ENABLED: ${{ inputs.ENABLED }}
