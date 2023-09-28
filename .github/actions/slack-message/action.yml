@@ -27,13 +27,15 @@ runs:
     - name: Check Slack Messaging is Enabled (default's to true)
       id: slack_enabled
       run: |
-        if [[ "${{ process.env.ENABLED }}" = "false" ]]; then
+        if [[ "${{ env.ENABLED }}" = "false" ]]; then
           echo "is_enabled=false" >> $GITHUB_ENV
-        elif [[ -z "${{ process.env.ENABLED }}" ]]; then
+        elif [[ -z "${{ env.ENABLED }}" ]]; then
           echo "is_enabled=true" >> $GITHUB_ENV
         else
           echo "is_enabled=true" >> $GITHUB_ENV
         fi
+      env:
+        ENABLED: ${{ inputs.ENABLED }}
       shell: bash
 
     - name: Send Slack Message
