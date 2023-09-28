@@ -19,14 +19,25 @@ inputs:
   ENABLED:
     description: 'Whether or not to send the message'
     required: false
-    default: true
 
 runs:
   using: "composite"
   steps:
 
-    - id: jwt_token
-      if: ${{ inputs.ENABLED }}
+    - name: Check Slack Messaging is Enabled (default's to true)
+      id: slack_enabled
+      run: |
+        if [[ "${{ process.env.ENABLED }}" = "false" ]]; then
+          echo "is_enabled=false" >> $GITHUB_ENV
+        elif [[ -z "${{ process.env.ENABLED }}" ]]; then
+          echo "is_enabled=true" >> $GITHUB_ENV
+        else
+          echo "is_enabled=true" >> $GITHUB_ENV
+        fi
+      shell: bash
+
+    - name: Send Slack Message
+      if: ${{ steps.slack_enabled.outputs.is_enabled }}
       run: |
         curl \
         -H "Authorization: Bearer ${{ env.TOKEN }}" \
