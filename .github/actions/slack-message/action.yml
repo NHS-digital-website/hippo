@@ -26,7 +26,7 @@ runs:
   steps:
 
     - name: Send Slack Message
-      if: ${{ inputs.ENABLED }}
+      if: ${{ env.ENABLED == 'true' }}
       run: |
         curl \
         -H "Authorization: Bearer ${{ env.TOKEN }}" \
@@ -75,6 +75,7 @@ runs:
         }
         EOF
       env:
+        ENABLED: ${{ inputs.ENABLED }}
         TOKEN: ${{ inputs.SLACK_API_TOKEN }}
         CHANNEL: ${{ inputs.SLACK_CHANNEL }}
         TITLE: ${{ inputs.TITLE }}
