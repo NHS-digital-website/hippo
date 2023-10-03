@@ -5,6 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.*;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Subsection extends Section {
 
     private final String taxonomyKey;
@@ -61,6 +65,16 @@ public class Subsection extends Section {
 
     public void setUnselectable() {
         this.selectable = false;
+    }
+
+    public Set<String> getKeyAndChildKeys() {
+        if (!getEntries().isEmpty()) {
+            Set<String> entryKeys = getEntries().stream().flatMap(entry -> entry.getKeyAndChildKeys().stream()).collect(Collectors.toSet());
+            entryKeys.add(getKey());
+            return entryKeys;
+        } else {
+            return Stream.of(getKey()).collect(Collectors.toSet());
+        }
     }
 
     @Override

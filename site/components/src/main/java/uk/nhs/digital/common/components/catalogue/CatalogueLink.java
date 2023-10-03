@@ -43,7 +43,7 @@ class CatalogueLink {
 
     boolean taggedWith(final Set<String> filterKeys) {
         final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfReferencedDoc();
-        return filterKeys.isEmpty() || taxonomyKeysOfLinkedDoc.containsAll(filterKeys);
+        return filterKeys.isEmpty() || !Collections.disjoint(taxonomyKeysOfLinkedDoc, filterKeys);
     }
 
     /**

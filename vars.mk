@@ -17,7 +17,7 @@ S3_REGION ?= eu-west-1
 # Set it to '-Drepo.path=storage' in env.mk to have the dir automatically created for you
 # within the project directory. This name is ignored by git, so you're not risking
 # committing it by accident.
-REPO_PATH ?=
+REPO_PATH ?=-Drepo.path=storage
 
 # Settings related to automated imports of OAS specifications
 # into API Specification documents from Apigee.

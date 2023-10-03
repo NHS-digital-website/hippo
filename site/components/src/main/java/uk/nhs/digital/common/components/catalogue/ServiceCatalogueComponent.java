@@ -23,11 +23,6 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
 
         final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
-        final List<CatalogueLink> catalogueLinksFiltered = applyUserSelectedFilters(
-            allCatalogueLinks,
-            userSelectedFilterKeys
-        );
-
         final Filters filtersModel = filtersModel(
             allCatalogueLinks,
             userSelectedFilterKeys,
@@ -36,9 +31,12 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
             log
         );
 
+        Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log).get();
+
+        final List<CatalogueLink> realCatalogueLinksFiltered = filterLinks(userSelectedFilterKeys, rawFilters, allCatalogueLinks);
+
         request.setAttribute(
-            Param.catalogueLinks.name(),
-            catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList())
+            Param.catalogueLinks.name(), realCatalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList())
         );
         request.setAttribute(Param.filtersModel.name(), filtersModel);
         request.setAttribute(Param.retiredFilterEnabled.name(), false);

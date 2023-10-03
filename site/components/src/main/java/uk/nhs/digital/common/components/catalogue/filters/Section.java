@@ -7,9 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.*;
 import uk.nhs.digital.common.util.CustomToStringStyle;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Section implements Walkable {
@@ -74,6 +72,10 @@ public class Section implements Walkable {
 
     public String description() {
         return description;
+    }
+
+    public Set<String> getKeysInSection() {
+        return getEntries().stream().flatMap(entry -> entry.getKeyAndChildKeys().stream()).collect(Collectors.toSet());
     }
 
     @Override public List<Section> children() {
