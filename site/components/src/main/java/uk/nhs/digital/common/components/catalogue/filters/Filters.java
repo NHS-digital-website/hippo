@@ -24,7 +24,7 @@ public class Filters implements Walkable {
         final Set<String> allFilterKeysOfAllDocsWhereEachDocTaggedWithAllSelectedFilterKeys,
         final Set<String> selectedFilterKeys
     ) {
-
+        this.selectedFiltersKeys = selectedFilterKeys;
         filtersWalker.walkVisitingAfterDescending(
             this,
             new StatusUpdatingFilterVisitor(allFilterKeysOfAllDocsWhereEachDocTaggedWithAllSelectedFilterKeys, selectedFilterKeys)
@@ -78,16 +78,7 @@ public class Filters implements Walkable {
 
     // Also invoked from the template.
     public Set<String> selectedFiltersKeys() {
-
-        if (selectedFiltersKeys == null) {
-
-            selectedFiltersKeys = getSubsectionsStream()
-                .filter(Subsection::isSelected)
-                .map(Subsection::getKey)
-                .collect(toSet());
-        }
-
-        return selectedFiltersKeys;
+        return this.selectedFiltersKeys;
     }
 
     // Also invoked from the template.
