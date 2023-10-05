@@ -223,11 +223,9 @@
                                 <#assign object = pastObject.object />
                                     <#if pastObject.type == "replacedSeries">
                                         <@fmt.formatDate value=object.changeDate.time?date var="changeDate" type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
-
                                         <@hst.link hippobean=object.replacementSeries var="replacedSeriesLink"/>
-
                                         <#assign objTitle>
-                                            <a href="replacedSeriesLink"
+                                            <a href=${replacedSeriesLink}
                                                class="cta__button"
                                                onClick="${getOnClickMethodCall(document.class.name, replacedSeriesLink)}"
                                                onKeyUp="return vjsu.onKeyUp(event)"
