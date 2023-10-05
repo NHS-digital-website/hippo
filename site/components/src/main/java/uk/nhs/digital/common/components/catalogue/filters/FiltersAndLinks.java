@@ -24,7 +24,7 @@ public class FiltersAndLinks {
     private void applyFiltersToLinks(final Set<String> userSelectedFilterKeys, final Filters rawFilters, final List<CatalogueLink> links) {
         if (!userSelectedFilterKeys.isEmpty()) {
             this.links = linksWithAnyUserSelectedFilterKeys(links, userSelectedFilterKeys).collect(toList());
-            Set<Set<String>> orderedFilterKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
+            List<Set<String>> orderedFilterKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
             orderedFilterKeysByCategory.forEach(category -> {
                 Set<String> userSelectedFiltersForCategory = userSelectedFilterKeys.stream().filter(category::contains).collect(Collectors.toSet());
                 this.links = linksWithAnyUserSelectedFilterKeys(this.links, userSelectedFiltersForCategory).collect(toList());
@@ -37,7 +37,7 @@ public class FiltersAndLinks {
 
     private void applyFiltersToNavKeys(final Set<String> userSelectedFilterKeys, final List<CatalogueLink> links, final Filters rawFilters) {
         //Get filter keys sorted into categories and ordered by selection order
-        Set<Set<String>> orderedFiltersKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
+        List<Set<String>> orderedFiltersKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
         //List to hold filtered links after all category filtering
         AtomicReference<List<CatalogueLink>> filteredLinks = new AtomicReference<>(links);
         //List to hold remaining filters after each category filtering pass
@@ -72,7 +72,7 @@ public class FiltersAndLinks {
         filters = new HashSet<>(remainingFilters);
     }
 
-    private Set<Set<String>> filterKeysSortedByCategory(Filters rawFilters, List<CatalogueLink> links, Set<String> userSelectedFilterKeys) {
+    private List<Set<String>> filterKeysSortedByCategory(Filters rawFilters, List<CatalogueLink> links, Set<String> userSelectedFilterKeys) {
         Set<Set<String>> linkFiltersByCategory = rawFilters.getSections()
                 .stream()
                 .map(section -> section.getKeysInSection()
@@ -81,7 +81,7 @@ public class FiltersAndLinks {
                         .collect(Collectors.toSet()))
                 .collect(Collectors.toSet());
 
-        Set<Set<String>> categorisedFilterKeysOrderedBySelection = new HashSet<>();
+        List<Set<String>> categorisedFilterKeysOrderedBySelection = new ArrayList<>();
 
         userSelectedFilterKeys.forEach(filterKey -> {
             Set<String> categoryForFilterKey = linkFiltersByCategory.stream().filter(filters -> filters.contains(filterKey)).findFirst().get();
