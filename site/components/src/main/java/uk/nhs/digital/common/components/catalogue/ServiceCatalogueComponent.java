@@ -30,7 +30,7 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
 
         final Filters filtersModel = filtersModel(
             allCatalogueLinks,
-            userSelectedFilterKeys,
+            filtersAndLinks.validUserSelectedFilterKeys,
             rawFilters,
             filtersAndLinks,
             log

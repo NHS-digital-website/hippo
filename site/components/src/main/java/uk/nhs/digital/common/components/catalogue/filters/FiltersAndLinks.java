@@ -15,11 +15,13 @@ import java.util.stream.Stream;
 public class FiltersAndLinks {
     public Set<String> filters;
     public List<CatalogueLink> links;
+    public Set<String> validUserSelectedFilterKeys;
 
     public FiltersAndLinks(final Set<String> userSelectedFilterKeys, final List<CatalogueLink> links, final Filters rawFilters) {
         List<Set<String>> orderedFiltersKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
         applyFiltersToLinks(userSelectedFilterKeys, links, orderedFiltersKeysByCategory);
         applyFiltersToNavKeys(userSelectedFilterKeys, links, orderedFiltersKeysByCategory);
+        updateUserSelectedFilters(userSelectedFilterKeys);
     }
 
     private void applyFiltersToLinks(final Set<String> userSelectedFilterKeys, final List<CatalogueLink> links, List<Set<String>> orderedFilterKeysByCategory) {
@@ -87,6 +89,11 @@ public class FiltersAndLinks {
             categorisedFilterKeysOrderedBySelection.add(categoryForFilterKey);
         });
         return categorisedFilterKeysOrderedBySelection;
+    }
+
+    private void updateUserSelectedFilters(Set<String> userSelectedFilterKeys) {
+        Set<String> keysFromLinks = allKeysFromLinks(links);
+        this.validUserSelectedFilterKeys = userSelectedFilterKeys.stream().filter(keysFromLinks::contains).collect(Collectors.toSet());
     }
 
     private Stream<CatalogueLink> linksWithAnyUserSelectedFilterKeys(final List<CatalogueLink> links,
