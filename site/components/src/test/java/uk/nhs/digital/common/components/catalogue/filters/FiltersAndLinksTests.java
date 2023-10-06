@@ -1,5 +1,13 @@
 package uk.nhs.digital.common.components.catalogue.filters;
 
+import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
+import static uk.nhs.digital.common.components.catalogue.filters.FiltersTestUtils.section;
+import static uk.nhs.digital.common.components.catalogue.filters.FiltersTestUtils.subsection;
+
 import com.google.common.collect.ImmutableList;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -10,14 +18,6 @@ import uk.nhs.digital.website.beans.Internallink;
 
 import java.util.Collections;
 import java.util.List;
-
-import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mock;
-import static uk.nhs.digital.common.components.catalogue.filters.FiltersTestUtils.section;
-import static uk.nhs.digital.common.components.catalogue.filters.FiltersTestUtils.subsection;
 
 @RunWith(DataProviderRunner.class)
 public class FiltersAndLinksTests {
@@ -77,7 +77,7 @@ public class FiltersAndLinksTests {
     }
 
     @Test
-    public void filterInOtherSectionFiltersAllOtherSectionsWithAND() {
+    public void filterInOtherSectionFiltersAllOtherSectionsWithAndLogic() {
         List<String> selectedFilterKeys = ImmutableList.of("outpatient", "patient");
         FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
 
