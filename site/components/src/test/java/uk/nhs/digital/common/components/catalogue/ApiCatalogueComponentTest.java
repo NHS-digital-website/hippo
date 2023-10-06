@@ -1,6 +1,7 @@
 package uk.nhs.digital.common.components.catalogue;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 import static java.util.Collections.emptySet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -101,7 +102,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
             = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health", "deprecated-api");
 
-        final Set<String> noUserSelectedFilterKeys = emptySet();
+        final List<String> noUserSelectedFilterKeys = emptyList();
 
         given(expectedFiltersFromFactory.initialisedWith(
             allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
@@ -142,7 +143,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
             = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health", "deprecated-api", "retired-api");
 
-        final Set<String> noUserSelectedFilterKeys = emptySet();
+        final List<String> noUserSelectedFilterKeys = emptyList();
 
         given(expectedFiltersFromFactory.initialisedWith(
             allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,

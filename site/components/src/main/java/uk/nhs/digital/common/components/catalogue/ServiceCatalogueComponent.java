@@ -22,7 +22,7 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
 
         final List<CatalogueLink> allCatalogueLinks = catalogueLinksFrom(request);
 
-        final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
+        final List<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
         Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
 

@@ -41,7 +41,7 @@ public class CatalogueLink {
             .noneMatch(filterKeys::contains);
     }
 
-    public boolean taggedWith(final Set<String> filterKeys) {
+    public boolean taggedWith(final List<String> filterKeys) {
         final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfReferencedDoc();
         return filterKeys.isEmpty() || !Collections.disjoint(taxonomyKeysOfLinkedDoc, filterKeys);
     }

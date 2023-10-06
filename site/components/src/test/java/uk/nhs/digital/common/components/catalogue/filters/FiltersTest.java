@@ -11,6 +11,7 @@ import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -67,7 +68,7 @@ public class FiltersTest {
         final Set<String> selectedTags = ImmutableSet.of("key-s");
 
         // when
-        final Filters actualFilters = filters.initialisedWith(filteredTaxonomyTags, selectedTags);
+        final Filters actualFilters = filters.initialisedWith(filteredTaxonomyTags, new ArrayList(selectedTags));
 
         // then
         assertThat("Filters have status flags updated depending on selected and filtered tags.",

@@ -1,5 +1,7 @@
 package uk.nhs.digital.common.components.catalogue;
 
+import static java.util.stream.Collectors.toList;
+
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.container.HstContainerURL;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -29,26 +31,26 @@ public class CatalogueComponent extends ContentRewriterComponent {
         return CatalogueLink.linksFrom(((ComponentList) request.getRequestContext().getContentBean()).getBlocks());
     }
 
-    protected static Set<String> userSelectedFilterKeysFrom(final HstRequest request) {
+    protected static List<String> userSelectedFilterKeysFrom(final HstRequest request) {
 
         return Optional.ofNullable(request.getRequestContext())
             .map(HstRequestContext::getBaseURL)
             .map(HstContainerURL::getParameterMap)
             .map(parameterMap -> parameterMap.get(ServiceCatalogueComponent.Param.filter.name()))
             .map(Arrays::stream)
-            .map(filterKeys -> filterKeys.collect(Collectors.toSet()))
-            .orElse(Collections.emptySet());
+            .map(filterKeys -> filterKeys.collect(toList()))
+            .orElse(Collections.emptyList());
     }
 
     protected Stream<CatalogueLink> linksWithAnyUserSelectedFilterKeys(final List<CatalogueLink> links,
-                                                                       final Set<String> userSelectedFilterKeys) {
+                                                                       final List<String> userSelectedFilterKeys) {
         return links.stream()
             .filter(link -> userSelectedFilterKeys.isEmpty() || link.taggedWith(userSelectedFilterKeys));
     }
 
     protected Filters filtersModel(
         final List<CatalogueLink> catalogueLinks,
-        final Set<String> userSelectedFilterKeys,
+        final List<String> userSelectedFilterKeys,
         Filters rawFilters,
         FiltersAndLinks filtersAndLinks,
         Logger logger
@@ -92,7 +94,7 @@ public class CatalogueComponent extends ContentRewriterComponent {
     }
 
     protected Set<String> allFilterKeysOfAllCatalogueDocsWhereEachDocTaggedWithAllUserSelectedKeys(
-        final Set<String> userSelectedFilterKeys,
+        final List<String> userSelectedFilterKeys,
         final List<CatalogueLink> links
     ) {
         return linksWithAnyUserSelectedFilterKeys(links, userSelectedFilterKeys)

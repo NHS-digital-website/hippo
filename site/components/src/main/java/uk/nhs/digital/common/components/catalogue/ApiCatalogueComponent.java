@@ -30,7 +30,7 @@ public class ApiCatalogueComponent extends CatalogueComponent {
         final List<CatalogueLink> catalogueLinksExcludingRetiredIfNeeded =
             eliminateRetiredIfNeeded(allCatalogueLinks, showRetired);
 
-        final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
+        final List<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
         Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
 
