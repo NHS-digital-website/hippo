@@ -22,7 +22,7 @@ public class CatalogueLink {
         this.rawLink = rawLink;
     }
 
-    static CatalogueLink from(final Object rawLink) {
+    public static CatalogueLink from(final Object rawLink) {
         return new CatalogueLink(rawLink);
     }
 
