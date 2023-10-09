@@ -32,17 +32,21 @@ public class FiltersAndLinks {
     }
 
     private void applyFiltersToNavKeys(final List<String> userSelectedFilterKeys, final List<CatalogueLink> links, List<Set<String>> orderedFilterKeysByCategory) {
-        AtomicReference<List<CatalogueLink>> filteredLinks = new AtomicReference<>(links);
-        orderedFilterKeysByCategory.forEach(category -> {
-            Set<String> filtersForCategoryFromLinks = filtersForCategoryFromLinks(filteredLinks.get(), category);
-            List<String> userSelectedFiltersForCategory = filtersForCategory(userSelectedFilterKeys, category);
-            List<CatalogueLink> filteredLinksForCategory = linksWithAnyUserSelectedFilterKeys(filteredLinks.get(), userSelectedFiltersForCategory).collect(toList());
-            filteredLinks.set(filteredLinksForCategory);
-            filtersForCategoryFromLinks.addAll(filtersNotInCollection(filteredLinksForCategory, filtersForCategoryFromLinks));
-            addToFilters(filtersForCategoryFromLinks);
-            Set<String> allFilteredLinksKeys = filteredLinks.get().stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
-            removeFromFilters(filters.parallelStream().filter(key -> !collectionsContainKey(category, allFilteredLinksKeys, key)).collect(Collectors.toSet()));
-        });
+        if (!userSelectedFilterKeys.isEmpty()) {
+            AtomicReference<List<CatalogueLink>> filteredLinks = new AtomicReference<>(links);
+            orderedFilterKeysByCategory.forEach(category -> {
+                Set<String> filtersForCategoryFromLinks = filtersForCategoryFromLinks(filteredLinks.get(), category);
+                List<String> userSelectedFiltersForCategory = filtersForCategory(userSelectedFilterKeys, category);
+                List<CatalogueLink> filteredLinksForCategory = linksWithAnyUserSelectedFilterKeys(filteredLinks.get(), userSelectedFiltersForCategory).collect(toList());
+                filteredLinks.set(filteredLinksForCategory);
+                filtersForCategoryFromLinks.addAll(filtersNotInCollection(filteredLinksForCategory, filtersForCategoryFromLinks));
+                addToFilters(filtersForCategoryFromLinks);
+                Set<String> allFilteredLinksKeys = filteredLinks.get().stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
+                removeFromFilters(filters.parallelStream().filter(key -> !collectionsContainKey(category, allFilteredLinksKeys, key)).collect(Collectors.toSet()));
+            });
+        } else {
+            addToFilters(allKeysFromLinks(links));
+        }
     }
 
     private List<Set<String>> filterKeysSortedByCategory(Filters rawFilters, List<CatalogueLink> links, List<String> userSelectedFilterKeys) {

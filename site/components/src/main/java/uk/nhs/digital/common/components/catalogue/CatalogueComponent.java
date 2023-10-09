@@ -12,8 +12,6 @@ import uk.nhs.digital.common.components.catalogue.filters.FiltersAndLinks;
 import uk.nhs.digital.website.beans.ComponentList;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
@@ -42,25 +40,14 @@ public class CatalogueComponent extends ContentRewriterComponent {
             .orElse(Collections.emptyList());
     }
 
-    protected Stream<CatalogueLink> linksWithAnyUserSelectedFilterKeys(final List<CatalogueLink> links,
-                                                                       final List<String> userSelectedFilterKeys) {
-        return links.stream()
-            .filter(link -> userSelectedFilterKeys.isEmpty() || link.taggedWith(userSelectedFilterKeys));
-    }
-
     protected Filters filtersModel(
-        final List<CatalogueLink> catalogueLinks,
         final List<String> userSelectedFilterKeys,
         Filters rawFilters,
         FiltersAndLinks filtersAndLinks,
         Logger logger
     ) {
         try {
-            Set<String> filters =
-                userSelectedFilterKeys.isEmpty()
-                    ? allFilterKeysOfAllCatalogueDocsWhereEachDocTaggedWithAllUserSelectedKeys(userSelectedFilterKeys, catalogueLinks)
-                    : filtersAndLinks.filters;
-            return rawFilters.initialisedWith(filters, userSelectedFilterKeys);
+            return rawFilters.initialisedWith(filtersAndLinks.filters, userSelectedFilterKeys);
         } catch (final Exception e) {
             // We deliberately do not propagate the exception as it would break rendering of the page.
             // As it is, it's only the Filters section that won't be rendered but the content
@@ -91,14 +78,5 @@ public class CatalogueComponent extends ContentRewriterComponent {
         }
 
         return Optional.empty();
-    }
-
-    protected Set<String> allFilterKeysOfAllCatalogueDocsWhereEachDocTaggedWithAllUserSelectedKeys(
-        final List<String> userSelectedFilterKeys,
-        final List<CatalogueLink> links
-    ) {
-        return linksWithAnyUserSelectedFilterKeys(links, userSelectedFilterKeys)
-            .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream())
-            .collect(Collectors.toSet());
     }
 }

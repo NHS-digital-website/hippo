@@ -33,6 +33,16 @@ public class FiltersAndLinksTests {
     }
 
     @Test
+    public void allLinksIncludedWhenNoSelectedFilters() {
+        List<String> selectedFilterKeys = Collections.emptyList();
+        FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
+
+        assertThat("Links are not empty", !filtersAndLinks.links.isEmpty());
+        assertThat("Filters are not empty", !filtersAndLinks.filters.isEmpty());
+        assertThat("Selected filters are empty", filtersAndLinks.selectedFilterKeys.isEmpty());
+    }
+
+    @Test
     public void linksAreIncludedThatContainEitherOfProvidedFiltersInSameSection() {
         List<String> selectedFilterKeys = ImmutableList.of("inpatient", "outpatient");
         FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);

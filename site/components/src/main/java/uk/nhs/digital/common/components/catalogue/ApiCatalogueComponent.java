@@ -37,7 +37,6 @@ public class ApiCatalogueComponent extends CatalogueComponent {
         FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, catalogueLinksExcludingRetiredIfNeeded, rawFilters);
 
         final Filters filtersModel = filtersModel(
-            catalogueLinksExcludingRetiredIfNeeded,
             filtersAndLinks.selectedFilterKeys,
             rawFilters,
             filtersAndLinks,

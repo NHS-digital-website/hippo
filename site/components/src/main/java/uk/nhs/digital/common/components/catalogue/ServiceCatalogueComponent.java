@@ -29,7 +29,6 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
         FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, allCatalogueLinks, rawFilters);
 
         final Filters filtersModel = filtersModel(
-            allCatalogueLinks,
             filtersAndLinks.selectedFilterKeys,
             rawFilters,
             filtersAndLinks,
