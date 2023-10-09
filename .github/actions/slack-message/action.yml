@@ -16,12 +16,17 @@ inputs:
   MESSAGE:
     description: 'The body of the message (Markdown)'
     required: true
+  ENABLED:
+    description: 'Whether or not to send the message'
+    required: false
+    default: true
 
 runs:
   using: "composite"
   steps:
 
-    - id: jwt_token
+    - name: Send Slack Message
+      if: ${{ env.ENABLED == 'true' }}
       run: |
         curl \
         -H "Authorization: Bearer ${{ env.TOKEN }}" \
@@ -70,6 +75,7 @@ runs:
         }
         EOF
       env:
+        ENABLED: ${{ inputs.ENABLED }}
         TOKEN: ${{ inputs.SLACK_API_TOKEN }}
         CHANNEL: ${{ inputs.SLACK_CHANNEL }}
         TITLE: ${{ inputs.TITLE }}

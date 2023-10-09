@@ -69,6 +69,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -81,6 +82,7 @@ jobs:
       - name: Slack message (building the branch)
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -107,6 +109,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -127,6 +130,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -136,6 +140,7 @@ jobs:
       - name: Slack message (Successfully stored the built artifact)
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -152,6 +157,7 @@ jobs:
       BRANCH: ${{ github.event.client_payload.data.text }}
       CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
       USER_ID: ${{  github.event.client_payload.data.user_id }}
+      MESSAGING: true
 
     steps:
 
@@ -164,6 +170,7 @@ jobs:
       - name: Slack message (uploading the build)
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -214,6 +221,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -281,6 +289,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -290,6 +299,7 @@ jobs:
       - name: Slack message (successfully upload the build)
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -342,6 +352,7 @@ jobs:
       - name: Slack message (requesting deployment)
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
@@ -373,6 +384,7 @@ jobs:
         if: ${{ failure() }}
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":x: Pipeline Error"
@@ -382,6 +394,7 @@ jobs:
       - name: Slack message (end message)
         uses: ./.github/actions/slack-message
         with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
           SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
           SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
           TITLE: ":green_book: Pipeline Progress"
