@@ -29,7 +29,7 @@ public class FiltersAndLinksTests {
 
         assertThat("Links are not empty", !filtersAndLinks.links.isEmpty());
         assertThat("Filters are not empty", !filtersAndLinks.filters.isEmpty());
-        assertThat("Selected filters are not empty", !filtersAndLinks.validUserSelectedFilterKeys.isEmpty());
+        assertThat("Selected filters are not empty", !filtersAndLinks.selectedFilterKeys.isEmpty());
     }
 
     @Test
@@ -91,7 +91,7 @@ public class FiltersAndLinksTests {
         List<String> selectedFilterKeys = ImmutableList.of("outpatient", "patient");
         FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
 
-        boolean result = filtersAndLinks.validUserSelectedFilterKeys.equals(selectedFilterKeys);
+        boolean result = filtersAndLinks.selectedFilterKeys.equals(selectedFilterKeys);
 
         assertThat("Filter order is preserved", result);
     }
@@ -101,7 +101,7 @@ public class FiltersAndLinksTests {
         List<String> selectedFilterKeys = ImmutableList.of("inpatient", "outpatient", "patient");
         FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
 
-        boolean result = !filtersAndLinks.validUserSelectedFilterKeys.contains("inpatient");
+        boolean result = !filtersAndLinks.selectedFilterKeys.contains("inpatient");
 
         assertThat("Selected filters does not contain invalid filter after AND", result);
     }
