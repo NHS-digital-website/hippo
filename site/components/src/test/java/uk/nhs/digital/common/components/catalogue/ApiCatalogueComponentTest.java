@@ -12,6 +12,7 @@ import static org.mockito.Mockito.mock;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static uk.nhs.digital.test.TestLogger.LogAssertor.error;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import org.hippoecm.hst.container.ModifiableRequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -45,6 +46,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RunWith(PowerMockRunner.class)
 @PrepareOnlyThisForTest({CatalogueContext.class, ApiCatalogueComponent.class})
@@ -168,6 +170,104 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
             "Filters are as produced by the filters factory.",
             actualFilters,
             sameInstance(expectedFiltersFromFactory)
+        );
+    }
+
+    @Test
+    public void linksIncludeRetiredWhenRetiredIsEnabled() {
+
+        // given
+        final List<String> userSelectedFilterKeys = emptyList();
+
+        // @formatter:off
+        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys = ImmutableSet.of(
+                "fhir",                 // user-selected
+                "retired-api"           // user-selected
+        );
+        // @formatter:on
+
+        given(expectedFiltersFromFactory.initialisedWith(
+                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+                userSelectedFilterKeys
+        )).willReturn(expectedFiltersFromFactory);
+
+        hstContainerUrl.setParameter("filter", userSelectedFilterKeys.toArray(new String[0]));
+
+        request.setQueryString("showRetired");
+
+        // when
+        apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+
+        // then
+        final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
+        final List<CatalogueLink> resultLinks = actualResults.stream().map(CatalogueLink::from).collect(Collectors.toList());
+        assertThat("Results include links tagged as retired", resultLinks.stream().anyMatch(link -> link.taggedWith(ImmutableList.of("retired-api"))));
+    }
+
+    @Test
+    public void linksExcludeRetiredWhenRetiredNotEnabled() {
+
+        // given
+        final List<String> userSelectedFilterKeys = emptyList();
+
+        // @formatter:off
+        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys = ImmutableSet.of(
+                "fhir",                 // user-selected
+                "retired-api"           // user-selected
+        );
+        // @formatter:on
+
+        given(expectedFiltersFromFactory.initialisedWith(
+                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+                userSelectedFilterKeys
+        )).willReturn(expectedFiltersFromFactory);
+
+        hstContainerUrl.setParameter("filter", userSelectedFilterKeys.toArray(new String[0]));
+
+        // when
+        apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+
+        // then
+        final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
+        final List<CatalogueLink> resultLinks = actualResults.stream().map(CatalogueLink::from).collect(Collectors.toList());
+        assertThat("Results do not include links tagged as retired", resultLinks.stream().noneMatch(link -> link.taggedWith(ImmutableList.of("retired-api"))));
+    }
+
+    @Test
+    public void doesNotFail_whenBuildingOfTheFiltersModelFails() {
+
+        // given
+        given(filtersFactory.filtersFromMappingYaml(any(String.class))).willThrow(new RuntimeException("Invalid YAML."));
+
+        // when
+        apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+
+        // then
+        final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
+        assertThat(
+                "Results comprise all links from the API catalogue document.",
+                actualResults,
+                is(asList(
+                        allCatalogueLinksToTaggedDocuments.get(0),
+                        allCatalogueLinksToTaggedDocuments.get(1),
+                        allCatalogueLinksToTaggedDocuments.get(2),
+                        allCatalogueLinksToTaggedDocuments.get(3),
+                        allCatalogueLinksToTaggedDocuments.get(4),
+                        allCatalogueLinksToTaggedDocuments.get(6),
+                        allCatalogueLinksToTaggedDocuments.get(7)
+                ))
+        );
+
+        final Filters actualFilters = (Filters) request.getAttribute(REQUEST_ATTR_FILTERS);
+        assertThat(
+                "Filters are as produced by the filters factory.",
+                actualFilters,
+                is(Filters.emptyInstance())
+        );
+
+        logger.shouldReceive(
+                error("Failed to generate Filters model.")
+                        .withException("Invalid YAML.")
         );
     }
 

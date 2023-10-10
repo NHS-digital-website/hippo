@@ -171,6 +171,45 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         );
     }
 
+    @Test
+    public void doesNotFail_whenBuildingOfTheFiltersModelFails() {
+
+        // given
+        given(filtersFactory.filtersFromMappingYaml(any(String.class))).willThrow(new RuntimeException("Invalid YAML."));
+
+        // when
+        serviceCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+
+        // then
+        final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
+        assertThat(
+                "Results comprise all links from the API catalogue document.",
+                actualResults,
+                is(asList(
+                        allCatalogueLinksToTaggedDocuments.get(0),
+                        allCatalogueLinksToTaggedDocuments.get(1),
+                        allCatalogueLinksToTaggedDocuments.get(2),
+                        allCatalogueLinksToTaggedDocuments.get(3),
+                        allCatalogueLinksToTaggedDocuments.get(4),
+                        allCatalogueLinksToTaggedDocuments.get(5),
+                        allCatalogueLinksToTaggedDocuments.get(6)
+                ))
+        );
+
+        final Filters actualFilters = (Filters) request.getAttribute(REQUEST_ATTR_FILTERS);
+        assertThat(
+                "Filters are as produced by the filters factory.",
+                actualFilters,
+                is(Filters.emptyInstance())
+        );
+
+        logger.shouldReceive(
+                error("Failed to generate Filters model.")
+                        .withException("Invalid YAML.")
+        );
+    }
+
+
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void givenApiCatalogueDocumentWithInternalLinksToCatalogueDocuments() {
 
