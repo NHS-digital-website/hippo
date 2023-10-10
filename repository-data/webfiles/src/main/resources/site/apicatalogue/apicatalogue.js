@@ -69,6 +69,12 @@ function updateSearchResults(ev) {
     const countDisplay = document.querySelector('h6#search-results-count');
     const visibleCount = allResults.filter(isVisible).length;
     countDisplay.textContent = `${visibleCount} results`;
+    const notFoundBox = document.querySelector('#notFoundBox');
+    if (visibleCount === 0) {
+        notFoundBox.classList.remove(nhsdHiddenClass);
+    } else if (!notFoundBox.classList.contains(nhsdHiddenClass)) {
+        notFoundBox.classList.add(nhsdHiddenClass);
+    }
 }
 
 document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);

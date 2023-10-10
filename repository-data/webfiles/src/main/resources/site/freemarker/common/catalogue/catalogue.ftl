@@ -129,10 +129,20 @@
                 <#else>
                     <div class="nhsd-!t-padding-top-4"/>
                 </#if>
-
                 <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
+                <@notFoundBox "Didn't find what you were looking for?" "Additional services can be found here somewhere"/>
             </div>
         </div>
     </#if>
-
 </div>
+
+<#macro notFoundBox title body>
+    <div class="nhsd-m-emphasis-box nhsd-!t-display-hide" id="notFoundBox">
+        <div class="nhsd-a-box nhsd-a-box--border-blue">
+            <div class="nhsd-m-emphasis-box__content-box">
+                <h1 class="nhsd-t-heading-s nhsd-t-word-break">${title}</h1>
+                <p class="nhsd-t-body-s nhsd-t-word-break">${body}</p>
+            </div>
+        </div>
+    </div>
+</#macro>
