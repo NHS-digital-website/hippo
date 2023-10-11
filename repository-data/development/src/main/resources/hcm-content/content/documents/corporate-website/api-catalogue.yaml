@@ -1,51 +1,29 @@
----
 /content/documents/corporate-website/developer:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 3e447b55-c0fe-4d4c-9130-07b5b01c0f49
+  hippo:name: Developer
+  hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+  hippotranslation:id: 4b3f5331-e4c1-4b9c-a300-b680c6ae1188
+  hippotranslation:locale: en
   /api-catalogue:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 62f17dec-5d85-4060-8aa9-0fbd09d074e1
+    hippo:name: API Catalogue
+    hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+    hippotranslation:id: 4bd2b94c-3563-4c18-b12f-a7d42c0e0fc0
+    hippotranslation:locale: en
     /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+      hippo:name: API catalogue
+      hippo:versionHistory: 465fd99f-6364-4eb8-8af6-a27d0114b095
       /content[1]:
-        /website:body:
-          hippostd:content: ''
-          jcr:primaryType: hippostd:html
-        /website:friendlyurls:
-          jcr:primaryType: website:friendlyurls
-          website:alternativeurls: []
-          website:destination: ''
-        /website:items[1]:
-          /website:link:
-            hippo:docbase: 6681acac-59a6-4f6e-918f-119c989cbd8d
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[2]:
-          /website:link:
-            hippo:docbase: 218e4b29-3223-41a0-9c02-beb76df6f1dd
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[3]:
-          /website:link:
-            hippo:docbase: b6cadc10-ea1e-4059-8cf2-0a2184509273
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[4]:
-          /website:link:
-            hippo:docbase: ce8d4195-c3a0-41bb-b393-06659f75e1f6
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[5]:
-          /website:link:
-            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[6]:
-          jcr:primaryType: website:externallink
-          website:link: https://google.com
-          website:shortsummary: External Resource summary
-          website:title: External Resource
-        /website:seosummary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
-          jcr:primaryType: hippostd:html
-        /website:summary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
-          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:componentlist
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 8045d8f2-4def-4c3f-b981-07b0e2c8384c
         common:searchRank: 3
         common:searchable: true
         hippo:availability: []
@@ -53,180 +31,218 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:38:54.604Z
+        hippostdpubwf:lastModificationDate: 2023-10-11T12:32:38.505+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:componentlist
-        jcr:uuid: 8045d8f2-4def-4c3f-b981-07b0e2c8384c
         website:anchor: true
         website:gossid: 0
+        website:notFoundTitle: Didn't find what you were looking for?
         website:seosummarytext: <p>Test API catalogue for smoke tests</p>
         website:shortsummary: Test API catalogue for smoke tests
         website:title: Test API catalogue
-      /content[2]:
         /website:body:
-          hippostd:content: ''
           jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
           website:destination: ''
         /website:items[1]:
+          jcr:primaryType: website:internallink
           /website:link:
+            jcr:primaryType: hippo:mirror
             hippo:docbase: 6681acac-59a6-4f6e-918f-119c989cbd8d
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         /website:items[2]:
+          jcr:primaryType: website:internallink
           /website:link:
+            jcr:primaryType: hippo:mirror
             hippo:docbase: 218e4b29-3223-41a0-9c02-beb76df6f1dd
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         /website:items[3]:
+          jcr:primaryType: website:internallink
           /website:link:
+            jcr:primaryType: hippo:mirror
             hippo:docbase: b6cadc10-ea1e-4059-8cf2-0a2184509273
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         /website:items[4]:
+          jcr:primaryType: website:internallink
           /website:link:
+            jcr:primaryType: hippo:mirror
             hippo:docbase: ce8d4195-c3a0-41bb-b393-06659f75e1f6
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         /website:items[5]:
-          /website:link:
-            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
         /website:items[6]:
           jcr:primaryType: website:externallink
           website:link: https://google.com
           website:shortsummary: External Resource summary
           website:title: External Resource
         /website:seosummary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
         /website:summary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
+        /website:notFoundBody:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>That's a shame</p>
+      /content[2]:
+        jcr:primaryType: website:componentlist
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: a943a220-9f9b-4384-9e86-15381d2fc6df
         common:searchRank: 3
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:40:02.713Z
+        hippostdpubwf:lastModificationDate: 2023-10-11T12:33:23.914+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        - mix:versionable
-        jcr:primaryType: website:componentlist
-        jcr:uuid: a943a220-9f9b-4384-9e86-15381d2fc6df
         website:anchor: true
         website:gossid: 0
+        website:notFoundTitle: Didn't find what you were looking for?
         website:seosummarytext: <p>Test API catalogue for smoke tests</p>
         website:shortsummary: Test API catalogue for smoke tests
         website:title: Test API catalogue
-      /content[3]:
         /website:body:
-          hippostd:content: ''
           jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
           website:destination: ''
         /website:items[1]:
+          jcr:primaryType: website:internallink
           /website:link:
+            jcr:primaryType: hippo:mirror
             hippo:docbase: 6681acac-59a6-4f6e-918f-119c989cbd8d
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         /website:items[2]:
+          jcr:primaryType: website:internallink
           /website:link:
+            jcr:primaryType: hippo:mirror
             hippo:docbase: 218e4b29-3223-41a0-9c02-beb76df6f1dd
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         /website:items[3]:
+          jcr:primaryType: website:internallink
           /website:link:
+            jcr:primaryType: hippo:mirror
             hippo:docbase: b6cadc10-ea1e-4059-8cf2-0a2184509273
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         /website:items[4]:
+          jcr:primaryType: website:internallink
           /website:link:
+            jcr:primaryType: hippo:mirror
             hippo:docbase: ce8d4195-c3a0-41bb-b393-06659f75e1f6
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         /website:items[5]:
-          /website:link:
-            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
         /website:items[6]:
           jcr:primaryType: website:externallink
           website:link: https://google.com
           website:shortsummary: External Resource summary
           website:title: External Resource
         /website:seosummary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
         /website:summary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
+        /website:notFoundBody:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>That's a shame</p>
+      /content[3]:
+        jcr:primaryType: website:componentlist
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 76042466-7949-428d-b36b-5538f48c9b90
         common:searchRank: 3
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
         hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:40:02.713Z
+        hippostdpubwf:lastModificationDate: 2023-10-11T12:33:23.914+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-08-19T08:40:06.552Z
+        hippostdpubwf:publicationDate: 2023-10-11T12:33:33.614+01:00
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:componentlist
-        jcr:uuid: 76042466-7949-428d-b36b-5538f48c9b90
         website:anchor: true
         website:gossid: 0
+        website:notFoundTitle: Didn't find what you were looking for?
         website:seosummarytext: <p>Test API catalogue for smoke tests</p>
         website:shortsummary: Test API catalogue for smoke tests
         website:title: Test API catalogue
-      hippo:name: API catalogue
-      hippo:versionHistory: 2db2316d-50ea-4b2c-a689-14b648e8a53b
-      jcr:mixinTypes:
-      - hippo:named
-      - hippo:versionInfo
-      - mix:referenceable
-      jcr:primaryType: hippo:handle
-      jcr:uuid: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+        /website:body:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:items[1]:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 6681acac-59a6-4f6e-918f-119c989cbd8d
+        /website:items[2]:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 218e4b29-3223-41a0-9c02-beb76df6f1dd
+        /website:items[3]:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: b6cadc10-ea1e-4059-8cf2-0a2184509273
+        /website:items[4]:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: ce8d4195-c3a0-41bb-b393-06659f75e1f6
+        /website:items[5]:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
+        /website:items[6]:
+          jcr:primaryType: website:externallink
+          website:link: https://google.com
+          website:shortsummary: External Resource summary
+          website:title: External Resource
+        /website:seosummary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
+        /website:summary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
+        /website:notFoundBody:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>That's a shame</p>
     /deprecated-api:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: cd856bbe-7286-48ee-baff-b27216e29245
+      hippo:name: Deprecated API
+      hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+      hippotranslation:id: e4b8b964-567e-4278-9987-2f5e08ee6010
+      hippotranslation:locale: en
       /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: ce8d4195-c3a0-41bb-b393-06659f75e1f6
+        hippo:name: Deprecated API
+        hippo:versionHistory: 79ce6c09-a638-44eb-b2b6-51fe35e171ac
         /content[1]:
-          /website:seosummary:
-            hippostd:content: Deprecated API
-            jcr:primaryType: hippostd:html
-          /website:summary:
-            hippostd:content: <p>Deprecated API</p>
-            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 0ae87fe0-5073-4d6a-b74a-3b92ab6c1989
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
-          common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          common:FullTaxonomy: [api-status, out-of-hours, deprecated-api, api-catalogue]
+          common:SearchableTags: [Deprecated API, OOH GP]
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
@@ -237,85 +253,62 @@
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
           hippostdpubwf:lastModificationDate: 2021-08-19T19:17:51.117Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - deprecated-api
-          - out-of-hours
+          hippotaxonomy:keys: [deprecated-api, out-of-hours]
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 0ae87fe0-5073-4d6a-b74a-3b92ab6c1989
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
           website:specification_id: 123456-di
           website:summary: ''
           website:title: Deprecated API
-        /content[2]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: Deprecated API
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>Deprecated API</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>Deprecated API</p>
+        /content[2]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 13d79e83-9924-4cb6-b062-9dc871c9ee44
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
-          common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          common:FullTaxonomy: [api-status, out-of-hours, deprecated-api, api-catalogue]
+          common:SearchableTags: [Deprecated API, OOH GP]
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - preview
+          hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
           hippostdpubwf:lastModificationDate: 2021-08-19T19:17:02.396Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - deprecated-api
-          - out-of-hours
+          hippotaxonomy:keys: [deprecated-api, out-of-hours]
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          - mix:versionable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 13d79e83-9924-4cb6-b062-9dc871c9ee44
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
           website:specification_id: '123456'
           website:summary: ''
           website:title: Deprecated API
-        /content[3]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: Deprecated API
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>Deprecated API</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>Deprecated API</p>
+        /content[3]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 7a5a9719-bb4a-44ce-a108-88442f64094f
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
-          common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          common:FullTaxonomy: [api-status, out-of-hours, deprecated-api, api-catalogue]
+          common:SearchableTags: [Deprecated API, OOH GP]
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - live
+          hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -323,112 +316,41 @@
           hippostdpubwf:lastModificationDate: 2021-08-19T19:17:02.396Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2021-08-19T19:22:12.192Z
-          hippotaxonomy:keys:
-          - deprecated-api
-          - out-of-hours
+          hippotaxonomy:keys: [deprecated-api, out-of-hours]
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 7a5a9719-bb4a-44ce-a108-88442f64094f
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
           website:specification_id: '123456'
           website:summary: ''
           website:title: Deprecated API
-        hippo:name: Deprecated API
-        hippo:versionHistory: 79ce6c09-a638-44eb-b2b6-51fe35e171ac
-        jcr:mixinTypes:
-        - hippo:named
-        - hippo:versionInfo
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
-        jcr:uuid: ce8d4195-c3a0-41bb-b393-06659f75e1f6
-      hippo:name: Deprecated API
-      hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
-      hippotranslation:id: e4b8b964-567e-4278-9987-2f5e08ee6010
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippo:named
-      - hippotranslation:translated
-      - mix:versionable
-      jcr:primaryType: hippostd:folder
-      jcr:uuid: cd856bbe-7286-48ee-baff-b27216e29245
-    /general-document-not-api-specification:
-      /content:
-        /content[1]:
-          /website:component:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:friendlyurls:
-            jcr:primaryType: website:friendlyurls
-            website:alternativeurls: []
-            website:destination: ''
-          /website:image:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
-          /website:leadimage:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
-          /website:pageicon:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:seosummary:
-            hippostd:content: General document, not API Specification, not tagged
-              with any mapped taxonomy tags
             jcr:primaryType: hippostd:html
+            hippostd:content: Deprecated API
           /website:summary:
-            hippostd:content: <p>General document, not API Specification, not tagged
-              with any mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
-          /website:userContact:
-            /website:userContactnotes:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            jcr:primaryType: website:userContact
-            website:userContactPhone: ''
-            website:userContactemail: hgfhfghfhf
-            website:userContactname: ''
-            website:userContactprimarycontact: false
-          /website:userNeed:
-            jcr:primaryType: website:userNeed
-            website:asA: ''
-            website:iNeedto: ''
-            website:soThat: ''
-          /website:userNeedandcontact:
-            /website:briefDescription:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:teampicker:
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              jcr:primaryType: hippo:mirror
-            jcr:primaryType: website:userNeedandcontact
-            website:portfolioCode: ''
-            website:responsibleTeam: ''
-            website:userNeedismet:
-            - ''
-          common:FullTaxonomy:
-          - document
-          - audiences
-          - content-type
-          common:SearchableTags:
-          - Viewpoint
-          - Audiences
-          - Document
+            hippostd:content: <p>Deprecated API</p>
+    /general-document-not-api-specification:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: eeaf9f90-76ec-4e34-bdd6-05fd468ea2b5
+      hippo:name: General document, not API Specification
+      hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+      hippotranslation:id: 63381695-849c-4ae6-88fc-cd8d4d7065b5
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: b6cadc10-ea1e-4059-8cf2-0a2184509273
+        hippo:name: General document, not API Specification
+        hippo:versionHistory: 0f30540f-94b9-4526-897c-63b81ff98098
+        /content[1]:
+          jcr:primaryType: website:general
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 33d75e43-527d-4b83-9ff4-a383e6facc08
+          common:FullTaxonomy: [document, audiences, content-type]
+          common:SearchableTags: [Viewpoint, Audiences, Document]
           common:searchRank: 3
           common:searchable: true
           hippo:availability: []
@@ -439,16 +361,9 @@
           hippostdpubwf:creationDate: 2021-02-26T14:58:49.505Z
           hippostdpubwf:lastModificationDate: 2021-08-18T15:24:39.081Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - audiences
-          - document
+          hippotaxonomy:keys: [audiences, document]
           hippotranslation:id: 6dca2d86-725d-443b-a57d-069ce6e47158
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:general
-          jcr:uuid: 33d75e43-527d-4b83-9ff4-a383e6facc08
           website:gossid: 0
           website:metadata: []
           website:navigationcontroller: withNav
@@ -456,100 +371,85 @@
             with any mapped taxonomy tags
           website:shortsummary: General document, not API Specification, not tagged
             with any mapped taxonomy tags
-          website:taxonomyClassificationField:
-          - audiences
-          - document
+          website:taxonomyClassificationField: [audiences, document]
           website:title: General document
           website:type: ''
-        /content[2]:
           /website:component:
-            hippostd:content: ''
             jcr:primaryType: hippostd:html
+            hippostd:content: ''
           /website:friendlyurls:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
           /website:image:
+            jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:leadimage:
+            jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:pageicon:
+            jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: General document, not API Specification, not tagged
               with any mapped taxonomy tags
-            jcr:primaryType: hippostd:html
           /website:summary:
+            jcr:primaryType: hippostd:html
             hippostd:content: <p>General document, not API Specification, not tagged
               with any mapped taxonomy tags</p>
-            jcr:primaryType: hippostd:html
           /website:userContact:
-            /website:userContactnotes:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
             jcr:primaryType: website:userContact
             website:userContactPhone: ''
             website:userContactemail: hgfhfghfhf
             website:userContactname: ''
             website:userContactprimarycontact: false
+            /website:userContactnotes:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
           /website:userNeed:
             jcr:primaryType: website:userNeed
             website:asA: ''
             website:iNeedto: ''
             website:soThat: ''
           /website:userNeedandcontact:
-            /website:briefDescription:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:teampicker:
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              jcr:primaryType: hippo:mirror
             jcr:primaryType: website:userNeedandcontact
             website:portfolioCode: ''
             website:responsibleTeam: ''
-            website:userNeedismet:
-            - ''
-          common:FullTaxonomy:
-          - document
-          - audiences
-          - content-type
-          common:SearchableTags:
-          - Viewpoint
-          - Audiences
-          - Document
+            website:userNeedismet: ['']
+            /website:briefDescription:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /website:teampicker:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /content[2]:
+          jcr:primaryType: website:general
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: fcc3ee02-cebb-4895-8848-df4d83d02b42
+          common:FullTaxonomy: [document, audiences, content-type]
+          common:SearchableTags: [Viewpoint, Audiences, Document]
           common:searchRank: 3
           common:searchable: true
-          hippo:availability:
-          - preview
+          hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:58:49.505Z
           hippostdpubwf:lastModificationDate: 2021-08-18T14:54:05.723Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - audiences
-          - document
+          hippotaxonomy:keys: [audiences, document]
           hippotranslation:id: 6dca2d86-725d-443b-a57d-069ce6e47158
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          - mix:versionable
-          jcr:primaryType: website:general
-          jcr:uuid: fcc3ee02-cebb-4895-8848-df4d83d02b42
           website:gossid: 0
           website:metadata: []
           website:navigationcontroller: withNav
@@ -557,83 +457,76 @@
             with any mapped taxonomy tags
           website:shortsummary: General document, not API Specification, not tagged
             with any mapped taxonomy tags
-          website:taxonomyClassificationField:
-          - audiences
-          - document
+          website:taxonomyClassificationField: [audiences, document]
           website:title: General document
           website:type: ''
-        /content[3]:
           /website:component:
-            hippostd:content: ''
             jcr:primaryType: hippostd:html
+            hippostd:content: ''
           /website:friendlyurls:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
           /website:image:
+            jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:leadimage:
+            jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:pageicon:
+            jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: General document, not API Specification, not tagged
               with any mapped taxonomy tags
-            jcr:primaryType: hippostd:html
           /website:summary:
+            jcr:primaryType: hippostd:html
             hippostd:content: <p>General document, not API Specification, not tagged
               with any mapped taxonomy tags</p>
-            jcr:primaryType: hippostd:html
           /website:userContact:
-            /website:userContactnotes:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
             jcr:primaryType: website:userContact
             website:userContactPhone: ''
             website:userContactemail: hgfhfghfhf
             website:userContactname: ''
             website:userContactprimarycontact: false
+            /website:userContactnotes:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
           /website:userNeed:
             jcr:primaryType: website:userNeed
             website:asA: ''
             website:iNeedto: ''
             website:soThat: ''
           /website:userNeedandcontact:
-            /website:briefDescription:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:teampicker:
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              jcr:primaryType: hippo:mirror
             jcr:primaryType: website:userNeedandcontact
             website:portfolioCode: ''
             website:responsibleTeam: ''
-            website:userNeedismet:
-            - ''
-          common:FullTaxonomy:
-          - document
-          - audiences
-          - content-type
-          common:SearchableTags:
-          - Viewpoint
-          - Audiences
-          - Document
+            website:userNeedismet: ['']
+            /website:briefDescription:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /website:teampicker:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /content[3]:
+          jcr:primaryType: website:general
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 9fe769e0-d061-4e22-84c2-0e10f70cdc78
+          common:FullTaxonomy: [document, audiences, content-type]
+          common:SearchableTags: [Viewpoint, Audiences, Document]
           common:searchRank: 3
           common:searchable: true
-          hippo:availability:
-          - live
+          hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -641,16 +534,9 @@
           hippostdpubwf:lastModificationDate: 2021-08-18T14:54:05.723Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2021-08-18T14:54:08.436Z
-          hippotaxonomy:keys:
-          - audiences
-          - document
+          hippotaxonomy:keys: [audiences, document]
           hippotranslation:id: 6dca2d86-725d-443b-a57d-069ce6e47158
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:general
-          jcr:uuid: 9fe769e0-d061-4e22-84c2-0e10f70cdc78
           website:gossid: 0
           website:metadata: []
           website:navigationcontroller: withNav
@@ -658,73 +544,101 @@
             with any mapped taxonomy tags
           website:shortsummary: General document, not API Specification, not tagged
             with any mapped taxonomy tags
-          website:taxonomyClassificationField:
-          - audiences
-          - document
+          website:taxonomyClassificationField: [audiences, document]
           website:title: General document
           website:type: ''
-        hippo:name: General document, not API Specification
-        hippo:versionHistory: 0f30540f-94b9-4526-897c-63b81ff98098
-        jcr:mixinTypes:
-        - hippo:named
-        - hippo:versionInfo
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
-        jcr:uuid: b6cadc10-ea1e-4059-8cf2-0a2184509273
-      hippo:name: General document, not API Specification
-      hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
-      hippotranslation:id: 63381695-849c-4ae6-88fc-cd8d4d7065b5
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippo:named
-      - hippotranslation:translated
-      - mix:versionable
-      jcr:primaryType: hippostd:folder
-      jcr:uuid: eeaf9f90-76ec-4e34-bdd6-05fd468ea2b5
-    /hello-world-api:
-      /content:
-        /content[1]:
+          /website:component:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /website:leadimage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /website:pageicon:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
           /website:seosummary:
-            hippostd:content: API specification tagged with mapped taxonomy tags
             jcr:primaryType: hippostd:html
+            hippostd:content: General document, not API Specification, not tagged
+              with any mapped taxonomy tags
           /website:summary:
-            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>General document, not API Specification, not tagged
+              with any mapped taxonomy tags</p>
+          /website:userContact:
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: hgfhfghfhf
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+            /website:userContactnotes:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet: ['']
+            /website:briefDescription:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /website:teampicker:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /hello-world-api:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 82719d59-ae36-4aed-b992-59c9e9c93725
+      hippo:name: Hello World API
+      hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+      hippotranslation:id: e39c176c-25aa-4b9f-894e-62ff97f6f14e
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 6681acac-59a6-4f6e-918f-119c989cbd8d
+        hippo:name: Hello World API
+        hippo:versionHistory: 31bef0ff-ad1a-4082-8b27-d51ee63e1411
+        /content[1]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+          jcr:uuid: 607371a0-af66-4242-82a0-a1bb2634c42e
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
-          common:SearchableTags:
-          - Demographic
-          - Inpatient
+          common:FullTaxonomy: [health-services, people-and-places, data-and-information,
+            inpatients, national-health-service, hospital, secondary-care, demographics]
+          common:SearchableTags: [Demographic, Inpatient]
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - preview
+          hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
           hippostdpubwf:lastModificationDate: 2021-08-19T19:18:11.882Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          hippotaxonomy:keys: [inpatients, demographics]
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:versionable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 607371a0-af66-4242-82a0-a1bb2634c42e
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -820,30 +734,23 @@
           website:specification_id: 325169-DISABLED
           website:summary: ''
           website:title: Hello World API
-        /content[2]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: API specification tagged with mapped taxonomy tags
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
+        /content[2]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: a0efc7d4-f0ca-47bc-a5ea-ff63b0170430
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
-          common:SearchableTags:
-          - Demographic
-          - Inpatient
+          common:FullTaxonomy: [health-services, people-and-places, data-and-information,
+            inpatients, national-health-service, hospital, secondary-care, demographics]
+          common:SearchableTags: [Demographic, Inpatient]
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - live
+          hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -851,16 +758,9 @@
           hippostdpubwf:lastModificationDate: 2021-08-19T19:18:11.882Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2021-08-19T19:18:15.240Z
-          hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          hippotaxonomy:keys: [inpatients, demographics]
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: a0efc7d4-f0ca-47bc-a5ea-ff63b0170430
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -956,26 +856,20 @@
           website:specification_id: 325169-DISABLED
           website:summary: ''
           website:title: Hello World API
-        /content[3]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: API specification tagged with mapped taxonomy tags
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
+        /content[3]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 1c9917f5-4cdc-44b1-8f02-1105b0f9f0ea
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
-          common:SearchableTags:
-          - Demographic
-          - Inpatient
+          common:FullTaxonomy: [health-services, people-and-places, data-and-information,
+            inpatients, national-health-service, hospital, secondary-care, demographics]
+          common:SearchableTags: [Demographic, Inpatient]
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
@@ -985,16 +879,9 @@
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
           hippostdpubwf:lastModificationDate: 2021-08-19T19:18:02.736Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          hippotaxonomy:keys: [inpatients, demographics]
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 1c9917f5-4cdc-44b1-8f02-1105b0f9f0ea
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -1090,67 +977,46 @@
           website:specification_id: 325169-DISABLED
           website:summary: ''
           website:title: Hello World API
-        hippo:name: Hello World API
-        hippo:versionHistory: 31bef0ff-ad1a-4082-8b27-d51ee63e1411
-        jcr:mixinTypes:
-        - hippo:named
-        - hippo:versionInfo
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
-        jcr:uuid: 6681acac-59a6-4f6e-918f-119c989cbd8d
-      hippo:name: Hello World API
-      hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
-      hippotranslation:id: e39c176c-25aa-4b9f-894e-62ff97f6f14e
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippo:named
-      - hippotranslation:translated
-      - mix:versionable
-      jcr:primaryType: hippostd:folder
-      jcr:uuid: 82719d59-ae36-4aed-b992-59c9e9c93725
-    /personal-demographics-service---fhir-api:
-      /content:
-        /content[1]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: API specification tagged with mapped taxonomy tags
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
+    /personal-demographics-service---fhir-api:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 1cbbcfd2-e33b-4726-b74d-839d2f8b9351
+      hippo:name: Personal Demographics Service - FHIR API
+      hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+      hippotranslation:id: 3036a3a5-d08b-4f30-a338-6b563ec0fd76
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 218e4b29-3223-41a0-9c02-beb76df6f1dd
+        hippo:name: Personal Demographics Service - FHIR API
+        hippo:versionHistory: f6bdcfdd-3439-48ac-9a16-1d4285d24371
+        /content[1]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+          jcr:uuid: 1c95a8c2-84e0-47e3-bead-9bcf9bf213ec
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - outpatients
-          - hospital
-          - secondary-care
-          common:SearchableTags:
-          - Inpatient
-          - Outpatient
+          common:FullTaxonomy: [health-services, data-and-information, inpatients,
+            national-health-service, outpatients, hospital, secondary-care]
+          common:SearchableTags: [Inpatient, Outpatient]
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - preview
+          hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
           hippostdpubwf:lastModificationDate: 2021-08-19T19:18:31.210Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - inpatients
-          - outpatients
+          hippotaxonomy:keys: [inpatients, outpatients]
           hippotranslation:id: 3ed96582-6590-4fe0-909a-a827b2943b80
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:versionable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 1c95a8c2-84e0-47e3-bead-9bcf9bf213ec
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -1279,25 +1145,20 @@
           website:specification_id: 320396-DISABLED
           website:summary: ''
           website:title: Personal Demographics Service - FHIR API
-        /content[2]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: API specification tagged with mapped taxonomy tags
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
+        /content[2]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 4048b040-273c-4755-b2ce-c7684010e5df
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - outpatients
-          - hospital
-          - secondary-care
-          common:SearchableTags:
-          - Inpatient
-          - Outpatient
+          common:FullTaxonomy: [health-services, data-and-information, inpatients,
+            national-health-service, outpatients, hospital, secondary-care]
+          common:SearchableTags: [Inpatient, Outpatient]
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
@@ -1307,16 +1168,9 @@
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
           hippostdpubwf:lastModificationDate: 2021-08-19T19:18:23.298Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - inpatients
-          - outpatients
+          hippotaxonomy:keys: [inpatients, outpatients]
           hippotranslation:id: 3ed96582-6590-4fe0-909a-a827b2943b80
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 4048b040-273c-4755-b2ce-c7684010e5df
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -1445,29 +1299,23 @@
           website:specification_id: 320396-DISABLED
           website:summary: ''
           website:title: Personal Demographics Service - FHIR API
-        /content[3]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: API specification tagged with mapped taxonomy tags
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
+        /content[3]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 2d43e2cb-78a6-4983-90a4-3ce2478b31c6
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - outpatients
-          - hospital
-          - secondary-care
-          common:SearchableTags:
-          - Inpatient
-          - Outpatient
+          common:FullTaxonomy: [health-services, data-and-information, inpatients,
+            national-health-service, outpatients, hospital, secondary-care]
+          common:SearchableTags: [Inpatient, Outpatient]
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - live
+          hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -1475,16 +1323,9 @@
           hippostdpubwf:lastModificationDate: 2021-08-19T19:18:31.210Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2021-08-19T19:18:34.316Z
-          hippotaxonomy:keys:
-          - inpatients
-          - outpatients
+          hippotaxonomy:keys: [inpatients, outpatients]
           hippotranslation:id: 3ed96582-6590-4fe0-909a-a827b2943b80
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 2d43e2cb-78a6-4983-90a4-3ce2478b31c6
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -1613,114 +1454,76 @@
           website:specification_id: 320396-DISABLED
           website:summary: ''
           website:title: Personal Demographics Service - FHIR API
-        hippo:name: Personal Demographics Service - FHIR API
-        hippo:versionHistory: f6bdcfdd-3439-48ac-9a16-1d4285d24371
-        jcr:mixinTypes:
-        - hippo:named
-        - hippo:versionInfo
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
-        jcr:uuid: 218e4b29-3223-41a0-9c02-beb76df6f1dd
-      hippo:name: Personal Demographics Service - FHIR API
-      hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
-      hippotranslation:id: 3036a3a5-d08b-4f30-a338-6b563ec0fd76
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippo:named
-      - hippotranslation:translated
-      - mix:versionable
-      jcr:primaryType: hippostd:folder
-      jcr:uuid: 1cbbcfd2-e33b-4726-b74d-839d2f8b9351
-    /retired-api:
-      /content:
-        /content[1]:
           /website:seosummary:
-            hippostd:content: Retired API
             jcr:primaryType: hippostd:html
+            hippostd:content: API specification tagged with mapped taxonomy tags
           /website:summary:
-            hippostd:content: <p>Retired API</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
+    /retired-api:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 112c5b83-ce80-48b3-a1ba-f5211e7bb0e1
+      hippo:name: Retired API
+      hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+      hippotranslation:id: 5f6af2a7-d8dd-4b89-85df-d933f4a0f0a8
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
+        hippo:name: Retired API
+        hippo:versionHistory: 34cb974d-8335-482b-8b32-fc9abdeea401
+        /content[1]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+          jcr:uuid: 35740aaf-5539-48c0-8c3b-eb7dfa8ed500
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - demographics_2
-          - health-services
-          - data-and-information
-          - api-status
-          - service-types
-          - national-health-service
-          - implementing-digital
-          - api-catalogue
-          - service-specification
-          - retired-api
-          - outpatients
-          - hospital
-          - secondary-care
-          common:SearchableTags:
-          - Demographics
-          - Implementing Digital
-          - Retired API
-          - Outpatient
+          common:FullTaxonomy: [demographics_2, health-services, data-and-information,
+            api-status, service-types, national-health-service, implementing-digital,
+            api-catalogue, service-specification, retired-api, outpatients, hospital,
+            secondary-care]
+          common:SearchableTags: [Demographics, Implementing Digital, Retired API,
+            Outpatient]
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - preview
+          hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
           hippostdpubwf:lastModificationDate: 2021-08-19T19:17:26.493Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - retired-api
-          - demographics_2
-          - implementing-digital
-          - outpatients
+          hippotaxonomy:keys: [retired-api, demographics_2, implementing-digital,
+            outpatients]
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:versionable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 35740aaf-5539-48c0-8c3b-eb7dfa8ed500
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
           website:specification_id: '654321'
           website:summary: ''
           website:title: Retired API
-        /content[2]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: Retired API
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>Retired API</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>Retired API</p>
+        /content[2]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 2c9a1cd5-1003-4005-bf9c-8b6c90e00e6a
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - demographics_2
-          - health-services
-          - data-and-information
-          - api-status
-          - service-types
-          - national-health-service
-          - implementing-digital
-          - api-catalogue
-          - service-specification
-          - retired-api
-          - outpatients
-          - hospital
-          - secondary-care
-          common:SearchableTags:
-          - Demographics
-          - Implementing Digital
-          - Retired API
-          - Outpatient
+          common:FullTaxonomy: [demographics_2, health-services, data-and-information,
+            api-status, service-types, national-health-service, implementing-digital,
+            api-catalogue, service-specification, retired-api, outpatients, hospital,
+            secondary-care]
+          common:SearchableTags: [Demographics, Implementing Digital, Retired API,
+            Outpatient]
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - live
+          hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -1728,51 +1531,33 @@
           hippostdpubwf:lastModificationDate: 2021-08-19T19:17:26.493Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2021-08-19T19:21:55.823Z
-          hippotaxonomy:keys:
-          - retired-api
-          - demographics_2
-          - implementing-digital
-          - outpatients
+          hippotaxonomy:keys: [retired-api, demographics_2, implementing-digital,
+            outpatients]
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 2c9a1cd5-1003-4005-bf9c-8b6c90e00e6a
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
           website:specification_id: '654321'
           website:summary: ''
           website:title: Retired API
-        /content[3]:
           /website:seosummary:
+            jcr:primaryType: hippostd:html
             hippostd:content: Retired API
-            jcr:primaryType: hippostd:html
           /website:summary:
-            hippostd:content: <p>Retired API</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: <p>Retired API</p>
+        /content[3]:
+          jcr:primaryType: website:apispecification
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 435208ba-4e25-477c-a518-477123ed2efa
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - demographics_2
-          - health-services
-          - data-and-information
-          - api-status
-          - service-types
-          - national-health-service
-          - implementing-digital
-          - api-catalogue
-          - service-specification
-          - retired-api
-          - outpatients
-          - hospital
-          - secondary-care
-          common:SearchableTags:
-          - Demographics
-          - Implementing Digital
-          - Retired API
-          - Outpatient
+          common:FullTaxonomy: [demographics_2, health-services, data-and-information,
+            api-status, service-types, national-health-service, implementing-digital,
+            api-catalogue, service-specification, retired-api, outpatients, hospital,
+            secondary-care]
+          common:SearchableTags: [Demographics, Implementing Digital, Retired API,
+            Outpatient]
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
@@ -1783,52 +1568,32 @@
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
           hippostdpubwf:lastModificationDate: 2021-08-19T20:11:01.812Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - retired-api
-          - demographics_2
-          - implementing-digital
-          - outpatients
+          hippotaxonomy:keys: [retired-api, demographics_2, implementing-digital,
+            outpatients]
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: website:apispecification
-          jcr:uuid: 435208ba-4e25-477c-a518-477123ed2efa
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
           website:specification_id: '654321'
           website:summary: ''
           website:title: Retired API
-        hippo:name: Retired API
-        hippo:versionHistory: 34cb974d-8335-482b-8b32-fc9abdeea401
-        jcr:mixinTypes:
-        - hippo:named
-        - hippo:versionInfo
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
-        jcr:uuid: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
-      hippo:name: Retired API
-      hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
-      hippotranslation:id: 5f6af2a7-d8dd-4b89-85df-d933f4a0f0a8
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippo:named
-      - hippotranslation:translated
-      - mix:versionable
-      jcr:primaryType: hippostd:folder
-      jcr:uuid: 112c5b83-ce80-48b3-a1ba-f5211e7bb0e1
+          /website:seosummary:
+            jcr:primaryType: hippostd:html
+            hippostd:content: Retired API
+          /website:summary:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Retired API</p>
     /test-update:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: e3ce6e1f-acd3-4b22-9c0b-6ccc886f4953
+      hippo:name: Test-update
+      hippo:versionHistory: b2aca973-c116-44bc-add4-02c7fb1e6f56
       /test-update[1]:
-        /website:content:
-          hippostd:content: <p>This is a test update</p>
-          jcr:primaryType: hippostd:html
-        /website:relateddocument:
-          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
-          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:update
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 5c2a4f9f-2fff-4519-b4bc-17d389538a73
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
@@ -1840,24 +1605,22 @@
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: website:update
-        jcr:uuid: 5c2a4f9f-2fff-4519-b4bc-17d389538a73
         website:expirydate: 0001-01-01T12:00:00Z
         website:severity: information
         website:title: Test update
-      /test-update[2]:
         /website:content:
-          hippostd:content: <p>This is a test update</p>
           jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is a test update</p>
         /website:relateddocument:
-          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
           jcr:primaryType: hippo:mirror
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+      /test-update[2]:
+        jcr:primaryType: website:update
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 4438fc95-4bed-4106-9ed0-1252868ca7a0
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
@@ -1866,25 +1629,22 @@
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        - mix:versionable
-        jcr:primaryType: website:update
-        jcr:uuid: 4438fc95-4bed-4106-9ed0-1252868ca7a0
         website:expirydate: 0001-01-01T12:00:00Z
         website:severity: information
         website:title: Test update
-      /test-update[3]:
         /website:content:
-          hippostd:content: <p>This is a test update</p>
           jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is a test update</p>
         /website:relateddocument:
-          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
           jcr:primaryType: hippo:mirror
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+      /test-update[3]:
+        jcr:primaryType: website:update
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 591c2c07-756a-4f9c-be66-3ba2f1f3053b
         common:searchRank: 4
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
         hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: admin
@@ -1894,42 +1654,12 @@
         hippostdpubwf:publicationDate: 2023-09-08T14:08:22.069Z
         hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: website:update
-        jcr:uuid: 591c2c07-756a-4f9c-be66-3ba2f1f3053b
         website:expirydate: 0001-01-01T12:00:00Z
         website:severity: information
         website:title: Test update
-      hippo:name: Test-update
-      hippo:versionHistory: b2aca973-c116-44bc-add4-02c7fb1e6f56
-      jcr:mixinTypes:
-      - hippo:named
-      - hippo:versionInfo
-      - mix:referenceable
-      jcr:primaryType: hippo:handle
-      jcr:uuid: e3ce6e1f-acd3-4b22-9c0b-6ccc886f4953
-    hippo:name: API Catalogue
-    hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
-    hippotranslation:id: 4bd2b94c-3563-4c18-b12f-a7d42c0e0fc0
-    hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippo:named
-    - hippotranslation:translated
-    - mix:versionable
-    jcr:primaryType: hippostd:folder
-    jcr:uuid: 62f17dec-5d85-4060-8aa9-0fbd09d074e1
-  hippo:name: Developer
-  hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
-  hippotranslation:id: 4b3f5331-e4c1-4b9c-a300-b680c6ae1188
-  hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
-  jcr:uuid: 3e447b55-c0fe-4d4c-9130-07b5b01c0f49
+        /website:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is a test update</p>
+        /website:relateddocument:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
