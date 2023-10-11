@@ -53,6 +53,15 @@ function updateSections() {
         ?.add(nhsdHiddenClass);
 }
 
+function updateVisibilityOfNotFoundBox(visibleCount) {
+    const notFoundBox = document.querySelector('#notFoundBox');
+    if (visibleCount === 0) {
+        notFoundBox.classList.remove(nhsdHiddenClass);
+    } else if (!notFoundBox.classList.contains(nhsdHiddenClass)) {
+        notFoundBox.classList.add(nhsdHiddenClass);
+    }
+}
+
 function updateSearchResults(ev) {
     const searchTerm = ev.target.value;
     const allResults = getAllSearchResults();
@@ -69,12 +78,7 @@ function updateSearchResults(ev) {
     const countDisplay = document.querySelector('h6#search-results-count');
     const visibleCount = allResults.filter(isVisible).length;
     countDisplay.textContent = `${visibleCount} results`;
-    const notFoundBox = document.querySelector('#notFoundBox');
-    if (visibleCount === 0) {
-        notFoundBox.classList.remove(nhsdHiddenClass);
-    } else if (!notFoundBox.classList.contains(nhsdHiddenClass)) {
-        notFoundBox.classList.add(nhsdHiddenClass);
-    }
+    updateVisibilityOfNotFoundBox(visibleCount);
 }
 
 document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);
