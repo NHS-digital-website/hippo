@@ -575,6 +575,7 @@ public class SiteSteps extends AbstractSpringSteps {
         assertNull("Cannot find the CSS class " + cssClass,
             sitePage.findCssClass(cssClass));
     }
+
     @Then("I can see the 'not found box'")
     public void thenICanSeeTheNotFoundBox() {
         WebElement notFoundBox = sitePage.findById("notFoundBox");
