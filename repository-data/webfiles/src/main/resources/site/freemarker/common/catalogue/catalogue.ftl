@@ -137,7 +137,7 @@
 </div>
 
 <#macro notFoundBox title body>
-    <div class="nhsd-m-emphasis-box nhsd-!t-display-hide" id="notFoundBox">
+    <div class="nhsd-m-emphasis-box" id="notFoundBox">
         <div class="nhsd-a-box nhsd-a-box--border-grey">
             <div class="nhsd-m-emphasis-box__content-box">
                 <h1 class="nhsd-t-heading-s nhsd-t-word-break">${title}</h1>
