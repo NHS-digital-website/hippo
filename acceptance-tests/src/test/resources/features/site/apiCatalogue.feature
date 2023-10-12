@@ -67,5 +67,5 @@ Feature: API Catalogue in Developer hub
 
     Scenario: No results found displays Not Found box
         Given I navigate to the "home" page
-        When I search for "Does not exist item"
-        Then I can see the 'not found box'
+        When I search for "Test API catalogue"
+        Then I can see the entries footer

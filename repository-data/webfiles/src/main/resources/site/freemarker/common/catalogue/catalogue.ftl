@@ -130,14 +130,14 @@
                     <div class="nhsd-!t-padding-top-4"/>
                 </#if>
                 <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
-                <@notFoundBox document.notFoundTitle document.notFoundBody/>
+                <@entriesFooter document.notFoundTitle document.notFoundBody/>
             </div>
         </div>
     </#if>
 </div>
 
-<#macro notFoundBox title body>
-    <div class="nhsd-m-emphasis-box" id="notFoundBox">
+<#macro entriesFooter title body>
+    <div class="nhsd-m-emphasis-box" id="entriesFooter">
         <div class="nhsd-a-box nhsd-a-box--border-grey">
             <div class="nhsd-m-emphasis-box__content-box">
                 <h1 class="nhsd-t-heading-s nhsd-t-word-break">${title}</h1>
