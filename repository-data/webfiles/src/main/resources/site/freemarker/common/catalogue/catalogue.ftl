@@ -130,7 +130,9 @@
                     <div class="nhsd-!t-padding-top-4"/>
                 </#if>
                 <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
-                <@entriesFooter document.entriesFooterTitle document.entriesFooterBody/>
+                <#if document.entriesFooterTitle?has_content && document.entriesFooterBody?has_content>
+                    <@entriesFooter document.entriesFooterTitle document.entriesFooterBody/>
+                </#if>
             </div>
         </div>
     </#if>
