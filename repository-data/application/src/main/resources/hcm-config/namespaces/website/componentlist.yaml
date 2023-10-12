@@ -111,18 +111,18 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /notFoundTitle:
+          /entriesFooterTitle:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Not found title
+            caption: Entries Footer Title
             field: notFoundTitle
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /notFoundBody:
+          /entriesFooterBody:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Not found body
+            caption: Entries Footer Body
             field: notFoundBody
             hint: ''
             jcr:primaryType: frontend:plugin
@@ -167,7 +167,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:notFoundBody
+            hipposysedit:path: website:entriesFooterBody
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
@@ -175,7 +175,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:notFoundTitle
+            hipposysedit:path: website:entriesFooterTitle
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
@@ -256,13 +256,13 @@ definitions:
           /website:body:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:entriesFooterBody:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:friendlyurls:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
-          /website:notFoundBody:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -284,8 +284,8 @@ definitions:
           - hippotaxonomy:classifiable
           jcr:primaryType: website:componentlist
           website:anchor: false
+          website:entriesFooterTitle: ''
           website:gossid: 0
-          website:notFoundTitle: ''
           website:shortsummary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
