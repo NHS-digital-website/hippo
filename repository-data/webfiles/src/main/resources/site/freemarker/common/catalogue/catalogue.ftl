@@ -62,7 +62,7 @@
                     <div class="nhsd-t-col-l-8 nhsd-!t-padding-left-0">
                         <div class="nhsd-t-float-left">
                             <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">
-                                Search</h6>
+                                Keyword filter</h6>
                         </div>
                         <div class=" nhsd-!t-padding-0 nhsd-!t-margin-bottom-2">
                             <div class="nhsd-t-form-control">
