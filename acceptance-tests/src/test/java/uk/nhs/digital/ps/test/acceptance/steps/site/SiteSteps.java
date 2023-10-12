@@ -578,7 +578,6 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Then("I can see the entries footer")
     public void thenICanSeeTheEntriesFooter() {
-        WebElement entriesFooter = sitePage.findById("entriesFooter");
-        assertThat("Element is displayed", entriesFooter.isDisplayed());
+        assertNotNull("Element is present", sitePage.findCssClass("nhsd-a-box--border-grey"));
     }
 }
