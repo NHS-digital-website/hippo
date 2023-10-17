@@ -161,7 +161,7 @@
         Consult https://chromedriver.chromium.org/downloads
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>115.0.5790.102</chromedriver.version>
+        <chromedriver.version>118.0.5993.70</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
@@ -177,7 +177,7 @@
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
         <content-exim.version>4.0.1</content-exim.version>
-        <cucumber.version>7.13.0</cucumber.version>
+        <cucumber.version>7.14.0</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
         <findbugs.version>3.0.2</findbugs.version>
