@@ -7,9 +7,6 @@
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76954916-2"></script>
-
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -51,7 +48,7 @@
     <meta name="twitter:site" content="@NHSDigital">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
 
-    <#assign toolkitVersion = 'v0.165.1' />
+    <#assign toolkitVersion = 'v0.174.0' />
 
     <link href="${designSystemUrl}/" rel="preconnect" crossorigin>
     <link type="font/woff2" href="${designSystemUrl}/cdn/${toolkitVersion}/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>

@@ -5,7 +5,7 @@
   <#macro award awards idsuffix firstname>
     <#if awards?has_content>
     <div id="award-${slugify(idsuffix)}" class="award--div article-section">
-      <h2>Awards</h2> 
+      <h2>Awards</h2>
 
         <p>
           <#if awards?has_content >
@@ -15,14 +15,14 @@
                 <div>
                   <#assign awardnameDisplay = personaward.awardname />
                   <#if personaward.awardlink?has_content>
-                    <li><a href="${personaward.awardlink.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${personaward.awardlink.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${awardnameDisplay}"><span itemprop="award">${awardnameDisplay}</span></a></li>
+                    <li><a href="${personaward.awardlink.link}" title="${awardnameDisplay}"><span itemprop="award">${awardnameDisplay}</span></a></li>
                   <#else>
                   <li><span itemprop="award">${awardnameDisplay}</span></li>
                   </#if>
 
                   <#if personaward.awardingbody?has_content>
                     <#if personaward.awardingbodylink?has_content>
-                      <a href="${personaward.awardingbodylink.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${personaward.awardingbodylink.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${personaward.awardingbody}">${personaward.awardingbody}</a>
+                      <a href="${personaward.awardingbodylink.link}" title="${personaward.awardingbody}">${personaward.awardingbody}</a>
                     <#else>
                       ${personaward.awardingbody}
                     </#if>

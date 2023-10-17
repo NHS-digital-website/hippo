@@ -94,21 +94,9 @@
         <div class="grid-wrapper">
             <div class="article-header__inner">
                 Report a cyber attack: call
-                <a href="tel:004403003035222"
-                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','tel:004403003035222');"
-                   onKeyUp="return vjsu.onKeyUp(event)"
-                   title="Contact us by telephone"
-                >
-                    0300 303 5222
-                </a>
+                <a href="tel:004403003035222" title="Contact us by telephone">0300 303 5222</a>
                 or email
-                <a href="mailto:${emailLabel}"
-                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','mailto:${emailLabel}');"
-                   onKeyUp="return vjsu.onKeyUp(event)"
-                   title="${emailTitleLabel}"
-                >
-                    ${emailLabel}
-                </a>
+                <a href="mailto:${emailLabel}" title="${emailTitleLabel}">${emailLabel}</a>
             </div>
         </div>
     </div>
@@ -237,7 +225,11 @@
                                 <#list document.remediationSteps as item>
                                     <tr>
                                         <td><#if item.type??><span class="tag">${item.type}</span></#if></td>
-                                        <td><@hst.html hippohtml=item.step contentRewriter=gaContentRewriter/><br /><#if item.link??><a href="${item.link}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item.link}');" onKeyUp="return vjsu.onKeyUp(event)">${item.link}</a></#if></td>
+                                        <td><@hst.html hippohtml=item.step contentRewriter=gaContentRewriter/><br />
+                                            <#if item.link??>
+                                                <a href="${item.link}">${item.link}</a>
+                                            </#if>
+                                        </td>
                                     </tr>
                                 </#list>
                             </tbody>
@@ -257,7 +249,7 @@
                 <#if hasNcscLink>
                     <div id="${slugify(ncscLinkHeader)}" class="article-section">
                         <h2>${ncscLinkHeader}</h2>
-                        <a href="${document.ncscLink}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${document.ncscLink}');" onKeyUp="return vjsu.onKeyUp(event)">${document.ncscLink}</a>
+                        <a href="${document.ncscLink}">${document.ncscLink}</a>
                     </div>
                 </#if>
 
@@ -266,7 +258,7 @@
                         <h2>${sourceOfUpdateHeader}</h2>
                         <ul>
                             <#list document.sourceOfThreatUpdates as item>
-                                <li><a href="${item}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item}');" onKeyUp="return vjsu.onKeyUp(event)">${item}</a></li>
+                                <li><a href="${item}">${item}</a></li>
                             </#list>
                         </ul>
                     </div>
@@ -295,7 +287,7 @@
                         <ul>
                             <#list document.cveIdentifiers as item>
                                 <li>
-                                    <div><a href="${cveUrl + item.cveIdentifier}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${cveUrl + item.cveIdentifier}');" onKeyUp="return vjsu.onKeyUp(event)">${item.cveIdentifier}</a></div>
+                                    <div><a href="${cveUrl + item.cveIdentifier}">${item.cveIdentifier}</a></div>
                                     <div><#if item.cveStatus?? && item.cveStatus != "Not Known">Status: ${item.cveStatus}</#if></div>
                                     <div><@hst.html hippohtml=item.cveText contentRewriter=gaContentRewriter/></div>
                                 </li>

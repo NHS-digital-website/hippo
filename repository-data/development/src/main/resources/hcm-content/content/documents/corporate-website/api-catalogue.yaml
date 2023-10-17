@@ -1821,6 +1821,94 @@
       - mix:versionable
       jcr:primaryType: hippostd:folder
       jcr:uuid: 112c5b83-ce80-48b3-a1ba-f5211e7bb0e1
+    /test-update:
+      /test-update[1]:
+        /website:content:
+          hippostd:content: <p>This is a test update</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocument:
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+          jcr:primaryType: hippo:mirror
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-09-08T14:07:30.293Z
+        hippostdpubwf:lastModificationDate: 2023-09-08T14:07:30.293Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:update
+        jcr:uuid: 5c2a4f9f-2fff-4519-b4bc-17d389538a73
+        website:expirydate: 0001-01-01T12:00:00Z
+        website:severity: information
+        website:title: Test update
+      /test-update[2]:
+        /website:content:
+          hippostd:content: <p>This is a test update</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocument:
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+          jcr:primaryType: hippo:mirror
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-09-08T14:07:30.293Z
+        hippostdpubwf:lastModificationDate: 2023-09-08T14:08:12.150Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:update
+        jcr:uuid: 4438fc95-4bed-4106-9ed0-1252868ca7a0
+        website:expirydate: 0001-01-01T12:00:00Z
+        website:severity: information
+        website:title: Test update
+      /test-update[3]:
+        /website:content:
+          hippostd:content: <p>This is a test update</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocument:
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+          jcr:primaryType: hippo:mirror
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-09-08T14:07:30.293Z
+        hippostdpubwf:lastModificationDate: 2023-09-08T14:08:12.150Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-09-08T14:08:22.069Z
+        hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:update
+        jcr:uuid: 591c2c07-756a-4f9c-be66-3ba2f1f3053b
+        website:expirydate: 0001-01-01T12:00:00Z
+        website:severity: information
+        website:title: Test update
+      hippo:name: Test-update
+      hippo:versionHistory: b2aca973-c116-44bc-add4-02c7fb1e6f56
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+      jcr:uuid: e3ce6e1f-acd3-4b22-9c0b-6ccc886f4953
     hippo:name: API Catalogue
     hippostd:foldertype:
     - new-digital-website-folder

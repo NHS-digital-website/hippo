@@ -15,14 +15,14 @@
                 <div>
                   <#assign qualnameDisplay = qual.qualname />
                   <#if qual.quallink?has_content>
-                    <li><a href="${qual.quallink.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${qual.quallink.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${qualnameDisplay}">${qualnameDisplay}</a></li>
+                    <li><a href="${qual.quallink.link}" title="${qualnameDisplay}">${qualnameDisplay}</a></li>
                   <#else>
                     <li>${qualnameDisplay}</li>
                   </#if>
 
                   <#if qual.qualawardingbody?has_content>
                     <#if qual.qualawardingbodylink?has_content>
-                      <a href="${qual.qualawardingbodylink.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${qual.qualawardingbodylink.link}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${qual.qualawardingbody}">${qual.qualawardingbody}</a>
+                      <a href="${qual.qualawardingbodylink.link}" title="${qual.qualawardingbody}">${qual.qualawardingbody}</a>
                     <#else>
                       ${qual.qualawardingbody}
                     </#if>

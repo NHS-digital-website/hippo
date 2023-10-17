@@ -72,15 +72,13 @@
         <#if hasWrappingDoc && hasWrappingDocLink>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <nav class="nhsd-m-button-nav">
+                    <nav class="nhsd-m-button-nav" style="justify-content: center">
                         <#if wrappingDocument.internal?has_content>
                             <a class="nhsd-a-button" href="<@hst.link hippobean=wrappingDocument.internal/>">
                         <#elseif wrappingDocument.external?has_content>
                             <a class="nhsd-a-button" href="${wrappingDocument.external}" target="_blank" rel="external">
                         </#if>
-
                         <span class="nhsd-a-button__label">${wrappingDocument.label}</span>
-
                         <#if wrappingDocument.external?has_content>
                             <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                         </#if>

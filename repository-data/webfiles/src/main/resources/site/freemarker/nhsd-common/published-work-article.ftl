@@ -43,7 +43,8 @@
 </#if>
 
 <#-- Don't use the summary in the content when the hero module is active -->
-<#if publicationStyle = 'heromodule'>
+<#--also if the publication system style is blueBanner or slimpicture do not use the summary in the content-->
+<#if publicationStyle = 'heromodule' || publicationStyle = 'bluebanner' || publicationStyle = 'slimpicture'>
     <#assign hasSummaryContent = false />
 <#else>
     <#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
@@ -196,8 +197,6 @@
                                                     <a class="nhsd-a-box-link"
                                                        title="${attachment.text}"
                                                        href="${url}"
-                                                       onClick="logGoogleAnalyticsEvent('Download attachment','Published work','${url}');"
-                                                       onKeyUp="return vjsu.onKeyUp(event)"
                                                        itemprop="contentUrl"
                                                     >
                                                         <div class="nhsd-a-box nhsd-a-box--bg-light-grey">

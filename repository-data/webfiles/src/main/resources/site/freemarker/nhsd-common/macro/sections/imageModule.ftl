@@ -60,10 +60,11 @@
 
         <figure class="nhsd-a-image nhsd-a-image--no-scale nhsd-a-image--round-corners nhsd-!t-margin-bottom-2" aria-hidden="true" style="${figureStyle}">
             <img style="${imageStyle}" src="${imgName}" alt="${section.altText}" data-uipath="website.image-module.image"/>
-            <#if section.caption?has_content>
+            <@hst.html var="caption" hippohtml=section.caption contentRewriter=brContentRewriter/>
+            <#if caption??>
                 <figcaption style="text-align:center">
                     <div class="nhsd-t-heading-s">
-                        <@hst.html hippohtml=section.caption contentRewriter=brContentRewriter/>
+                        ${caption?no_esc}
                     </div>
                 </figcaption>
             </#if>

@@ -3,7 +3,6 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.News" -->
 <#include "../include/imports.ftl">
-<#include "macro/metaTags.ftl">
 <#include "macro/relatedarticles.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/editorsnotes.ftl">
@@ -16,7 +15,8 @@
 <#include "macro/latestblogs.ftl">
 <#include "macro/shareSection.ftl">
 
-<#-- Add meta tags -->
+<#-- Add meta tagging -->
+<#include "macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.news"/>
@@ -100,17 +100,19 @@
     <div class="nhsd-t-grid nhsd-!t-margin-top-8 nhsd-!t-margin-bottom-6">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
-
                 <#if document.creditBanner?has_content>
                     <div class="nhsd-m-emphasis-box nhsd-!t-margin-bottom-6" role="alert">
                         <div class="nhsd-a-box nhsd-a-box--border-blue">
                             <div class="nhsd-m-emphasis-box__content-box">
-                                <p class="nhsd-t-body-s nhsd-t-word-break">${creditbanner[document.creditBanner]}</p>
+                                <#if document.creditBanner?contains("nhs-england")>
+                                <p class="nhsd-t-body-s nhsd-t-word-break" style="margin-bottom: 0">${creditbanner[document.creditBanner]}</p>
+                                <#else>
+                                <p class="nhsd-t-body-s nhsd-t-word-break" style="margin-bottom: 0">${creditbannerlegacy[document.creditBanner]}</p>
+                                </#if>
                             </div>
                         </div>
                     </div>
                 </#if>
-
                 <#if hasLeadImage>
                     <div class="nhsd-t-col-12">
                         <div class="nhsd-o-gallery__card-container">

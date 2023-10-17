@@ -8,6 +8,7 @@
 <#include "../../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../../nhsd-common/macro/heroes/hero.ftl">
 <#include "../../nhsd-common/macros/az-nav.ftl">
+<#include "../../nhsd-common/macro/updateSection.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.catalogue.filters.Filters" -->
@@ -24,7 +25,15 @@
 
 <div
     class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-7 nhsd-api-catalogue">
-
+    <#if document.updates?has_content>
+        <div class="nhsd-t-row">
+            <div style="margin:0 auto;" class="nhsd-t-col-8">
+                <div>
+                    <@updateSection document.updates />
+                </div>
+            </div>
+        </div>
+    </#if>
     <div class="nhsd-t-row">
         <div class="nhsd-t-col-12">
             <#if document.body?has_content??>
@@ -60,7 +69,6 @@
                                 <input
                                     class="nhsd-t-form-input"
                                     type="text"
-                                    onClick="logGoogleAnalyticsEvent('api-catalogue-search-click','api-catalogue-search-category','api-catalogue-search-label');"
                                     id="catalogue-search-bar-input"
                                     name="query"
                                     autocomplete="off"
@@ -102,7 +110,8 @@
                                     <span class="nhsd-m-selector-toggle-card__toggle">
                                         <div class="nhsd-a-selector-toggle">
                                         <@hst.link var="baseUrl"/>
-                                            <a href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />"
+                                            <a onclick="window.location = '<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />'"
+                                               href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />"
                                                class="nhsd-a-checkbox__label nhsd-t-body-s">
                                                 <input type="checkbox"
                                                        <#if showRetired>checked</#if> />

@@ -191,8 +191,6 @@
                                         <a title="${attachment.text}"
                                            href="${url}"
                                            class="block-link"
-                                           onClick="logGoogleAnalyticsEvent('Download attachment','Event','${url}');"
-                                           onKeyUp="return vjsu.onKeyUp(event)"
                                            itemprop="contentUrl">
                                             <div class="block-link__header">
                                                 <@fileIconByMimeType attachment.resource.mimeType></@fileIconByMimeType>

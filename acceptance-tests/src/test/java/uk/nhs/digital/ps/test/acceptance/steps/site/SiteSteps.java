@@ -83,6 +83,32 @@ public class SiteSteps extends AbstractSpringSteps {
         sitePage.clickCookieAcceptButton();
     }
 
+    @When("^I click on the \"([^\"]*)\" labelled button$")
+    public void whenIClickOnLinkLabelled(String linkLabel) throws Throwable {
+        WebElement element = sitePage.findElementWithLabel(linkLabel);
+
+        assertThat("I can find element with label: " + linkLabel,
+            element, is(notNullValue()));
+
+        sitePage.clickOnElement(element);
+
+        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
+        sitePage.clickCookieAcceptButton();
+    }
+
+    @When("^I click on the \"([^\"]*)\" labelled tag$")
+    public void whenIClickOnTagLabelled(String title) throws Throwable {
+        WebElement element = sitePage.findElementWithTitleAndClass(title, "nhsd-a-tag");
+
+        assertThat("I can find element with title: " + title,
+            element, is(notNullValue()));
+
+        sitePage.clickOnElement(element);
+
+        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
+        sitePage.clickCookieAcceptButton();
+    }
+
     @When("^I click on the (?:link|button) named \"([^\"]+)\"$")
     public void whenIClickOnTheLinkNamed(String linkName) throws Throwable {
         WebElement element = sitePage.findLinkWithText(linkName);
@@ -309,6 +335,11 @@ public class SiteSteps extends AbstractSpringSteps {
                 sitePage.findElementWithXPath(xPathExpression)
             );
         }
+    }
+
+    @Then("^I can see an update alert")
+    public void thenICanSeeUpdate() throws Throwable {
+        assertNotNull("I can see an update alert", sitePage.findCssClass("nhsd-m-emphasis-box"));
     }
 
     private String buildXPathExpressionFromElementAttributes(List<String> keys, List<String> elementItem) {

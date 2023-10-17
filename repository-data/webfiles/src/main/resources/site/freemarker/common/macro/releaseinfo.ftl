@@ -25,7 +25,7 @@
                               This is part of
                               <#list article.apiservice as service>
                                 <@hst.link hippobean=service var="apiservice"/>
-                                <a itemprop="url" href="${apiservice}" onClick="logGoogleAnalyticsEvent('Link click','Person','${apiservice}');" onKeyUp="return vjsu.onKeyUp(event)" title="${service.title}"><span itemprop="name">${service.title}</span></a><#sep>,
+                                <a itemprop="url" href="${apiservice}" title="${service.title}"><span itemprop="name">${service.title}</span></a><#sep>,
                               </#list>
                           </p>
                       </#if>

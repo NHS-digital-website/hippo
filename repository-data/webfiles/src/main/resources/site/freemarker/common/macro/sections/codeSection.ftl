@@ -42,7 +42,7 @@
             <div class="code-content" itemscope itemtype="https://schema.org/SoftwareSourceCode">
                 <meta itemprop="codeSampleType" content="snippet">
                 <div class="scroll-box no-top-margin scrollbar">
-                    <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="white-space: ${section.wrapLines?then('pre-wrap', 'pre')}; counter-reset: linenum ${lineCounter};">${section.codeTextHighlighted?no_esc}</pre>
+                    <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="display: inline-block; white-space: ${section.wrapLines?then('pre-wrap', 'pre')}; counter-reset: linenum ${lineCounter};">${section.codeTextHighlighted?no_esc}</pre>
                 </div>
                 <p class="language" itemprop="programmingLanguage">${section.language.label}</p>
                 <meta itemprop="runtimePlatform" content="${section.language.label}">

@@ -9,9 +9,9 @@
 
         <#list iconListItem.itemlink as link>
             <#if link.linkType == "internal">
-            <a href="<@hst.link hippobean=link.link />" onClick="logGoogleAnalyticsEvent('Link click','Person','${link.link.title}');" onKeyUp="return vjsu.onKeyUp(event)" title="${iconListItem.heading}" class="nhsd-m-icon-list-item__box nhsd-m-icon-list-item__with-link" aria-label="${iconListItem.heading}" >
+            <a href="<@hst.link hippobean=link.link />" title="${iconListItem.heading}" class="nhsd-m-icon-list-item__box nhsd-m-icon-list-item__with-link" aria-label="${iconListItem.heading}" >
             <#else>
-            <a href="${link.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${link.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${iconListItem.heading}" class="nhsd-m-icon-list-item__box nhsd-m-icon-list-item__with-link" aria-label="${iconListItem.heading}" >
+            <a href="${link.link}" title="${iconListItem.heading}" class="nhsd-m-icon-list-item__box nhsd-m-icon-list-item__with-link" aria-label="${iconListItem.heading}" >
             </#if>
                 <span class="nhsd-a-icon nhsd-a-icon--size-xl" style="min-width:36px;min-height:36px;">
                     <@hst.link hippobean=iconListItem.image.original fullyQualified=true var="iconImage" />

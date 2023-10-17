@@ -19,7 +19,7 @@
         <div class="nhsd-o-code-viewer__tab-content">
             <div class="nhsd-o-code-viewer__code">
                 <div id="${section.language.label}-content" class="nhsd-o-code-viewer__code-content" role="tabpanel" aria-labelledby="tab-${section.language.label}-content">
-                    <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="white-space: ${section.wrapLines?then('pre-wrap', 'pre')};">${section.codeTextHighlighted?no_esc}</pre>
+                    <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="display: inline-block; white-space: ${section.wrapLines?then('pre-wrap', 'pre')};">${section.codeTextHighlighted?no_esc}</pre>
                 </div>
             </div>
         </div>

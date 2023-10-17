@@ -22,6 +22,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.site.HstServices;
 import org.hippoecm.hst.util.ContentBeanUtils;
+import org.hippoecm.hst.util.HstRequestUtils;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.hippoecm.repository.HippoStdPubWfNodeType;
 import org.onehippo.cms7.essentials.components.CommonComponent;
@@ -69,11 +70,13 @@ import uk.nhs.digital.website.beans.RoadmapItem;
 import uk.nhs.digital.website.beans.Service;
 import uk.nhs.digital.website.beans.VisualHub;
 
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 
 /**
@@ -130,6 +133,19 @@ public class SearchComponent extends CommonComponent {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SearchComponent.class);
 
+
+    private static final Function<HstRequest, String> ipAddress = request -> {
+        String[] headersToTry = {"CF-Connecting-IP", "X-Forwarded-For"};
+        for (String header : headersToTry) {
+            String ipAddress = request.getRequestContext().getServletRequest().getHeader(header);
+            if (ipAddress != null) {
+                return ipAddress;
+            }
+        }
+        // If none of the headers contain an IP address, use the remote address
+        return request.getRequestContext().getServletRequest().getRemoteAddr();
+    };
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
 
@@ -181,7 +197,12 @@ public class SearchComponent extends CommonComponent {
                     request.getRequestContext().setAttribute("isContentSearch", true);
                     setCommonSearchRequestAttributes(request, paramInfo);
                 } else {
-                    LOGGER.error("Content Search returned a failure, falling back to HST search");
+                    LOGGER.error(
+                        MessageFormat.format("Content Search returned a failure, falling back to HST search. {0} - from {1}",
+                            HstRequestUtils.getHstRequestContext(request).getServletRequest().toString(),
+                            ipAddress.apply(request)
+                        )
+                    );
                     buildAndExecuteHstSearch(request, paramInfo);
                 }
             } catch (InterruptedException | ExecutionException | TimeoutException | RuntimeException ex) {

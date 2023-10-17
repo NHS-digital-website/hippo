@@ -129,8 +129,6 @@
                                 Report a cyber attack: call
                                 <a class="nhsd-a-link"
                                    href="tel:004403003035222"
-                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','tel:004403003035222');"
-                                   onKeyUp="return vjsu.onKeyUp(event)"
                                    title="Contact us by telephone"
                                 >
                                     0300 303 5222
@@ -139,8 +137,6 @@
                                 or email
                                 <a class="nhsd-a-link"
                                    href="mailto:${emailLabel}"
-                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','mailto:${emailLabel}');"
-                                   onKeyUp="return vjsu.onKeyUp(event)"
                                    title="${emailTitleLabel}"
                                 >
                                     ${emailLabel}
@@ -372,7 +368,12 @@
                                     <#list document.remediationSteps as item>
                                         <tr>
                                             <td><#if item.type??><span class="nhsd-t-body">${item.type}</span></#if></td>
-                                            <td><@hst.html hippohtml=item.step contentRewriter=brContentRewriter/><br /><#if item.link??><a class="nhsd-a-link" href="${item.link}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item.link}');" onKeyUp="return vjsu.onKeyUp(event)">${item.link}</a></#if></td>
+                                            <td>
+                                                <@hst.html hippohtml=item.step contentRewriter=brContentRewriter/><br />
+                                                <#if item.link??>
+                                                    <a class="nhsd-a-link" href="${item.link}">${item.link}</a>
+                                                </#if>
+                                            </td>
                                         </tr>
                                     </#list>
                                 </tbody>
@@ -413,11 +414,7 @@
 
                     <div id="${slugify(ncscLinkHeader)}">
                         <p class="nhsd-t-heading-xl">${ncscLinkHeader}</p>
-                        <a class="nhsd-a-link"
-                           href="${document.ncscLink}"
-                           onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${document.ncscLink}');"
-                           onKeyUp="return vjsu.onKeyUp(event)"
-                        >
+                        <a class="nhsd-a-link" href="${document.ncscLink}">
                             ${document.ncscLink}
                         </a>
                     </div>
@@ -441,11 +438,7 @@
                         <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-t-list--loose">
                             <#list document.sourceOfThreatUpdates as item>
                                 <li>
-                                    <a class="nhsd-a-link"
-                                       href="${item}"
-                                       onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item}');"
-                                       onKeyUp="return vjsu.onKeyUp(event)"
-                                    >
+                                    <a class="nhsd-a-link" href="${item}">
                                         ${item}
                                     </a>
                                 </li>
@@ -507,12 +500,7 @@
                                 <#list document.cveIdentifiers as item>
                                     <div class="nhsd-t-col-12 nhsd-!t-padding-left-0 nhsd-!t-padding-right-0 nhsd-!t-margin-bottom-6">
                                         <div class="nhsd-m-card">
-                                            <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange"
-                                               href="${cveUrl + item.cveIdentifier}"
-                                               onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${cveUrl + item.cveIdentifier}');"
-                                               onKeyUp="return vjsu.onKeyUp(event"
-                                               aria-label="${item.cveIdentifier}"
-                                            >
+                                            <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange" href="${cveUrl + item.cveIdentifier}" aria-label="${item.cveIdentifier}">
                                                 <div class="nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey">
                                                     <div class="nhsd-m-card__content_container">
                                                         <div class="nhsd-m-card__content-box">

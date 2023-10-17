@@ -6,7 +6,7 @@
 
 <div ${divStyle}>
     <div class="nhsd-t-col-12 nhsd-!t-no-gutters">
-        <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey" href="${mediaLink}" rel="external" onClick="logGoogleAnalyticsEvent('Link click','Social media - ${mediaTitle}','${mediaLink}');">
+        <a class="nhsd-a-icon-link nhsd-a-icon-link--dark-grey" href="${mediaLink}" rel="external">
             <span class="nhsd-a-icon ${iconSize}">
             	<#if !smOptions?has_content || (smOptions?has_content && smOptions.hexagons) >
 	                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
