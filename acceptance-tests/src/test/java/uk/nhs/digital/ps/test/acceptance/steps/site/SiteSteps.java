@@ -37,6 +37,7 @@ import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
@@ -376,7 +377,7 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
-    @Then("I can download(?: following files)?:")
+    @Then("I can download following files:")
     public void thenICanDownload(final DataTable downloadTitles) throws Throwable {
         for (List<String> downloadLink : downloadTitles.asLists(String.class)) {
             String linkText = downloadLink.get(0);
@@ -469,6 +470,12 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should see the \"([^\"]*)\" list (containing|(?:not )?including):$")
     public void thenIShouldSeeTheListWith(String title, String qualifier, DataTable listItems) throws Throwable {
         List<String> items = listItems.asList(String.class);
+        listMatchesItems(qualifier, items, sitePage.findPageElement(title));
+    }
+
+    @Then("^I should see the \"([^\"]*)\" list (containing|(?:not )?including) \"([A-Z,]*)\"$")
+    public void thenIShouldSeeTheListWithAlphabet(String title, String qualifier, String alphabet) throws Throwable {
+        List<String> items = Arrays.asList(alphabet.split(","));
         listMatchesItems(qualifier, items, sitePage.findPageElement(title));
     }
 

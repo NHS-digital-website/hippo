@@ -4,8 +4,7 @@ Feature: API Catalogue in Developer hub
         Given I navigate to "Static API Catalogue" page
         Then I should see page titled "Test API catalogue"
         And I can see labelled element "document.title" with content "Test API catalogue"
-        And I should see the "Alphabetical navigation" list containing:
-            | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+        And I should see the "Alphabetical navigation" list containing "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
         And the index is rendered with entries:
             | text | href  | aria-label                                    |
             | E    | #e    | Jump to articles starting with the letter 'E' |
