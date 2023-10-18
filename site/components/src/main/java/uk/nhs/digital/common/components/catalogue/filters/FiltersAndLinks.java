@@ -9,6 +9,12 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+* Responsibilities of this class are:
+* hold the collections of filtered catalogue links and Navigation menu Filters
+* hold selected filters collection
+* perform filtering on the catalogue links and also Navigation menu filters
+* */
 public class FiltersAndLinks {
     public Set<String> filters = new HashSet<>();
     public List<CatalogueLink> links;
@@ -22,6 +28,7 @@ public class FiltersAndLinks {
         updateUserSelectedFilters(userSelectedFilterKeys);
     }
 
+    //Filter the catalogue links with the currently selected filter keys using all filter keys ordered by selection and sorted into their categories.
     private void applyFiltersToLinks(final List<String> userSelectedFilterKeys, List<Set<String>> orderedFilterKeysByCategory) {
         if (!userSelectedFilterKeys.isEmpty()) {
             orderedFilterKeysByCategory.forEach(category -> {
@@ -31,6 +38,13 @@ public class FiltersAndLinks {
         }
     }
 
+    //Filter the Navigation menu tags
+    /*
+    * Filtering is performed by category in order of current user filter key selection.
+    * The order is important since it allows the correct logical comparison of AND/OR.
+    * Other tags that are part of the last selected category are added back into the complete collection
+    * to allow for further selection of tags in the same category that would otherwise have been filtered out.
+    */
     private void applyFiltersToNavKeys(final List<String> userSelectedFilterKeys, final List<CatalogueLink> links, List<Set<String>> orderedFilterKeysByCategory) {
         if (!userSelectedFilterKeys.isEmpty()) {
             AtomicReference<List<CatalogueLink>> filteredLinks = new AtomicReference<>(links);
@@ -49,6 +63,7 @@ public class FiltersAndLinks {
         }
     }
 
+    //Sort filter keys into categories and order by select filter keys order.
     private List<Set<String>> filterKeysSortedByCategory(Filters rawFilters, List<CatalogueLink> links, List<String> userSelectedFilterKeys) {
         Set<Set<String>> linkFiltersByCategory = rawFilters.getSections()
             .stream()
