@@ -56,7 +56,7 @@ public class FiltersAndLinks {
                 filtersForCategoryFromLinks.addAll(filtersNotInCollection(filteredLinksForCategory, filtersForCategoryFromLinks));
                 addToFilters(filtersForCategoryFromLinks);
                 Set<String> allFilteredLinksKeys = filteredLinks.get().stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
-                removeFromFilters(filters.parallelStream().filter(key -> !collectionsContainKey(category, allFilteredLinksKeys, key)).collect(Collectors.toSet()));
+                removeFromFilters(filters.stream().filter(key -> !collectionsContainKey(category, allFilteredLinksKeys, key)).collect(Collectors.toSet()));
             });
         } else {
             addToFilters(allKeysFromLinks(links));
@@ -118,12 +118,12 @@ public class FiltersAndLinks {
 
     private Stream<CatalogueLink> linksWithAnyUserSelectedFilterKeys(final List<CatalogueLink> links,
                                                                        final List<String> userSelectedFilterKeys) {
-        return links.parallelStream()
+        return links.stream()
                 .filter(link -> userSelectedFilterKeys.isEmpty() || link.taggedWith(userSelectedFilterKeys));
     }
 
     private Set<String> allKeysFromLinks(List<CatalogueLink> links) {
-        return links.parallelStream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().parallelStream()).collect(Collectors.toSet());
+        return links.stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
     }
 
     private static boolean collectionsContainKey(Set<String> collection1, Set<String> collection2, String key) {
