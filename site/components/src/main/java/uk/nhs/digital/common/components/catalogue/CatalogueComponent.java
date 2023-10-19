@@ -8,11 +8,10 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import uk.nhs.digital.common.components.ContentRewriterComponent;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
+import uk.nhs.digital.common.components.catalogue.filters.FiltersAndLinks;
 import uk.nhs.digital.website.beans.ComponentList;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
@@ -30,45 +29,25 @@ public class CatalogueComponent extends ContentRewriterComponent {
         return CatalogueLink.linksFrom(((ComponentList) request.getRequestContext().getContentBean()).getBlocks());
     }
 
-    protected static Set<String> userSelectedFilterKeysFrom(final HstRequest request) {
+    protected static List<String> userSelectedFilterKeysFrom(final HstRequest request) {
 
         return Optional.ofNullable(request.getRequestContext())
             .map(HstRequestContext::getBaseURL)
             .map(HstContainerURL::getParameterMap)
             .map(parameterMap -> parameterMap.get(ServiceCatalogueComponent.Param.filter.name()))
             .map(Arrays::stream)
-            .map(filterKeys -> filterKeys.collect(Collectors.toSet()))
-            .orElse(Collections.emptySet());
-    }
-
-    protected List<CatalogueLink> applyUserSelectedFilters(final List<CatalogueLink> links, final Set<String> selectedTags) {
-        if (selectedTags.isEmpty()) {
-            return links;
-        }
-
-        return linksWithAllUserSelectedFilterKeys(links, selectedTags).collect(toList());
-    }
-
-    protected Stream<CatalogueLink> linksWithAllUserSelectedFilterKeys(final List<CatalogueLink> links,
-                                                                     final Set<String> userSelectedFilterKeys) {
-        return links.stream()
-            .filter(link -> userSelectedFilterKeys.isEmpty() || link.taggedWith(userSelectedFilterKeys));
+            .map(filterKeys -> filterKeys.collect(toList()))
+            .orElse(Collections.emptyList());
     }
 
     protected Filters filtersModel(
-        final List<CatalogueLink> catalogueLinks,
-        final Set<String> userSelectedFilterKeys,
-        final Session session,
-        String taxonomyFilters,
+        final List<String> userSelectedFilterKeys,
+        Filters rawFilters,
+        FiltersAndLinks filtersAndLinks,
         Logger logger
     ) {
         try {
-            return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters, logger)
-                .map(mappingYaml -> CatalogueContext.filtersFactory().filtersFromMappingYaml(mappingYaml))
-                .map(rawFilters -> rawFilters.initialisedWith(
-                    allFilterKeysOfAllCatalogueDocsWhereEachDocTaggedWithAllUserSelectedKeys(userSelectedFilterKeys, catalogueLinks), userSelectedFilterKeys)
-                )
-                .orElse(Filters.emptyInstance());
+            return rawFilters.initialisedWith(filtersAndLinks.filters, userSelectedFilterKeys);
         } catch (final Exception e) {
             // We deliberately do not propagate the exception as it would break rendering of the page.
             // As it is, it's only the Filters section that won't be rendered but the content
@@ -76,6 +55,16 @@ public class CatalogueComponent extends ContentRewriterComponent {
             logger.error("Failed to generate Filters model.", e);
         }
 
+        return Filters.emptyInstance();
+    }
+
+    protected Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
+        try {
+            return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters, logger)
+                    .map(mappingYaml -> CatalogueContext.filtersFactory().filtersFromMappingYaml(mappingYaml)).orElse(Filters.emptyInstance());
+        } catch (final Exception e) {
+            logger.error("Failed to generate Filters model.", e);
+        }
         return Filters.emptyInstance();
     }
 
@@ -89,14 +78,5 @@ public class CatalogueComponent extends ContentRewriterComponent {
         }
 
         return Optional.empty();
-    }
-
-    protected Set<String> allFilterKeysOfAllCatalogueDocsWhereEachDocTaggedWithAllUserSelectedKeys(
-        final Set<String> userSelectedFilterKeys,
-        final List<CatalogueLink> links
-    ) {
-        return linksWithAllUserSelectedFilterKeys(links, userSelectedFilterKeys)
-            .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream())
-            .collect(Collectors.toSet());
     }
 }
