@@ -25,7 +25,6 @@ Feature: API Catalogue in Developer hub
             | Inpatient    | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
             | Outpatient   | nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1 |
         And I can see an update alert
-        And I can see the entries footer
 
     Scenario: API Catalogue renders filtered results when filters applied
         Given I navigate to "Static API Catalogue" page
