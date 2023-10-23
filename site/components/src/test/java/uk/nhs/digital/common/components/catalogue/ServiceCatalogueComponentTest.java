@@ -1,6 +1,7 @@
 package uk.nhs.digital.common.components.catalogue;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 import static java.util.Collections.emptySet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -102,7 +103,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
             = ImmutableSet.of("citizen-health", "gp-data", "genomics", "patient-data-layer",
                 "radiology", "appointments-booking-referrals", "registers", "interoperability");
 
-        final Set<String> noUserSelectedFilterKeys = emptySet();
+        final List<String> noUserSelectedFilterKeys = emptyList();
 
         given(expectedFiltersFromFactory.initialisedWith(
             allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
@@ -144,7 +145,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
             = ImmutableSet.of("citizen-health", "gp-data", "genomics", "patient-data-layer",
                 "radiology", "appointments-booking-referrals", "registers", "interoperability");
 
-        final Set<String> noUserSelectedFilterKeys = emptySet();
+        final List<String> noUserSelectedFilterKeys = emptyList();
 
         given(expectedFiltersFromFactory.initialisedWith(
             allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
@@ -182,31 +183,32 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise all links from the API catalogue document.",
-            actualResults,
-            is(asList(
-                allCatalogueLinksToTaggedDocuments.get(0),
-                allCatalogueLinksToTaggedDocuments.get(1),
-                allCatalogueLinksToTaggedDocuments.get(2),
-                allCatalogueLinksToTaggedDocuments.get(3),
-                allCatalogueLinksToTaggedDocuments.get(4),
-                allCatalogueLinksToTaggedDocuments.get(5),
-                allCatalogueLinksToTaggedDocuments.get(6)
-            ))
+                "Results comprise all links from the API catalogue document.",
+                actualResults,
+                is(asList(
+                        allCatalogueLinksToTaggedDocuments.get(0),
+                        allCatalogueLinksToTaggedDocuments.get(1),
+                        allCatalogueLinksToTaggedDocuments.get(2),
+                        allCatalogueLinksToTaggedDocuments.get(3),
+                        allCatalogueLinksToTaggedDocuments.get(4),
+                        allCatalogueLinksToTaggedDocuments.get(5),
+                        allCatalogueLinksToTaggedDocuments.get(6)
+                ))
         );
 
         final Filters actualFilters = (Filters) request.getAttribute(REQUEST_ATTR_FILTERS);
         assertThat(
-            "Filters are as produced by the filters factory.",
-            actualFilters,
-            is(Filters.emptyInstance())
+                "Filters are as produced by the filters factory.",
+                actualFilters,
+                is(Filters.emptyInstance())
         );
 
         logger.shouldReceive(
-            error("Failed to generate Filters model.")
-                .withException("Invalid YAML.")
+                error("Failed to generate Filters model.")
+                        .withException("Invalid YAML.")
         );
     }
+
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void givenApiCatalogueDocumentWithInternalLinksToCatalogueDocuments() {

@@ -8,6 +8,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
+import uk.nhs.digital.common.components.catalogue.filters.FiltersAndLinks;
 
 import java.util.*;
 
@@ -29,24 +30,22 @@ public class ApiCatalogueComponent extends CatalogueComponent {
         final List<CatalogueLink> catalogueLinksExcludingRetiredIfNeeded =
             eliminateRetiredIfNeeded(allCatalogueLinks, showRetired);
 
-        final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
+        final List<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
-        final List<CatalogueLink> catalogueLinksFiltered = applyUserSelectedFilters(
-            catalogueLinksExcludingRetiredIfNeeded,
-            userSelectedFilterKeys
-        );
+        Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
+
+        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, catalogueLinksExcludingRetiredIfNeeded, rawFilters);
 
         final Filters filtersModel = filtersModel(
-            catalogueLinksExcludingRetiredIfNeeded,
-            userSelectedFilterKeys,
-            sessionFrom(request),
-            TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH,
+            filtersAndLinks.selectedFilterKeys,
+            rawFilters,
+            filtersAndLinks,
             log
         );
 
         request.setAttribute(Param.showRetired.name(), showRetired);
         request.setAttribute(Param.retiredFilterEnabled.name(), true);
-        request.setAttribute(Param.catalogueLinks.name(), catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList()));
+        request.setAttribute(Param.catalogueLinks.name(), filtersAndLinks.links.stream().map(CatalogueLink::raw).collect(toList()));
         request.setAttribute(Param.filtersModel.name(), filtersModel);
     }
 
