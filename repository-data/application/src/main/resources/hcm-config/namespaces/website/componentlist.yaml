@@ -147,22 +147,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /friendlyurls:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:friendlyurls
-            hipposysedit:primary: false
-            hipposysedit:type: website:friendlyurls
-            jcr:primaryType: hipposysedit:field
-          /gossid:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:gossid
-            hipposysedit:primary: false
-            hipposysedit:type: Long
-            jcr:primaryType: hipposysedit:field
           /entriesFooterBody:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -178,6 +162,22 @@ definitions:
             hipposysedit:path: website:entriesFooterTitle
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /friendlyurls:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:friendlyurls
+            hipposysedit:primary: false
+            hipposysedit:type: website:friendlyurls
+            jcr:primaryType: hipposysedit:field
+          /gossid:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:gossid
+            hipposysedit:primary: false
+            hipposysedit:type: Long
             jcr:primaryType: hipposysedit:field
           /relateddocuments:
             hipposysedit:multiple: true
