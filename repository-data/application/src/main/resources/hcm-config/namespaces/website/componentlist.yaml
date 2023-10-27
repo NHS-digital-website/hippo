@@ -115,7 +115,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Entries Footer Title
-            field: notFoundTitle
+            field: entriesFooterTitle
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -123,7 +123,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Entries Footer Body
-            field: notFoundBody
+            field: entriesFooterBody
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -163,7 +163,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Long
             jcr:primaryType: hipposysedit:field
-          /notFoundBody:
+          /entriesFooterBody:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
@@ -171,7 +171,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /notFoundTitle:
+          /entriesFooterTitle:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
