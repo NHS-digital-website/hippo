@@ -116,6 +116,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Entries Footer Title
             field: entriesFooterTitle
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -124,7 +125,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Entries Footer Body
             field: entriesFooterBody
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
