@@ -111,23 +111,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /entriesFooterTitle:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Entries Footer Title
-            field: entriesFooterTitle
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /entriesFooterBody:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Entries Footer Body
-            field: entriesFooterBody
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -146,22 +129,6 @@ definitions:
             hipposysedit:path: website:body
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /entriesFooterBody:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:entriesFooterBody
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /entriesFooterTitle:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:entriesFooterTitle
-            hipposysedit:primary: false
-            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /friendlyurls:
             hipposysedit:mandatory: false
@@ -256,16 +223,10 @@ definitions:
           /website:body:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:entriesFooterBody:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
           /website:friendlyurls:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
-          /website:seosummary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -284,7 +245,6 @@ definitions:
           - hippotaxonomy:classifiable
           jcr:primaryType: website:componentlist
           website:anchor: false
-          website:entriesFooterTitle: ''
           website:gossid: 0
           website:shortsummary: ''
           website:title: ''
