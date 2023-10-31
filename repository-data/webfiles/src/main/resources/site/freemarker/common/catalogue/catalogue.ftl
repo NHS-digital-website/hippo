@@ -130,15 +130,9 @@
                     <div class="nhsd-!t-padding-top-4"/>
                 </#if>
                 <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
-                <h2>Footer Section begin:</h2>
-                <#if document.entriesFooterContentTitle?has_content??><h2>Title true</h2></#if>
-                <#if document.entriesFooterContentBody?has_content??><h2>Body true</h2></#if>
                 <#if document.entriesFooterContentTitle?has_content?? && document.entriesFooterContentBody?has_content??>
-                    <h2>Footer Section Inside</h2>
                     <@entriesFooter document.entriesFooterContentTitle document.entriesFooterContentBody/>
-                    <h2>Footer Section Inside2</h2>
                 </#if>
-                <h2>Footer Section end</h2>
             </div>
         </div>
     </#if>
