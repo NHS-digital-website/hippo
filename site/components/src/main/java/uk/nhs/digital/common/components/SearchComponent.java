@@ -17,6 +17,7 @@ import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
 import org.hippoecm.hst.content.beans.standard.HippoResultSetBean;
+import org.hippoecm.hst.content.beans.standard.facetnavigation.HippoFacetNavigation;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -786,6 +787,7 @@ public class SearchComponent extends CommonComponent {
                         getCurrentPage(request)
                     );
 
+                request.getRequestContext().setAttribute("facets", facetNavigationBean);
                 request.setAttribute("pageable", pageable);
                 request.setAttribute("pageNumbers", getHstPageNumbers(pageable));
             }
@@ -818,6 +820,15 @@ public class SearchComponent extends CommonComponent {
     HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
         // If we went to a random URL and are on the 404 error page we won't have
         // a relative content path to get the facets from so return null
+
+        //If facets/search have already been set by another method, return the same resultset to avoid search running again.
+        Object facets = request.getRequestContext().getAttribute("facets");
+        if (facets != null && facets.getClass() == HippoFacetNavigation.class  ) {
+            LOGGER.info("Facet navigation bean has already been set, thus search results exist, will skip further search iterations.");
+            return (HippoFacetNavigationBean) facets;
+        }
+        LOGGER.debug("Running search for HippoFacetNavigationBean.");
+
         String relativeContentPath = request.getRequestContext()
             .getResolvedSiteMapItem()
             .getRelativeContentPath();
