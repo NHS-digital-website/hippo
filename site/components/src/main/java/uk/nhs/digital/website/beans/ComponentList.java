@@ -28,4 +28,14 @@ public class ComponentList extends CommonFieldsBean {
     public HippoHtml getBody() {
         return getHippoHtml("website:body");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:entriesFooterContentTitle")
+    public String getEntriesFooterTitle() {
+        return getSingleProperty("website:entriesFooterContentTitle");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:entriesFooterContentBody")
+    public HippoHtml getEntriesFooterBody() {
+        return getHippoHtml("website:entriesFooterContentBody");
+    }
 }
