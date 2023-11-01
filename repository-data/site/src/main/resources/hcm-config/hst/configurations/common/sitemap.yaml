@@ -419,9 +419,6 @@ definitions:
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
           hst:relativecontentpath: developer/api-catalogue
-          hst:responseheaders:
-          - 'Access-Control-Allow-Origin: *'
-          - 'Referrer-Policy: unsafe-url'
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
         hst:relativecontentpath: developer
@@ -561,9 +558,6 @@ definitions:
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
           hst:relativecontentpath: services-catalogue
-          hst:responseheaders:
-          - 'Access-Control-Allow-Origin: *'
-          - 'Referrer-Policy: unsafe-url'
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub
         hst:relativecontentpath: nhsd-services-hub
