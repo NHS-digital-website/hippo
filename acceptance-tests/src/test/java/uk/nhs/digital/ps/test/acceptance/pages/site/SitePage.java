@@ -170,6 +170,10 @@ public class SitePage extends AbstractSitePage {
         }
     }
 
+    public WebElement findById(String id) {
+        return helper.findElement(By.id(id));
+    }
+
     private void waitForCookiebotDialogToBeGone() {
         helper.waitUntilTrue(() -> findCookiebotDialog() == null);
     }
