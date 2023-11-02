@@ -34,10 +34,10 @@ definitions:
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
                 disableNativeSpellChecker: false}'
               htmlprocessor.id: richtext
-              secureTargetBlankLinks: false
               imagepicker.last.visited.nodetypes:
               - ''
               jcr:primaryType: frontend:pluginconfig
+              secureTargetBlankLinks: false
             caption: Content
             field: content
             hint: ''
