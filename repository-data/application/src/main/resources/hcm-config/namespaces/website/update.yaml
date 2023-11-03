@@ -33,11 +33,10 @@ definitions:
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
                 disableNativeSpellChecker: false}'
-              htmlprocessor.id: richtext
+              htmlprocessor.id: no-filter
               imagepicker.last.visited.nodetypes:
               - ''
               jcr:primaryType: frontend:pluginconfig
-              secureTargetBlankLinks: false
             caption: Content
             field: content
             hint: ''
