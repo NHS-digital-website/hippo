@@ -35,6 +35,7 @@ import org.powermock.core.classloader.annotations.PrepareOnlyThisForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.FiltersFactory;
+import uk.nhs.digital.common.components.catalogue.filters.NavFilter;
 import uk.nhs.digital.common.components.catalogue.repository.CatalogueRepository;
 import uk.nhs.digital.test.TestLoggerRule;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
@@ -107,7 +108,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         final List<String> noUserSelectedFilterKeys = emptyList();
 
         given(expectedFiltersFromFactory.initialisedWith(
-            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
             noUserSelectedFilterKeys
         )).willReturn(expectedFiltersFromFactory);
 
@@ -148,7 +149,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         final List<String> noUserSelectedFilterKeys = emptyList();
 
         given(expectedFiltersFromFactory.initialisedWith(
-            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
             noUserSelectedFilterKeys
         )).willReturn(expectedFiltersFromFactory);
 
@@ -187,7 +188,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         // @formatter:on
 
         given(expectedFiltersFromFactory.initialisedWith(
-                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
                 userSelectedFilterKeys
         )).willReturn(expectedFiltersFromFactory);
 
@@ -218,7 +219,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         // @formatter:on
 
         given(expectedFiltersFromFactory.initialisedWith(
-                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
                 userSelectedFilterKeys
         )).willReturn(expectedFiltersFromFactory);
 
