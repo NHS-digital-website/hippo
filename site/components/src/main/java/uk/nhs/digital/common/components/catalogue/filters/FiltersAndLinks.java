@@ -26,10 +26,10 @@ public class FiltersAndLinks {
         applyFiltersToLinks(userSelectedFilterKeys, orderedFiltersKeysByCategory);
         applyFiltersToNavKeys(userSelectedFilterKeys, links, orderedFiltersKeysByCategory);
         updateUserSelectedFilters(userSelectedFilterKeys);
-        calculateCountsForFilters(orderedFiltersKeysByCategory, userSelectedFilterKeys, links);
+        updateCountsForFilters(orderedFiltersKeysByCategory, userSelectedFilterKeys, links);
     }
 
-    private void calculateCountsForFilters(List<Set<String>> orderedFilterKeysByCategory, final List<String> userSelectedFilterKeys, List<CatalogueLink> rawLinks) {
+    private void updateCountsForFilters(List<Set<String>> orderedFilterKeysByCategory, final List<String> userSelectedFilterKeys, List<CatalogueLink> rawLinks) {
         filters.forEach(navFilter -> navFilter.count = countOfLinksWithKey(navFilter.filterKey, this.links));
         if (!orderedFilterKeysByCategory.isEmpty()) {
             Set<String> lastCategory = orderedFilterKeysByCategory.get(orderedFilterKeysByCategory.size() - 1);

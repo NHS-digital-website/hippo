@@ -18,6 +18,8 @@ import uk.nhs.digital.website.beans.Internallink;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @RunWith(DataProviderRunner.class)
 public class FiltersAndLinksTests {
@@ -114,6 +116,47 @@ public class FiltersAndLinksTests {
         boolean result = !filtersAndLinks.selectedFilterKeys.contains("inpatient");
 
         assertThat("Selected filters does not contain invalid filter after AND", result);
+    }
+
+    @Test
+    public void filterCountsAreCorrectWithNoSelectedFilters() {
+        List<String> selectedFilterKeys = Collections.emptyList();
+        FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
+
+        assertThat("Filters are not empty", !filtersAndLinks.filters.isEmpty());
+        assertThat("Inpatient filter link count is 3", getCountForKey(filtersAndLinks.filters, "inpatient") == 3);
+        assertThat("Outpatient filter link count is 2", getCountForKey(filtersAndLinks.filters, "outpatient") == 2);
+        assertThat("Service filter link count is 1", getCountForKey(filtersAndLinks.filters, "service") == 1);
+        assertThat("Fhir filter link count is 1", getCountForKey(filtersAndLinks.filters, "fhir") == 1);
+        assertThat("Hospital filter link count is 2", getCountForKey(filtersAndLinks.filters, "hospital") == 2);
+        assertThat("Patient filter link count is 1", getCountForKey(filtersAndLinks.filters, "patient") == 1);
+    }
+
+    @Test
+    public void filterCountForSameCategoryAsSelectedFilterIsRetained() {
+        List<String> selectedFilterKeys = ImmutableList.of("outpatient");
+        FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
+
+        int result = getCountForKey(filtersAndLinks.filters, "inpatient");
+
+        assertThat("Inpatient filter link count is still 3 despite filtering by Outpatient key", result == 3);
+    }
+
+    @Test
+    public void filterCountForOtherCategoryAsSelectedFilterIsFiltered() {
+        List<String> selectedFilterKeys = ImmutableList.of("inpatient");
+        FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
+
+        int result = getCountForKey(filtersAndLinks.filters, "hospital");
+
+        assertThat("Hospital count is now 1 due to filtering by Inpatient key", result == 1);
+    }
+
+    private int getCountForKey(Set<NavFilter> navFilters, String key) {
+        return navFilters
+                .stream().filter(navFilter -> Objects.equals(navFilter.filterKey, key))
+                .findFirst()
+                .get().count;
     }
 
 
