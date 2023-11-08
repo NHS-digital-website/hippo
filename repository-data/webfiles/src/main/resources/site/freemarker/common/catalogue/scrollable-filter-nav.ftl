@@ -69,33 +69,26 @@
             <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
         </#if>
         <div class="section-label-container"><#-- This div is needed to add vertical spacing between checkboxes -->
-            <div class="nhsd-t-row">
-                <div class="nhsd-t-col-10">
-                    <span class="nhsd-a-checkbox">
-                        <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
-                            <input onclick="window.location = '<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
-                            <#if filter.selectable>
-                                <a aria-label="Filter by ${filter.displayName}"
-                                   href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />"
-                                   class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
-                                    <input type="checkbox">
-                                    <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName}</span>
-                                </a>
-                            <#else>
-                                <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
-                                    <input type="checkbox" disabled>
-                                    <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName}</span>
-                                </a>
-                            </#if>
-                            <div class="checkmark"></div>
-                        </label>
-                        <@filterDescription filter.description() responsive/>
-                    </span>
-                </div>
-                <div class="nhsd-t-col-2">
-                    <span class="nhsd-a-tag nhsd-a-tag--bg-light-grey">${filter.count()}</span>
-                </div>
-            </div>
+            <span class="nhsd-a-checkbox">
+            <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
+                <input onclick="window.location = '<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
+                <#if filter.selectable>
+                    <a aria-label="Filter by ${filter.displayName}"
+                       href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />"
+                       class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
+                        <input type="checkbox">
+                        <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>
+                    </a>
+                <#else>
+                    <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
+                        <input type="checkbox" disabled>
+                        <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>
+                    </a>
+                </#if>
+                <div class="checkmark"></div>
+            </label>
+            <@filterDescription filter.description() responsive/>
+        </span>
         </div>
         <#local nextLevel = indentationLevel + 1>
         <#if filter.entries?has_content>
