@@ -13,6 +13,7 @@
         const specification = ${document.json?no_esc};
         const isDevEnv = ${isDevEnv?c};
     </script>
+
     <script src="<@hst.webfile path="/apispecification/rapidoc-min.js"/>"></script>
     <script src="<@hst.webfile path="/apispecification/rapidoc-customisation.js"/>"></script>
 
