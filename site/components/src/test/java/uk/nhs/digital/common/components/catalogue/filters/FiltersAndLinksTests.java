@@ -83,7 +83,7 @@ public class FiltersAndLinksTests {
         List<String> selectedFilterKeys = ImmutableList.of("outpatient");
         FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
 
-        boolean result = filtersAndLinks.filters.contains("inpatient");
+        boolean result = filtersAndLinks.filters.stream().map(navFilter -> navFilter.filterKey).anyMatch(key -> Objects.equals(key, "inpatient"));
 
         assertThat("Filters contains key in same section as selected key", result);
     }

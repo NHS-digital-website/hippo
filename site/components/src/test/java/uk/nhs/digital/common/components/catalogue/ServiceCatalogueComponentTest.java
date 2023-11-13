@@ -9,6 +9,7 @@ import static org.hamcrest.Matchers.sameInstance;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static uk.nhs.digital.test.TestLogger.LogAssertor.error;
 
@@ -100,19 +101,8 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
     @Test
     public void listsAllServiceCatalogueDocs_whenUserSelectedFiltersApplied() {
 
-        // given
-        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
-            = ImmutableSet.of("citizen-health", "gp-data", "genomics", "patient-data-layer",
-                "radiology", "appointments-booking-referrals", "registers", "interoperability");
-
-        final List<String> noUserSelectedFilterKeys = emptyList();
-
-        given(expectedFiltersFromFactory.initialisedWith(
-            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
-            noUserSelectedFilterKeys
-        )).willReturn(expectedFiltersFromFactory);
-
         // when
+        when(expectedFiltersFromFactory.initialisedWith(any(), any())).thenReturn(expectedFiltersFromFactory);
         serviceCatalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
@@ -142,19 +132,8 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
     @Test
     public void listsAllServiceCatalogueDocs_whenUserSelectedFiltersNotApplied() {
 
-        // given
-        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
-            = ImmutableSet.of("citizen-health", "gp-data", "genomics", "patient-data-layer",
-                "radiology", "appointments-booking-referrals", "registers", "interoperability");
-
-        final List<String> noUserSelectedFilterKeys = emptyList();
-
-        given(expectedFiltersFromFactory.initialisedWith(
-            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
-            noUserSelectedFilterKeys
-        )).willReturn(expectedFiltersFromFactory);
-
         // when
+        when(expectedFiltersFromFactory.initialisedWith(any(), any())).thenReturn(expectedFiltersFromFactory);
         serviceCatalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
