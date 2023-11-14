@@ -366,11 +366,13 @@ jobs:
         env:
           TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
-      - name: Request Deployment from BR Cloud
-        id: deployment
+
+      - name: Create Deployment Details for BR Cloud
+        id: create-deployment-details
+        uses: actions/github-script@v6
         with:
           script: |
-            let args = '{
+            let args = {
               "distributionId": "${{ env.DISTRIBUTION }}",
               "strategy" : "rollingupdate",
               "appConfigFileRoles": [
@@ -394,7 +396,7 @@ jobs:
                   "newFilename": "brc-mail-smtp.properties"
                 }
               ]
-            }';
+            };
             if ('${{ steps.content-search-key.outputs.id }}'.length === 36) {
               args.appConfigFileRoles.push({
                 "appConfigFileId": "${{ steps.content-search-key.outputs.id }}",
@@ -403,12 +405,16 @@ jobs:
               })
             }
             core.setOutput("deployment_args", args);
+
+
+      - name: Request Deployment from BR Cloud
+        id: deployment
         run: |
           curl -i \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '${{ steps.deployment.outputs.deployment_args }}'
+          -d '${{ steps.create-deployment-details.outputs.deployment_args }}'
         env:
           DISTRIBUTION: ${{ steps.distribution.outputs.id }}
           ENVIRONMENT: ${{ fromJson(steps.find-target.outputs.result).id }}
