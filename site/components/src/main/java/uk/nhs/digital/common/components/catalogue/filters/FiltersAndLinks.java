@@ -22,23 +22,20 @@ public class FiltersAndLinks {
 
     public FiltersAndLinks(final List<String> userSelectedFilterKeys, final List<CatalogueLink> links, final Filters rawFilters) {
         List<Set<String>> orderedFiltersKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
-        this.links = linksWithAnyUserSelectedFilterKeys(links, userSelectedFilterKeys).collect(toList());
-        applyFiltersToLinks(userSelectedFilterKeys, orderedFiltersKeysByCategory);
+        this.links = filterLinks(userSelectedFilterKeys, orderedFiltersKeysByCategory, links);
         applyFiltersToNavKeys(userSelectedFilterKeys, links, orderedFiltersKeysByCategory);
         updateUserSelectedFilters(userSelectedFilterKeys);
         updateCountsForFilters(orderedFiltersKeysByCategory, userSelectedFilterKeys, links);
     }
 
+    //Update the counts for the NavFilters with the OR Logic within the same category applied
     private void updateCountsForFilters(List<Set<String>> orderedFilterKeysByCategory, final List<String> userSelectedFilterKeys, List<CatalogueLink> rawLinks) {
         filters.forEach(navFilter -> navFilter.count = countOfLinksWithKey(navFilter.filterKey, this.links));
         if (!orderedFilterKeysByCategory.isEmpty()) {
             Set<String> lastCategory = orderedFilterKeysByCategory.get(orderedFilterKeysByCategory.size() - 1);
             AtomicReference<List<CatalogueLink>> filteredLinks = new AtomicReference<>(rawLinks);
             orderedFilterKeysByCategory.remove(lastCategory);
-            orderedFilterKeysByCategory.forEach(category -> {
-                List<String> userSelectedFiltersForCategory = userSelectedFilterKeys.stream().filter(category::contains).collect(toList());
-                filteredLinks.set(linksWithAnyUserSelectedFilterKeys(rawLinks, userSelectedFiltersForCategory).collect(toList()));
-            });
+            filteredLinks.set(filterLinks(userSelectedFilterKeys, orderedFilterKeysByCategory, rawLinks));
             filters.forEach(navFilter -> {
                 if (lastCategory.contains(navFilter.filterKey)) {
                     navFilter.count = countOfLinksWithKey(navFilter.filterKey, filteredLinks.get());
@@ -48,13 +45,16 @@ public class FiltersAndLinks {
     }
 
     //Filter the catalogue links with the currently selected filter keys using all filter keys ordered by selection and sorted into their categories.
-    private void applyFiltersToLinks(final List<String> userSelectedFilterKeys, List<Set<String>> orderedFilterKeysByCategory) {
+    private List<CatalogueLink> filterLinks(final List<String> userSelectedFilterKeys, List<Set<String>> orderedFilterKeysByCategory, List<CatalogueLink> links) {
         if (!userSelectedFilterKeys.isEmpty()) {
+            AtomicReference<List<CatalogueLink>> filteredLinks = new AtomicReference<>(links);
             orderedFilterKeysByCategory.forEach(category -> {
                 List<String> userSelectedFiltersForCategory = userSelectedFilterKeys.stream().filter(category::contains).collect(toList());
-                this.links = linksWithAnyUserSelectedFilterKeys(this.links, userSelectedFiltersForCategory).collect(toList());
+                filteredLinks.set(linksWithAnyUserSelectedFilterKeys(filteredLinks.get(), userSelectedFiltersForCategory).collect(toList()));
             });
+            return filteredLinks.get();
         }
+        return links;
     }
 
     //Filter the Navigation menu tags
