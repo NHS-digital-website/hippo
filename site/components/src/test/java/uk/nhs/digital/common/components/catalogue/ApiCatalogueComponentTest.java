@@ -126,7 +126,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
                 allCatalogueLinksToTaggedDocuments.get(3),
                 allCatalogueLinksToTaggedDocuments.get(4),
                 allCatalogueLinksToTaggedDocuments.get(6),
-                allCatalogueLinksToTaggedDocuments.get(7)
+                allCatalogueLinksToTaggedDocuments.get(8)
             ))
         );
 
@@ -160,9 +160,18 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise links of all docs referenced from API catalogue, including of docs tagged as Retired.",
-            actualResults,
-            is(allCatalogueLinksToTaggedDocuments)
+                "Results comprise links of all docs referenced from API catalogue, except of docs tagged as Retired.",
+                actualResults,
+                is(asList(
+                        allCatalogueLinksToTaggedDocuments.get(0),
+                        allCatalogueLinksToTaggedDocuments.get(1),
+                        allCatalogueLinksToTaggedDocuments.get(2),
+                        allCatalogueLinksToTaggedDocuments.get(3),
+                        allCatalogueLinksToTaggedDocuments.get(4),
+                        allCatalogueLinksToTaggedDocuments.get(5),
+                        allCatalogueLinksToTaggedDocuments.get(6),
+                        allCatalogueLinksToTaggedDocuments.get(8)
+                ))
         );
 
         final Filters actualFilters = (Filters) request.getAttribute(REQUEST_ATTR_FILTERS);
@@ -254,7 +263,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
                         allCatalogueLinksToTaggedDocuments.get(3),
                         allCatalogueLinksToTaggedDocuments.get(4),
                         allCatalogueLinksToTaggedDocuments.get(6),
-                        allCatalogueLinksToTaggedDocuments.get(7)
+                        allCatalogueLinksToTaggedDocuments.get(8)
                 ))
         );
 
@@ -271,6 +280,32 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         );
     }
 
+    @Test
+    public void unpublishedInternalLinkIsNotIncludedInRendering() {
+
+        // given
+        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
+                = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health", "deprecated-api");
+
+        final List<String> noUserSelectedFilterKeys = emptyList();
+
+        given(expectedFiltersFromFactory.initialisedWith(
+                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+                noUserSelectedFilterKeys
+        )).willReturn(expectedFiltersFromFactory);
+
+        // when
+        apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+
+        // then
+        final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
+        assertThat(
+                "Results do not include unpublished internal link",
+                actualResults.size(),
+                is(7)
+        );
+    }
+
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void givenApiCatalogueDocumentWithInternalLinksToCatalogueDocuments() {
 
@@ -283,6 +318,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
             internalLinkToDocTaggedWith("fhir",   "deprecated-api"),                // [4]
             internalLinkToDocTaggedWith("fhir",   "retired-api"),                   // [5]
             internalLinkToDocTaggedWith("hl7-v3", "deprecated-api"),                // [6]
+            internalLinkThatIsUnpublished("fhir", "inpatient"),                     // [6.5] (Unpublished)
             externalLink("https://www.google.com")                                  // [7]
         );
         // @formatter:on
@@ -312,6 +348,12 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         given(link.getLink()).willReturn(url);
         given(link.toString()).willReturn("Externallink: " + url);
 
+        return link;
+    }
+
+    private Internallink internalLinkThatIsUnpublished(final String... taxonomyKeys) {
+        Internallink link = internalLinkToDocTaggedWith(taxonomyKeys);
+        given(link.getIsPublished()).willReturn(false);
         return link;
     }
 
