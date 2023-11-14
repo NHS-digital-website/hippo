@@ -79,6 +79,6 @@ public class CatalogueLink {
         if (isFilterable()) {
             return ((Internallink) raw()).getIsPublished();
         }
-        return false;
+        return true;
     }
 }

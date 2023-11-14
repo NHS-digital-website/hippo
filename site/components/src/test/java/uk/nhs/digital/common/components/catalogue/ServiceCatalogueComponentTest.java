@@ -238,6 +238,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         given(link.getLinkType()).willReturn("internal");
         given(link.getLink()).willReturn(bean);
         given(link.toString()).willReturn("Internallink of a doc tagged with: " + String.join(", ", taxonomyKeys));
+        given(link.getIsPublished()).willReturn(true);
 
         return link;
     }
