@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 @RunWith(DataProviderRunner.class)
 public class StatusUpdatingFilterVisitorTest {
@@ -323,7 +324,15 @@ public class StatusUpdatingFilterVisitorTest {
     }
 
     private StatusUpdatingFilterVisitor visitorWith(final List<String> filteredTags, final List<String> selectedTags) {
-        return new StatusUpdatingFilterVisitor(ImmutableSet.copyOf(filteredTags), ImmutableSet.copyOf(selectedTags));
+        return new StatusUpdatingFilterVisitor(
+                ImmutableSet.copyOf(
+                        filteredTags
+                                .stream()
+                                .map(tag -> new NavFilter(tag, 0))
+                                .collect(Collectors.toList())
+                ),
+                ImmutableSet.copyOf(selectedTags)
+        );
     }
 
     private List<String> filteredTags(final String... tags) {
