@@ -26,7 +26,8 @@ public class CatalogueComponent extends ContentRewriterComponent {
     }
 
     protected List<CatalogueLink> catalogueLinksFrom(final HstRequest request) {
-        return CatalogueLink.linksFrom(((ComponentList) request.getRequestContext().getContentBean()).getBlocks());
+        return CatalogueLink.linksFrom(((ComponentList) request.getRequestContext().getContentBean()).getBlocks())
+                .stream().filter(CatalogueLink::contentIsPublished).collect(toList());
     }
 
     protected static List<String> userSelectedFilterKeysFrom(final HstRequest request) {

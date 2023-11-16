@@ -46,6 +46,11 @@ public class CatalogueLink {
         return filterKeys.isEmpty() || !Collections.disjoint(taxonomyKeysOfLinkedDoc, filterKeys);
     }
 
+    public boolean taggedWith(final String filterKey) {
+        final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfReferencedDoc();
+        return taxonomyKeysOfLinkedDoc.contains(filterKey);
+    }
+
     /**
      * @return Keys of all taxonomy terms the referenced doc is tagged with or empty collection
      * (never {@code null}) when the document is not tagged with any terms or is {@linkplain #notFilterable}.
@@ -73,5 +78,12 @@ public class CatalogueLink {
      */
     private boolean isFilterable() {
         return rawLink instanceof Internallink;
+    }
+
+    boolean contentIsPublished() {
+        if (isFilterable()) {
+            return ((Internallink) raw()).getIsPublished();
+        }
+        return true;
     }
 }
