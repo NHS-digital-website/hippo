@@ -269,7 +269,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         final List<String> noUserSelectedFilterKeys = emptyList();
 
         given(expectedFiltersFromFactory.initialisedWith(
-                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
                 noUserSelectedFilterKeys
         )).willReturn(expectedFiltersFromFactory);
 
