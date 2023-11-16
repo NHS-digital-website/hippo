@@ -22,4 +22,17 @@ public class Internallink extends HippoCompound {
     public String getTitle() {
         return getLink().getDisplayName();
     }
+
+    public boolean getIsPublished() {
+        HippoBean link = getLink();
+        try {
+            javax.jcr.Node linkNode = link.getNode();
+            if (linkNode.hasProperty("hippostd:state") && "published".equals(linkNode.getProperty("hippostd:state").getString())) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
 }

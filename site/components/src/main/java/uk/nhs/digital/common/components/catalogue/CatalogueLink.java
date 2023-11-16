@@ -79,4 +79,11 @@ public class CatalogueLink {
     private boolean isFilterable() {
         return rawLink instanceof Internallink;
     }
+
+    boolean contentIsPublished() {
+        if (isFilterable()) {
+            return ((Internallink) raw()).getIsPublished();
+        }
+        return true;
+    }
 }
