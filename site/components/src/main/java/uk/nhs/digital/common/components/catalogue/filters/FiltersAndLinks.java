@@ -16,26 +16,45 @@ import java.util.stream.Stream;
 * perform filtering on the catalogue links and also Navigation menu filters
 * */
 public class FiltersAndLinks {
-    public Set<String> filters = new HashSet<>();
+    public Set<NavFilter> filters = new HashSet<>();
     public List<CatalogueLink> links;
     public List<String> selectedFilterKeys;
 
     public FiltersAndLinks(final List<String> userSelectedFilterKeys, final List<CatalogueLink> links, final Filters rawFilters) {
         List<Set<String>> orderedFiltersKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
-        this.links = linksWithAnyUserSelectedFilterKeys(links, userSelectedFilterKeys).collect(toList());
-        applyFiltersToLinks(userSelectedFilterKeys, orderedFiltersKeysByCategory);
+        this.links = filterLinks(userSelectedFilterKeys, orderedFiltersKeysByCategory, links);
         applyFiltersToNavKeys(userSelectedFilterKeys, links, orderedFiltersKeysByCategory);
         updateUserSelectedFilters(userSelectedFilterKeys);
+        updateCountsForFilters(orderedFiltersKeysByCategory, userSelectedFilterKeys, links);
+    }
+
+    //Update the counts for the NavFilters with the OR Logic within the same category applied
+    private void updateCountsForFilters(List<Set<String>> orderedFilterKeysByCategory, final List<String> userSelectedFilterKeys, List<CatalogueLink> rawLinks) {
+        filters.forEach(navFilter -> navFilter.count = countOfLinksWithKey(navFilter.filterKey, this.links));
+        if (!orderedFilterKeysByCategory.isEmpty()) {
+            Set<String> lastCategory = orderedFilterKeysByCategory.get(orderedFilterKeysByCategory.size() - 1);
+            AtomicReference<List<CatalogueLink>> filteredLinks = new AtomicReference<>(rawLinks);
+            orderedFilterKeysByCategory.remove(lastCategory);
+            filteredLinks.set(filterLinks(userSelectedFilterKeys, orderedFilterKeysByCategory, rawLinks));
+            filters.forEach(navFilter -> {
+                if (lastCategory.contains(navFilter.filterKey)) {
+                    navFilter.count = countOfLinksWithKey(navFilter.filterKey, filteredLinks.get());
+                }
+            });
+        }
     }
 
     //Filter the catalogue links with the currently selected filter keys using all filter keys ordered by selection and sorted into their categories.
-    private void applyFiltersToLinks(final List<String> userSelectedFilterKeys, List<Set<String>> orderedFilterKeysByCategory) {
+    private List<CatalogueLink> filterLinks(final List<String> userSelectedFilterKeys, List<Set<String>> orderedFilterKeysByCategory, List<CatalogueLink> links) {
         if (!userSelectedFilterKeys.isEmpty()) {
+            AtomicReference<List<CatalogueLink>> filteredLinks = new AtomicReference<>(links);
             orderedFilterKeysByCategory.forEach(category -> {
                 List<String> userSelectedFiltersForCategory = userSelectedFilterKeys.stream().filter(category::contains).collect(toList());
-                this.links = linksWithAnyUserSelectedFilterKeys(this.links, userSelectedFiltersForCategory).collect(toList());
+                filteredLinks.set(linksWithAnyUserSelectedFilterKeys(filteredLinks.get(), userSelectedFiltersForCategory).collect(toList()));
             });
+            return filteredLinks.get();
         }
+        return links;
     }
 
     //Filter the Navigation menu tags
@@ -56,7 +75,12 @@ public class FiltersAndLinks {
                 filtersForCategoryFromLinks.addAll(filtersNotInCollection(filteredLinksForCategory, filtersForCategoryFromLinks));
                 addToFilters(filtersForCategoryFromLinks);
                 Set<String> allFilteredLinksKeys = filteredLinks.get().stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
-                removeFromFilters(filters.stream().filter(key -> !collectionsContainKey(category, allFilteredLinksKeys, key)).collect(Collectors.toSet()));
+                removeFromFilters(
+                        filters.stream()
+                                .filter(navFilter -> !collectionsContainKey(category, allFilteredLinksKeys, navFilter.filterKey))
+                                .map(navFilter -> navFilter.filterKey)
+                                .collect(Collectors.toSet())
+                );
             });
         } else {
             addToFilters(allKeysFromLinks(links));
@@ -104,11 +128,11 @@ public class FiltersAndLinks {
     }
 
     private void addToFilters(Set<String> keys) {
-        filters.addAll(keys);
+        filters.addAll(keys.stream().map(key -> new NavFilter(key, 0)).collect(toList()));
     }
 
     private void removeFromFilters(Set<String> keys) {
-        filters.removeAll(keys);
+        filters.removeIf(navFilter -> keys.contains(navFilter.filterKey));
     }
 
     private void updateUserSelectedFilters(List<String> userSelectedFilterKeys) {
@@ -120,6 +144,11 @@ public class FiltersAndLinks {
                                                                        final List<String> userSelectedFilterKeys) {
         return links.stream()
                 .filter(link -> userSelectedFilterKeys.isEmpty() || link.taggedWith(userSelectedFilterKeys));
+    }
+
+    private int countOfLinksWithKey(String key, final List<CatalogueLink> links) {
+        return (int) links.stream()
+                .filter(link -> link.taggedWith(key)).count();
     }
 
     private Set<String> allKeysFromLinks(List<CatalogueLink> links) {

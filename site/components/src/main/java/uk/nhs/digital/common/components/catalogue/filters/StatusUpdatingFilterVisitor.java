@@ -1,13 +1,16 @@
 package uk.nhs.digital.common.components.catalogue.filters;
 
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class StatusUpdatingFilterVisitor implements FilterVisitor {
-    private Set<String> filteredTags;
+    private Set<NavFilter> filteredTags;
     private Set<String> selectedTags;
 
-    public StatusUpdatingFilterVisitor(final Set<String> filteredTags, final Set<String> selectedTags) {
+    public StatusUpdatingFilterVisitor(final Set<NavFilter> filteredTags, final Set<String> selectedTags) {
         this.filteredTags = filteredTags;
         this.selectedTags = selectedTags;
     }
@@ -24,6 +27,7 @@ public class StatusUpdatingFilterVisitor implements FilterVisitor {
         updateSelectability(subsection);
         updateSelected(subsection);
         updateExpanded(subsection);
+        updateCount(subsection);
     }
 
     private void updateDisplayed(final Section section) {
@@ -66,8 +70,17 @@ public class StatusUpdatingFilterVisitor implements FilterVisitor {
         }
     }
 
+    private void updateCount(final Subsection subsection) {
+        Optional<NavFilter> navFilter =
+                filteredTags.stream()
+                        .filter(filter -> Objects.equals(filter.filterKey, subsection.getKey())).collect(Collectors.toList()).stream()
+                        .findFirst();
+        int count = navFilter.map(filter -> filter.count).orElse(0);
+        subsection.setCount(count);
+    }
+
     private Predicate<Subsection> hasSelectedTag = subsection -> selectedTags.contains(subsection.getKey());
-    private Predicate<Subsection> hasFilteredTag = subsection -> filteredTags.contains(subsection.getKey());
+    private Predicate<Subsection> hasFilteredTag = subsection -> filteredTags.stream().anyMatch(navFilter -> Objects.equals(navFilter.filterKey, subsection.getKey()));
     private Predicate<Section> hasDisplayedChild = section -> section.getEntries().stream().anyMatch(Subsection::isDisplayed);
 }
 

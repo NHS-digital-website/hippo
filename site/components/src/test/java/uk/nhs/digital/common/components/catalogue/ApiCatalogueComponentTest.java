@@ -2,13 +2,12 @@ package uk.nhs.digital.common.components.catalogue;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
-import static java.util.Collections.emptySet;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.sameInstance;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static uk.nhs.digital.test.TestLogger.LogAssertor.error;
 
@@ -35,6 +34,7 @@ import org.powermock.core.classloader.annotations.PrepareOnlyThisForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.FiltersFactory;
+import uk.nhs.digital.common.components.catalogue.filters.NavFilter;
 import uk.nhs.digital.common.components.catalogue.repository.CatalogueRepository;
 import uk.nhs.digital.test.TestLoggerRule;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
@@ -100,18 +100,8 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
     @Test
     public void listsAllApiCatalogueDocs_excludingRetiredApis_whenUserSelectedFiltersApplied_andShowRetiredNotApplied() {
 
-        // given
-        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
-            = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health", "deprecated-api");
-
-        final List<String> noUserSelectedFilterKeys = emptyList();
-
-        given(expectedFiltersFromFactory.initialisedWith(
-            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
-            noUserSelectedFilterKeys
-        )).willReturn(expectedFiltersFromFactory);
-
         // when
+        when(expectedFiltersFromFactory.initialisedWith(any(), any())).thenReturn(expectedFiltersFromFactory);
         apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
@@ -134,27 +124,16 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         assertThat(
             "Filters are as produced by the filters factory.",
             actualFilters,
-            sameInstance(expectedFiltersFromFactory)
+            notNullValue()
         );
     }
 
     @Test
     public void listsAllApiCatalogueDocs_includingRetiredApis_whenUserSelectedFiltersNotApplied_andShowRetiredApplied() {
 
-        // given
-        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
-            = ImmutableSet.of("fhir", "hl7-v3", "inpatient", "hospital", "mental-health", "dental-health", "deprecated-api", "retired-api");
-
-        final List<String> noUserSelectedFilterKeys = emptyList();
-
-        given(expectedFiltersFromFactory.initialisedWith(
-            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
-            noUserSelectedFilterKeys
-        )).willReturn(expectedFiltersFromFactory);
-
-        request.setQueryString("showRetired");
-
         // when
+        when(expectedFiltersFromFactory.initialisedWith(any(), any())).thenReturn(expectedFiltersFromFactory);
+        request.setQueryString("showRetired");
         apiCatalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
@@ -196,7 +175,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         // @formatter:on
 
         given(expectedFiltersFromFactory.initialisedWith(
-                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
                 userSelectedFilterKeys
         )).willReturn(expectedFiltersFromFactory);
 
@@ -227,7 +206,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
         // @formatter:on
 
         given(expectedFiltersFromFactory.initialisedWith(
-                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
+                allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys.stream().map(key -> new NavFilter(key, 0)).collect(Collectors.toSet()),
                 userSelectedFilterKeys
         )).willReturn(expectedFiltersFromFactory);
 

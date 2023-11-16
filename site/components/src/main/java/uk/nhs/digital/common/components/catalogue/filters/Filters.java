@@ -21,7 +21,7 @@ public class Filters implements Walkable {
     private List<String> selectedFiltersKeys;
 
     public Filters initialisedWith(
-        final Set<String> allFilterKeysOfAllDocsWhereEachDocTaggedWithAllSelectedFilterKeys,
+        final Set<NavFilter> allFilterKeysOfAllDocsWhereEachDocTaggedWithAllSelectedFilterKeys,
         final List<String> selectedFilterKeys
     ) {
         this.selectedFiltersKeys = selectedFilterKeys;
