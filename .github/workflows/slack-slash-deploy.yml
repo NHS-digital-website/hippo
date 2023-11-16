@@ -377,21 +377,21 @@ jobs:
               "strategy" : "rollingupdate",
               "appConfigFileRoles": [
                 {
-                  "appConfigFileId": ${{ steps.aws-keys.outputs.id }},
+                  "appConfigFileId": "${{ steps.aws-keys.outputs.id }}",
                   "role": "file",
                   "newFilename": "aws-credentials.properties"
                 },
                 {
-                  "appConfigFileId": ${{ steps.system-properties.outputs.id }},
+                  "appConfigFileId": "${{ steps.system-properties.outputs.id }}",
                   "role": "systemproperty"
                 },
                 {
-                  "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }},
+                  "appConfigFileId": "${{ steps.latest-ip-whitelist.outputs.id }}",
                   "role": "file",
                   "newFilename": "hippo-ipfilter.properties"
                 },
                 {
-                  "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }},
+                  "appConfigFileId": "${{ steps.brc-mail-smtp.outputs.id }}",
                   "role": "file",
                   "newFilename": "brc-mail-smtp.properties"
                 }
