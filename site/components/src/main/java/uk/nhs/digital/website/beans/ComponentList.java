@@ -30,12 +30,12 @@ public class ComponentList extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:entriesFooterContentTitle")
-    public String getEntriesFooterTitle() {
+    public String getEntriesFooterContentTitle() {
         return getSingleProperty("website:entriesFooterContentTitle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:entriesFooterContentBody")
-    public HippoHtml getEntriesFooterBody() {
+    public HippoHtml getEntriesFooterContentBody() {
         return getHippoHtml("website:entriesFooterContentBody");
     }
 }
