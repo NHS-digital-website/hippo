@@ -5,6 +5,10 @@
 <@metaTags title summary></@metaTags>
 
 <@fmt.message key="design-system.url" var="designSystemUrl" />
+<@fmt.message key="design-system.version" var="toolkitVersion" />
+<#if !toolkitVersion?has_content>
+    <#assign toolkitVersion = "latest"/>
+</#if>
 
 <head>
     <!-- Google Tag Manager -->
@@ -48,7 +52,6 @@
     <meta name="twitter:site" content="@NHSDigital">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
 
-    <#assign toolkitVersion = 'v0.174.0' />
 
     <link href="${designSystemUrl}/" rel="preconnect" crossorigin>
     <link type="font/woff2" href="${designSystemUrl}/cdn/${toolkitVersion}/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
