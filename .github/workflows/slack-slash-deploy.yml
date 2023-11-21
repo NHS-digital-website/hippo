@@ -370,36 +370,38 @@ jobs:
       - name: Create Deployment Details for BR Cloud
         id: create-deployment-details
         uses: actions/github-script@v6
+        env:
+          DISTRIBUTION: ${{ steps.distribution.outputs.id }}
         with:
           script: |
             let args = {
-              "distributionId": "${{ env.DISTRIBUTION }}",
+              "distributionId": ${{ env.DISTRIBUTION }},
               "strategy" : "rollingupdate",
               "appConfigFileRoles": [
                 {
-                  "appConfigFileId": "${{ steps.aws-keys.outputs.id }}",
+                  "appConfigFileId": ${{ steps.aws-keys.outputs.id }},
                   "role": "file",
                   "newFilename": "aws-credentials.properties"
                 },
                 {
-                  "appConfigFileId": "${{ steps.system-properties.outputs.id }}",
+                  "appConfigFileId": ${{ steps.system-properties.outputs.id }},
                   "role": "systemproperty"
                 },
                 {
-                  "appConfigFileId": "${{ steps.latest-ip-whitelist.outputs.id }}",
+                  "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }},
                   "role": "file",
                   "newFilename": "hippo-ipfilter.properties"
                 },
                 {
-                  "appConfigFileId": "${{ steps.brc-mail-smtp.outputs.id }}",
+                  "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }},
                   "role": "file",
                   "newFilename": "brc-mail-smtp.properties"
                 }
               ]
             };
-            if ('${{ steps.content-search-key.outputs.id }}'.length === 36) {
-              args.appConfigFileRoles.push({
-                "appConfigFileId": "${{ steps.content-search-key.outputs.id }}",
+            if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.content-search-key.outputs.id }}))
+            args.appConfigFileRoles.push({
+                "appConfigFileId": ${{ steps.content-search-key.outputs.id }},
                 "role": "file",
                 "newFilename": "content-search-key.pem"
               })
@@ -416,7 +418,6 @@ jobs:
           -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
           -d '${{ steps.create-deployment-details.outputs.deployment_args }}'
         env:
-          DISTRIBUTION: ${{ steps.distribution.outputs.id }}
           ENVIRONMENT: ${{ fromJson(steps.find-target.outputs.result).id }}
 
       - name: Check Response Code from Request Deployment from BR Cloud
