@@ -375,7 +375,7 @@ jobs:
         with:
           script: |
             let args = {
-              "distributionId": ${{ env.DISTRIBUTION }},
+              "distributionId": "${{ env.DISTRIBUTION }}",
               "strategy" : "rollingupdate",
               "appConfigFileRoles": [
                 {
@@ -400,6 +400,7 @@ jobs:
               ]
             };
             if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.content-search-key.outputs.id }}))
+            {
             args.appConfigFileRoles.push({
                 "appConfigFileId": ${{ steps.content-search-key.outputs.id }},
                 "role": "file",
