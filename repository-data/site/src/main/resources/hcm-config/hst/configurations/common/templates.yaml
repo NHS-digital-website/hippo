@@ -404,6 +404,9 @@ definitions:
       /visual-hub:
         hst:renderpath: webfile:/freemarker/nhsd-common/visual-hub.ftl
         jcr:primaryType: hst:template
+      /whats-new:
+        hst:renderpath: webfile:/freemarker/common/catalogue/whats-new.ftl
+        jcr:primaryType: hst:template
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
