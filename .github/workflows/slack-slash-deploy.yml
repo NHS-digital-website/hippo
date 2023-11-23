@@ -350,6 +350,8 @@ jobs:
         run: |
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-content-search-key-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
       #
       # Request deployment from ODv2
