@@ -415,16 +415,18 @@ jobs:
       - name: Request Deployment from BR Cloud
         id: deployment
         run: |
-          curl -i \
+          code=$(curl -i \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '${{ steps.create-deployment-details.outputs.deployment_args }}'
+          -d '${{ steps.create-deployment-details.outputs.deployment_args }}' \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "code=$code" >> $GITHUB_OUTPUT
         env:
           ENVIRONMENT: ${{ fromJson(steps.find-target.outputs.result).id }}
 
       - name: Check Response Code from Request Deployment from BR Cloud
-        if: ${{ steps.deployment.outputs.code >= 200 && steps.deployment.outputs.code < 300 }}
+        if: ${{ steps.deployment.outputs.code != 202 }}
         uses: actions/github-script@v6
         with:
           script: |
