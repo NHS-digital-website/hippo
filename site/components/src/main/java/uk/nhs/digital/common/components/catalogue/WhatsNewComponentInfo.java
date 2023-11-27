@@ -34,16 +34,16 @@ public interface WhatsNewComponentInfo extends EssentialsListComponentInfo {
     String getDocumentTypes();
 
     @Parameter(
-            name = "documentDateField",
+            name = "publisheddate",
             required = false,
-            defaultValue = "publicationsystem:NominalDate"
+            defaultValue = "publisheddate"
     )
-    String getDocumentDateField();
+    String getPublishedDate();
 
     @Parameter(
             name = "sortField",
             required = false,
-            defaultValue = "publicationsystem:NominalDate"
+            defaultValue = "publisheddate"
     )
     @Override
     String getSortField();

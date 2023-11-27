@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
+<#include "../../nhsd-common/macro/pagination.ftl">
 
 <div class="nhsd-!t-margin-bottom-2">
     <div class="nhsd-t-grid">
@@ -15,6 +16,10 @@
                         <@whatsnewitem item.title item.shortsummary item.getPublishedDate()/>
                     </div>
                 </#list>
+                <#if pageable?? && pageable.total gt 0>
+                    <hr class="nhsd-a-horizontal-rule">
+                    <@pagination />
+                </#if>
             </div>
         </div>
     </div>

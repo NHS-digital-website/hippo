@@ -92,6 +92,7 @@ public class Service extends CommonFieldsBean {
         return getSingleProperty("website:earlyaccesskey");
     }
 
+    @HippoEssentialsGenerated(internalName = "publisheddate")
     public Date getPublishedDate() {
         try {
             GregorianCalendar publishedAt = getSingleProperty("hippostdpubwf:publicationDate");

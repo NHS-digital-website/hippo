@@ -4,6 +4,14 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/whats-new:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.catalogue.WhatsNewComponent
+        hst:parameternames:
+        - pageSize
+        - sortOrder
+        - sortField
+        hst:parametervalues:
+        - '4'
+        - asc
+        - hippostdpubwf:publicationDate
         hst:template: whats-new
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
