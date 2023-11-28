@@ -1,5 +1,4 @@
 Feature: Basic search
-
     As a content consumer I need to be able to search for publications
     that I am interested in so that I can use them
 
