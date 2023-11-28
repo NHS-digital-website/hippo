@@ -348,10 +348,8 @@ jobs:
       - name: Get Lastest Content Search key for Environment
         id: content-search-key
         run: |
-          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-content-search-key-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "content-search-key-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
-        env:
-          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
       - name: Get Lastest Platform Properties for Envrinment
         id: platform-properties
