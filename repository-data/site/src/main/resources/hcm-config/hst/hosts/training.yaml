@@ -38,11 +38,10 @@ definitions:
               - 'Strict-Transport-Security : max-age=31536000'
               - 'Content-Security-Policy: upgrade-insecure-requests'
               - 'Referrer-Policy: no-referrer-when-downgrade'
-              - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
-                payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
-                magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
-                execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
-                ''none''; push ''self''; speaker *;  fullscreen *'
+              - 'Permissions-Policy: vibrate=(), microphone=(), camera=(), payment=(),
+                accelerometer=(), ambient-light-sensor=(), magnetometer=(), midi=(),
+                usb=(), wake-lock=(), execution-while-out-of-viewport=(), sync-xhr=''self'',
+                gyroscope=(), push=''self'', speaker=*, fullscreen=*'
               - 'X-Content-Type-Options: nosniff'
               - 'X-Frame-Options: SAMEORIGIN'
               jcr:primaryType: hst:mount
