@@ -1,5 +1,4 @@
 Feature: Basic search
-
     As a content consumer I need to be able to search for publications
     that I am interested in so that I can use them
 
@@ -167,15 +166,15 @@ Feature: Basic search
             | Series / Collection ( ... |
             | Methodology ( ...         |
 
-    Scenario: Clicking on the 'Systems and Services' tab displays no results because we don't yet include them in the search component
+    Scenario: Clicking on the 'Systems and Services' tab displays the results
         Given I navigate to the "search" page
         When I can click on the "Systems and Services results" link
         Then I can see the search description matching "\d+ results sorted by relevance\."
 
-    # Scenario: Clicking on the 'News and Events' tab displays no results because we don't yet include them in the search component
-    #     Given I navigate to the "search" page
-    #     When I can click on the "News and Events" link
-    #     Then I can see the search description matching "No results for filters"
+     Scenario: Clicking on the 'News and Events' tab displays no results because we don't yet include them in the search component
+         Given I navigate to the "search" page
+         When I can click on the "News and Events results" link
+         Then I can see the search description matching "No results for filters"
 
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
@@ -192,11 +191,11 @@ Feature: Basic search
         Then I should see search results which also include:
             | Archive             | Time Archive Lorem Ipsum Dolor |
 
-#    Scenario: Latest publication links for series
-#        Given I navigate to the "search" page
-#        When I click on the "Series / Collection" button
-#        Then I can click on the "Lorem Ipsum Dolor 2014" link
-#        And I should see publication page titled "Lorem Ipsum Dolor 2014"
+    Scenario: Latest publication links for series
+        Given I navigate to the "search" page
+        When I click on the "Series / Collection" button
+        Then I can click on the "Time Series Lorem Ipsum Dolor" link
+        And I should see publication page titled "Time Series Lorem Ipsum Dolor"
 
     Scenario: No latest publication links for series without flag
         Given I navigate to the "search" page

@@ -119,11 +119,21 @@ jobs:
       #
       # upload build for next job
       #
-      - name: Store Artifact for Later in the Pipeline
+      - name: Store Built Artifact for Later in the Pipeline
         uses: actions/upload-artifact@v3
         with:
           name: build
           path: target/*.tar.gz
+          if-no-files-found: error
+
+      #
+      # upload Cucumber Test Results
+      #
+      - name: Store Cucumber Artifact for Reference
+        uses: actions/upload-artifact@v3
+        with:
+          name: cucumber
+          path: acceptance-tests/target/cucumber-reports/*
           if-no-files-found: error
 
       - name: Slack message (failed to store artifact for later in the pipeline)
