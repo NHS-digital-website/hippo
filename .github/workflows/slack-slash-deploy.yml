@@ -467,3 +467,40 @@ jobs:
           TITLE: ":green_book: Pipeline Progress"
           MESSAGE: |
             <@${{ env.USER_ID }}>, BR Cloud has accepted the deployment request. You can track progress on <https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details|Mission Control>.
+
+
+  test_report:
+    name: Create Test Report
+    needs: integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+      BRANCH: ${{ github.event.client_payload.data.text }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0 # Need all the tags for versioning
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: 8
+
+      - name: Setup Cache
+        uses: ./.github/actions/build-cache
+
+      - name: Build and Package Branch
+        run: make test.site CI=true
+
+      - name: Save Report (Cucumber Report)
+        uses: actions/upload-artifact@v3
+        with:
+          name: cucumber-report
+          path: |
+            acceptance-tests/target/cucumber-reports/*
