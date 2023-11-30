@@ -495,8 +495,11 @@ jobs:
       - name: Setup Cache
         uses: ./.github/actions/build-cache
 
-      - name: Build and Package Branch
+      - name: Test Branch
         run: make test.site CI=true
+        env:
+          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
 
       - name: Save Report (Cucumber Report)
         uses: actions/upload-artifact@v3
