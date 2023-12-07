@@ -1,15 +1,13 @@
 package uk.nhs.digital.common.components.catalogue.filters;
 
 import static java.util.Collections.emptyList;
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.toList;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.builder.*;
 import uk.nhs.digital.common.util.CustomToStringStyle;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Filters implements Walkable {
@@ -20,16 +18,16 @@ public class Filters implements Walkable {
     private List<Section> sections = emptyList();
 
     private List<Section> allSectionsFlattened;
-    private Set<String> selectedFiltersKeys;
+    private List<String> selectedFiltersKeys;
 
     public Filters initialisedWith(
-        final Set<String> allFilterKeysOfAllDocsWhereEachDocTaggedWithAllSelectedFilterKeys,
-        final Set<String> selectedFilterKeys
+        final Set<NavFilter> allFilterKeysOfAllDocsWhereEachDocTaggedWithAllSelectedFilterKeys,
+        final List<String> selectedFilterKeys
     ) {
-
+        this.selectedFiltersKeys = selectedFilterKeys;
         filtersWalker.walkVisitingAfterDescending(
             this,
-            new StatusUpdatingFilterVisitor(allFilterKeysOfAllDocsWhereEachDocTaggedWithAllSelectedFilterKeys, selectedFilterKeys)
+            new StatusUpdatingFilterVisitor(allFilterKeysOfAllDocsWhereEachDocTaggedWithAllSelectedFilterKeys, new HashSet<>(selectedFilterKeys))
         );
 
         return this;
@@ -59,37 +57,28 @@ public class Filters implements Walkable {
     }
 
     // Invoked from the template, hence shown by IDE as not used (but still needed).
-    public Set<String> selectedFiltersKeysMinus(final String filterKey) {
+    public List<String> selectedFiltersKeysMinus(final String filterKey) {
         return selectedFiltersKeys().stream()
             .filter(key -> !key.equals(filterKey))
-            .collect(toSet());
+            .collect(toList());
     }
 
-    public Set<String> selectedFiltersKeysMinusCollection(final List<String> filterKey) {
+    public List<String> selectedFiltersKeysMinusCollection(final List<String> filterKey) {
         return selectedFiltersKeys().stream()
             .filter(key -> !filterKey.contains(key))
-            .collect(toSet());
+            .collect(toList());
     }
 
-    public Set<String> selectedFiltersKeysPlus(final String filterKey) {
-        final HashSet<String> selectedFilterKeys = new HashSet<>(selectedFiltersKeys());
+    public List<String> selectedFiltersKeysPlus(final String filterKey) {
+        final List<String> selectedFilterKeys = new ArrayList<>(selectedFiltersKeys());
         selectedFilterKeys.add(filterKey);
 
         return selectedFilterKeys;
     }
 
     // Also invoked from the template.
-    public Set<String> selectedFiltersKeys() {
-
-        if (selectedFiltersKeys == null) {
-
-            selectedFiltersKeys = getSubsectionsStream()
-                .filter(Subsection::isSelected)
-                .map(Subsection::getKey)
-                .collect(toSet());
-        }
-
-        return selectedFiltersKeys;
+    public List<String> selectedFiltersKeys() {
+        return this.selectedFiltersKeys;
     }
 
     // Also invoked from the template.

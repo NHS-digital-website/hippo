@@ -1,6 +1,7 @@
 package uk.nhs.digital.common.components.catalogue;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 import static java.util.Collections.emptySet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -8,6 +9,7 @@ import static org.hamcrest.Matchers.sameInstance;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static uk.nhs.digital.test.TestLogger.LogAssertor.error;
 
@@ -34,6 +36,7 @@ import org.powermock.core.classloader.annotations.PrepareOnlyThisForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.FiltersFactory;
+import uk.nhs.digital.common.components.catalogue.filters.NavFilter;
 import uk.nhs.digital.common.components.catalogue.repository.CatalogueRepository;
 import uk.nhs.digital.test.TestLoggerRule;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
@@ -45,6 +48,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*", "javax.management.*"})
@@ -99,19 +103,8 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
     @Test
     public void listsAllServiceCatalogueDocs_whenUserSelectedFiltersApplied() {
 
-        // given
-        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
-            = ImmutableSet.of("citizen-health", "gp-data", "genomics", "patient-data-layer",
-                "radiology", "appointments-booking-referrals", "registers", "interoperability");
-
-        final Set<String> noUserSelectedFilterKeys = emptySet();
-
-        given(expectedFiltersFromFactory.initialisedWith(
-            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
-            noUserSelectedFilterKeys
-        )).willReturn(expectedFiltersFromFactory);
-
         // when
+        when(expectedFiltersFromFactory.initialisedWith(any(), any())).thenReturn(expectedFiltersFromFactory);
         serviceCatalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
@@ -141,19 +134,8 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
     @Test
     public void listsAllServiceCatalogueDocs_whenUserSelectedFiltersNotApplied() {
 
-        // given
-        final Set<String> allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys
-            = ImmutableSet.of("citizen-health", "gp-data", "genomics", "patient-data-layer",
-                "radiology", "appointments-booking-referrals", "registers", "interoperability");
-
-        final Set<String> noUserSelectedFilterKeys = emptySet();
-
-        given(expectedFiltersFromFactory.initialisedWith(
-            allFilterKeysOfAllDocsTaggedWithAllUserSelectedKeys,
-            noUserSelectedFilterKeys
-        )).willReturn(expectedFiltersFromFactory);
-
         // when
+        when(expectedFiltersFromFactory.initialisedWith(any(), any())).thenReturn(expectedFiltersFromFactory);
         serviceCatalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
@@ -184,31 +166,32 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
         assertThat(
-            "Results comprise all links from the API catalogue document.",
-            actualResults,
-            is(asList(
-                allCatalogueLinksToTaggedDocuments.get(0),
-                allCatalogueLinksToTaggedDocuments.get(1),
-                allCatalogueLinksToTaggedDocuments.get(2),
-                allCatalogueLinksToTaggedDocuments.get(3),
-                allCatalogueLinksToTaggedDocuments.get(4),
-                allCatalogueLinksToTaggedDocuments.get(5),
-                allCatalogueLinksToTaggedDocuments.get(6)
-            ))
+                "Results comprise all links from the API catalogue document.",
+                actualResults,
+                is(asList(
+                        allCatalogueLinksToTaggedDocuments.get(0),
+                        allCatalogueLinksToTaggedDocuments.get(1),
+                        allCatalogueLinksToTaggedDocuments.get(2),
+                        allCatalogueLinksToTaggedDocuments.get(3),
+                        allCatalogueLinksToTaggedDocuments.get(4),
+                        allCatalogueLinksToTaggedDocuments.get(5),
+                        allCatalogueLinksToTaggedDocuments.get(6)
+                ))
         );
 
         final Filters actualFilters = (Filters) request.getAttribute(REQUEST_ATTR_FILTERS);
         assertThat(
-            "Filters are as produced by the filters factory.",
-            actualFilters,
-            is(Filters.emptyInstance())
+                "Filters are as produced by the filters factory.",
+                actualFilters,
+                is(Filters.emptyInstance())
         );
 
         logger.shouldReceive(
-            error("Failed to generate Filters model.")
-                .withException("Invalid YAML.")
+                error("Failed to generate Filters model.")
+                        .withException("Invalid YAML.")
         );
     }
+
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void givenApiCatalogueDocumentWithInternalLinksToCatalogueDocuments() {
@@ -238,6 +221,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         given(link.getLinkType()).willReturn("internal");
         given(link.getLink()).willReturn(bean);
         given(link.toString()).willReturn("Internallink of a doc tagged with: " + String.join(", ", taxonomyKeys));
+        given(link.getIsPublished()).willReturn(true);
 
         return link;
     }

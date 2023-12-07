@@ -582,4 +582,9 @@ public class SiteSteps extends AbstractSpringSteps {
         assertNull("Cannot find the CSS class " + cssClass,
             sitePage.findCssClass(cssClass));
     }
+
+    @Then("I can see the entries footer")
+    public void thenICanSeeTheEntriesFooter() {
+        assertNotNull("Element is present", sitePage.findCssClass("nhsd-a-box--border-grey"));
+    }
 }

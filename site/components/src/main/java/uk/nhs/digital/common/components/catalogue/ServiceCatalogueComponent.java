@@ -7,6 +7,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
+import uk.nhs.digital.common.components.catalogue.filters.FiltersAndLinks;
 
 import java.util.*;
 
@@ -21,24 +22,21 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
 
         final List<CatalogueLink> allCatalogueLinks = catalogueLinksFrom(request);
 
-        final Set<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
+        final List<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
-        final List<CatalogueLink> catalogueLinksFiltered = applyUserSelectedFilters(
-            allCatalogueLinks,
-            userSelectedFilterKeys
-        );
+        Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
+
+        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, allCatalogueLinks, rawFilters);
 
         final Filters filtersModel = filtersModel(
-            allCatalogueLinks,
-            userSelectedFilterKeys,
-            sessionFrom(request),
-            TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH,
+            filtersAndLinks.selectedFilterKeys,
+            rawFilters,
+            filtersAndLinks,
             log
         );
 
         request.setAttribute(
-            Param.catalogueLinks.name(),
-            catalogueLinksFiltered.stream().map(CatalogueLink::raw).collect(toList())
+            Param.catalogueLinks.name(), filtersAndLinks.links.stream().map(CatalogueLink::raw).collect(toList())
         );
         request.setAttribute(Param.filtersModel.name(), filtersModel);
         request.setAttribute(Param.retiredFilterEnabled.name(), false);

@@ -14,7 +14,7 @@ import java.util.*;
  * , which makes it awkward to make decisions based on type. This class is provided as a convenience wrapper to make it easier
  * to deal with this awkwardness in a more object-oriented way and promote better type safety.
  */
-class CatalogueLink {
+public class CatalogueLink {
 
     private final Object rawLink;
 
@@ -22,7 +22,7 @@ class CatalogueLink {
         this.rawLink = rawLink;
     }
 
-    static CatalogueLink from(final Object rawLink) {
+    public static CatalogueLink from(final Object rawLink) {
         return new CatalogueLink(rawLink);
     }
 
@@ -41,16 +41,21 @@ class CatalogueLink {
             .noneMatch(filterKeys::contains);
     }
 
-    boolean taggedWith(final Set<String> filterKeys) {
+    public boolean taggedWith(final List<String> filterKeys) {
         final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfReferencedDoc();
-        return filterKeys.isEmpty() || taxonomyKeysOfLinkedDoc.containsAll(filterKeys);
+        return filterKeys.isEmpty() || !Collections.disjoint(taxonomyKeysOfLinkedDoc, filterKeys);
+    }
+
+    public boolean taggedWith(final String filterKey) {
+        final Set<String> taxonomyKeysOfLinkedDoc = allTaxonomyKeysOfReferencedDoc();
+        return taxonomyKeysOfLinkedDoc.contains(filterKey);
     }
 
     /**
      * @return Keys of all taxonomy terms the referenced doc is tagged with or empty collection
      * (never {@code null}) when the document is not tagged with any terms or is {@linkplain #notFilterable}.
      */
-    Set<String> allTaxonomyKeysOfReferencedDoc() {
+    public Set<String> allTaxonomyKeysOfReferencedDoc() {
         return notFilterable()
             ? Collections.emptySet()
             : new HashSet<>(Arrays.asList((String[]) ((Internallink) raw())
@@ -73,5 +78,12 @@ class CatalogueLink {
      */
     private boolean isFilterable() {
         return rawLink instanceof Internallink;
+    }
+
+    boolean contentIsPublished() {
+        if (isFilterable()) {
+            return ((Internallink) raw()).getIsPublished();
+        }
+        return true;
     }
 }

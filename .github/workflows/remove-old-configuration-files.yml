@@ -2,6 +2,7 @@ name: Remove Old Configuration Files
 
 on:
   schedule:
+    # Runs at 9am UTC weekdays
     - cron: "0 9 * * 1-5"
 
 jobs:
