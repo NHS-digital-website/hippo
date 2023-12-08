@@ -19,6 +19,7 @@ definitions:
           - website:signup
           - website:publishedwork
           - website:publishedworkchapter
+          - website:visualhub
           hst:componentconfigurationmappingvalues:
           - hst:pages/article-hub
           - hst:pages/event
@@ -33,6 +34,7 @@ definitions:
           - hst:pages/sign-up
           - hst:pages/publishedwork
           - hst:pages/publishedworkchapter
+          - hst:pages/visualhub
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -50,6 +52,7 @@ definitions:
         - website:signup
         - website:publishedwork
         - website:publishedworkchapter
+        - website:visualhub
         hst:componentconfigurationmappingvalues:
         - hst:pages/article-hub
         - hst:pages/event
@@ -64,6 +67,7 @@ definitions:
         - hst:pages/sign-up
         - hst:pages/publishedwork
         - hst:pages/publishedworkchapter
+        - hst:pages/visualhub
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

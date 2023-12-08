@@ -161,6 +161,9 @@ definitions:
       /static-ui-general:
         hst:renderpath: webfile:/freemarker/common/static-ui/general-page.ftl
         jcr:primaryType: hst:template
+      /visual-hub:
+        hst:renderpath: webfile:/freemarker/ndrs/visual-hub.ftl
+        jcr:primaryType: hst:template
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
