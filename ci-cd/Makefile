@@ -58,13 +58,15 @@ test.unit:
 ## Run BDD tests for "site" only.
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
-		-Dcucumber.options="src/test/resources/features/site" \
+		-Djava.locale.providers=COMPAT \
+		-Dcucumber.features="src/test/resources/features/site" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
 
 ## Run acceptance tests against already running server (`make serve`)
 test.site-running:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
-		-Dcucumber.options="src/test/resources/features/site" \
+		-Djava.locale.providers=COMPAT \
+		-Dcucumber.features="src/test/resources/features/site" \
 		-Pacceptance-test,$(PLAYWRIGHT_PROFILE)
 
 # Updates snapshots for all tests tagged @snapshot

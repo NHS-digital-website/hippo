@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 import org.onehippo.forge.content.exim.core.DocumentManager;
 import org.onehippo.forge.content.exim.core.impl.WorkflowDocumentManagerImpl;
 import org.onehippo.repository.documentworkflow.DocumentWorkflow;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.toolbox.exception.ExceptionUtils;
@@ -27,6 +28,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 @RunWith(PowerMockRunner.class)
+@PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*"})
 @PrepareForTest({WorkflowUtils.class})
 public class JcrDocumentUtilsTest {
 
