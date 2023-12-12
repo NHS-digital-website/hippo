@@ -11,17 +11,24 @@
 
 <#macro globalHeader enableHr>
     <header id="header">
+        <div data-container-width="large" data-theme="white" class="nhse-global-menu" id="nhse-global-menu">
+            <div class="nhse-global-menu__wrapper">
+                <div class="nhsuk-width-container nhse-global-menu__container">
+                    <a aria-label="Visit NHS England website" class="nhse-global-menu__logo" href="https://digital.nhs.uk/" title="NHS England">
+                        <div class="nhse-global-menu__logo__img"></div>
+                        <span class="nhse-global-menu__logo__name">England</span>
+                    </a>
+                </div>
+            </div>
+        </div>
         <div class="nhsd-o-global-header" id="nhsd-global-header">
             <div class="nhsd-t-grid">
                 <div class="nhsd-t-row">
                     <div class="nhsd-t-col">
                         <div class="nhsd-o-global-header__content-box">
                             <div class="nhsd-o-global-header__background"></div>
-                            <#-- Logo -->
                             <div class="nhsd-o-global-header__logo-container">
-                                <a class="nhsd-m-logo-link nhsd-o-global-header__logo" id="nhsd-global-header__logo" href="<@hst.link siteMapItemRefId='root'/>" aria-label="NHS Digital home">
-                                    <@nhsdLogo></@nhsdLogo>
-                                </a>
+                                <p class="digital-descriptor-text">Digital</p>
                             </div>
                             <div class="nhsd-o-global-header__menu" id="nhsd-global-header__menu">
                                 <div class="nhsd-o-global-header__menu-background"></div>
