@@ -1,18 +1,18 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/whats-new:
+    /hst:hst/hst:configurations/common/hst:pages/recent-updates:
       /main:
-        hst:componentclassname: uk.nhs.digital.common.components.catalogue.WhatsNewComponent
+        hst:componentclassname: uk.nhs.digital.common.components.catalogue.RecentUpdatesComponent
         hst:parameternames:
         - pageSize
         - sortOrder
         - sortField
         hst:parametervalues:
-        - '4'
-        - asc
+        - '8'
+        - desc
         - hippostdpubwf:publicationDate
-        hst:template: whats-new
+        hst:template: recent-updates
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
       jcr:primaryType: hst:component

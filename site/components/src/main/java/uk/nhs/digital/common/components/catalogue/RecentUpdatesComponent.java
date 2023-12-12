@@ -4,7 +4,7 @@ import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.EssentialsListComponent;
 
 @ParametersInfo(
-        type = WhatsNewComponentInfo.class
+        type = RecentUpdatesComponentInfo.class
 )
-public class WhatsNewComponent extends EssentialsListComponent {
+public class RecentUpdatesComponent extends EssentialsListComponent {
 }

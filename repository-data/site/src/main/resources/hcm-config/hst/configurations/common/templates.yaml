@@ -305,6 +305,9 @@ definitions:
       /quotehero:
         hst:renderpath: webfile:/freemarker/common/quotehero.ftl
         jcr:primaryType: hst:template
+      /recent-updates:
+        hst:renderpath: webfile:/freemarker/common/catalogue/recent-updates.ftl
+        jcr:primaryType: hst:template
       /roadmap:
         hst:renderpath: webfile:/freemarker/nhsd-common/roadmap.ftl
         jcr:primaryType: hst:template
@@ -403,9 +406,6 @@ definitions:
         jcr:primaryType: hst:template
       /visual-hub:
         hst:renderpath: webfile:/freemarker/nhsd-common/visual-hub.ftl
-        jcr:primaryType: hst:template
-      /whats-new:
-        hst:renderpath: webfile:/freemarker/common/catalogue/whats-new.ftl
         jcr:primaryType: hst:template
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl

@@ -556,8 +556,8 @@ definitions:
             hst:componentconfigurationid: hst:pages/service-catalogue
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
-          /whats-new:
-            hst:componentconfigurationid: hst:pages/whats-new
+          /recent-updates:
+            hst:componentconfigurationid: hst:pages/recent-updates
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
           hst:relativecontentpath: services-catalogue

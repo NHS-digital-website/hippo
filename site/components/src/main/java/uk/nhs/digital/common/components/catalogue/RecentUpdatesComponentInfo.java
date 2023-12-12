@@ -4,11 +4,11 @@ import org.hippoecm.hst.core.parameters.JcrPath;
 import org.hippoecm.hst.core.parameters.Parameter;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 
-public interface WhatsNewComponentInfo extends EssentialsListComponentInfo {
+public interface RecentUpdatesComponentInfo extends EssentialsListComponentInfo {
     @Parameter(
             name = "pageSize",
             required = true,
-            defaultValue = "10",
+            defaultValue = "15",
             displayName = "Nr of items per page"
     )
     int getPageSize();
