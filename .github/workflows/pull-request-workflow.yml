@@ -78,7 +78,7 @@ jobs:
         with:
           name: cucumber-report
           path: |
-            acceptance-tests/src/test/node/cucumber-report.html
+            acceptance-tests/target/cucumber-reports/*
 
       # Step 9
       # Read test summary

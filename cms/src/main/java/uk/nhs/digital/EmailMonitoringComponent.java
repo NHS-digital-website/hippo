@@ -33,6 +33,8 @@ public class EmailMonitoringComponent implements RepositoryJob {
                 message.setRecipients(Message.RecipientType.TO, to);
                 message.setSubject("EMAIL MONITOR ONLY");
                 message.setContent("AUTOMATED", "text/plain");
+                InternetAddress fromAddress = new InternetAddress("hippo.nhsdigital@nhs.net");
+                message.setFrom(fromAddress);
                 Transport.send(message);
                 log.info("EMAIL MONITOR: SUCCESS");
             } catch (MessagingException mex) {

@@ -119,7 +119,7 @@ jobs:
       #
       # upload build for next job
       #
-      - name: Store Artifact for Later in the Pipeline
+      - name: Store Built Artifact for Later in the Pipeline
         uses: actions/upload-artifact@v3
         with:
           name: build
@@ -345,6 +345,19 @@ jobs:
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "brc-mail-smtp-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
 
+      - name: Get Lastest Content Search key for Environment
+        id: content-search-key
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "content-search-key-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
+      - name: Get Lastest Platform Properties for Envrinment
+        id: platform-properties
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-content-search-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
       #
       # Request deployment from ODv2
@@ -361,20 +374,74 @@ jobs:
         env:
           TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
+
+      - name: Create Deployment Details for BR Cloud
+        id: create-deployment-details
+        uses: actions/github-script@v6
+        env:
+          DISTRIBUTION: ${{ steps.distribution.outputs.id }}
+        with:
+          script: |
+            let args = {
+              "distributionId": "${{ env.DISTRIBUTION }}",
+              "strategy" : "rollingupdate",
+              "appConfigFileRoles": [
+                {
+                  "appConfigFileId": ${{ steps.aws-keys.outputs.id }},
+                  "role": "file",
+                  "newFilename": "aws-credentials.properties"
+                },
+                {
+                  "appConfigFileId": ${{ steps.system-properties.outputs.id }},
+                  "role": "systemproperty"
+                },
+                {
+                  "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }},
+                  "role": "file",
+                  "newFilename": "hippo-ipfilter.properties"
+                },
+                {
+                  "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }},
+                  "role": "file",
+                  "newFilename": "brc-mail-smtp.properties"
+                }
+              ]
+            };
+            if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.content-search-key.outputs.id }}))
+            {
+            args.appConfigFileRoles.push({
+                "appConfigFileId": ${{ steps.content-search-key.outputs.id }},
+                "role": "file",
+                "newFilename": "content-search-key.pem"
+              })
+            }
+
+            if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.platform-properties.outputs.id }}))
+            {
+            args.appConfigFileRoles.push({
+                "appConfigFileId": ${{ steps.platform-properties.outputs.id }},
+                "role": "file",
+                "newFilename": "platform.properties"
+              })
+            }
+            core.setOutput("deployment_args", args);
+
+
       - name: Request Deployment from BR Cloud
         id: deployment
         run: |
-          curl -i \
+          code=$(curl -i \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }'
+          -d '${{ steps.create-deployment-details.outputs.deployment_args }}' \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "code=$code" >> $GITHUB_OUTPUT
         env:
-          DISTRIBUTION: ${{ steps.distribution.outputs.id }}
           ENVIRONMENT: ${{ fromJson(steps.find-target.outputs.result).id }}
 
       - name: Check Response Code from Request Deployment from BR Cloud
-        if: ${{ steps.deployment.outputs.code >= 200 && steps.deployment.outputs.code < 300 }}
+        if: ${{ steps.deployment.outputs.code != 202 }}
         uses: actions/github-script@v6
         with:
           script: |
@@ -400,3 +467,43 @@ jobs:
           TITLE: ":green_book: Pipeline Progress"
           MESSAGE: |
             <@${{ env.USER_ID }}>, BR Cloud has accepted the deployment request. You can track progress on <https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details|Mission Control>.
+
+
+  test_report:
+    name: Create Test Report
+    needs: integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+      BRANCH: ${{ github.event.client_payload.data.text }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0 # Need all the tags for versioning
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: 8
+
+      - name: Setup Cache
+        uses: ./.github/actions/build-cache
+
+      - name: Test Branch
+        run: make test.site CI=true
+        env:
+          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+
+      - name: Save Report (Cucumber Report)
+        uses: actions/upload-artifact@v3
+        with:
+          name: cucumber-report
+          path: |
+            acceptance-tests/target/cucumber-reports/*
