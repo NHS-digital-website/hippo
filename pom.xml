@@ -162,7 +162,7 @@
         Consult https://chromedriver.chromium.org/downloads
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>117.0.5938.88</chromedriver.version>
+        <chromedriver.version>120.0.6099.71</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
