@@ -9,7 +9,7 @@ definitions:
         - sortOrder
         - sortField
         hst:parametervalues:
-        - '8'
+        - '25'
         - desc
         - hippostdpubwf:publicationDate
         hst:template: recent-updates
