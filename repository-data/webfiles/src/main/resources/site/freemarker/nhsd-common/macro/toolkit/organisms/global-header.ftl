@@ -27,6 +27,7 @@
                     <div class="nhsd-t-col">
                         <div class="nhsd-o-global-header__content-box">
                             <div class="nhsd-o-global-header__background"></div>
+                            <#-- Logo -->
                             <div class="nhsd-o-global-header__logo-container">
                                 <p class="digital-descriptor-text">Digital</p>
                             </div>
