@@ -138,6 +138,7 @@ definitions:
         - website:video
         - website:policypage
         - website:corporatepolicy
+        - website:recentupdates
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -180,6 +181,7 @@ definitions:
         - hst:pages/video
         - hst:pages/policy-page
         - hst:pages/corporatepolicy
+        - hst:pages/recent-updates
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -557,7 +559,12 @@ definitions:
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
           /recent-updates:
+            /_index_:
+              hst:componentconfigurationid: hst:pages/recent-updates
+              hst:relativecontentpath: ${parent}/content
+              jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/recent-updates
+            hst:relativecontentpath: ${parent}/recent-updates
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
           hst:relativecontentpath: services-catalogue

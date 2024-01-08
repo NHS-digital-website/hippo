@@ -1,14 +1,12 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../../nhsd-common/macro/pagination.ftl">
+<#include "../../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../../nhsd-common/macro/heroes/hero.ftl">
 
-<#assign heroOptions = {
-    "colour": "lightGrey",
-    "title": "Recently updated service pages",
-    "summary": "Here's everything that has changed across the service pages in our catalogue recently."
-}/>
-<@hero heroOptions "default" />
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
+
+<@hero getHeroOptions(document) />
 <br/>
 <#assign dateGroupHash = {} />
 <#list pageable.items as item>
@@ -22,6 +20,7 @@
                 <#list dateGroupHash?keys as groupDate>
                     <@group groupDate dateGroupHash />
                 </#list>
+                <#if pageable??><h2>Pageable is not null: ${pageable.total}</h2></#if>
                 <div class="nhsd-!t-padding-top-6">
                     <#if pageable?? && pageable.total gt 0>
                         <@pagination />

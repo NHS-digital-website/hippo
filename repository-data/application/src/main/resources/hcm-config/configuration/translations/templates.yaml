@@ -21,6 +21,8 @@ definitions:
       new-platform-folder: new folder
       new-project-update-document: new update document
       new-project-update-folder: new folder
+      new-recentupdates-document: new recentupdates document
+      new-recentupdates-folder: new recentupdates folder
       new-socialmedialink-document: new socialmedialink document
       new-statistical-publications-and-clinical-indicators-document: new document
       new-statistical-publications-and-clinical-indicators-folder: new folder
@@ -721,6 +723,11 @@ definitions:
       /website:quotehero:
         /en:
           jcr:name: Quote hero
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:recentupdates:
+        /en:
+          jcr:name: Recent updates
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:releaseinfo:
