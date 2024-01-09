@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/supplementary-info:
+  .meta:order-before: services-catalogue
   hippo:name: Supplementary Info
   hippostd:foldertype:
   - new-supplementary-info-folder

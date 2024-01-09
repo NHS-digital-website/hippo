@@ -404,11 +404,13 @@ definitions:
             - website:general
             - website:componentlist
             - website:apispecification
+            - website:recentupdates
             hst:componentconfigurationmappingvalues:
             - hst:pages/service
             - hst:pages/general
             - hst:pages/componentlist
             - hst:pages/apispecification
+            - hst:pages/recent-updates
             hst:relativecontentpath: ${parent}/${1}
             jcr:primaryType: hst:sitemapitem
           /_any_.trythisapi:
@@ -536,6 +538,25 @@ definitions:
         hst:relativecontentpath: facet
         jcr:primaryType: hst:sitemapitem
       /services:
+        /_any_:
+          /_index_:
+            hst:cacheable: true
+            hst:componentconfigurationmappingnames:
+            - website:service
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/service
+            hst:relativecontentpath: ${parent}/content
+            jcr:primaryType: hst:sitemapitem
+          hst:cacheable: true
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:service
+          - website:recentupdates
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/service
+          - hst:pages/recent-updates
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
         /service-catalogue:
           /_any_:
             /_index_:
@@ -550,21 +571,15 @@ definitions:
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
             - website:service
+            - website:recentupdates
             hst:componentconfigurationmappingvalues:
             - hst:pages/service
+            - hst:pages/recent-updates
             hst:relativecontentpath: ${parent}/${1}
             jcr:primaryType: hst:sitemapitem
           /_index_:
             hst:componentconfigurationid: hst:pages/service-catalogue
             hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          /recent-updates:
-            /_index_:
-              hst:componentconfigurationid: hst:pages/recent-updates
-              hst:relativecontentpath: ${parent}/content
-              jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/recent-updates
-            hst:relativecontentpath: ${parent}/recent-updates
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
           hst:relativecontentpath: services-catalogue

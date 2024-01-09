@@ -20,7 +20,6 @@
                 <#list dateGroupHash?keys as groupDate>
                     <@group groupDate dateGroupHash />
                 </#list>
-                <#if pageable??><h2>Pageable is not null: ${pageable.total}</h2></#if>
                 <div class="nhsd-!t-padding-top-6">
                     <#if pageable?? && pageable.total gt 0>
                         <@pagination />
