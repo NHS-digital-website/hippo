@@ -395,6 +395,9 @@
 [website:quotehero] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:RecentUpdates] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:releaseinfo] > hippo:compound, hippostd:relaxed
   orderable
 

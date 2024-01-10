@@ -1,6 +1,5 @@
 ---
 /content/documents/corporate-website/news:
-  .meta:order-before: services-catalogue
   /content2:
     /content2[1]:
       /website:bannercontrols:

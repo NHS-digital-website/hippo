@@ -3045,7 +3045,6 @@
     hippostd:foldertype:
     - new-digital-website-folder
     - new-digital-website-document
-    - new-recentupdates-document
     hippotranslation:id: 4bd2b94c-3563-4c18-b12f-a7d42c0e0fc0
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -3221,7 +3220,6 @@
     hippostd:foldertype:
     - new-digital-website-folder
     - new-digital-website-document
-    - new-recentupdates-folder
     hippotranslation:id: da8576db-2194-447e-8218-cf8b827a2987
     hippotranslation:locale: en
     jcr:mixinTypes:
