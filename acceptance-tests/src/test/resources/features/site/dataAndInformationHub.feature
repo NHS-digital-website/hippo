@@ -28,7 +28,7 @@ Feature: Data and Information hub page and sub sections
         When I click on link "Browse Compendium Indicators"
         Then I should see the list with title "CATEGORY/TOPIC" including:
             | Compendium   |
-        And I should see 1 search result
+        And I should see 4 search result
 
     Scenario: CI landing pages - Social Care
         Given I navigate to the "Data and information" page
@@ -46,7 +46,7 @@ Feature: Data and Information hub page and sub sections
         When I click on link "Browse NHS Outcomes"
         Then I should see the list with title "CATEGORY/TOPIC" including:
             | NHS Outcomes Framework   |
-        And I should see 1 search result
+        And I should see 3 search result
 
     Scenario: CI landing pages - SHMI
         Given I navigate to the "Data and information" page
