@@ -47,4 +47,7 @@ public interface RecentUpdatesComponentInfo extends EssentialsListComponentInfo 
     )
     @Override
     String getSortField();
+
+    @Override
+    String getSortOrder();
 }

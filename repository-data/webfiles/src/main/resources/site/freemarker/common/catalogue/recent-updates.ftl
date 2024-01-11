@@ -10,7 +10,7 @@
 <br/>
 <#assign dateGroupHash = {} />
 <#list pageable.items as item>
-    <@fmt.formatDate value=item.getPublishedDate() type="Date" pattern="dd MMMM yyyy" var="date" timeZone="${getTimeZone()}" />
+    <@fmt.formatDate value=item.getPublishedDateCommon() type="Date" pattern="dd MMMM yyyy" var="date" timeZone="${getTimeZone()}" />
     <#assign dateGroupHash = dateGroupHash + {  date : (dateGroupHash[date]![]) + [ item ] } />
 </#list>
 <div class="nhsd-!t-margin-bottom-2">

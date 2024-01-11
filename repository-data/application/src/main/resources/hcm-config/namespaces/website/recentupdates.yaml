@@ -19,14 +19,6 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /pageTitle:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Page title
-            field: pageTitle
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /itemsPerPage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -80,9 +72,35 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /includeChildren:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Include children
+            field: includeChildren
+            hint: Include children in the given path.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pickerType:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Type
+            field: pickerType
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /includeChildren:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:includeChildren
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
           /itemsPerPage:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -93,19 +111,21 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /pageTitle:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:pageTitle
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
           /pickerPath:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:pickerPath
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /pickerType:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:pickerType
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
@@ -173,9 +193,10 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:recentupdates
+          website:includeChildren: false
           website:itemsPerPage: 10
-          website:pageTitle: ''
           website:pickerPath: ''
+          website:pickerType: ''
           website:shortsummary: ''
           website:summary: ''
           website:title: ''

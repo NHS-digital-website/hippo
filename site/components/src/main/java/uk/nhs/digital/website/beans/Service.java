@@ -5,9 +5,6 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:service")
@@ -90,15 +87,5 @@ public class Service extends CommonFieldsBean {
 
     public String getEarlyAccessKey() {
         return getSingleProperty("website:earlyaccesskey");
-    }
-
-    @HippoEssentialsGenerated(internalName = "publisheddate")
-    public Date getPublishedDate() {
-        try {
-            GregorianCalendar publishedAt = getSingleProperty("hippostdpubwf:publicationDate");
-            return publishedAt.getTime();
-        } catch (Exception e) {
-            return Calendar.getInstance().getTime();
-        }
     }
 }

@@ -17,7 +17,12 @@ public class RecentUpdatesComponent extends EssentialsListComponent {
         RecentUpdates document = (RecentUpdates) ctx.getContentBean();
         request.setAttribute(
                 "org.hippoecm.hst.utils.ParameterUtils.parametersInfo",
-                new RecentUpdatesComponentInfoImpl(getPageSizeFromDocument(document), getPathFromDocument(document))
+                new RecentUpdatesComponentInfoImpl(
+                    getPageSizeFromDocument(document),
+                    getPathFromDocument(document),
+                    getIncludeChildrenFromDocument(document),
+                    getTypeFromDocument(document)
+                )
         );
         super.doBeforeRender(request, response);
         request.setAttribute("document", document);
@@ -36,6 +41,22 @@ public class RecentUpdatesComponent extends EssentialsListComponent {
             return document.getPickerPath();
         } catch (Exception e) {
             return "/content/documents/corporate-website/services";
+        }
+    }
+
+    private String getTypeFromDocument(RecentUpdates document) {
+        try {
+            return document.getPickerType();
+        } catch (Exception e) {
+            return "website:service";
+        }
+    }
+
+    private boolean getIncludeChildrenFromDocument(RecentUpdates document) {
+        try {
+            return document.getIncludeChildren();
+        } catch (Exception e) {
+            return true;
         }
     }
 

@@ -7,11 +7,6 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 @Node(jcrType = "website:recentupdates")
 public class RecentUpdates extends BaseDocument {
 
-    @HippoEssentialsGenerated(internalName = "website:pageTitle")
-    public String getPageTitle() {
-        return getSingleProperty("website:pageTitle");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:itemsPerPage")
     public long getItemsPerPage() {
         return getSingleProperty("website:itemsPerPage");
@@ -20,5 +15,15 @@ public class RecentUpdates extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:pickerPath")
     public String getPickerPath() {
         return getSingleProperty("website:pickerPath");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:pickerType")
+    public String getPickerType() {
+        return getSingleProperty("website:pickerType");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:includeChildren")
+    public boolean getIncludeChildren() {
+        return getSingleProperty("website:includeChildren");
     }
 }

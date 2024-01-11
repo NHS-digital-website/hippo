@@ -4,10 +4,14 @@ class RecentUpdatesComponentInfoImpl implements RecentUpdatesComponentInfo {
 
     private int pageSize = 10;
     private String pickerPath = "";
+    private boolean includeChildren = true;
+    private String type = "";
 
-    public RecentUpdatesComponentInfoImpl(int pageSize, String pickerPath) {
+    public RecentUpdatesComponentInfoImpl(int pageSize, String pickerPath, boolean includeChildren, String type) {
         this.pageSize = pageSize;
         this.pickerPath = pickerPath;
+        this.includeChildren = includeChildren;
+        this.type = type;
     }
 
     @Override
@@ -27,12 +31,12 @@ class RecentUpdatesComponentInfoImpl implements RecentUpdatesComponentInfo {
 
     @Override
     public Boolean getIncludeSubtypes() {
-        return false;
+        return includeChildren;
     }
 
     @Override
     public String getDocumentTypes() {
-        return "website:service";
+        return type;
     }
 
     @Override
