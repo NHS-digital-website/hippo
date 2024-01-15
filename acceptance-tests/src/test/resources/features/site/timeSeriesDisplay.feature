@@ -47,6 +47,7 @@ Feature: Display of publications forming a series
         Then I should see headers:
             | Latest statistics     |
             | Past publications     |
+            | Upcoming publications |
         When I navigate to the "series with publication with datasets" page
         Then I should see header:
             | Latest statistics     |
@@ -76,6 +77,8 @@ Feature: Display of publications forming a series
             | Lorem Ipsum Dolor 2014 ... |
             | Lorem Ipsum Dolor 2013 ... |
             | Lorem Ipsum Dolor 2012 ... |
+        And I should see the "Series Upcoming Publications" list containing:
+            | 2025 - Upcoming ... |
 
     Scenario: Ordering of publications by title
         When I navigate to the "series without latest" page
