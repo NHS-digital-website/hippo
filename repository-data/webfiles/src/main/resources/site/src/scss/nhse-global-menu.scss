@@ -51,7 +51,7 @@ $border-color_1: #212b32;
 	margin: 0 16px;
 	max-width: 100%;
 }
-a {
+/*a {
 	color: $color_1;
 	&:visited {
 		color: $color_2;
@@ -79,7 +79,7 @@ a {
 	&:active {
 		color: $color_5;
 	}
-}
+}*/
 .nhsuk-link--no-visited-state {
 	&:link {
 		color: $color_1;
@@ -291,33 +291,6 @@ a {
 		margin: 0 auto;
 	}
 }
-@media print {
-	a {
-		&:after {
-			color: $color_4;
-			content: " (Link: "attr(href) ")";
-			font-size: 14pt;
-		}
-	}
-	.nhse-global-menu {
-		.nhse-global-menu__descriptor {
-			font-size: 24pt;
-			line-height: 1.05;
-		}
-		h3 {
-			font-size: 18pt;
-			line-height: 1.15;
-		}
-		ul {
-			font-size: 14pt;
-			line-height: 1.15;
-		}
-	}
-	.nhse-global-menu-descriptor {
-		font-size: 24pt;
-		line-height: 1.05;
-	}
-}
 @media (min-width:375px) {
 	.nhse-global-menu {
 		.nhse-global-menu__logo__img {
@@ -383,5 +356,33 @@ a {
 		font-size: 2rem;
 		line-height: 1.25;
 	}
+}
+
+@media print {
+    a {
+        &:after {
+            color: $color_4;
+            content: " (Link: "attr(href) ")";
+            font-size: 14pt;
+        }
+    }
+    .nhse-global-menu {
+        .nhse-global-menu__descriptor {
+            font-size: 24pt;
+            line-height: 1.05;
+        }
+        h3 {
+            font-size: 18pt;
+            line-height: 1.15;
+        }
+        ul {
+            font-size: 14pt;
+            line-height: 1.15;
+        }
+    }
+    .nhse-global-menu-descriptor {
+        font-size: 24pt;
+        line-height: 1.05;
+    }
 }
 

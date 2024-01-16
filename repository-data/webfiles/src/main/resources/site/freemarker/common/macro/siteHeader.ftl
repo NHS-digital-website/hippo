@@ -10,9 +10,43 @@
                 <div class="column column--reset">
                     <div class="grid-wrapper grid-wrapper--collapse">
                         <div class="grid-row">
+                            <div data-theme="white" class="nhse-global-menu" id="nhse-global-menu">
+                                <div class="nhse-global-menu__wrapper">
+                                    <div class="nhsd-t-grid">
+                                        <div class="nhsd-t-row">
+                                            <div class="nhsd-t-col">
+                                                <div
+                                                    class="nhse-global-menu__container" style="background-color: #f0f4f5;">
+                                                    <a aria-label="Visit NHS England website"
+                                                       class="nhse-global-menu__logo"
+                                                       href="https://digital.nhs.uk/"
+                                                       title="NHS England">
+                                                        <div class="nhse-global-menu__logo__img"></div>
+                                                        <span
+                                                            class="nhse-global-menu__logo__name">England</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
+            <div class="grid-row">
+                <div class="column column--reset">
+                    <div class="grid-wrapper grid-wrapper--collapse">
+                        <div class="grid-row">
 
                             <div class="column column--18-75 column--reset">
-                                <div class="nhsd-o-global-header__descriptor-atom"><p class="digital-descriptor-text" id="digital-descriptor-text-id"> Digital </p></div>
+                                <div class="nhsd-o-global-header__descriptor-atom">
+                                    <p class="digital-descriptor-text"
+                                       id="digital-descriptor-text-id"> Digital </p>
+                                </div>
                             </div>
                             <#assign wrapperClassName = "site-header__search-wrapper site-header__search-wrapper--collapse" />
                             <#if enableSearch>
