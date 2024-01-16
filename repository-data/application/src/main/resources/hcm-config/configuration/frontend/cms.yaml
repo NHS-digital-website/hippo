@@ -23,6 +23,7 @@ definitions:
       - .exe,application/x-dosexec
       - .crt,application/x-x509-cert; format=der
       - .crt,application/x-x509-cert; format=pem
+      - .rar,application/x-rar-compressed; version=5
       extensions.allowed:
       - doc
       - docx

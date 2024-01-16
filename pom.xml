@@ -243,12 +243,10 @@
         <repository>
             <id>hippo</id>
             <name>Hippo maven 2 repository.</name>
-            <url>https://maven.onehippo.com/maven2/</url>
-        </repository>
-        <repository>
-            <id>hippo-maven2</id>
-            <name>Hippo Maven 2 Repository</name>
-            <url>https://maven.onehippo.com/maven2-forge/</url>
+            <url>https://maven.bloomreach.com/repository/maven2/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>splunk-artifactory</id>
@@ -262,12 +260,12 @@
             </releases>
             <id>hippo-maven2-enterprise</id>
             <name>Hippo Enterprise Maven 2</name>
-            <url>https://maven.onehippo.com/maven2-enterprise</url>
+            <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>
         </repository>
         <repository>
             <id>hippo-forge</id>
             <name>Hippo Forge maven 2 repository.</name>
-            <url>https://maven.onehippo.com/maven2-forge/</url>
+            <url>https://maven.bloomreach.com/repository/maven2-forge/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>

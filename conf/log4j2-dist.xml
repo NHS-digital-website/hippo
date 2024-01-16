@@ -51,6 +51,7 @@
         <Logger name="org.hippoecm.frontend.diagnosis" level="info"/>
         <Logger name="com.onehippo" level="error"/>
         <Logger name="org.onehippo" level="error"/>
+        <Logger name="org.onehippo.repository.update.UpdaterExecutionReport" level="info"/>
 
         <!-- audit logging -->
         <Logger additivity="false" name="org.hippoecm.repository.api.Workflow"
