@@ -21,7 +21,7 @@
                                 <a aria-label="Visit NHS England website"
                                    class="nhse-global-menu__logo"
                                    href="https://digital.nhs.uk/"
-                                   title="NHS England">
+                                   title="NHS England" style="border-bottom-color: transparent !important;">
                                     <div class="nhse-global-menu__logo__img"></div>
                                     <span
                                         class="nhse-global-menu__logo__name">England</span>
@@ -39,8 +39,8 @@
                         <div class="nhsd-o-global-header__content-box">
                             <div class="nhsd-o-global-header__background"></div>
                             <#-- Logo -->
-                            <div class="nhsd-o-global-header__logo-container">
-                                <p class="digital-descriptor-text">Digital</p>
+                            <div class="nhsd-o-global-header__logo-container" style="margin: 0 !important;">
+                                <p class="digital-descriptor-text" style="font-family:'Frutiger W01', 'Arial', 'sans-serif'!important;">Digital</p>
                             </div>
                             <div class="nhsd-o-global-header__menu"
                                  id="nhsd-global-header__menu">

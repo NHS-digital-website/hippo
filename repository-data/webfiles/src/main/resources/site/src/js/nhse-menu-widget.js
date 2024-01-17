@@ -35,9 +35,6 @@
 
         const MenuInit = (function NHSEMenu() {
             function MenuStarter(t) {
-                if (!(this instanceof MenuStarter)) {
-                    throw new TypeError('Cannot call a class as a function');
-                }
                 this.toggleBtn = t.querySelector('.nhse-global-menu__btn');
                 this.navigation = t.querySelector('.nhse-global-menu__dropdown');
                 this.stateOpen = false;
