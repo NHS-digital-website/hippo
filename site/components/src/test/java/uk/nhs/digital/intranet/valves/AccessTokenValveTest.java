@@ -81,6 +81,26 @@ public class AccessTokenValveTest extends MockitoSessionTestBase {
     }
 
     @Test
+    public void requestsNewAccessTokenIfAccessTokenIsExpired() throws Exception {
+        final AccessToken expiredAccessToken = new AccessToken("token", null, -3600);
+        final AccessToken completeAccessToken = new AccessToken("token", REFRESH_TOKEN, -3600);
+        final AccessToken newAccessToken = new AccessToken("new-token", "refresh", 3600);
+
+        when(servletRequest.getCookies()).thenReturn(new Cookie[]{ACCESS_TOKEN_COOKIE, REFRESH_TOKEN_COOKIE});
+        when(encoder.decode(ENCODED_COOKIE_VALUE)).thenReturn(expiredAccessToken);
+        when(authorizationProvider.refreshAccessToken(completeAccessToken)).thenReturn(newAccessToken);
+        when(cookieProvider.getAccessTokenCookie(newAccessToken)).thenReturn(ACCESS_TOKEN_COOKIE);
+        when(cookieProvider.getRefreshTokenCookie(newAccessToken)).thenReturn(REFRESH_TOKEN_COOKIE);
+
+        valve.invoke(valveContext);
+
+        verify(requestContext).setAttribute(Constants.ACCESS_TOKEN_PROPERTY_NAME, "new-token");
+        verify(servletResponse).addCookie(ACCESS_TOKEN_COOKIE);
+        verify(servletResponse).addCookie(REFRESH_TOKEN_COOKIE);
+        verify(valveContext).invokeNext();
+    }
+
+    @Test
     public void failsGracefullyIfCannotRequestNewAccessToken() throws Exception {
         final AccessToken expiredAccessToken = new AccessToken("token", null, -3600);
         final AccessToken completeAccessToken = new AccessToken("token", REFRESH_TOKEN, -3600);
