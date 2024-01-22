@@ -1,5 +1,7 @@
 package uk.nhs.digital.common.components.catalogue;
 
+import org.hippoecm.hst.core.parameters.Parameter;
+
 class RecentUpdatesComponentInfoImpl implements RecentUpdatesComponentInfo {
 
     private int pageSize = 10;
@@ -39,14 +41,24 @@ class RecentUpdatesComponentInfoImpl implements RecentUpdatesComponentInfo {
         return type;
     }
 
+    @Parameter(
+        name = "publisheddate",
+        required = false,
+        defaultValue = "hippostdpubwf:publicationDate"
+    )
     @Override
     public String getPublishedDate() {
-        return "website:publisheddate";
+        return "publisheddate";
     }
 
+    @Parameter(
+        name = "sortField",
+        required = false,
+        defaultValue = "hippostdpubwf:publicationDate"
+    )
     @Override
     public String getSortField() {
-        return "website:publisheddate";
+        return "hippostdpubwf:publicationDate";
     }
 
     @Override

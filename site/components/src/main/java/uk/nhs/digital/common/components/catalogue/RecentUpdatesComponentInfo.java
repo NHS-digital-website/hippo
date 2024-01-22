@@ -36,14 +36,14 @@ public interface RecentUpdatesComponentInfo extends EssentialsListComponentInfo 
     @Parameter(
             name = "publisheddate",
             required = false,
-            defaultValue = "publisheddate"
+            defaultValue = "hippostdpubwf:publicationDate"
     )
     String getPublishedDate();
 
     @Parameter(
             name = "sortField",
             required = false,
-            defaultValue = "publisheddate"
+            defaultValue = "hippostdpubwf:publicationDate"
     )
     @Override
     String getSortField();
