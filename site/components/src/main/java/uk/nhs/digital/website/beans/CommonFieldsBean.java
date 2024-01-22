@@ -67,7 +67,7 @@ public class CommonFieldsBean extends BaseDocument {
         return getBean("website:bannercontrols", BannerControl.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publisheddate")
+    @HippoEssentialsGenerated(internalName = "website:publisheddate")
     public Date getPublishedDateCommon() {
         try {
             GregorianCalendar publishedAt = getSingleProperty("hippostdpubwf:publicationDate");

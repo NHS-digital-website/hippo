@@ -6,7 +6,12 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 
-<@hero getHeroOptions(document) />
+<#assign heroOptions = {
+"colour": "lightGrey",
+"title": document.title,
+"summary": document.shortsummary
+}/>
+<@hero heroOptions "default" />
 <br/>
 <#assign dateGroupHash = {} />
 <#list pageable.items as item>

@@ -41,12 +41,12 @@ class RecentUpdatesComponentInfoImpl implements RecentUpdatesComponentInfo {
 
     @Override
     public String getPublishedDate() {
-        return "publisheddate";
+        return "website:publisheddate";
     }
 
     @Override
     public String getSortField() {
-        return "publisheddate";
+        return "website:publisheddate";
     }
 
     @Override

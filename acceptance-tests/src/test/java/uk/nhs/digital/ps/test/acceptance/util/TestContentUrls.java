@@ -299,6 +299,10 @@ public class TestContentUrls {
             "/developer/api-catalogue");
         addSiteUrl("Static API Specification",
             "/developer/api-catalogue/hello-world-api");
+
+        //Recent updates
+        addSiteUrl("Recent updates",
+            "/developer/api-catalogue/recent-updates");
     }
 
     private void setupCmsUrls() {

@@ -1633,6 +1633,88 @@
       - mix:versionable
       jcr:primaryType: hippostd:folder
       jcr:uuid: 1cbbcfd2-e33b-4726-b74d-839d2f8b9351
+    /recent-updates:
+      /recent-updates[1]:
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-22T10:03:53.265Z
+        hippostdpubwf:lastModificationDate: 2024-01-22T10:03:53.265Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 12a77c86-6d5f-4285-8b34-f81acfed3f99
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:recentupdates
+        jcr:uuid: a2a7f481-fe7a-4b26-993d-dd89eab3db72
+        website:includeChildren: true
+        website:itemsPerPage: 10
+        website:pickerPath: /content/documents/corporate-website/developer/api-catalogue
+        website:pickerType: website:apispecification
+        website:seoSummary: <p>Recent updates page for APIs</p>
+        website:shortsummary: Recent updates page for APIs.
+        website:summary: Recent updates page for APIs.
+        website:title: Recent updates
+      /recent-updates[2]:
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-22T10:03:53.265Z
+        hippostdpubwf:lastModificationDate: 2024-01-22T10:10:25.249Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 12a77c86-6d5f-4285-8b34-f81acfed3f99
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:recentupdates
+        jcr:uuid: 4cc07520-7a16-4907-95b7-633169cd977c
+        website:includeChildren: true
+        website:itemsPerPage: 10
+        website:pickerPath: /content/documents/corporate-website/developer/api-catalogue
+        website:pickerType: website:apispecification
+        website:seoSummary: <p>Recent updates page for APIs</p>
+        website:shortsummary: Recent updates page for APIs.
+        website:summary: Recent updates page for APIs.
+        website:title: Recent updates
+      /recent-updates[3]:
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-22T10:03:53.265Z
+        hippostdpubwf:lastModificationDate: 2024-01-22T10:10:25.249Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2024-01-22T10:10:32.777Z
+        hippotranslation:id: 12a77c86-6d5f-4285-8b34-f81acfed3f99
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:recentupdates
+        jcr:uuid: 924e542d-69e5-4d78-be0d-f40052c600a4
+        website:includeChildren: true
+        website:itemsPerPage: 10
+        website:pickerPath: /content/documents/corporate-website/developer/api-catalogue
+        website:pickerType: website:apispecification
+        website:seoSummary: <p>Recent updates page for APIs</p>
+        website:shortsummary: Recent updates page for APIs.
+        website:summary: Recent updates page for APIs.
+        website:title: Recent updates
+      hippo:name: Recent Updates
+      hippo:versionHistory: 5180edff-2f46-44e1-900d-1a21e5652ce0
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+      jcr:uuid: fc60757b-0d13-4c77-9b59-cbeb93a2a6fb
     /retired-api:
       /content:
         /content[1]:
