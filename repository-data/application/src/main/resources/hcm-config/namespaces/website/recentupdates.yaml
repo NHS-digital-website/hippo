@@ -64,7 +64,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Picker path
             field: pickerPath
-            hint: Path for discovery of documents to be listed.
+            hint: 'Path for discovery of documents to be listed. Example: /content/document/corporate-website/services'
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -73,7 +73,8 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Picker type
             field: pickerType
-            hint: Type of document to be used for display.
+            hint: 'Type of document to be used for display. Examples: ''website:service'',
+              ''website:apispecification'''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -112,6 +113,8 @@ definitions:
             hipposysedit:path: website:pickerPath
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /pickerType:
             hipposysedit:mandatory: false
@@ -120,6 +123,8 @@ definitions:
             hipposysedit:path: website:pickerType
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /seoSummary:
             hipposysedit:mandatory: false
@@ -136,6 +141,8 @@ definitions:
             hipposysedit:path: website:shortsummary
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: false
@@ -144,6 +151,8 @@ definitions:
             hipposysedit:path: website:summary
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -152,6 +161,8 @@ definitions:
             hipposysedit:path: website:title
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
