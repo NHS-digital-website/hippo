@@ -7,45 +7,6 @@ definitions:
           hst:componentconfigurationid: hst:pages/macro-test
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
-      /service-catalogue:
-        /_any_:
-          /_index_:
-            hst:cacheable: true
-            hst:componentconfigurationmappingnames:
-            - website:service
-            - website:general
-            - website:componentlist
-            - website:apispecification
-            hst:componentconfigurationmappingvalues:
-            - hst:pages/service
-            - hst:pages/general
-            - hst:pages/componentlist
-            - hst:pages/apispecification
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:cacheable: true
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - website:service
-          - website:general
-          - website:componentlist
-          - website:apispecification
-          - website:recentupdates
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/service
-          - hst:pages/general
-          - hst:pages/componentlist
-          - hst:pages/apispecification
-          - hst:pages/recent-updates
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
-        /_index_:
-          hst:componentconfigurationid: hst:pages/service-catalogue
-          hst:relativecontentpath: ${parent}/content
-          jcr:primaryType: hst:sitemapitem
-        hst:cacheable: false
-        hst:relativecontentpath: service-catalogue
-        jcr:primaryType: hst:sitemapitem
       /static-ui:
         /_any_:
           hst:componentconfigurationid: hst:pages/static-ui-home
