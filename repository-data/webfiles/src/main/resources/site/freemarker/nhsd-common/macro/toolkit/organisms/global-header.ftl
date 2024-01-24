@@ -20,7 +20,7 @@
                                 class="nhse-global-menu__container">
                                 <a aria-label="Visit NHS England website"
                                    class="nhse-global-menu__logo"
-                                   href="https://digital.nhs.uk/"
+                                   href="/"
                                    title="NHS England" style="border-bottom-color: transparent !important;">
                                     <div class="nhse-global-menu__logo__img"></div>
                                     <span

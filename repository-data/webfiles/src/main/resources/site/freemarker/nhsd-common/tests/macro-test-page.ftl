@@ -4,6 +4,7 @@
 
 <div class="nav">
     Navigation:
+    <a class="nhsd-a-link nhsd-a-link--col-white" href="/site/automated-test-pages/macros?macro=header">Header</a>
     <a class="nhsd-a-link nhsd-a-link--col-white" href="/site/automated-test-pages/macros?macro=banner">Banners</a>
     <a class="nhsd-a-link nhsd-a-link--col-white" href="/site/automated-test-pages/macros?macro=card">Cards</a>
     <a class="nhsd-a-link nhsd-a-link--col-white" href="/site/automated-test-pages/macros?macro=case-study">Case Study</a>
@@ -21,4 +22,6 @@
     <#include "./macro/filterMenu.ftl">
 <#elseif macro == "footer">
     <#include "./macro/footer.ftl">
+<#elseif macro == "header">
+    <#include "./macro/header.ftl">
 </#if>
