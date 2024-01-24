@@ -552,9 +552,9 @@ definitions:
             /_index_:
               hst:cacheable: true
               hst:componentconfigurationmappingnames:
-                - website:service
+              - website:service
               hst:componentconfigurationmappingvalues:
-                - hst:pages/service
+              - hst:pages/service
               hst:relativecontentpath: ${parent}/content
               jcr:primaryType: hst:sitemapitem
             hst:cacheable: true
