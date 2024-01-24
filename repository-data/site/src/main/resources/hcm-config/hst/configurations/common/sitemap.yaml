@@ -538,15 +538,6 @@ definitions:
         hst:relativecontentpath: facet
         jcr:primaryType: hst:sitemapitem
       /services:
-        /_any_:
-          hst:cacheable: true
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - website:recentupdates
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/recent-updates
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
         /service-catalogue:
           /_any_:
             /_index_:
