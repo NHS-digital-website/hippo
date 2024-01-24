@@ -559,14 +559,6 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         /service-catalogue:
           /_any_:
-            /_index_:
-              hst:cacheable: true
-              hst:componentconfigurationmappingnames:
-              - website:service
-              hst:componentconfigurationmappingvalues:
-              - hst:pages/service
-              hst:relativecontentpath: ${parent}/content
-              jcr:primaryType: hst:sitemapitem
             hst:cacheable: true
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
