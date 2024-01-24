@@ -78,26 +78,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /includeChildren:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Include children
-            field: includeChildren
-            hint: Include children in the given path.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /includeChildren:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:includeChildren
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-            jcr:primaryType: hipposysedit:field
           /itemsPerPage:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -191,7 +174,6 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:recentupdates
-          website:includeChildren: false
           website:itemsPerPage: 0
           website:pickerPath: ''
           website:pickerType: ''
