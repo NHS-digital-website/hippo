@@ -9,7 +9,7 @@
 
         <@hst.setBundle basename="design-system"/>
         <@fmt.message key="design-system.url" var="designSystemUrl" />
-        <#assign toolkitVersion = 'v0.163.0' />
+        <#assign toolkitVersion = 'v0.176.0' />
 
         <link href="${designSystemUrl}" rel="preconnect" crossorigin>
         <link type="font/woff2" href="${designSystemUrl}/cdn/${toolkitVersion}/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
@@ -17,6 +17,7 @@
         <link type="font/woff2" href="${designSystemUrl}/cdn/${toolkitVersion}/fonts/FrutigerLTW01-45Light.woff2" rel="preload" as="font" crossorigin>
 
         <link rel="stylesheet" href="${designSystemUrl}/cdn/${toolkitVersion}/stylesheets/nhsd-frontend.css" media="screen" type="text/css"/>
+        <link rel="stylesheet" href="/site/webfiles/1706127788592/dist/nhse-global-menu.css" type="text/css"/>
         <style>
             .nav {
                 color: #fff;

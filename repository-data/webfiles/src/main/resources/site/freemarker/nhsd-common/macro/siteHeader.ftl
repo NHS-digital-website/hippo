@@ -8,7 +8,7 @@
                     <div class="grid-row">
 
                         <div class="column column--18-75 column--reset">
-                            <a class="site-header-a__logo" href="<@hst.link siteMapItemRefId='root'/>"><img src="<@hst.webfile path="/images/nhs-digital-logo.svg"/>" alt="NHS Digital logo" class="site-header__logo"></a>
+                            <div class="nhsd-o-global-header__descriptor-atom"><p class="digital-descriptor-text" id="digital-descriptor-text-id"> Digital </p></div>
                         </div>
 
                         <#assign wrapperClassName = "site-header__search-wrapper site-header__search-wrapper--collapse" />
