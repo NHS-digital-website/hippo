@@ -66,6 +66,7 @@ task('build-js', async () => {
         `${paths.js}/ndrs-frontend-scripts.js`,
         `${paths.js}/nhsd-intranet-priority-scripts.js`,
         `${paths.js}/nhsd-intranet-scripts.js`,
+        `${paths.js}/nhse-menu-widget.js`,
     ];
 
     return src(jsPaths).pipe(named())
