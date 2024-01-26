@@ -77,9 +77,9 @@ Then('I should see text {string}', async function (this: CustomWorld, target: st
 
 Then('I should see logo and click on logo', async function (this: CustomWorld) {
     const page = await this.browser.getPage();
-    const targetElement = await page.locator(`#nhsd-global-header__logo`).getAttribute("href");
+    const targetElement = await page.locator(`.nhse-global-menu__logo`).getAttribute("href");
     expect(targetElement).that.is.oneOf(["/", "/site/"])
-    const homePage = await page.locator(`#nhsd-global-header__logo`).click()
+    const homePage = await page.locator(`.nhse-global-menu__logo`).click()
 });
 
 Then('I should see search icon', async function (this: CustomWorld) {
@@ -97,7 +97,7 @@ When('I click see search icon', async function (this: CustomWorld) {
 When('I hover on {string}', async function (this: CustomWorld, target: string) {
     const page = await this.browser.getPage();
     if (target == "logo") {
-        const targetElement = await page.locator(`#nhsd-global-header__logo`).hover();
+        const targetElement = await page.locator(`.nhse-global-menu__logo`).hover();
     }
     if (target == "search") {
         const targetElement = await page.locator(`#nhsd-global-header__search-button`).hover();
@@ -110,7 +110,7 @@ Then('The page should look visually correct when I hover on {string}', async fun
     for (const [item] of items.raw()) {
         const page = await this.browser.getPage()
         if (item == "logo") {
-            const targetElement = await page.locator(`#nhsd-global-header__logo`).hover();
+            const targetElement = await page.locator(`.nhse-global-menu__logo`).hover();
         }
         if (item == "menu") {
             if (this.browser.viewport == "mobile" && this.browser.jsEnabled) {
