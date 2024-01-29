@@ -51,15 +51,15 @@
     <div class="nhsd-t-row" style="border-bottom: 1px solid lightgrey; padding-bottom: 30px; margin-top: 30px">
         <div class="nhsd-t-col-12">
             <div class="nhsd-t-row">
-                <div class="nhsd-t-col-1">
-                    <h2 style="font-weight: lighter">Updated:${" "}</h2>
-                </div>
-                <div class="nhsd-t-col-3">
-                    <h2>${groupDate}</h2>
+                <div class="nhsd-t-col-4">
+                    <h2>
+                        <span style="font-weight: lighter">Updated:${" "}</span>
+                        <span>${groupDate}</span>
+                    </h2>
                 </div>
             </div>
             <#list dateGroupHash[groupDate] as item>
-                <div class="nhsd-t-row" style="margin-bottom: 50px;">
+                <div class="nhsd-t-row" style="margin-bottom: 30px;">
                     <@recentUpdate item/>
                 </div>
             </#list>
