@@ -28,7 +28,7 @@ jobs:
     steps:
       # Validate that the command is called from deployment-od2-prod
       - name: Checking source
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         env:
           CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
         if: ${{ env.CHANNEL_ID !='C0353KHFXNJ' }}
@@ -41,7 +41,7 @@ jobs:
       # See: https://api.slack.com/authentication/verifying-requests-from-slack
       #
       - name: Validate Origin
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         env:
           AGENT: ${{ github.event.client_payload.integrity.agent }}
           BODY: ${{ github.event.client_payload.integrity.body }}
@@ -69,7 +69,7 @@ jobs:
     needs: integrity
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -91,7 +91,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -169,7 +169,7 @@ jobs:
 
       - name: Distribution Ids Retrival failed
         if: ${{steps.all-distribution-id.outputs.respLength < 4}}
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             core.setFailed('Retrival of distibution ids failed ')
@@ -203,7 +203,7 @@ jobs:
           ENVIRONMENT: ${{ env.PROD_ENV_ID }}
 
       - name: Check Response Code from Request Deployment
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         if: ${{ steps.deployment.outputs.code != 202 }}
         with:
           script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')
@@ -219,7 +219,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
