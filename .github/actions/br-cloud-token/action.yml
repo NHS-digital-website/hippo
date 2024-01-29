@@ -54,7 +54,7 @@ runs:
 
     - name: Check Response Code from Verify JWT Token
       if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
-      uses: actions/github-script@v6
+      uses: actions/github-script@v7
       with:
         script: |
           core.setFailed('The JWT token failed verification!')
@@ -81,7 +81,7 @@ runs:
 
     - name: Check Response Code from Deletion of JWT Refresh Access tokens
       if: ${{ steps.jwt_refresh_token_invalidate.outputs.code != 200 }}
-      uses: actions/github-script@v6
+      uses: actions/github-script@v7
       with:
         script: |
           core.setFailed('The JWT Deletion of JWT Refresh Access tokens failed!')

@@ -66,6 +66,7 @@
 
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk-print.css"/>" media="print" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk-print-pdf-document.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhse-global-menu.css"/>" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />
 
