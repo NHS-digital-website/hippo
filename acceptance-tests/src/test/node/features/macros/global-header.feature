@@ -30,7 +30,7 @@ Feature: Ensure global header macro is working as expected
         Then I should see search icon
         When I click see search icon
         Then I should see search box
-
+        
     @snapshot
     Scenario: Check global header is visually correct
         Given I navigate to the "header" macro test page

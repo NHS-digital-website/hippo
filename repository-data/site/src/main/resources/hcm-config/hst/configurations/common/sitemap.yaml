@@ -47,6 +47,7 @@ definitions:
           - website:video
           - website:policypage
           - website:corporatepolicy
+          - website:recentupdates
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -89,6 +90,7 @@ definitions:
           - hst:pages/video
           - hst:pages/policy-page
           - hst:pages/corporatepolicy
+          - hst:pages/recent-updates
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         /root:
@@ -138,6 +140,7 @@ definitions:
         - website:video
         - website:policypage
         - website:corporatepolicy
+        - website:recentupdates
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -180,6 +183,7 @@ definitions:
         - hst:pages/video
         - hst:pages/policy-page
         - hst:pages/corporatepolicy
+        - hst:pages/recent-updates
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -402,11 +406,13 @@ definitions:
             - website:general
             - website:componentlist
             - website:apispecification
+            - website:recentupdates
             hst:componentconfigurationmappingvalues:
             - hst:pages/service
             - hst:pages/general
             - hst:pages/componentlist
             - hst:pages/apispecification
+            - hst:pages/recent-updates
             hst:relativecontentpath: ${parent}/${1}
             jcr:primaryType: hst:sitemapitem
           /_any_.trythisapi:
@@ -548,8 +554,10 @@ definitions:
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
             - website:service
+            - website:recentupdates
             hst:componentconfigurationmappingvalues:
             - hst:pages/service
+            - hst:pages/recent-updates
             hst:relativecontentpath: ${parent}/${1}
             jcr:primaryType: hst:sitemapitem
           /_index_:

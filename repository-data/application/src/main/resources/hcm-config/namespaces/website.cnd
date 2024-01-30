@@ -18,6 +18,9 @@
 [website:Odsimport] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:RecentUpdates] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:VideoSection] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -113,10 +116,10 @@
 [website:corporatepolicy] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
-[website:ctabutton] > hippo:compound, hippostd:relaxed
+[website:ctaButtonSimplified] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:ctaButtonSimplified] > hippo:compound, hippostd:relaxed
+[website:ctabutton] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:customdatefield] > eforms:textfield
@@ -395,6 +398,9 @@
 [website:quotehero] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:recentupdates] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:releaseinfo] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -532,3 +538,4 @@
 
 [website:visualinternallink] > hippo:compound, hippostd:relaxed
   orderable
+
