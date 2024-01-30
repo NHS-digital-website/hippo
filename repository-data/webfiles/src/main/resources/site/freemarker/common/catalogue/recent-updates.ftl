@@ -12,7 +12,6 @@
 "summary": document.shortsummary
 }/>
 <@hero heroOptions "default" />
-<br/>
 <#assign dateGroupHash = {} />
 <#list pageable.items as item>
     <@fmt.formatDate value=item.getPublishedDateCommon() type="Date" pattern="dd MMMM yyyy" var="date" timeZone="${getTimeZone()}" />
@@ -48,7 +47,7 @@
 </#macro>
 
 <#macro group groupDate dateGroupHash>
-    <div class="nhsd-t-row" style="border-bottom: 1px solid lightgrey; padding-bottom: 30px; margin-top: 30px">
+    <div class="nhsd-t-row" style="border-bottom: 1px solid lightgrey; padding-bottom: 20px; margin-top: 20px">
         <div class="nhsd-t-col-12">
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col-4">
