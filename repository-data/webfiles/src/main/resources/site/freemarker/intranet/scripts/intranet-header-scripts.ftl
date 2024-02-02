@@ -8,9 +8,6 @@
   })(window,document,'script','dataLayer','GTM-W6GJCR9');</script>
 <!-- End Google Tag Manager -->
 
-<#-- Hotjar tracking -->
-<#include "../../common/scripts/hotjar.js.ftl"/>
-
 <@hst.webfile var="webfilepath" path="" />
 <script>
     window.resourceBaseUrl = "${webfilepath}";
