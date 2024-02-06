@@ -71,5 +71,16 @@ function updateSearchResults(ev) {
     countDisplay.textContent = `${visibleCount} results`;
 }
 
+function hideShowMore() {
+    document.querySelector('#show-more').classList.add(nhsdHiddenClass);
+}
+
+function showFilters(element) {
+    [...element.parentElement.children]
+        .forEach((sibling) => sibling.classList.remove(nhsdHiddenClass));
+    hideShowMore();
+}
+
 document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);
 document.querySelector('#catalogue-search-bar-input').addEventListener('input', (ev) => updateSearchResults(ev));
+document.querySelectorAll('#show-more').forEach((element) => element.addEventListener('click', () => showFilters(element)));

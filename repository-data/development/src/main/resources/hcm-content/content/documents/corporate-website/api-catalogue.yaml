@@ -694,17 +694,15 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
+          - security
+          - patient-communication
+          - reference-data
+          - tests-and-diagnostics
           common:SearchableTags:
-          - Demographic
-          - Inpatient
+          - Patient communication
+          - Reference data
+          - Security
+          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -713,11 +711,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:18:11.882Z
+          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:35.943Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -725,6 +725,7 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 607371a0-af66-4242-82a0-a1bb2634c42e
+          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -829,17 +830,15 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
+          - security
+          - patient-communication
+          - reference-data
+          - tests-and-diagnostics
           common:SearchableTags:
-          - Demographic
-          - Inpatient
+          - Patient communication
+          - Reference data
+          - Security
+          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -848,12 +847,14 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:18:11.882Z
+          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:35.943Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-08-19T19:18:15.240Z
+          hippostdpubwf:publicationDate: 2024-02-06T16:43:39.061Z
           hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -861,6 +862,7 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: a0efc7d4-f0ca-47bc-a5ea-ff63b0170430
+          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -965,17 +967,15 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
+          - security
+          - patient-communication
+          - reference-data
+          - tests-and-diagnostics
           common:SearchableTags:
-          - Demographic
-          - Inpatient
+          - Patient communication
+          - Reference data
+          - Security
+          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
@@ -983,11 +983,13 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:18:02.736Z
+          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:19.435Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -995,6 +997,7 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1c9917f5-4cdc-44b1-8f02-1105b0f9f0ea
+          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -1091,7 +1094,7 @@
           website:summary: ''
           website:title: Hello World API
         hippo:name: Hello World API
-        hippo:versionHistory: 31bef0ff-ad1a-4082-8b27-d51ee63e1411
+        hippo:versionHistory: ff9b8fc2-5fcf-4a10-8c1d-b85186efe7fa
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo

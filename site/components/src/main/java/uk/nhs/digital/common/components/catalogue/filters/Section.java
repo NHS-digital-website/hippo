@@ -18,16 +18,25 @@ public class Section implements Walkable {
     private boolean expanded;
     private boolean displayed;
     private int count = 0;
+    private boolean hideChildren;
+    private int amountChildrenToShow;
 
     @JsonCreator
     protected Section(
         @JsonProperty("displayName") final String displayName,
         @JsonProperty("description") final String description,
+        @JsonProperty("defaultExpanded") final String defaultExpanded,
+        @JsonProperty("hideChildren") final String hideChildren,
+        @JsonProperty("amountChildrenToShow") final String amountChildrenToShow,
         @JsonProperty("entries") final Subsection... entries
     ) {
         this.displayName = displayName;
         this.description = description;
+        this.expanded = !defaultExpanded.isEmpty() && Boolean.parseBoolean(defaultExpanded);
+        this.hideChildren = !hideChildren.isEmpty() && Boolean.parseBoolean(hideChildren);
+        this.amountChildrenToShow = !amountChildrenToShow.isEmpty() ? Integer.parseInt(amountChildrenToShow) : 0;
         this.entries = Optional.ofNullable(entries).map(Arrays::asList).orElse(emptyList());
+        this.entries.forEach(entry -> entry.setParent(this));
     }
 
     public String getDisplayName() {
@@ -82,8 +91,22 @@ public class Section implements Walkable {
         return String.valueOf(count);
     }
 
+    public boolean hiddenChildren() {
+        return childrenToDisplay().size() < getEntries().stream().filter(Section::isDisplayed).count();
+    }
+
     public Set<String> getKeysInSection() {
         return getEntries().stream().flatMap(entry -> entry.getKeyAndChildKeys().stream()).collect(Collectors.toSet());
+    }
+
+    public List<Subsection> childrenToDisplay() {
+        if (hideChildren) {
+            List<Subsection> children = getEntries().stream().filter(Section::isDisplayed).collect(Collectors.toList());
+            int childrenToDisplayAmount = Math.min(amountChildrenToShow, children.size());
+            return children.subList(0, childrenToDisplayAmount);
+        } else {
+            return getEntries();
+        }
     }
 
     @Override public List<Section> children() {

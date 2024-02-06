@@ -47,7 +47,7 @@ public class StatusUpdatingFilterVisitor implements FilterVisitor {
     }
 
     private void updateExpanded(final Section section) {
-        if (section.getEntries().stream().anyMatch(entry -> entry.isSelected() || entry.isExpanded())) {
+        if (section.getEntries().stream().anyMatch(entry -> entry.isSelected() || entry.isExpanded()) || section.isExpanded()) {
             section.expand();
         } else {
             section.collapse();
