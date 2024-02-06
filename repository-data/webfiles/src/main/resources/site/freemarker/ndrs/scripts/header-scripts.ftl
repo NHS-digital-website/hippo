@@ -4,8 +4,6 @@
     document.querySelector('html').classList.remove('nhsd-no-js');
 </script>
 
-<#-- Hotjar tracking -->
-<#include "hotjar.js.ftl"/>
 <@hst.webfile var="webfilepath" path="" />
 <script>
     window.resourceBaseUrl = "${webfilepath}";
