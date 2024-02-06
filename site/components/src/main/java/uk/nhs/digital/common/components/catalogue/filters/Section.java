@@ -32,9 +32,9 @@ public class Section implements Walkable {
     ) {
         this.displayName = displayName;
         this.description = description;
-        this.expanded = !defaultExpanded.isEmpty() && Boolean.parseBoolean(defaultExpanded);
-        this.hideChildren = !hideChildren.isEmpty() && Boolean.parseBoolean(hideChildren);
-        this.amountChildrenToShow = !amountChildrenToShow.isEmpty() ? Integer.parseInt(amountChildrenToShow) : 0;
+        this.expanded = parseBooleanFromString(defaultExpanded);
+        this.hideChildren = parseBooleanFromString(hideChildren);
+        this.amountChildrenToShow = parseIntegerFromString(amountChildrenToShow);
         this.entries = Optional.ofNullable(entries).map(Arrays::asList).orElse(emptyList());
         this.entries.forEach(entry -> entry.setParent(this));
     }
@@ -145,5 +145,21 @@ public class Section implements Walkable {
 
     private String from(final String displayName) {
         return displayName.toLowerCase().replaceAll("\\s", "-");
+    }
+
+    private boolean parseBooleanFromString(String fromYaml) {
+        try {
+            return Boolean.parseBoolean(fromYaml);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private int parseIntegerFromString(String fromYaml) {
+        try {
+            return Integer.parseInt(fromYaml);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 }

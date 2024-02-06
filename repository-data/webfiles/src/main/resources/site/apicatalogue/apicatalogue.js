@@ -71,14 +71,14 @@ function updateSearchResults(ev) {
     countDisplay.textContent = `${visibleCount} results`;
 }
 
-function hideShowMore() {
-    document.querySelector('#show-more').classList.add(nhsdHiddenClass);
+function hideShowMore(element) {
+    element.classList.add(nhsdHiddenClass);
 }
 
 function showFilters(element) {
     [...element.parentElement.children]
         .forEach((sibling) => sibling.classList.remove(nhsdHiddenClass));
-    hideShowMore();
+    hideShowMore(element);
 }
 
 document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);
