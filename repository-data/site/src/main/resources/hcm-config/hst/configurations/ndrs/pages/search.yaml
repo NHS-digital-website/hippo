@@ -4,7 +4,7 @@ definitions:
     /hst:hst/hst:configurations/ndrs/hst:pages/search:
       /main:
         /left:
-          hst:componentclassname: uk.nhs.digital.common.components.FacetComponent
+          hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
           hst:template: facets
           jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
