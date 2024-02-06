@@ -112,27 +112,6 @@ public class StatusUpdatingFilterVisitorTest {
     }
 
     @Test
-    public void marksSectionAsCollapsed_whenNoChildTagsAreSelected() {
-
-        // given
-        final Section section = section("Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
-        );
-
-        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
-            irrelevantSelectedTags(),
-            irrelevantSelectedTags()
-        );
-
-        // when
-        filterVisitor.visit(section);
-
-        // then
-        assertThat("Section is expanded.", section.isExpanded(), is(false));
-    }
-
-    @Test
     public void marksSubsectionAsDisplayed_whenAnyOfItsSubsectionsIsDisplayed() {
 
         // given

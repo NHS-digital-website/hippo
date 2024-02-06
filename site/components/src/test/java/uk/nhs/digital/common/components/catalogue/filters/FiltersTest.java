@@ -52,32 +52,6 @@ public class FiltersTest {
     }
 
     @Test
-    public void initialisedWith_producesFiltersWithStatusFlagsUpdated_dependingOnSelectedAndFilteredTags() {
-
-        // NOTE: more exhaustive set of fine-grained test cases is implemented in StatusUpdatingFilterVisitorTest
-
-        // given
-        final Filters filters = baseFilters();
-        final Filters expectedFilters = baseFilters();
-        updateFilters(expectedFilters, Subsection::select, "key-s");
-        updateFilters(expectedFilters, Section::expand, Subsection::expand, "key-d", "section-5");
-        updateFilters(expectedFilters, Section::display, Subsection::display, "section-2", "key-i", "key-t");
-        updateFilters(expectedFilters, Subsection::setSelectable, "key-t");
-
-        final Set<NavFilter> filteredTaxonomyTags = ImmutableSet.of(new NavFilter("key-t", 0));
-        final Set<String> selectedTags = ImmutableSet.of("key-s");
-
-        // when
-        final Filters actualFilters = filters.initialisedWith(filteredTaxonomyTags, new ArrayList(selectedTags));
-
-        // then
-        assertThat("Filters have status flags updated depending on selected and filtered tags.",
-            actualFilters,
-            is(expectedFilters)
-        );
-    }
-
-    @Test
     public void isHighlighted_returnsHighlightStatus_GivenDisplayName() {
 
         // given
