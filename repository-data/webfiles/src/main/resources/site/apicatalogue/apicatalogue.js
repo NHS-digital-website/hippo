@@ -77,7 +77,11 @@ function hideShowMore(element) {
 
 function showFilters(element) {
     [...element.parentElement.children]
-        .forEach((sibling) => sibling.classList.remove(nhsdHiddenClass));
+        .forEach((sibling) => {
+            sibling.classList.remove(nhsdHiddenClass);
+            [...sibling.children]
+                .forEach((siblingChild) => siblingChild.classList.remove(nhsdHiddenClass));
+        });
     hideShowMore(element);
 }
 

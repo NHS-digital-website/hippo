@@ -81,6 +81,8 @@ public class Subsection extends Section {
 
     public void setParent(Section parent) {
         this.parent = parent;
+        this.setHideChildren(parent.getHideChildren());
+        this.setAmountChildren(parent.getAmountChildrenToShow());
     }
 
     public Section parent() {

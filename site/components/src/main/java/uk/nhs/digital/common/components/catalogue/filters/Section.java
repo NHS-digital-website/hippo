@@ -55,6 +55,15 @@ public class Section implements Walkable {
         return entries;
     }
 
+    public List<Subsection> getAllEntries() {
+        List<Subsection> allEntries = new ArrayList<>(emptyList());
+        entries.forEach(entry -> {
+            allEntries.add(entry);
+            allEntries.addAll(entry.getAllEntries());
+        });
+        return allEntries;
+    }
+
     public void accept(final FilterVisitor visitor) {
         visitor.visit(this);
     }
@@ -92,14 +101,30 @@ public class Section implements Walkable {
     }
 
     public boolean hiddenChildren() {
-        return childrenToDisplay().size() < getEntries().stream().filter(Section::isDisplayed).count() && !hiddenChildrenSelected();
+        return childrenToDisplay().size() < getAllEntries().stream().filter(Section::isDisplayed).count() && !hiddenChildrenSelected();
     }
 
     protected boolean hiddenChildrenSelected() {
         List<Subsection> childrenDisplayed = childrenToDisplay();
-        return getEntries().stream().filter(Section::isDisplayed)
+        return getAllEntries().stream().filter(Section::isDisplayed)
                 .filter(entry -> childrenDisplayed.stream().noneMatch(child -> Objects.equals(entry.getKey(), child.getKey())))
                 .anyMatch(Subsection::isSelected);
+    }
+
+    protected boolean getHideChildren() {
+        return this.hideChildren;
+    }
+
+    protected int getAmountChildrenToShow() {
+        return this.amountChildrenToShow;
+    }
+
+    protected void setHideChildren(boolean hideChildren) {
+        this.hideChildren = hideChildren;
+    }
+
+    protected void setAmountChildren(int amount) {
+        this.amountChildrenToShow = amount;
     }
 
     public Set<String> getKeysInSection() {
@@ -107,12 +132,16 @@ public class Section implements Walkable {
     }
 
     public List<Subsection> childrenToDisplay() {
-        if (hideChildren) {
-            List<Subsection> children = getEntries().stream().filter(Section::isDisplayed).collect(Collectors.toList());
-            int childrenToDisplayAmount = Math.min(amountChildrenToShow, children.size());
-            return children.subList(0, childrenToDisplayAmount);
+        if (this instanceof Subsection) {
+            return ((Subsection) this).parent().childrenToDisplay();
         } else {
-            return getEntries();
+            if (hideChildren) {
+                List<Subsection> children = getAllEntries().stream().filter(Section::isDisplayed).collect(Collectors.toList());
+                int childrenToDisplayAmount = Math.min(amountChildrenToShow, children.size());
+                return children.subList(0, childrenToDisplayAmount);
+            } else {
+                return getAllEntries();
+            }
         }
     }
 
