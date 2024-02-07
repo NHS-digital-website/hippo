@@ -92,7 +92,14 @@ public class Section implements Walkable {
     }
 
     public boolean hiddenChildren() {
-        return childrenToDisplay().size() < getEntries().stream().filter(Section::isDisplayed).count();
+        return childrenToDisplay().size() < getEntries().stream().filter(Section::isDisplayed).count() && !hiddenChildrenSelected();
+    }
+
+    protected boolean hiddenChildrenSelected() {
+        List<Subsection> childrenDisplayed = childrenToDisplay();
+        return getEntries().stream().filter(Section::isDisplayed)
+                .filter(entry -> childrenDisplayed.stream().noneMatch(child -> Objects.equals(entry.getKey(), child.getKey())))
+                .anyMatch(Subsection::isSelected);
     }
 
     public Set<String> getKeysInSection() {
