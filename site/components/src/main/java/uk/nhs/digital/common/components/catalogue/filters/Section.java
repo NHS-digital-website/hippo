@@ -36,7 +36,7 @@ public class Section implements Walkable {
         this.hideChildren = parseBooleanFromString(hideChildren);
         this.amountChildrenToShow = parseIntegerFromString(amountChildrenToShow);
         this.entries = Optional.ofNullable(entries).map(Arrays::asList).orElse(emptyList());
-        this.entries.forEach(entry -> entry.setParent(this));
+        this.entries.forEach(entry -> entry.setParentAndSubsectionVisibility(this));
     }
 
     public String getDisplayName() {
@@ -55,11 +55,11 @@ public class Section implements Walkable {
         return entries;
     }
 
-    public List<Subsection> getAllEntries() {
+    public List<Subsection> getEntriesAndChildEntries() {
         List<Subsection> allEntries = new ArrayList<>(emptyList());
         entries.forEach(entry -> {
             allEntries.add(entry);
-            allEntries.addAll(entry.getAllEntries());
+            allEntries.addAll(entry.getEntriesAndChildEntries());
         });
         return allEntries;
     }
@@ -100,14 +100,13 @@ public class Section implements Walkable {
         return String.valueOf(count);
     }
 
-    public boolean hiddenChildren() {
-        return childrenToDisplay().size() < getAllEntries().stream().filter(Section::isDisplayed).count() && !hiddenChildrenSelected();
+    public boolean hasHiddenSubsections() {
+        return displayedSubsections().size() < getEntriesAndChildEntries().stream().filter(Section::isDisplayed).count() && !hiddenSubsectionsSelected();
     }
 
-    protected boolean hiddenChildrenSelected() {
-        List<Subsection> childrenDisplayed = childrenToDisplay();
-        return getAllEntries().stream().filter(Section::isDisplayed)
-                .filter(entry -> childrenDisplayed.stream().noneMatch(child -> Objects.equals(entry.getKey(), child.getKey())))
+    protected boolean hiddenSubsectionsSelected() {
+        return getEntriesAndChildEntries().stream().filter(Section::isDisplayed)
+                .filter(entry -> displayedSubsections().stream().noneMatch(child -> Objects.equals(entry.getKey(), child.getKey())))
                 .anyMatch(Subsection::isSelected);
     }
 
@@ -131,16 +130,17 @@ public class Section implements Walkable {
         return getEntries().stream().flatMap(entry -> entry.getKeyAndChildKeys().stream()).collect(Collectors.toSet());
     }
 
-    public List<Subsection> childrenToDisplay() {
+    //Determine subsections to be displayed considering the hideChildren value and amount. Takes into account subsection entries.
+    public List<Subsection> displayedSubsections() {
         if (this instanceof Subsection) {
-            return ((Subsection) this).parent().childrenToDisplay();
+            return ((Subsection) this).parent().displayedSubsections();
         } else {
             if (hideChildren) {
-                List<Subsection> children = getAllEntries().stream().filter(Section::isDisplayed).collect(Collectors.toList());
+                List<Subsection> children = getEntriesAndChildEntries().stream().filter(Section::isDisplayed).collect(Collectors.toList());
                 int childrenToDisplayAmount = Math.min(amountChildrenToShow, children.size());
                 return children.subList(0, childrenToDisplayAmount);
             } else {
-                return getAllEntries();
+                return getEntriesAndChildEntries();
             }
         }
     }

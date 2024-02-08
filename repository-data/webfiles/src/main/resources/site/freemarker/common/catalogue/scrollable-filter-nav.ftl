@@ -46,7 +46,7 @@
                                 <#list section.entries as filter>
                                     <@filterTemplate filter filtersModel 0 responsive></@filterTemplate>
                                 </#list>
-                                <#if section.hiddenChildren()>
+                                <#if section.hasHiddenSubsections()>
                                     <div class="nhsd-m-filter-menu-section" id="show-more">
                                         <a class="nhsd-a-link--col-dark-grey">show more...</a>
                                     </div>

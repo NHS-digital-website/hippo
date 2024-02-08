@@ -79,7 +79,7 @@ public class Subsection extends Section {
         }
     }
 
-    public void setParent(Section parent) {
+    public void setParentAndSubsectionVisibility(Section parent) {
         this.parent = parent;
         this.setHideChildren(parent.getHideChildren());
         this.setAmountChildren(parent.getAmountChildrenToShow());
@@ -90,7 +90,9 @@ public class Subsection extends Section {
     }
 
     public boolean isHidden() {
-        return this.parent.childrenToDisplay().stream().noneMatch(child -> Objects.equals(child.getKey(), this.getKey())) && !this.parent.hiddenChildrenSelected();
+        return this.parent.displayedSubsections()
+                .stream()
+                .noneMatch(child -> Objects.equals(child.getKey(), this.getKey())) && !this.parent.hiddenSubsectionsSelected();
     }
 
     @Override
