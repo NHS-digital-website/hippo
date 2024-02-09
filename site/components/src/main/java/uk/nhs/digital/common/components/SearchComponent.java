@@ -150,6 +150,9 @@ public class SearchComponent extends CommonComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
 
         super.doBeforeRender(request, response);
+
+        LOGGER.debug("SearchComponent doBeforeRender");
+
         SearchComponentInfo paramInfo = getComponentInfo(request);
 
         final boolean contentSearchEnabled = paramInfo.isContentSearchEnabled();
@@ -178,6 +181,10 @@ public class SearchComponent extends CommonComponent {
                 queryResponse = queryResponseFuture.get(contentSearchTimeOut, TimeUnit.MILLISECONDS);
 
                 if (queryResponse.isOk()) {
+                    LOGGER.info(
+                        MessageFormat.format("Content Search returned a success: {0}",
+                            HstRequestUtils.getHstRequestContext(request).getServletRequest().toString()
+                        ));
                     final long totalResults = queryResponse.getSearchResult().getNumFound();
                     final int pageCount = (int) Math.ceil((double) totalResults / pageSize);
                     final List<Integer> pageNumbers = getPageNumbers(currentPage, pageCount);
@@ -197,6 +204,7 @@ public class SearchComponent extends CommonComponent {
                     request.getRequestContext().setAttribute("isContentSearch", true);
                     setCommonSearchRequestAttributes(request, paramInfo);
                 } else {
+                    LOGGER.info("Content Search returned a failure");
                     LOGGER.error(
                         MessageFormat.format("Content Search returned a failure, falling back to HST search. {0} - from {1}",
                             HstRequestUtils.getHstRequestContext(request).getServletRequest().toString(),

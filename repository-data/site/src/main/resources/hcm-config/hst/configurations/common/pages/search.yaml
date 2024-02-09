@@ -4,7 +4,11 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/search:
       /main:
         /left:
-          hst:componentclassname: uk.nhs.digital.common.components.FacetComponent
+          hst:componentclassname: uk.nhs.digital.common.components.SearchEssentialsFacetsComponent
+          hst:parameternames:
+          - facetPath
+          hst:parametervalues:
+          - facets
           hst:template: facets
           jcr:primaryType: hst:component
         /tabs:
