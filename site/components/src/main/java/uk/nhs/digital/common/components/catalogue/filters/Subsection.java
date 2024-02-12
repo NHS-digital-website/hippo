@@ -27,7 +27,7 @@ public class Subsection extends Section {
         @JsonProperty("highlight") final String highlight,
         @JsonProperty("entries") final Subsection... subsections
     ) {
-        super(displayName, description, "true", "false", "0", subsections);
+        super(displayName, description, "false", "false", "0", subsections);
         this.taxonomyKey = taxonomyKey;
         this.highlight = highlight;
     }

@@ -7,7 +7,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-02-05T12:59:53.946Z
+    hippostdpubwf:lastModificationDate: 2024-02-12T12:06:41.869Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -15,8 +15,7 @@
     - mix:referenceable
     jcr:primaryType: website:taxonomymapping
     website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
-      \ Short description of\r\n                 filter category.\r\n    defaultExpanded:\
-      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \ Short description of\r\n                 filter category.\r\n    entries:\r\
       \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
       \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
       \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
@@ -43,17 +42,15 @@
       \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
       \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
       \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\r\
-      \n  - displayName: Business Use\r\n    defaultExpanded: true\r\n    hideChildren:\
-      \ true\r\n    amountChildrenToShow: 2\r\n    entries:\r\n    - taxonomyKey:\
-      \ appointments-scheduling\r\n      displayName: Appointment / Scheduling\r\n\
-      \      entries:\r\n      - taxonomyKey: referrals\r\n        displayName: Referrals\r\
-      \n    - taxonomyKey: access-to-records_1\r\n      displayName: Access to Records\r\
-      \n    - taxonomyKey: clinical-decision-support\r\n      displayName: Clinical\
-      \ Decision Support\r\n    - taxonomyKey: continuity-of-care\r\n      displayName:\
-      \ Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\n      displayName:\
-      \ Demographics\r\n    - taxonomyKey: key-care-information\r\n      displayName:\
-      \ Key Care Information\r\n    - taxonomyKey: medication-management\r\n     \
-      \ displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
+      \n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
+      \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
+      \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
+      \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
+      \n      displayName: Clinical Decision Support\r\n    - taxonomyKey: continuity-of-care\r\
+      \n      displayName: Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\
+      \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+      \n      displayName: Key Care Information\r\n    - taxonomyKey: medication-management\r\
+      \n      displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
       \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\
       \n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n  \
       \      displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
@@ -63,23 +60,20 @@
       \n      displayName: Information Governance\r\n    - taxonomyKey: security\r\
       \n      displayName: Security\r\n    - taxonomyKey: tests-and-diagnostics\r\n\
       \      displayName: Tests and Diagnostics\r\n\r\n  - displayName: Technology\r\
-      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
-      \ 2\r\n    entries:\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n\
-      \    - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
+      \n    entries:\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n   \
+      \ - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
       \n      displayName: SOAP\r\n    - taxonomyKey: hl7-v3\r\n      displayName:\
       \ HL7 V3\r\n    - taxonomyKey: mesh\r\n      displayName: MESH\r\n    - taxonomyKey:\
       \ adaptors\r\n      displayName: Adaptors\r\n\r\n  - displayName: API Service\
-      \ or Standard\r\n    defaultExpanded: true\r\n    hideChildren: true\r\n   \
-      \ amountChildrenToShow: 2\r\n    entries:\r\n    - taxonomyKey: api-service\r\
-      \n      displayName: API Service\r\n      entries:\r\n      - taxonomyKey: central\r\
-      \n        displayName: Central\r\n      - taxonomyKey: intermediary\r\n    \
-      \    displayName: Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName:\
-      \ API Standard\r\n\r\n  - displayName: API Status\r\n    defaultExpanded: true\r\
-      \n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\n\
-      \    - taxonomyKey: deprecated-api\r\n      displayName: Deprecated\r\n    \
-      \  highlight: light-red\r\n    - taxonomyKey: retired-api\r\n      displayName:\
-      \ Retired\r\n    - taxonomyKey: category,with,commas\r\n      displayName: category,with,commas\r\
-      \n    - taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
+      \ or Standard\r\n    entries:\r\n    - taxonomyKey: api-service\r\n      displayName:\
+      \ API Service\r\n      entries:\r\n      - taxonomyKey: central\r\n        displayName:\
+      \ Central\r\n      - taxonomyKey: intermediary\r\n        displayName: Intermediary\r\
+      \n    - taxonomyKey: api-standard\r\n      displayName: API Standard\r\n\r\n\
+      \  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey: deprecated-api\r\
+      \n      displayName: Deprecated\r\n      highlight: light-red\r\n    - taxonomyKey:\
+      \ retired-api\r\n      displayName: Retired\r\n    - taxonomyKey: category,with,commas\r\
+      \n      displayName: category,with,commas\r\n    - taxonomyKey: category_x007c_with_x007c_pipes\r\
+      \n      displayName: category|with|pipes"
   /taxonomy-filters-mapping[2]:
     common:searchable: true
     hippo:availability:
@@ -88,7 +82,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-02-05T13:03:17.793Z
+    hippostdpubwf:lastModificationDate: 2024-02-12T12:07:48.929Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -97,8 +91,7 @@
     - mix:versionable
     jcr:primaryType: website:taxonomymapping
     website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
-      \ Short description of\r\n                 filter category.\r\n    defaultExpanded:\
-      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \ Short description of\r\n                 filter category.\r\n    entries:\r\
       \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
       \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
       \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
@@ -125,17 +118,15 @@
       \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
       \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
       \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\r\
-      \n  - displayName: Business Use\r\n    defaultExpanded: true\r\n    hideChildren:\
-      \ true\r\n    amountChildrenToShow: 2\r\n    entries:\r\n    - taxonomyKey:\
-      \ appointments-scheduling\r\n      displayName: Appointment / Scheduling\r\n\
-      \      entries:\r\n      - taxonomyKey: referrals\r\n        displayName: Referrals\r\
-      \n    - taxonomyKey: access-to-records_1\r\n      displayName: Access to Records\r\
-      \n    - taxonomyKey: clinical-decision-support\r\n      displayName: Clinical\
-      \ Decision Support\r\n    - taxonomyKey: continuity-of-care\r\n      displayName:\
-      \ Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\n      displayName:\
-      \ Demographics\r\n    - taxonomyKey: key-care-information\r\n      displayName:\
-      \ Key Care Information\r\n    - taxonomyKey: medication-management\r\n     \
-      \ displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
+      \n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
+      \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
+      \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
+      \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
+      \n      displayName: Clinical Decision Support\r\n    - taxonomyKey: continuity-of-care\r\
+      \n      displayName: Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\
+      \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+      \n      displayName: Key Care Information\r\n    - taxonomyKey: medication-management\r\
+      \n      displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
       \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\
       \n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n  \
       \      displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
@@ -145,23 +136,20 @@
       \n      displayName: Information Governance\r\n    - taxonomyKey: security\r\
       \n      displayName: Security\r\n    - taxonomyKey: tests-and-diagnostics\r\n\
       \      displayName: Tests and Diagnostics\r\n\r\n  - displayName: Technology\r\
-      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
-      \ 2\r\n    entries:\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n\
-      \    - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
+      \n    entries:\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n   \
+      \ - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
       \n      displayName: SOAP\r\n    - taxonomyKey: hl7-v3\r\n      displayName:\
       \ HL7 V3\r\n    - taxonomyKey: mesh\r\n      displayName: MESH\r\n    - taxonomyKey:\
       \ adaptors\r\n      displayName: Adaptors\r\n\r\n  - displayName: API Service\
-      \ or Standard\r\n    defaultExpanded: true\r\n    hideChildren: true\r\n   \
-      \ amountChildrenToShow: 2\r\n    entries:\r\n    - taxonomyKey: api-service\r\
-      \n      displayName: API Service\r\n      entries:\r\n      - taxonomyKey: central\r\
-      \n        displayName: Central\r\n      - taxonomyKey: intermediary\r\n    \
-      \    displayName: Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName:\
-      \ API Standard\r\n\r\n  - displayName: API Status\r\n    defaultExpanded: true\r\
-      \n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\n\
-      \    - taxonomyKey: deprecated-api\r\n      displayName: Deprecated\r\n    \
-      \  highlight: light-red\r\n    - taxonomyKey: retired-api\r\n      displayName:\
-      \ Retired\r\n    - taxonomyKey: category,with,commas\r\n      displayName: category,with,commas\r\
-      \n    - taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
+      \ or Standard\r\n    entries:\r\n    - taxonomyKey: api-service\r\n      displayName:\
+      \ API Service\r\n      entries:\r\n      - taxonomyKey: central\r\n        displayName:\
+      \ Central\r\n      - taxonomyKey: intermediary\r\n        displayName: Intermediary\r\
+      \n    - taxonomyKey: api-standard\r\n      displayName: API Standard\r\n\r\n\
+      \  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey: deprecated-api\r\
+      \n      displayName: Deprecated\r\n      highlight: light-red\r\n    - taxonomyKey:\
+      \ retired-api\r\n      displayName: Retired\r\n    - taxonomyKey: category,with,commas\r\
+      \n      displayName: category,with,commas\r\n    - taxonomyKey: category_x007c_with_x007c_pipes\r\
+      \n      displayName: category|with|pipes"
   /taxonomy-filters-mapping[3]:
     common:searchable: true
     hippo:availability:
@@ -170,17 +158,16 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-02-05T13:03:17.793Z
+    hippostdpubwf:lastModificationDate: 2024-02-12T12:07:48.929Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-02-05T13:03:28.778Z
+    hippostdpubwf:publicationDate: 2024-02-12T12:07:54.889Z
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: website:taxonomymapping
     website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
-      \ Short description of\r\n                 filter category.\r\n    defaultExpanded:\
-      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \ Short description of\r\n                 filter category.\r\n    entries:\r\
       \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
       \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
       \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
@@ -207,17 +194,15 @@
       \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
       \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
       \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\r\
-      \n  - displayName: Business Use\r\n    defaultExpanded: true\r\n    hideChildren:\
-      \ true\r\n    amountChildrenToShow: 2\r\n    entries:\r\n    - taxonomyKey:\
-      \ appointments-scheduling\r\n      displayName: Appointment / Scheduling\r\n\
-      \      entries:\r\n      - taxonomyKey: referrals\r\n        displayName: Referrals\r\
-      \n    - taxonomyKey: access-to-records_1\r\n      displayName: Access to Records\r\
-      \n    - taxonomyKey: clinical-decision-support\r\n      displayName: Clinical\
-      \ Decision Support\r\n    - taxonomyKey: continuity-of-care\r\n      displayName:\
-      \ Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\n      displayName:\
-      \ Demographics\r\n    - taxonomyKey: key-care-information\r\n      displayName:\
-      \ Key Care Information\r\n    - taxonomyKey: medication-management\r\n     \
-      \ displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
+      \n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
+      \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
+      \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
+      \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
+      \n      displayName: Clinical Decision Support\r\n    - taxonomyKey: continuity-of-care\r\
+      \n      displayName: Continuity of Care (ToC)\r\n    - taxonomyKey: demographics\r\
+      \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+      \n      displayName: Key Care Information\r\n    - taxonomyKey: medication-management\r\
+      \n      displayName: Medication Management\r\n      entries:\r\n      - taxonomyKey:\
       \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\
       \n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n  \
       \      displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
@@ -227,25 +212,22 @@
       \n      displayName: Information Governance\r\n    - taxonomyKey: security\r\
       \n      displayName: Security\r\n    - taxonomyKey: tests-and-diagnostics\r\n\
       \      displayName: Tests and Diagnostics\r\n\r\n  - displayName: Technology\r\
-      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
-      \ 2\r\n    entries:\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n\
-      \    - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
+      \n    entries:\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n   \
+      \ - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
       \n      displayName: SOAP\r\n    - taxonomyKey: hl7-v3\r\n      displayName:\
       \ HL7 V3\r\n    - taxonomyKey: mesh\r\n      displayName: MESH\r\n    - taxonomyKey:\
       \ adaptors\r\n      displayName: Adaptors\r\n\r\n  - displayName: API Service\
-      \ or Standard\r\n    defaultExpanded: true\r\n    hideChildren: true\r\n   \
-      \ amountChildrenToShow: 2\r\n    entries:\r\n    - taxonomyKey: api-service\r\
-      \n      displayName: API Service\r\n      entries:\r\n      - taxonomyKey: central\r\
-      \n        displayName: Central\r\n      - taxonomyKey: intermediary\r\n    \
-      \    displayName: Intermediary\r\n    - taxonomyKey: api-standard\r\n      displayName:\
-      \ API Standard\r\n\r\n  - displayName: API Status\r\n    defaultExpanded: true\r\
-      \n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\n\
-      \    - taxonomyKey: deprecated-api\r\n      displayName: Deprecated\r\n    \
-      \  highlight: light-red\r\n    - taxonomyKey: retired-api\r\n      displayName:\
-      \ Retired\r\n    - taxonomyKey: category,with,commas\r\n      displayName: category,with,commas\r\
-      \n    - taxonomyKey: category_x007c_with_x007c_pipes\r\n      displayName: category|with|pipes"
+      \ or Standard\r\n    entries:\r\n    - taxonomyKey: api-service\r\n      displayName:\
+      \ API Service\r\n      entries:\r\n      - taxonomyKey: central\r\n        displayName:\
+      \ Central\r\n      - taxonomyKey: intermediary\r\n        displayName: Intermediary\r\
+      \n    - taxonomyKey: api-standard\r\n      displayName: API Standard\r\n\r\n\
+      \  - displayName: API Status\r\n    entries:\r\n    - taxonomyKey: deprecated-api\r\
+      \n      displayName: Deprecated\r\n      highlight: light-red\r\n    - taxonomyKey:\
+      \ retired-api\r\n      displayName: Retired\r\n    - taxonomyKey: category,with,commas\r\
+      \n      displayName: category,with,commas\r\n    - taxonomyKey: category_x007c_with_x007c_pipes\r\
+      \n      displayName: category|with|pipes"
   hippo:name: Taxonomy filters mapping
-  hippo:versionHistory: f164b481-ce96-4b16-8f28-6c97ad095469
+  hippo:versionHistory: 7922bdb1-fc6f-4393-98ca-6356c2810649
   jcr:mixinTypes:
   - hippo:named
   - hippo:versionInfo
