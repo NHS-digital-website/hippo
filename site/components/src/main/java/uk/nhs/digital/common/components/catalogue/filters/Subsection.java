@@ -92,7 +92,7 @@ public class Subsection extends Section {
     public boolean isHidden() {
         return this.parent.displayedSubsections()
                 .stream()
-                .noneMatch(child -> Objects.equals(child.getKey(), this.getKey())) && !this.parent.hiddenSubsectionsSelected();
+                .noneMatch(child -> Objects.equals(child.getKey(), this.getKey())) && !this.parent.anyHiddenSubsectionsSelected();
     }
 
     @Override
