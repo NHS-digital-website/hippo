@@ -29,6 +29,6 @@ definitions:
         - '1500'
         hst:template: search-results-layout
         jcr:primaryType: hst:component
-      hst:cacheable: false
+      hst:cacheable: true
       hst:referencecomponent: hst:abstractpages/pubs_apppage-search-results
       jcr:primaryType: hst:component
