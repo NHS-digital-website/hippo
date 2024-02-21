@@ -3,9 +3,9 @@
 
     <Appenders>
 
-        <!-- hippo-cms.log -->
-        <RollingFile name="cms" fileName="${sys:catalina.base}/logs/hippo-cms.log"
-                                 filePattern="${sys:catalina.base}/logs/hippo-cms.log.%d{yyyy-MM-dd}">
+    <!-- cms.log -->
+    <RollingFile name="cms" fileName="${sys:catalina.base}/logs/cms.log"
+                 filePattern="${sys:catalina.base}/logs/cms.log.%d{yyyy-MM-dd}">
             <LookupFilter key="jndi:logging/contextName" value="cms" onMatch="ACCEPT"/>
             <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t [%C{1}.%M:%L] %m%n"/>
             <Policies>
@@ -13,9 +13,9 @@
             </Policies>
         </RollingFile>
 
-        <!-- hippo-site.log -->
-        <RollingFile name="site" fileName="${sys:catalina.base}/logs/hippo-site.log"
-                                 filePattern="${sys:catalina.base}/logs/hippo-site.log.%d{yyyy-MM-dd}">
+    <!-- site.log -->
+    <RollingFile name="site" fileName="${sys:catalina.base}/logs/site.log"
+                 filePattern="${sys:catalina.base}/logs/site.log.%d{yyyy-MM-dd}">
             <LookupFilter key="jndi:logging/contextName" value="site" onMatch="ACCEPT"/>
             <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t [%C{1}.%M:%L] %m%n"/>
             <Policies>
@@ -23,14 +23,23 @@
             </Policies>
         </RollingFile>
 
-        <!-- hippo-audit.log -->
-        <RollingFile name="audit" fileName="${sys:catalina.base}/logs/hippo-audit.log"
-                                 filePattern="${sys:catalina.base}/logs/hippo-audit.log.%d{yyyy-MM-dd}">
+    <!-- audit.log -->
+    <RollingFile name="audit" fileName="${sys:catalina.base}/logs/audit.log"
+                 filePattern="${sys:catalina.base}/logs/audit.log.%d{yyyy-MM-dd}">
             <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t [%C{1}.%M:%L] %m%n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
             </Policies>
         </RollingFile>
+
+    <!-- crisp-profile.log -->
+    <RollingFile name="crisp-profile" fileName="${sys:catalina.base}/logs/crisp-profile.log"
+                 filePattern="${sys:catalina.base}/logs/crisp-profile.log.%d{yyyy-MM-dd}">
+      <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t %m%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+      </Policies>
+    </RollingFile>
 
         <!-- console -->
         <Console name="console" target="SYSTEM_OUT">
@@ -46,7 +55,6 @@
         <Console name="warnings" target="SYSTEM_ERR">
             <PatternLayout pattern="%%d{HH:mm:ss} %-5p [%C{1}] %m%n"/>
         </Console>
-
     </Appenders>
 
     <Loggers>
@@ -79,10 +87,15 @@
                  can be here on level 'info' -->
         <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
 
+    <!-- crisp-profile logging -->
+    <Logger additivity="false" name="org.onehippo.cms7.crisp.core.profile.ResourceResolverProfiler" level="info">
+      <AppenderRef ref="crisp-profile"/>
+    </Logger>
+
         <Logger name="freemarker" level="warn"/>
 
-        <!-- Freemarker errors - debug because we want the stack traces when this happens -->
-        <Logger name="org.hippoecm.hst.servlet.HstFreemarkerServlet" additivity="false" level="debug">
+    <!-- Freemarker errors -->
+    <Logger name="org.hippoecm.hst.servlet.HstFreemarkerServlet" additivity="false" level="warn">
             <AppenderRef ref="warnings"/>
         </Logger>
         <Logger name="freemarker.servlet" additivity="false" level="fatal">
@@ -110,6 +123,10 @@
             <AppenderRef ref="messages"/>
         </Logger>
 
+    <Logger name="org.hippoecm.repository.jackrabbit.IndexRepairer"  additivity="false" level="info">
+      <AppenderRef ref="messages"/>
+    </Logger>
+
         <Logger name="org.onehippo.cms7.autoexport" additivity="false" level="info">
             <AppenderRef ref="messages"/>
         </Logger>
@@ -124,15 +141,17 @@
             <AppenderRef ref="messages"/>
         </Logger>
 
-        <Logger name="org.onehippo.cms7.hst.toolkit.addon.formdata.FormDataCleanupJob" level="debug"/>
-
-        <!-- Relevance inference logging -->
-        <Logger name="com.onehippo.cms7.inference.engine.core.model.DefaultGenericLoggerModel" level="debug"/>
+        <!-- Dynamic beans logging -->
+        <Logger name="org.hippoecm.hst.content.beans.dynamic" level="info"/>
+        <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
 
         <!-- project logging -->
         <Logger name="uk.nhs.digital" level="debug" />
         <Logger name="com.onehippo.cms7.targeting" level="warn"/>
         <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
+
+        <!-- Search Logging -->
+        <Logger name="uk.nhs.digital.common.components.SearchComponent" level="info"/>
 
         <Root level="warn">
             <AppenderRef ref="site"/>
