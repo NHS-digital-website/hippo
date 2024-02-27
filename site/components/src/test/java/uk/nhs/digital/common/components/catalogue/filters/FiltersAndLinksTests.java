@@ -178,7 +178,7 @@ public class FiltersAndLinksTests {
     }
 
     private FiltersAndLinks filtersAndLinks(Filters filters, List<String> selectedFilterKeys) {
-        return new FiltersAndLinks(selectedFilterKeys, catalogueLinks(), filters);
+        return new FiltersAndLinks(selectedFilterKeys, catalogueLinks(), filters, null);
     }
 
     private List<CatalogueLink> catalogueLinks() {

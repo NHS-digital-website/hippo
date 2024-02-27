@@ -4,6 +4,8 @@ import static java.util.stream.Collectors.toList;
 
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
+import org.onehippo.cms7.essentials.components.info.EssentialsFacetsComponentInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
@@ -11,6 +13,9 @@ import uk.nhs.digital.common.components.catalogue.filters.FiltersAndLinks;
 
 import java.util.*;
 
+@ParametersInfo(
+        type = EssentialsFacetsComponentInfo.class
+)
 public class ServiceCatalogueComponent extends CatalogueComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ServiceCatalogueComponent.class);
@@ -20,13 +25,15 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
+        String queryParam = this.cleanupSearchQuery(this.getAnyParameter(request, "query"));
+        final FacetNavHelper facetNavhelper = new FacetNavHelper(this.getComponentParametersInfo(request), queryParam);
         final List<CatalogueLink> allCatalogueLinks = catalogueLinksFrom(request);
 
         final List<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
         Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
 
-        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, allCatalogueLinks, rawFilters);
+        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, allCatalogueLinks, rawFilters, facetNavhelper);
 
         final Filters filtersModel = filtersModel(
             filtersAndLinks.selectedFilterKeys,

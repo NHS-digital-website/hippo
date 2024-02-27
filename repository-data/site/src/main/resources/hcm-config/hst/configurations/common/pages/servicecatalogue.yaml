@@ -4,6 +4,10 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/service-catalogue:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.catalogue.ServiceCatalogueComponent
+        hst:parameternames:
+        - facetPath
+        hst:parametervalues:
+        - faceted-services
         hst:template: catalogue
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage

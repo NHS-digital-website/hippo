@@ -3,6 +3,7 @@ package uk.nhs.digital.common.components.catalogue.filters;
 import static java.util.stream.Collectors.toList;
 
 import uk.nhs.digital.common.components.catalogue.CatalogueLink;
+import uk.nhs.digital.common.components.catalogue.FacetNavHelper;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
@@ -19,8 +20,10 @@ public class FiltersAndLinks {
     public Set<NavFilter> filters = new HashSet<>();
     public List<CatalogueLink> links;
     public List<String> selectedFilterKeys;
+    private final FacetNavHelper facetNavHelper;
 
-    public FiltersAndLinks(final List<String> userSelectedFilterKeys, final List<CatalogueLink> links, final Filters rawFilters) {
+    public FiltersAndLinks(final List<String> userSelectedFilterKeys, final List<CatalogueLink> links, final Filters rawFilters, final FacetNavHelper facetNavHelper) {
+        this.facetNavHelper = facetNavHelper;
         List<Set<String>> orderedFiltersKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
         this.links = filterLinks(userSelectedFilterKeys, orderedFiltersKeysByCategory, links);
         applyFiltersToNavKeys(userSelectedFilterKeys, links, orderedFiltersKeysByCategory);
@@ -74,7 +77,9 @@ public class FiltersAndLinks {
                 filteredLinks.set(filteredLinksForCategory);
                 filtersForCategoryFromLinks.addAll(filtersNotInCollection(filteredLinksForCategory, filtersForCategoryFromLinks));
                 addToFilters(filtersForCategoryFromLinks);
-                Set<String> allFilteredLinksKeys = filteredLinks.get().stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
+                Set<String> allFilteredLinksKeys = facetNavHelper != null
+                        ? filteredLinks.get().stream().flatMap(link -> facetNavHelper.getAllTagsForLink(link).stream()).collect(Collectors.toSet())
+                        : filteredLinks.get().stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
                 removeFromFilters(
                         filters.stream()
                                 .filter(navFilter -> !collectionsContainKey(category, allFilteredLinksKeys, navFilter.filterKey))
@@ -110,17 +115,36 @@ public class FiltersAndLinks {
     }
 
     private Set<String> filtersNotInCollection(List<CatalogueLink> filteredLinks, Set<String> filters) {
-        return filteredLinks
-            .stream()
-            .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream().filter(filter -> !filters.contains(filter)))
-            .collect(Collectors.toSet());
+        if (facetNavHelper != null) {
+            return filteredLinks
+                    .stream()
+                    .map(link -> facetNavHelper.getAllTagsForLink(link))
+                    .flatMap(Collection::stream)
+                    .distinct()
+                    .filter(tag -> !filters.contains(tag))
+                    .collect(Collectors.toSet());
+        } else {
+            return filteredLinks
+                    .stream()
+                    .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream().filter(filter -> !filters.contains(filter)))
+                    .collect(Collectors.toSet());
+        }
     }
 
     private Set<String> filtersForCategoryFromLinks(List<CatalogueLink> filteredLinks, Set<String> category) {
-        return filteredLinks
-            .stream()
-            .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream().filter(category::contains))
-            .collect(Collectors.toSet());
+        if (facetNavHelper != null) {
+            return filteredLinks
+                    .stream()
+                    .map(link -> facetNavHelper.getAllTagsForLink(link))
+                    .flatMap(Collection::stream)
+                    .distinct()
+                    .filter(category::contains).collect(Collectors.toSet());
+        } else {
+            return filteredLinks
+                .stream()
+                .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream().filter(category::contains))
+                .collect(Collectors.toSet());
+        }
     }
 
     private List<String> filtersForCategory(List<String> keys, Set<String> category) {
@@ -152,7 +176,15 @@ public class FiltersAndLinks {
     }
 
     private Set<String> allKeysFromLinks(List<CatalogueLink> links) {
-        return links.stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
+        if (facetNavHelper != null) {
+            return allTags();
+        } else {
+            return links.stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
+        }
+    }
+
+    private Set<String> allTags() {
+        return facetNavHelper.getAllTags();
     }
 
     private static boolean collectionsContainKey(Set<String> collection1, Set<String> collection2, String key) {

@@ -2,6 +2,7 @@ package uk.nhs.digital.common.components.catalogue;
 
 import static java.util.stream.Collectors.toList;
 
+import uk.nhs.digital.website.beans.Externallink;
 import uk.nhs.digital.website.beans.Internallink;
 
 import java.util.*;
@@ -62,6 +63,14 @@ public class CatalogueLink {
             .getLink()
             .getProperties()
             .getOrDefault("hippotaxonomy:keys", new String[0])));
+    }
+
+    public String getTitleOfLink() {
+        if (isFilterable()) {
+            return ((Internallink) raw()).getTitle();
+        } else {
+            return ((Externallink) raw()).getTitle();
+        }
     }
 
     /**
