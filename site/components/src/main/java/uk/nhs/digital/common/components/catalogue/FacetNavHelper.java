@@ -6,16 +6,12 @@ import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.util.ContentBeanUtils;
 import org.onehippo.cms7.essentials.components.info.EssentialsFacetsComponentInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class FacetNavHelper {
-
-    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
-    private HippoFacetNavigationBean facetNav;
+    private final HippoFacetNavigationBean facetNav;
 
     public FacetNavHelper(EssentialsFacetsComponentInfo paramInfo, String queryParam) {
         this.facetNav = ContentBeanUtils.getFacetNavigationBean(paramInfo.getFacetPath(), queryParam);
