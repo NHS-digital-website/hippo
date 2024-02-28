@@ -16,7 +16,9 @@ definitions:
         hst:parameternames:
         - brandRefreshContentRewriter
         - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
         hst:parametervalues:
+        - 'true'
         - 'true'
         - 'true'
         hst:template: service-article

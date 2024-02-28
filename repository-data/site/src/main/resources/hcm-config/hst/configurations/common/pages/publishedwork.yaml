@@ -8,7 +8,9 @@ definitions:
         - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
         - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
         hst:parametervalues:
+        - 'true'
         - 'true'
         - 'true'
         - 'true'

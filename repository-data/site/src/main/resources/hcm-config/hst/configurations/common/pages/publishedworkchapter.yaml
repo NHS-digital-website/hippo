@@ -9,8 +9,10 @@ definitions:
         - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
         - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
         hst:parametervalues:
         - website:links/@hippo:docbase
+        - 'true'
         - 'true'
         - 'true'
         - 'true'
