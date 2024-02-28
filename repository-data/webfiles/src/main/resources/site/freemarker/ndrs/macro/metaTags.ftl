@@ -5,7 +5,7 @@
     <#assign pageTitle = 'Home - ' + siteTitle />
     <#assign siteSEOSummary = "We’re the national information and technology partner to the health and social care system using digital technology to transform the NHS and social care" />
     <#assign pageSEOSummary = siteSEOSummary />
-    <#assign defaultMetaImage><@hst.webfile path="images/nhs-digital-logo-social.jpg" fullyQualified=true/></#assign>
+    <#assign defaultMetaImage><@hst.webfile path="images/nhs-england-logo-social.jpg" fullyQualified=true/></#assign>
     <#assign defaultTwitterImage = defaultMetaImage />
 
     <#if contentTitle?? && contentTitle?has_content >

@@ -1,11 +1,11 @@
 <#ftl output_format="HTML">
 <#global websiteName_GLOBALISED = "NHSD">
 <#macro metaTags contentTitle="" contentDescription="">
-    <#assign siteTitle = "NHS Digital"/>
+    <#assign siteTitle = "NHS England Digital"/>
     <#assign pageTitle = 'Home - ' + siteTitle />
     <#assign siteSEOSummary = "We’re the national information and technology partner to the health and social care system using digital technology to transform the NHS and social care" />
     <#assign pageSEOSummary = siteSEOSummary />
-    <#assign defaultMetaImage><@hst.webfile path="images/nhs-digital-logo-social.jpg" fullyQualified=true/></#assign>
+    <#assign defaultMetaImage><@hst.webfile path="images/nhs-england-logo-social.jpg" fullyQualified=true/></#assign>
     <#assign defaultTwitterImage = defaultMetaImage />
 
     <#if document?? && document.title??>

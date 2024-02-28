@@ -78,13 +78,13 @@
 
 <article class="article article--news" itemscope itemtype="http://schema.org/NewsArticle">
     <meta itemprop="mainEntityOfPage" content="${document.title}">
-    <meta itemprop="author" content="NHS Digital">
-    <meta itemprop="copyrightHolder" content="NHS Digital">
+    <meta itemprop="author" content="NHS England Digital">
+    <meta itemprop="copyrightHolder" content="NHS England Digital">
     <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
     <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-        <meta itemprop="name" content="NHS Digital">
+        <meta itemprop="name" content="NHS England Digital">
         <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />" />
+            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-england-logo-social.jpg' fullyQualified=true />" />
         </span>
     </div>
 
