@@ -161,7 +161,11 @@ public class FiltersAndLinks {
     }
 
     private Set<String> allKeysFromLinks() {
-        return allTags();
+        if (links != null) {
+            return links.stream().map(link -> facetNavHelper.getAllTagsForLink(link).stream()).flatMap(Stream::distinct).collect(Collectors.toSet());
+        } else {
+            return allTags();
+        }
     }
 
     private Set<String> allTags() {
