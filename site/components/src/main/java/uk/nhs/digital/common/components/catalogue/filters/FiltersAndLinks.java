@@ -24,7 +24,7 @@ public class FiltersAndLinks {
 
     public FiltersAndLinks(final List<String> userSelectedFilterKeys, final List<CatalogueLink> links, final Filters rawFilters, final FacetNavHelper facetNavHelper) {
         this.facetNavHelper = facetNavHelper;
-        List<Set<String>> orderedFiltersKeysByCategory = filterKeysSortedByCategory(rawFilters, links, userSelectedFilterKeys);
+        List<Set<String>> orderedFiltersKeysByCategory = filterKeysSortedByCategory(rawFilters, userSelectedFilterKeys);
         this.links = filterLinks(userSelectedFilterKeys, orderedFiltersKeysByCategory, links);
         applyFiltersToNavKeys(userSelectedFilterKeys, links, orderedFiltersKeysByCategory);
         updateUserSelectedFilters(userSelectedFilterKeys);
@@ -77,9 +77,8 @@ public class FiltersAndLinks {
                 filteredLinks.set(filteredLinksForCategory);
                 filtersForCategoryFromLinks.addAll(filtersNotInCollection(filteredLinksForCategory, filtersForCategoryFromLinks));
                 addToFilters(filtersForCategoryFromLinks);
-                Set<String> allFilteredLinksKeys = facetNavHelper != null
-                        ? filteredLinks.get().stream().flatMap(link -> facetNavHelper.getAllTagsForLink(link).stream()).collect(Collectors.toSet())
-                        : filteredLinks.get().stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
+                Set<String> allFilteredLinksKeys = filteredLinks.get().stream().flatMap(link -> facetNavHelper.getAllTagsForLink(link).stream()).collect(Collectors.toSet());
+
                 removeFromFilters(
                         filters.stream()
                                 .filter(navFilter -> !collectionsContainKey(category, allFilteredLinksKeys, navFilter.filterKey))
@@ -88,17 +87,17 @@ public class FiltersAndLinks {
                 );
             });
         } else {
-            addToFilters(allKeysFromLinks(links));
+            addToFilters(allKeysFromLinks());
         }
     }
 
     //Sort filter keys into categories and order by select filter keys order.
-    private List<Set<String>> filterKeysSortedByCategory(Filters rawFilters, List<CatalogueLink> links, List<String> userSelectedFilterKeys) {
+    private List<Set<String>> filterKeysSortedByCategory(Filters rawFilters, List<String> userSelectedFilterKeys) {
         Set<Set<String>> linkFiltersByCategory = rawFilters.getSections()
             .stream()
             .map(section -> section.getKeysInSection()
                 .stream()
-                .filter(allKeysFromLinks(links)::contains)
+                .filter(allKeysFromLinks()::contains)
                 .collect(Collectors.toSet()))
             .collect(Collectors.toSet());
 
@@ -115,36 +114,22 @@ public class FiltersAndLinks {
     }
 
     private Set<String> filtersNotInCollection(List<CatalogueLink> filteredLinks, Set<String> filters) {
-        if (facetNavHelper != null) {
-            return filteredLinks
-                    .stream()
-                    .map(link -> facetNavHelper.getAllTagsForLink(link))
-                    .flatMap(Collection::stream)
-                    .distinct()
-                    .filter(tag -> !filters.contains(tag))
-                    .collect(Collectors.toSet());
-        } else {
-            return filteredLinks
-                    .stream()
-                    .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream().filter(filter -> !filters.contains(filter)))
-                    .collect(Collectors.toSet());
-        }
+        return filteredLinks
+                .stream()
+                .map(facetNavHelper::getAllTagsForLink)
+                .flatMap(Collection::stream)
+                .distinct()
+                .filter(tag -> !filters.contains(tag))
+                .collect(Collectors.toSet());
     }
 
     private Set<String> filtersForCategoryFromLinks(List<CatalogueLink> filteredLinks, Set<String> category) {
-        if (facetNavHelper != null) {
-            return filteredLinks
-                    .stream()
-                    .map(link -> facetNavHelper.getAllTagsForLink(link))
-                    .flatMap(Collection::stream)
-                    .distinct()
-                    .filter(category::contains).collect(Collectors.toSet());
-        } else {
-            return filteredLinks
+        return filteredLinks
                 .stream()
-                .flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream().filter(category::contains))
-                .collect(Collectors.toSet());
-        }
+                .map(facetNavHelper::getAllTagsForLink)
+                .flatMap(Collection::stream)
+                .distinct()
+                .filter(category::contains).collect(Collectors.toSet());
     }
 
     private List<String> filtersForCategory(List<String> keys, Set<String> category) {
@@ -160,7 +145,7 @@ public class FiltersAndLinks {
     }
 
     private void updateUserSelectedFilters(List<String> userSelectedFilterKeys) {
-        Set<String> keysFromLinks = allKeysFromLinks(links);
+        Set<String> keysFromLinks = allKeysFromLinks();
         this.selectedFilterKeys = userSelectedFilterKeys.stream().filter(keysFromLinks::contains).collect(toList());
     }
 
@@ -175,12 +160,8 @@ public class FiltersAndLinks {
                 .filter(link -> link.taggedWith(key)).count();
     }
 
-    private Set<String> allKeysFromLinks(List<CatalogueLink> links) {
-        if (facetNavHelper != null) {
-            return allTags();
-        } else {
-            return links.stream().flatMap(link -> link.allTaxonomyKeysOfReferencedDoc().stream()).collect(Collectors.toSet());
-        }
+    private Set<String> allKeysFromLinks() {
+        return allTags();
     }
 
     private Set<String> allTags() {
