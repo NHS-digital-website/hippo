@@ -20,7 +20,6 @@ import java.util.*;
 public class ApiCatalogueComponent extends CatalogueComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
-
     private static final Set<String> RETIRED_API_FILTER_KEYS = ImmutableSet.of("retired-api");
     private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
 
@@ -28,8 +27,6 @@ public class ApiCatalogueComponent extends CatalogueComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        String queryParam = this.cleanupSearchQuery(this.getAnyParameter(request, "query"));
-        final FacetNavHelper facetNavhelper = new FacetNavHelper(this.getComponentParametersInfo(request), queryParam);
         final List<CatalogueLink> allCatalogueLinks = catalogueLinksFrom(request);
 
         final boolean showRetired = shouldShowRetired(request);
@@ -41,7 +38,7 @@ public class ApiCatalogueComponent extends CatalogueComponent {
 
         Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
 
-        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, catalogueLinksExcludingRetiredIfNeeded, rawFilters, facetNavhelper);
+        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, catalogueLinksExcludingRetiredIfNeeded, rawFilters, facetNavHelper);
 
         final Filters filtersModel = filtersModel(
             filtersAndLinks.selectedFilterKeys,

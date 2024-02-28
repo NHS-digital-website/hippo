@@ -3,6 +3,7 @@ package uk.nhs.digital.common.components.catalogue;
 import static java.util.stream.Collectors.toList;
 
 import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.container.HstContainerURL;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
@@ -16,6 +17,17 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 public class CatalogueComponent extends ContentRewriterComponent {
+
+    public FacetNavHelper facetNavHelper;
+
+    @Override
+    public void doBeforeRender(final HstRequest request, final HstResponse response) {
+        super.doBeforeRender(request, response);
+        if (facetNavHelper == null) {
+            String queryParam = this.cleanupSearchQuery(this.getAnyParameter(request, "query"));
+            facetNavHelper = new FacetNavHelperImpl(this.getComponentParametersInfo(request), queryParam);
+        }
+    }
 
     protected Session sessionFrom(final HstRequest request) {
         try {

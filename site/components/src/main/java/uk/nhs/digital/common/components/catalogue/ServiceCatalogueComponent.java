@@ -25,15 +25,13 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        String queryParam = this.cleanupSearchQuery(this.getAnyParameter(request, "query"));
-        final FacetNavHelper facetNavhelper = new FacetNavHelper(this.getComponentParametersInfo(request), queryParam);
         final List<CatalogueLink> allCatalogueLinks = catalogueLinksFrom(request);
 
         final List<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
         Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
 
-        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, allCatalogueLinks, rawFilters, facetNavhelper);
+        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, allCatalogueLinks, rawFilters, facetNavHelper);
 
         final Filters filtersModel = filtersModel(
             filtersAndLinks.selectedFilterKeys,
