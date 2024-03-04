@@ -149,17 +149,13 @@
         <forge.resetpassword.version>5.0</forge.resetpassword.version>
         <bloomreach.forge.sitemapv2.version>2.0.7</bloomreach.forge.sitemapv2.version>
 
-        <!--***START temporary override of versions*** -->
-        <hippo.addon-content-feed.version>14.7.8ed926d4</hippo.addon-content-feed.version>
-        <!-- ***END temporary override of versions*** -->
-
         <!-- Built-in caches use ecache v2.x.
         Custom caching that needs durable on-disk caching uses v3.x
         due to insufficient support for on-disk caching in v2.x. -->
         <ehcache3.version>3.9.9</ehcache3.version>
 
         <!--
-        Consult https://chromedriver.chromium.org/downloads
+        Consult https://googlechromelabs.github.io/chrome-for-testing/
         to find the right ChromeDriver version to use with the current browser version,
         -->
         <chromedriver.version>122.0.6261.69</chromedriver.version>
@@ -290,12 +286,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-content-feed-search-api</artifactId>
-            <version>${bloomreach.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>com.splunk.logging</groupId>
             <artifactId>splunk-library-javalogging</artifactId>
@@ -1212,11 +1202,6 @@
                                     <dependency>
                                         <groupId>com.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-targeting-shared-api</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>com.onehippo.cms7</groupId>
-                                        <artifactId>hippo-addon-content-feed-search-api</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
