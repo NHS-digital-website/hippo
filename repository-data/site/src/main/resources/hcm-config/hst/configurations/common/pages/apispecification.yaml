@@ -3,14 +3,6 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/api-catalogue:
       /main:
-        /facets:
-          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueEssentialsFacetsComponent
-          hst:parameternames:
-            - facetPath
-          hst:parametervalues:
-            - faceted-api-specifications
-          hst:suppresswastemessage: true
-          jcr:primaryType: hst:component
         /catalogue:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueComponent
           hst:parameternames:
@@ -18,6 +10,15 @@ definitions:
           hst:parametervalues:
           - faceted-api-specifications
           hst:template: catalogue
+          jcr:primaryType: hst:component
+        /facets:
+          .meta:order-before: catalogue
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueEssentialsFacetsComponent
+          hst:parameternames:
+          - facetPath
+          hst:parametervalues:
+          - faceted-api-specifications
+          hst:suppresswastemessage: true
           jcr:primaryType: hst:component
         hst:template: catalogue-main
         jcr:primaryType: hst:component
