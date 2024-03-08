@@ -5,10 +5,6 @@ definitions:
       /main:
         /catalogue:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueComponent
-          hst:parameternames:
-          - facetPath
-          hst:parametervalues:
-          - faceted-api-specifications
           hst:template: catalogue
           jcr:primaryType: hst:component
         /facets:

@@ -5,8 +5,6 @@ import static java.util.stream.Collectors.toList;
 import com.google.common.collect.ImmutableSet;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.parameters.ParametersInfo;
-import org.onehippo.cms7.essentials.components.info.EssentialsFacetsComponentInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
@@ -14,9 +12,6 @@ import uk.nhs.digital.common.components.catalogue.filters.FiltersAndLinks;
 
 import java.util.*;
 
-@ParametersInfo(
-    type = EssentialsFacetsComponentInfo.class
-)
 public class ApiCatalogueComponent extends CatalogueComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
