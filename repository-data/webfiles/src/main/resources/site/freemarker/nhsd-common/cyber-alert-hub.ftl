@@ -58,7 +58,7 @@
             </div>
             <div class="nhsd-t-off-l-1 nhsd-t-col-l-8 nhsd-t-col-xs-12">
                 <div class="js-filter-tags">
-                    <span class="nhsd-t-heading-s">${pageable.total} result${(pageable.total gt 1)?then('s', '')}</span>
+                    <span class="nhsd-t-heading-s">${totalAvailable} result${(pageable.total gt 1)?then('s', '')}</span>
                 </div>
 
                 <span class="js-loading-text nhsd-t-heading-s nhsd-!t-col-dark-grey nhsd-!t-display-hide nhsd-!t-margin-bottom-2">Loading...</span>
