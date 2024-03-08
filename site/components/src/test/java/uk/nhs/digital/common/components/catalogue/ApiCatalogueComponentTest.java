@@ -94,7 +94,7 @@ public class ApiCatalogueComponentTest extends MockitoSessionTestBase {
 
         apiCatalogueComponent = new ApiCatalogueComponent();
 
-        apiCatalogueComponent.facetNavHelper = facetNavHelper;
+        request.getRequestContext().setModel("facetsNavHelper", facetNavHelper);
         when(facetNavHelper.getAllTags()).thenReturn(allTags());
         when(facetNavHelper.getAllTagsForLink(any())).thenReturn(new ArrayList<String>(allTags()));
     }

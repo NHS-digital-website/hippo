@@ -95,7 +95,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
 
         serviceCatalogueComponent = new ServiceCatalogueComponent();
 
-        serviceCatalogueComponent.facetNavHelper = facetNavHelper;
+        request.getRequestContext().setModel("facetsNavHelper", facetNavHelper);
         when(facetNavHelper.getAllTags()).thenReturn(allTags());
         when(facetNavHelper.getAllTagsForLink(any())).thenReturn(new ArrayList<String>(allTags()));
     }
