@@ -17,16 +17,12 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 public class CatalogueComponent extends ContentRewriterComponent {
-
-    public FacetNavHelper facetNavHelper;
+    protected FacetNavHelper facetNavHelper;
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
-        if (facetNavHelper == null) {
-            String queryParam = this.cleanupSearchQuery(this.getAnyParameter(request, "query"));
-            facetNavHelper = new FacetNavHelperImpl(this.getComponentParametersInfo(request), queryParam);
-        }
+        facetNavHelper = request.getRequestContext().getModel("facetsNavHelper");
     }
 
     protected Session sessionFrom(final HstRequest request) {
