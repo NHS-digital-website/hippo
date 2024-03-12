@@ -1,8 +1,9 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
+      jcr:primaryType: hst:containercomponentfolder
       /cyber-security-homepage:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.vbox
@@ -10,8 +11,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /homepage:
+        jcr:primaryType: hst:containercomponentfolder
         /homepage-blog:
           .meta:residual-child-node-category: content
           hst:label: Blog
@@ -43,8 +44,8 @@ definitions:
           hst:lastmodified: 2018-02-05T20:39:14.327Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /news-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.vbox
@@ -53,16 +54,16 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /newshubpage:
+        jcr:primaryType: hst:containercomponentfolder
         /newshubpage-right:
           .meta:residual-child-node-category: content
           hst:label: News page container
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-about-us-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -70,8 +71,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-coronavirus:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -79,8 +80,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-cyber-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -88,8 +89,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-data-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -97,8 +98,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-developer-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -106,34 +107,36 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-homepage:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
+          hippo:identifier: 58e39922-c5f7-4714-85d8-0fcaf8c0b06d
         /footer-col-1:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
+          hippo:identifier: a56fc1f2-0cb3-4f0e-963e-fafa88c3011f
         /footer-col-2:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
+          hippo:identifier: 7f0ef642-38ea-4fd3-b2cc-1d6bab7effe1
         /footer-col-3:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        /footer-col-4:
-          hst:xtype: hst.nomarkup
-          jcr:primaryType: hst:containercomponent
+          hippo:identifier: b990767a-4e51-4114-9606-cb3f5fe231f7
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
+          hippo:identifier: 2c9fa976-92b9-4f9c-be9a-5555d9425ee4
       /nhsd-news:
+        jcr:primaryType: hst:containercomponentfolder
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /servicepage:
+        jcr:primaryType: hst:containercomponentfolder
         /servicepage-bottom:
           .meta:residual-child-node-category: content
           hst:label: Service page container
@@ -146,13 +149,11 @@ definitions:
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /sign-up:
+        jcr:primaryType: hst:containercomponentfolder
         /form:
           hippo:identifier: 1a003fff-cd2a-48dd-96d0-aa1ae9d147e3
           hst:label: Form
           hst:lastmodified: 2022-06-20T11:55:08.546Z
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
-      jcr:primaryType: hst:containercomponentfolder

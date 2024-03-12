@@ -7,10 +7,9 @@
 <@nhsdGlobalFooter>
 <div class="nhsd-t-grid nhsd-t-grid--nested">
     <div class="nhsd-t-row">
-        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3 nhsd-!t-margin-bottom-4"><@hst.include ref="footer-col-1"/></div>
-        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3 nhsd-!t-margin-bottom-4"><@hst.include ref="footer-col-2"/></div>
-        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3 nhsd-!t-margin-bottom-4"><@hst.include ref="footer-col-3"/></div>
-        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-t-col-l-3 nhsd-!t-margin-bottom-4"><@hst.include ref="footer-col-4"/></div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-t-col-l-4 nhsd-!t-margin-bottom-4"><@hst.include ref="footer-col-1"/></div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-t-col-l-4 nhsd-!t-margin-bottom-4"><@hst.include ref="footer-col-2"/></div>
+        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4 nhsd-t-col-l-4 nhsd-!t-margin-bottom-4"><@hst.include ref="footer-col-3"/></div>
     </div>
 </div>
 </@nhsdGlobalFooter>

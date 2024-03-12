@@ -15,9 +15,6 @@ definitions:
         /footer-col-3:
           hst:referencecomponent: nhsd-homepage/footer-col-3
           jcr:primaryType: hst:containercomponentreference
-        /footer-col-4:
-          hst:referencecomponent: nhsd-homepage/footer-col-4
-          jcr:primaryType: hst:containercomponentreference
         hst:template: global-footer
         jcr:primaryType: hst:component
       /ie-banner:
