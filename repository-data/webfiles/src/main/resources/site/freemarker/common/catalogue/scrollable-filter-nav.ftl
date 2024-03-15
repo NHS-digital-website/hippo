@@ -68,7 +68,7 @@
         <#else>
             <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
         </#if>
-        <div class="section-label-container"><#-- This div is needed to add vertical spacing between checkboxes -->
+        <div class="section-label-container navigation-filter"><#-- This div is needed to add vertical spacing between checkboxes -->
             <span class="nhsd-a-checkbox">
                 <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                     <input onclick="window.location = '<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
