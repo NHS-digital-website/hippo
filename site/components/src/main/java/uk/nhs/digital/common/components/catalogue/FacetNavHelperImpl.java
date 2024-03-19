@@ -28,13 +28,13 @@ public class FacetNavHelperImpl implements FacetNavHelper {
                 .getDocuments()
                 .stream()
                 .filter(document -> document.getSingleProperty("website:title") != null)
-                .filter(document -> document.getMultipleProperty("hippotaxonomy:keys") != null)
+                .filter(document -> document.getMultipleProperty("common:FullTaxonomy") != null)
                 .collect(Collectors.toList());
 
         return documents
                 .stream()
                 .filter(spec -> Objects.equals(spec.getSingleProperty("website:title"), title))
-                .map(filteredSpec -> Arrays.stream(filteredSpec.getMultipleProperty("hippotaxonomy:keys")).toArray(String[]::new))
+                .map(filteredSpec -> Arrays.stream(filteredSpec.getMultipleProperty("common:FullTaxonomy")).toArray(String[]::new))
                 .flatMap(stream -> Arrays.stream(stream).sequential()).distinct().collect(Collectors.toList());
     }
 
