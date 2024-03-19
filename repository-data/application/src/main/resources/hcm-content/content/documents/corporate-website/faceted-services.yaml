@@ -4,7 +4,7 @@
   hippofacnav:facetnodenames:
   - Taxonomies
   hippofacnav:facets:
-  - hippotaxonomy:keys
+  - common:FullTaxonomy
   hippofacnav:filters:
   - jcr:primaryType=website:service
   - hippo:availability=live
