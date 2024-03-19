@@ -1069,7 +1069,7 @@
                             </targetTests>
                             <!-- Optional: Configure mutation thresholds -->
                             <mutationThreshold>
-                                <high>45</high>
+                                <high>50</high>
                             </mutationThreshold>
                         </configuration>
                     </plugin>
