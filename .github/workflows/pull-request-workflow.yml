@@ -81,6 +81,16 @@ jobs:
             acceptance-tests/target/cucumber-reports/*
 
       # Step 9
+      # Store coverage results as an artifact
+      - name: "Upload jacoco report"
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jacoco-report
+          path: |
+            cms/target/site/jacoco/*
+
+      # Step 10
       # Read test summary
       - name: Read test summary
         if: always()
@@ -92,7 +102,7 @@ jobs:
           SUMMARY="${SUMMARY//$'\r'/'%0D'}"
           echo "summary=$SUMMARY" >> $GITHUB_OUTPUT
 
-      # Step 10
+      # Step 11
       # Add comment to PR with test results
       - name: "Added PR comment"
         if: ${{ always() && steps.testsummary.outcome == 'success' }}
