@@ -65,11 +65,11 @@ public class CatalogueLink {
             .getOrDefault("hippotaxonomy:keys", new String[0])));
     }
 
-    public String getTitleOfLink() {
+    public String getIdOfLink() {
         if (isFilterable()) {
-            return ((Internallink) raw()).getTitle();
+            return ((Internallink) raw()).getId();
         } else {
-            return ((Externallink) raw()).getTitle();
+            return ((Externallink) raw()).getId();
         }
     }
 

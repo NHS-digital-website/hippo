@@ -19,11 +19,10 @@ public class FacetNavHelperImpl implements FacetNavHelper {
     }
 
     public List<String> getAllTagsForLink(CatalogueLink link) {
-        String title = link.getTitleOfLink();
-        return tagsForDocsWithGivenTitle(title);
+        return tagsForDocsWithGivenId(link.getIdOfLink());
     }
 
-    private List<String> tagsForDocsWithGivenTitle(String title) {
+    private List<String> tagsForDocsWithGivenId(String id) {
         List<HippoDocumentBean> documents = resultSet
                 .getDocuments()
                 .stream()
@@ -33,7 +32,7 @@ public class FacetNavHelperImpl implements FacetNavHelper {
 
         return documents
                 .stream()
-                .filter(spec -> Objects.equals(spec.getSingleProperty("website:title"), title))
+                .filter(spec -> Objects.equals(spec.getSingleProperty("hippo:uuid"), id))
                 .map(filteredSpec -> Arrays.stream(filteredSpec.getMultipleProperty("common:FullTaxonomy")).toArray(String[]::new))
                 .flatMap(stream -> Arrays.stream(stream).sequential()).distinct().collect(Collectors.toList());
     }
