@@ -5,7 +5,5 @@
   - Taxonomies
   hippofacnav:facets:
   - common:FullTaxonomy
-  hippofacnav:filters:
-  - hippo:availability=live
   hippofacnav:limit: 1000
   jcr:primaryType: hippofacnav:facetnavigation
