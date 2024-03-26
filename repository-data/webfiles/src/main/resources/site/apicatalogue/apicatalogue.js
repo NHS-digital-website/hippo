@@ -69,6 +69,14 @@ function updateSearchResults(ev) {
     const countDisplay = document.querySelector('h6#search-results-count');
     const visibleCount = allResults.filter(isVisible).length;
     countDisplay.textContent = `${visibleCount} results`;
+    const listElement = document.querySelector('#list-page-results-list');
+    if (visibleCount === 0) {
+        listElement.classList?.remove('nhsd-!t-margin-bottom-9');
+        listElement.classList?.add('nhsd-!t-margin-bottom-4');
+    } else {
+        listElement.classList?.remove('nhsd-!t-margin-bottom-4');
+        listElement.classList?.add('nhsd-!t-margin-bottom-9');
+    }
 }
 
 document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);
