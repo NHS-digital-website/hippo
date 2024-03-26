@@ -238,7 +238,6 @@ public class StatusUpdatingFilterVisitorTest {
             subsection("Tag C", "tag-c")
         );
 
-
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-a", "tag-d"),
             irrelevantSelectedTags(),
