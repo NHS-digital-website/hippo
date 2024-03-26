@@ -62,7 +62,7 @@ public class FiltersTest {
         updateFilters(expectedFilters, Subsection::select, "key-s");
         updateFilters(expectedFilters, Section::expand, Subsection::expand, "key-d", "section-5");
         updateFilters(expectedFilters, Section::display, Subsection::display, "section-2", "key-i", "key-t");
-        updateFilters(expectedFilters, Subsection::setUnselectable, "key-t");
+        updateFilters(expectedFilters, Subsection::setSelectable, "key-t");
 
         final Set<NavFilter> filteredTaxonomyTags = ImmutableSet.of(new NavFilter("key-t", 0));
         final Set<String> selectedTags = ImmutableSet.of("key-s");

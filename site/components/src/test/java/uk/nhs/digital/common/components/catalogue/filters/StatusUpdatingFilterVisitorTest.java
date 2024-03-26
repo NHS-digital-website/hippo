@@ -229,7 +229,8 @@ public class StatusUpdatingFilterVisitorTest {
             subsection("Tag C", "tag-c")
         );
 
-        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
+
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWithCount(
             filteredTags("tag-a", "tag-d"),
             irrelevantSelectedTags()
         );
@@ -332,6 +333,18 @@ public class StatusUpdatingFilterVisitorTest {
                                 .collect(Collectors.toList())
                 ),
                 ImmutableSet.copyOf(selectedTags)
+        );
+    }
+
+    private StatusUpdatingFilterVisitor visitorWithCount(final List<String> filteredTags, final List<String> selectedTags) {
+        return new StatusUpdatingFilterVisitor(
+            ImmutableSet.copyOf(
+                filteredTags
+                    .stream()
+                    .map(tag -> new NavFilter(tag, 1))
+                    .collect(Collectors.toList())
+            ),
+            ImmutableSet.copyOf(selectedTags)
         );
     }
 
