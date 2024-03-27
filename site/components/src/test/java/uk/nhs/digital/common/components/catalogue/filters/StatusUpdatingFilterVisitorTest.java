@@ -32,7 +32,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -55,7 +56,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -78,7 +80,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -101,7 +104,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -122,7 +126,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantSelectedTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -145,7 +150,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -166,7 +172,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-a", "tag-d"),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -189,7 +196,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -210,7 +218,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -231,7 +240,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-a", "tag-d"),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            1
         );
 
         // when
@@ -252,7 +262,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-c", "tag-d"),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -273,7 +284,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            selectedTags("tag-a", "tag-d")
+            selectedTags("tag-a", "tag-d"),
+            0
         );
 
         // when
@@ -294,7 +306,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            selectedTags("tag-c", "tag-d")
+            selectedTags("tag-c", "tag-d"),
+            0
         );
 
         // when
@@ -323,12 +336,12 @@ public class StatusUpdatingFilterVisitorTest {
             .ifPresent(mutator);
     }
 
-    private StatusUpdatingFilterVisitor visitorWith(final List<String> filteredTags, final List<String> selectedTags) {
+    private StatusUpdatingFilterVisitor visitorWith(final List<String> filteredTags, final List<String> selectedTags, final int tagCount) {
         return new StatusUpdatingFilterVisitor(
                 ImmutableSet.copyOf(
                         filteredTags
                                 .stream()
-                                .map(tag -> new NavFilter(tag, 0))
+                                .map(tag -> new NavFilter(tag, tagCount))
                                 .collect(Collectors.toList())
                 ),
                 ImmutableSet.copyOf(selectedTags)
