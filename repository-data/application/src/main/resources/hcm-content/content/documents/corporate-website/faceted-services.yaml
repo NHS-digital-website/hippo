@@ -8,5 +8,5 @@
   hippofacnav:filters:
   - jcr:primaryType=website:service
   - hippo:availability=live
-  hippofacnav:limit: 1000
+  hippofacnav:limit: 250
   jcr:primaryType: hippofacnav:facetnavigation
