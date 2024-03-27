@@ -131,19 +131,19 @@
                 </#if>
                 <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>
                 <#if document.entriesFooterContentTitle?has_content?? && document.entriesFooterContentBody?has_content??>
-                    <@entriesFooter document.entriesFooterContentTitle!""/>
+                    <@entriesFooter document.entriesFooterContentTitle document.entriesFooterContentBody/>
                 </#if>
             </div>
         </div>
     </#if>
 </div>
 
-<#macro entriesFooter title>
+<#macro entriesFooter title body>
     <div class="nhsd-m-emphasis-box" id="entriesFooter">
         <div class="nhsd-a-box nhsd-a-box--border-grey">
             <div class="nhsd-m-emphasis-box__content-box">
                 <h1 class="nhsd-t-heading-s nhsd-t-word-break">${title}</h1>
-                <p class="nhsd-t-body-s nhsd-t-word-break">blank</p>
+                <p class="nhsd-t-body-s nhsd-t-word-break"><@hst.html hippohtml=body contentRewriter=brContentRewriter/></p>
             </div>
         </div>
     </div>
