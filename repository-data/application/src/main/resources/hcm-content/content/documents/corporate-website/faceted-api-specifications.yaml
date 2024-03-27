@@ -6,6 +6,6 @@
   hippofacnav:facets:
   - common:FullTaxonomy
   hippofacnav:filters:
-    - hippo:availability=live
+  - hippo:availability=live
   hippofacnav:limit: 250
   jcr:primaryType: hippofacnav:facetnavigation
