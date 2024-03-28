@@ -40,7 +40,7 @@
                                         </span>
                                         <span class="<#if !responsive>filter-category-label__text</#if> nhsd-t-body-s <#if section.expanded>selected</#if>">${section.displayName}</span>
                                 </label>
-                                <@filterDescription section.description() responsive/>
+                                <@filterDescription section.description()!"" responsive/>
                             </div>
                             <div class="section-entries nhsd-!t-margin-top-2">
                                 <#list section.entries as filter>
@@ -92,7 +92,7 @@
                     </#if>
                     <div class="checkmark"></div>
                 </label>
-                <@filterDescription filter.description() responsive/>
+                <@filterDescription filter.description()!"" responsive/>
             </span>
         </div>
         <#local nextLevel = indentationLevel + 1>

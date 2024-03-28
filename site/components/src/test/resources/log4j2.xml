@@ -45,7 +45,7 @@
     <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
       <!-- Search Logging -->
-      <Logger name="uk.nhs.digital.uk.nhs.digital.common.components.SearchComponent" level="info"/>
+      <Logger name="uk.nhs.digital.common.components.SearchComponent" level="info"/>
 
     <Root level="warn">
       <AppenderRef ref="console"/>

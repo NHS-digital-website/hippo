@@ -40,6 +40,7 @@ public class CyberAlertComponent extends CommonComponent {
             HstQueryBuilder builder = HstQueryBuilder.create(cyberAlertScope);
             HstQueryResult alertsQueryResult = builder.ofTypes(CyberAlert.class)
                 .orderByDescending("publicationsystem:NominalDate")
+                .limit(componentParametersInfo.getNumberOfAlertsToDisplay())
                 .build()
                 .execute();
 

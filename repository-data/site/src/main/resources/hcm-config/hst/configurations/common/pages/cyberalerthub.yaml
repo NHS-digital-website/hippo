@@ -26,5 +26,6 @@ definitions:
         - hippostdpubwf:publicationDate
         hst:template: cyber-alert-hub
         jcr:primaryType: hst:component
+      hst:cacheable: true
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
       jcr:primaryType: hst:component

@@ -1,0 +1,12 @@
+---
+/content/documents/corporate-website/faceted-services:
+  hippo:docbase: 3e565fbc-bcf5-4b8a-9dc6-ad9de9c72776,4116ff20-56b5-4765-bfb5-7fc341897444,3653b0c6-80a1-40e9-b48b-553a9c0b0164,deed2ad9-d0de-4474-88db-362819411196
+  hippofacnav:facetnodenames:
+  - Taxonomies
+  hippofacnav:facets:
+  - common:FullTaxonomy
+  hippofacnav:filters:
+  - jcr:primaryType=website:service
+  - hippo:availability=live
+  hippofacnav:limit: 250
+  jcr:primaryType: hippofacnav:facetnavigation

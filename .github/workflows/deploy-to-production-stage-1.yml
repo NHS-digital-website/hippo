@@ -4,8 +4,8 @@ name: Deploy to Production - Stage 1
 
 on:
   schedule:
-    # Runs at 4pm GMT weekdays
-    - cron: "0 16 * * 1-5"
+    # Runs at 4pm BST weekdays
+    - cron: "0 15 * * 1-5"
 
 env:
   SLACK_CHANNEL: "C0353KHFXNJ"

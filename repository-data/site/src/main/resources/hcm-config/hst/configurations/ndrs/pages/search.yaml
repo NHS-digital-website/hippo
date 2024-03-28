@@ -11,13 +11,9 @@ definitions:
         hst:parameternames:
         - pageSize
         - showPagination
-        - contentSearchEnabled
-        - contentSearchTimeOut
         hst:parametervalues:
         - '10'
         - 'true'
-        - 'true'
-        - '1500'
         hst:template: search-results-layout
         jcr:primaryType: hst:component
       hst:cacheable: false

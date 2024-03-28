@@ -2005,7 +2005,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
-    jcr:uuid: 62f17dec-5d85-4060-8aa9-0fbd09d074e1
+    jcr:uuid: b02dac8a-9bff-4a24-b5ed-ee17764ae1b5
   hippo:name: Developer
   hippostd:foldertype:
   - new-digital-website-folder

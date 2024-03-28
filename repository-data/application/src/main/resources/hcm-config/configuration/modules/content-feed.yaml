@@ -1,5 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:modules/content-feed/hippo:moduleconfig/control:
-      status: ERROR

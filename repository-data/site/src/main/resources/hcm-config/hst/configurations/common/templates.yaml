@@ -62,6 +62,9 @@ definitions:
       /catalogue:
         hst:renderpath: webfile:/freemarker/common/catalogue/catalogue.ftl
         jcr:primaryType: hst:template
+      /catalogue-main:
+        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-main.ftl
+        jcr:primaryType: hst:template
       /categorylist-article:
         hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl
         jcr:primaryType: hst:template

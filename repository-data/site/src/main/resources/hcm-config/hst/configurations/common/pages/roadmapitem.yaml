@@ -4,6 +4,14 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/roadmapitem:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.RoadmapItemsComponent
+        hst:parameternames:
+        - brandRefreshContentRewriter
+        - stripTagsContentRewriter
+        - stripTagsWithLinksContentRewriter
+        hst:parametervalues:
+        - 'true'
+        - 'true'
+        - 'true'
         hst:template: roadmapitem
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
