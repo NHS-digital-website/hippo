@@ -46,6 +46,11 @@
                                 <#list section.entries as filter>
                                     <@filterTemplate filter filtersModel 0 responsive></@filterTemplate>
                                 </#list>
+                                <#if section.hasHiddenSubsections()>
+                                    <div class="nhsd-m-filter-menu-section" id="show-more">
+                                        <a class="nhsd-a-link--col-dark-grey">show more...</a>
+                                    </div>
+                                </#if>
                             </div>
                         </div>
                         <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
@@ -68,7 +73,7 @@
         <#else>
             <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
         </#if>
-        <div class="section-label-container"><#-- This div is needed to add vertical spacing between checkboxes -->
+        <div class="section-label-container <#if filter.isHidden()>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
             <span class="nhsd-a-checkbox">
                 <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                     <input onclick="window.location = '<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />'" type="checkbox" <#if filter.selected>checked</#if> <#if !filter.selectable>disabled</#if>>
