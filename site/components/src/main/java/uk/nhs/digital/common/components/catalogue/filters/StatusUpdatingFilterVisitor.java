@@ -77,6 +77,9 @@ public class StatusUpdatingFilterVisitor implements FilterVisitor {
                         .findFirst();
         int count = navFilter.map(filter -> filter.count).orElse(0);
         subsection.setCount(count);
+        if (subsection.getEntries().size() != 0 && count == 0) {
+            subsection.setUnselectable();
+        }
     }
 
     private Predicate<Subsection> hasSelectedTag = subsection -> selectedTags.contains(subsection.getKey());

@@ -15,7 +15,6 @@ import java.util.*;
 public class ApiCatalogueComponent extends CatalogueComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
-
     private static final Set<String> RETIRED_API_FILTER_KEYS = ImmutableSet.of("retired-api");
     private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
 
@@ -34,7 +33,7 @@ public class ApiCatalogueComponent extends CatalogueComponent {
 
         Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
 
-        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, catalogueLinksExcludingRetiredIfNeeded, rawFilters);
+        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, catalogueLinksExcludingRetiredIfNeeded, rawFilters, facetNavHelper);
 
         final Filters filtersModel = filtersModel(
             filtersAndLinks.selectedFilterKeys,

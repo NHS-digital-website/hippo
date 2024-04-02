@@ -26,7 +26,7 @@ public class ServiceCatalogueComponent extends CatalogueComponent {
 
         Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
 
-        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, allCatalogueLinks, rawFilters);
+        FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, allCatalogueLinks, rawFilters, facetNavHelper);
 
         final Filters filtersModel = filtersModel(
             filtersAndLinks.selectedFilterKeys,

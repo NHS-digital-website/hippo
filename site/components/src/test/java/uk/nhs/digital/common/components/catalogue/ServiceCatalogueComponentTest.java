@@ -43,10 +43,7 @@ import uk.nhs.digital.website.beans.ComponentList;
 import uk.nhs.digital.website.beans.Externallink;
 import uk.nhs.digital.website.beans.Internallink;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RunWith(PowerMockRunner.class)
@@ -65,6 +62,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
     @Mock private CatalogueRepository catalogueRepository;
     @Mock private Filters expectedFiltersFromFactory;
     @Mock private FiltersFactory filtersFactory;
+    @Mock private FacetNavHelper facetNavHelper;
 
     private HstContainerURL hstContainerUrl;
     private MockHstRequest request;
@@ -96,6 +94,10 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         irrelevantResponse = new MockHstResponse();
 
         serviceCatalogueComponent = new ServiceCatalogueComponent();
+
+        request.getRequestContext().setModel("facetsNavHelper", facetNavHelper);
+        when(facetNavHelper.getAllTags()).thenReturn(allTags());
+        when(facetNavHelper.getAllTagsForLink(any())).thenReturn(new ArrayList<String>(allTags()));
     }
 
     @Test
@@ -190,6 +192,9 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         );
     }
 
+    private Set<String> allTags() {
+        return new HashSet<String>(Arrays.asList("hl7-v3", "dental-health", "fhir", "inpatient", "mental-health", "hospital", "deprecated-api", "retired-api"));
+    }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void givenApiCatalogueDocumentWithInternalLinksToCatalogueDocuments() {
