@@ -6,7 +6,6 @@ definitions:
         hst:componentclassname: uk.nhs.digital.common.components.PolicyPageLinkedBeansComponent
         hst:parameternames:
         - linkPath
-        - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
         hst:parametervalues:
         - website:childPage/@hippo:docbase

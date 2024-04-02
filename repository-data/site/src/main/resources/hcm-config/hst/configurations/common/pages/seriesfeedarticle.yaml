@@ -5,7 +5,6 @@ definitions:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
         hst:parameternames:
-        - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
         - stripTagsWithLinksContentRewriter
         hst:parametervalues:
