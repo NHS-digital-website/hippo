@@ -147,7 +147,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantSelectedTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
