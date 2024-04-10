@@ -1059,19 +1059,7 @@
                     <plugin>
                         <groupId>org.pitest</groupId>
                         <artifactId>pitest-maven</artifactId>
-                        <version>1.15.0</version>
-                        <configuration>
-                            <targetClasses>
-                                <param>com.uk.nhs.digital.mutate.*</param>
-                            </targetClasses>
-                            <targetTests>
-                                <param>com.uk.nhs.digital.test.*</param>
-                            </targetTests>
-                            <!-- Optional: Configure mutation thresholds -->
-                            <mutationThreshold>
-                                <high>50</high>
-                            </mutationThreshold>
-                        </configuration>
+                        <version>1.16.0</version>
                     </plugin>
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
@@ -1206,12 +1194,6 @@
 
                                 </systemProperties>
                                 <dependencies>
-                                    <dependency>
-                                        <groupId>org.pitest</groupId>
-                                        <artifactId>pitest</artifactId>
-                                        <version>1.15.0</version>
-                                        <scope>test</scope>
-                                    </dependency>
                                     <dependency>
                                         <groupId>org.jetbrains.kotlin</groupId>
                                         <artifactId>kotlin-stdlib</artifactId>
