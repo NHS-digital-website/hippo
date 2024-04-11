@@ -9,7 +9,8 @@ function getAllSections() {
 }
 
 function containsMatchingText(result, searchTerm) {
-    const regex = new RegExp(`\\b${searchTerm.trim()}`, 'gi');
+    const searchTermEscape = searchTerm.replace(/[!"£%&_#:<>.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${searchTermEscape.trim()}`, 'gi');
     const headingContainsTerm = result.querySelector('h2').textContent.match(regex);
     const summaryContainsTerm = result.querySelector('p').textContent.match(regex);
     const tagsContainTerm = Array.from(result.querySelectorAll('.nhsd-a-tag'))

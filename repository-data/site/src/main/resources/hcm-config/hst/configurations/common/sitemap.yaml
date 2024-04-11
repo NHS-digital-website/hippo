@@ -565,7 +565,7 @@ definitions:
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
-          hst:relativecontentpath: services-catalogue
+          hst:relativecontentpath: services/service-catalogue
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub
         hst:relativecontentpath: nhsd-services-hub

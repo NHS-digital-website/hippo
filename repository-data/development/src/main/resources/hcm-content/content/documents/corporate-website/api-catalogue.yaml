@@ -6,69 +6,7 @@
         /website:body:
           hippostd:content: ''
           jcr:primaryType: hippostd:html
-        /website:friendlyurls:
-          jcr:primaryType: website:friendlyurls
-          website:alternativeurls: []
-          website:destination: ''
-        /website:items[1]:
-          /website:link:
-            hippo:docbase: 6681acac-59a6-4f6e-918f-119c989cbd8d
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[2]:
-          /website:link:
-            hippo:docbase: 218e4b29-3223-41a0-9c02-beb76df6f1dd
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[3]:
-          /website:link:
-            hippo:docbase: b6cadc10-ea1e-4059-8cf2-0a2184509273
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[4]:
-          /website:link:
-            hippo:docbase: ce8d4195-c3a0-41bb-b393-06659f75e1f6
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[5]:
-          /website:link:
-            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[6]:
-          jcr:primaryType: website:externallink
-          website:link: https://google.com
-          website:shortsummary: External Resource summary
-          website:title: External Resource
-        /website:seosummary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
-          jcr:primaryType: hippostd:html
-        /website:summary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
-          jcr:primaryType: hippostd:html
-        common:searchRank: 3
-        common:searchable: true
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:38:54.604Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
-        hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:componentlist
-        jcr:uuid: 8045d8f2-4def-4c3f-b981-07b0e2c8384c
-        website:anchor: true
-        website:gossid: 0
-        website:seosummarytext: <p>Test API catalogue for smoke tests</p>
-        website:shortsummary: Test API catalogue for smoke tests
-        website:title: Test API catalogue
-      /content[2]:
-        /website:body:
+        /website:entriesFooterContentBody:
           hippostd:content: ''
           jcr:primaryType: hippostd:html
         /website:friendlyurls:
@@ -105,6 +43,85 @@
           website:link: https://google.com
           website:shortsummary: External Resource summary
           website:title: External Resource
+        /website:items[7]:
+          /website:link:
+            hippo:docbase: dc9c31fa-2661-4701-b204-806cbf13e503
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:seosummary:
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
+        hippostdpubwf:lastModificationDate: 2024-04-10T16:25:45.206Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:componentlist
+        jcr:uuid: 8045d8f2-4def-4c3f-b981-07b0e2c8384c
+        website:anchor: true
+        website:entriesFooterContentTitle: ''
+        website:gossid: 0
+        website:seosummarytext: <p>Test API catalogue for smoke tests</p>
+        website:shortsummary: Test API catalogue for smoke tests
+        website:title: Test API catalogue
+      /content[2]:
+        /website:body:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:entriesFooterContentBody:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 6681acac-59a6-4f6e-918f-119c989cbd8d
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          /website:link:
+            hippo:docbase: 218e4b29-3223-41a0-9c02-beb76df6f1dd
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[3]:
+          /website:link:
+            hippo:docbase: b6cadc10-ea1e-4059-8cf2-0a2184509273
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[4]:
+          /website:link:
+            hippo:docbase: ce8d4195-c3a0-41bb-b393-06659f75e1f6
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[5]:
+          /website:link:
+            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[6]:
+          jcr:primaryType: website:externallink
+          website:link: https://google.com
+          website:shortsummary: External Resource summary
+          website:title: External Resource
+        /website:items[7]:
+          /website:link:
+            hippo:docbase: dc9c31fa-2661-4701-b204-806cbf13e503
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
         /website:seosummary:
           hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
@@ -119,7 +136,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:40:02.713Z
+        hippostdpubwf:lastModificationDate: 2024-04-10T16:25:45.173Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
@@ -130,12 +147,16 @@
         jcr:primaryType: website:componentlist
         jcr:uuid: a943a220-9f9b-4384-9e86-15381d2fc6df
         website:anchor: true
+        website:entriesFooterContentTitle: ''
         website:gossid: 0
         website:seosummarytext: <p>Test API catalogue for smoke tests</p>
         website:shortsummary: Test API catalogue for smoke tests
         website:title: Test API catalogue
       /content[3]:
         /website:body:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:entriesFooterContentBody:
           hippostd:content: ''
           jcr:primaryType: hippostd:html
         /website:friendlyurls:
@@ -172,6 +193,11 @@
           website:link: https://google.com
           website:shortsummary: External Resource summary
           website:title: External Resource
+        /website:items[7]:
+          /website:link:
+            hippo:docbase: dc9c31fa-2661-4701-b204-806cbf13e503
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
         /website:seosummary:
           hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
@@ -186,9 +212,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:40:02.713Z
+        hippostdpubwf:lastModificationDate: 2024-04-10T16:25:45.173Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-08-19T08:40:06.552Z
+        hippostdpubwf:publicationDate: 2024-04-10T16:26:08.272Z
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -197,12 +223,13 @@
         jcr:primaryType: website:componentlist
         jcr:uuid: 76042466-7949-428d-b36b-5538f48c9b90
         website:anchor: true
+        website:entriesFooterContentTitle: ''
         website:gossid: 0
         website:seosummarytext: <p>Test API catalogue for smoke tests</p>
         website:shortsummary: Test API catalogue for smoke tests
         website:title: Test API catalogue
       hippo:name: API catalogue
-      hippo:versionHistory: 2db2316d-50ea-4b2c-a689-14b648e8a53b
+      hippo:versionHistory: ae2cbfe6-5b28-4a5e-9314-57ef4cb62fa4
       jcr:mixinTypes:
       - hippo:named
       - hippo:versionInfo
