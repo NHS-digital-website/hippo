@@ -6,6 +6,99 @@ definitions:
         /_index_:
           hst:componentconfigurationid: hst:pages/404
           hst:componentconfigurationmappingnames:
+            - website:service
+            - website:general
+            - website:hub
+            - website:componentlist
+            - website:news
+            - website:event
+            - website:gdprtransparency
+            - website:gdprsummary
+            - website:publishedwork
+            - website:publishedworkchapter
+            - website:feature
+            - website:feedhub
+            - website:financial
+            - website:generalnonsearch
+            - website:roadmap
+            - website:roadmapitem
+            - website:glossarylist
+            - website:visualhub
+            - website:apimaster
+            - website:apispecification
+            - website:person
+            - website:location
+            - website:cyberalert
+            - website:apiendpoint
+            - website:categorylist
+            - website:blog
+            - website:bloghub
+            - website:jobrole
+            - website:businessunit
+            - website:orgstructure
+            - website:group
+            - website:editorsnotes
+            - website:supplementaryinformation
+            - website:team
+            - website:definedterms
+            - website:projectfeed
+            - website:projectupdate
+            - website:signup
+            - website:video
+            - website:policypage
+            - website:corporatepolicy
+            - website:recentupdates
+          hst:componentconfigurationmappingvalues:
+            - hst:pages/service
+            - hst:pages/general
+            - hst:pages/hub
+            - hst:pages/componentlist
+            - hst:pages/news
+            - hst:pages/event
+            - hst:pages/gdpr
+            - hst:pages/gdprsummary
+            - hst:pages/publishedwork
+            - hst:pages/publishedworkchapter
+            - hst:pages/feature
+            - hst:pages/feedhub
+            - hst:pages/financial
+            - hst:pages/general
+            - hst:pages/roadmap
+            - hst:pages/roadmapitem
+            - hst:pages/glossarylist
+            - hst:pages/visualhub
+            - hst:pages/apimaster
+            - hst:pages/apispecification
+            - hst:pages/person
+            - hst:pages/location
+            - hst:pages/cyberalert
+            - hst:pages/apiendpoint
+            - hst:pages/categorylist
+            - hst:pages/blog
+            - hst:pages/bloghub
+            - hst:pages/jobrole
+            - hst:pages/businessunit
+            - hst:pages/orgstructure
+            - hst:pages/group
+            - hst:pages/editorsnotes
+            - hst:pages/supplementaryinformation
+            - hst:pages/team
+            - hst:pages/definedterms
+            - hst:pages/project-update-feed
+            - hst:pages/project-update
+            - hst:pages/sign-up
+            - hst:pages/video
+            - hst:pages/policy-page
+            - hst:pages/corporatepolicy
+            - hst:pages/recent-updates
+          hst:relativecontentpath: ${parent}/content
+          jcr:primaryType: hst:sitemapitem
+        /root:
+          hst:componentconfigurationid: hst:pages/nhsd-homepage
+          hst:refId: root
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/404
+        hst:componentconfigurationmappingnames:
           - website:service
           - website:general
           - website:hub
@@ -48,7 +141,7 @@ definitions:
           - website:policypage
           - website:corporatepolicy
           - website:recentupdates
-          hst:componentconfigurationmappingvalues:
+        hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
           - hst:pages/hub
@@ -91,99 +184,6 @@ definitions:
           - hst:pages/policy-page
           - hst:pages/corporatepolicy
           - hst:pages/recent-updates
-          hst:relativecontentpath: ${parent}/content
-          jcr:primaryType: hst:sitemapitem
-        /root:
-          hst:componentconfigurationid: hst:pages/nhsd-homepage
-          hst:refId: root
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/404
-        hst:componentconfigurationmappingnames:
-        - website:service
-        - website:general
-        - website:hub
-        - website:componentlist
-        - website:news
-        - website:event
-        - website:gdprtransparency
-        - website:gdprsummary
-        - website:publishedwork
-        - website:publishedworkchapter
-        - website:feature
-        - website:feedhub
-        - website:financial
-        - website:generalnonsearch
-        - website:roadmap
-        - website:roadmapitem
-        - website:glossarylist
-        - website:visualhub
-        - website:apimaster
-        - website:apispecification
-        - website:person
-        - website:location
-        - website:cyberalert
-        - website:apiendpoint
-        - website:categorylist
-        - website:blog
-        - website:bloghub
-        - website:jobrole
-        - website:businessunit
-        - website:orgstructure
-        - website:group
-        - website:editorsnotes
-        - website:supplementaryinformation
-        - website:team
-        - website:definedterms
-        - website:projectfeed
-        - website:projectupdate
-        - website:signup
-        - website:video
-        - website:policypage
-        - website:corporatepolicy
-        - website:recentupdates
-        hst:componentconfigurationmappingvalues:
-        - hst:pages/service
-        - hst:pages/general
-        - hst:pages/hub
-        - hst:pages/componentlist
-        - hst:pages/news
-        - hst:pages/event
-        - hst:pages/gdpr
-        - hst:pages/gdprsummary
-        - hst:pages/publishedwork
-        - hst:pages/publishedworkchapter
-        - hst:pages/feature
-        - hst:pages/feedhub
-        - hst:pages/financial
-        - hst:pages/general
-        - hst:pages/roadmap
-        - hst:pages/roadmapitem
-        - hst:pages/glossarylist
-        - hst:pages/visualhub
-        - hst:pages/apimaster
-        - hst:pages/apispecification
-        - hst:pages/person
-        - hst:pages/location
-        - hst:pages/cyberalert
-        - hst:pages/apiendpoint
-        - hst:pages/categorylist
-        - hst:pages/blog
-        - hst:pages/bloghub
-        - hst:pages/jobrole
-        - hst:pages/businessunit
-        - hst:pages/orgstructure
-        - hst:pages/group
-        - hst:pages/editorsnotes
-        - hst:pages/supplementaryinformation
-        - hst:pages/team
-        - hst:pages/definedterms
-        - hst:pages/project-update-feed
-        - hst:pages/project-update
-        - hst:pages/sign-up
-        - hst:pages/video
-        - hst:pages/policy-page
-        - hst:pages/corporatepolicy
-        - hst:pages/recent-updates
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -243,9 +243,9 @@ definitions:
           hst:relativecontentpath: cyber-and-data-security/services/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingnames:
-        - website:dschomepage
+          - website:dschomepage
         hst:componentconfigurationmappingvalues:
-        - hst:pages/cyber-data-security-homepage
+          - hst:pages/cyber-data-security-homepage
         hst:relativecontentpath: cyber-and-data-security/content
         jcr:primaryType: hst:sitemapitem
       /data:
@@ -257,28 +257,28 @@ definitions:
         /_index_:
           hst:componentconfigurationid: hst:pages/404
           hst:componentconfigurationmappingnames:
-          - website:service
-          - website:general
-          - website:hub
-          - website:visualhub
-          - website:componentlist
+            - website:service
+            - website:general
+            - website:hub
+            - website:visualhub
+            - website:componentlist
           hst:componentconfigurationmappingvalues:
-          - hst:pages/service
-          - hst:pages/general
-          - hst:pages/hub
-          - hst:pages/visualhub
-          - hst:pages/componentlist
+            - hst:pages/service
+            - hst:pages/general
+            - hst:pages/hub
+            - hst:pages/visualhub
+            - hst:pages/componentlist
           hst:relativecontentpath: data-and-information/content
           jcr:primaryType: hst:sitemapitem
         /national-indicator-library:
           /_any_:
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
-            - nationalindicatorlibrary:nihub
-            - nationalindicatorlibrary:indicator
+              - nationalindicatorlibrary:nihub
+              - nationalindicatorlibrary:indicator
             hst:componentconfigurationmappingvalues:
-            - hst:pages/nihub
-            - hst:pages/indicator
+              - hst:pages/nihub
+              - hst:pages/indicator
             hst:relativecontentpath: national-indicator-library/${1}
             jcr:primaryType: hst:sitemapitem
           /_index_:
@@ -332,40 +332,40 @@ definitions:
             /_index_:
               hst:componentconfigurationid: hst:pages/404
               hst:componentconfigurationmappingnames:
-              - publicationsystem:archive
-              - publicationsystem:legacypublication
-              - publicationsystem:publication
-              - publicationsystem:series
-              - website:general
+                - publicationsystem:archive
+                - publicationsystem:legacypublication
+                - publicationsystem:publication
+                - publicationsystem:series
+                - website:general
               hst:componentconfigurationmappingvalues:
-              - hst:pages/archive
-              - hst:pages/legacypublication
-              - hst:pages/publication
-              - hst:pages/series
-              - hst:pages/general
+                - hst:pages/archive
+                - hst:pages/legacypublication
+                - hst:pages/publication
+                - hst:pages/series
+                - hst:pages/general
               hst:relativecontentpath: ${parent}/content
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
-            - publicationsystem:archive
-            - publicationsystem:dataset
-            - hippostd:folder
-            - publicationsystem:legacypublication
-            - publicationsystem:publication
-            - publicationsystem:publicationPage
-            - publicationsystem:series
-            - publicationsystem:cilanding
-            - website:general
+              - publicationsystem:archive
+              - publicationsystem:dataset
+              - hippostd:folder
+              - publicationsystem:legacypublication
+              - publicationsystem:publication
+              - publicationsystem:publicationPage
+              - publicationsystem:series
+              - publicationsystem:cilanding
+              - website:general
             hst:componentconfigurationmappingvalues:
-            - hst:pages/archive
-            - hst:pages/dataset
-            - hst:pages/folder
-            - hst:pages/legacypublication
-            - hst:pages/publication
-            - hst:pages/publicationPage
-            - hst:pages/series
-            - hst:pages/cilanding
-            - hst:pages/general
+              - hst:pages/archive
+              - hst:pages/dataset
+              - hst:pages/folder
+              - hst:pages/legacypublication
+              - hst:pages/publication
+              - hst:pages/publicationPage
+              - hst:pages/series
+              - hst:pages/cilanding
+              - hst:pages/general
             hst:refId: publicationpages
             hst:relativecontentpath: publication-system/${1}
             jcr:primaryType: hst:sitemapitem
@@ -388,31 +388,31 @@ definitions:
             /_index_:
               hst:cacheable: true
               hst:componentconfigurationmappingnames:
-              - website:service
-              - website:general
-              - website:componentlist
-              - website:apispecification
+                - website:service
+                - website:general
+                - website:componentlist
+                - website:apispecification
               hst:componentconfigurationmappingvalues:
-              - hst:pages/service
-              - hst:pages/general
-              - hst:pages/componentlist
-              - hst:pages/apispecification
+                - hst:pages/service
+                - hst:pages/general
+                - hst:pages/componentlist
+                - hst:pages/apispecification
               hst:relativecontentpath: ${parent}/content
               jcr:primaryType: hst:sitemapitem
             hst:cacheable: true
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
-            - website:service
-            - website:general
-            - website:componentlist
-            - website:apispecification
-            - website:recentupdates
+              - website:service
+              - website:general
+              - website:componentlist
+              - website:apispecification
+              - website:recentupdates
             hst:componentconfigurationmappingvalues:
-            - hst:pages/service
-            - hst:pages/general
-            - hst:pages/componentlist
-            - hst:pages/apispecification
-            - hst:pages/recent-updates
+              - hst:pages/service
+              - hst:pages/general
+              - hst:pages/componentlist
+              - hst:pages/apispecification
+              - hst:pages/recent-updates
             hst:relativecontentpath: ${parent}/${1}
             jcr:primaryType: hst:sitemapitem
           /_any_.trythisapi:
@@ -447,9 +447,9 @@ definitions:
         /_index_:
           hst:componentconfigurationid: hst:pages/404
           hst:componentconfigurationmappingnames:
-          - website:hub
+            - website:hub
           hst:componentconfigurationmappingvalues:
-          - hst:pages/hub
+            - hst:pages/hub
           hst:relativecontentpath: ${parent}/forms
           jcr:primaryType: hst:sitemapitem
         /email-subscription:
@@ -464,9 +464,9 @@ definitions:
           /_any_:
             hst:componentconfigurationid: hst:pages/event
             hst:componentconfigurationmappingnames:
-            - website:feedhub
+              - website:feedhub
             hst:componentconfigurationmappingvalues:
-            - hst:pages/feedhub
+              - hst:pages/feedhub
             hst:relativecontentpath: /news/events/${1}
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/latestevents
@@ -490,9 +490,9 @@ definitions:
           /_any_:
             hst:componentconfigurationid: hst:pages/event
             hst:componentconfigurationmappingnames:
-            - website:feedhub
+              - website:feedhub
             hst:componentconfigurationmappingvalues:
-            - hst:pages/feedhub
+              - hst:pages/feedhub
             hst:relativecontentpath: /news-and-events/events/${1}
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/latestevents
@@ -513,13 +513,13 @@ definitions:
           hst:relativecontentpath: feed
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingnames:
-        - website:hub
-        - website:visualhub
-        - website:hubnewsandevents
+          - website:hub
+          - website:visualhub
+          - website:hubnewsandevents
         hst:componentconfigurationmappingvalues:
-        - hst:pages/hub
-        - hst:pages/visualhub
-        - hst:pages/news-events-homepage
+          - hst:pages/hub
+          - hst:pages/visualhub
+          - hst:pages/news-events-homepage
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
       /robots.txt:
@@ -545,19 +545,19 @@ definitions:
             /_index_:
               hst:cacheable: true
               hst:componentconfigurationmappingnames:
-              - website:service
+                - website:service
               hst:componentconfigurationmappingvalues:
-              - hst:pages/service
+                - hst:pages/service
               hst:relativecontentpath: ${parent}/content
               jcr:primaryType: hst:sitemapitem
             hst:cacheable: true
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
-            - website:service
-            - website:recentupdates
+              - website:service
+              - website:recentupdates
             hst:componentconfigurationmappingvalues:
-            - hst:pages/service
-            - hst:pages/recent-updates
+              - hst:pages/service
+              - hst:pages/recent-updates
             hst:relativecontentpath: ${parent}/${1}
             jcr:primaryType: hst:sitemapitem
           /_index_:
@@ -565,7 +565,7 @@ definitions:
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
           hst:cacheable: false
-          hst:relativecontentpath: services/service-catalogue
+          hst:relativecontentpath: services-catalogue
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub
         hst:relativecontentpath: nhsd-services-hub
