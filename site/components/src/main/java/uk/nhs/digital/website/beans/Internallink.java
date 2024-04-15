@@ -23,6 +23,11 @@ public class Internallink extends HippoCompound {
         return getLink().getDisplayName();
     }
 
+    @HippoEssentialsGenerated(internalName = "jcr:uuid")
+    public String getId() {
+        return getLink().getSingleProperty("jcr:uuid");
+    }
+
     public boolean getIsPublished() {
         HippoBean link = getLink();
         try {

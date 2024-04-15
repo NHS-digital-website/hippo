@@ -148,7 +148,9 @@ public class SearchComponent extends CommonComponent {
 
         // If we get no results without wildcards, we add wildcards in the search.
         HippoFacetNavigationBean result = ContentBeanUtils.getFacetNavigationBean(buildQuery(request, false, limit));
-        if (result.getCount() != 0) {
+        if (result == null) {
+            return null;
+        } else if (result.getCount() != 0) {
             return result;
         } else {
             return ContentBeanUtils.getFacetNavigationBean(buildQuery(request, true, limit));
