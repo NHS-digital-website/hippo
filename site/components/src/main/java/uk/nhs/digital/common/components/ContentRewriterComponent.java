@@ -4,6 +4,7 @@ import org.hippoecm.hst.core.component.*;
 import org.onehippo.cms7.essentials.components.*;
 import uk.nhs.digital.common.contentrewriters.BrandRefreshContentRewriter;
 import uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter;
+import uk.nhs.digital.common.contentrewriters.ServiceBrandRefreshContentRewriter;
 import uk.nhs.digital.common.contentrewriters.StripTagsContentRewriter;
 import uk.nhs.digital.common.contentrewriters.StripTagsWithLinksContentRewriter;
 
@@ -17,6 +18,7 @@ public class ContentRewriterComponent extends EssentialsContentComponent {
     private static final GoogleAnalyticsContentRewriter gaContentRewriter = new GoogleAnalyticsContentRewriter();
     private static final StripTagsContentRewriter stripTagsContentRewriter = new StripTagsContentRewriter();
     private static final StripTagsWithLinksContentRewriter stripTagsWithLinksContentRewriter = new StripTagsWithLinksContentRewriter();
+    private static final ServiceBrandRefreshContentRewriter serviceBrandRefreshContentRewriter = new ServiceBrandRefreshContentRewriter();
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -34,6 +36,9 @@ public class ContentRewriterComponent extends EssentialsContentComponent {
         if (useGoogleAnalyticsContentRewriter()) {
             request.setAttribute("gaContentRewriter", gaContentRewriter);
         }
+        if (useServiceBrandRefreshContentRewriter()) {
+            request.setAttribute("brContentRewriter", serviceBrandRefreshContentRewriter);
+        }
     }
 
     private boolean useBrandRefreshContentRewriter() {
@@ -50,6 +55,10 @@ public class ContentRewriterComponent extends EssentialsContentComponent {
 
     private boolean useGoogleAnalyticsContentRewriter() {
         return useContentRewriter("googleAnalyticsContentRewriter", true);
+    }
+
+    private boolean useServiceBrandRefreshContentRewriter() {
+        return useContentRewriter("serviceBrandRefreshContentRewriter", false);
     }
 
     private boolean useContentRewriter(String property, boolean defaultValue) {
