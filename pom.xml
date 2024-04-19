@@ -1053,6 +1053,12 @@
                     <artifactId>hippo-addon-targeting-shared-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
+                <dependency>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <scope>provided</scope>
+                    <version>1.16.0</version>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
@@ -1060,6 +1066,18 @@
                         <groupId>org.pitest</groupId>
                         <artifactId>pitest-maven</artifactId>
                         <version>1.16.0</version>
+                        <configuration>
+                            <targetClasses>
+                                <param>com.uk.nhs.digital.mutate.*</param>
+                            </targetClasses>
+                            <targetTests>
+                                <param>com.uk.nhs.digital.test.*</param>
+                            </targetTests>
+                            <!-- Optional: Configure mutation thresholds -->
+                            <mutationThreshold>
+                                <high>50</high>
+                            </mutationThreshold>
+                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
@@ -1194,6 +1212,11 @@
 
                                 </systemProperties>
                                 <dependencies>
+                                    <dependency>
+                                        <groupId>org.pitest</groupId>
+                                        <artifactId>pitest</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
                                     <dependency>
                                         <groupId>org.jetbrains.kotlin</groupId>
                                         <artifactId>kotlin-stdlib</artifactId>
