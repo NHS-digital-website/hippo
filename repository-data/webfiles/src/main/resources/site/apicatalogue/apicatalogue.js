@@ -92,10 +92,10 @@ function replaceHTMLContent(result, element, text, searchTerm, htmlElement) {
 
 function highlightSearchContent(searchTerm) {
     const allResults = getAllSearchResults();
-    const htmlElementArray = ['a', 'p'];
+    const htmlElements = ['a', 'p'];
     let htmlData = '';
     allResults.forEach((result) => {
-        htmlElementArray.forEach((element) => {
+        htmlElements.forEach((element) => {
             if (element === 'a') {
                 result.querySelectorAll('a')
                     .forEach((htmlElement) => {
