@@ -66,16 +66,27 @@ function findHTMLElementData(result, element, htmlElement) {
 function replaceHTMLContent(result, element, text, searchTerm, htmlElement) {
     const highlightContent1 = text.replaceAll('<span class="filter-tag-yellow-highlight">', '');
     const highlightContent2 = highlightContent1.replaceAll('</span>', '');
-    const highlightContentFinal = highlightContent2.replaceAll(new RegExp(searchTerm, 'gi'), (match) => {
-        const returnString = `<span class="filter-tag-yellow-highlight">${match}</span>`;
-        return returnString;
-    });
+    let highlightContentFinal = '';
+    if (searchTerm.length !== 0) {
+        highlightContentFinal = highlightContent2.replaceAll(new RegExp(searchTerm, 'gi'), (match) => {
+            const returnString = `<span class="filter-tag-yellow-highlight">${match}</span>`;
+            return returnString;
+        });
+    }
     if (element === 'p') {
         const resultNew = result;
-        resultNew.querySelector(element).innerHTML = highlightContentFinal;
+        if (searchTerm.length !== 0) {
+            resultNew.querySelector(element).innerHTML = highlightContentFinal;
+        } else {
+            resultNew.querySelector(element).innerHTML = highlightContent2;
+        }
     } else {
         const htmlElementNew = htmlElement;
-        htmlElementNew.innerHTML = highlightContentFinal;
+        if (searchTerm.length !== 0) {
+            htmlElementNew.innerHTML = highlightContentFinal;
+        } else {
+            htmlElementNew.innerHTML = highlightContent2;
+        }
     }
 }
 
