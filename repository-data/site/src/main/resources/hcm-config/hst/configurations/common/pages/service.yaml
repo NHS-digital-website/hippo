@@ -14,7 +14,7 @@ definitions:
           jcr:primaryType: hst:containercomponentreference
         hst:componentclassname: uk.nhs.digital.common.components.ServiceArticleComponent
         hst:parameternames:
-        - brandRefreshContentRewriter
+        - serviceBrandRefreshContentRewriter
         - stripTagsContentRewriter
         - stripTagsWithLinksContentRewriter
         hst:parametervalues:
