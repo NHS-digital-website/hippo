@@ -9,7 +9,8 @@ function getAllSections() {
 }
 
 function containsMatchingText(result, searchTerm) {
-    const regex = new RegExp(`\\b${searchTerm.trim()}`, 'gi');
+    const searchTermEscape = searchTerm.replace(/[!"£%&_#:<>.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${searchTermEscape.trim()}`, 'gi');
     const headingContainsTerm = result.querySelector('h2').textContent.match(regex);
     const summaryContainsTerm = result.querySelector('p').textContent.match(regex);
     const tagsContainTerm = Array.from(result.querySelectorAll('.nhsd-a-tag'))
@@ -91,6 +92,7 @@ function replaceHTMLContent(result, element, text, searchTerm, htmlElement) {
 }
 
 function highlightSearchContent(searchTerm) {
+    const searchEscape = searchTerm.replace(/[!"£%&_#:<>.*+?^${}()|[\]\\]/g, '\\$&');
     const allResults = getAllSearchResults();
     const htmlElements = ['a', 'p'];
     let htmlData = '';
@@ -100,12 +102,12 @@ function highlightSearchContent(searchTerm) {
                 result.querySelectorAll('a')
                     .forEach((htmlElement) => {
                         htmlData = findHTMLElementData(result, element, htmlElement);
-                        replaceHTMLContent(result, element, htmlData, searchTerm, htmlElement);
+                        replaceHTMLContent(result, element, htmlData, searchEscape, htmlElement);
                     });
             }
             if (element === 'p') {
                 htmlData = findHTMLElementData(result, element, null);
-                replaceHTMLContent(result, element, htmlData, searchTerm, null);
+                replaceHTMLContent(result, element, htmlData, searchEscape, null);
             }
         });
     });
