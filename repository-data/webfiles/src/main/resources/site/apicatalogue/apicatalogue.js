@@ -9,7 +9,8 @@ function getAllSections() {
 }
 
 function containsMatchingText(result, searchTerm) {
-    const regex = new RegExp(`\\b${searchTerm.trim()}`, 'gi');
+    const searchTermEscape = searchTerm.replace(/[!"£%&_#:<>.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${searchTermEscape.trim()}`, 'gi');
     const headingContainsTerm = result.querySelector('h2').textContent.match(regex);
     const summaryContainsTerm = result.querySelector('p').textContent.match(regex);
     const tagsContainTerm = Array.from(result.querySelectorAll('.nhsd-a-tag'))
@@ -53,6 +54,65 @@ function updateSections() {
         ?.add(nhsdHiddenClass);
 }
 
+function findHTMLElementData(result, element, htmlElement) {
+    let htmlData = '';
+    if (element === 'p') {
+        htmlData = result.querySelector(element).innerHTML;
+    } else {
+        htmlData = htmlElement.innerHTML;
+    }
+    return htmlData;
+}
+
+function replaceHTMLContent(result, element, text, searchTerm, htmlElement) {
+    const highlightContent1 = text.replaceAll('<span class="filter-tag-yellow-highlight">', '');
+    const highlightContent2 = highlightContent1.replaceAll('</span>', '');
+    let highlightContentFinal = '';
+    if (searchTerm.length !== 0) {
+        highlightContentFinal = highlightContent2.replaceAll(new RegExp(searchTerm, 'gi'), (match) => {
+            const returnString = `<span class="filter-tag-yellow-highlight">${match}</span>`;
+            return returnString;
+        });
+    }
+    if (element === 'p') {
+        const resultNew = result;
+        if (searchTerm.length !== 0) {
+            resultNew.querySelector(element).innerHTML = highlightContentFinal;
+        } else {
+            resultNew.querySelector(element).innerHTML = highlightContent2;
+        }
+    } else {
+        const htmlElementNew = htmlElement;
+        if (searchTerm.length !== 0) {
+            htmlElementNew.innerHTML = highlightContentFinal;
+        } else {
+            htmlElementNew.innerHTML = highlightContent2;
+        }
+    }
+}
+
+function highlightSearchContent(searchTerm) {
+    const searchEscape = searchTerm.replace(/[!"£%&_#:<>.*+?^${}()|[\]\\]/g, '\\$&');
+    const allResults = getAllSearchResults();
+    const htmlElements = ['a', 'p'];
+    let htmlData = '';
+    allResults.forEach((result) => {
+        htmlElements.forEach((element) => {
+            if (element === 'a') {
+                result.querySelectorAll('a')
+                    .forEach((htmlElement) => {
+                        htmlData = findHTMLElementData(result, element, htmlElement);
+                        replaceHTMLContent(result, element, htmlData, searchEscape, htmlElement);
+                    });
+            }
+            if (element === 'p') {
+                htmlData = findHTMLElementData(result, element, null);
+                replaceHTMLContent(result, element, htmlData, searchEscape, null);
+            }
+        });
+    });
+}
+
 function updateSearchResults(ev) {
     const searchTerm = ev.target.value;
     const allResults = getAllSearchResults();
@@ -66,6 +126,7 @@ function updateSearchResults(ev) {
         }
     });
     updateSections();
+    highlightSearchContent(searchTerm);
     const countDisplay = document.querySelector('h6#search-results-count');
     const visibleCount = allResults.filter(isVisible).length;
     countDisplay.textContent = `${visibleCount} results`;
