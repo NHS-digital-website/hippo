@@ -39,10 +39,15 @@ public class HeroComponent extends CommonComponent {
         request.setAttribute("brContentRewriter", brContentRewriter);
 
         HttpServletRequest servletRequest = request.getRequestContext().getServletRequest();
-        String title = document.getSingleProperty("website:title");
 
-        if (servletRequest.getAttribute("pageTitle") == null && title != null) {
-            servletRequest.setAttribute("pageTitle", title);
+        if (servletRequest.getAttribute("pageTitle") == null) {
+            if (document != null) {
+                String title = document.getSingleProperty("website:title");
+                servletRequest.setAttribute("pageTitle", title);
+            } else {
+                // This should only happen in the CMS Channel Manager when no document is selected
+                servletRequest.setAttribute("pageTitle", "Not set");
+            }
         }
     }
 }
