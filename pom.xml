@@ -158,7 +158,7 @@
         Consult https://googlechromelabs.github.io/chrome-for-testing/
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>122.0.6261.94</chromedriver.version>
+        <chromedriver.version>124.0.6367.60</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
@@ -1053,13 +1053,19 @@
                     <artifactId>hippo-addon-targeting-shared-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
+                <dependency>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <scope>provided</scope>
+                    <version>1.16.0</version>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.pitest</groupId>
                         <artifactId>pitest-maven</artifactId>
-                        <version>1.15.0</version>
+                        <version>1.16.0</version>
                         <configuration>
                             <targetClasses>
                                 <param>com.uk.nhs.digital.mutate.*</param>
@@ -1209,8 +1215,7 @@
                                     <dependency>
                                         <groupId>org.pitest</groupId>
                                         <artifactId>pitest</artifactId>
-                                        <version>1.15.0</version>
-                                        <scope>test</scope>
+                                        <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
                                         <groupId>org.jetbrains.kotlin</groupId>

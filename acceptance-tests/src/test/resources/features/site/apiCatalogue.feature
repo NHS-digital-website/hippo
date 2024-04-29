@@ -57,3 +57,10 @@ Feature: API Catalogue in Developer hub
         When I search for "Test API catalogue"
         And I click on link "Test API catalogue"
         Then I should see page titled "Test API catalogue"
+
+    Scenario: API Catalogue search returns a results
+        Given I navigate to "Static API Catalogue" page
+        When I enter search term "Deprecated"
+        Then I should see the search result with the id "deprecated-api"
+        And I should not see the search result "external-resource"
+        And I should see the search result with the id "deprecated-api" highlighted in yellow colour

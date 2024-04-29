@@ -18,7 +18,7 @@ public class PreReleaseKeyListener implements DaemonModule {
 
     @Subscribe
     public void handleEvent(HippoWorkflowEvent event) {
-        if (event.success() && event.get("methodName").equals("publish")) {
+        if (event.success() && "publish".equals(event.get("methodName"))) {
             processSearch.processPreReleaseContentSearch(event, session);
         }
     }

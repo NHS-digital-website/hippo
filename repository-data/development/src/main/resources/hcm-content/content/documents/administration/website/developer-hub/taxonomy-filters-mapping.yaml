@@ -7,7 +7,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-02-12T12:06:41.869Z
+    hippostdpubwf:lastModificationDate: 2024-04-23T15:24:16.306Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -21,13 +21,13 @@
       \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
       \ entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n    \
       \        displayName: A&E / Emergency Department\r\n          - taxonomyKey:\
-      \ inpatients\r\n            displayName: Inpatient\r\n            description:\
+      \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
+      \ outpatients\r\n            displayName: Outpatient\r\n            description:\
       \  Longer description of a filter\r\n              with a [hyperlink](https://digital.nhs.uk)\
       \ and some more text.\r\n              And then some. And even more. And more,\
       \ and more and more.\r\n\r\n\r\n              Second paragraph with <b>embedded\
       \ HTML</b> that should be escaped,\r\n              followed by some more text.\
       \ And then some. And even more. And more,\r\n              and more and more.\r\
-      \n          - taxonomyKey: outpatients\r\n            displayName: Outpatient\r\
       \n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\n     \
       \ - taxonomyKey: mental-health\r\n        displayName: Mental Health\r\n   \
       \   - taxonomyKey: patient-citizen\r\n        displayName: Patient / Citizen\r\
@@ -82,7 +82,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-02-12T12:07:48.929Z
+    hippostdpubwf:lastModificationDate: 2024-04-23T15:24:23.232Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -90,20 +90,19 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: website:taxonomymapping
-    website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
-      \ Short description of\r\n                 filter category.\r\n    entries:\r\
+    website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
       \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
       \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
       \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
       \ entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n    \
       \        displayName: A&E / Emergency Department\r\n          - taxonomyKey:\
-      \ inpatients\r\n            displayName: Inpatient\r\n            description:\
+      \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
+      \ outpatients\r\n            displayName: Outpatient\r\n            description:\
       \  Longer description of a filter\r\n              with a [hyperlink](https://digital.nhs.uk)\
       \ and some more text.\r\n              And then some. And even more. And more,\
       \ and more and more.\r\n\r\n\r\n              Second paragraph with <b>embedded\
       \ HTML</b> that should be escaped,\r\n              followed by some more text.\
       \ And then some. And even more. And more,\r\n              and more and more.\r\
-      \n          - taxonomyKey: outpatients\r\n            displayName: Outpatient\r\
       \n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\n     \
       \ - taxonomyKey: mental-health\r\n        displayName: Mental Health\r\n   \
       \   - taxonomyKey: patient-citizen\r\n        displayName: Patient / Citizen\r\
@@ -158,28 +157,27 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-02-12T12:07:48.929Z
+    hippostdpubwf:lastModificationDate: 2024-04-23T15:24:23.232Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-02-12T12:07:54.889Z
+    hippostdpubwf:publicationDate: 2024-04-23T15:24:28.740Z
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: website:taxonomymapping
-    website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
-      \ Short description of\r\n                 filter category.\r\n    entries:\r\
+    website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
       \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
       \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
       \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
       \ entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n    \
       \        displayName: A&E / Emergency Department\r\n          - taxonomyKey:\
-      \ inpatients\r\n            displayName: Inpatient\r\n            description:\
+      \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
+      \ outpatients\r\n            displayName: Outpatient\r\n            description:\
       \  Longer description of a filter\r\n              with a [hyperlink](https://digital.nhs.uk)\
       \ and some more text.\r\n              And then some. And even more. And more,\
       \ and more and more.\r\n\r\n\r\n              Second paragraph with <b>embedded\
       \ HTML</b> that should be escaped,\r\n              followed by some more text.\
       \ And then some. And even more. And more,\r\n              and more and more.\r\
-      \n          - taxonomyKey: outpatients\r\n            displayName: Outpatient\r\
       \n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\n     \
       \ - taxonomyKey: mental-health\r\n        displayName: Mental Health\r\n   \
       \   - taxonomyKey: patient-citizen\r\n        displayName: Patient / Citizen\r\
@@ -227,7 +225,7 @@
       \n      displayName: category,with,commas\r\n    - taxonomyKey: category_x007c_with_x007c_pipes\r\
       \n      displayName: category|with|pipes"
   hippo:name: Taxonomy filters mapping
-  hippo:versionHistory: 7922bdb1-fc6f-4393-98ca-6356c2810649
+  hippo:versionHistory: d5c530d3-5a20-4fb4-867a-dd0dd4be734b
   jcr:mixinTypes:
   - hippo:named
   - hippo:versionInfo
