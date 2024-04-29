@@ -71,8 +71,8 @@ function replaceHTMLContent(result, element, text, searchTerm, htmlElement) {
     let highlightContentFinal = '';
     if (searchTerm.length !== 0) {
         highlightContentFinal = highlightContent3.replaceAll(new RegExp(searchTerm, 'gi'), (match) => {
-            const returnString = `<span class="filter-tag-yellow-highlight">${match}</span>`;
-            return returnString;
+            const returnStr = `<span class="filter-tag-yellow-highlight">${match}</span>`;
+            return returnStr;
         });
     }
     if (element === 'p') {
