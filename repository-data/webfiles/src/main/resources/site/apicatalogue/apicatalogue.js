@@ -65,11 +65,13 @@ function findHTMLElementData(result, element, htmlElement) {
 }
 
 function replaceHTMLContent(result, element, text, searchTerm, htmlElement) {
-    const highlightContent1 = text.replaceAll('<span class="filter-tag-yellow-highlight">', '');
-    const highlightContent2 = highlightContent1.replaceAll('</span>', '');
+    const highlightContent = text
+        .replaceAll('<span class="filter-tag-yellow-highlight">', '')
+        .replaceAll('</span>', '')
+        .replaceAll('&amp;', '&');
     let highlightContentFinal = '';
     if (searchTerm.length !== 0) {
-        highlightContentFinal = highlightContent2.replaceAll(new RegExp(searchTerm, 'gi'), (match) => {
+        highlightContentFinal = highlightContent.replaceAll(new RegExp(searchTerm, 'gi'), (match) => {
             const returnString = `<span class="filter-tag-yellow-highlight">${match}</span>`;
             return returnString;
         });
@@ -79,14 +81,14 @@ function replaceHTMLContent(result, element, text, searchTerm, htmlElement) {
         if (searchTerm.length !== 0) {
             resultNew.querySelector(element).innerHTML = highlightContentFinal;
         } else {
-            resultNew.querySelector(element).innerHTML = highlightContent2;
+            resultNew.querySelector(element).innerHTML = highlightContent;
         }
     } else {
         const htmlElementNew = htmlElement;
         if (searchTerm.length !== 0) {
             htmlElementNew.innerHTML = highlightContentFinal;
         } else {
-            htmlElementNew.innerHTML = highlightContent2;
+            htmlElementNew.innerHTML = highlightContent;
         }
     }
 }
