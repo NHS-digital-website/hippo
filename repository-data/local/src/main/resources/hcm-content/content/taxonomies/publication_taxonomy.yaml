@@ -1,6 +1,14 @@
 ---
 /content/taxonomies/publication_taxonomy:
   /publication_taxonomy[1]:
+    /a-e:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: A&E
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: a-e
+      jcr:primaryType: hippotaxonomy:category
     /acceptance-tests:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -438,12 +446,13 @@
       jcr:primaryType: hippotaxonomy:category
     hippo:availability:
     - live
+    hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2018-02-20T15:25:39.463Z
+    hippostdpubwf:lastModificationDate: 2024-05-01T10:22:55.923Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-20T15:25:42.167Z
+    hippostdpubwf:publicationDate: 2024-05-01T10:22:58.221Z
     hippotaxonomy:locales:
     - en
     jcr:mixinTypes:
@@ -451,6 +460,14 @@
     - mix:versionable
     jcr:primaryType: hippotaxonomy:taxonomy
   /publication_taxonomy[2]:
+    /a-e:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: A&E
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: a-e
+      jcr:primaryType: hippotaxonomy:category
     /acceptance-tests:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -888,10 +905,11 @@
       jcr:primaryType: hippotaxonomy:category
     hippo:availability:
     - preview
+    hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2018-02-20T15:25:39.463Z
+    hippostdpubwf:lastModificationDate: 2024-05-01T10:22:55.923Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
     hippotaxonomy:locales:
@@ -902,12 +920,28 @@
     - mix:versionable
     jcr:primaryType: hippotaxonomy:taxonomy
   /publication_taxonomy[3]:
+    /a-e:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: A&E
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: a-e
+      jcr:primaryType: hippotaxonomy:category
     /acceptance-tests:
       /hippotaxonomy:categoryinfos:
         /en:
           hippotaxonomy:name: Acceptance Tests
           jcr:primaryType: hippotaxonomy:categoryinfo
         jcr:primaryType: hippotaxonomy:categoryinfos
+      /niltaxonomysearchterm-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: NilTaxonomySearchTerm test
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: nil-taxonomy-test
+        jcr:primaryType: hippotaxonomy:category
       /synonym-test:
         /hippotaxonomy:categoryinfos:
           /en:
@@ -1330,10 +1364,11 @@
       hippotaxonomy:key: workforce
       jcr:primaryType: hippotaxonomy:category
     hippo:availability: []
+    hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2018-02-20T15:20:16.204Z
+    hippostdpubwf:lastModificationDate: 2024-05-01T10:22:34.812Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
     hippotaxonomy:locales:
@@ -1342,4 +1377,7 @@
     - hippostd:publishableSummary
     - mix:referenceable
     jcr:primaryType: hippotaxonomy:taxonomy
+  hippo:versionHistory: c469d2a2-0193-498a-9578-6dfd8c33746a
+  jcr:mixinTypes:
+  - hippo:versionInfo
   jcr:primaryType: hippo:handle
