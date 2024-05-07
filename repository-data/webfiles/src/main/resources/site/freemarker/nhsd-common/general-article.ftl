@@ -17,8 +17,7 @@
 <#include "macro/dialogs/modal.ftl">
 
 <@hst.headContribution category="metadata">
-    <meta name="robots"
-          content="${document.noIndexControl?then("noindex","index")}"/>
+    <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
 </@hst.headContribution>
 
 <#-- Add meta tags -->
@@ -44,13 +43,13 @@
 <#assign navStatus = document.navigationController />
 <#assign hasBannerImage = document.image?has_content />
 <#assign custom_summary = document.summary />
-<#assign promptValue =document.propmtUserOrg[0] />
+<#assign promptValue = (document.propmtUserOrg!?has_content && document.propmtUserOrg?size > 0)?then(document.propmtUserOrg[0], "") />
 <#assign downloadPrompt = (promptValue == 'Prompt on Download' || promptValue == 'Prompt all users') />
 
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
-<article>
+<article> Index<#if document.noIndexControl == null>Hello</#if>
     <#assign heroType = "default" />
     <#if hasBannerImage>
         <#assign heroType = "image" />
@@ -115,7 +114,7 @@
         </div>
     </div>
 
-    <#if downloadPrompt>
+    <#if downloadPrompt??>
         <@hst.setBundle basename="rb.modal.download"/>
         <@fmt.message key="modal.download.download.header" var="modalDownloadHeader" />
         <@fmt.message key="modal.download.all.users.header" var="modalAllUsersHeader" />

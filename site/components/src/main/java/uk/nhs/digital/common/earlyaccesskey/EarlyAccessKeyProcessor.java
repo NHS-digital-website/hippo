@@ -28,7 +28,7 @@ public class EarlyAccessKeyProcessor {
      * @param hstResponse The http hst response
      * @param request The http request
      */
-    public void checkInvalidEarlyAccessKey(HippoBean hippoBean, HstRequest hstRequest, HstResponse hstResponse, HttpServletRequest request) {
+    public static void checkInvalidEarlyAccessKey(HippoBean hippoBean, HstRequest hstRequest, HstResponse hstResponse, HttpServletRequest request) {
         if (StringUtils.isNotBlank(hippoBean.getSingleProperty(EARLY_ACCESS_KEY)) && !hippoBean.getSingleProperty(EARLY_ACCESS_KEY).equals(request.getParameter(PARAMETER_KEY))) {
             LOGGER.debug("Early access key is set and null or wrong key is being used. Redirecting to 404 error code");
             hstResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);

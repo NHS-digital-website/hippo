@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 
 public class GeneralArticleComponent extends DocumentChildComponent {
 
-    EarlyAccessKeyProcessor earlyAccessKeyProcessor = new EarlyAccessKeyProcessor();
-
     @Override
     public void doBeforeRender(final HstRequest hstRequest, final HstResponse hstResponse) {
         super.doBeforeRender(hstRequest, hstResponse);
@@ -22,7 +20,7 @@ public class GeneralArticleComponent extends DocumentChildComponent {
         Object bean = hstRequest.getAttribute(REQUEST_ATTR_DOCUMENT);
         if (bean != null && bean instanceof HippoBean) {
             General generalDocument = (General) bean;
-            earlyAccessKeyProcessor.checkInvalidEarlyAccessKey(generalDocument, hstRequest, hstResponse, request);
+            EarlyAccessKeyProcessor.checkInvalidEarlyAccessKey(generalDocument, hstRequest, hstResponse, request);
         }
     }
 
