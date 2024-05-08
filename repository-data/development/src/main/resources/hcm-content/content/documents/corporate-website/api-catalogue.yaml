@@ -220,26 +220,22 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
+          - a-e
           common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          - A&E
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:17:51.117Z
+          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:18.860Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - deprecated-api
           - out-of-hours
+          - a-e
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -247,10 +243,11 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 0ae87fe0-5073-4d6a-b74a-3b92ab6c1989
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
-          website:specification_id: 123456-di
+          website:specification_id: '123456'
           website:summary: ''
           website:title: Deprecated API
         /content[2]:
@@ -262,13 +259,9 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
+          - a-e
           common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          - A&E
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -277,11 +270,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:17:02.396Z
+          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:26.487Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - deprecated-api
           - out-of-hours
+          - a-e
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -290,6 +284,7 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 13d79e83-9924-4cb6-b062-9dc871c9ee44
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -305,13 +300,9 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
+          - a-e
           common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          - A&E
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -320,12 +311,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:17:02.396Z
+          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:26.487Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-08-19T19:22:12.192Z
+          hippostdpubwf:publicationDate: 2024-04-30T08:56:29.155Z
           hippotaxonomy:keys:
           - deprecated-api
           - out-of-hours
+          - a-e
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -333,6 +325,7 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 7a5a9719-bb4a-44ce-a108-88442f64094f
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -340,7 +333,7 @@
           website:summary: ''
           website:title: Deprecated API
         hippo:name: Deprecated API
-        hippo:versionHistory: 79ce6c09-a638-44eb-b2b6-51fe35e171ac
+        hippo:versionHistory: 78c89387-768d-417b-bd23-6bdf1b71d68d
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
