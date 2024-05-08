@@ -7,7 +7,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-04-23T15:24:16.306Z
+    hippostdpubwf:lastModificationDate: 2024-04-30T08:56:50.347Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -41,8 +41,9 @@
       \          displayName: NHS 111\r\n        - taxonomyKey: urgent-treatment-centres\r\
       \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
       \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
-      \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\r\
-      \n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
+      \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n \
+      \       - taxonomyKey: a-e\r\n          displayName: A&E\r\n\r\n  - displayName:\
+      \ Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
       \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
       \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
       \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
@@ -82,7 +83,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-04-23T15:24:23.232Z
+    hippostdpubwf:lastModificationDate: 2024-04-30T08:57:05.982Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -116,8 +117,9 @@
       \          displayName: NHS 111\r\n        - taxonomyKey: urgent-treatment-centres\r\
       \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
       \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
-      \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\r\
-      \n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
+      \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n \
+      \       - taxonomyKey: a-e\r\n          displayName: A&E\r\n\r\n  - displayName:\
+      \ Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
       \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
       \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
       \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
@@ -157,9 +159,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-04-23T15:24:23.232Z
+    hippostdpubwf:lastModificationDate: 2024-04-30T08:57:05.982Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-04-23T15:24:28.740Z
+    hippostdpubwf:publicationDate: 2024-04-30T08:57:09.944Z
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
     jcr:mixinTypes:
@@ -191,8 +193,9 @@
       \          displayName: NHS 111\r\n        - taxonomyKey: urgent-treatment-centres\r\
       \n          displayName: Urgent Treatment Centres\r\n        - taxonomyKey:\
       \ accident-and-emergency--a-e-\r\n          displayName: A&E / Emergency Department\r\
-      \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n\r\
-      \n  - displayName: Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
+      \n        - taxonomyKey: out-of-hours\r\n          displayName: OOH GP\r\n \
+      \       - taxonomyKey: a-e\r\n          displayName: A&E\r\n\r\n  - displayName:\
+      \ Business Use\r\n    entries:\r\n    - taxonomyKey: appointments-scheduling\r\
       \n      displayName: Appointment / Scheduling\r\n      entries:\r\n      - taxonomyKey:\
       \ referrals\r\n        displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\
       \n      displayName: Access to Records\r\n    - taxonomyKey: clinical-decision-support\r\
@@ -225,7 +228,7 @@
       \n      displayName: category,with,commas\r\n    - taxonomyKey: category_x007c_with_x007c_pipes\r\
       \n      displayName: category|with|pipes"
   hippo:name: Taxonomy filters mapping
-  hippo:versionHistory: d5c530d3-5a20-4fb4-867a-dd0dd4be734b
+  hippo:versionHistory: 60384ed9-015c-419d-9ce1-51e08014852c
   jcr:mixinTypes:
   - hippo:named
   - hippo:versionInfo

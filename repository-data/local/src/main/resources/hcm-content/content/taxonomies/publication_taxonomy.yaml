@@ -1,6 +1,14 @@
 ---
 /content/taxonomies/publication_taxonomy:
   /publication_taxonomy[1]:
+    /a-e:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: A&E
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: a-e
+      jcr:primaryType: hippotaxonomy:category
     /acceptance-tests:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -484,6 +492,14 @@
     - mix:versionable
     jcr:primaryType: hippotaxonomy:taxonomy
   /publication_taxonomy[2]:
+    /a-e:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: A&E
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: a-e
+      jcr:primaryType: hippotaxonomy:category
     /acceptance-tests:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -968,6 +984,14 @@
     - mix:versionable
     jcr:primaryType: hippotaxonomy:taxonomy
   /publication_taxonomy[3]:
+    /a-e:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: A&E
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: a-e
+      jcr:primaryType: hippotaxonomy:category
     /acceptance-tests:
       /hippotaxonomy:categoryinfos:
         /en:

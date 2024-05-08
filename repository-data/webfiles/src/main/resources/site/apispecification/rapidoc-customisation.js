@@ -142,20 +142,26 @@
         }
     }
 
+    function addSecNavEventInLeftNav(className, additionalClassName) {
+        const elements = rapiDocEl.querySelectorAll(('.').concat(className));
+        elements.forEach((element) => {
+            element.classList.add(additionalClassName);
+        });
+    }
+
     function customiseRapiDoc() {
         rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
         makeTablesResponsive();
         addHorizontalRuleBetweenHeadings();
         highlightNavbarOnScroll();
+        addSecNavEventInLeftNav('nav-bar-h2', 'section-nav-event');
     }
 
     document.addEventListener('DOMContentLoaded', () => {
         rapiDocEl = document.getElementById('rapi-doc-spec');
-
         rapiDocEl.addEventListener('spec-loaded', () => {
             setTimeout(customiseRapiDoc);
         });
-
         // RapiDoc uses replaceState which doesn't trigger any navigation events.
         // Navigation API is still experimental and largely unsupported.
         const replaceStateOriginal = window.history.replaceState;
