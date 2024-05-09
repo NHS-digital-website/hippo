@@ -104,10 +104,7 @@
     },
     "eslintIgnore": [
         "rapidoc-min.js",
-        "rapidoc-custom-styles.js",
-        "print-publication.js",
-        "org-prompt.js",
-        "eforms.js"
+        "rapidoc-custom-styles.js"
     ],
     "stylelint": {
         "extends": "stylelint-config-recommended-scss",
