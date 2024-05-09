@@ -8,7 +8,6 @@ definitions:
         - brandRefreshContentRewriter
         hst:parametervalues:
         - 'true'
-        - 'true'
         hst:template: article-hub
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/basepage

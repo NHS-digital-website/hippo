@@ -14,7 +14,6 @@ definitions:
         - 'true'
         - 'true'
         - 'true'
-        - 'true'
         hst:template: published-work-chapter-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage

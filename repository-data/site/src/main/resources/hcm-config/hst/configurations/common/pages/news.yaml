@@ -10,7 +10,6 @@ definitions:
         hst:parametervalues:
         - 'true'
         - 'true'
-        - 'true'
         hst:template: news-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage

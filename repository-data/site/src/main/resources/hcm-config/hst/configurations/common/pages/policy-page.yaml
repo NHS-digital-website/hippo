@@ -10,7 +10,6 @@ definitions:
         hst:parametervalues:
         - website:childPage/@hippo:docbase
         - 'true'
-        - 'true'
         hst:template: policy-page
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage

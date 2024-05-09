@@ -8,7 +8,6 @@ definitions:
         - brandRefreshContentRewriter
         hst:parametervalues:
         - 'true'
-        - 'true'
         hst:template: corporatepolicy
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
