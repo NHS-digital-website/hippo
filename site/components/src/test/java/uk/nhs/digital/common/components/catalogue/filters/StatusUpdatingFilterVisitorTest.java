@@ -116,7 +116,7 @@ public class StatusUpdatingFilterVisitorTest {
     }
 
     @Test
-    public void marksSectionAsCollapsed_whenNoChildTagsAreSelected() {
+    public void marksSectionAsCollapsed_whenNoChildTagsAreSelected_andSectionDoesNotDefaultExpanded() {
 
         // given
         final Section section = section("Section",
@@ -134,7 +134,28 @@ public class StatusUpdatingFilterVisitorTest {
         filterVisitor.visit(section);
 
         // then
-        assertThat("Section is expanded.", section.isExpanded(), is(false));
+        assertThat("Section is not expanded.", section.isExpanded(), is(false));
+    }
+
+    @Test
+    public void doesNotMarkSectionAsCollapsed_whenSectionIsDefaultExpanded() {
+        // given
+        final Section section = section("Section", "true", "false",
+            subsection("Tag A", "tag-a"),
+            subsection("Tag B", "tag-b")
+        );
+
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
+            irrelevantSelectedTags(),
+            irrelevantSelectedTags(),
+            0
+        );
+
+        // when
+        filterVisitor.visit(section);
+
+        // then
+        assertThat("Section is expanded.", section.isExpanded(), is(true));
     }
 
     @Test

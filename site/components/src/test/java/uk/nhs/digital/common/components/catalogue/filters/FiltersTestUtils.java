@@ -22,11 +22,15 @@ public class FiltersTestUtils {
     }
 
     public static Section section(final String displayName, final Subsection... subsections) {
-        return new Section(displayName, null, subsections);
+        return new Section(displayName, null, "false", "false", "0", subsections);
+    }
+
+    public static Section section(final String displayName, final String defaultExpanded, final String hideChildren, final Subsection... subsections) {
+        return new Section(displayName, null, defaultExpanded, hideChildren, "0", subsections);
     }
 
     public static Section section(final String displayName, final String description, final Subsection... subsections) {
-        return new Section(displayName, description, subsections);
+        return new Section(displayName, description, "false", "false", "0", subsections);
     }
 
     public static Subsection subsection(final String displayName, final Subsection... subsections) {

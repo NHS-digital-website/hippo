@@ -340,6 +340,14 @@
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: outcomes-and-quality-indicators
       jcr:primaryType: hippotaxonomy:category
+    /patient-communication:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Patient communication
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: patient-communication
+      jcr:primaryType: hippotaxonomy:category
     /people,-patients-and-geography:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -347,6 +355,22 @@
           jcr:primaryType: hippotaxonomy:categoryinfo
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: people,-patients-and-geography
+      jcr:primaryType: hippotaxonomy:category
+    /reference-data:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Reference data
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: reference-data
+      jcr:primaryType: hippotaxonomy:category
+    /security:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Security
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: security
       jcr:primaryType: hippotaxonomy:category
     /sevices:
       /hippotaxonomy:categoryinfos:
@@ -436,6 +460,14 @@
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: team
       jcr:primaryType: hippotaxonomy:category
+    /tests-and-diagnostics:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Tests and diagnostics
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: tests-and-diagnostics
+      jcr:primaryType: hippotaxonomy:category
     /workforce:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -450,9 +482,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2024-05-01T10:22:55.923Z
+    hippostdpubwf:lastModificationDate: 2024-02-06T16:43:10.775Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-05-01T10:22:58.221Z
+    hippostdpubwf:publicationDate: 2024-02-06T16:43:14.239Z
     hippotaxonomy:locales:
     - en
     jcr:mixinTypes:
@@ -799,6 +831,14 @@
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: outcomes-and-quality-indicators
       jcr:primaryType: hippotaxonomy:category
+    /patient-communication:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Patient communication
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: patient-communication
+      jcr:primaryType: hippotaxonomy:category
     /people,-patients-and-geography:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -806,6 +846,22 @@
           jcr:primaryType: hippotaxonomy:categoryinfo
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: people,-patients-and-geography
+      jcr:primaryType: hippotaxonomy:category
+    /reference-data:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Reference data
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: reference-data
+      jcr:primaryType: hippotaxonomy:category
+    /security:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Security
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: security
       jcr:primaryType: hippotaxonomy:category
     /sevices:
       /hippotaxonomy:categoryinfos:
@@ -895,6 +951,14 @@
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: team
       jcr:primaryType: hippotaxonomy:category
+    /tests-and-diagnostics:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Tests and diagnostics
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: tests-and-diagnostics
+      jcr:primaryType: hippotaxonomy:category
     /workforce:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -909,7 +973,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2024-05-01T10:22:55.923Z
+    hippostdpubwf:lastModificationDate: 2024-02-06T16:43:10.775Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
     hippotaxonomy:locales:
@@ -1259,6 +1323,14 @@
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: outcomes-and-quality-indicators
       jcr:primaryType: hippotaxonomy:category
+    /patient-communication:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Patient communication
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: patient-communication
+      jcr:primaryType: hippotaxonomy:category
     /people,-patients-and-geography:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -1266,6 +1338,22 @@
           jcr:primaryType: hippotaxonomy:categoryinfo
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: people,-patients-and-geography
+      jcr:primaryType: hippotaxonomy:category
+    /reference-data:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Reference data
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: reference-data
+      jcr:primaryType: hippotaxonomy:category
+    /security:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Security
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: security
       jcr:primaryType: hippotaxonomy:category
     /sevices:
       /hippotaxonomy:categoryinfos:
@@ -1355,6 +1443,14 @@
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: team
       jcr:primaryType: hippotaxonomy:category
+    /tests-and-diagnostics:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Tests and diagnostics
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: tests-and-diagnostics
+      jcr:primaryType: hippotaxonomy:category
     /workforce:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -1368,7 +1464,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2024-05-01T10:22:34.812Z
+    hippostdpubwf:lastModificationDate: 2024-02-06T16:42:32.705Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
     hippotaxonomy:locales:
@@ -1377,7 +1473,7 @@
     - hippostd:publishableSummary
     - mix:referenceable
     jcr:primaryType: hippotaxonomy:taxonomy
-  hippo:versionHistory: c469d2a2-0193-498a-9578-6dfd8c33746a
+  hippo:versionHistory: eddcf78f-3e9c-4e45-84f6-7ea3196952d6
   jcr:mixinTypes:
   - hippo:versionInfo
   jcr:primaryType: hippo:handle

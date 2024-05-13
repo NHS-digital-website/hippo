@@ -70,8 +70,8 @@ public class JacksonFiltersFactoryTest {
                 subsection("Subsection I", "key-i",
                     subsection("Subsection T", "key-t",
                         "subsection multiline description"
-                        + " with <a href=\"https://digital.nhs.uk/developer\" class=\"nhsd-a-link\" target=\"_blank\">hyperlink</a>"
-                        + " more text",
+                            + " with <a href=\"https://digital.nhs.uk/developer\" class=\"nhsd-a-link\" target=\"_blank\">hyperlink</a>"
+                            + " more text",
                         "light-red"
                     ),
                     subsection("Subsection E", "key-e")
