@@ -295,10 +295,6 @@ public abstract class PublicationBase extends BaseDocument {
         return geographicCoverageValuesToRegionValue(getMultipleProperty(PropertyKeys.GEOGRAPHIC_COVERAGE));
     }
 
-    public String[] getGranularity() {
-        return getMultipleProperty(PublicationBase.PropertyKeys.GRANULARITY);
-    }
-
     private boolean isPropertyAlwaysPermitted(final String propertyKey) {
         return PropertyKeys.PARENT_BEAN.equals(propertyKey)
             || PropertyKeys.EARLY_ACCESS_KEY.equals(propertyKey);

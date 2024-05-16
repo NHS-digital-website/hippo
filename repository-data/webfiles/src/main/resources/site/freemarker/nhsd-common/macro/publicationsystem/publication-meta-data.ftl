@@ -42,9 +42,7 @@
             }]/>
         </#if>
 
-        <#if document.granularity?has_content>
-            <#assign granularity = document.granularity/>
-        <#elseif document.parentDocument?has_content && document.parentDocument.granularity?has_content>
+        <#if document.parentDocument?has_content && document.parentDocument.granularity?has_content>
             <#assign granularity = document.parentDocument.granularity/>
         </#if>
         <#if granularity?has_content>
